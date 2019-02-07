@@ -12,16 +12,16 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: def50aecbcf9186af9d0b9c781c3141ad2dcee59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a7f2dbdb089df8035d18db25b3968d63a3c97c0f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753678"
+ms.locfileid: "55767504"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Ligar à base de dados SQL do Azure com o MFA do Active Directory
 
-Este artigo fornece um C# programa que se liga a sua base de dados de SQL do Microsoft Azure. O programa utiliza a autenticação de modo interativo, que suporta [autenticação do Azure Active Directory (AD) multifator (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+Este artigo fornece um C# programa que se liga a sua base de dados de SQL do Microsoft Azure. O programa utiliza a autenticação de modo interativo, que suporta [autenticação do Azure Active Directory (Azure AD) multifator (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 Para obter mais informações sobre o suporte MFA para ferramentas SQL, consulte [suporte do Azure Active Directory no SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
@@ -29,15 +29,15 @@ Para obter mais informações sobre o suporte MFA para ferramentas SQL, consulte
 
 A partir do .NET Framework versão 4.7.2, a enumeração [ `SqlAuthenticationMethod` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) tem um valor novo - `ActiveDirectoryInteractive`. Num cliente de C# programa, o valor de enumeração direciona o sistema para utilizar o modo interativo do Azure AD MFA de suporte para ligar a uma base de dados do SQL do Azure. O utilizador que executa o programa vê as caixas de diálogo seguinte:
 
-1. Uma caixa de diálogo que apresenta um nome de utilizador do Azure AD e pede-lhe a senha do usuário.
+* Uma caixa de diálogo que apresenta um nome de utilizador do Azure AD e pede-lhe a senha do usuário.
 
    Se o domínio do utilizador está Federado com o Azure AD, esta caixa de diálogo não aparece como nenhuma palavra-passe é necessária.
 
    Se a política do Azure AD impõe a MFA no utilizador, as caixas de dois diálogo são apresentadas.
 
-2. Na primeira vez que um utilizador passa pela MFA, o sistema apresenta uma caixa de diálogo solicitando um número de telefone celular enviar mensagens de texto para. Cada mensagem fornece a *código de verificação* que o usuário deve digitar na caixa de diálogo seguinte.
+* Na primeira vez que um utilizador passa pela MFA, o sistema apresenta uma caixa de diálogo solicitando um número de telefone celular enviar mensagens de texto para. Cada mensagem fornece a *código de verificação* que o usuário deve digitar na caixa de diálogo seguinte.
 
-3. Uma caixa de diálogo solicitando um código de verificação de MFA, o que o sistema tenha enviado para um telefone celular.
+* Uma caixa de diálogo solicitando um código de verificação de MFA, o que o sistema tenha enviado para um telefone celular.
 
 Para obter informações sobre como configurar o Azure AD para exigir a MFA, consulte [introdução ao multi-factor Authentication na cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
@@ -59,7 +59,7 @@ Antes de começar, deve ter uma [servidor de base de dados do Azure SQL](sql-dat
 ### <a name="register-your-app-and-set-permissions"></a>Registar a sua aplicação e definir permissões
 
 
-Para utilizar a autenticação do Azure AD, o C# programa tem de registar-se como uma aplicação do AD. Para registar uma aplicação, tem de ser um administrador de AD ou atribuída a um utilizador do AD *programador da aplicação* função. Para obter mais informações sobre a atribuição de funções, consulte [atribuir funções de administrador e não-administrador aos utilizadores no Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+Para utilizar a autenticação do Azure AD, o C# programa tem de registar-se como uma aplicação do Azure AD. Para registar uma aplicação, tem de ser administrador do Azure AD ou um utilizador atribuído o Azure AD *programador da aplicação* função. Para obter mais informações sobre a atribuição de funções, consulte [atribuir funções de administrador e não-administrador aos utilizadores no Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
  Concluir o registo de uma aplicação gera e exibe uma **ID da aplicação**. Seu programa tem de incluir essa identificação para se ligar.
 
@@ -147,7 +147,7 @@ Executar novamente o SSMS, desta vez com **autenticação** definida como **Acti
 Para obter mais informações, consulte [configurar a autenticação multifator para o SSMS e o Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
-> Se for um utilizador convidado na base de dados, terá também de fornecer o nome de domínio do AD para a base de dados - **opções** > **ID de inquilino ou nome de domínio do AD**. Para localizar o nome de domínio no portal do Azure, selecione **do Azure Active Directory** > **nomes de domínio personalizado**. Na C# programa de exemplo, fornecendo um nome de domínio não é necessário.
+> Se for um utilizador convidado na base de dados, terá também de fornecer o nome de domínio do Azure AD para a base de dados - **opções** > **ID de inquilino ou nome de domínio do AD**. Para localizar o nome de domínio no portal do Azure, selecione **do Azure Active Directory** > **nomes de domínio personalizado**. Na C# programa de exemplo, fornecendo um nome de domínio não é necessário.
 
 ## <a name="c-code-example"></a>Exemplo de código do c#
 
@@ -161,7 +161,7 @@ Para instalar este pacote, no Visual Studio, selecione **Project** > **gerir pac
 
 using System;
 
-// Reference to AD authentication assembly
+// Reference to Azure AD authentication assembly
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 using DA = System.Data;

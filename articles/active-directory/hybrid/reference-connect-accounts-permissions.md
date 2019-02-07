@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b05f10068cb747f19266683779352f21ec01bff9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491693"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813216"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
@@ -67,10 +67,10 @@ A conta de administrador da empresa do AD DS é utilizada para configurar o Acti
 Se estiver a atualizar do DirSync, as credenciais de Admins de empresa do AD DS são utilizadas para repor a palavra-passe para a conta utilizada pelo DirSync. Também precisa de credenciais de Administrador Global do Azure AD.
 
 ### <a name="azure-ad-global-admin-credentials"></a>Credenciais de Administrador Global do AD do Azure
-Estas credenciais só são utilizadas durante a instalação e não são utilizadas após a conclusão da instalação. Ele é usado para criar o [conta de conector do Azure AD](#azure-ad-service-account) utilizados para sincronizar alterações para o Azure AD. A conta também permite a sincronização como uma funcionalidade no Azure AD.
+Estas credenciais só são utilizadas durante a instalação e não são utilizadas após a conclusão da instalação. É utilizado para criar a conta de conector do Azure AD utilizada para sincronizar alterações para o Azure AD. A conta também permite a sincronização como uma funcionalidade no Azure AD.
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>Conta do conector do DS AD permissões necessárias para as definições rápidas
-O [conta de conector do AD DS](#active-directory-account) é criado para leitura e gravação para o Windows Server AD e tem as seguintes permissões quando criado pelas definições rápidas:
+A conta do conector do AD DS é criada para leitura e gravação para o Windows Server AD e tem as seguintes permissões quando criado pelas definições rápidas:
 
 | Permissão | Utilizado para |
 | --- | --- |
@@ -89,9 +89,9 @@ Segue-se um resumo das páginas de Assistente de instalação rápida, as creden
 
 | Página do Assistente | Credenciais recolhidas | Permissões necessárias | Utilizado para |
 | --- | --- | --- | --- |
-| N/A |Utilizador que executa o Assistente de instalação |Administrador do servidor local |<li>Cria o [conta de serviço do ADSync](#azure-ad-connect-sync-service-account) conta que é utilizada para executar o serviço de sincronização. |
-| Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>Criação do [conta de conector do Azure AD](#azure-ad-service-account) que é utilizado para operações de sincronização em curso no Azure AD.</li> |
-| Ligar ao AD DS |Credenciais do Active Directory no local |Membro do grupo Admins de empresa (EA) no Active Directory |<li>Cria o [conta de conector do AD DS](#active-directory-account) no Active Directory e concede permissões a ele. Isso criou a conta é utilizado para ler e escrever informações de diretório durante a sincronização.</li> |
+| N/A |Utilizador que executa o Assistente de instalação |Administrador do servidor local |<li>Cria a conta de conta de serviço ADSync que é utilizada para executar o serviço de sincronização. |
+| Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>Criação da conta do conector do Azure AD que é utilizada para operações de sincronização em curso no Azure AD.</li> |
+| Ligar ao AD DS |Credenciais do Active Directory no local |Membro do grupo Admins de empresa (EA) no Active Directory |<li>Cria a conta do conector do AD DS no Active Directory e concede permissões a ele. Isso criou a conta é utilizado para ler e escrever informações de diretório durante a sincronização.</li> |
 
 
 ## <a name="custom-installation-settings"></a>Definições de instalação personalizada
@@ -106,10 +106,10 @@ Segue-se um resumo das páginas de Assistente de instalação personalizada, as 
 
 | Página do Assistente | Credenciais recolhidas | Permissões necessárias | Utilizado para |
 | --- | --- | --- | --- |
-| N/A |Utilizador que executa o Assistente de instalação |<li>Administrador do servidor local</li><li>Se utilizar um SQL Server total, o utilizador tem de ser administrador de sistema (SA) no SQL Server</li> |Por predefinição, cria a conta local que é utilizada como o [conta de serviço de motor de sincronização](#azure-ad-connect-sync-service-account). A conta é criada apenas quando o administrador não especifica uma determinada conta. |
+| N/A |Utilizador que executa o Assistente de instalação |<li>Administrador do servidor local</li><li>Se utilizar um SQL Server total, o utilizador tem de ser administrador de sistema (SA) no SQL Server</li> |Por predefinição, cria a conta local que é utilizada como a conta de serviço de motor de sincronização. A conta é criada apenas quando o administrador não especifica uma determinada conta. |
 | Instalar serviços de sincronização, opção de conta de serviço |AD ou credenciais de conta de utilizador local |Utilizador, as permissões são concedidas pelo Assistente de instalação |Se o administrador especifica uma conta, esta conta é utilizada como a conta de serviço para o serviço de sincronização. |
-| Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>Criação do [conta de conector do Azure AD](#azure-ad-service-account) que é utilizado para operações de sincronização em curso no Azure AD.</li> |
-| Ligar os diretórios |Credenciais do Active Directory no local para cada floresta que está ligada ao Azure AD |As permissões dependem quais recursos ativa e pode ser encontradas no [criar a conta do conector do AD DS](#create-the-ad-dso-connector-account) |Esta conta é utilizada para ler e gravar informações de diretório durante a sincronização. |
+| Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>Criação da conta do conector do Azure AD que é utilizada para operações de sincronização em curso no Azure AD.</li> |
+| Ligar os diretórios |Credenciais do Active Directory no local para cada floresta que está ligada ao Azure AD |As permissões dependem quais recursos ativa e pode ser encontrado em criar a conta do conector do AD DS |Esta conta é utilizada para ler e gravar informações de diretório durante a sincronização. |
 | Servidores do AD FS |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador que executa o assistente não são suficientes para ligar |Administrador de domínio |Instalação e configuração da função de servidor do AD FS. |
 | Servidores de proxy de aplicações Web |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador que executa o assistente não são suficientes para ligar |Administrador local no computador de destino |Instalação e configuração da função de servidor do WAP. |
 | Credenciais de confiança do proxy |Credenciais de confiança de serviço de Federação (as credenciais de proxy utiliza para registrar um certificado de confiança do FS |Conta de domínio que seja um administrador local do servidor do AD FS |Inscrição inicial do certificado de confiança FS WAP. |
@@ -157,7 +157,7 @@ Se utilizar as definições rápidas, é criada uma conta no Active Directory qu
 
 ![Conta AD](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
-Se utilizar definições personalizadas, em seguida, é responsável por criar a conta antes de iniciar a instalação.  Ver [criar a conta do conector do AD DS](#create-the-ad-dso-connector-account).
+Se utilizar definições personalizadas, em seguida, é responsável por criar a conta antes de iniciar a instalação.  Consulte a criar a conta do conector do AD DS.
 
 ### <a name="adsync-service-account"></a>Conta de serviço do ADSync
 O serviço de sincronização pode ser executados sob contas diferentes. Pode ser executado sob uma **conta de serviço Virtual** (VSA), uma **conta de serviço gerida de grupo** (gMSA/sMSA) ou uma conta de utilizador normal. As opções suportadas foram alteradas com o 2017 versão de Abril do Connect ao fazer uma instalação de raiz. Se atualizar a partir de uma versão anterior do Azure AD Connect, não estão disponíveis as opções adicionais.
@@ -198,7 +198,7 @@ Uma conta de serviço virtual é um tipo especial de conta que não tem uma pala
 
 ![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
-O VSA destina-se a ser utilizada com cenários em que o motor de sincronização e SQL estão no mesmo servidor. Se usar SQL remoto, em seguida, recomendamos que utilize um [conta de serviço gerida de grupo](#managed-service-account) em vez disso.
+O VSA destina-se a ser utilizada com cenários em que o motor de sincronização e SQL estão no mesmo servidor. Se usar SQL remoto, em seguida, recomendamos que utilize uma conta de serviço de gerida de grupo em vez disso.
 
 Esta funcionalidade requer o Windows Server 2008 R2 ou posterior. Se instalar o Azure AD Connect no Windows Server 2008, a instalação utilizará um [conta de utilizador](#user-account) em vez disso.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: be068904d7aa935d722c59b08c36a1cf4904e933
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664138"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814994"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Implementar o Azure Monitor para VMs (pré-visualização)
 Este artigo descreve como configurar o Azure Monitor para as VMs. O serviço monitoriza o estado de funcionamento do sistema operativo de máquinas de virtuais do Azure (VMs) e os conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente. Esta monitorização inclui a deteção e o mapeamento de dependências de aplicações que podem ser hospedados nos mesmos. 
@@ -62,7 +62,7 @@ Para ativar a solução para o cenário de à escala, comece por configurar o se
 * Instale as soluções ServiceMap e InfrastructureInsights. Pode concluir esta instalação apenas através de um modelo do Azure Resource Manager fornecido neste artigo.
 * Configure a área de trabalho do Log Analytics para recolher contadores de desempenho.
 
-Para configurar a sua área de trabalho para o cenário de à escala, consulte [configurar a área de trabalho do Log Analytics para uma implementação à escala](#setup-log-analytics-workspace).
+Para configurar a sua área de trabalho para o cenário de à escala, consulte Configurar a área de trabalho do Log Analytics para uma implementação à escala.
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 

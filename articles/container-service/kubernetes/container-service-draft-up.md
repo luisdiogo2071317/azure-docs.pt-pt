@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: bd1e4da67ef3f2ffce94c62e1dbc151aa4680e54
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 36e765d439d616ec165a2b53d2044586e73cde76
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854574"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809219"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(PRETERIDO) Utilizar o Draft com o Azure Container Service e o Azure Container Registry para criar e implementar uma aplicação no Kubernetes
 
@@ -191,7 +191,7 @@ stable/traefik  1.3.0   A Traefik based Kubernetes ingress controller w...
 
 $ helm install stable/traefik --name ingress
 ```
-Agora, defina um observador no controlador `ingress` para capturar o valor do IP externo quando for implementado. Este endereço IP é o endereço que vai ser [mapeado para o seu domínio de implementação](#wire-up-deployment-domain) na secção seguinte.
+Agora, defina um observador no controlador `ingress` para capturar o valor do IP externo quando for implementado. Este endereço IP que vai ser mapeado para o seu domínio de implementação na próxima seção.
 
 ```bash
 $ kubectl get svc -w

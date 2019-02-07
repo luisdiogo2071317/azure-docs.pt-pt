@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997128"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768662"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Azure Cost Management?
 
-A gestão de custos é o processo em que planeia e controla de forma eficaz os custos envolvidos na sua empresa. Normalmente, as tarefas de gestão de custos são realizadas por equipas de finanças, gestão e aplicações. O Azure Cost Management ajuda as organizações com Contratos Enterprise (EA) da Microsoft a fazer planos tendo em conta os custos. Também ajuda a analisar eficazmente os custos e a tomar medidas para otimizar os gastos com a cloud. Para saber mais sobre como abordar a gestão de custos como uma organização, veja o artigo [Melhores práticas do Azure Cost Management](cost-mgt-best-practices.md).
+A gestão de custos é o processo em que planeia e controla de forma eficaz os custos envolvidos na sua empresa. Normalmente, as tarefas de gestão de custos são realizadas por equipas de finanças, gestão e aplicações. O Azure Cost Management ajuda as organizações para planejar com custo em mente. Também ajuda a analisar eficazmente os custos e a tomar medidas para otimizar os gastos com a cloud. Para saber mais sobre como abordar a gestão de custos como uma organização, veja o artigo [Melhores práticas do Azure Cost Management](cost-mgt-best-practices.md).
 
 Embora relacionada, a faturação é diferente da gestão de custos. A faturação é o processo de faturar clientes relativamente a bens ou serviços e gerir a relação comercial.  Normalmente, as equipas de aprovisionamento e finanças realizam tarefas de faturação.
 
@@ -29,7 +29,7 @@ Pode utilizar o portal do Azure ou várias APIs para a automatização de export
 
 ## <a name="plan-and-control-expenses"></a>Planear e controlar despesas
 
-As formas de o Cost Management o ajudar a planear e controlar os seus custos incluem a análise de custos, orçamentos, recomendações e a exportação de dados de gestão de custos.
+As formas que ajuda da gestão de custos de planejamento e controlar os custos incluem: Análise, orçamentos, recomendações de custos e a exportação de dados de gestão de custos.
 
 Pode utilizar a análise de custos para explorar e analisar os custos da organização. Pode ver os custos agregados por organização para compreender onde os custos são acumulados e identificar as tendências das despesas. Além disso, pode ver os custos acumulados ao longo do tempo para fazer uma estimativa mensal, trimestral ou até anual das tendências das despesas em relação a um orçamento.
 
@@ -45,7 +45,7 @@ O [Cloudyn](overview.md) é um serviço do Azure relacionado com o Cost Manageme
 
 ## <a name="additional-azure-tools"></a>Ferramentas do Azure adicionais
 
-O Azure tem outras ferramentas que não fazem parte do conjunto de funcionalidades do Azure Cost Management. No entanto, têm um papel importante no processo de gestão de custos. Para saber mais sobre estas ferramentas, veja as ligações seguintes.
+O Azure tem outras ferramentas que não fazem parte do conjunto de funcionalidades do Azure Cost Management. No entanto, elas desempenham um papel importante no processo de gestão de custos. Para saber mais sobre estas ferramentas, veja as ligações seguintes.
 
 - [Calculadora de Preços do Azure](https://azure.microsoft.com/pricing/calculator/): utilize esta ferramenta para estimar os seus custos iniciais com a cloud.
 - [Azure Migrate](../migrate/migrate-overview.md): avalie a carga de trabalho do seu datacenter atual para obter informações sobre o que precisa numa solução de substituição do Azure.

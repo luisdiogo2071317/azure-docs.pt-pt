@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: edc3bedaa005bb52ddbf46d9f70ddc16bf8790e2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197998"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integração do Active Directory do Azure com a aprendizagem de LMS posto de trabalho
 
@@ -89,7 +89,7 @@ Para configurar e testar o Azure AD início de sessão único com aprendizagem p
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de aprendizagem posto de trabalho LMS](#creating-a-learnconnect-test-user)**  - para ter um equivalente da Eduarda Almeida na aprendizagem LMS de postos de trabalho que está ligado à representação de utilizador do Azure AD.
+1. **Criar um utilizador de teste de aprendizagem posto de trabalho LMS** - para ter um equivalente da Eduarda Almeida na aprendizagem LMS de postos de trabalho que está ligado à representação de utilizador do Azure AD.
 1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 

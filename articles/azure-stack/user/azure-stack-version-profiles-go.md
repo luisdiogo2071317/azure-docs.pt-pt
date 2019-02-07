@@ -14,12 +14,12 @@ ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: fbca9eb3703777c0d20998e65bf446b5951c5091
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 8e63b9854d9491ed2cbb2107c93237526a7f1ba8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745406"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766946"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Utilizar perfis de versão de API com o Go no Azure Stack
 
@@ -86,7 +86,7 @@ Para executar um exemplo de código do Go no Azure Stack, siga estes passos:
 
 3. Se não está disponível, criar uma subscrição e guarde o ID de subscrição a ser utilizado mais tarde. Para obter informações sobre a criação de uma subscrição, veja [criar subscrições de ofertas no Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-4. Criar um serviço principal com **subscrição** âmbito e **proprietário** função. Guarde o ID de principal de serviço e o segredo. Para obter informações sobre como criar um principal de serviço para o Azure Stack, veja [criar principal de serviço](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). O ambiente do Azure Stack está agora configurado.
+4. Criar um serviço principal com **subscrição** âmbito e **proprietário** função. Guarde o ID de principal de serviço e o segredo. Para obter informações sobre como criar um principal de serviço para o Azure Stack, veja [criar principal de serviço](azure-stack-create-service-principals.md). O ambiente do Azure Stack está agora configurado.
 
 5. Importe um módulo de serviço do perfil de Go SDK no seu código. É a versão atual do perfil do Azure Stack **2017-03-09**. Por exemplo, para importar o módulo de rede a partir da **2017-03-09** tipo de perfil, utilize o seguinte código:
 

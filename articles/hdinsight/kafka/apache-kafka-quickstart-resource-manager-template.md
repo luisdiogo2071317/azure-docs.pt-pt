@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 66c6b6908a225301f0bce9f70b43e96047bcd6d1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ff34eef76e03bbf4ae0195960847b7748235483c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791150"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822464"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
 
 [Apache Kafka](https://kafka.apache.org/) é uma plataforma de transmissão em fluxo distribuída e de código-fonte aberto. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
-Neste guia de início rápido, irá saber como criar um cluster do [Apache Kafka](https://kafka.apache.org) com um modelo do Azure Resource Manager. Também irá saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
+Neste guia de início rápido, irá saber como criar um cluster do [Apache Kafka](https://kafka.apache.org) com um modelo do Azure Resource Manager. Também vai saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka. Modelos semelhantes podem ser visualizados no [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). A referência de modelo pode ser encontrada [aqui](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -53,7 +53,7 @@ Neste guia de início rápido, irá saber como criar um cluster do [Apache Kafka
 
 2. Para criar o cluster do Kafka, utilize os seguintes valores:
 
-    | Propriedade | Valor |
+    | Propriedade | Value |
     | --- | --- |
     | Subscrição | A sua subscrição do Azure. |
     | Grupo de recursos | O grupo de recursos em que o cluster é criado. |

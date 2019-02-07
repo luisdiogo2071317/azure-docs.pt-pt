@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 0789f113a68d98ff0d70fd3e9b3c8528122c2fc2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d8a5ca6285624720e23a4986917ab5e715f6ebfa
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729172"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768018"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central (design de nova interface do Usuário)
 
@@ -77,7 +77,7 @@ Quando definir uma regra, também pode definir uma ação a executar quando são
     | Notas     | A temperatura do ar condicionado excedeu o limite. |
 
     > [!NOTE]
-    > Para receber uma notificação por e-mail, o endereço de e-mail deve ser um [ID de utilizador na aplicação](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json), e esse utilizador deve ter sessão iniciada na aplicação, pelo menos, uma vez.
+    > Para receber uma notificação por e-mail, o endereço de e-mail deve ser um [ID de utilizador na aplicação](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json), e esse utilizador deve ter sessão iniciada na aplicação, pelo menos, uma vez.
 
     ![Ação de temperatura](media/tutorial-configure-rules-experimental/temperatureaction.png)
 

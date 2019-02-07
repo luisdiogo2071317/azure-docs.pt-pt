@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953877"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811108"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>VMs de baixa prioridade em conjuntos de dimensionamento (pré-visualização)
 
@@ -43,13 +43,13 @@ Se desejar que as suas VMs no seu conjunto ser eliminado quando eles são expuls
 
 Para implementar baixa prioridade VMs em conjuntos de dimensionamento, pode definir a nova *prioridade* sinalizador para *baixa*. Todas as VMs no conjunto de dimensionamento serão definidas para baixa prioridade. Para criar um conjunto de dimensionamento com VMs de baixa prioridade, utilize um dos seguintes métodos:
 - [Portal do Azure](#use-the-azure-portal)
-- [CLI do Azure](#use-the-azure-cli-20)
+- CLI do Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelos Azure Resource Manager](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-O processo de criação de um conjunto de dimensionamento que utiliza as VMs de baixa prioridade é o mesmo, conforme detalhado no [artigo de introdução](quick-create-portal.md). Quando estiver a implementar um conjunto de dimensionamento, pode optar por definir o sinalizador de baixa prioridade e a política de expulsão: ![criar um conjunto de dimensionamento com VMs de baixa prioridade](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+O processo de criação de um conjunto de dimensionamento que utiliza as VMs de baixa prioridade é o mesmo, conforme detalhado no [artigo de introdução](quick-create-portal.md). Quando estiver a implementar um conjunto de dimensionamento, pode optar por definir o sinalizador de baixa prioridade e a política de expulsão: ![Criar um conjunto de dimensionamento com VMs de baixa prioridade](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
 

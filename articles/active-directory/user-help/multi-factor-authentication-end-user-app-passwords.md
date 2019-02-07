@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 87f98f084cf857ff8ab0651a02b98e64512e62f6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12998547c5525a7132bc350dbbaa7016e4bbeaf0
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181695"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767701"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicação para a verificação de dois passos
 
@@ -121,4 +121,4 @@ Certifique-se de que escreveu corretamente a palavra-passe. Se tiver a certeza d
 
 - [Gerir as definições da verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md)
 
-- Experimente o [aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para verificar os inícios de sessão com as notificações de aplicações, em vez de textos ou chamadas a receber.
+- Experimente o [aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) para verificar os inícios de sessão com as notificações de aplicações, em vez de textos ou chamadas a receber.

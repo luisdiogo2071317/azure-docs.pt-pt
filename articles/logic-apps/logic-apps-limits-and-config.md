@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 494665e530104cd4711e8112f3a999e68c3485b8
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746392"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769873"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -195,53 +195,58 @@ Utilize o escalão gratuito apenas para cenários de exploratórios, não os cen
 
 | Artefacto | Limite | Notas | 
 |----------|-------|-------| 
-| Parceiros comerciais EDI | 25 | | 
-| Contratos comerciais de EDI | 10 | | 
-| Maps | 25 | | 
-| Esquemas | 25 | 
 | Assemblagens | 10 | | 
 | Configurações de batch | 5 | 
 | Certificados | 25 | | 
+| Contratos comerciais de EDI | 10 | | 
+| Parceiros comerciais EDI | 25 | | 
+| Maps | 25 | | 
+| Esquemas | 25 | 
 |||| 
 
 *Escalão básico*
 
 | Artefacto | Limite | Notas | 
 |----------|-------|-------| 
-| Parceiros comerciais EDI | 2 | | 
-| Contratos comerciais de EDI | 1 | | 
-| Maps | 500 | | 
-| Esquemas | 500 | 
 | Assemblagens | 25 | | 
 | Configurações de batch | 1 | | 
 | Certificados | 2 | | 
+| Contratos comerciais de EDI | 1 | | 
+| Parceiros comerciais EDI | 2 | | 
+| Maps | 500 | | 
+| Esquemas | 500 | 
 |||| 
 
 *Escalão Standard*
 
 | Artefacto | Limite | Notas | 
 |----------|-------|-------| 
-| Parceiros comerciais EDI | 500 | | 
-| Contratos comerciais de EDI | 500 | | 
-| Maps | 500 | | 
-| Esquemas | 500 | 
 | Assemblagens | 50 | | 
 | Configurações de batch | 5 |  
 | Certificados | 50 | | 
+| Contratos comerciais de EDI | 500 | | 
+| Parceiros comerciais EDI | 500 | | 
+| Maps | 500 | | 
+| Esquemas | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>Limites de capacidade de artefacto
 
-| Name | Limite | Notas | 
-| ---- | ----- | ----- | 
-| Esquema | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize o [URI de blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Mapa (ficheiro XSLT) | 2 MB | | 
-| Ponto final de tempo de execução: Chamadas de leitura por 5 minutos | 60,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
-| Ponto final de tempo de execução: Invocar chamadas por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
-| Ponto final de tempo de execução: Chamadas de controlo por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
-| Ponto final de tempo de execução: Bloquear chamadas simultâneas | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
+| Artefacto | Limite | Notas | 
+| -------- | ----- | ----- | 
+| Assemblagem | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize um [contentor de BLOBs e de conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Mapa (ficheiro XSLT) | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize o [mapeia a API de REST do Azure Logic Apps -](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| Esquema | 8 MB | Para carregar ficheiros maiores do que 2 MB, utilize um [contentor de BLOBs e de conta de armazenamento do Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Ponto final de tempo de execução | Limite | Notas |
+|------------------|-------|-------|
+| Chamadas de leitura por 5 minutos | 60,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
+| Invocar chamadas por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
+| Chamadas de controlo por 5 minutos | 45,000 | É possível distribuir a carga de trabalho em mais de uma conta conforme necessário. | 
+| Bloquear chamadas simultâneas | ~1,000 | Pode reduzir o número de pedidos simultâneos ou reduza a duração, se necessário. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

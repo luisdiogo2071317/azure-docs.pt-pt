@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: f8047960c1e52d77534742d85448ef566f851811
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0ef206cf4407c6392ae5d9a70ba156f5635715e9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567439"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814797"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Azure Kubernetes Service e Terraform
 O [Azure Kubernetes Service (AKS)](/azure/aks/) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
@@ -352,7 +352,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
     ![Exemplo de resultados "terraform plan"](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Execute o comando `terraform apply` para aplicar o plano para criar o cluster do Kubernetes. O processo para criar um cluster do Kubernetes pode demorar vários minutos, o que faz com que a sessão do Cloud Shell exceda o tempo limite. Se o tempo limite da sessão do Cloud Shell for excedido, pode seguir os passos na secção ["Recuperar de um tempo limite do Cloud Shell"](#recover-from-a-dloud-shell-timeout) para que possa concluir o tutorial.
+1. Execute o comando `terraform apply` para aplicar o plano para criar o cluster do Kubernetes. O processo para criar um cluster do Kubernetes pode demorar vários minutos, o que faz com que a sessão do Cloud Shell exceda o tempo limite. Se a sessão do Cloud Shell exceder o tempo limite, pode seguir os passos na secção "Recuperar de um tempo limite do Cloud Shell" para que possa concluir o tutorial.
 
     ```bash
     terraform apply out.plan

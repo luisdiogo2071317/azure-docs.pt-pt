@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: 9576854fbad88724f3d229d239b9d3e263fb7492
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912406"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819999"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e eliminar um laboratório de sala de aula. Ele também mostra como ver todos os laboratórios de sala de aula numa conta de laboratório. 
@@ -72,7 +72,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
         > [!WARNING]
         > Depois de publicar, não é possível anular a publicação. 
-    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar a VM de modelo depois de concluir o assistente. Para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte [publicar o modelo](#publish-the-template) secção a [como gerir laboratórios de sala de aula ](how-to-manage-classroom-labs.md) artigo.
+    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar a VM de modelo depois de concluir o assistente. Para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte o artigo para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte publicar o modelo de secção a [como gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md) artigo.
 
         ![Publicar modelo](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Verá o **progresso da publicação** do modelo. Este processo pode demorar até uma hora. 

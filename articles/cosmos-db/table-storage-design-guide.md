@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913602"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820968"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Desenvolvendo dimensionável e de tabelas de alto desempenho
 
@@ -205,9 +205,9 @@ Os exemplos seguintes partem do princípio do serviço de tabela é armazenar en
 | **FirstName** |Cadeia |
 | **LastName** |Cadeia |
 | **Idade** |Número inteiro |
-| **EmailAddress** |Cadeia |
+| **EmailAddress** |String |
 
-A secção anterior [descrição geral do serviço de tabelas do Azure](#overview) descreve alguns dos principais recursos do serviço de tabelas do Azure que tenham uma direta influência sobre a criação de uma consulta. Estes resultam nas seguintes diretrizes gerais para a criação de consultas do serviço de tabela. É a sintaxe de filtro utilizada nos exemplos abaixo da API de REST do serviço tabela para obter mais informações, consulte [consultar entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+A descrição de geral de serviço de tabelas do Azure de seção anterior descreve alguns dos principais recursos do serviço de tabelas do Azure que tenham um diretamente um grande design para consulta. Estes resultam nas seguintes diretrizes gerais para a criação de consultas do serviço de tabela. É a sintaxe de filtro utilizada nos exemplos abaixo da API de REST do serviço tabela para obter mais informações, consulte [consultar entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * R ***consulta ponto*** é a pesquisa mais eficiente para utilizar e é recomendada a ser utilizado para pesquisas de grande volume ou exigir que a latência mais baixa de pesquisas. Uma consulta deste tipo pode utilizar os índices para localizar uma entidade individual com eficiência, especificando ambos os **PartitionKey** e **RowKey** valores. Por exemplo: $filter = (PartitionKey eq "Vendas") e (RowKey eq '2')  
 * Em segundo lugar e o melhor é um ***intervalo de consulta*** que utiliza o **PartitionKey** e filtros numa ampla gama de **RowKey** valores a devolver mais do que uma entidade. O **PartitionKey** valor identifica uma partição específica e o **RowKey** valores identificam a um subconjunto de entidades nessa partição. Por exemplo: $filter = PartitionKey eq "De" vendas e da ge RowKey"e RowKey lt T'"  
@@ -1294,7 +1294,7 @@ Cada entidade tem de ter ainda **PartitionKey**, **RowKey**, e **Timestamp** val
 
 A primeira opção, a prefixação a entidade de tipo para o **RowKey**, é útil se existe a possibilidade de que a duas entidades de diferentes tipos podem ter o mesmo valor de chave. Ele também agrupa as entidades do mesmo tipo em conjunto na partição.  
 
-As técnicas apresentadas nesta seção são especialmente relevantes para a discussão [relações de herança](#inheritance-relationships) anteriormente neste guia na secção [modelando as relações](#modelling-relationships).  
+As técnicas apresentadas nesta seção são especialmente relevantes para a discussão [relações de herança](#inheritance-relationships) anteriormente neste guia na secção modelando as relações.  
 
 > [!NOTE]
 > Deve considerar a inclusão de um número de versão no valor de tipo de entidade para ativar aplicações de cliente evoluir POCO objetos e trabalhar com versões diferentes.  

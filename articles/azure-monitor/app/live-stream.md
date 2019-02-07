@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104619"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814950"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Stream de métricas em direto: Monitorizar e diagnosticar com latência de 1 segundo
 
@@ -64,7 +64,7 @@ Verifique os [portas de saída para o Stream de métricas em direto](../../azure
 |A pedido|Dados são transmitidos ao abrir o Live Metrics|Os dados são enviados sempre que o SDK está instalado e ativado|
 |Gratuito|Não tem custos para os dados do Stream em direto|Sujeito à [preços](../../azure-monitor/app/pricing.md)
 |Amostragem|Contadores e métricas de todos os selecionados são transmitidas. Falhas e de rastreamentos de pilha são objeto de amostragem. TelemetryProcessors não são aplicadas.|Eventos podem ter [amostragem](../../azure-monitor/app/api-filtering-sampling.md)|
-|Canal de controlo|Sinais de controle de filtro são enviadas para o SDK. Recomendamos que [proteja este canal](#secure-channel).|A comunicação é unidirecional, para o portal|
+|Canal de controlo|Sinais de controle de filtro são enviadas para o SDK. Recomendamos que proteja este canal.|A comunicação é unidirecional, para o portal|
 
 
 ## <a name="select-and-filter-your-metrics"></a>Selecionar e filtrar as suas métricas

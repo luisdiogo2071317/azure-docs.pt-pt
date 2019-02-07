@@ -4,16 +4,16 @@ description: O Azure Resource Graph é um serviço no Azure que permite uma cons
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ed64f6317fefb9e82dbe14e806499965d926d434
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6b3bad4e4619f8909f5c6d71111b4fad9ddb3098
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316204"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813284"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph
 
@@ -45,6 +45,10 @@ Em primeiro lugar, para obter detalhes sobre operações e funções que podem s
 ## <a name="permissions-in-azure-resource-graph"></a>Permissões no Azure Resource Graph
 
 Para utilizar o Resource Graph, tem de possuir os direitos adequados no [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) com acesso de leitura, pelo menos, aos recursos que pretende consultar. Sem, pelo menos, permissões `read` para o objeto do Azure ou o grupo de objetos, não seriam devolvidos resultados.
+
+## <a name="throttling"></a>Limitação
+
+Consultas para o gráfico de recursos são limitadas para fornecer o melhor experiência e tempo de resposta para todos os clientes. Se a organização pretende utilizar a Graph API do recurso para consultas em grande escala e frequentes, utilize portal "Comentários" a partir da página de gráfico de recursos. Certifique-se de que forneça o seu caso comercial e selecione a caixa de verificação "Microsoft pode enviar um e-mail sobre os seus comentários" para que a equipe de entrar em contacto consigo.
 
 ## <a name="running-your-first-query"></a>Executar a primeira consulta
 

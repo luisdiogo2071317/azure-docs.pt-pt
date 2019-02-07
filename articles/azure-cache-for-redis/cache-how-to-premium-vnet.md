@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c92b71a8f2b9fbeae9afc5f06b6d5412f6421a6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e71d92b2cf7888fd9e3c560beb6e0e7f18e7add0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020135"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822651"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar o suporte de rede Virtual para uma Cache do Azure Premium para Redis
 A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de tamanho de cache e funcionalidades, incluindo as funcionalidades do escalão Premium, tais como clustering, persistência e suporte de rede virtual. Uma VNet é uma rede privada na cloud. Quando uma Cache do Azure para a instância de Redis está configurada com uma VNet, não é publicamente endereçável e só pode ser acedida a partir de máquinas virtuais e aplicações dentro da VNet. Este artigo descreve como configurar o suporte de rede virtual para uma Cache do Azure de premium para a instância de Redis.
@@ -83,11 +83,11 @@ Para ligar à Cache para a instância de Redis do Azure ao utilizar uma VNet, es
 ## <a name="azure-cache-for-redis-vnet-faq"></a>Cache do Azure para a VNet de Redis FAQ
 A lista seguinte contém respostas para perguntas freqüentes sobre a Cache do Azure para dimensionar de Redis.
 
-* [Quais são alguns problemas comuns de configuração incorreta com a Cache do Azure para o Redis e VNets?](#what-are-some-common-misconfiguration-issues-with-azure-redis-cache-and-vnets)
+* Quais são alguns problemas comuns de configuração incorreta com a Cache do Azure para o Redis e VNets?
 * [Como eu posso verificar minha cache está a funcionar numa VNET?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * [Quando tentar ligar a minha Cache do Azure para o Redis numa VNET, por que estou recebendo um erro a indicar que o certificado remoto é inválido?](#when-trying-to-connect-to-my-redis-cache-in-a-vnet-why-am-i-getting-an-error-stating-the-remote-certificate-is-invalid)
 * [Pode utilizar VNets com uma cache standard ou basic?](#can-i-use-vnets-with-a-standard-or-basic-cache)
-* [Por que a criação de uma Cache do Azure para Redis falha em alguns sub-redes, mas não para outros?](#why-does-creating-a-redis-cache-fail-in-some-subnets-but-not-others)
+* Por que a criação de uma Cache do Azure para Redis falha em alguns sub-redes, mas não para outros?
 * [Quais são os requisitos de espaço de endereço de sub-rede?](#what-are-the-subnet-address-space-requirements)
 * [Todas as funcionalidades de cache funcionam ao hospedar um cache numa VNET?](#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 

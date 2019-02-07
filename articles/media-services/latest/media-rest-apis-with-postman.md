@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813896"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o Postman para chamadas de API de REST dos serviços de multimédia
 
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como configurar **Postman** para que possa ser utilizada 
 - Obtenha informações necessárias para [aceder a APIs](access-api-cli-how-to.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
-    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
+    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Transferir ficheiros do Postman
 
@@ -57,7 +57,7 @@ Esta secção configura o Postman.
     > [!Note]
     > Atualize as variáveis de acesso com valores obtidos na secção **Aceder à API dos Serviços de Multimédia** acima.
 
-7. Faça duplo clique no ficheiro selecionado e introduza os valores que obteve após seguir os passos de [Acesso à API](#access-the-media-services-api).
+7. Faça duplo clique no ficheiro selecionado e introduza os valores que obteve ao seguir os passos de API de acesso.
 8. Feche a caixa de diálogo.
 9. Selecione o **Ambiente v3 do Serviço de Multimédia do Azure** na lista pendente.
 

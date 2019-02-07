@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992209"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822600"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar a sua aplicação do Centro de IoT
 
@@ -70,7 +70,7 @@ Utilize o **eliminar** botão Eliminar permanentemente a sua aplicação IoT Cen
 
 Cada utilizador tem de ter uma conta de utilizador antes de poderem iniciar sessão e aceder a uma aplicação do Azure IoT Central. Accounts da Microsoft (Msa) e contas do Azure Active Directory (Azure AD) são suportadas no Azure IoT Central. Os grupos do Active Directory do Azure não são atualmente suportados no Azure IoT Central.
 
-Para obter mais informações, consulte [ajuda de conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e [guia de início rápido: adicionar novos utilizadores ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Para obter mais informações, consulte [ajuda de conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e [início rápido: Adicionar novos utilizadores ao Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 1. Para adicionar um utilizador a uma aplicação IoT Central, vá para o **usuários** página no **administração** secção.
 
@@ -107,7 +107,7 @@ O utilizador que cria uma aplicação é atribuído automaticamente para o **adm
 
 Os utilizadores a **Application Builder** função pode fazer tudo num aplicativo, exceto a administrar o aplicativo. Isso significa construtores podem criar, editar e eliminar modelos de dispositivos e de dispositivos, gerir conjuntos de dispositivos e executar tarefas e de análise. Construtores não terão acesso para o **administração** seção do aplicativo.
 
-### <a name="application-operator"></a>Operador de aplicações
+### <a name="application-operator"></a>Operador de Aplicações
 
 Os utilizadores a **operador aplicações** função não pode efetuar alterações aos modelos de dispositivo e não pode administrar o aplicativo. Isso significa que operadores podem adicionar e eliminar dispositivos, gerir conjuntos de dispositivos e executar tarefas e de análise. Operadores não terão acesso para o **Application Builder** e **administração** páginas.
 
@@ -141,15 +141,15 @@ Para concluir este processo self-service, siga estes passos:
 
 ## <a name="export-data"></a>Exportar dados
 
-Pode habilitar **exportação de dados contínua** para exportar as medidas, dispositivos e dados de modelos de dispositivos à sua conta de armazenamento de Blobs do Azure. Saiba mais sobre [como exportar os dados](#howto-export-data).
+Pode habilitar **exportação de dados contínua** para exportar as medidas, dispositivos e dados de modelos de dispositivos à sua conta de armazenamento de Blobs do Azure. Saiba mais sobre como exportar os seus dados.
 
 ## <a name="manage-device-connection"></a>Gerir ligação de dispositivo
 
-Ligar dispositivos à escala em seu aplicativo usando aqui as chaves e certificados. Saiba mais sobre [ligar dispositivos](#concepts-connectivity).
+Ligar dispositivos à escala em seu aplicativo usando aqui as chaves e certificados. Saiba mais sobre como ligar dispositivos.
 
 ## <a name="use-access-tokens"></a>Utilizar tokens de acesso
 
-Gere tokens de acesso para utilizá-los em ferramentas de desenvolvimento. Atualmente, existe uma ferramenta de desenvolvedor disponível que é o Explorador de IoT Central para monitorizar mensagens do dispositivo e alterações nas definições e propreties. Saiba mais sobre o [Explorador de IoT Central](#howto-use-iotc-explorer). 
+Gere tokens de acesso para utilizá-los em ferramentas de desenvolvimento. Atualmente, existe uma ferramenta de desenvolvedor disponível que é o Explorador de IoT Central para monitorizar mensagens do dispositivo e alterações nas definições e propreties. Saiba mais sobre o Explorador de IoT Central. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Utilizar os SDKs do Azure para operações do painel de controlo
 

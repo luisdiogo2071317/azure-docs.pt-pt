@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848634"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813690"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Ativação pós-falha e reativação pós-falha de servidores físicos replicados no Azure
 
@@ -24,10 +24,10 @@ Servidores físicos replicados no Azure com o Site Recovery só podem falhar nov
 
 A ativação pós-falha e a reativação pós-falha têm quatro fases:
 
-1. **Fazer a ativação pós-falha para o Azure**: fazer a ativação pós-falha de máquinas do site no local para o Azure.
-2. **Voltar a proteger as VMs do Azure**: voltar a proteger as VMs do Azure, para que comecem a ser replicadas novamente para VMs de VMware no local.
-3. **Fazer a ativação pós-falha no local**: executar uma ativação pós-falha para fazer a reativação pós-falha do Azure.
-4. **Voltar a proteger VMs no local**: depois de dados falhou, novamente, voltar a proteger as VMs do VMware no local que falharam ao, para que comecem a ser replicadas para o Azure.
+1. **Efetuar a ativação pós-falha para o Azure**: Pós-falha de máquinas do site no local para o Azure.
+2. **Voltar a proteger VMs do Azure**: Voltar a proteger as VMs do Azure, para que comecem a ser replicadas novamente para VMs de VMware no local.
+3. **Efetuar a ativação pós-falha no local**: Execute uma ativação pós-falha, reativação pós-falha do Azure.
+4. **Voltar a proteger VMs no local**: Depois de dados falhou, novamente, voltar a proteger as VMs do VMware no local que falharam ao, para que comecem a ser replicadas para o Azure.
 
 ## <a name="verify-server-properties"></a>Verifique se as propriedades do servidor
 
@@ -36,7 +36,7 @@ Verifique se as propriedades do servidor e certifique-se de que ele está em con
 1. Na **itens protegidos**, clique em **itens replicados**e selecione a máquina.
 
 2. Na **item replicado** painel, há um resumo das informações da máquina, o estado de funcionamento, e de pontos de recuperação mais recentes disponíveis. Clique em **Propriedades** para ver mais detalhes.
-3. Em **Computação e Rede**, pode modificar o nome do Azure, o grupo de recursos, o tamanho de destino, o [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) e as [definições do disco gerido](#managed-disk-considerations)
+3. Na **computação e rede**, pode modificar o nome do Azure, o grupo de recursos, o tamanho de destino, [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md)e as definições de disco gerido
 4. Pode ver e modificar as definições de rede, incluindo a rede/sub-rede na qual a VM do Azure será localizada após a ativação pós-falha e o endereço IP que será atribuído à mesma.
 5. Na **discos**, pode ver informações sobre o sistema operativo da máquina e os discos de dados.
 
@@ -44,10 +44,10 @@ Verifique se as propriedades do servidor e certifique-se de que ele está em con
 
 1. Em **Definições** > **Itens replicados**, clique no computador > **Ativação Pós-falha**.
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Pode utilizar uma das opções seguintes:
-   - **Mais recente**: esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
-   - **Processado mais recentemente**: esta opção efetuará a ativação pós-falha da máquina do ponto de recuperação mais recente processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
-   - **Mais recente consistente com a aplicação**: esta opção efetuará a ativação pós-falha da máquina para o ponto mais recente recuperação consistente com a aplicação processado pelo Site Recovery.
-   - **Personalizado**: especifique um ponto de recuperação.
+   - **Mais recente**: Esta opção processa primeiro todos os dados enviados para o Site Recovery. Disponibiliza o último RPO (Objetivo de Ponto de Recuperação), porque a VM do Azure criada após a ativação pós-falha tem todos os dados que foram replicados para o Site Recovery quando a ativação pós-falha foi acionada.
+   - **Processado mais recentemente**: Esta opção faz a ativação pós-falha da máquina do ponto de recuperação mais recente processado pelo Site Recovery. Esta opção proporciona um RTO (Objetivo de Tempo de Recuperação) baixo, porque não é despendido tempo ao processar os dados não processados.
+   - **Mais recente consistente com a aplicação**: Esta opção faz a ativação pós-falha da máquina para o ponto mais recente recuperação consistente com a aplicação processado pelo Site Recovery.
+   - **Custom**: Especifique um ponto de recuperação.
 
 3. Selecione **encerrar a máquina antes de iniciar a ativação pós-falha** se pretender que o Site Recovery para tentar encerrar a máquina de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**.
 4. Se preparou para ligar à VM do Azure, ligue para validá-la após a ativação pós-falha.

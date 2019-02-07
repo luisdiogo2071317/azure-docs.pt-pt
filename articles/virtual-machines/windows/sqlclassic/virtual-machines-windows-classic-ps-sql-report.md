@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233087"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820118"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utilizar o PowerShell para Criar uma VM do Azure com um Servidor de Relatórios no Modo Nativo
 > [!IMPORTANT] 
@@ -47,7 +47,7 @@ Este tópico descreve e orienta a implantação e configuração de um servidor 
 1. Navegue para o portal do Azure.
 2. Clique em **máquinas virtuais** no painel esquerdo.
    
-    ![máquinas virtuais do Microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
+    ![microsoft azure virtual machines](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
 3. Clique em **Novo**.
    
     ![botão novo](./media/virtual-machines-windows-classic-ps-sql-report/IC692019.gif)
@@ -72,13 +72,13 @@ Este tópico descreve e orienta a implantação e configuração de um servidor 
    
    * **Serviço em nuvem**: selecione **criar um novo serviço Cloud**.
    * **Nome DNS do serviço de nuvem**: Este é o nome DNS público do serviço Cloud que estão associados com a VM. O nome predefinido é o nome digitado para o nome da VM. Se os passos posteriores do tópico, vai criar um certificado SSL fidedigno e, em seguida, o nome DNS é utilizado o valor da "**emitido para**" do certificado.
-   * **Rede Virtual/grupo de afinidade/região**: selecione a região mais próxima dos seus utilizadores finais.
-   * **Conta de armazenamento**: utilizar uma conta de armazenamento gerada automaticamente.
-   * **Conjunto de disponibilidade**: nenhuma.
+   * **Região/grupo de afinidade/rede Virtual**: Selecione a região mais próxima dos seus utilizadores finais.
+   * **Conta de armazenamento**: Utilize uma conta de armazenamento gerada automaticamente.
+   * **Conjunto de disponibilidade**: Nenhum.
    * **Pontos finais** manter os **ambiente de trabalho remoto** e **PowerShell** pontos de extremidade e, em seguida, adicionar ponto final de um HTTP ou HTTPS, dependendo do seu ambiente.
      
-     * **HTTP**: as portas públicas e privadas de predefinidas são **80**. Tenha em atenção que se usar uma porta privada diferente da 80, modifique **$HTTPport = 80** no script de http.
-     * **HTTPS**: as portas públicas e privadas de predefinidas são **443**. É recomendado de segurança alterar a porta privada e configurar a firewall e o servidor de relatórios para utilizar a porta privada. Para obter mais informações sobre pontos finais, consulte [como a comunicação com uma Máquina Virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenha em atenção que se utilizar uma porta sem ser a 443, altere o parâmetro **$HTTPsport = 443** no script de HTTPS.
+     * **HTTP**: As portas públicas e privadas de predefinidas são **80**. Tenha em atenção que se usar uma porta privada diferente da 80, modifique **$HTTPport = 80** no script de http.
+     * **HTTPS**: As portas públicas e privadas de predefinidas são **443**. É recomendado de segurança alterar a porta privada e configurar a firewall e o servidor de relatórios para utilizar a porta privada. Para obter mais informações sobre pontos finais, consulte [como a comunicação com uma Máquina Virtual](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Tenha em atenção que se utilizar uma porta sem ser a 443, altere o parâmetro **$HTTPsport = 443** no script de HTTPS.
    * Clique em seguinte. ![seguinte](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Na última página do assistente, mantenha a predefinição **instalar o agente da VM** selecionado. Os passos neste tópico não utiliza o agente da VM, mas se planeja manter esta VM, o agente da VM e extensões permitirá que aprimorar ele CM.  Para obter mais informações sobre o agente da VM, consulte [agente da VM e extensões – parte 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Um dos ad de extensões instaladas padrão em execução é a extensão de "BGINFO", que apresenta no ambiente de trabalho VM, informações do sistema, como o IP interno e espaço no disco livre.
 9. Clique em concluído. ![ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -100,7 +100,7 @@ Para utilizar HTTPS na VM, terá de um certificado SSL confiável. Dependendo do
    
     Para obter mais informações sobre o pedido de certificados de servidor, consulte o seguinte: 
    
-   * Uso [Certreq](https://technet.microsoft.com/library/cc725793.aspx), [Certreq](https://technet.microsoft.com/library/cc725793.aspx).
+   * Use [Certreq](https://technet.microsoft.com/library/cc725793.aspx), [Certreq](https://technet.microsoft.com/library/cc725793.aspx).
    * Ferramentas de segurança para administrar o Windows Server 2012.
      
      [Ferramentas de segurança para administrar o Windows Server 2012](https://technet.microsoft.com/library/jj730960.aspx)
@@ -125,7 +125,7 @@ Um certificado autoassinado foi criado na VM quando a VM foi aprovisionada. O ce
        Por exemplo, na imagem seguinte, o nome da VM é **ssrsnativecloud** e o nome de utilizador é **testuser**.
       
        ![nome da vm inclui início de sessão](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. Execute mmc.exe. Para obter mais informações, consulte [como: ver certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
+   2. Run mmc.exe. Para obter mais informações, consulte [como: Ver os certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. No aplicativo de console **arquivo** menu, adicione o **certificados** snap-in, selecione **conta de computador** quando lhe for pedido e, em seguida, clique em **próxima**.
    4. Selecione **computador Local** para gerir e, em seguida, clique em **concluir**.
    5. Clique em **Ok** e, em seguida, expanda o **certificados - pessoais** nós e clique em **certificados**. O certificado com o nome depois do nome DNS da VM e termina com **cloudapp.net**. O nome do certificado com o botão direito e clique em **cópia**.
@@ -133,7 +133,7 @@ Um certificado autoassinado foi criado na VM quando a VM foi aprovisionada. O ce
    7. Para validar, faça duplo clique no nome do certificado sob **autoridades de certificação de raiz fidedigna** e verifique se não existirem erros e ver o seu certificado. Se pretender utilizar o script HTTPS, incluído com esse tópico, para configurar o servidor de relatório, o valor dos certificados **Thumbprint** é necessária como um parâmetro do script. **Para obter o valor do thumbprint**, efetue o seguinte. Também há um exemplo de PowerShell para obter o thumbprint na seção [utilizar script para configurar o servidor de relatório e o HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
       
       1. Faça duplo clique o nome do certificado, por exemplo ssrsnativecloud.cloudapp.net.
-      2. Clique nas **detalhes** separador.
+      2. Clique no separador **Detalhes** .
       3. Clique em **Thumbprint**. O valor do thumbprint é apresentado no campo de detalhes, por exemplo a6 08 3C df f9 0b f7 e3 7C 25 ed a4 ed 7e ac 91 9C 2c fb 2f.
       4. Copie o thumbprint e guardar o valor para utilizar mais tarde ou edite o script agora.
       5. (*) Antes de executar o script, remova os espaços entre os pares de valores. Por exemplo o thumbprint indicado anteriormente agora seria a6083cdff90bf7e37c25eda4ed7eac919c2cfb2f.
@@ -149,7 +149,7 @@ Esta secção explica como configurar a VM como um servidor de relatórios de mo
 
 Para obter passos mais detalhados, consulte a secção [ligar à máquina Virtual e iniciar o Reporting Services Configuration Manager](virtual-machines-windows-classic-ps-sql-bi.md#connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager).
 
-**Nota de autenticação:** autenticação do Windows é o método de autenticação recomendado e é a autenticação do Reporting Services predefinido. Apenas os utilizadores que estão configurados na VM podem acessar o Reporting Services e atribuídos a funções do Reporting Services.
+**Nota de autenticação:** Autenticação do Windows é o método de autenticação recomendado e é a autenticação do Reporting Services predefinido. Apenas os utilizadores que estão configurados na VM podem acessar o Reporting Services e atribuídos a funções do Reporting Services.
 
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Use um script para configurar o servidor de relatórios e HTTP
 Para utilizar o script do Windows PowerShell para configurar o servidor de relatórios, conclua os passos seguintes. A configuração inclui HTTP, HTTPS não:
@@ -283,7 +283,7 @@ Para utilizar o script do Windows PowerShell para configurar o servidor de relat
 6. O script está atualmente configurado para o Reporting Services. Se quiser executar o script para o Reporting Services, modifique a parte da versão do caminho para o espaço de nomes para "v11", na declaração do Get-WmiObject.
 7. Execute o script.
 
-**Validação**: para verificar se a funcionalidade de servidor de relatório básico está a funcionar, consulte a [verificar a configuração](#verify-the-configuration) seção mais adiante neste tópico.
+**Validação**: Para verificar se a funcionalidade de servidor de relatório básico está a funcionar, consulte a [verificar a configuração](#verify-the-configuration) seção mais adiante neste tópico.
 
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Use um script para configurar o servidor de relatórios e HTTPS
 Para utilizar o Windows PowerShell para configurar o servidor de relatórios, conclua os passos seguintes. A configuração inclui HTTPS, não HTTP.
@@ -469,7 +469,7 @@ Para utilizar o Windows PowerShell para configurar o servidor de relatórios, co
      OU
    * Na VM, execute mmc.exe e, em seguida, adicione a **certificados** snap-in.
    * Sob o **autoridades de certificação de raiz confiáveis** nó faça duplo clique em seu nome de certificado. Se estiver a utilizar o certificado autoassinado da VM, o certificado com o nome depois do nome DNS da VM e termina com **cloudapp.net**.
-   * Clique nas **detalhes** separador.
+   * Clique no separador **Detalhes** .
    * Clique em **Thumbprint**. O valor do thumbprint é apresentado no campo de detalhes, por exemplo af 11 60 b6 4b d de 8 de 28 89 0a 82 12 ff 6b a9 c3 66 4f 31 90 48
    * **Antes de executar o script**, remova os espaços entre os pares de valores. Por exemplo af1160b64b288d890a8212ff6ba9c3664f319048
 7. Modificar a **$httpsport** parâmetro: 
@@ -483,7 +483,7 @@ Para utilizar o Windows PowerShell para configurar o servidor de relatórios, co
 9. O script está atualmente configurado para o Reporting Services. Se quiser executar o script para o Reporting Services, modifique a parte da versão do caminho para o espaço de nomes para "v11", na declaração do Get-WmiObject.
 10. Execute o script.
 
-**Validação**: para verificar se a funcionalidade de servidor de relatório básico está a funcionar, consulte a [verificar a configuração](#verify-the-connection) seção mais adiante neste tópico. Para verificar o certificado de ligação abra uma linha de comandos com privilégios administrativos e, em seguida, execute o seguinte comando:
+**Validação**: Para verificar se a funcionalidade de servidor de relatório básico está a funcionar, consulte a verificar a seção de configuração mais adiante neste tópico. Para verificar o certificado de ligação abra uma linha de comandos com privilégios administrativos e, em seguida, execute o seguinte comando:
 
     netsh http show sslcert
 
@@ -505,7 +505,7 @@ Se não pretender executar o script do PowerShell para configurar o servidor de 
 5. No painel esquerdo, clique em **URL do serviço Web**.
 6. Por predefinição, o RS está configurado para a porta HTTP 80 com IP "Atribuído todos os". Para adicionar a HTTPS:
    
-   1. Na **certificado SSL**: selecione o certificado que pretende utilizar, por exemplo [nome da VM]. cloudapp.net. Se não forem apresentados certificados, consulte a secção **passo 2: criar um certificado de servidor** para obter informações sobre como instalar e confiar no certificado na VM.
+   1. Na **certificado SSL**: selecione o certificado que pretende utilizar, por exemplo [nome da VM]. cloudapp.net. Se não forem apresentados certificados, consulte a secção **passo 2: Criar um certificado de servidor** para obter informações sobre como instalar e confiar no certificado na VM.
    2. Sob **porta SSL**: escolha 443. Se tiver configurado o ponto final privado de HTTPS na VM com uma porta privada diferente, use esse valor aqui.
    3. Clique em **aplicar** e aguarde pela conclusão da operação.
 7. No painel esquerdo, clique em **base de dados**.
@@ -520,7 +520,7 @@ Se não pretender executar o script do PowerShell para configurar o servidor de 
 8. No painel esquerdo, clique em **URL do Gestor de relatórios**. Deixe a predefinição **diretório Virtual** como **relatórios** e clique em **aplicar**.
 9. Clique em **saída** para fechar o Reporting Services Configuration Manager.
 
-## <a name="step-4-open-windows-firewall-port"></a>Passo 4: Porta de Firewall do Windows Open
+## <a name="step-4-open-windows-firewall-port"></a>Passo 4: Porta de Firewall do Windows aberto
 > [!NOTE]
 > Se utilizou um dos scripts para configurar o servidor de relatório, pode ignorar esta secção. O script incluído um passo para abrir a porta de firewall. A predefinição foi a porta 80 para HTTP e a porta 443 para HTTPS.
 > 
@@ -573,24 +573,24 @@ Depois de configurar e verificar o servidor de relatórios, uma tarefa administr
 ## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Para criar e publicar relatórios para a Máquina Virtual do Azure
 A tabela seguinte resume algumas das opções disponíveis para publicar relatórios existentes a partir de um computador no local para o servidor de relatórios alojados na máquina de Virtual do Microsoft Azure:
 
-* **Script de RS.exe**: RS.exe utilizar script para copiar itens de relatório de e para o servidor de relatórios existentes para sua máquina de Virtual do Microsoft Azure. Para obter mais informações, consulte a seção "Modo nativo para o modo nativo – Microsoft Azure Virtual Machine" no [no Script para migrar conteúdo entre servidores de relatórios do Reporting Services do exemplo rs.exe](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Script de RS.exe**: Utilize o script de RS.exe para copiar itens de relatório de e para o servidor de relatórios existentes para sua máquina de Virtual do Microsoft Azure. Para obter mais informações, consulte a seção "Modo nativo para o modo nativo – Microsoft Azure Virtual Machine" no [no Script para migrar conteúdo entre servidores de relatórios do Reporting Services do exemplo rs.exe](https://msdn.microsoft.com/library/dn531017.aspx).
 * **Report Builder**: A máquina virtual inclui o clique-uma vez a versão do Microsoft SQL Server Report Builder. Para iniciar o tempo do Report builder a primeira na máquina virtual:
   
   1. Comece o seu browser com privilégios administrativos.
   2. Navegue para o Gestor de relatórios na máquina virtual e clique em **Report Builder** na faixa de opções.
      
      Para obter mais informações, consulte [instalar, desinstalar e que suporta o Report Builder](https://technet.microsoft.com/library/dd207038.aspx).
-* **SQL Server Data Tools: VM**: Se criou a VM com o SQL Server 2012, o SQL Server Data Tools está instalado na máquina virtual e podem ser utilizados para criar **projetos de servidor de relatório** e relatórios na máquina virtual. SQL Server Data Tools pode publicar os relatórios para o servidor de relatórios na máquina virtual.
+* **Ferramentas de dados do SQL Server: VM**:  Se criou a VM com o SQL Server 2012, o SQL Server Data Tools está instalado na máquina virtual e podem ser utilizados para criar **projetos de servidor de relatório** e relatórios na máquina virtual. SQL Server Data Tools pode publicar os relatórios para o servidor de relatórios na máquina virtual.
   
     Se criou a VM com o SQL server 2014, pode instalar o SQL Server Data Tools - BI para o visual Studio. Para obter mais informações, consulte o seguinte:
   
   * [Microsoft SQL Server Data Tools – Business Intelligence para o Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools – Business Intelligence para o Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
   * [Ferramentas de dados do SQL Server e SQL Server Business Intelligence (SSDT-BI)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
-* **SQL Server Data Tools: Remoto**: no seu computador local, crie um projeto do Reporting Services no SQL Server Data Tools que contém os relatórios do Reporting Services. Configure o projeto para ligar ao URL de serviço web.
+* **Ferramentas de dados do SQL Server: Remoto**:  No seu computador local, crie um projeto do Reporting Services no SQL Server Data Tools que contém os relatórios do Reporting Services. Configure o projeto para ligar ao URL de serviço web.
   
     ![Propriedades do projeto SSDT para o projeto do SSRS](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
-* **Utilizar script**: utilizar o script para copiar o conteúdo do servidor de relatório. Para obter mais informações, consulte [no Script para migrar conteúdo entre servidores de relatórios do Reporting Services do exemplo rs.exe](https://msdn.microsoft.com/library/dn531017.aspx).
+* **Utilizar script**: Utilize script para copiar o conteúdo do servidor de relatório. Para obter mais informações, consulte [no Script para migrar conteúdo entre servidores de relatórios do Reporting Services do exemplo rs.exe](https://msdn.microsoft.com/library/dn531017.aspx).
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Minimizar os custos se não estiver a utilizar a VM
 > [!NOTE]

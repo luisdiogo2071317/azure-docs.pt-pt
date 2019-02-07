@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 49e9a057e52d46fd18e13c43d0f6024201499685
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493393"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821683"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral
@@ -92,7 +92,7 @@ Cada um dos serviços de armazenamento do Azure tem destinos de escalabilidade d
 * [Mensagens de fila por segundo](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Destino de escalabilidade de largura de banda para todos os serviços
-No momento da escrita, os destinos de largura de banda nos Estados Unidos para uma conta de armazenamento georredundante (GRS) são 10 gigabits por segundo (Gbps) para a entrada (dados enviados para a conta de armazenamento) e 20 Gbps para saída (dados enviados a partir da conta de armazenamento). Para uma conta de armazenamento localmente redundante (LRS), os limites são superiores – 20 Gbps para entrada e de 30 Gbps para saída.  Limites de largura de banda internacional pode ser mais baixos e pode ser encontrados no nosso [página de destinos de escalabilidade](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Para obter mais informações sobre as opções de redundância de armazenamento, veja as ligações na [recursos úteis](#sub1useful) abaixo.  
+No momento da escrita, os destinos de largura de banda nos Estados Unidos para uma conta de armazenamento georredundante (GRS) são 10 gigabits por segundo (Gbps) para a entrada (dados enviados para a conta de armazenamento) e 20 Gbps para saída (dados enviados a partir da conta de armazenamento). Para uma conta de armazenamento localmente redundante (LRS), os limites são superiores – 20 Gbps para entrada e de 30 Gbps para saída.  Limites de largura de banda internacional pode ser mais baixos e pode ser encontrados no nosso [página de destinos de escalabilidade](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Para obter mais informações sobre as opções de redundância de armazenamento, veja as ligações na útil recursos a seguir.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>O que fazer quando a atingir uma meta de escalabilidade
 Se estiver a atingir o limite de contas de armazenamento, que pode ter numa combinação de subscrição/região em particular, avaliar o aplicativo e a utilização de contas de armazenamento e determinar se alguma das seguintes condições se aplicam.

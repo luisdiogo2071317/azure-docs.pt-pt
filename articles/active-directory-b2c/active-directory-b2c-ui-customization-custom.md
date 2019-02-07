@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188496"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818877"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Para criar um contentor público no armazenamento de BLOBs, faça o seguinte:
 5. Clique em **$root** para abrir o contêiner do novo.
 6. Clique em **Carregar**.
 7. Clique no ícone de pasta junto a **selecionar um ficheiro**.
-8. Aceda a **ui.html personalizar**, que criou anteriormente no [personalização da IU da página](#the-page-ui-customization-feature) secção.
+8. Aceda a **ui.html personalizar**, que criou anteriormente na secção de personalização da IU da página.
 9. Clique em **Carregar**.
 10. Selecione o blob de personalizar ui.html que carregou.
 11. Junto a **URL**, clique em **cópia**.
@@ -175,7 +175,7 @@ A pasta de sample_templates/wingtip contém os seguintes ficheiros HTML:
 | *unified.html* | Utilize este ficheiro como um modelo para uma página de inscrição ou início de sessão unificada. |
 | *updateprofile.html* | Utilize este ficheiro como um modelo para uma página de atualização de perfil. |
 
-Na [modificar a secção de inscrição ou início de sessão de política personalizada](#modify-your-sign-up-or-sign-in-custom-policy), que configurou a definição de conteúdo para `api.idpselections`. O conjunto completo de conteúdo são de IDs de definição reconhecidas pelo framework de experiência de identidade do Azure AD B2C e suas descrições na seguinte tabela:
+Modificar a secção de política personalizada de inscrição ou início de sessão, configurou a definição de conteúdo para `api.idpselections`. O conjunto completo de conteúdo são de IDs de definição reconhecidas pelo framework de experiência de identidade do Azure AD B2C e suas descrições na seguinte tabela:
 
 | ID de definição de conteúdo | Descrição | 
 |-----------------------|-------------|

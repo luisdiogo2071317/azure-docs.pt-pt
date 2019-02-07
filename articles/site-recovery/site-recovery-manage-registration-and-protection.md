@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 7a9c0ec081b676631f950270f9234284a102d7fa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212193"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810325"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 
@@ -154,7 +154,7 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Desative a proteção para uma máquina virtual de Hyper-V (Hyper-V para o Azure)
 
 > [!NOTE]
-> Utilize este procedimento se estiver a replicar VMs Hyper-V para o Azure sem um servidor do VMM. Se estiver a replicar suas máquinas virtuais utilizando o **System Center VMM para o Azure** cenário, em seguida, siga as instruções [desative a proteção para uma máquina virtual de Hyper-V a replicar com o System Center VMM para Cenário do Azure](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)
+> Utilize este procedimento se estiver a replicar VMs Hyper-V para o Azure sem um servidor do VMM. Se estiver a replicar suas máquinas virtuais utilizando o **System Center VMM para o Azure** cenário, em seguida, siga a instruções desative a proteção Hyper-V virtual da máquina a replicar com o System Center VMM para o cenário do Azure
 
 1. Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
 2. Na **desative a replicação**, pode selecionar as seguintes opções:

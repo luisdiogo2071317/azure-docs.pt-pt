@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 5f096d016b2fa82e3b340a4a6b6c7e1fd6420216
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9c6ea982d9a605696dad0c943aa6dd2ae155d6bd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037196"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770742"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utilizar dados de localização Geoespacial e GeoJSON com a conta do Azure Cosmos DB SQL API
 
@@ -150,32 +150,13 @@ Agora que já vimos uma olhada em como inserir dados geoespaciais, vamos dar uma
 ### <a name="spatial-sql-built-in-functions"></a>Espaciais funções internas de SQL
 Azure Cosmos DB suporta as seguintes funções internas de Open Geoespacial Consortium (OGC) para consultar dados geoespaciais. Para obter mais informações sobre o conjunto completo de funções incorporadas em linguagem SQL, consulte [consulta do Azure Cosmos DB](how-to-sql-query.md).
 
-<table>
-<tr>
-  <td><strong>Utilização</strong></td>
-  <td><strong>Descrição</strong></td>
-</tr>
-<tr>
-  <td>ST_DISTANCE (spatial_expr, spatial_expr)</td>
-  <td>Devolve a distância entre as duas expressões LineString, Polygon ou GeoJSON ponto.</td>
-</tr>
-<tr>
-  <td>ST_WITHIN (spatial_expr, spatial_expr)</td>
-  <td>Devolve uma expressão booleana que indica se o primeiro objeto GeoJSON (ponto, polígono ou LineString) está dentro do objeto de GeoJSON segundo (ponto, polígono ou LineString).</td>
-</tr>
-<tr>
-  <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Devolve uma expressão booleana que indica se os dois objetos de GeoJSON especificados (ponto, polígono ou LineString) intersect.</td>
-</tr>
-<tr>
-  <td>ST_ISVALID</td>
-  <td>Devolve um valor booleano que indica se a expressão de LineString, Polygon ou GeoJSON ponto especificada é válida.</td>
-</tr>
-<tr>
-  <td>ST_ISVALIDDETAILED</td>
-  <td>Devolve um valor JSON que contém um valor booleano valor se a expressão de LineString, Polygon ou GeoJSON ponto especificada é válida e se for inválido, além do motivo pelo qual como um valor de cadeia de caracteres.</td>
-</tr>
-</table>
+|**Utilização**|**Descrição**|
+|---|---|
+| ST_DISTANCE (spatial_expr, spatial_expr) | Devolve a distância entre as duas expressões LineString, Polygon ou GeoJSON ponto.|
+|ST_WITHIN (spatial_expr, spatial_expr) | Devolve uma expressão booleana que indica se o primeiro objeto GeoJSON (ponto, polígono ou LineString) está dentro do objeto de GeoJSON segundo (ponto, polígono ou LineString).|
+|ST_INTERSECTS (spatial_expr, spatial_expr)| Devolve uma expressão booleana que indica se os dois objetos de GeoJSON especificados (ponto, polígono ou LineString) intersect.|
+|ST_ISVALID| Devolve um valor booleano que indica se a expressão de LineString, Polygon ou GeoJSON ponto especificada é válida.|
+| ST_ISVALIDDETAILED| Devolve um valor JSON que contém um valor booleano valor se a expressão de LineString, Polygon ou GeoJSON ponto especificada é válida e se for inválido, além do motivo pelo qual como um valor de cadeia de caracteres.|
 
 Funções espaciais podem ser utilizadas para executar consultas de proximidade contra dados geográficos. Por exemplo, eis uma consulta que devolve todos os documentos de famílias que estão dentro de 30 km de distância do local especificado usando a função incorporada ST_DISTANCE. 
 
@@ -238,7 +219,7 @@ O Azure Cosmos DB também suporta a execução de consultas inversa, ou seja, po
 
 ST_ISVALID e ST_ISVALIDDETAILED podem ser utilizados para verificar se um objeto espacial é válido. Por exemplo, a consulta seguinte verifica a validade de um ponto com um fora do valor de intervalo de latitude (-132.8). ST_ISVALID retorna apenas um valor Booleano e ST_ISVALIDDETAILED retorna o valor de booleano e uma cadeia de caracteres contendo o motivo por que é considerado inválido.
 
-* * Consultar * *
+**Consulta**
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 

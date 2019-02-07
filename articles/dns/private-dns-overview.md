@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826484"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816327"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Utilizar o DNS do Azure para domínios privados
 
@@ -32,7 +32,7 @@ O DNS do Azure fornece as seguintes vantagens:
 
 * **Remove a necessidade de soluções DNS personalizadas**. Anteriormente, muitos clientes criar soluções personalizadas de DNS para gerir zonas DNS na sua rede virtual. Agora pode efetuar gestão de zonas DNS ao utilizar a infraestrutura do Azure nativa, o que remove a sobrecarga de criar e gerir soluções DNS personalizadas.
 
-* **Utilizar todos os tipos de registos DNS comuns**. O DNS do Azure suporta registos A, AAAA, CNAME, MX, NS, PTR, SOA, SRV e TXT.
+* **Utilizar todos os tipos de registos DNS comuns**. O DNS do Azure suporta registos A, AAAA, CNAME, MX, PTR, SOA, SRV e TXT.
 
 * **Gerenciamento de registros de nome de anfitrião automática**. Juntamente com os registos DNS personalizados de alojamento, o Azure mantém automaticamente registos de nome de anfitrião para as VMs nas redes virtuais especificadas. Neste cenário, pode otimizar os nomes de domínio que sem precisar de utilizar para criar soluções personalizadas de DNS ou modificação das aplicações.
 

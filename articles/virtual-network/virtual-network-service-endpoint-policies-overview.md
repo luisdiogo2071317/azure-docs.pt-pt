@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051316"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812349"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto final de serviço de rede virtual (pré-visualização)
 
@@ -154,7 +154,7 @@ Não estão disponíveis registos centralizados para as políticas de ponto fina
 ### <a name="troubleshooting-scenarios"></a>Cenários de resolução de problemas
 - É permitido o acesso a contas de armazenamento não indicadas nas políticas de ponto final
   - É possível que os grupos de segurança de rede estejam a permitir o acesso à Internet ou a contas de Armazenamento do Azure noutras regiões.
-  - Os grupos de segurança de rede devem ser configurados para recusarem todo o tráfego de saída da Internet e permitirem apenas aquele específico das regiões do Armazenamento do Azure. Para obter detalhes, veja [Network security groups](#network-security-groups) (Grupos de segurança de rede).
+  - Os grupos de segurança de rede devem ser configurados para recusarem todo o tráfego de saída da Internet e permitirem apenas aquele específico das regiões do Armazenamento do Azure. Para obter detalhes, consulte grupos de segurança de rede.
 - É recusado o acesso a contas indicadas nas políticas de ponto final
   - A filtragem dos grupos de segurança de rede ou da firewall podem estar a bloquear o acesso
   - Se remover/reaplicar a política resultar em perda de conectividade:

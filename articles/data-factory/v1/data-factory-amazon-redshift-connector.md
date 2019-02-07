@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eafc5dbd89d5727fac0040816785dbfcdf123b62
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563624"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817347"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pi
 2. Crie conjuntos de dados para representar os dados de entrada e saídos da operação de cópia.
 3. Crie um pipeline com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída.
 
-Quando utiliza o Assistente para copiar, definições de JSON para estas entidades do Data Factory são criadas automaticamente. Ao utilizar ferramentas ou APIs (exceto a API .NET), define as entidades da fábrica de dados utilizando o formato JSON. O [exemplo de JSON: Copiar dados do Amazon Redshift para o armazenamento de Blobs do Azure](#json-example-copy-data-from-amazon-redshift-to-azure-blob) mostra as definições de JSON para as entidades da fábrica de dados que são utilizadas para copiar dados de um arquivo de dados do Amazon Redshift.
+Quando utiliza o Assistente para copiar, definições de JSON para estas entidades do Data Factory são criadas automaticamente. Ao utilizar ferramentas ou APIs (exceto a API .NET), define as entidades da fábrica de dados utilizando o formato JSON. O exemplo JSON: Copiar dados do Amazon Redshift para o armazenamento de Blobs do Azure mostram as definições de JSON para as entidades da fábrica de dados que são utilizadas para copiar dados de um arquivo de dados do Amazon Redshift.
 
 As secções seguintes descrevem as propriedades JSON utilizadas para definir as entidades do Data Factory para o Amazon Redshift.
 

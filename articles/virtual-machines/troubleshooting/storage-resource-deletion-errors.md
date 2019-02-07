@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748039"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816191"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Resolver erros de eliminação de recursos de armazenamento
 
@@ -24,24 +24,24 @@ Em determinados cenários, pode encontrar um dos seguintes erros ocorrem enquant
 
 >**Falha ao eliminar a conta de armazenamento 'StorageAccountName'. Erro: Não é possível eliminar a conta de armazenamento porque os artefactos estão a ser utilizados.**
 
->**Falha ao eliminar o # fora do contentor (es) de #:<br>vhds: atualmente, existe uma concessão no contentor e nenhum ID de concessão foi especificado no pedido.**
+>**Falha ao eliminar o # fora do contentor (es) de #:<br>vhds: Atualmente, existe uma concessão no contentor e nenhum ID de concessão foi especificado no pedido.**
 
->**Falha ao eliminar o # fora de blobs de #:<br>BlobName.vhd: atualmente, existe uma concessão no blob e nenhum ID de concessão foi especificado no pedido.**
+>**Falha ao eliminar o # fora de blobs de #:<br>BlobName.vhd: Atualmente, existe uma concessão no blob e nenhum ID de concessão foi especificado no pedido.**
 
 Os VHDs utilizados em VMs do Azure são ficheiros. vhd armazenados como blobs de páginas numa conta de armazenamento standard ou premium no Azure. Para obter mais informações acerca dos discos do Azure, consulte [cerca geridos e não geridos armazenamento em disco para VMs de Linux do Microsoft Azure](../linux/about-disks-and-vhds.md). 
 
 Azure impede a eliminação de um disco que está ligado a uma VM para evitar danos. Ele também impede a eliminação de contentores e contas de armazenamento que têm um blob de página que está ligado a uma VM. 
 
 O processo para eliminar uma conta de armazenamento, contentor ou blob ao receber um desses erros é: 
-1. [Identificar blobs anexados a uma VM](#step-1-identify-blobs-attached-to-a-vm)
+1. Identificar blobs anexados a uma VM
 2. [VMs de eliminação com anexado **disco do SO**](#step-2-delete-vm-to-detach-os-disk)
 3. [Desligar todas **discos de dados** das VMS restantes](#step-3-detach-data-disk-from-the-vm)
 
 Repita a eliminar a conta de armazenamento, contentor ou blob depois de concluir estes passos.
 
-## <a name="step-1-identify-blob-attached-to-a-vm"></a>Passo 1: Identificar os BLOBs anexados a uma VM
+## <a name="step-1-identify-blob-attached-to-a-vm"></a>Passo 1: Identificar blob anexado a uma VM
 
-### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Cenário 1: Eliminar um blob – identificar VM anexada
+### <a name="scenario-1-deleting-a-blob--identify-attached-vm"></a>Cenário 1: A eliminar um blob – identificar VM anexada
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No Hub menu, selecione **todos os recursos**. Vá para a conta de armazenamento, em **serviço Blob** selecionar **contentores**e navegue para o blob a eliminar.
 3. Se o blob **estado de concessão** é **concedido**, em seguida, clique com botão direito e selecione **Editar metadados** para abrir o painel de metadados do Blob. 
@@ -53,7 +53,7 @@ Repita a eliminar a conta de armazenamento, contentor ou blob depois de concluir
 
      ![Abra a captura de ecrã do portal, com o painel de "Metadados do Blob" do armazenamento](./media/troubleshoot-vhds/utd-blob-metadata-sm.png)
 
-6. Se for o tipo de disco de blob **OSDisk** siga [passo 2: eliminar a VM ao desanexar o disco de SO](#step-2-delete-vm-to-detach-os-disk). Caso contrário, se é o tipo de disco de blob **DataDisk** siga os passos [passo 3: desanexar disco de dados da VM](#step-3-detach-data-disk-from-the-vm). 
+6. Se for o tipo de disco de blob **OSDisk** siga [passo 2: Eliminar VM ao desanexar o disco de SO](#step-2-delete-vm-to-detach-os-disk). Caso contrário, se é o tipo de disco de blob **DataDisk** siga os passos em [passo 3: Desanexar disco de dados da VM](#step-3-detach-data-disk-from-the-vm). 
 
 > [!IMPORTANT]
 > Se **MicrosoftAzureCompute_VMName** e **MicrosoftAzureCompute_DiskType** não aparecem nos metadados do blob, ele indica que o blob é explicitamente concedido e não está ligado a uma VM. Não não possível eliminar os blobs de concessão sem interromper a concessão primeiro. Para interromper a concessão, com o botão direito no blob e selecione **Break lease**. Blobs de concessão que não estão ligados a uma VM a impedem a eliminação do blob, mas não impedir a eliminação de conta de armazenamento ou contentor.
@@ -61,7 +61,7 @@ Repita a eliminar a conta de armazenamento, contentor ou blob depois de concluir
 ### <a name="scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms"></a>Cenário 2: A eliminar o contentor, identificar todos os BLOBs no contentor que estão ligados às VMs
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No Hub menu, selecione **todos os recursos**. Vá para a conta de armazenamento, em **serviço Blob** selecionar **contentores**e encontrar o contentor a eliminar.
-3. Clique para abrir o contentor e será apresentada a lista de blobs no interior do mesmo. Identificar todos os blobs com o tipo de Blob = **BLOBs de páginas** e o estado da concessão = **concedido** desta lista. Siga [cenário 1](#step-1-identify-blobs-attached-to-a-vm) para identificar a VM associada a cada nestes blobs.
+3. Clique para abrir o contentor e será apresentada a lista de blobs no interior do mesmo. Identificar todos os blobs com o tipo de Blob = **BLOBs de páginas** e o estado da concessão = **concedido** desta lista. Siga o cenário 1 para identificar a VM associada a cada nestes blobs.
 
     ![Captura de ecrã do portal, com os blobs da conta de armazenamento e o "Estado da concessão" com "Concedido" realçado](./media/troubleshoot-vhds/utd-disks-sm.png)
 
@@ -73,7 +73,7 @@ Repita a eliminar a conta de armazenamento, contentor ou blob depois de concluir
 3. Na **contentores** painel, identificar todos os contentores em que **estado da concessão** é **concedido** e siga [cenário 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) para cada  **Concedidos** contentor.
 4. Siga [passo 2](#step-2-delete-vm-to-detach-os-disk) e [passo 3](#step-3-detach-data-disk-from-the-vm) ao eliminar a VM (s) com **OSDisk** e desanexar **DataDisk**. 
 
-## <a name="step-2-delete-vm-to-detach-os-disk"></a>Passo 2: Eliminar a VM ao desanexar o disco do SO
+## <a name="step-2-delete-vm-to-detach-os-disk"></a>Passo 2: Eliminar VM ao desanexar o disco do SO
 Se o VHD é um disco de SO, tem de eliminar a VM antes de pode eliminar o VHD anexado. Nenhuma ação adicional será necessária para discos de dados ligados para a mesma VM depois de concluir estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 6701443807a2709edf08a2b979cd59bebacb7b5d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 36d169a4220cb1baacdaee072ed01101ef2e9437
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790169"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815188"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerir clusters do Apache Hadoop no HDInsight com o Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -162,7 +162,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 Também podem ser feitos conceder e revogar o acesso através do portal. Ver [administrar o HDInsight com o portal do Azure][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Atualize as credenciais de utilizador HTTP
-É o mesmo procedimento como [conceder/revogar HTTP acesso](#grant/revoke-access). Se o cluster tiver sido concedido o acesso HTTP, tem primeiro de o revogar.  E, em seguida, conceder o acesso com novas credenciais de utilizador HTTP.
+É o mesmo procedimento como conceder/revogar HTTP acesso. Se o cluster tiver sido concedido o acesso HTTP, tem primeiro de o revogar.  E, em seguida, conceder o acesso com novas credenciais de utilizador HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Localizar a conta de armazenamento predefinida
 O script do PowerShell seguinte demonstra como obter o nome de conta do storage predefinida e as informações relacionadas:

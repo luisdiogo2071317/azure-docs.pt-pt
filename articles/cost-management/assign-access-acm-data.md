@@ -5,27 +5,31 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/01/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: a64a1e35811b8bcdf721425580fe66641cb8ebe2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 267919900fe68271365a73c3cbea7b1f0befc8a7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661008"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766829"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados de gestão de custos
 
-Para a maioria dos usuários, uma combinação de permissões concedidas no portal do Azure e o portal Enterprise (EA) definem o nível de um utilizador de acesso aos dados do Azure Cost Management. Este artigo orienta-o através da atribuição de acesso a dados de gestão de custos. Após a combinação de permissões é atribuída, os dados de vistas de utilizador no Cost Management com a base do âmbito que têm acesso a e no âmbito que selecionarem no portal do Azure.
+Para os utilizadores com os contratos Enterprise do Azure, uma combinação de permissões concedidas no portal do Azure e o portal Enterprise (EA) definem o nível de um utilizador de acesso aos dados do Azure Cost Management. Para os utilizadores com outros tipos de conta do Azure, o nível de um utilizador de acesso é para dados de gestão de custos são mais simples. Este artigo orienta-o através da atribuição de acesso a dados de gestão de custos. Após a combinação de permissões é atribuída, os dados de vistas de utilizador no Cost Management com a base do âmbito que têm acesso a e no âmbito que selecionarem no portal do Azure.
 
 O âmbito do que um usuário selecionar é utilizado em toda a gestão de custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Quando utilizar âmbitos, os utilizadores não seleção múltipla-los. Em vez disso, eles selecionam um âmbito maior que âmbitos subordinados até implementar e, em seguida, eles filtro pendente para o que quer ver. Consolidação de dados é importante compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar.
 
 ## <a name="cost-management-scopes"></a>Âmbitos de gestão de custos
 
-Para ver dados de custo, um utilizador tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos.
+O Cost management suporta uma variedade de tipos de conta do Azure. Para ver a lista completa dos tipos de conta suportados, consulte [dados de compreender a gestão de custos](understand-cost-mgt-data.md). O tipo de conta determina os âmbitos disponíveis.
+
+### <a name="azure-ea-subscription-scopes"></a>Âmbitos de subscrição do Azure EA
+
+Para ver dados de custos para as subscrições do Azure EA, um utilizador tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos.
 
 | **Âmbito** | **Definido no** | **Acesso necessário para ver os dados** | **Definição de pré-requisitos de EA** | **Consolida os dados para** |
 | --- | --- | --- | --- | --- |
@@ -47,6 +51,14 @@ O diagrama seguinte ilustra a relação entre os âmbitos de gestão de custos c
 Quando **cobranças de vista DA** estão desativadas no portal do EA, verá uma mensagem a indicar *os custos de desativado para a sua organização* quando tentar exibir os custos de departamentos e contas.
 
 Da mesma forma, quando **cobranças de exibição de pedidos** estão desativadas no portal do EA, verá uma mensagem a indicar *os custos de desativado para a sua organização* quando tentar exibir os custos para as contas de inscrição, grupos de gestão, subscrições e grupos de recursos.
+
+## <a name="other-azure-account-scopes"></a>Outros âmbitos de conta do Azure
+
+Para ver dados de custos para outras subscrições do Azure, um utilizador deve ter, pelo menos, acesso de leitura a um ou mais dos âmbitos seguintes:
+
+- Conta do Azure
+- Grupo de gestão
+- Grupo de recursos
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Ativar o acesso aos custos no portal de EA
 
@@ -113,7 +125,7 @@ Depois de concluir os passos acima, a conta de utilizador torna-se uma conta de 
 
 ## <a name="assign-management-group-scope-access"></a>Atribuir acesso de âmbito do grupo de gestão
 
-Acesso a um âmbito de grupo de gestão requer, pelo menos, a permissão do leitor de gestão de custos (ou leitor). Pode configurar permissões para um grupo de gestão no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para o grupo de gestão ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
+Acesso a um âmbito de grupo de gestão requer, pelo menos, a permissão do leitor de gestão de custos (ou leitor). Pode configurar permissões para um grupo de gestão no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para o grupo de gestão ativar o acesso para outras pessoas. E para contas do Azure EA, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Selecione **todos os serviços** na barra lateral, procure _grupos de gestão_, em seguida, selecione **grupos de gestão**.
@@ -129,7 +141,7 @@ Acesso a um âmbito de grupo de gestão requer, pelo menos, a permissão do leit
 
 ## <a name="assign-subscription-scope-access"></a>Atribuir acesso de âmbito da subscrição
 
-Acesso a uma subscrição, pelo menos, requer a permissão do leitor de gestão de custos (ou leitor). Pode configurar as permissões para uma subscrição no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para a subscrição ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
+Acesso a uma subscrição, pelo menos, requer a permissão do leitor de gestão de custos (ou leitor). Pode configurar as permissões para uma subscrição no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para a subscrição ativar o acesso para outras pessoas. E para contas do Azure EA, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Selecione **todos os serviços** na barra lateral, procure _subscrições_, em seguida, selecione **subscrições**.
@@ -143,7 +155,7 @@ Acesso a uma subscrição, pelo menos, requer a permissão do leitor de gestão 
 
 ## <a name="assign-resource-group-scope-access"></a>Atribuir acesso de âmbito do grupo de recursos
 
-Acesso a um grupo de recursos requer, pelo menos, a permissão do leitor de gestão de custos (ou leitor). Pode configurar permissões para um grupo de recursos no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para o grupo de recursos ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
+Acesso a um grupo de recursos requer, pelo menos, a permissão do leitor de gestão de custos (ou leitor). Pode configurar permissões para um grupo de recursos no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para o grupo de recursos ativar o acesso para outras pessoas. E para contas do Azure EA, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Selecione **todos os serviços** na barra lateral, procure _grupos de recursos_, em seguida, selecione **grupos de recursos**.

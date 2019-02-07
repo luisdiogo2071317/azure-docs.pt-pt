@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d865028a2ddc7315192030b704a77a332dab14aa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810939"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822716"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -79,7 +79,7 @@ namespace Company.Function
 }
 ```
 
-### <a name="c-2x"></a>C#(2.x)
+### <a name="c-2x"></a>C# (2.x)
 
 O exemplo seguinte mostra um funções 2.x [função c#](functions-dotnet-class-library.md) que se vincula ao `EventGridEvent`:
 
@@ -103,7 +103,7 @@ namespace Company.Function
 }
 ```
 
-Para obter mais informações, consulte [pacotes](#packages), [atributos](#attributes), [Configuration](#configuration), e [utilização](#usage).
+Para obter mais informações, consulte pacotes, [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
 
 ### <a name="c-script-example"></a>Exemplo de script do c#
 
@@ -155,7 +155,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Para obter mais informações, consulte [pacotes](#packages), [atributos](#attributes), [Configuration](#configuration), e [utilização](#usage).
+Para obter mais informações, consulte pacotes, [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
 
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 

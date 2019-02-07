@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 0fa950f7f1fe0eac33ecf4e0de5b9db7effdce77
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c569b7ba6c49a560b4a6a1ecb10a6a61378a1228
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561982"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814902"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Inícios rápidos: Base de dados SQL do Azure se ligar e consultar
 
@@ -53,6 +53,51 @@ Recomendamos também que desative a TLS 1.1 e 1.0 no cliente, se tiver de estar 
 
 Os controladores que não são da Microsoft podem não utilizar o TLS por predefinição. Isto poderá ser um fator ao ligar à Base de Dados SQL do Azure. As aplicações com controladores incorporados podem não permitir que controle estas definições de ligação. Recomendamos que analise a segurança de tais aplicações e controladores antes de os utilizar em sistemas que interajam com dados confidenciais.
 
+## <a name="libraries"></a>Bibliotecas
+
+Pode utilizar várias bibliotecas e estruturas para ligar à base de dados do Azure SQL. Confira nosso [introdução aos tutoriais](https://aka.ms/sqldev) para começar rapidamente com linguagens como c#, Java, node. js, PHP e Python. Em seguida, crie uma aplicação com o SQL Server no Linux ou o Windows ou o Docker no macOS.
+
+A tabela seguinte apresenta uma lista de bibliotecas de conectividade ou *drivers* que aplicações cliente podem utilizar a partir de uma variedade de idiomas para ligar e utilizar o SQL Server em execução no local ou na cloud. Pode usá-los no Linux, Windows ou no Docker e usá-los para ligar à base de dados do Azure SQL e o Azure SQL Data Warehouse. 
+
+| Idioma | Plataforma | Recursos adicionais | Transferência | Introdução |
+| :-- | :-- | :-- | :-- | :-- |
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET para o SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Transferência](https://www.microsoft.com/net/download/) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| Java | Windows, Linux, macOS | [Controlador Microsoft JDBC para SQL Server](https://msdn.microsoft.com/library/mt484311.aspx) | [Transferência](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| PHP | Windows, Linux, macOS| [Controlador de SQL de PHP para SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Transferência](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| Node.js | Windows, Linux, macOS | [Controlador de node. js para SQL Server](https://msdn.microsoft.com/library/mt652093.aspx) | [Instalar](https://msdn.microsoft.com/library/mt652094.aspx) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
+| Python | Windows, Linux, macOS | [Controlador de Python SQL](https://msdn.microsoft.com/library/mt652092.aspx) | Opções de instalação: <br/> \* [pymssql](https://msdn.microsoft.com/library/mt694094.aspx) <br/> \* [pyodbc](https://msdn.microsoft.com/library/mt763257.aspx) |  [Introdução](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
+| Ruby | Windows, Linux, macOS | [Controladores Ruby para SQL Server](https://msdn.microsoft.com/library/mt691981.aspx) | [Instalar](https://msdn.microsoft.com/library/mt711041.aspx) | [Introdução](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
+| C++ | Windows, Linux, macOS | [Controlador Microsoft ODBC para SQL Server](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) | [Transferência](https://msdn.microsoft.com/library/mt654048(v=sql.1).aspx) |  
+
+A tabela seguinte lista exemplos de estruturas de mapeamento objeto-relacional (ORM) e estruturas da web que as aplicações de cliente podem utilizar com o SQL Server em execução no local ou na cloud. Pode utilizar as estruturas no Linux, Windows ou no Docker e usá-los para ligar à base de dados SQL e SQL Data Warehouse. 
+
+| Idioma | Plataforma | ORM(s) |
+| :-- | :-- | :-- |
+| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
+| Java | Windows, Linux, macOS |[Hibernar ORM](https://hibernate.org/orm)|
+| PHP | Windows, Linux, macOS | [Laravel (Eloqüente)](https://laravel.com/docs/5.0/eloquent) |
+| Node.js | Windows, Linux, macOS | [Sequelize ORM](https://docs.sequelizejs.com) |
+| Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
+| Ruby | Windows, Linux, macOS | [Ruby on Rails](https://rubyonrails.org/) |
+||||
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter informações sobre a arquitetura de conectividade, veja [Arquitetura de Conectividade de Base de Dados SQL do Azure](sql-database-connectivity-architecture.md).
+- Para obter informações sobre a arquitetura de conectividade, veja [Arquitetura de Conectividade de Base de Dados SQL do Azure](sql-database-connectivity-architecture.md).
+- Encontrar [controladores do SQL Server](https://msdn.microsoft.com/library/mt654049.aspx) que são utilizadas para ligar aplicações cliente
+- Ligar à base de dados SQL:
+  - [Ligar à Base de Dados SQL com o .NET (C#)](sql-database-connect-query-dotnet.md) 
+  - [Ligar à Base de Dados SQL com PHP](sql-database-connect-query-php.md) 
+  - [Ligar à Base de Dados SQL com o Node.js](sql-database-connect-query-nodejs.md) 
+  - [Ligar à Base de Dados SQL com Java](sql-database-connect-query-java.md) 
+  - [Ligar à Base de Dados SQL com o Python](sql-database-connect-query-python.md)
+  - [Ligar à Base de Dados SQL com Ruby](sql-database-connect-query-ruby.md)
+- Exemplos de código da lógica de repetição:
+  - [Ligar de forma resiliente ao SQL Server com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Ligar de forma resiliente ao SQL Server com PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php

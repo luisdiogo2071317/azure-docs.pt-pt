@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034477"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816633"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligar ao Azure Cosmos DB com ferramentas de análise de BI com o controlador ODBC
 
@@ -59,7 +59,7 @@ Vamos começar com o controlador ODBC.
     ![Janela de configuração de DSN de controladores de ODBC do DB Cosmos do Azure](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nome da origem de dados**: O nome amigável para o DSN ODBC. Este nome é exclusivo para a sua conta do Azure Cosmos DB, portanto, um nome adequadamente se tiver várias contas.
     - **Descrição**: Uma breve descrição da origem de dados.
-    - **Anfitrião**: URI para a sua conta do Azure Cosmos DB. Pode obter isso da página de chaves do Azure Cosmos DB no portal do Azure, conforme mostrado na captura de ecrã seguinte. 
+    - **Host**: URI para a sua conta do Azure Cosmos DB. Pode obter isso da página de chaves do Azure Cosmos DB no portal do Azure, conforme mostrado na captura de ecrã seguinte. 
     - **Chave de acesso**: A chave primária ou secundária, leitura e escrita ou só de leitura da página de chaves do Azure Cosmos DB no portal do Azure, conforme mostrado na captura de ecrã seguinte. Recomendamos que utilize a chave só de leitura se o DSN é utilizado para processamento de dados só de leitura e de relatórios.
     ![Página do Azure Cosmos DB chaves](./media/odbc-driver/odbc-driver-keys.png)
     - **Encriptar a chave de acesso para**: Selecione a melhor opção com base nos utilizadores desta máquina. 
@@ -71,8 +71,8 @@ Vamos começar com o controlador ODBC.
     - **Número de tentativas**: Introduza o número de vezes a repetir uma operação, se o pedido inicial não for concluída devido a limitação de velocidade de serviço.
     - **Ficheiro de esquema**: Tem várias opções aqui.
         - Por padrão, deixando esta entrada como está (em branco), o driver analisa a primeira página de dados para todas as coleções determinar o esquema de cada coleção. Isso é conhecido como mapeamento de coleção. Sem um ficheiro de esquema definido, o controlador tem de executar a análise para cada sessão de controlador e pode resultar num tempo de inicialização mais elevado de um aplicativo usando o DSN. Recomendamos que sempre associar um ficheiro de esquema para um DSN.
-        - Se já tiver um ficheiro de esquema (possivelmente uma que criou utilizando o [Editor de esquema](#schema-editor)), pode clicar em **procurar**, navegue para o ficheiro, clique em **guardar**e, em seguida, clique em **OK**.
-        - Se quiser criar um novo esquema, clique em **OK**e, em seguida, clique em **Editor de esquema** na janela principal. Em seguida, avance para o [Editor de esquema](#schema-editor) informações. Depois de criar o novo ficheiro de esquema, não se esqueça de voltar para o **opções avançadas** janela para incluir o ficheiro de esquema recém-criado.
+        - Se já tiver um ficheiro de esquema (possivelmente um que criou utilizando o Editor de esquema), pode clicar **navegue**, navegue para o ficheiro, clique em **guardar**e, em seguida, clique em **OK**.
+        - Se quiser criar um novo esquema, clique em **OK**e, em seguida, clique em **Editor de esquema** na janela principal. Em seguida, avance para as informações do Editor de esquema. Depois de criar o novo ficheiro de esquema, não se esqueça de voltar para o **opções avançadas** janela para incluir o ficheiro de esquema recém-criado.
 
 1. Depois de concluir e feche o **configuração do Azure Cosmos DB ODBC Driver de DSN** janela, o novo utilizador DSN é adicionada à guia DSN de utilizador.
 

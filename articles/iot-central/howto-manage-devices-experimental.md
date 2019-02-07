@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5e423478e894487795b376340b13155950b4ef8d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 69c7da1a529e46c054d9c824c2aee71fa67bd8ff
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667046"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768646"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Gerir dispositivos na sua aplicação do Azure IoT Central (design de nova interface do Usuário)
 
@@ -180,6 +180,6 @@ Propriedades são os metadados do dispositivo associado ao dispositivo, como cid
 Agora que aprendeu como gerir dispositivos na sua aplicação do Azure IoT Central, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [Como utilizar conjuntos de dispositivo](howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [Como utilizar conjuntos de dispositivo](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
 
 <!-- Next how-tos in the sequence -->

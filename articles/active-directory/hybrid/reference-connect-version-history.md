@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf21b03463733f6613cfa515a6faf7c5ab1f33e8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: caff4973515d3866b94dba2e89d089ff042de43b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498136"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813250"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -36,6 +36,9 @@ Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [a
 Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+>[!NOTE]
+>Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O estado da versão irá indicar se uma versão for disponibilizada para atualização automática, ou apenas para download. Se a atualização automática foi ativada no seu servidor do Azure AD Connect, em seguida, esse servidor irão atualizar automaticamente para a versão mais recente do Azure AD Connect, que é fornecido para atualização automática. Tenha em atenção que nem todas as configurações do Azure AD Connect são elegíveis para atualização automática. Siga esta ligação para saber mais sobre [automaticamente a atualização](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
 ## <a name="12700"></a>1.2.70.0
 
@@ -539,7 +542,7 @@ Estado: 23 de Julho de 2017
   * Ativou a funcionalidade de repetição de escrita do utilizador.
   
   >[!NOTE]
-  >A expansão de âmbito da funcionalidade de atualização automática de afeta os clientes com o Azure AD Connect compilação 1.1.105.0 e depois. Se não pretender que o servidor do Azure AD Connect para ser atualizado automaticamente, tem de executar seguinte cmdlet no seu servidor do Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para obter mais informações sobre a ativação/desativação a atualização automática, consulte o artigo [do Azure AD Connect: A atualização automática](how-to-connect-install-automatic-upgrade.md).
+  >A expansão de âmbito da funcionalidade de atualização automática de afeta os clientes com o Azure AD Connect compilação 1.1.105.0 e depois. Se não pretender que o servidor do Azure AD Connect para ser atualizado automaticamente, tem de executar seguinte cmdlet no seu servidor do Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para obter mais informações sobre a ativação/desativação a atualização automática, consulte o artigo [do Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md) (Azure AD Connect: Atualização automática).
 
 ## <a name="115580"></a>1.1.558.0
 Estado: Não será lançado. Alterações nesta são criados estão incluídas na versão 1.1.561.0.
@@ -567,7 +570,7 @@ Estado: Não será lançado. Alterações nesta são criados estão incluídas n
   * Ativou a funcionalidade de repetição de escrita do utilizador.
   
   >[!NOTE]
-  >A expansão de âmbito da funcionalidade de atualização automática de afeta os clientes com o Azure AD Connect compilação 1.1.105.0 e depois. Se não pretender que o servidor do Azure AD Connect para ser atualizado automaticamente, tem de executar seguinte cmdlet no seu servidor do Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para obter mais informações sobre a ativação/desativação a atualização automática, consulte o artigo [do Azure AD Connect: A atualização automática](how-to-connect-install-automatic-upgrade.md).
+  >A expansão de âmbito da funcionalidade de atualização automática de afeta os clientes com o Azure AD Connect compilação 1.1.105.0 e depois. Se não pretender que o servidor do Azure AD Connect para ser atualizado automaticamente, tem de executar seguinte cmdlet no seu servidor do Azure AD Connect: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Para obter mais informações sobre a ativação/desativação a atualização automática, consulte o artigo [do Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md) (Azure AD Connect: Atualização automática).
 
 ## <a name="115570"></a>1.1.557.0
 Estado: Julho de 2017

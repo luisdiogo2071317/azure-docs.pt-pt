@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 9cf64f98e0a06fc063340f39326fdc1c12645db8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d538695fe7c920bbd22fcfb0e097220aa249f07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756449"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811822"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização de contentores no Log Analytics
 
@@ -100,16 +100,16 @@ Utilize as seguintes informações para instalar e configurar a solução.
 2. Instalar e utilizar o Docker com um agente do Log Analytics. Com base no seu sistema operativo e o orchestrator do Docker, pode utilizar os seguintes métodos para configurar o agente.
   - Para anfitriões autónomos:
     - Em sistemas de operativos Linux suportados, instalar e executar o Docker e, em seguida, instalar e configurar o [agente do Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - No CoreOS, não é possível executar o agente do Log Analytics para Linux. Em vez disso, executar uma versão em contentores do agente do Log Analytics para Linux. Revisão [anfitriões de contentor do Linux incluindo o CoreOS](#for-all-linux-container-hosts-including-coreos) ou [anfitriões de contentores de Linux do Azure Government incluindo CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) se estiver a trabalhar com contentores na Cloud do Azure Government.
+    - No CoreOS, não é possível executar o agente do Log Analytics para Linux. Em vez disso, executar uma versão em contentores do agente do Log Analytics para Linux. Reveja os anfitriões de contentor do Linux incluindo o CoreOS ou anfitriões de contentores de Linux do Azure Government incluindo CoreOS se estiver a trabalhar com contentores na Cloud do Azure Government.
     - No Windows Server 2016 e Windows 10, instalar o motor do Docker e o cliente, em seguida, ligue-se um agente reunir informações e enviá-lo para o Log Analytics. Revisão [instalar e configurar os anfitriões de contentor do Windows](#install-and-configure-windows-container-hosts) se tiver um ambiente do Windows.
   - Para orquestração de vários anfitriões do Docker:
-    - Se tiver um ambiente de Red Hat OpenShift, reveja [configurar um agente de Log Analytics para o Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
+    - Se tiver um ambiente de Red Hat OpenShift, consulte Configurar um agente do Log Analytics para Red Hat OpenShift.
     - Se tiver um cluster do Kubernetes com o Azure Container Service:
        - Revisão [configurar um agente Linux do Log Analytics para o Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Revisão [configurar um agente do Windows do Log Analytics para Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
-       - Revisão [Helm de utilização para implementar o agente do Log Analytics no Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
+       - Reveja a utilização Helm para implementar o agente do Log Analytics no Linux Kubernetes.
     - Se tiver um cluster do DC/OS do Azure Container Service, saiba mais em [monitorizar um cluster DC/OS do Azure Container Service com o Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - Se tiver um ambiente de modo Docker Swarm, saiba mais em [configurar um agente de Log Analytics para o Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
+    - Se tiver um ambiente de modo Docker Swarm, saiba mais em configurar um agente de Log Analytics para o Docker Swarm.
     - Se tiver um cluster do Service Fabric, saiba mais em [monitorizar contentores com o Log Analytics do Log Analytics](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Reveja os [motor do Docker no Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artigo para obter mais informações sobre como instalar e configurar seus mecanismos de Docker em computadores que executam o Windows.

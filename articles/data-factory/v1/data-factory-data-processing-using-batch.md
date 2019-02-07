@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021582"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822753"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021582"
 
 Este artigo descreve uma arquitetura de uma solução de exemplo que se move e processa grandes conjuntos de dados de maneira automática e agendada. Ele também fornece uma passo a passo-a-ponto para implementar a solução com o Data Factory e o Azure Batch.
 
-Este artigo é a mais de um artigo típico porque contém um passo a passo de uma solução de exemplo completo. Se estiver familiarizado com o Batch e o Data Factory, pode aprender sobre estes serviços, e como eles funcionam em conjunto. Se sabe algo sobre os serviços e é design/arquitetar uma solução, pode se concentrar no [secção de arquitetura](#architecture-of-sample-solution) do artigo. Se estiver desenvolvendo um protótipo ou uma solução, poderá querer experimentar as instruções passo a passo o [passo a passo](#implementation-of-sample-solution). Convidamos seus comentários sobre este conteúdo e como usá-lo.
+Este artigo é a mais de um artigo típico porque contém um passo a passo de uma solução de exemplo completo. Se estiver familiarizado com o Batch e o Data Factory, pode aprender sobre estes serviços, e como eles funcionam em conjunto. Se sabe algo sobre os serviços e é design/arquitetar uma solução, que se possa concentrar na seção de arquitetura do artigo. Se estiver desenvolvendo um protótipo ou uma solução, poderá querer experimentar as instruções passo a passo no passo a passo. Convidamos seus comentários sobre este conteúdo e como usá-lo.
 
 Em primeiro lugar, vamos dar uma olhada em como os serviços de fábrica de dados e em lote podem ajudá-lo a processo grandes conjuntos de dados na cloud.     
 
@@ -969,7 +969,7 @@ Depois de processar dados, pode consumir ferramentas online, como o Power BI. Se
   * [Introdução ao serviço do Data Factory](data-factory-introduction.md)
   * [Introdução ao Data Factory](data-factory-build-your-first-pipeline.md)
   * [Utilizar atividades personalizadas num pipeline do Data Factory](data-factory-use-custom-activities.md)
-* [O Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
+* [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
   * [Noções básicas do Batch](../../batch/batch-technical-overview.md)
   * [Descrição geral das funcionalidades do Batch](../../batch/batch-api-basics.md)

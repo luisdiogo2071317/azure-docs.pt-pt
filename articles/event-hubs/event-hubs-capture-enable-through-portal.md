@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558384"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810672"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Ativar a captura de eventos de transmissão em fluxo através dos Hubs de eventos do Azure
 
@@ -37,6 +37,9 @@ Quando criar um hub de eventos, pode ativar a Captura clicando no botão **Ativa
 A janela de tempo predefinida é de 5 minutos. O valor mínimo é 1, o máximo é 15. A janela **Tamanho** tem um intervalo de 10 a 500 MB.
 
 ![Janela de tempo para captura][1]
+
+> [!NOTE]
+> Pode ativar ou desativar a emissão de ficheiros vazios quando não existem eventos ocorrem durante a janela de captura. 
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Capturar dados para uma conta do Azure Data Lake Store
 

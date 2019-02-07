@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452648"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817280"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorizar uma conta de armazenamento no portal do Azure
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452648"
 
 1. Quando concluir a configuração de monitorização, selecione **guardar**.
 
-Um conjunto predefinido de métricas é apresentado em gráficos no painel da conta de armazenamento, bem como os painéis de serviço individual (blob, fila, tabela e ficheiro). Assim que tive ativado as métricas para um serviço, poderá demorar até uma hora para dados a serem exibidos nos seus gráficos. Pode selecionar **edite** em qualquer gráfico de métricas para [configurar as métricas](#how-to-customize-metrics-charts) são apresentados no gráfico.
+Um conjunto predefinido de métricas é apresentado em gráficos no painel da conta de armazenamento, bem como os painéis de serviço individual (blob, fila, tabela e ficheiro). Assim que tive ativado as métricas para um serviço, poderá demorar até uma hora para dados a serem exibidos nos seus gráficos. Pode selecionar **editar** em qualquer gráfico de métricas para configurar as métricas são apresentadas no gráfico.
 
 Pode desativar a recolha de métricas e registo ao definir **Status** ao **desativar**.
 
@@ -116,7 +116,7 @@ Pode adicionar gráficos de métricas de armazenamento do Azure para qualquer um
    ![Galeria de mosaicos no portal do Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. Selecione **personalização concluída** perto da parte superior do dashboard quando tiver terminado a adição de gráficos.
 
-Depois de adicionar gráficos ao seu dashboard, pode personalizar ainda mais-los conforme descrito em [personalizar gráficos de métricas](#how-to-customize-metrics-charts).
+Depois de adicionar gráficos ao seu dashboard, pode personalizar ainda mais-los conforme descrito em gráficos de métricas de personalizar.
 
 ## <a name="configure-logging"></a>Configurar o registo
 

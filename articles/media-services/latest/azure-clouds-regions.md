@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: juliako
-ms.openlocfilehash: 8eb49010d89c3039f46e5c84cd305b7d0b5ca025
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307016"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767457"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões nos quais serviços de multimédia do Azure v3 existe
 
@@ -33,9 +33,16 @@ Serviços de multimédia do Azure v3 está disponível através do Azure Resourc
 | [LiveEvents](live-streaming-overview.md) | Disponível | Disponível | Disponível | Disponível |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponível | Disponível | Disponível | Disponível |
 
-## <a name="regions"></a>Regiões 
+## <a name="regionsgeographieslocations"></a>As geografias/regiões/localizações
 
-Quando precisa fornecer o **localização** parâmetro, tem de fornecer o nome de código de região que o **localização** valor. Para obter o nome de código da região que pertença a sua conta e que sua chamada deve ser roteada para, pode executar a seguinte linha [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+* [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Produtos por região](https://azure.microsoft.com/global-infrastructure/services/)
+* [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Localizações do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+
+## <a name="region-code-name"></a>Nome do código de região 
+
+Quando precisa fornecer o **localização** parâmetro, tem de fornecer o nome de código de região que o **localização** valor. Para obter o nome de código da região que pertença a sua conta e que sua chamada deve ser roteada para, pode executar a seguinte linha [da CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 ```bash
 az account list-locations

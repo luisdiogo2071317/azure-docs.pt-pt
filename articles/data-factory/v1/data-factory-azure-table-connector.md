@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7156249e720416161cd56af7589ed85827c6034b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331848"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812555"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para tabelas do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,7 +137,7 @@ O exemplo a seguir mostra:
 1. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) (utilizado para tabelas e BLOBs).
 2. Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [Azuretable{0}name](#dataset-properties).
 3. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza [AzureTableSource](#activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza AzureTableSource e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 O exemplo copia os dados que pertencem à partição predefinido numa tabela do Azure para um blob a cada hora. As propriedades JSON utilizadas nestes exemplos são descritas nas seções a seguir os exemplos.
 
@@ -479,10 +479,10 @@ Ao mover dados para e a partir de tabelas do Azure, o seguinte procedimento [map
 | Edm.Boolean |Bool |Um valor booleano. |
 | Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). O intervalo suportado de DateTime começa de 12:00 1 de Janeiro, de 1601 a.d. (E.C.), UTC. O intervalo de termina a 31 de Dezembro, 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
-| Edm.Guid |GUID |Um identificador exclusivo global de 128 bits. |
+| Edm.Guid |Guid |Um identificador exclusivo global de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
-| Edm.String |Cadeia |Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ser até 64 KB. |
+| Edm.String |String |Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ser até 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Exemplo de conversão de tipo
 O exemplo a seguir é para copiar dados de um Blob do Azure para tabelas do Azure com conversões de tipo.
@@ -533,7 +533,7 @@ Tendo em conta o mapeamento do tipo de tipo de OData de tabela do Azure para o t
 
 **Esquema de tabela do Azure:**
 
-| Nome da coluna | Tipo |
+| Nome da coluna | Type |
 | --- | --- |
 | ID de utilizador |Edm.Int64 |
 | nome |Edm.String |

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: 5265b6f6ebf779c83792ab2569c1b613d11070da
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 149f37d0231ecc0547e8dc7937d22a9cc38b7df3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051531"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810223"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo e a versão do Ansible
 
@@ -21,7 +21,7 @@ ms.locfileid: "54051531"
 O Ansible é fornecido com um número de módulos que podem ser executados diretamente nos hosts remotos ou por meio de playbooks.
 Este artigo lista os módulos do Ansible para o Azure que pode aprovisionar os recursos de cloud do Azure como máquina virtual, redes e serviços de contentores. Pode obter estes módulos do lançamento oficial do Ansible ou das seguintes funções do playbook publicadas pela Microsoft.
 
-| Módulo do Ansible para o Azure                   |  2.4 do Ansible |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | [Função do Ansible](#introduction-to-azurepreviewmodule) | 
+| Módulo do Ansible para o Azure                   |  2.4 do Ansible |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Função do Ansible | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|-------------------------------------| 
 | **Computação**                    |           |                          |                          |                            |                                | 
 | azure_rm_availabilityset                    | Sim          | Sim                         | Sim          | Sim          | Sim                                 | 
@@ -123,7 +123,7 @@ Este artigo lista os módulos do Ansible para o Azure que pode aprovisionar os r
 | azure_rm_trafficmanagerendpoint_facts            | -            | -                         | -          | Sim          | Sim                                 | 
 | azure_rm_trafficmanagerprofile                   | -            | -                         | -          | Sim          | Sim                                 | 
 | azure_rm_trafficmanagerprofile_facts             | -            | -                         | -          | Sim          | Sim                                 | 
-| **Dimensionamento automático**                    |           |                          |                          |                             |                               | 
+| **AutoScale**                    |           |                          |                          |                             |                               | 
 | azure_rm_autoscale                  | -            | -                         | -          | Sim          | Sim                                 | 
 | azure_rm_autoscale_facts            | -            | -                         | -          | Sim          | Sim                                 | 
 

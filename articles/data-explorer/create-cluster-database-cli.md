@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: howto
 ms.date: 1/31/2019
-ms.openlocfilehash: 8c035524adebcb131872c700280201aaac07c52b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a4c9156ef80f05e247b1cfef0acd56b601a2db65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747957"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812689"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-a-database-using-cli"></a>Criar um cluster de Explorador de dados do Azure e uma base de dados com a CLI
 
@@ -48,12 +48,11 @@ az kusto cluster create --name azureclitest --sku D11_v2 --resource-group testrg
 
 Forneça os valores seguintes
 
-    **Definição** | **Valor sugerido** | **Descrição do campo**
-    |---|---|---|
-    | nome | *azureclitest* | O nome do cluster pretendido.|
-    | sku | *D13_v2* | O SKU que irá ser utilizado para o seu cluster. |
-    | resource-group | *testrg* | O nome do grupo de recursos onde seria possível criar o cluster. |
-    | | |
+   |**Definição** | **Valor sugerido** | **Descrição do campo**|
+   |---|---|---|
+   | nome | *azureclitest* | O nome do cluster pretendido.|
+   | sku | *D13_v2* | O SKU que irá ser utilizado para o seu cluster. |
+   | resource-group | *testrg* | O nome do grupo de recursos onde seria possível criar o cluster. |
 
 Se desejar, existem mais parâmetros opcionais que pode utilizar, como a capacidade do cluster etc.
 
@@ -75,14 +74,13 @@ az kusto database create --cluster-name azureclitest --name clidatabase --resour
 
 Forneça os valores seguintes
 
-    **Definição** | **Valor sugerido** | **Descrição do campo**
-    |---|---|---|
-    | cluster-name | *azureclitest* | O nome do cluster onde o devem ser criados.|
-    | nome | *clidatabase* | O nome pretendido da base de dados.|
-    | resource-group | *testrg* | O nome do grupo de recursos onde seria possível criar o cluster. |
-    | soft-delete-period | *3650:00:00:00* | Período de tempo que dados devem ser mantidos para que fique disponível para consulta. |
-    | armazenamento frequente-cache-período | *3650:00:00:00* | Período de tempo que dados devem ser mantidos na cache. |
-    | | |
+   |**Definição** | **Valor sugerido** | **Descrição do campo**|
+   |---|---|---|
+   | cluster-name | *azureclitest* | O nome do cluster onde o devem ser criados.|
+   | nome | *clidatabase* | O nome pretendido da base de dados.|
+   | resource-group | *testrg* | O nome do grupo de recursos onde seria possível criar o cluster. |
+   | soft-delete-period | *3650:00:00:00* | Período de tempo que dados devem ser mantidos para que fique disponível para consulta. |
+   | armazenamento frequente-cache-período | *3650:00:00:00* | Período de tempo que dados devem ser mantidos na cache. |
 
 Pode ver a base de dados que criou ao executar
 

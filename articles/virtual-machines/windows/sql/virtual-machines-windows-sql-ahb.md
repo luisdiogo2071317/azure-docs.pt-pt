@@ -15,21 +15,25 @@ ms.workload: iaas-sql-server
 ms.date: 11/14/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1b1c7192eb8389d3ad3a1c7c935d9c7e2d8769a9
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ff1281a249abf456176cffe2b02ef3c63b718d5a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359923"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768001"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Como alterar o modelo de licenciamento para uma máquina virtual do SQL Server no Azure
 Este artigo descreve como alterar o modelo de licenciamento para uma máquina virtual do SQL Server no Azure com o novo fornecedor de recursos de VM do SQL - **Microsoft.SqlVirtualMachine**. Há dois modelos para uma máquina virtual (VM) a alojar o SQL Server - pagamento por utilização, de licenciamento e traga a sua própria licença (BYOL). E agora, com o PowerShell ou a CLI do Azure, pode modificar o modelo de licenciamento sua VM do SQL Server utiliza. 
 
-O **pagamento por utilização** modelo significa que o custo por segundo de execução da VM do Azure inclui o custo da licença do SQL Server.
+O **pagamento por utilização** modelo (PAYG) significa que o custo por segundo de execução da VM do Azure inclui o custo da licença do SQL Server.
 
-O **Bring-your-own-license** modelo também é conhecido como o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/), e permite que use sua própria licença do SQL Server com uma VM a executar o SQL Server. Para obter mais informações sobre os preços, consulte [guia de preços de VM do SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
+O **Bring-your-own-license** modelo (BYOL) também é conhecido como o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/), e permite que use sua própria licença do SQL Server com uma VM a executar o SQL Server. Para obter mais informações sobre os preços, consulte [guia de preços de VM do SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
 Alternar entre os dois modelos de licença incorre **sem tempo de inatividade**, não reinicia a VM, adiciona **sem custos adicionais** (na verdade, ativar AHB *reduz* custo) e é **em vigor imediatamente**. 
+
+  >[!NOTE]
+  > - A capacidade de converter o modelo de licenciamento atualmente só está disponível ao iniciar com uma imagem de VM do SQL Server pay as you go. Se iniciar com uma imagem de bring-your-own-license a partir do portal, não será capaz de converter essa imagem para pay as you go. 
+  > - Clientes CSP podem utilizar o benefício AHB, primeiro a implementar uma VM de pay as you go e, em seguida, convertê-las bring-your-own-license. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A utilização do fornecedor de recursos de VM do SQL Server requer a extensão SQL IaaS. Assim, continuar a utilizar o fornecedor de recursos de VM do SQL Server, precisa do seguinte:
@@ -37,52 +41,45 @@ A utilização do fornecedor de recursos de VM do SQL Server requer a extensão 
 - R [VM do SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) com o [extensão SQL IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) instalado. 
 
 
-## <a name="register-existing-sql-server-vm-with-new-resource-provider"></a>Registar a VM de SQL server existente com o novo fornecedor de recursos
+## <a name="register-existing-sql-server-vm-with-sql-resource-provider"></a>Registar a VM existente do SQL Server com o fornecedor de recursos do SQL
 A capacidade de alternar entre modelos de licenciamento é um recurso fornecido pelo fornecedor de recursos de nova VM do SQL (Microsoft.SqlVirtualMachine). VMs do SQL Server implementada depois de Dezembro de 2018 são automaticamente registrados com o fornecedor de recursos novo. No entanto, as VMs existentes que foram implementadas até essa data tem de ser manualmente registados com o fornecedor de recursos antes de poderem mudar o respetivo modelo de licenciamento. 
 
-
-
-
+  > [!NOTE] 
   > Se remover o seu recurso de VM do SQL Server, irá voltar para a definição de licença hard-coded da imagem. 
 
+### <a name="register-sql-resource-provider-with-your-subscription"></a>Registar o fornecedor de recursos do SQL com a sua subscrição 
 
-### <a name="powershell"></a>PowerShell
+Para registar a sua VM do SQL Server com o fornecedor de recursos do SQL, tem de registar o fornecedor de recursos à sua subscrição. Pode fazê-lo com o PowerShell ou com o portal do Azure. 
 
-O fragmento de código seguinte irá ligá-lo para o Azure e verifique se o ID de subscrição que está a utilizar. 
-```PowerShell
-# Connect to Azure
-Connect-AzureRmAccount
-Account: <account_name>
-
-# Verify your subscription ID
-Get-AzureRmContext
-
-# Set the correct Azure Subscription ID
-Set-AzureRmContext -SubscriptionId <Subscription_ID>
-```
-
-O seguinte trecho de código primeiramente se registra o novo fornecedor de recursos do SQL para a sua subscrição e, em seguida, registra sua VM do SQL Server existente com o fornecedor de recursos novo. 
+#### <a name="using-powershell"></a>Com o PowerShell
+O fragmento de código seguinte irá registar o fornecedor de recursos do SQL com a sua subscrição do Azure. 
 
 ```powershell
 # Register the new SQL resource provider for your subscription
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
+```
+
+#### <a name="using-azure-portal"></a>Com o Portal do Azure
+Os passos seguintes irão registar o fornecedor de recursos do SQL com a sua subscrição do Azure no portal do Azure. 
+
+1. Abra o portal do Azure e navegue para **todos os serviços**. 
+1. Navegue para **subscrições** e selecione a subscrição de interesse.  
+1. Na **subscrições** painel, navegue até à **fornecedores de recursos**. 
+1. Tipo de `sql` no filtro para apresentar os fornecedores de recursos relacionados com o SQL. 
+1. Selecione *registar*, *voltar a registar*, ou *Unregister* para o **Microsoft.SqlVirtualMachine** fornecedor consoante sua ação desejada. 
+
+  ![Modificar o fornecedor](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
+
+### <a name="register-sql-server-vm-with-sql-resource-provider"></a>Registar a VM do SQL Server com o fornecedor de recursos do SQL
+Assim que o fornecedor de recursos do SQL foi registado com a sua subscrição, pode utilizar o PowerShell para registar a sua VM do SQL Server com o fornecedor de recursos do SQL. 
 
 
+```powershell
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzureRmVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzureRmVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
 New-AzureRmResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
-
-### <a name="portal"></a>Portal
-Também pode registar o fornecedor de recursos de VM do SQL nova com o portal. Para tal, siga estes passos:
-1. Abra o portal do Azure e navegue para **todos os serviços**. 
-1. Navegue para **subscrições** e selecione a subscrição de interesse.  
-1. Na **subscrições** painel, navegue até à **fornecedor de recursos**. 
-1. Tipo de `sql` no filtro para apresentar os fornecedores de recursos relacionados com o SQL. 
-1. Selecione *registar*, *voltar a registar*, ou *Unregister* para o **Microsoft.SqlVirtualMachine** fornecedor consoante sua ação desejada. 
-
-  ![Modificar o fornecedor](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell 
@@ -113,7 +110,7 @@ $SqlVm | Set-AzureRmResource -Force
 ```
 
   >[!NOTE]
-  > Para alternar entre licenças, tem de utilizar o novo fornecedor de recursos de VM do SQL Server. Se tentar executar estes comandos antes de registar a sua VM do SQL Server com o novo fornecedor, pode encontrar este erro: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` Se vir este erro, [registar a sua VM do SQL Server com o fornecedor de recursos novo](#register-existing-SQL-vm-with-new-resource-provider). 
+  > Para alternar entre licenças, tem de utilizar o novo fornecedor de recursos de VM do SQL Server. Se tentar executar estes comandos antes de registar a sua VM do SQL Server com o novo fornecedor, pode encontrar este erro: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` Se vir este erro, [registar a sua VM do SQL Server com o fornecedor de recursos novo](#register-existing-sql-server-vm-with-sql-resource-provider). 
  
 
 ## <a name="use-azure-cli"></a>Utilizar a CLI do Azure
@@ -132,7 +129,7 @@ az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --reso
 ```
 
   >[!NOTE]
-  >Para alternar entre licenças, tem de utilizar o novo fornecedor de recursos de VM do SQL Server. Se tentar executar estes comandos antes de registar a sua VM do SQL Server com o novo fornecedor, pode encontrar este erro: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` Se vir este erro, [registar a sua VM do SQL Server com o fornecedor de recursos novo](#register-existing-SQL-vm-with-new-resource-provider). 
+  >Para alternar entre licenças, tem de utilizar o novo fornecedor de recursos de VM do SQL Server. Se tentar executar estes comandos antes de registar a sua VM do SQL Server com o novo fornecedor, pode encontrar este erro: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` Se vir este erro, [registar a sua VM do SQL Server com o fornecedor de recursos novo](#register-existing-sql-server-vm-with-sql-resource-provider). 
 
 ## <a name="view-current-licensing"></a>Vista atual licenciamento 
 

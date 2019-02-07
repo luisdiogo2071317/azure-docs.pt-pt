@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015139"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816735"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados de DB2 usando a atividade de cópia de fábrica de dados do Azure
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-db2-connector.md)
 > * [Versão 2 (versão atual)](../connector-db2.md)
 
@@ -72,7 +72,7 @@ Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pi
 2. Crie conjuntos de dados para representar os dados de entrada e saídos da operação de cópia. 
 3. Crie um pipeline com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
 
-Quando utiliza o Assistente de cópia, definições de JSON da fábrica de dados ligado de serviços, datasets e entidades de pipeline são criadas automaticamente para. Ao utilizar ferramentas ou APIs (exceto a API .NET), define as entidades da fábrica de dados utilizando o formato JSON. O [exemplo de JSON: Copiar dados de DB2 para armazenamento de Blobs do Azure](#json-example-copy-data-from-db2-to-azure-blob) mostra as definições de JSON para as entidades da fábrica de dados que são utilizadas para copiar dados de um arquivo de dados DB2 no local.
+Quando utiliza o Assistente de cópia, definições de JSON da fábrica de dados ligado de serviços, datasets e entidades de pipeline são criadas automaticamente para. Ao utilizar ferramentas ou APIs (exceto a API .NET), define as entidades da fábrica de dados utilizando o formato JSON. O exemplo JSON: Copiar dados de DB2 para o armazenamento de Blobs do Azure mostram as definições de JSON para as entidades da fábrica de dados que são utilizadas para copiar dados de um arquivo de dados DB2 no local.
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON que são utilizadas para definir as entidades da fábrica de dados que são específicas para um arquivo de dados DB2.
 
@@ -82,7 +82,7 @@ A tabela seguinte lista as propriedades JSON que são específicas para um servi
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | **tipo** |Esta propriedade tem de ser definida **OnPremisesDb2**. |Sim |
-| **servidor** |O nome do servidor DB2. |Sim |
+| **server** |O nome do servidor DB2. |Sim |
 | **database** |O nome da base de dados DB2. |Sim |
 | **schema** |O nome do esquema na base de dados DB2. Esta propriedade diferencia maiúsculas de minúsculas. |Não |
 | **authenticationType** |O tipo de autenticação que é utilizada para ligar à base de dados DB2. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
@@ -311,43 +311,43 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
-| Real |Único |
-| Valor de duplo |Valor de duplo |
-| Flutuante |Valor de duplo |
+| Real |Single |
+| Double |Double |
+| Flutuante |Double |
 | decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
 | Date |DateTime |
-| Hora |Período de tempo |
+| Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | Xml |Byte[] |
-| char |Cadeia |
-| VarChar |Cadeia |
-| LongVarChar |Cadeia |
-| DB2DynArray |Cadeia |
+| char |String |
+| VarChar |String |
+| LongVarChar |String |
+| DB2DynArray |String |
 | Binário |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Gráfico |Cadeia |
-| VarGraphic |Cadeia |
-| LongVarGraphic |Cadeia |
-| CLOB |Cadeia |
+| Gráfico |String |
+| VarGraphic |String |
+| LongVarGraphic |String |
+| CLOB |String |
 | Blobs |Byte[] |
-| DbClob |Cadeia |
+| DbClob |String |
 | SmallInt |Int16 |
 | Número inteiro |Int32 |
 | BigInt |Int64 |
-| Real |Único |
-| Valor de duplo |Valor de duplo |
-| Flutuante |Valor de duplo |
+| Real |Single |
+| Double |Double |
+| Flutuante |Double |
 | decimal |Decimal |
 | DecimalFloat |Decimal |
 | Numérico |Decimal |
 | Date |DateTime |
-| Hora |Período de tempo |
+| Hora |TimeSpan |
 | Carimbo de data/hora |DateTime |
 | Xml |Byte[] |
-| char |Cadeia |
+| char |String |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
 Para saber como mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

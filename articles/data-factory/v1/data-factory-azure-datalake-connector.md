@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3b5425bd9f86bce289cc1f60c088febfd8f05ee3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 8731857d133e60cad4ecdca21874916949e05ff3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332630"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813522"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados para e de geração 1 de armazenamento do Data Lake com o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -240,8 +240,8 @@ O **typeProperties** secção para um conjunto de dados do tipo **AzureDataLakeS
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | **folderPath** |Caminho para o contentor e a pasta no Data Lake Store. |Sim |
-| **fileName** |Nome do ficheiro no Azure Data Lake Store. O **fileName** propriedade é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se especificar **fileName**, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando **fileName** não for especificada, cópia inclui todos os ficheiros na **folderPath** do conjunto de dados de entrada.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não está especificado no sink de atividade, o nome do ficheiro gerado está no formato de dados. _GUID_. txt '. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
-| **partitionedBy** |O **partitionedBy** propriedade é opcional. Pode usá-lo para especificar um caminho dinâmico e o nome de ficheiro para dados de séries temporais. Por exemplo, **folderPath** podem ser parametrizados por cada hora de dados. Para obter detalhes e exemplos, consulte [a propriedade partitionedBy](#using-partitionedby-property). |Não |
+| **fileName** |Nome do ficheiro no Azure Data Lake Store. O **fileName** propriedade é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se especificar **fileName**, a atividade (incluindo cópia) funciona no ficheiro específico.<br/><br/>Quando **fileName** não for especificada, cópia inclui todos os ficheiros na **folderPath** do conjunto de dados de entrada.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída e **preserveHierarchy** não está especificado no sink de atividade, o nome do ficheiro gerado está no formato de dados. _GUID_. txt '. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. | Não |
+| **partitionedBy** |O **partitionedBy** propriedade é opcional. Pode usá-lo para especificar um caminho dinâmico e o nome de ficheiro para dados de séries temporais. Por exemplo, **folderPath** podem ser parametrizados por cada hora de dados. Para obter detalhes e exemplos, consulte a propriedade partitionedBy. |Não |
 | **format** | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e **ParquetFormat**. Definir o **tipo** propriedade sob **formato** para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções o [formatos de ficheiro e de compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo. <br><br> Se pretender copiar ficheiros "como-é" entre arquivos baseados em ficheiros (binário cópia), ignore o `format` secção em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | **compression** | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis de suporte são **Optimal** e **Fastest**. Para obter mais informações, consulte [formatos de ficheiro e de compressão suportados pelo Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 

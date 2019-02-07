@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429094"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815851"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -164,7 +164,7 @@ Selecione as opções seguintes, conforme mostrado na imagem:
 2. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo no. Se quiser armazenar os dados para sempre, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento.
 3. Definir **retenção** para o número de dias que pretende armazenar os dados de.
 4. Selecione *nos* para **estado de análise de tráfego**.
-5. Selecione uma área de trabalho existentes do Log Analytics ou selecione **criar nova área de trabalho** para criar um novo. Uma área de trabalho do Log Analytics é utilizada pela análise de tráfego para armazenar os dados agregados e indexados que, em seguida, são utilizados para gerar a análise. Se selecionar uma área de trabalho existente, ela tem de existir da [regiões suportadas](#traffic-analytics-supported-regions) e foram atualizados para a nova linguagem de consulta. Se não desejar atualizar de uma área de trabalho existente ou não tem uma área de trabalho numa região suportada, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [atualizar o Azure Log Analytics para a nova pesquisa de registos](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selecione uma área de trabalho existentes do Log Analytics ou selecione **criar nova área de trabalho** para criar um novo. Uma área de trabalho do Log Analytics é utilizada pela análise de tráfego para armazenar os dados agregados e indexados que, em seguida, são utilizados para gerar a análise. Se selecionar uma área de trabalho existente, tem de existir uma das regiões suportadas e foram atualizados para a nova linguagem de consulta. Se não desejar atualizar de uma área de trabalho existente ou não tem uma área de trabalho numa região suportada, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [atualizar o Azure Log Analytics para a nova pesquisa de registos](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     A área de trabalho de análise do registo que aloja a solução de análise de tráfego e os NSGs não tem de ser na mesma região. Por exemplo, pode ter a análise de tráfego numa área de trabalho na região da Europa Ocidental, embora possa ter NSGs nos E.U.A. leste e E.U.A. oeste. Vários NSGs podem ser configurados na mesma área de trabalho.
 6. Selecione **Guardar**.

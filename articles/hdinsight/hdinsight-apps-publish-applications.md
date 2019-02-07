@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653922"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814209"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar uma aplicação de HDInsight no Azure Marketplace
 Pode instalar uma aplicação do Azure HDInsight num cluster do HDInsight baseado em Linux. Neste artigo, saiba como publicar uma aplicação do HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [publicar uma oferta no Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
@@ -56,7 +56,7 @@ Quando uma aplicação é instalada num cluster (seja num cluster existente, ou 
   > [!IMPORTANT]  
   > O nome do script de instalação de aplicação tem de ser exclusivo para um cluster específico. O nome do script tem de ter o seguinte formato:
   > 
-  > "name": "[concat ('hue-install-v0 ','-', uniquestring]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > O nome do script possui três partes:
   > 
@@ -75,9 +75,9 @@ O script de instalação tem de ter as seguintes características:
 * Se o seu script inicia os serviços em nós, os serviços são monitorizados e configurados para iniciar automaticamente se ocorrer um reinício do nó.
 
 ## <a name="package-the-application"></a>Empacotar a aplicação
-Crie um ficheiro. zip que contém todos os ficheiros que são necessários para instalar a aplicação do HDInsight. Utilizar o arquivo. zip [publicar a aplicação](#publish-application). O ficheiro. zip inclui os seguintes ficheiros:
+Crie um ficheiro. zip que contém todos os ficheiros que são necessários para instalar a aplicação do HDInsight. Utilize o ficheiro. zip para publicar a aplicação. O ficheiro. zip inclui os seguintes ficheiros:
 
-* [Createuidefinition](#define-application)
+* createUiDefinition.json
 * maintemplate. JSON (para obter um exemplo, veja [instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).)
 * Scripts de contas necessários
 
@@ -94,7 +94,7 @@ Para publicar uma aplicação do HDInsight:
 5. Selecione **definir algumas topologias para começar a utilizar**. Um modelo de solução é um "elemento principal" de todas as respetivas topologias. Pode definir vários topologias num modelo de solução ou oferta. Quando uma oferta é emitida para teste, esta é instalada com todas as respetivas topologias. 
 6. Introduza um nome de topologia e, em seguida, selecione **+**.
 7. Introduza uma nova versão e, em seguida, selecione **+**.
-8. Carregue o ficheiro. zip que criou quando [empacotado o aplicativo](#package-application).  
+8. Carregue o ficheiro. zip que criou quando empacotado que a aplicação.  
 9. Selecione **solicitar a certificação**. A equipe de certificação da Microsoft analisa os ficheiros e certifica a topologia.
 
 ## <a name="next-steps"></a>Passos Seguintes

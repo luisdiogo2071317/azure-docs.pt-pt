@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.openlocfilehash: ab3de9b010c0356dea17520b497235e0bf7c818e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2129b1f70ea19bdb2144f0f2a9ca4a6dbac0acbd
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181321"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766824"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerir as definições de verificação de dois passos
 Este artigo responde a perguntas sobre como atualizar as definições de verificação ou multifator a autenticação de dois passos. Se estiver a ter problemas ao iniciar sessão para a sua conta, consulte [dificuldades com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md) para resolução de problemas de ajuda.
@@ -74,7 +74,7 @@ Dependendo das suas definições de organização, talvez tenha uma caixa de ver
 2. Da próxima vez que iniciar sessão em qualquer dispositivo, será solicitado a efetuar a verificação de dois passos.
 
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Como limpar o Microsoft Authenticator do meu dispositivo antigo e mover para uma nova?
-Quando desinstalar a aplicação a partir do seu dispositivo ou repor o dispositivo, não remove a ativação no back-end. Para obter mais informações, consulte [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+Quando desinstalar a aplicação a partir do seu dispositivo ou repor o dispositivo, não remove a ativação no back-end. Para obter mais informações, consulte [Microsoft Authenticator](user-help-auth-app-download-install.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Obter sugestões de resolução de problemas e ajudar no [a ter problemas com verificação de dois passos](multi-factor-authentication-end-user-troubleshoot.md)

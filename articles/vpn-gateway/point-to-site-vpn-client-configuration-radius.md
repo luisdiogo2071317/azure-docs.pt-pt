@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0d915592053c256d3640d0f0de7bb94bf109f2c8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700167"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817823"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar os ficheiros de configuração de cliente VPN para autenticação P2S RADIUS
 
@@ -260,7 +260,7 @@ Utilize os seguintes passos para configurar o cliente VPN nativo no Mac para aut
 
 Para utilizar um tipo de autenticação diferentes (por exemplo, OTP), ou para utilizar um protocolo de autenticação diferentes (por exemplo, o PEAP-MSCHAPv2 em vez de EAP-MSCHAPv2), tem de criar seu próprio perfil de configuração de cliente VPN. Para criar o perfil, precisa de informações como o endereço IP do gateway de rede virtual, o tipo de túnel e rotas de divisão do túnel. Pode obter estas informações ao utilizar os seguintes passos:
 
-1. Utilize o `Get-AzureRmVpnClientConfiguration` cmdlet para gerar a configuração de cliente VPN para EapMSChapv2. Para obter instruções, consulte [esta secção](#ccradius) do artigo.
+1. Utilize o `Get-AzureRmVpnClientConfiguration` cmdlet para gerar a configuração de cliente VPN para EapMSChapv2. Para obter instruções, consulte esta secção do artigo.
 
 2. Deszipe o ficheiro de VpnClientConfiguration.zip e procure o **GenericDevice** pasta. Ignore as pastas que contêm os programas de instalação do Windows para arquiteturas de 64 bits e 32 bits.
  

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851026"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821393"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres do Active Directory e DNS
 
@@ -31,10 +31,10 @@ Este artigo explica como criar uma solução de recuperação após desastre par
 
 ## <a name="replicate-the-domain-controller"></a>Replicar o controlador de domínio
 
-- Tem de configurar [replicação de Site Recovery](#enable-protection-using-site-recovery), pelo menos uma VM que aloja um controlador de domínio ou DNS.
-- Se tiver [vários controladores de domínio](#environment-with-multiple-domain-controllers) no seu ambiente, também tem de configurar um [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino. O controlador de domínio adicional pode ser no Azure ou num datacenter secundário no local.
+- Tem de definir a replicação do Site Recovery, em pelo menos uma VM que aloja um controlador de domínio ou DNS.
+- Se tiver vários controladores de domínio no seu ambiente, também tem de configurar um controlador de domínio adicionais no site de destino. O controlador de domínio adicional pode ser no Azure ou num datacenter secundário no local.
 - Se tiver apenas alguns aplicativos e um controlador de domínio, pode querer fazer a ativação pós-falha de todo o site em conjunto. Neste caso, recomendamos utilizar o Site Recovery para replicar o controlador de domínio para o site de destino (seja no Azure ou num datacenter secundário no local). Pode utilizar o mesmo controlador de domínio replicados ou a máquina virtual DNS para [ativação pós-falha de teste](#test-failover-considerations).
-- - Se tiver muitos aplicativos e mais do que um controlador de domínio no seu ambiente ou, se planeja fazer a ativação pós-falha alguns aplicativos cada vez, além para replicar a máquina de virtual do controlador de domínio com o Site Recovery, recomendamos que configure uma [controlador de domínio adicional](#protect-active-directory-with-active-directory-replication) no site de destino (seja no Azure ou num datacenter secundário no local). Para [ativação pós-falha de teste](#test-failover-considerations), pode usar o controlador de domínio que é replicado pelo Site Recovery. Para ativação pós-falha, pode utilizar o controlador de domínio adicionais no site de destino.
+- - Se tiver muitos aplicativos e mais do que um controlador de domínio no seu ambiente ou, se planeja fazer a ativação pós-falha alguns aplicativos cada vez, além para replicar a máquina de virtual do controlador de domínio com o Site Recovery, recomendamos que configure um controlador de domínio adicional no site de destino (seja no Azure ou num datacenter secundário no local). Para [ativação pós-falha de teste](#test-failover-considerations), pode usar o controlador de domínio que é replicado pelo Site Recovery. Para ativação pós-falha, pode utilizar o controlador de domínio adicionais no site de destino.
 
 ## <a name="enable-protection-with-site-recovery"></a>Ativar a proteção com o Site Recovery
 
@@ -165,7 +165,7 @@ Se forem satisfeitas as condições anteriores, é provável que o controlador d
 1. Fazer uma restauração autoritativa do controlador de domínio. Considere as seguintes informações:
     * Embora não o recomendamos [replicação de FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/), se usar a replicação de FRS, siga os passos para uma restauração autoritativa. O processo é descrito em [usando a chave de registo BurFlags para serviço de replicação de ficheiros](https://support.microsoft.com/kb/290762).
 
-        Para obter mais informações sobre BurFlags, consulte a mensagem de blogue [D2 e D4: para que ele serve?](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
+        Para obter mais informações sobre BurFlags, consulte a mensagem de blogue [D2 e D4: Para que ele serve? ](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/).
     * Se utilizar a replicação de DFSR, conclua os passos para uma restauração autoritativa. O processo é descrito em [forçar uma sincronização autoritativa e não autoritativo para SYSVOL replicado por DFSR (como "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
 
         Também pode utilizar as funções do PowerShell. Para obter mais informações, consulte [funções do PowerShell de autoritativo/restauro não autoritativo de DFSR SYSVOL](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/).
@@ -174,7 +174,7 @@ Se forem satisfeitas as condições anteriores, é provável que o controlador d
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
-    Para obter mais informações, consulte [resolver problemas de 4013 de ID de evento de DNS: O servidor DNS não foi possível carregar AD integrado zonas DNS](https://support.microsoft.com/kb/2001093).
+    Para obter mais informações, consulte [resolver 4013 de ID de evento de DNS: O servidor DNS não foi possível carregar AD integrado zonas DNS](https://support.microsoft.com/kb/2001093).
 
 3. Desabilitar o requisito de que um servidor de catálogo global estejam disponíveis para validar o início de sessão do utilizador. Para tal, no controlador de domínio no local, defina a seguinte chave de registo **1**. Se o DWORD não existir, pode criar-o para baixo a **Lsa** nó.
 

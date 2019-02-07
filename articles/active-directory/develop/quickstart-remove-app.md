@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 61da59fd570b9acc58dce89907eb5a1726a28de9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 55866d5ff28c707c26141683bb90c8f2873b17c8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104484"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818911"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Início rápido: Remover uma aplicação registada com a plataforma de identidade da Microsoft (pré-visualização)
 
@@ -29,8 +29,8 @@ Os programadores empresariais e os fornecedores de software como um serviço (Sa
 
 Neste início rápido, vai aprender a:
 
-* [Remover uma aplicação criada por si ou pela sua organização](#remove-an-application-authored-by-your-organization)
-* [Remover uma aplicação criada por outra organização](#remove-an-application-authoried-by-another-organization)
+* Remover uma aplicação criada por si ou pela sua organização
+* Remover uma aplicação criada por outra organização
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469401"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814117"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional com autónoma, agrupados e bases de dados na base de dados do Azure SQL de instância
 
-Replicação transacional é uma funcionalidade de base de dados do Azure SQL, instância gerida e SQL Server que permite-lhe replicar dados de uma tabela numa base de dados do Azure SQL ou SQL Server para as tabelas colocadas em bancos de dados remotos. Esta funcionalidade permite-lhe sincronizar várias tabelas nas bases de dados diferentes.
+Replicação transacional é uma funcionalidade de base de dados do Azure SQL e SQL Server que permite-lhe replicar dados de uma tabela numa base de dados do Azure SQL ou SQL Server para as tabelas colocadas em bancos de dados remotos. Esta funcionalidade permite-lhe sincronizar várias tabelas nas bases de dados diferentes.
 
 ## <a name="when-to-use-transactional-replication"></a>Quando utilizar a replicação transacional
 
@@ -38,15 +38,15 @@ Os principais componentes na replicação transacional são mostrados na imagem 
 ![replicação de base de dados SQL](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-O **publicador** é uma instância ou um servidor que publica as alterações feitas no algumas tabelas (artigos) ao enviar as atualizações para o distribuidor. Publicação para uma base de dados do SQL do Azure a partir de um servidor de SQL no local é suportada nas seguintes versões do SQL Server:
+O **publicador** é uma instância ou um servidor que publica as alterações feitas no algumas tabelas (artigos) ao enviar as atualizações para o distribuidor. Base de dados de um servidor de SQL no local de publicação para qualquer SQL do Azure é suportada pelas seguintes versões do SQL Server:
 
-    - SQL Server 2019 (pré-visualização)
-    - SQL Server 2016 para o SQL 2017
-    - SQL Server 2014 SP1 CU3 ou superior (12.00.4427)
-    - SQL Server 2014 RTM CU10 (12.00.2556)
-    - SQL Server 2012 SP3 ou superior (11.0.6020)
-    - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-    - Para outras versões do SQL Server que não suportam a publicação de objetos no Azure, é possível utilizar o [republicar dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) método para mover dados para as versões mais recentes do SQL Server. 
+   - SQL Server 2019 (pré-visualização)
+   - SQL Server 2016 para o SQL 2017
+   - SQL Server 2014 SP1 CU3 ou superior (12.00.4427)
+   - SQL Server 2014 RTM CU10 (12.00.2556)
+   - SQL Server 2012 SP3 ou superior (11.0.6020)
+   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
+   - Para outras versões do SQL Server que não suportam a publicação de objetos no Azure, é possível utilizar o [republicar dados](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) método para mover dados para as versões mais recentes do SQL Server. 
 
 O **distribuidor** é uma instância ou um servidor que recolhe as alterações nos artigos de um editor e distribui-los para os subscritores. O distribuidor pode ser a instância gerida da base de dados SQL do Azure ou o SQL Server (qualquer versão desde que é igual ou superior à versão do publicador). 
 

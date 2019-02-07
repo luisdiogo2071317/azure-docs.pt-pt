@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071299"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813796"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "CRÍTICOS serviço falhou" na tela azul quando se reinicia uma VM do Azure
 Este artigo descreve o erro "Falha no serviço crítico" que ocorrem quando arranca uma Máquina Virtual do Windows (VM) no Microsoft Azure. Ele fornece passos de resolução de problemas para ajudar a resolver os problemas. 
 
 > [!NOTE] 
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve a utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve a utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptom"></a>Sintoma 
 
 Uma VM do Windows não iniciar. Quando verifica as capturas de ecrã de arranque [diagnósticos de arranque](./boot-diagnostics.md), verá uma das seguintes mensagens de erro numa tela azul:
 
-- "Seu PC Ocorreu um problema e tem de reiniciar. Pode reiniciar. Para obter mais informações sobre este problema e possíveis correções, visite http://windows.com/stopcode. Se chamar um técnico de suporte, dar-lhes estas informações: código de paragem: falha de serviço crítico " 
-- "Seu PC Ocorreu um problema e tem de reiniciar. Está a ser recolhido apenas algumas informações de erro e, em seguida, podemos será reiniciado para. Se quiser saber mais, pode pesquisar online mais tarde para este erro: CRITICAL_SERVICE_FAILED "
+- "Seu PC Ocorreu um problema e tem de reiniciar. Pode reiniciar. Para obter mais informações sobre este problema e possíveis correções, visite http://windows.com/stopcode. Se chamar um técnico de suporte, dar-lhes estas informações: Pare o código: FALHA DE SERVIÇO CRÍTICO" 
+- "Seu PC Ocorreu um problema e tem de reiniciar. Está a ser recolhido apenas algumas informações de erro e, em seguida, podemos será reiniciado para. Se quiser saber mais, pode pesquisar online mais tarde para este erro: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa
 
@@ -93,7 +93,7 @@ Para ativar registos de informação e a consola de série, execute o seguinte s
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Desanexar o disco do SO e, em seguida, volte a anexar o disco do SO para a VM afetada](troubleshoot-recovery-disks-portal-windows.md). A VM será arrancada no modo seguro. Se ainda perceber o erro, vá para o [passo opcional](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Desanexar o disco do SO e, em seguida, volte a anexar o disco do SO para a VM afetada](troubleshoot-recovery-disks-portal-windows.md). A VM será arrancada no modo seguro. Se ainda perceber o erro, vá para o passo opcional.
 3. Abra o **execute** caixa e execute **verifier** para iniciar a ferramenta de Gerenciador de verificação de Driver.
 4. Selecione **selecionar automaticamente os controladores não assinados**e, em seguida, clique em **próxima**.
 5. Irá obter a lista de ficheiros de controlador que não assinados. Lembre-se os nomes dos ficheiros.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075171"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768686"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e a terminologia nos Hubs de eventos do Azure
 
@@ -169,7 +169,7 @@ Unidades de débito são previamente adquiridas e são faturadas por hora. Assim
 
 Pode comprar mais unidades de débito em blocos de 20, até 100 unidades de débito, ao contactar o suporte do Azure. Além do limite, pode comprar blocos de 100 unidades de débito.
 
-Recomendamos que equilibre as unidades de débito e as partições para alcançar a escala ideal. Uma única partição tem um dimensionamento máximo de uma unidade de débito. O número de unidades de débito deve ser inferior ou igual ao número de partições num hub de eventos.
+Recomendamos que equilibre as unidades de débito e as partições para alcançar a escala ideal. Uma única partição tem um mínimo de dimensionamento de uma unidade de débito. O número de unidades de débito deve ser inferior ou igual ao número de partições num hub de eventos.
 
 Para obter informações detalhadas sobre os preços dos Hubs de Eventos, veja [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 

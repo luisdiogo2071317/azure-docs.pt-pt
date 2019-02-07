@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157011"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810206"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o Azure multi-factor Authentication
 > [!NOTE]
@@ -31,8 +31,8 @@ Sua experiência de início de sessão é diferente consoante aquilo que escolhe
 | --- |
 | [Com uma chamada telefónica para meu telefone mobile ou o office](#signing-in-with-a-phone-call) |
 | [Com uma mensagem de texto para o meu telemóvel](#signing-in-with-a-text-message)
-| [Com as notificações a partir da aplicação Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [Com os códigos de verificação a partir da aplicação Microsoft Authenticator](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| Com as notificações a partir da aplicação Microsoft Authenticator |
+| Com os códigos de verificação a partir da aplicação Microsoft Authenticator |
 | [Com um método alternativo, porque eu não é possível utilizar o meu método preferido de neste momento](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Iniciar sessão com uma chamada telefónica
@@ -87,4 +87,4 @@ Se tiver problemas ao iniciar sessão com a verificação de dois passos, obter 
 
 Saiba como [gerir as definições da verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md).
 
-Descubra como [começar com a aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para que possa utilizar notificações para iniciar sessão, em vez de textos e chamadas telefónicas.
+Descubra como [começar com a aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) para que possa utilizar notificações para iniciar sessão, em vez de textos e chamadas telefónicas.

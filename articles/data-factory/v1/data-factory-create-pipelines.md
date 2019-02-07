@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fb0448e5ad5bd91c63c2fcde9887ec23544bed3f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f04903cc1ffd16edd951969c86659c8f1f33105f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331355"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814134"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -150,10 +150,10 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 | simultaneidade |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade parallel, que podem ser efetuadas em setores diferentes. Por exemplo, se precisar de uma atividade de passar por um grande conjunto de dados disponíveis, ter um valor maior da simultaneidade acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de setores de dados que estão a ser processados.<br/><br/>Por exemplo, se tiver 2 reparte (uma aconteça às 16:00 e outro às 17:00), e ambos são execução pendente. Se definir o executionPriorityOrder ser NewestFirst, o setor às 17:00 é processado pela primeira vez. Da mesma forma se definir o executionPriorityORder ser OldestFIrst, em seguida, o setor às 16:00 é processado. |
 | retry |Número inteiro<br/><br/>Valor máximo pode ser 10 |0 |Número de tentativas antes do processamento de dados para o setor está marcado como falha. Execução da atividade de um setor de dados é repetida até o número especificado de tentativas. A nova tentativa é feita logo que possível após a falha. |
-| tempo limite |Período de tempo |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
-| atraso |Período de tempo |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
+| tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
+| atraso |TimeSpan |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
 | longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repetir: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
-| longRetryInterval |Período de tempo |00:00:00 |O atraso entre tentativas de repetição longa |
+| longRetryInterval |TimeSpan |00:00:00 |O atraso entre tentativas de repetição longa |
 
 ## <a name="sample-copy-pipeline"></a>Pipeline de cópia de exemplo
 No pipeline de exemplo seguinte, existe uma atividade do tipo **Cópia** na secção **activities**. No exemplo, a [atividade de cópia](data-factory-data-movement-activities.md) copia os dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure.
@@ -307,7 +307,7 @@ Depois de um pipeline é criado/implementado, pode gerir e monitorizar os seus p
 - [Monitorizar e gerir pipelines com a monitorizar e gerir aplicações](data-factory-monitor-manage-app.md)
 
 ## <a name="onetime-pipeline"></a>Onetime pipeline
-Pode criar e agendar o pipeline seja executado periodicamente (por exemplo: hora a hora ou diariamente) dentro as horas de início e de fim que especificar na definição do pipeline. Ver [as atividades de agendamento](#scheduling-and-execution) para obter detalhes. Também pode criar um pipeline que é executado apenas uma vez. Para tal, defina o **pipelineMode** propriedade na definição de pipeline para **onetime** conforme mostrado no seguinte exemplo JSON. O valor predefinido para esta propriedade é **agendada**.
+Pode criar e agendar o pipeline seja executado periodicamente (por exemplo: hora a hora ou diariamente) dentro as horas de início e de fim que especificar na definição do pipeline. Ver as atividades de agendamento para obter detalhes. Também pode criar um pipeline que é executado apenas uma vez. Para tal, defina o **pipelineMode** propriedade na definição de pipeline para **onetime** conforme mostrado no seguinte exemplo JSON. O valor predefinido para esta propriedade é **agendada**.
 
 ```json
 {

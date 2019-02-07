@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a3e7d2e5961f0951806ce9014fc320feef67ac90
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1d6f43b23bddf2d1ff7a2a41a11b4a2c8623d372
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735887"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768629"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -80,7 +80,7 @@ Esta secção mostra como configurar as ações a tomar quando a regra é dispar
 1. Escolha o **E-Mail** ação, introduza um endereço de e-mail válido no **para** campo e fornecer uma nota a aparecer no corpo da mensagem de e-mail quando a regra for acionada.
 
     > [!NOTE]
-    > Os e-mails são enviados apenas para os utilizadores que foram adicionados à aplicação e tem iniciado sessão pelo menos uma vez. Saiba mais sobre [gestão de utilizadores](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) no Azure IoT Central.
+    > Os e-mails são enviados apenas para os utilizadores que foram adicionados à aplicação e tem iniciado sessão pelo menos uma vez. Saiba mais sobre [gestão de utilizadores](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) no Azure IoT Central.
 
    ![Configurar ação](media/howto-create-telemetry-rules-experimental/Configure_Action.png)
 
@@ -88,8 +88,8 @@ Esta secção mostra como configurar as ações a tomar quando a regra é dispar
 
 Pode adicionar outras ações para a regra, como o Microsoft Flow e webhooks. Pode adicionar até 5 ações por regra.
 
-- [Ação do Microsoft Flow](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) para disparar um fluxo de trabalho no Microsoft Flow, quando é acionada uma regra 
-- [Ação do Webhook](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) para notificar outros serviços, quando é acionada uma regra
+- [Ação do Microsoft Flow](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) para disparar um fluxo de trabalho no Microsoft Flow, quando é acionada uma regra 
+- [Ação do Webhook](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) para notificar outros serviços, quando é acionada uma regra
 
 ## <a name="parameterize-the-rule"></a>Parametrizar a regra
 
@@ -115,6 +115,6 @@ Navegue para o dispositivo e selecione a regra que pretende ativar ou desativar.
 
 Agora que aprendeu como criar regras na sua aplicação do Azure IoT Central, aqui estão alguns passo seguinte:
 
-- [Adicionar ação do Microsoft Flow nas regras](howto-add-microsoft-flow.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Adicionar ação do Webhook nas regras](howto-create-webhooks.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Como gerir os seus dispositivos](howto-manage-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Adicionar ação do Microsoft Flow nas regras](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Adicionar ação do Webhook nas regras](howto-create-webhooks-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Como gerir os seus dispositivos](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

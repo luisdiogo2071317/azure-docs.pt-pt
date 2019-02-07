@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 757891a6968313c1a31ce67b399d6aa052abfa21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bd228a01cd3841772750882d13c33459385cc21
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999956"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817721"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Software Assurance, o Azure híbrido benefício para o Windows Server permite-lhe utilizar as suas licenças do Windows Server no local e executar as máquinas virtuais do Windows no Azure a um custo reduzido. Pode utilizar o Azure híbrido benefício para o Windows Server para implementar novas máquinas virtuais com o SO Windows. Este artigo vai sobre os passos sobre como implementar novas VMs com o Azure híbrido benefício para o Windows Server e como pode atualizar existente VMs em execução. Para obter mais informações sobre o Azure híbrido benefício para o Windows Server poupanças de custos e licenciamento, consulte a [página de licenciamento do Azure híbrido benefício para o Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -40,7 +40,7 @@ Para clientes com Software Assurance, o Azure híbrido benefício para o Windows
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Formas de utilizar o Azure híbrido benefício para o Windows Server
 Existem algumas formas de utilizar as máquinas virtuais do Windows com o benefício híbrido do Azure:
 
-1. Pode implementar VMs a partir de um dos fornecido [imagens do Windows Server no Azure Marketplace](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
+1. Pode implementar VMs a partir de uma das imagens do Windows Server fornecidas no Azure Marketplace
 2. Pode carregar VMS personalizadas e implementar com um modelo do Resource Manager ou o Azure PowerShell
 3. Pode ativar/desativar e converter uma VM existente entre executar com o benefício híbrido do Azure ou paga um custo de sob demanda para o Windows Server
 4. Também pode aplicar Azure híbrido benefício para o Windows Server no conjunto também de dimensionamento de máquina virtual

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 05e77821ffe913a8c6669d58a3145635d230ff2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fd434ed8d5b625a1a0ed1ff195da0f864a4024b0
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847002"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769449"
 ---
 # <a name="manage-process-servers"></a>Gerir servidores de processos
 
@@ -45,7 +45,7 @@ Para balancear a carga entre dois servidores de processo,
 
 5. Pode utilizar **balanceamento de carga** ou **comutador** opções, conforme explicado abaixo, de acordo com o requisito.
 
-### <a name="load-balance"></a>O balanceamento de carga
+### <a name="load-balance"></a>Balanceamento de carga
 
 Através desta opção, pode selecionar uma ou mais máquinas virtuais e podem ser transferidos para outro servidor de processos.
 
@@ -125,5 +125,5 @@ Se o software antivírus estiver ativo no servidor de processo do autónomo ou n
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- Diretório de instalação de servidor de processo, exemplo: C:\Program Files (x86) \Microsoft Azure Site Recovery
+- Diretório de instalação de servidor processo, exemplo: C:\Program Files (x86) \Microsoft do Azure Site Recovery
 

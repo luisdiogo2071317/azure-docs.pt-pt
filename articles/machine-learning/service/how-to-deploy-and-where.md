@@ -11,16 +11,16 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a32cb694a18f8fff937f647804659efb71be415e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745729"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766627"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
-O serviço Azure Machine Learning fornece várias formas que pode implementar o modelo preparado com o SDK. Neste documento, saiba como implementar o seu modelo como um serviço web na cloud do Azure ou para dispositivos do IoT edge.
+O serviço Azure Machine Learning fornece várias formas que pode implementar o modelo preparado com o SDK. Neste documento, saiba como implementar o seu modelo como um serviço web na cloud do Azure ou para dispositivos do IoT Edge.
 
 > [!IMPORTANT]
 > Recursos de várias origens (CORS) de partilha não é atualmente suportado quando implementar um modelo como um serviço web.
@@ -119,7 +119,7 @@ O script de execução recebe dados enviados para uma imagem implementada e pass
 
 #### <a name="working-with-json-data"></a>Trabalhar com dados JSON
 
-Segue-se um script de exemplo que aceita e devolve dados JSON. O `run` função transforma os dados JSON num formato que o modelo de espera e, em seguida, transforma a resposta para JSON antes de o devolver:
+O seguinte script de exemplo aceita e devolve dados JSON. O `run` função transforma os dados JSON num formato que o modelo de espera e, em seguida, transforma a resposta para JSON antes de o devolver:
 
 ```python
 # import things required by this script
@@ -149,7 +149,7 @@ def run(raw_data):
 
 #### <a name="working-with-binary-data"></a>Trabalhar com dados binários
 
-Se o seu modelo aceita __dados binários__, utilize `AMLRequest`, `AMLResponse`, e `rawhttp`. Segue-se um exemplo de um script que aceita dados binários e retorna os bytes revertidos em solicitações POST. Para solicitações GET, ele retorna o URL completo no corpo da resposta:
+Se o seu modelo aceita __dados binários__, utilize `AMLRequest`, `AMLResponse`, e `rawhttp`. O seguinte script de exemplo aceita dados binários e devolve os bytes revertidos em solicitações POST. Para solicitações GET, ele retorna o URL completo no corpo da resposta:
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -244,9 +244,6 @@ Para implementar no Azure Container Instances, utilize os seguintes passos:
 
     **Estimativa de tempo**: Aproximadamente 3 minutos.
 
-    > [!TIP]
-    > Se houver erros durante a implementação, utilize `service.get_logs()` para ver os registos do serviço. As informações com sessão iniciada podem indicar a causa do erro.
-
 Para obter mais informações, consulte a documentação de referência para o [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
 ### <a id="aks"></a> Implementar no serviço Kubernetes do Azure
@@ -334,9 +331,6 @@ print(service.state)
 
 **Estimativa de tempo**: Aproximadamente 3 minutos.
 
-> [!TIP]
-> Se houver erros durante a implementação, utilize `service.get_logs()` para ver os registos do serviço. As informações com sessão iniciada podem indicar a causa do erro.
-
 Para obter mais informações, consulte a documentação de referência para o [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
 
 ### <a id="fpga"></a> Implementar a matrizes de porta de campos programáveis (FPGA)
@@ -371,7 +365,7 @@ sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup
 
 Guarde a cadeia de ligação resultante após "cs": "{copiar essa cadeia de caracteres}".
 
-Inicializar o seu dispositivo baixando [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) num nó de extremidade de UbuntuX64 IoT ou DSVM para executar os comandos seguintes:
+Inicializar o seu dispositivo baixando [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) num nó de extremidade de IoT UbuntuX64 ou DSVM para executar os comandos seguintes:
 
 ```bash
 ssh <yourusername>@<yourdeviceip>
@@ -382,7 +376,7 @@ sudo ./installIoTEdge
 
 O nó do IoT Edge está pronto para receber a cadeia de ligação do hub IoT. Procure a linha ```device_connection_string:``` e cole a cadeia de ligação acima entre aspas.
 
-Também pode saber como registar o seu dispositivo e instalar o runtime do IoT passo a passo, seguindo o [início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64](../../iot-edge/quickstart-linux.md) documento.
+Também pode saber como registar o seu dispositivo e instalar o runtime do IoT, seguindo o [início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64](../../iot-edge/quickstart-linux.md) documento.
 
 
 #### <a name="get-the-container-registry-credentials"></a>Obter as credenciais do registo de contentor
@@ -390,7 +384,7 @@ Para implementar um módulo do IoT Edge para o seu dispositivo, o IoT do Azure t
 
 Pode obter facilmente as credenciais de registo de contentor necessário de duas formas:
 
-+ **No Portal do Azure**:
++ **No portal do Azure**:
 
   1. Inicie sessão no [portal do Azure](https://portal.azure.com/signin/index).
 
@@ -469,7 +463,7 @@ O serviço Web é uma API REST, para que possa criar aplicações cliente numa v
 
 ## <a id="update"></a> Atualizar o serviço web
 
-Para atualizar o serviço web, utilize o `update` método. O código a seguir demonstra como atualizar o serviço web para utilizar uma nova imagem:
+Quando cria uma nova imagem, tem tem de atualizar manualmente cada serviço que pretende utilizar a nova imagem. Para atualizar o serviço web, utilize o `update` método. O código a seguir demonstra como atualizar o serviço web para utilizar uma nova imagem:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -487,9 +481,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> Quando atualizar uma imagem, o serviço web não é atualizado automaticamente. Tem de atualizar manualmente cada serviço que pretende utilizar a nova imagem.
-
 Para obter mais informações, consulte a documentação de referência para o [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) classe.
 
 ## <a name="clean-up"></a>Limpeza
@@ -501,6 +492,19 @@ Para eliminar uma imagem, utilize `image.delete()`.
 Para eliminar um modelo registado, utilize `model.delete()`.
 
 Para obter mais informações, consulte a documentação de referência [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), e [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+* __Se houver erros durante a implementação__, utilize `service.get_logs()` para ver os registos do serviço. As informações com sessão iniciada podem indicar a causa do erro.
+
+* Os registos podem conter um erro que indica que __defina o nível de registo para DEBUG__. Para definir o nível de registo, adicione as seguintes linhas ao seu script de classificação, criar a imagem e, em seguida, criar um serviço com a imagem:
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    Esta alteração permite que o registo adicional e pode retornar a obter mais informações sobre por que motivo está a ocorrer o erro.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
-ms.openlocfilehash: 84b3808e56ad318165eeec973a622c2e8747c633
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b617ccee1826dfcc05ca7131d1eb04fd98b6b627
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488348"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811159"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer cópias de segurança de um farm do SharePoint no Azure Stack
 Fazer uma cópia de segurança de um farm do SharePoint no Azure Stack para o Microsoft Azure usando o servidor de cópia de segurança do Azure (MABS) da Microsoft em quase da mesma forma que efetue cópias de segurança de outras origens de dados. O Azure Backup fornece flexibilidade na programação de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. Ele também fornece a capacidade para armazenar cópias de disco local para rápida objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para retenção económica de longo prazo.
@@ -219,7 +219,7 @@ No exemplo a seguir, o *item do SharePoint recuperar* foi eliminado acidentalmen
 4. Clique no objeto do SharePoint mostrado o MABS **recuperação** separador para obter a estrutura de base de dados de conteúdo. O item com o botão direito e, em seguida, clique em **recuperar**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. Neste momento, siga os [passos de recuperação anteriormente no artigo](#restore-a-sharepoint-item-from-disk-using-dpm) para recuperar um banco de dados do SharePoint a partir do disco.
+5. Neste momento, siga os passos de recuperação anteriormente no artigo para recuperar um banco de dados do SharePoint a partir do disco.
 
 ## <a name="faqs"></a>FAQs
 P: Posso recuperar um item do SharePoint para a localização original se o SharePoint estiver configurado com o SQL AlwaysOn (com a proteção no disco)?<br>

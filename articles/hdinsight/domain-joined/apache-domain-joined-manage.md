@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434822"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819132"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerir clusters do HDInsight com o Enterprise Security Package
 Saiba os utilizadores e as funções no pacote de segurança de Enterprise do HDInsight (ESP) e como gerir clusters do ESP.
@@ -215,7 +215,7 @@ HDInsight Enterprise Security Package tem as seguintes funções:
 6. Clique em **adicionar utilizador** ou **adicionar grupo**e, em seguida, especifique os utilizadores ou grupos que podem utilizar as vistas do Hive.
 
 ## <a name="configure-users-for-the-roles"></a>Configurar utilizadores para as funções
- Para ver uma lista de funções e as respetivas permissões, consulte [funções de HDInsight clusters com ESP](#roles-of-domain---joined-hdinsight-clusters).
+ Para ver uma lista de funções e as respetivas permissões, consulte os clusters de funções do HDInsight com o ESP.
 
 1. Abra a gestão de Ambari da interface do Usuário.  Ver [abrir o Ambari de gerenciamento da interface do Usuário](#open-the-ambari-management-ui).
 2. No menu à esquerda, clique em **funções**.

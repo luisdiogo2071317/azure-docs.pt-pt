@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 529191cf867b6003b0c2eab5ed919087277c7095
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6dfc0f80285dfd7da6e78d7cbf9c993fed388a2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178040"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813539"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas ao iniciar sessão a uma aplicação a partir do painel de acesso
 
@@ -104,7 +104,7 @@ Todas as aplicações na galeria do Azure AD, ativada com capacidade de Enterpri
 
 Para configurar uma aplicação da galeria do Azure AD, que tem de:
 
--   [Adicionar uma aplicação a partir da galeria do Azure AD](#add-an-application)
+-   Adicionar uma aplicação a partir da galeria do Azure AD
 
 -   [Configurar valores de metadados da aplicação no Azure AD (URL de resposta de URL, identificador, início de sessão)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -114,7 +114,7 @@ Para configurar uma aplicação da galeria do Azure AD, que tem de:
 
 -   [Configurar valores de metadados do Azure AD no aplicativo (início de sessão no URL, o emissor, o URL de fim de sessão e o certificado)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Atribuir utilizadores à aplicação](#assign-users-to-the-application)
+-   Atribuir utilizadores à aplicação
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar uma aplicação a partir da galeria do Azure AD
 
@@ -362,9 +362,9 @@ Para transferir os metadados da aplicação ou o certificado do Azure AD, siga o
 
 Para configurar uma aplicação da galeria do Azure AD, que tem de:
 
--   [Adicionar uma aplicação a partir da galeria do Azure AD](#add-an-application)
+-   Adicionar uma aplicação a partir da galeria do Azure AD
 
--   [Configurar a aplicação para a palavra-passe início de sessão único](#configure-the-application)
+-   Configurar a aplicação para a palavra-passe início de sessão único
 
 ### <a name="add-an-application-from-the-azure-ad-gallery"></a>Adicionar uma aplicação a partir da galeria do Azure AD
 

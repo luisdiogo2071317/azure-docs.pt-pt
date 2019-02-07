@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 29997b2ff7d3834a91389790256cd0d075ce1ece
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744913"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768567"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funcionalidades de pré-visualização do Azure Stream Analytics
 
@@ -30,14 +30,6 @@ O Azure Stream Analytics oferece suporte a SQL Database do Azure como uma origem
 ### <a name="integration-with-azure-machine-learning"></a>Integração com o Azure Machine Learning
 
 Pode dimensionar tarefas do Stream Analytics com as funções de Machine Learning (ML). Para saber mais sobre como pode usar as funções de ML na sua tarefa do Stream Analytics, visite [dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Confira um cenário do mundo real com [executar análise de sentimentos com o Azure Stream Analytics e o Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="blob-output-partitioning-by-custom-time"></a>Saída do blob a criação de partições por tempo personalizado
-
-O Azure Stream Analytics podem enviar resultados para o armazenamento de Blobs com base em atributos de tempo personalizado. Para obter mais informações, visite [criação de partições de saída de Blobs do Azure Stream Analytics personalizado](stream-analytics-custom-path-patterns-blob-storage-output.md).
-
-### <a name="blob-output-partitioning-by-field-or-attribute"></a>Criação de partições pelo campo ou o atributo de saída de blob
-
-O Azure Stream Analytics podem enviar resultados para o armazenamento de Blobs com base em atributos ou campos personalizados. Para obter mais informações, visite [criação de partições de saída de Blobs do Azure Stream Analytics personalizado](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### <a name="javascript-user-defined-aggregate"></a>Agregado definido pelo utilizador do JavaScript
 

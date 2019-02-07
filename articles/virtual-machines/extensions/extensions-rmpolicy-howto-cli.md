@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 5054fdc08c7a0a1b3833ed95784f6018ac5c697e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659257"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770589"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Utilizar a política do Azure para restringir a instalação de extensões em VMs do Linux
 
@@ -98,7 +98,7 @@ Quando tiver terminado, prima a **Esc** da chave e, em seguida, escreva **: wq**
 
 ## <a name="create-the-policy"></a>Criar a política
 
-Uma definição de política é um objeto usado para armazenar a configuração que pretende utilizar. A definição de política usa os arquivos de regras e parâmetros para definir a política. Crie a definição de política com [criação da definição de política de az](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+Uma definição de política é um objeto usado para armazenar a configuração que pretende utilizar. A definição de política usa os arquivos de regras e parâmetros para definir a política. Crie a definição de política com [criação da definição de política de az](/cli/azure/role/assignment?view=azure-cli-latest).
 
 Neste exemplo, as regras e parâmetros são os arquivos criados e armazenados como arquivos. JSON no cloud shell.
 
@@ -117,7 +117,7 @@ az policy definition create \
 
 Este exemplo atribui a política para um grupo de recursos utilizando [criação da atribuição de política de az](/cli/azure/policy/assignment). Qualquer VM criada no **myResourceGroup** grupo de recursos não será possível instalar o acesso de VM do Linux ou as extensões de Script personalizado para Linux. O grupo de recursos tem de existir antes de poder atribuir a política.
 
-Utilizar [lista de contas de az](/cli/azure/account?view=azure-cli-latest#az_account_list) para obter o seu ID de subscrição para utilizar no lugar no exemplo.
+Utilizar [lista de contas de az](/cli/azure/account?view=azure-cli-latest) para obter o seu ID de subscrição para utilizar no lugar no exemplo.
 
 
 ```azurecli-interactive

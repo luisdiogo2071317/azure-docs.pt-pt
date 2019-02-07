@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 101385b23d8ea683dc5762d491e6a4bef91bbed4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022313"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813775"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -246,7 +246,7 @@ Se estiver a utilizar uma firewall de terceiros, pode abrir a porta 8050 manualm
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Se optar por não abrir a porta 8050 no computador gateway, utilize mecanismos que não a utilização a **definição credenciais** aplicativo para configurar as credenciais do arquivo de dados. Por exemplo, poderia usar [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) cmdlet do PowerShell. Ver [definição de credenciais e segurança](#set-credentials-and-securityy) secção sobre como as credenciais do arquivo de dados pode ser definida.
+Se optar por não abrir a porta 8050 no computador gateway, utilize mecanismos que não a utilização a **definição credenciais** aplicativo para configurar as credenciais do arquivo de dados. Por exemplo, poderia usar [New-AzureRmDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) cmdlet do PowerShell. Consulte a secção de credenciais de definição e a segurança na forma como as credenciais do arquivo de dados pode ser definida.
 
 ## <a name="update"></a>Atualizar
 Por predefinição, o data management gateway é atualizado automaticamente quando está disponível uma versão mais recente do gateway. O gateway não é atualizado até que todas as tarefas agendadas são feitas. Não existem mais tarefas são processadas pelo gateway até a operação de atualização é concluída. Se a atualização falhar, gateway é revertido para a versão antiga.
@@ -361,7 +361,7 @@ A tabela seguinte fornece descrições das colunas na **nós de Gateway** lista:
 
 Propriedade de monitorização | Descrição
 :------------------ | :---------- 
-Nome | Nome do gateway lógico e nós associado ao gateway. Nó é uma máquina com Windows no local que tem o gateway instalado no mesmo. Para obter informações sobre a ter mais de um nó (até quatro nós) num único gateway lógico, consulte [Gateway de gestão de dados - elevada disponibilidade e escalabilidade](data-factory-data-management-gateway-high-availability-scalability.md).    
+Name | Nome do gateway lógico e nós associado ao gateway. Nó é uma máquina com Windows no local que tem o gateway instalado no mesmo. Para obter informações sobre a ter mais de um nó (até quatro nós) num único gateway lógico, consulte [Gateway de gestão de dados - elevada disponibilidade e escalabilidade](data-factory-data-management-gateway-high-availability-scalability.md).    
 Estado | Estado do gateway lógico e os nós de gateway. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte [estado do Gateway](#gateway-status) secção. 
 Versão | Mostra a versão do gateway lógico e cada nó de gateway. A versão do gateway lógico é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração de gateway lógico, apenas os nós com o mesmo número de versão e a função de gateway lógico corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). 
 Memória disponível | Memória disponível num nó de gateway. Este valor é um instantâneo de quase em tempo real. 

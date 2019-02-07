@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 437217bdd3cc2ae8724d6bf24134d8fe725daac7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093313"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819098"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início rápido: Atualizar uma aplicação no Azure Active Directory
 
@@ -156,7 +156,7 @@ Quando registar uma aplicação no Azure AD, poderá querer que a mesma só este
 É importante ter em conta as diferenças entre estes dois tipos de aplicações:  
 
 - Uma aplicação de inquilino único destina-se a ser utilizada numa organização. Regra geral, é uma aplicação de linha de negócio (LoB) escrita por um programador de uma empresa. Só pode ser acedida pelos utilizadores com contas no mesmo inquilino do registo da aplicação. Como resultado, basta que seja aprovisionada num único diretório.
-- Uma aplicação multi-inquilinos destina-se a ser utilizada em muitas organizações. Conhecida como aplicação Web de software como serviço (SaaS), é, geralmente,escrita por um fornecedor de software independente (ISV). As aplicações multi-inquilinos têm de ser aprovisionadas em todos os inquilinos nos quais os utilizadores precisam de acesso. Para as registar, é necessário o consentimento do utilizador ou do administrador nos inquilinos que não aquele em que as aplicações estão registadas. Tenha em conta que as aplicações cliente nativas são multi-inquilinos por predefinição, pois são instaladas no dispositivo do proprietário do recurso. Veja a secção [Descrição geral da arquitetura de consentimento](#overview-of-the-consent-framework) anterior para obter detalhes sobre essa arquitetura.
+- Uma aplicação multi-inquilinos destina-se a ser utilizada em muitas organizações. Conhecida como aplicação Web de software como serviço (SaaS), é, geralmente,escrita por um fornecedor de software independente (ISV). As aplicações multi-inquilinos têm de ser aprovisionadas em todos os inquilinos nos quais os utilizadores precisam de acesso. Para as registar, é necessário o consentimento do utilizador ou do administrador nos inquilinos que não aquele em que as aplicações estão registadas. Tenha em conta que as aplicações cliente nativas são multi-inquilinos por predefinição, pois são instaladas no dispositivo do proprietário do recurso. Consulte a descrição geral da anterior da secção de estrutura de consentimento para obter detalhes sobre a estrutura de consentimento.
 
 Para que uma aplicação seja multi-inquilinos, é preciso fazer alterações ao registo da aplicação e à própria aplicação Web. As secções abaixo abordam essas duas alterações: 
 
@@ -184,7 +184,7 @@ O suporte de aplicações multi-inquilinos depende muito da arquitetura de conse
 A sua aplicação Web pode também oferecer:
 
 - A capacidade de “inscrever a minha empresa” aos administradores. Esta experiência, conhecida como “consentimento do administrador” dá aos administradores a capacidade de concederem o consentimento em nome de *todos os utilizadores* nas organizações deles. Só um utilizador que se autentique numa conta que pertença à função Administrador Global pode conceder o consentimento do administrador; os outros utilizadores recebem um erro.
-- Uma experiência de inscrição para os utilizadores. Espera-se que seja disponibilizado ao utilizador um botão de “inscrição” que redirecionará o browser para o ponto final `/authorize` de OAuth2.0 do Azure AD ou para um ponto final `/userinfo` do OpenID Connect. Estes pontos finais permitem à aplicação inspecionar o id_token e, assim, obter as informações do utilizador novo. A seguir à fase de inscrição, é apresentado ao utilizador um pedido de consentimento, semelhante ao que é mostrado na secção [Descrição geral da arquitetura do consentimento](#overview-of-the-consent-framework).
+- Uma experiência de inscrição para os utilizadores. Espera-se que seja disponibilizado ao utilizador um botão de “inscrição” que redirecionará o browser para o ponto final `/authorize` de OAuth2.0 do Azure AD ou para um ponto final `/userinfo` do OpenID Connect. Estes pontos finais permitem à aplicação inspecionar o id_token e, assim, obter as informações do utilizador novo. Após a fase de inscrição, é apresentada ao utilizador com um prompt de consentimento, semelhante à mostrada na descrição geral da secção de estrutura de consentimento.
 
 Para obter mais informações sobre as alterações à aplicação que são necessárias para suportar as experiências de acesso multi-inquilinos e de início de sessão/inscrição, veja:
 

@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299882"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817937"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -50,7 +50,7 @@ Siga as instruções no ecrã de uma configuração de cluster básico. Os detal
 
 * [Nome do grupo de recursos](#resource-group-name)
 * [Tipos de cluster e configuração](#cluster-types) 
-* [Início de sessão do cluster e nome de utilizador SSH](#cluster-login-and-ssh-username)
+* Início de sessão do cluster e nome de utilizador SSH
 * [Localização](#location)
 
 > [!IMPORTANT]  

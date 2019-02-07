@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 7f629ceb9fe5bd19c0558d1fde45d0bddcee744e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458878"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813012"
 ---
 # <a name="modeling-relationships"></a>Modelar relações
 Este artigo explica o processo de modelagem para criar as suas soluções de armazenamento de tabelas do Azure.
@@ -101,7 +101,7 @@ Modelos de domínio podem incluir um para um relações entre entidades. Se prec
 Também existem considerações de implementação que podem levar a implementar as relações um para um no serviço de tabela:  
 
 * Tratamento de entidades grandes (para obter mais informações, consulte [grandes entidades padrão](table-storage-design-patterns.md#large-entities-pattern)).  
-* A implementação de controlos de acesso (para obter mais informações, consulte [controlar o acesso com assinaturas de acesso partilhado](#controlling-access-with-shared-access-signatures)).  
+* A implementação de controlos de acesso (para obter mais informações, consulte a controlar o acesso com assinaturas de acesso partilhado).  
 
 ## <a name="join-in-the-client"></a>Junte-se no cliente
 Embora existam formas para modelar relações no serviço tabela, deve não se esqueça de que os dois motivos principais para utilizar o serviço de tabela são a escalabilidade e desempenho. Se encontrar a que modelagem de relações de muitos que comprometem o desempenho e escalabilidade da sua solução, deve se perguntar se é necessário criar todas as relações de dados em seu design de tabela. Poderá conseguir simplificar o design e melhorar a escalabilidade e desempenho da sua solução se permitir que a aplicação cliente realizar qualquer uniões necessárias.  
@@ -117,7 +117,7 @@ Pode manter instâncias das duas classes concretas no serviço de tabela com uma
 
 ![Tabela de pessoas](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Para obter mais informações sobre como trabalhar com vários tipos de entidade na mesma tabela no código do cliente, consulte a secção [trabalhar com tipos de entidade heterogênea](#working-with-heterogeneous-entity-types) mais adiante neste guia. Esta opção fornece exemplos de como a reconhecer o tipo de entidade no código do cliente.  
+Para obter mais informações sobre como trabalhar com vários tipos de entidade na mesma tabela no código do cliente, consulte a secção trabalhar com tipos de entidade heterogênea mais tarde neste guia. Esta opção fornece exemplos de como a reconhecer o tipo de entidade no código do cliente.  
 
 
 ## <a name="next-steps"></a>Passos Seguintes

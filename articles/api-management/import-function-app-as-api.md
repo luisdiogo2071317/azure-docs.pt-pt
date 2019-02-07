@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129765"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810784"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
 
@@ -37,7 +37,7 @@ Vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Concluir o guia de início rápido [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
+* Concluir o início rápido [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 * Certifique-se de que tem uma aplicação de Funções do Azure na sua subscrição. Para obter mais informações, veja [Criar uma Function App do Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Ela deve conter Funções com o acionador HTTP e a definição de nível de autorização definida como *Anónimo* ou *Função*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -160,7 +160,7 @@ Pode chamar operações diretamente a partir do portal do Azure. Utilizar o port
 
 Também pode chamar operações do portal do programador para testar as APIs. 
 
-1. Selecione a API que criou em [Importar e publicar uma API de back-end](#create-api).
+1. Selecione a API que criou no importar e publicar uma API de back-end.
 
 2. Selecione **Portal de programador**.
 

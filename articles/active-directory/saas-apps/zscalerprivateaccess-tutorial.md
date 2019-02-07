@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d150a91a00652d5af74253dfdf60eb728db97b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8be5e94886237129824204ea166a2663e2f3110e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192840"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: Integração do Active Directory do Azure com o Zscaler privada acesso (ZPA)
 
@@ -95,7 +95,7 @@ Para configurar e testar o Azure AD início de sessão único com o Zscaler priv
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de acesso privado Zscaler (ZPA)](#creating-a-zscaler-private-access-(zpa)-test-user)**  - para ter um equivalente da Eduarda Almeida na Zscaler privada acesso (ZPA) que está ligado à representação de ela do Azure AD.
+1. **Criar um utilizador de teste de acesso privado Zscaler (ZPA)** - para ter um equivalente da Eduarda Almeida na Zscaler privada acesso (ZPA) que está ligado à representação de ela do Azure AD.
 1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 

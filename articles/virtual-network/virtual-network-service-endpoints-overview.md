@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 45a0c179677a0a2c144ea33dbfb031c88257e1cb
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0f36439cba4a946fb05466f2d961e537196f0095
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382502"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818605"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -37,10 +37,7 @@ Esta funcionalidade está disponível para os seguintes serviços e regiões do 
 - **[Cofre de chaves do Azure](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: Disponível em geral em todas as regiões de cloud pública do Azure.
 - **[O Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões de cloud pública do Azure.
 - **[Os Hubs de eventos do Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões de cloud pública do Azure.
-
-**Pré-visualização**
-
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em pré-visualização.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Disponível em geral em todas as regiões do Azure onde o ADLS Gen1 está disponível.
 
 Para obter as notificações mais atualizadas, veja a página [Atualizações da Rede Virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -99,7 +96,7 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 ### <a name="scenarios"></a>Cenários
 
 - **Configurar o peering, ligado, ou várias redes virtuais**: Para proteger serviços do Azure para várias sub-redes numa rede virtual ou em várias redes virtuais, pode ativar pontos finais de serviço em cada um das sub-redes de forma independente e obter os recursos de serviço do Azure para todas essas sub-redes.
-- **Filtragem de tráfego de saída de uma rede virtual para serviços do Azure**: Se pretender inspecionar ou filtrar o tráfego destinado a um serviço do Azure de uma rede virtual, pode implementar uma aplicação virtual de rede na rede virtual. Em seguida, pode aplicar pontos finais de serviço à sub-rede onde está implementada a aplicação de rede virtual e proteger o recurso de serviço do Azure apenas nesta sub-rede. Este cenário poderá ser útil se pretender restringir o acesso aos serviços do Azure a partir da rede virtual apenas a recursos específicos do Azure através da filtragem da aplicação de rede virtual. Para obter mais informações, veja [saída com aplicações de rede virtual](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Filtragem de tráfego de saída de uma rede virtual para serviços do Azure**: Se pretender inspecionar ou filtrar o tráfego destinado a um serviço do Azure de uma rede virtual, pode implementar uma aplicação virtual de rede na rede virtual. Em seguida, pode aplicar pontos finais de serviço à sub-rede onde está implementada a aplicação de rede virtual e proteger o recurso de serviço do Azure apenas nesta sub-rede. Este cenário poderá ser útil se pretender restringir o acesso aos serviços do Azure a partir da rede virtual apenas a recursos específicos do Azure através da filtragem da aplicação de rede virtual. Para obter mais informações, veja [saída com aplicações de rede virtual](/azure/architecture/reference-architectures/dmz/nva-ha).
 - **Proteger recursos do Azure para serviços implementados diretamente em redes virtuais**: Vários serviços do Azure podem ser implementados diretamente em sub-redes específicas numa rede virtual. Pode proteger recursos de serviço do Azure para sub-redes de [serviços geridos](virtual-network-for-azure-services.md) ao configurar um ponto final de serviço na sub-rede do serviço gerido.
 - **Tráfego de disco de máquina virtual do Azure**: Tráfego de disco da máquina virtual (incluindo montar e desmontar, diskIO), para discos geridos /, não é afetada por pontos finais de serviço alterações do encaminhamento do armazenamento do Azure. Pode limitar o acesso REST aos blobs de página para selecionar redes, através de pontos finais de serviço e [regras de rede de Armazenamento do Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 

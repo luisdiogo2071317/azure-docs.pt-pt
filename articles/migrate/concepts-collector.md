@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 7a17bed165a5a8ff15a122a1376d1a3a5e17d45f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700932"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813335"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -65,7 +65,7 @@ O Recoletor tem de passar algumas verificações de pré-requisitos para garanti
 - **Verifique a ligação de internet**: O coletor pode ligar à internet diretamente ou através de um proxy.
     - A verificação de pré-requisitos verifica a conetividade à [URLs obrigatórios e opcionais](#urls-for-connectivity).
     - Se tiver uma ligação direta à internet, nenhuma ação específica é necessária, que não seja de certificar-se de que o coletor de contactar os URLs necessários.
-    - Se estiver a ligar através de um proxy, tenha em atenção a [os requisitos abaixo](#connect-via-a-proxy).
+    - Se estiver a ligar através de um proxy, tenha em atenção os requisitos abaixo.
 - **Certifique-se a sincronização de hora**: O Recoletor devem sincronizados com o servidor de horas da internet para garantir que os pedidos para o serviço são autenticados.
     - A portal.azure.com url deve ser acessível a partir do Recoletor para que o tempo pode ser validado.
     - Se a máquina não está sincronizada, terá de alterar a hora de relógio na VM do Recoletor de acordo com a hora atual. Para fazer isso abra uma linha de administrador na VM, execute **w32tm /tz** para verificar o fuso horário. Execute **w32tm /resync** para sincronizar a hora.
@@ -75,7 +75,7 @@ O Recoletor tem de passar algumas verificações de pré-requisitos para garanti
     - O serviço do Recoletor liga-se ao vCenter Server, recolhe os dados de metadados e o desempenho da VM e envia-os para o serviço Azure Migrate.
 - **Verificar o VMware PowerCLI 6.5 instalado**: O módulo do PowerShell do VMware PowerCLI 6.5 tem de ser instalado na VM do Recoletor, para que ele possa comunicar com o vCenter Server.
     - Se o coletor pode aceder aos URLs necessários para instalar o módulo, é instalar automaticamente durante a implementação do Recoletor.
-    - Se o Recoletor não é possível instalar o módulo durante a implementação, deve [instalá-lo manualmente](#install-vwware-powercli-module-manually).
+    - Se o Recoletor não é possível instalar o módulo durante a implementação, deve instalá-lo manualmente.
 - **Verifique a ligação ao vCenter Server**: O Recoletor tem de ser capaz de servidor vCenter e consulta por VMs, metadados e contadores de desempenho. [Verificar pré-requisitos](#connect-to-vcenter-server) para ligar.
 
 

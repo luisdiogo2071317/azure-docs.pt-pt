@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: a5b0e6d700ce64a25c20b23738508d2796fc6caa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487562"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810002"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Criar cópias de segurança e restaurar máquinas virtuais encriptadas com o Azure Backup
 Este artigo fala sobre os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Azure Backup. Também fornece detalhes sobre os cenários suportados, pré-requisitos e passos de resolução de problemas para casos de erro.
@@ -36,7 +36,7 @@ Este artigo fala sobre os passos para criar cópias de segurança e restaurar m�
 
 * Foi criado um cofre dos serviços de recuperação e a replicação de armazenamento foi definida ao seguir os passos em [preparar o ambiente para cópia de segurança](backup-azure-arm-vms-prepare.md).
 
-* Cópia de segurança foi indicada [permissões para aceder um cofre de chaves](#provide-permissions-to-backup) que contém as chaves e segredos para VMs encriptadas.
+* Cópia de segurança foi indicada permissões para aceder um cofre de chaves que contêm chaves e segredos para VMs encriptadas.
 
 ## <a name="backup-encrypted-vm"></a>VM encriptada de cópia de segurança
 Utilize os seguintes passos para definir um objetivo de cópia de segurança, definir uma política, configurar os itens e acionar uma cópia de segurança.
@@ -76,7 +76,7 @@ Se for um **utilizador de membro**, processo de ativar cópia de segurança ser�
 
    ![Mensagem de VMs encriptada](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   Para uma **utilizador convidado**, tem de fornecer permissões para o serviço de cópia de segurança para aceder ao Cofre de chaves para cópias de segurança trabalhar. Pode fornecer estas permissões ao seguir o [passos mencionados na secção seguinte](#provide-permissions-to-backup)
+   Para uma **utilizador convidado**, tem de fornecer permissões para o serviço de cópia de segurança para aceder ao Cofre de chaves para cópias de segurança trabalhar. Pode fornecer estas permissões ao seguir os passos mencionados na secção seguinte
 
    ![Mensagem de VMs encriptada](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 

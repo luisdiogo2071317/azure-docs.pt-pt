@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8ac8f2fe62898cdeb386fd3a8275fec1712c1728
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5e8d45a9bf9fdffc824994238add2b8541a878a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491557"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812724"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: Compreender o Aprovisionamento Declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de aprovisionamento declarativo e permite-lhe efetuar uma configuração alterar com facilidade. Muitas coisas descritas neste tópico são avançadas e não é necessário para a maioria dos cenários de clientes.
@@ -37,7 +37,7 @@ O pipeline tem vários módulos diferentes. Cada um deles é responsável por um
 * Origem, o objeto de origem
 * [Âmbito](#scope), encontrar todas as regras de sincronização que se encontrem no âmbito
 * [Junte-se a](#join), determina a relação entre o espaço conector e de metaverso
-* [Transformar](#transform), Calculates como atributos devem ser transformados e do flow
+* Transformação, Calculates como atributos devem ser transformados e o flow
 * [Precedência](#precedence), resolve em conflito contribuições de atributo
 * Destino, o objeto de destino
 

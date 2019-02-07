@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 58c1af860c5ccc87f4396c698b432f47f0ea7c65
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d513825cad397763792fdc9ffb833ba54e957e7d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096964"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822668"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Como resolver problemas de Cache do Azure para Redis
 Este artigo fornece orientações para resolução de problemas seguintes categorias de Cache do Azure para problemas de Redis.
@@ -131,7 +131,7 @@ Ver [o que aconteceu aos meus dados no Redis?](https://gist.github.com/JonCole/b
 Esta secção aborda a resolução de problemas que ocorrem devido a uma condição no servidor de cache.
 
 * [Pressão de memória no servidor](#memory-pressure-on-the-server)
-* [Elevada utilização da CPU / carregamento do servidor](#high-cpu-usage-server-load)
+* Elevada utilização da CPU / carregamento do servidor
 * [Largura de banda do lado servidor excedida](#server-side-bandwidth-exceeded)
 
 ### <a name="memory-pressure-on-the-server"></a>Pressão de memória no servidor
@@ -230,7 +230,7 @@ Esta mensagem de erro contém métricas que podem ajudar a indicar-lhe a causa e
 5. Existem comandos a demorar muito tempo a processar no servidor? Há muito tempo a executar comandos que estão a demorar muito tempo a processar no servidor de redis pode provocar tempos limite. Alguns exemplos de comandos de execução demorada são `mget` com um grande número de chaves, `keys *` ou mal escrito scripts de lua. Pode ligar à Cache para a instância de Redis com o cliente redis-cli do Azure ou utilizar o [consola de Redis](cache-configure.md#redis-console) e execute o [SlowLog](https://redis.io/commands/slowlog) comando para ver se existem pedidos demorar mais tempo do que o esperado. Servidor redis e stackexchange. redis estão otimizados para muitas solicitações pequenas em vez de menos solicitações grandes. Dividir os dados em segmentos mais pequenos, pode melhorar as coisas aqui. 
    
     Para obter informações sobre como ligar à Cache do Azure para o ponto final de Redis SSL com o redis-cli e túnel, consulte a [anunciando ASP.NET sessão do fornecedor de estado para versão de pré-visualização de Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) postagem de blog. Para obter mais informações, consulte [SlowLog](https://redis.io/commands/slowlog).
-6. Carga de servidor da Redis elevada pode provocar tempos limite. Pode monitorizar a carga do servidor através da monitorização do `Redis Server Load` [métrica de desempenho da cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor redis tem estado ocupado, com nenhum tempo de inatividade, processamento de pedidos. Para ver se determinadas solicitações estão ocupando toda a capacidade de servidor, execute o comando de SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, consulte [utilização elevada da CPU / servidor carregar](#high-cpu-usage-server-load).
+6. Carga de servidor da Redis elevada pode provocar tempos limite. Pode monitorizar a carga do servidor através da monitorização do `Redis Server Load` [métrica de desempenho da cache](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Uma carga de servidor de 100 (valor máximo) significa que o servidor redis tem estado ocupado, com nenhum tempo de inatividade, processamento de pedidos. Para ver se determinadas solicitações estão ocupando toda a capacidade de servidor, execute o comando de SlowLog, conforme descrito no parágrafo anterior. Para obter mais informações, consulte utilização elevada da CPU / carregamento do servidor.
 7. Houve qualquer outro evento no lado do cliente que pode ter causado um blip de rede? No cliente (web, função de trabalho ou uma VM IaaS), verifique se Ocorreu um evento como aumentando ou reduzindo, o número de instâncias de cliente ou implementar uma nova versão do cliente ou o dimensionamento automático está ativado? No nosso teste, Achamos que dimensionamento automático ou aumentar verticalmente/para baixo pode causa conectividade de rede de saída podem ser perdida para vários segundos. Código de stackexchange. redis face a tais eventos e volta. Durante este período de restabelecer a ligação, quaisquer pedidos na fila podem tempo limite.
 8. Houve um grande pedido anterior vários pequenos pedidos para a Cache do Azure para Redis que excedeu o limite? O parâmetro `qs` no erro mensagem indica o número de pedidos foram enviado do cliente para o servidor, mas ainda não processados uma resposta. Este valor pode continuam a aumentar porque stackexchange. redis utiliza uma única ligação de TCP e só pode ler uma resposta ao mesmo tempo. Mesmo que a primeira operação excedeu o limite de tempo, não impede que os dados enviados de/para o servidor e outras solicitações são bloqueadas até que o pedido de grandes estiver concluído, fazendo com que os detalhes de tempo. Uma solução é minimizar a possibilidade de tempos limite, garantindo que a cache é grande o suficiente para a sua carga de trabalho e a divisão de valores grandes em segmentos mais pequenos. Outra solução possível é utilizar um conjunto de `ConnectionMultiplexer` objetos no seu cliente e escolha menos carregado `ConnectionMultiplexer` ao enviar um pedido de novo. Isso deve impedir que um tempo limite único que faz com que outros pedidos para também o tempo limite.
 9. Se estiver a utilizar `RedisSessionStateProvider`, certifique-se de que definiu o tempo limite de repetição corretamente. `retryTimeoutInMilliseconds` deve ser superior a `operationTimeoutInMilliseconds`, caso contrário, não existem repetições ocorrem. No exemplo a seguir `retryTimeoutInMilliseconds` está definido como 3000. Para obter mais informações, consulte [fornecedor de estado de sessão do ASP.NET para a Cache de Redis do Azure](cache-aspnet-session-state-provider.md) e [como utilizar os parâmetros de configuração do fornecedor de estado de sessão e o fornecedor de Cache de saída](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).

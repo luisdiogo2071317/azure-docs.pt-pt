@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 02f09363e9f9a014ceaf63f375c4e417f8c09232
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2506137e03e8677827bb1e2a3914ee10ae24f368
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666409"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810121"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central (design de nova interface do Usuário)
 
@@ -47,7 +47,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se concluiu o início rápido [Criar uma aplicação do Azure IoT Central](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json), pode reutilizar a aplicação que criou no início rápido. Caso contrário, execute os seguintes passos para criar uma aplicação do Azure IoT Central vazia:
+Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se concluiu o início rápido [Criar uma aplicação do Azure IoT Central](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json), pode reutilizar a aplicação que criou no início rápido. Caso contrário, execute os seguintes passos para criar uma aplicação do Azure IoT Central vazia:
 
 1. Navegue para a página do [Gestor de Aplicações](https://aka.ms/iotcentral) do Azure IoT Central.
 
@@ -63,7 +63,7 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
     
     * Escolha **Avaliação**. Não precisa de uma subscrição do Azure para criar uma aplicação de Avaliação.
     
-       Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+       Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
     
     * Selecione **Aplicação Personalizada**.
     
@@ -73,7 +73,7 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
 
     ![Página da Aplicação do Azure IoT Central](./media/tutorial-define-device-type-experimental/iotcentralcreate.png)
 
-    Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+    Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="create-a-new-custom-device-template"></a>Criar um novo modelo de dispositivo personalizado
 
@@ -236,7 +236,7 @@ As definições, as propriedades e os comandos são valores diferentes definidos
 
     * Utilize _propriedades do dispositivo_ para ativar um dispositivo para enviar os valores de propriedade para a aplicação. Estas propriedades só podem ser alteradas pelo dispositivo. Para um operador, as propriedades do dispositivo são só de leitura. Neste cenário de um ar condicionado ligado, a versão de firmware e o número de série do dispositivo são propriedades comunicadas pelo dispositivo.
     
-    Para obter mais informações, consulte [propriedades](howto-set-up-template.md#properties) no guia de procedimento sobre como configurar um modelo de dispositivo.
+    Para obter mais informações, consulte [propriedades](howto-set-up-template-experimental.md#properties) no guia de procedimento sobre como configurar um modelo de dispositivo.
 
 * Pode utilizar _comandos_ para gerir remotamente o dispositivo a partir da sua aplicação. Pode executar diretamente comandos no dispositivo a partir da cloud para controlar os dispositivos. Por exemplo, um operador pode executar comandos, como reiniciar, para reiniciar instantaneamente o dispositivo.
 

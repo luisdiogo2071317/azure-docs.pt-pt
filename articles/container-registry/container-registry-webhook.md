@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
 ms.author: danlep
-ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854104"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770606"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilizar webhooks de registo de contentor do Azure
 
@@ -33,9 +33,9 @@ Para obter detalhes sobre pedidos de webhook, veja [referência de esquema de we
 1. Selecione **adicionar** na barra de ferramentas da webhook.
 1. Concluir o *criar webhook* formulário com as seguintes informações:
 
-| Valor | Descrição |
+| Value | Descrição |
 |---|---|
-| Nome | O nome que pretende dar para o webhook. Pode conter apenas letras minúsculas e números e tem de ser 5 a 50 carateres de comprimento. |
+| Name | O nome que pretende dar para o webhook. Pode conter apenas letras minúsculas e números e tem de ser 5 a 50 carateres de comprimento. |
 | URI de serviço | O URI onde o webhook deve enviar as notificações de POST. |
 | Cabeçalhos personalizados | Cabeçalhos que pretende passar juntamente com o pedido POST. Eles devem estar na "chave: valor" formato. |
 | Ações de Acionador | Ações que acionam o webhook. Webhooks atualmente pode ser acionados por push de imagem e/ou eliminar ações. |
@@ -74,7 +74,7 @@ Para testar um webhook do ACR com a CLI do Azure, utilize o [ping do az acr webh
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-Para ver os resultados, utilize o [az acr webhook lista-eventos](/cli/azure/acr/webhook#list-events) comando.
+Para ver os resultados, utilize o [az acr webhook lista-eventos](/cli/azure/acr/webhook) comando.
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01
@@ -104,4 +104,4 @@ Para obter detalhes sobre o formato e propriedades do conteúdo de eventos do JS
 
 Além dos eventos de webhook de registo nativo discutidos neste artigo, o Azure Container Registry pode emitir eventos para o Event Grid:
 
-[Início rápido: Enviar contentor eventos de registo para o Event Grid](container-registry-event-grid-quickstart.md)
+[Quickstart: Enviar eventos de registo de contentor para o Event Grid](container-registry-event-grid-quickstart.md)

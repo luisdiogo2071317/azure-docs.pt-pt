@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990183"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818826"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerir registos DNS e conjuntos de registros no DNS do Azure com o Azure PowerShell
 
@@ -50,7 +50,7 @@ Se o seu novo registo tiver o mesmo nome e tipo como um registo existente, terá
 
 Pode criar conjuntos de registos com o cmdlet `New-AzureRmDnsRecordSet`. Ao criar um conjunto de registos, tem de especificar o conjunto de registos nome, a zona, a hora para live (TTL), o tipo de registo e os registos a ser criada.
 
-Os parâmetros para adicionar registos a um conjunto de registos variam consoante o tipo do conjunto de registos. Por exemplo, quando utilizar um conjunto de registos do tipo "A", tem de especificar o endereço IP utilizando o parâmetro `-IPv4Address`. Outros parâmetros são utilizados para outros tipos de registos. Ver [exemplos de tipo de registo adicionais](#additional-record-type-examples) para obter detalhes.
+Os parâmetros para adicionar registos a um conjunto de registos variam consoante o tipo do conjunto de registos. Por exemplo, quando utilizar um conjunto de registos do tipo "A", tem de especificar o endereço IP utilizando o parâmetro `-IPv4Address`. Outros parâmetros são utilizados para outros tipos de registos. Veja exemplos de tipo de registo adicionais para obter detalhes.
 
 O exemplo seguinte cria um conjunto de registos com o nome relativo "www" na zona DNS "contoso.com". O nome completamente qualificado do conjunto de registos é "www.contoso.com". O tipo de registo é "A", e o TTL é de 3600 segundos. O conjunto de registos contém um único registo, com o endereço IP "1.2.3.4".
 
@@ -236,7 +236,7 @@ Esta sequência de operações também pode ser *enviada por pipe*, que signific
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Os exemplos acima mostram como adicionar um registo "A" a um conjunto de registos existente do tipo "A". Uma sequência de operações de semelhante é usada para adicionar registros a conjuntos de registos de outros tipos, substituindo os `-Ipv4Address` parâmetro do `Add-AzureRmDnsRecordConfig` com outros parâmetros específicos para cada tipo de registo. Os parâmetros para cada tipo de registo são os mesmos que para o `New-AzureRmDnsRecordConfig` cmdlet, conforme mostrado na [exemplos de tipo de registo adicionais](#additional-record-type-examples) acima.
+Os exemplos acima mostram como adicionar um registo "A" a um conjunto de registos existente do tipo "A". Uma sequência de operações de semelhante é usada para adicionar registros a conjuntos de registos de outros tipos, substituindo os `-Ipv4Address` parâmetro do `Add-AzureRmDnsRecordConfig` com outros parâmetros específicos para cada tipo de registo. Os parâmetros para cada tipo de registo são os mesmos que para o `New-AzureRmDnsRecordConfig` cmdlet, conforme ilustrado nos exemplos de tipo de registo adicionais acima.
 
 Conjuntos de registos do tipo 'CNAME' ou 'SOA' não podem conter mais de um registo. Esta restrição surge das normas DNS. Não é uma limitação do DNS do Azure.
 
@@ -270,7 +270,7 @@ Da mesma forma para adicionar registos a um conjunto de registos, a seqüência 
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-Diferentes tipos de registos são suportados ao transmitir os parâmetros específicos do tipo adequados para `Remove-AzureRmDnsRecordSet`. Os parâmetros para cada tipo de registo são os mesmos que para o `New-AzureRmDnsRecordConfig` cmdlet, conforme mostrado na [exemplos de tipo de registo adicionais](#additional-record-type-examples) acima.
+Diferentes tipos de registos são suportados ao transmitir os parâmetros específicos do tipo adequados para `Remove-AzureRmDnsRecordSet`. Os parâmetros para cada tipo de registo são os mesmos que para o `New-AzureRmDnsRecordConfig` cmdlet, conforme ilustrado nos exemplos de tipo de registo adicionais acima.
 
 
 ## <a name="modify-an-existing-record-set"></a>Modificar um conjunto de registos existente

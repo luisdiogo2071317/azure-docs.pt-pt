@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: c958e4e11ba5eb88a8357c8ab373b6501e3eac6a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d5f4dc7f4abc13f253a206a63e65faf1106f9c7c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189923"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766185"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Utilizar o cloud-init para atualizar e instalar pacotes numa VM do Linux no Azure
 Este artigo mostra-lhe como utilizar [cloud-init](https://cloudinit.readthedocs.io) para atualizar os pacotes numa Linux máquina virtual (VM) ou o dimensionamento de máquinas virtuais define (VMSS) em aprovisionamento tempo no Azure. Executam estes scripts de inicialização da cloud no primeiro arranque, assim que os recursos foram aprovisionados através do Azure. Para obter mais informações sobre o cloud-init funcionamento nativamente no Azure e distribuições de Linux suportadas, consulte [descrição geral do cloud-init](using-cloud-init.md)
@@ -42,7 +42,7 @@ Antes de implementar esta imagem, tem de criar um grupo de recursos com o [criar
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie uma VM com [az vm crie](/cli/azure/vm#az_vm_create) e especifique o ficheiro cloud-init com `--custom-data cloud_init_upgrade.txt` da seguinte forma:
+Agora, crie uma VM com [az vm crie](/cli/azure/vm) e especifique o ficheiro cloud-init com `--custom-data cloud_init_upgrade.txt` da seguinte forma:
 
 ```azurecli-interactive 
 az vm create \

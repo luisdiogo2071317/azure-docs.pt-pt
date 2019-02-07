@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 74b104ac399f00e08ed10ded5cd62a9c32c15d4a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566810"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770440"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -202,6 +202,7 @@ Para garantir cópias de segurança fluídas com cópia de segurança do Azure p
 
   * Espaços à direita/líder
   * À direita '!'
+  * Fechar parêntesis Reto de fecho ']'
 
 Temos o aliasing de caracteres de tabelas do Azure não suportada, mas é recomendável evitar aqueles também. Para obter mais informações consulte esta [artigo](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 

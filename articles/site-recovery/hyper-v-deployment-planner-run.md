@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321182"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815083"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Executar o planeador de implementação do Azure Site Recovery para recuperação após desastre de Hyper-V para o Azure
 
 Pode executar a recuperação de Site ferramenta Planeador de implementações da linha de comandos (ASRDeploymentPlanner.exe) em qualquer um desses quatro modos: 
--   [Obter a lista de máquinas virtuais (VMs)](#get-vm-list-for-profiling-hyper-v-vms)
+-   Obter a lista de máquina virtual (VM)
 -   [Perfil](#profile-hyper-v-vms)
--   [Gerar um relatório](#generate-report)
+-   Gerar um relatório
 -   [Obtenção de débito](#get-throughput)
 
 Primeiro, execute a ferramenta para obter a lista das VMs de um ou vários anfitriões Hyper-V. Então, execute a ferramenta no modo de criação de perfis, para recolher IOPS e alterações a dados da VM. Em seguida, execute-a para gerar o relatório de modo a localizar os requisitos de largura de banda de rede e de armazenamento.
@@ -74,7 +74,7 @@ A ferramenta consulta o anfitrião Hyper-V uma vez a cada 15 segundos para garan
 A ferramenta processa de forma totalmente integrada a migração de VMs de um nó para outro no cluster e a migração de armazenamento dentro de um anfitrião.
 
 ### <a name="getting-the-vm-list-to-profile"></a>Obter a lista de VMs para as quais criar perfis
-Para criar uma listas de VMs para as quais criar perfis, consulte a operação [GetVMList](#get-vm-list-for-profiling-hyper-v-vms).
+Para criar uma lista de VMs para o perfil, consulte a operação GetVMList.
 
 Quando tiver a lista das VMs para as quais criar perfis, pode executar a ferramenta no modo de criação de perfis. 
 

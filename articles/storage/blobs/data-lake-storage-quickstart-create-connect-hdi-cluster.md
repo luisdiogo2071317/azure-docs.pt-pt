@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: a3c6474c6b1c27c3b413d98d86cdadbcb61e2040
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d49c8a8434dfa7202707731f46ea31c77d32541d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247294"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812264"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Início rápido: Configurar clusters no HDInsight
 
@@ -189,11 +189,11 @@ Para obter mais informações, consulte [tamanhos de máquinas virtuais](../../v
 
 Compilações de configuração de cluster personalizado no rápido criar definições e adiciona as seguintes opções:
 
-- [Aplicações do HDInsight](#hdinsight-applications)
-- [Tamanho do cluster](#cluster-size)
+- Aplicações do HDInsight
+- Tamanho do cluster
 - Definições avançadas
-  - [Ações de script](#customize-clusters-using-script-action)
-  - [Rede virtual](#use-virtual-network)
+  - Ações do script
+  - Rede virtual
 
 ## <a name="install-hdinsight-applications-on-clusters"></a>Instalar aplicações do HDInsight em clusters
 

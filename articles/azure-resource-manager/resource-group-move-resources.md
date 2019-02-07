@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: e47334a20072f4b9f4d1401b5dd1f848fa99df5a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497320"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810291"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -239,7 +239,7 @@ Ao mover recursos do grupo de recursos para outro grupo de recursos dentro da me
 * Apenas uma conta de armazenamento (clássica) pode ser movida de cada vez.
 * Não é possível mover a conta de armazenamento (clássica) na mesma operação com uma máquina virtual ou um serviço em nuvem.
 
-Para mover recursos clássicos para um novo grupo de recursos dentro da mesma subscrição, utilize as operações de movimentação padrão através da [portal](#use-portal), [Azure PowerShell](#use-powershell), [da CLI do Azure](#use-azure-cli), ou [REST API](#use-rest-api). Utilize as mesmas operações que utiliza para mover os recursos do Resource Manager.
+Para mover recursos clássicos para um novo grupo de recursos dentro da mesma subscrição, utilize as operações de movimentação padrão através da [portal](#use-portal), o Azure PowerShell, CLI do Azure ou REST API. Utilize as mesmas operações que utiliza para mover os recursos do Resource Manager.
 
 #### <a name="new-subscription"></a>Nova subscrição
 

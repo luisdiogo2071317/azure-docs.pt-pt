@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d7b18dfd88a1a136e8b6e11f9f712e9212d6dd5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7c07a1b19bd651eadf7c7b27d5216dd446cd7abb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788808"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810910"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir clusters do Apache Hadoop no HDInsight com o .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -191,7 +191,7 @@ Clusters do HDInsight tem os seguintes serviços da web HTTP (todos estes servi�
 * ODBC
 * JDBC
 * Apache Ambari
-* O Apache Oozie
+* Apache Oozie
 * Apache Templeton
 
 Por predefinição, estes serviços são concedidos para o acesso. Pode revogar/conceder o acesso. Para revogar:
@@ -224,7 +224,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 Também pode ser feito através do Portal. Ver [administrar o HDInsight com o portal do Azure][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>Atualize as credenciais de utilizador HTTP
-É o mesmo procedimento como [conceder/revogar HTTP acesso](#grant/revoke-access).  Se o cluster tiver sido concedido o acesso HTTP, tem primeiro de o revogar.  E, em seguida, conceder o acesso com novas credenciais de utilizador HTTP.
+É o mesmo procedimento como conceder/revogar HTTP acesso.  Se o cluster tiver sido concedido o acesso HTTP, tem primeiro de o revogar.  E, em seguida, conceder o acesso com novas credenciais de utilizador HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Localizar a conta de armazenamento predefinida
 O fragmento de código seguinte demonstra como obter o nome de conta do storage predefinida e a chave de conta de armazenamento padrão para um cluster.

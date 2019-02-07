@@ -15,12 +15,12 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d0a28dc1eee1536a0cabe454cd899d9111edff88
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d38fa458ae87ce29110b2423e832ff5c6262a01
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197743"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817585"
 ---
 # <a name="compare-remote-access-solutions"></a>Compare as soluções de acesso remoto
 
@@ -56,7 +56,7 @@ Proxy de aplicações do Azure AD oferece as vantagens exclusivas quando em comp
 - Estendendo o Azure AD para recursos no local
    - Proteção e segurança de escala da cloud
    - Funcionalidades como o acesso condicional e multi-factor Authentication são fáceis de ativar
-- Não existem componenet na zona desmilitarizada
+- Não existem componentes na zona desmilitarizada
 - Não existem ligações de entrada necessárias
 - Painel de acesso de um que os utilizadores podem aceder a para todas as aplicações, incluindo o Office 365, do Azure AD integrado a aplicações SaaS e aplicações de web no local. 
 

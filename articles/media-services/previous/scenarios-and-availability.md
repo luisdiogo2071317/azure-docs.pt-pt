@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: 6bfc12c17b38543f0c6979b5f5eeada562483bfa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352819"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819353"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -26,7 +26,7 @@ Os Serviços de Multimédia do Microsoft Azure (AMS) permitem-lhe carregar, arma
 
 O AMS funciona em vários datacenters em todo o mundo. Estes datacenters são agrupados por regiões geográficas, dando-lhe a flexibilidade de escolher onde pretende criar as suas aplicações. Pode rever a [lista de regiões e as respetivas localizações](https://azure.microsoft.com/regions/). 
 
-Este tópico mostra cenários comuns para a entrega dos seus conteúdos [em direto](#live_scenarios) ou [a pedido](#vod_scenarios). Também mostra detalhes sobre a disponibilidade dos serviços e funcionalidades de multimédia nos datacenters.
+Este tópico mostra cenários comuns de entrega de conteúdo [live](#live_scenarios) ou sob demanda. Também mostra detalhes sobre a disponibilidade dos serviços e funcionalidades de multimédia nos datacenters.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -148,7 +148,7 @@ Os clientes do AMS podem dimensionar pontos finais de transmissões, o processam
 
     Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Por predefinição, os clientes que têm os pontos finais de transmissão em fluxo **Premium** recebem uma unidade de transmissão em fluxo (SU). O ponto final de transmissão em fluxo pode ser dimensionado mediante a adição de mais SUs. Cada SU fornece capacidade de largura de banda adicional à aplicação. Para obter mais informações sobre o dimensionamento de pontos finais de transmissões em fluxo **Premium** veja o tópico [Scaling streaming endpoints](media-services-portal-scale-streaming-endpoints.md) (Dimensionar pontos finais de transmissões em fluxo).
 
-* As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher de entre os tipos de unidades reservadas **S1**, **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
+* As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher de entre os seguintes tipos de unidade reservada: **S1**, **S2**, ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**.
 
     Para além de especificar o tipo de unidade reservada, pode especificar o aprovisionamento da sua conta com **Unidades Reservadas** (RUs). O número de RUs aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta.
 
@@ -174,7 +174,7 @@ Os clientes dos Serviços de Multimédia podem escolher um ponto final de transm
 
 #### <a name="availability"></a>Disponibilidade
 
-|Nome|Estado|Datacenters
+|Name|Estado|Datacenters
 |---|---|---|
 |Standard|GA|Todos|
 |Premium|GA|Todos|
@@ -183,7 +183,7 @@ Os clientes dos Serviços de Multimédia podem escolher um ponto final de transm
 
 #### <a name="availability"></a>Disponibilidade
 
-Disponível em todos os dataenters, exceto Alemanha, Sul BR, Oeste da Índia, Sul da Índia e Índia Central. 
+Disponível em todos os dataenters, exceto: Alemanha, sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. 
 
 ### <a name="encoding-media-processors"></a>Processadores de multimédia de codificação
 
@@ -240,7 +240,7 @@ Disponível em todos os datacenters.
 
 ### <a name="reserved-unit-ru-type"></a>Tipo de unidade reservada (RU)
 
-As contas dos Serviços de Multimédia estão associadas a um tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de multimédia. Pode escolher de entre os tipos de unidades reservadas S1, S2 ou S3.
+As contas dos Serviços de Multimédia estão associadas a um tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de multimédia. Pode escolher de entre os seguintes tipos de unidade reservada: S1, S2 ou S3.
 
 Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 
@@ -252,7 +252,7 @@ Para obter mais informações, veja a secção [Dimensionamento](#scaling).
 |S2|GA|Todos, exceto Sul BR e Oeste da Índia|
 |S3|GA|Todos, exceto Oeste da Índia|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 

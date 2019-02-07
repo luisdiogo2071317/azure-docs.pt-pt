@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667222"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810819"
 ---
-# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutorial: Criar uma aplicação com um serviço front-end de API Web em Java e um serviço back-end com estado no Service Fabric
+# <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutorial: Crie uma aplicação com um serviço de front-end de API da web de Java e um serviço de back-end com monitorização de estado no Service Fabric
 
 Este tutorial é a primeira parte de uma série. Quando tiver terminado, terá uma aplicação de Voto com um front-end para a Web em Java que guarda os resultados das votações num serviço back-end com estado no cluster. Esta série de tutoriais requer que tenha um computador de programador Mac OSX ou Linux. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-java-quickstart) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do rato no pacote *statelessservice*, na pasta *VotingWeb/src/statelessservice* e selecione **New->File** (Novo->Ficheiro).  Dê ao ficheiro o nome *HttpCommunicationListener.java* e clique em **Finish**.
 
-Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.  Mais adiante, em [Atualizar o ficheiro HttpCommunicationListener.java](#updatelistener_anchor), este ficheiro é modificado para compor, ler e escrever dados de voto do serviço back-end.  Por agora, o serviço de escuta devolve simplesmente o HTML estático da aplicação de Voto.
+Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.  Mais tarde, na atualização do ficheiro Httpcommunicationlistener Java, este ficheiro é modificado para processar, ler e escrever dados de voto do serviço de back-end.  Por agora, o serviço de escuta devolve simplesmente o HTML estático da aplicação de Voto.
 
 ```java
 // ------------------------------------------------------------
@@ -891,7 +891,7 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
 
 2. Execute o seu cluster do Service Fabric local. Este passo depende do seu ambiente de desenvolvimento (Mac ou Linux).
 
-    Se estiver a utilizar um Mac, execute o cluster local com o seguinte comando: substitua o comando transmitido no parâmetro **-v** pelo caminho para a sua área de trabalho.
+    Se estiver a utilizar um Mac, execute o cluster local com o seguinte comando: Substitua o comando transmitido para o **- v** parâmetro com o caminho para a área de trabalho.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
@@ -907,7 +907,7 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
 5. Na janela **Publicar a Aplicação**, selecione **Local.json** na lista pendente e clique em **Publicar**.
 6. Vá para o seu browser e aceda a **http://localhost:8080** para ver a sua aplicação em execução no cluster do Service Fabric local. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 

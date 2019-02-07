@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ff3492a0f523e32be8f6ffdabf9d15e4faa70cb4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432993"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812638"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Compreender os resultados de verificação de agente do Windows na gestão de atualizações
 
@@ -39,7 +39,7 @@ Sobre o **resolver problemas de agente de atualização** página, selecione **e
 
 ![Resolver problemas de página do Windows Update Agent](../media/update-agent-issues/troubleshoot-page.png)
 
-Os resultados são apresentados na página quando estas estiverem prontas. O [verifica secções](#prerequisiste-checks) Mostrar o que está incluído em cada cheque.
+Os resultados são apresentados na página quando estas estiverem prontas. As secções de verificações de mostram o que está incluído em cada cheque.
 
 ![Resolver problemas de verificações de agente de atualização](../media/update-agent-issues/update-agent-checks.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a548f11b1f423fb738108d9314f2fc887ef02c52
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 66953eaa4c42b419a5146ccc396fddda15a31c35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176850"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811364"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Active Directory do Azure com LearnUpon
 
@@ -208,7 +208,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no LearnUpon. LearnUpon suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
 
-Não existe nenhum item de ação para nesta secção. Durante uma tentativa de aceder LearnUpon se não existir ainda será criado um novo utilizador. [A configuração do início de sessão único do Azure AD em](#configuring-azure-ad-single-single-sign-on).
+Não existe nenhum item de ação para nesta secção. Durante uma tentativa de aceder LearnUpon se não existir ainda será criado um novo utilizador. Configuração do Azure AD Single Sign-On.
 
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar [equipa de suporte de LearnUpon](https://www.learnupon.com/features/support/). 

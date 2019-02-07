@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 034c82c2f52f0a4dbc19b49308d1ba4308716d45
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186808"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817399"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para mosaicos do estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
@@ -31,12 +31,12 @@ Para obter mais informações sobre o estruturador de vistas, consulte:
 
 Os mosaicos do estruturador de vistas disponíveis são descritos na tabela a seguir:  
 
-| Mosaico | Descrição |
+| Dispor em Mosaico | Descrição |
 |:--- |:--- |
 | [Número](#number-tile) |A contagem de registos de uma consulta. |
 | [Dois números](#two-numbers-tile) |As contagens de registos de duas consultas diferentes. |
 | [Anel](#donut-tile) | Um gráfico que se baseia numa consulta, com um valor de resumo no Centro de mensagens em fila. |
-| [Gráfico de linhas e nota de aviso](#line-chart-amp-callout-tile) | Um gráfico de linhas que se baseia numa consulta e uma nota de aviso com um valor de resumo. |
+| Gráfico de linhas e nota de aviso | Um gráfico de linhas que se baseia numa consulta e uma nota de aviso com um valor de resumo. |
 | [Gráfico de linhas](#line-chart-tile) |Um gráfico de linhas que se baseia numa consulta. |
 | [Duas linhas cronológicas](#two-timelines-tile) | Um gráfico de colunas com dois da série, cada um com base numa consulta separada. |
 
@@ -49,7 +49,7 @@ O **número** mosaico mostra ambas as a contagem de registos a partir de uma con
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é apresentado na parte superior do mosaico. |
+| Name |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **mosaico** | |
 | Legenda |O texto que é apresentado no valor. |
@@ -67,7 +67,7 @@ Este mosaico apresenta a contagem de registos de duas consultas de registo difer
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é apresentado na parte superior do mosaico. |
+| Name |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **Primeiro mosaico** | |
 | Legenda |O texto que é apresentado no valor. |
@@ -88,7 +88,7 @@ O **anel** mosaico apresenta um único número que resume uma coluna de valor nu
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é apresentado na parte superior do mosaico. |
+| Name |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **Anel** | |
 | Consulta |A consulta que está a ser executada para o anel. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. |
@@ -112,7 +112,7 @@ Este mosaico é um gráfico de linhas que exibe várias séries de uma consulta 
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é apresentado na parte superior do mosaico. |
+| Name |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta que está a ser executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x utiliza este intervalo de tempo. Se a consulta não utiliza a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
@@ -133,7 +133,7 @@ Este mosaico tem tanto de uma linha do gráfico que apresenta várias séries de
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é apresentado na parte superior do mosaico. |
+| Name |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta que está a ser executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x utiliza este intervalo de tempo. Se a consulta não utiliza a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
@@ -158,7 +158,7 @@ O **duas linhas cronológicas** mosaico apresenta os resultados de duas consulta
 
 | Definição | Descrição |
 |:--- |:--- |
-| Nome |O texto que é apresentado na parte superior do mosaico. |
+| Name |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
 | Primeiro Gráfico | |
 | Legenda |O texto que é apresentado em nota de aviso para a primeira série. |

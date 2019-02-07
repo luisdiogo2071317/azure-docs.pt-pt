@@ -13,12 +13,12 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9c7560dc6c3c5237a056a9468d3ab4f440e8e6dc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc726f63ea5c8473601623024e18c1402cbebb51
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190790"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820322"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Encontrar relatórios de atividade no portal do Azure
 
@@ -49,8 +49,6 @@ O relatório de registos de auditoria consolida os seguintes relatórios:
 
 Pode utilizar a filtragem avançada no relatório de auditoria para aceder a uma determinada categoria de dados de auditoria, especificando-na **categoria de atividade** filtro. Por exemplo, para ver todas as atividades relacionadas com a reposição de palavra-passe self-service, selecione o **gestão de palavras-passe self-service** categoria. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 Categorias de atividade incluem:
 
 - Diretório do Núcleo
@@ -62,8 +60,6 @@ Categorias de atividade incluem:
 ## <a name="sign-ins-report"></a>Relatório de inícios de sessão 
 
 O **inícios de sessão** modo de exibição inclui todos os utilizadores inícios de sessão, bem como os **utilização da aplicação** relatório. Também pode ver informações de utilização da aplicação no **gerir** secção a **aplicações empresariais** descrição geral.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 Para aceder ao relatório de inícios de sessão:
 

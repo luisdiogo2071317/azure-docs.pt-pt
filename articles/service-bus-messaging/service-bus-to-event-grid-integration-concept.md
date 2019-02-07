@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 640c01b2c73509ac897218fdea3841d016767a49
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856915"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818267"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
@@ -43,7 +43,7 @@ Aceda ao seu espaço de nomes do Service Bus e, em seguida, selecione **controlo
 O Service Bus envia atualmente eventos para dois cenários:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 Além disso, utiliza a segurança padrão do Event Grid e [mecanismos de autenticação](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
@@ -115,7 +115,7 @@ Se quiser receber eventos apenas de, por exemplo, uma fila ou uma subscrição n
 
 Pode criar subscrições do Event Grid para espaços de nomes do Service Bus de três formas diferentes:
 
-* No [portal do Azure](#portal-instructions)
+* No portal do Azure
 * Na [CLI do Azure](#azure-cli-instructions)
 * No [PowerShell](#powershell-instructions)
 
@@ -168,7 +168,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-A partir de aqui, pode explorar as outras opções de configuração ou [testar se os eventos estão a fluir](#test-that-events-are-flowing).
+A partir daqui, pode explorar as outras opções de configuração ou testar que eventos estão a fluir.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

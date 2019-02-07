@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5ae7643123552eaa17d51e6cd1ed9c0293292ed0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734169a0bce546ee2492d100b2abcb2ba8b6ffc9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184976"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822532"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação da galeria do Azure AD configurada para a palavra-passe início de sessão único
 
@@ -88,7 +88,7 @@ Siga os [resolver problemas relacionados com a extensão do painel de acesso par
 
 Para configurar uma aplicação da galeria do Azure AD, que tem de:
 
--   [Adicionar uma aplicação a partir da galeria do Azure AD](#_Add_an_application)
+-   Adicionar uma aplicação a partir da galeria do Azure AD
 
 -   [Configurar a aplicação para a palavra-passe início de sessão único](#configure-the-application-for-password-single-sign-on)
 
@@ -140,7 +140,7 @@ Para configurar o início de sessão único para uma aplicação, siga estes pas
 
 8.  Selecione o modo **baseado em palavra-passe de início de sessão.**
 
-9.  [Atribuir utilizadores à aplicação](#_How_to_assign).
+9.  Atribua utilizadores à aplicação.
 
 10. Além disso, também pode fornecer as credenciais em nome do utilizador ao selecionar as linhas dos utilizadores e clicar em **as credenciais de atualização** e introduzindo o nome de utilizador e palavra-passe em nome dos utilizadores. Caso contrário, ser pedido aos utilizadores para introduzir as credenciais durante a inicialização propriamente ditas.
 

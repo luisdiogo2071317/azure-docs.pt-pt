@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022058"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814355"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Mover dados de uma origem de tabela da Web com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-web-table-connector.md)
 > * [Versão 2 (versão atual)](../connector-web-table.md)
 
@@ -236,7 +236,7 @@ Os dados são escritos para um blob novo a cada hora (frequência: hora, interva
 
 O pipeline contém uma atividade de cópia que está configurado para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada a cada hora. No pipeline de definição de JSON, o **origem** tipo está definido como **WebSource** e **sink** tipo está definido como **BlobSink**.
 
-Ver [propriedades do tipo WebSource](#copy-activity-type-properties) para obter a lista das propriedades compatíveis com o WebSource.
+Ver as propriedades de tipo de WebSource para obter a lista das propriedades compatíveis com o WebSource.
 
 ```json
 {  

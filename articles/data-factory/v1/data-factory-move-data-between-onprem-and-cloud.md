@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015836"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822430"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -172,7 +172,7 @@ Neste passo, vai criar dois serviços ligados: **AzureStorageLinkedService** e *
       4. Na **definição de credenciais** caixa de diálogo, especifique o tipo de autenticação, nome de utilizador e palavra-passe e clique em **OK**. Se a ligação for bem-sucedida, as credenciais encriptadas são armazenadas no JSON e fecha a caixa de diálogo.
       5. Feche o separador do browser vazia que iniciou a caixa de diálogo se não estiver fechado automaticamente e voltar para o separador com o portal do Azure.
 
-         No computador gateway, estas credenciais são **encriptados** utilizando um certificado que o serviço Data Factory é proprietário. Se pretender utilizar o certificado que estão associado com o Data Management Gateway em vez disso, consulte [definir credenciais de forma segura](#set-credentials-and-security).    
+         No computador gateway, estas credenciais são **encriptados** utilizando um certificado que o serviço Data Factory é proprietário. Se pretender utilizar o certificado que estão associado com o Data Management Gateway em vez disso, consulte Definir credenciais de forma segura.    
    3. Clique em **Deploy** na barra de comandos para implementar o SQL Server de serviço ligado. Deverá ver o serviço ligado na vista de árvore.
 
       ![Serviço ligado do SQL Server na vista de árvore](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
@@ -280,7 +280,7 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
    * **folderPath** está definido como **adftutorial/outfromonpremdf** onde outfromonpremdf é a pasta no contentor adftutorial. Criar a **adftutorial** contentor se ainda não exista.
    * A **disponibilidade** está definida como **de hora a hora** (**frequência** definida como **hora** e **intervalo** definido como **1**).  O serviço Data Factory gera um setor de dados de saída de cada hora na **emp** tabela na base de dados SQL do Azure.
 
-   Se não especificar um **fileName** para um **tabela de saída**, os ficheiros gerados no **folderPath** são denominados no seguinte formato: Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt.).
+   Se não especificar um **fileName** para um **tabela de saída**, os ficheiros gerados no **folderPath** são denominados no seguinte formato: Dados. <Guid>. txt (por exemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
    Para definir **folderPath** e **fileName** dinamicamente com base no **SliceStart** tempo, utilize a propriedade partitionedBy. No exemplo seguinte, o folderPath utiliza o Ano, o Mês e o Dia do SliceStart (hora de início do setor a ser processado) e o fileName utiliza a Hora do SliceStart. Por exemplo, se está a ser produzido um setor para 2014-10-20T08:00:00, folderName está definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName está definido como 08.csv.
 

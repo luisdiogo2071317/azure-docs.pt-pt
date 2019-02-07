@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 8457334e00f7c8dfbaee75a12d6bb71b760e60d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697005"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822713"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -134,8 +134,8 @@ Mapa de serviço obtém seus dados do agente do Microsoft Dependency. O agente d
 
 | Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados a partir de computadores Windows. <br><br>Para além da [agente do Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores Linux. <br><br>Para além da [agente do Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados a partir de computadores Windows. <br><br>Para além da [agente do Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), agentes do Windows exigem o agente do Microsoft Dependency. Ver os sistemas operativos suportados para uma lista completa das versões de sistema operativo. |
+| Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores Linux. <br><br>Para além da [agente do Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Ver os sistemas operativos suportados para uma lista completa das versões de sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados de agentes do Windows e Linux no conectado [grupo de gestão do System Center Operations Manager](../../azure-monitor/platform/om-agents.md). <br><br>É preciso uma ligação direta do computador do agente do System Center Operations Manager ao Log Analytics. |
 | Conta de armazenamento do Azure | Não | Mapa de serviço recolhe dados a partir de computadores de agente, portanto, não há nenhum dado com ele para coletar do armazenamento do Azure. |
 

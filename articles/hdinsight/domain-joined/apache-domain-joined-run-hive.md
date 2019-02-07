@@ -9,14 +9,14 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435520"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821223"
 ---
-# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas de Apache Hive no HDInsight com o Enterprise Security Package
+# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
 Saiba como configurar políticas do Apache Ranger para o Apache Hive. Neste artigo, irá criar duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable é fornecido com clusters do HDInsight. Após ter configurado as políticas, utilize o Excel e o controlador ODBC para estabelecer uma ligação a tabelas do Hive no HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -45,7 +45,7 @@ Nesta secção, vai criar duas políticas do Ranger para aceder à hivesampletab
 
 **Para criar políticas do Ranger**
 
-1. Abra a IU do Ranger Admin. Consulte [Ligar à IU do Apache Ranger Admin](#connect-to-apache-ranager-admin-ui).
+1. Abra a IU do Ranger Admin. Consulte ligar à IU do Apache Ranger Admin.
 2. Clique em **&lt;ClusterName >_hive**, em **Hive**. Deverá ver duas políticas de pré-configuração.
 3. Clique em **Adicionar Nova Política**, e, em seguida, introduza os seguintes valores:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 331a8d07004a8915d27b28ca0fba940b1aa3ab72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bcbb3d5d25fdc3de71045cedfd4634e47b3947bf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164814"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Active Directory do Azure com serviços de gestão de participação
 
@@ -86,7 +86,7 @@ Para configurar e testar o Azure AD início de sessão único com os serviços d
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de serviços de gestão de participação](#create-an-attendance-management-service-test-user)**  - para ter um equivalente da Eduarda Almeida na participação dos serviços de gestão que está ligado à representação de utilizador do Azure AD.
+1. **Criar um utilizador de teste de serviços de gestão de participação** - para ter um equivalente da Eduarda Almeida na participação dos serviços de gestão que está ligado à representação de utilizador do Azure AD.
 1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 

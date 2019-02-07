@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f02d511c5afa6d515f29b9fc557be3b49223c501
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4291f6083cfe07d689ef9377df57c3e9a41772fc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243288"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812213"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
@@ -25,7 +25,7 @@ Neste artigo, vai aprender diferentes métodos de carregamento de dados com o [S
 
 Atualmente, existem funções para as seguintes tarefas:
 
-- [Adicionar coluna utilização de uma expressão](#column)
+- Adicionar coluna utilização de uma expressão
 - [Impute valores em falta](#impute-missing-values)
 - [Derivar coluna por exemplo](#derive-column-by-example)
 - [Filtragem](#filtering)

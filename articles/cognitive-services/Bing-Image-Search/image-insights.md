@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: f0f3396852720bbbb31e46f7a9913d9d1bdc4a6c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8798ecd15c673c26c5b1be0920887ff493cc6a85
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157249"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818690"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtenha informações de imagem com a API de pesquisa de imagens do Bing
 
@@ -221,7 +221,7 @@ Os valores do retângulo são relativas a largura e altura da imagem original e 
 -   Direita: 290 / 300 = 0.9667...  
 -   Na parte inferior: 150 / 200 = 0.75  
 
-Pode utilizar a região que o Bing devolve nas chamadas subsequentes insights. Por exemplo, para obter imagens visualmente similares da entidade reconhecida. Para obter mais informações, consulte [corte imagens a utilizar com módulos de reconhecimento de entidades e visualmente semelhantes](#croppingimages). O código a seguir mostra o mapeamento entre os campos de região e os parâmetros de consulta que usaria para recortar imagens.  
+Pode utilizar a região que o Bing devolve nas chamadas subsequentes insights. Por exemplo, para obter imagens visualmente similares da entidade reconhecida. Para obter mais informações, consulte corte imagens a utilizar com módulos de reconhecimento de entidades e visualmente semelhantes. O código a seguir mostra o mapeamento entre os campos de região e os parâmetros de consulta que usaria para recortar imagens.  
 
 -   À esquerda é mapeado para [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
 -   Principais mapeados para [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  

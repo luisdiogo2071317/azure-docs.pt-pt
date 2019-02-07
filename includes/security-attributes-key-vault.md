@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 01/31/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ac0072b10489deb1b18ea737301ab698dce9f89
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: aba09012bf2e9d2741f598280add8b599a6f6d1a
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513506"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55807097"
 ---
 ## <a name="preventative"></a>Preventivas
 
@@ -48,7 +48,7 @@ ms.locfileid: "55513506"
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Planear a gestão/controlo e auditoria do registo| Sim | Utilizar o Log Analytics. |
+| Gestão/controlo do plano de auditoria e Registro em log| Sim | Utilizar o Log Analytics. |
 | Registo e auditoria do plano de dados| Sim | Utilizar o Log Analytics. |
 
 ## <a name="access-controls"></a>Controlos de acesso

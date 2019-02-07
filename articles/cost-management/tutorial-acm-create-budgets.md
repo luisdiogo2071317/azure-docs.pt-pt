@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053981"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814049"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Crie e gira orçamentos do Azure
 
@@ -35,7 +35,9 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Orçamentos estão disponíveis para todos os clientes do EA do Azure. Tem de ter acesso de leitura para um orçamentos de vista de subscrição do Azure EA. Para criar e gerir orçamentos, tem de ter permissão de contribuinte. Pode criar orçamentos individuais para as subscrições do EA e grupos de recursos. No entanto, não é possível criar orçamentos para contas de faturação de EA.
+Orçamentos são suportados para uma variedade de tipos de conta do Azure. Para ver a lista completa dos tipos de conta suportados, consulte [dados de compreender a gestão de custos](understand-cost-mgt-data.md). Para ver os orçamentos, precisa de, pelo menos, acesso de leitura para a sua conta do Azure.
+
+ Para subscrições do EA do Azure, tem de ter acesso de leitura para ver os orçamentos. Para criar e gerir orçamentos, tem de ter permissão de contribuinte. Pode criar orçamentos individuais para as subscrições do EA e grupos de recursos. No entanto, não é possível criar orçamentos para contas de faturação de EA.
 
 As seguintes permissões do Azure são suportadas por subscrição para os orçamentos de por utilizador e grupo:
 
@@ -59,7 +61,7 @@ Clique em **Adicionar**.
 
 ![Apresentado no portal do Azure de orçamentos de gestão de custos](./media/tutorial-acm-create-budgets/budgets01.png)
 
-Na **orçamento criar** janela, introduza um nome de orçamento e a quantidade de orçamento. Em seguida, escolha um mensais, trimestrais, ou o período de duração anual. Em seguida, selecione uma data de fim. Orçamentos requerem o limiar, pelo menos, um custo (% do orçamento) e um endereço de e-mail correspondentes. Opcionalmente, pode incluir até cinco limiares e cinco endereços de e-mail num orçamento único. Quando é cumprido um limiar de orçamento, notificações por e-mail são normalmente recebidas em menos de oito horas.
+Na **orçamento criar** janela, introduza um nome de orçamento e a quantidade de orçamento. Em seguida, escolha um mensais, trimestrais, ou o período de duração anual. Em seguida, selecione uma data de fim. Orçamentos requerem o limiar, pelo menos, um custo (% do orçamento) e um endereço de e-mail correspondentes. Opcionalmente, pode incluir até cinco limiares e cinco endereços de e-mail num orçamento único. Quando é cumprido um limiar de orçamento, notificações por e-mail são normalmente recebidas em menos de oito horas. Para obter mais informações sobre notificações, consulte [alertas de custos de utilização](cost-mgt-alerts-monitor-usage-spending.md).
 
 Eis um exemplo de criação de um orçamento mensal de US $4.500. É gerado um alerta de e-mail quando for atingido 90% do orçamento.
 

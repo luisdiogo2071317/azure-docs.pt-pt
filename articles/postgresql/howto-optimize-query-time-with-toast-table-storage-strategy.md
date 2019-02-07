@@ -1,34 +1,35 @@
 ---
-title: Otimizar o tempo de consulta na base de dados do Azure para servidor PostgreSQL com a estratégia de armazenamento de tabela de alerta
-description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento de tabela de alerta numa base de dados do Azure para o servidor PostgreSQL.
+title: Otimizar o tempo de consulta numa base de dados do Azure para o servidor PostgreSQL usando a estratégia de armazenamento de tabela de alerta
+description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento de tabela ALERTAS numa base de dados do Azure para o servidor PostgreSQL.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 1fb818a65e26f969f72131b0f5265f3efdd36bb6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542225"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820882"
 ---
-# <a name="optimizing-query-time-with-toast-table-storage-strategy"></a>Otimizar o tempo de consulta com a estratégia de armazenamento de tabela de alerta 
-Este artigo descreve como otimizar os tempos de consultas com a estratégia de armazenamento de tabela do alerta.
+# <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Otimizar o tempo de consulta com a estratégia de armazenamento de tabela de alerta 
+Este artigo descreve como otimizar os tempos de consultas com a estratégia de armazenamento de tabela do armazenamento de atributo superdimensionadas técnica (alerta).
 
 ## <a name="toast-table-storage-strategies"></a>Estratégias de armazenamento de tabela de alerta
-Existem quatro estratégias diferentes para armazenar colunas capaz de alerta no disco que representa a várias combinações entre compactação e o armazenamento de fora de linha. A estratégia pode ser definida no nível de tipo de dados e ao nível da coluna.
-- **Sem formatação** impede a compressão ou armazenamento fora de linha; além disso, ele desativa a utilização dos cabeçalhos de byte único para tipos de varlena. **Sem formatação** é a estratégia apenas possível para colunas de tipos de dados não consegue alerta.
-- **Expandido** permite o armazenamento de compactação e fora de linha. **Expandido** é a predefinição para a maioria dos tipos de dados capaz de alerta. Compressão será tentado armazenamento primeiro, em seguida, fora de linha se a linha ainda é demasiado grande.
-- **Externo** permite o armazenamento fora de linha, mas não a compressão. Usar **externo** fará com que operações de subcadeia no texto grande e bytea colunas com maior rapidez, na penalidade de maior espaço de armazenamento, uma vez que estas operações são otimizadas para obter apenas o necessário partes de fora de linha valor quando ele Não é compactado.
-- **Main** permite a compactação, mas não fora de linha de armazenamento. Armazenamento de fora de linha será realizado para este tipo de colunas, mas apenas como último recurso quando não existe nenhuma outra forma de tornar a linha pequena o bastante para caber numa página.
+Quatro estratégias diferentes são utilizadas para armazenar colunas no disco que pode utilizar o alerta. Eles representam várias combinações entre compactação e o armazenamento de fora de linha. A estratégia pode ser definida no nível de tipo de dados e ao nível da coluna.
+- **Sem formatação** impede o armazenamento de compactação ou fora de linha. Desativa a utilização de cabeçalhos de byte único para tipos de varlena. Simples é a estratégia apenas possível para colunas de tipos de dados que não é possível utilizar o alerta.
+- **Expandido** permite o armazenamento de compactação e fora de linha. Expandido é a predefinição para a maioria dos tipos de dados que pode utilizar o alerta. Compressão é a primeira tentativa. Armazenamento de fora de linha é tentado se a linha ainda é demasiado grande.
+- **Externo** permite o armazenamento fora de linha, mas não a compressão. Utilização externa faz operações de subcadeia em grandes colunas texto e bytea mais rápidas. Esta rapidez é fornecido com a penalidade de maior espaço de armazenamento. Estas operações são otimizadas para obter apenas as partes necessárias do valor fora da linha quando ele não é compactado.
+- **Main** permite a compactação, mas não fora de linha de armazenamento. Armazenamento de fora de linha continua a ser feito para este tipo de colunas, mas apenas como último recurso. Isso ocorre quando não existe nenhuma outra forma de tornar a linha pequena o bastante para caber numa página.
 
-## <a name="using-toast-table-storage-strategies"></a>Utilizar estratégias de armazenamento de tabela de alerta
-Se as suas consultas aceder a tipos de dados capaz de alerta, considere a utilização **Main** em vez da predefinição **Extended** opção para reduzir os tempos de consulta. **Main** não impedir o armazenamento fora de linha. Por outro lado, se suas consultas não acedam a tipos de dados capaz de alerta, poderá ser vantajoso manter o **Extended** opção. Portanto, será ajustado uma maior parte das linhas da tabela principal na cache de memória intermédia partilhada, ajudando a desempenho.
+## <a name="use-toast-table-storage-strategies"></a>Use estratégias de armazenamento de tabela de alerta
+Se suas consultas aceder a tipos de dados que podem utilizar o alerta, considere a utilização da estratégia de principal em vez da opção de Extended padrão para reduzir os tempos de consulta. Main não exclui armazenamento fora de linha. Se as suas consultas não acessarem a tipos de dados que podem utilizar o alerta, poderá ser vantajoso manter a opção de Extended. Uma parte maior das linhas da tabela principal se enquadram na cache de memória intermédia partilhada, o que ajuda o desempenho.
 
-Se tiver uma carga de trabalho com um esquema com tabelas largas e contagens de caracteres elevada, considere a utilização de tabelas de alerta do PostgreSQL. Um exemplo de tabela de cliente tinha mais de 350 colunas com várias colunas, que abrange a 255 carateres. Reduziu o seu tempo de consulta de parâmetro de comparação de 4203 segundos para segundos 467, um aprimoramento de 89%, depois de converter a estratégia de alerta do **Main**.
+Se tiver uma carga de trabalho que utiliza um esquema com tabelas largas e contagens de caracteres elevada, considere a utilização de tabelas de alerta do PostgreSQL. Um exemplo de tabela de cliente tinha mais de 350 colunas com várias colunas que abrangeu de 255 carateres. Depois que ela foi convertida para a tabela de alerta estratégia de Main, o seu tempo de consulta de benchmark reduzido de 4203 segundos para 467 segundos. Que é uma melhoria de 89%.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Reveja a sua carga de trabalho para as características acima. 
+Reveja a sua carga de trabalho para as características anteriores. 
 
-Reveja a seguinte documentação de PostgreSQL: [Capítulo 68, armazenamento físico do banco de dados](https://www.postgresql.org/docs/current/storage-toast.html) 
+Reveja a seguinte documentação de PostgreSQL: 
+- [Capítulo 68, armazenamento físico do banco de dados](https://www.postgresql.org/docs/current/storage-toast.html) 

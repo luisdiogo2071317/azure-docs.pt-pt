@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 58cff9be154e693a378f55941e8662563c366b27
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097304"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820220"
 ---
 # <a name="web-api"></a>API Web
 
@@ -47,7 +47,7 @@ A identidade da aplicação e os tipos de identidade do utilizador delegado são
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>Identidade de utilizador delegado com OpenID Connect
 
-1. Um usuário está conectado a uma aplicação web com o Azure AD (veja a [navegador da Web para o aplicativo Web](#web-browser-to-web-application) secção acima). Se o utilizador da aplicação web não consentiu ainda para permitir que a aplicação web para chamar a API web em seu nome, o utilizador terá de dar consentimento. A aplicação irá apresentar as permissões requer e, se qualquer uma dessas permissões ao nível do administrador, um usuário normal no diretório não será capaz de dar consentimento. Este processo de consentimento só se aplica a aplicações multi-inquilino, aplicações de inquilino não único, como o aplicativo já terá as permissões necessárias. Quando o usuário conectado, a aplicação web foi recebido um token de ID com informações sobre o utilizador, bem como um código de autorização.
+1. Um usuário está conectado a uma aplicação web com o Azure AD (veja a secção de aplicativo Web acima do Browser). Se o utilizador da aplicação web não consentiu ainda para permitir que a aplicação web para chamar a API web em seu nome, o utilizador terá de dar consentimento. A aplicação irá apresentar as permissões requer e, se qualquer uma dessas permissões ao nível do administrador, um usuário normal no diretório não será capaz de dar consentimento. Este processo de consentimento só se aplica a aplicações multi-inquilino, aplicações de inquilino não único, como o aplicativo já terá as permissões necessárias. Quando o usuário conectado, a aplicação web foi recebido um token de ID com informações sobre o utilizador, bem como um código de autorização.
 1. Usando o código de autorização emitido pelo Azure AD, o aplicativo web envia um pedido ao ponto final de token do Azure AD que inclui o código de autorização, detalhes sobre a aplicação de cliente (ID da aplicação e URI de redirecionamento) e o recurso desejado (ID da aplicação URI para a API web).
 1. O código de autorização e as informações sobre o aplicativo web e a web API são validadas pelo Azure AD. Após a validação com êxito, o Azure AD devolve dois tokens: um token de acesso do JWT e um token de atualização do JWT.
 1. Através de HTTPS, a aplicação web utiliza o token de acesso devolvido do JWT para adicionar a cadeia de caracteres do JWT com uma designação de "Bearer" no cabeçalho de autorização do pedido para a API web. A API web, em seguida, valida o token JWT e se a validação for bem-sucedida, retorna o recurso pretendido.

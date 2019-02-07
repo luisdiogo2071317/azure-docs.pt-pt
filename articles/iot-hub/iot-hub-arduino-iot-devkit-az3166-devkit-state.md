@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343157"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811057"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -55,13 +55,13 @@ Pode utilizar este exemplo, para monitorizar os Estados de informações e senso
 
 6. Algo semelhante à *aplicação de funções: nome da aplicação: xxx*, é apresentada. Anote o nome da aplicação de função; será utilizado num passo posterior.
 
-7. Aguarde que a implementação do modelo do Azure Resource Manager concluir, que é indicado quando a mensagem *implementação de modelo do Resource Manager: feito* é apresentado.
+7. Aguarde que a implementação do modelo do Azure Resource Manager concluir, que é indicado quando a mensagem *implementação de modelo do Resource Manager: Feito* é apresentado.
 
 ## <a name="deploy-function-app"></a>Implementar a aplicação de função
 
 1. Clique nas **tarefas** menu pendente no Visual Studio Code e selecione **executar tarefa...**   -  **cloud-implementar**.
 
-2. Aguarde para carregar o processo terminar; código de aplicação de função a mensagem *implementa a aplicação de funções: feito* é apresentado.
+2. Aguarde para carregar o processo terminar; código de aplicação de função a mensagem *implementa a aplicação de funções: Feito* é apresentado.
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>Configurar a cadeia de ligação de dispositivos do IoT Hub DevKit
 
@@ -83,7 +83,7 @@ Com o seu MXChip IoT DevKit ligado ao seu computador:
 
 ## <a name="monitor-devkit-state-in-browser"></a>Estado do monitor DevKit no Browser
 
-1. Num browser, abra a `DevKitState\web\index.html` file--o que foi criado durante a [o que precisa](#whatyouneed) passo.
+1. Num browser, abra o `DevKitState\web\index.html` file--o que foi criado durante o qual tem de passo.
 
 2. É apresentada a página Web seguinte:![Especifique o nome de aplicação de função.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 
@@ -106,7 +106,7 @@ Com o seu MXChip IoT DevKit ligado ao seu computador:
 ![Procedimento de teste de exemplo](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Pode ver dados não processados do dispositivo duplo no portal do Azure: IoT Hub -\> dispositivos de IoT -\> *\<seu dispositivo\>*  - \> dispositivo duplo.
+> Pode ver dados não processados do dispositivo duplo no portal do Azure: O IoT Hub -\> dispositivos de IoT -\> *\<seu dispositivo\>*  - \> dispositivo duplo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

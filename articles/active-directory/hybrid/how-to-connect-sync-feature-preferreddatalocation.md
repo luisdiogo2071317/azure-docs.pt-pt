@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f03fc201c1bce3187fdbd25c1de3567170478d30
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488454"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814236"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure Active Directory Connect: Configurar a localização de dados preferencial para os recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo de localização de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém o utilizar capacidades de Multi-Geo no Office 365, utilize este atributo para designar a localização geográfica dos dados do utilizador do Office 365. (Os termos *região* e *geo* são utilizados alternadamente.)
@@ -238,7 +238,7 @@ Volte a ativar o agendador de sincronização interna:
 ## <a name="step-8-verify-the-result"></a>Passo 8: Verificar o resultado
 Agora é hora de verificar a configuração e ativá-la para os seus utilizadores.
 
-1. Adicione a geo para o atributo selecionado num utilizador. A lista de áreas geográficas disponíveis pode ser encontrada na [esta tabela](#enable-synchronization-of-preferreddatalocation).  
+1. Adicione a geo para o atributo selecionado num utilizador. A lista de áreas geográficas disponíveis pode ser encontrada nesta tabela.  
 ![Captura de ecrã do atributo de AD adicionado a um utilizador](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Aguarde que o atributo a serem sincronizados para o Azure AD.
 3. Utilizar o PowerShell do Exchange Online, certifique-se de que a região de caixa de correio foi definida corretamente.  

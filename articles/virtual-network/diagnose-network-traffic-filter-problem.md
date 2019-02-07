@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424647"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821869"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtragem de tráfego de rede de máquina virtual
 
@@ -166,7 +166,7 @@ A regra com o nome **defaultSecurityRules/DenyAllInBound** é o que está a impe
 
 Se utilizar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), ou o [da CLI do Azure](#diagnose-using-azure-cli) para diagnosticar o problema apresentado a [cenário](#scenario) desta artigo, a solução é criar uma regra de segurança de rede com as seguintes propriedades:
 
-| Propriedade                | Valor                                                                              |
+| Propriedade                | Value                                                                              |
 |---------                |---------                                                                           |
 | Origem                  | Qualquer                                                                                |
 | Intervalo de portas de origem      | Qualquer                                                                                |
@@ -175,13 +175,13 @@ Se utilizar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagno
 | Protocolo                | TCP                                                                                |
 | Ação                  | Permitir                                                                              |
 | Prioridade                | 100                                                                                |
-| Nome                    | Allow-HTTP-All                                                                     |
+| Name                    | Allow-HTTP-All                                                                     |
 
 Depois de criar a regra, é permitida a porta 80 de entrada da internet, porque a prioridade da regra é maior do que a regra de segurança predefinida com o nome *DenyAllInBound*, que nega o tráfego. Saiba como [criar uma regra de segurança](manage-network-security-group.md#create-a-security-rule). Se diferentes NSGs estão associados à interface de rede e a sub-rede, tem de criar a mesma regra em ambos os NSGs.
 
 Quando o Azure processa o tráfego de entrada, processa regras num NSG associado à sub-rede (se houver um NSG associado) e, em seguida, processa as regras num NSG associado à interface de rede. Se houver um NSG associado para a interface de rede e a sub-rede, a porta tem de estar aberta em ambos os NSGs, para o tráfego alcance a VM. Para facilitar a administração e comunicação com problemas, recomendamos que associa um NSG a uma sub-rede, em vez de interfaces de rede individuais. Se as VMs numa sub-rede têm regras de segurança diferentes, pode tornar a rede de membros de interfaces de um grupo de segurança de aplicação (ASG) e especifique um ASG como origem e destino de uma regra de segurança. Saiba mais sobre [grupos de segurança de aplicativo](security-overview.md#application-security-groups).
 
-Se ainda estiver a ter problemas de comunicação, consulte [considerações](#considerations) e [diagnóstico adicional](#additional-dignosis).
+Se ainda estiver a ter problemas de comunicação, consulte [considerações](#considerations) e diagnóstico adicional.
 
 ## <a name="considerations"></a>Considerações
 

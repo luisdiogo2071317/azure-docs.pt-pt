@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330420"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811492"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copiar dados para e da base de dados do SQL Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -199,7 +199,7 @@ O exemplo copia dados de séries de tempo (hora a hora, diária, etc.) de uma ta
   }
 }
 ```
-Consulte a [serviço ligado do SQL Azure](#linked-service) secção para obter a lista das propriedades compatíveis com este serviço ligado.
+Consulte a secção de serviço ligado do SQL do Azure para obter a lista de propriedades suportadas por este serviço ligado.
 
 **Serviço ligado do armazenamento de Blobs do Azure:**
 
@@ -248,7 +248,7 @@ A definição "externo": "true" informa o serviço Azure Data Factory que o conj
 }
 ```
 
-Consulte a [propriedades do tipo de conjunto de dados SQL do Azure](#dataset) secção para obter a lista de propriedades suportadas por este tipo de conjunto de dados.
+Consulte a SQL do Azure conjunto de dados tipo secção de propriedades para obter a lista de propriedades suportadas por este tipo de conjunto de dados.
 
 **Conjunto de dados de Blobs do Azure:**
 
@@ -391,7 +391,7 @@ As cópias de exemplo séries de tempo (hora a hora, diária, etc.) de dados do 
   }
 }
 ```
-Consulte a [serviço ligado do SQL Azure](#linked-service) secção para obter a lista das propriedades compatíveis com este serviço ligado.
+Consulte a secção de serviço ligado do SQL do Azure para obter a lista de propriedades suportadas por este serviço ligado.
 
 **Serviço ligado do armazenamento de Blobs do Azure:**
 
@@ -499,7 +499,7 @@ O exemplo copia dados a uma tabela chamada "MyTable" no Azure SQL. Crie a tabela
   }
 }
 ```
-Consulte a [propriedades do tipo de conjunto de dados SQL do Azure](#dataset) secção para obter a lista de propriedades suportadas por este tipo de conjunto de dados.
+Consulte a SQL do Azure conjunto de dados tipo secção de propriedades para obter a lista de propriedades suportadas por este tipo de conjunto de dados.
 
 **Uma atividade de cópia num pipeline com a origem do Blob e de sink do SQL:**
 

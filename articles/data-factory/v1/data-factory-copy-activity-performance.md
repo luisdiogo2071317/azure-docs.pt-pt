@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331650"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812094"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o guia de Otimização e desempenho de atividade
 
@@ -176,7 +176,7 @@ Pontos a serem observados:
 >
 >
 
-Para melhor usar essas duas propriedades e para melhorar o débito do movimento de dados, consulte a [casos de utilização de exemplo](#case-study-use-parallel-copy). Não precisa de configurar **parallelCopies** para aproveitar o comportamento padrão. Se configurar e **parallelCopies** é demasiado pequena, vários cloud DMUs poderá não ser totalmente utilizada.
+Para melhor usar essas duas propriedades e para melhorar o débito do movimento de dados, consulte o exemplo de casos de utilização. Não precisa de configurar **parallelCopies** para aproveitar o comportamento padrão. Se configurar e **parallelCopies** é demasiado pequena, vários cloud DMUs poderá não ser totalmente utilizada.
 
 ### <a name="billing-impact"></a>Impacto de faturação
 Ele possui **importante** lembrar-se de que é cobrado com base no tempo total da operação de cópia. Se uma tarefa de cópia costumava levar uma hora com a unidade de uma cloud e agora demora 15 minutos com quatro unidades de cloud, a fatura global permanece praticamente o mesmo. Por exemplo, utilizar quatro unidades de cloud. A primeira unidade gastar 10 minutos, o um segundo, 10 minutos, o um terceiro, 5 minutos e o quarto, 5 minutos, tudo numa atividade Copy executar. É-lhe cobrada a hora de total da cópia (movimento de dados), que é 10 + 10 + 5 + 5 = 30 minutos. Usando **parallelCopies** não afetam a faturação.
@@ -297,7 +297,7 @@ Se copiar dados do armazenamento de BLOBs para o SQL Data Warehouse, considere u
 
 * **Padrão de dados**: A esquema da tabela afeta o débito de cópia. Um tamanho de linha grandes dá-lhe um desempenho melhor do que o tamanho de linha de pequenos, para copiar a mesma quantidade de dados. O motivo é que a base de dados com mais eficiência pode obter menos lotes de dados que contêm menos linhas.
 * **Consulta ou procedimento armazenado**: Otimize a lógica da consulta ou procedimento armazenado que especificar na origem de atividade de cópia para obter os dados de forma mais eficiente.
-* Para **bases de dados relacionais locais**, tal como o SQL Server e Oracle, que requerem a utilização de **Data Management Gateway**, consulte o [considerações para o Data Management Gateway](#considerations-on-data-management-gateway) secção.
+* Para **bases de dados relacionais locais**, tal como o SQL Server e Oracle, que requerem a utilização de **Data Management Gateway**, veja as considerações para a secção de Gateway de gestão de dados.
 
 ## <a name="considerations-for-the-sink"></a>Considerações para o sink
 ### <a name="general"></a>Geral
@@ -418,7 +418,7 @@ Neste caso, bzip2 compressão de dados pode ser mais lento todo o pipeline. Muda
 Seguem-se desempenho de monitorização e otimização de referências para alguns dos arquivos de dados suportados:
 
 * Armazenamento do Azure (incluindo o armazenamento de BLOBs e armazenamento de tabelas): [Destinos de escalabilidade do armazenamento do Azure](../../storage/common/storage-scalability-targets.md) e [lista de verificação de armazenamento do Azure, desempenho e escalabilidade](../../storage/common/storage-performance-checklist.md)
-* Base de dados SQL do Azure: Pode [monitorizar o desempenho](../../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem de unidade (DTU) de transação de base de dados
+* Base de Dados SQL do Azure: Pode [monitorizar o desempenho](../../sql-database/sql-database-single-database-monitor.md) e verificar a percentagem de unidade (DTU) de transação de base de dados
 * Armazém de dados SQL do Azure: Sua capacidade é medida em unidades do data warehouse (DWUs); consulte [gerir computação power no Azure SQL Data Warehouse (descrição geral)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * o Azure Cosmos DB: [Níveis de desempenho no Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * SQL Server no local: [Monitorizar e otimizar o desempenho](https://msdn.microsoft.com/library/ms189081.aspx)

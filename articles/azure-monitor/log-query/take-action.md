@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8730070e1b235324a53ad81957339f4ef17db6dc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193701"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809638"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Agir com um Runbook da automatização de um resultado de pesquisa de registos do Log Analytics
 
-De um resultado de pesquisa de registo no Azure Log Analytics, pode agora selecionar **agir** para executar um runbook da automatização.  O runbook pode ser utilizado para corrigir o problema ou execute uma ação, tais como recolher informações de resolução de problemas, envie um e-mail ou criar um pedido de serviço. 
+De um resultado de pesquisa de registo no Azure Log Analytics, pode agora selecionar **agir** para executar um runbook da automatização. O runbook pode ser utilizado para corrigir o problema ou execute uma ação, tais como recolher informações de resolução de problemas, envie um e-mail ou criar um pedido de serviço. 
 
 ## <a name="components-and-features-used"></a>Componentes e funcionalidades utilizados
 * [Conta de automatização do Azure](../../automation/automation-quickstart-create-account.md)
@@ -30,11 +30,11 @@ De um resultado de pesquisa de registo no Azure Log Analytics, pode agora seleci
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Para iniciar o runbook a partir de pesquisa de registos
 
-Para tomar medidas num evento e iniciar um runbook a partir de seus resultados de pesquisa de registo, começa criando uma pesquisa de registos e dos resultados pode invocar uma runbook a pedido.  Isso pode ser obtido a partir da funcionalidade de pesquisa de registo no [portal do Azure](../../azure-monitor/log-query/log-query-overview.md).  Neste exemplo, realizar uma pesquisa de registos do portal do Azure com uma demonstração desta funcionalidade básica.
+Para tomar medidas num evento e iniciar um runbook a partir de seus resultados de pesquisa de registo, começa criando uma pesquisa de registos e dos resultados pode invocar uma runbook a pedido. Isso pode ser obtido a partir da funcionalidade de pesquisa de registo clássico no [portal do Azure](../../azure-monitor/log-query/log-query-overview.md). Neste exemplo, realizar uma pesquisa de registos do portal do Azure com uma demonstração desta funcionalidade básica.
 
 1. No portal do Azure, clique em **todos os serviços** e selecione **do Log Analytics**.  
 2. Selecione a área de trabalho do Log Analytics.
-3. Na área de trabalho, selecione **pesquisa de registos**.  
+3. Na área de trabalho, selecione **registos (clássico)**.  
 4. Na página de pesquisa de registos, realizar uma pesquisa de registos.  
 5. Os resultados da pesquisa de registo, clique nas reticências à esquerda de um dos campos e para o pop-up, selecione **tomar medidas em**.<br><br> ![Selecione a ação demorar de resultado de pesquisa](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Selecione **executar um runbook** e selecione um runbook seja executado.  Pode selecionar qualquer runbook na conta de automatização está ligada a área de trabalho do Log Analytics.  Tenha em atenção o seguinte:

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 7515d1d88e3652ba609286b1805e58853763434d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28a699f62a97120a27ba4d6f555182f090249dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183237"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Active Directory do Azure com o Software de RH Cezanne
 
@@ -88,7 +88,7 @@ Para configurar e testar o Azure AD início de sessão único com o Software de 
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de Software de RH Cezanne](#create-a-cezannehrsoftware-test-user)**  - para ter um equivalente da Eduarda Almeida no Software de RH Cezanne que está ligado à representação de utilizador do Azure AD.
+1. **Criar um utilizador de teste de Software de RH Cezanne** - para ter um equivalente da Eduarda Almeida no Software de RH Cezanne que está ligado à representação de utilizador do Azure AD.
 1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 

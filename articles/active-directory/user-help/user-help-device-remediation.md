@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164066"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770474"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Razões possíveis para a mensagem de erro "não pode aceder aí a partir daqui"
 Ao aceder a aplicações web internas ou serviços da sua organização, poderá receber uma mensagem de erro que diz **não pode aceder aí a partir daqui**. Esta mensagem indica que sua organização colocou uma política que está a impedir o seu dispositivo de acesso a recursos da sua organização. Enquanto acabar, poderá ter de contactar o suporte técnico para corrigir este problema, aqui estão algumas coisas que pode tentar primeiro.
@@ -68,4 +68,4 @@ Se o dispositivo não está associado à rede da sua organização, pode fazer u
 ## <a name="next-steps"></a>Passos Seguintes
 - [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
 
-- [Iniciar sessão com o telemóvel em vez da palavra-passe](microsoft-authenticator-app-phone-signin-faq.md)
+- [Iniciar sessão com o telemóvel em vez da palavra-passe](user-help-auth-app-sign-in.md)

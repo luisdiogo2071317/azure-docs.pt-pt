@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459031"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822413"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -1365,29 +1365,29 @@ As funções matemáticas realizar um cálculo, com base nos valores de entrada 
 
 | Utilização | Descrição |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | Devolve o valor absoluto (positivo) da expressão especificada numérico. |
-| [CEILING (num_expr)](#bk_ceiling) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
-| [FLOOR (num_expr)](#bk_floor) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
-| [EXP (num_expr)](#bk_exp) | Devolve o expoente da expressão especificada numérico. |
+| [ABS (num_expr) | Devolve o valor absoluto (positivo) da expressão especificada numérico. |
+| CEILING (num_expr) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
+| FLOOR (num_expr) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
+| EXP (num_expr) | Devolve o expoente da expressão especificada numérico. |
 | [REGISTO (num_expr [, base])](#bk_log) | Devolve o logaritmo natural da expressão numérica especificada ou o logaritmo com a base especificada |
-| [LOG10 (num_expr)](#bk_log10) | Devolve o valor de base 10 logarítmico da expressão especificada numérico. |
-| [ROUND (num_expr)](#bk_round) | Devolve um valor numérico, arredondado para o valor de número inteiro mais próximo. |
-| [TRUNC (num_expr)](#bk_trunc) | Devolve um valor numérico, truncado para o valor de número inteiro mais próximo. |
-| [SQRT (num_expr)](#bk_sqrt) | Devolve a raiz quadrada da expressão especificada numérico. |
-| [SQUARE (num_expr)](#bk_square) | Devolve o quadrado da expressão especificada numérico. |
+| LOG10 (num_expr) | Devolve o valor de base 10 logarítmico da expressão especificada numérico. |
+| ROUND (num_expr) | Devolve um valor numérico, arredondado para o valor de número inteiro mais próximo. |
+| TRUNC (num_expr) | Devolve um valor numérico, truncado para o valor de número inteiro mais próximo. |
+| SQRT (num_expr) | Devolve a raiz quadrada da expressão especificada numérico. |
+| SQUARE (num_expr) | Devolve o quadrado da expressão especificada numérico. |
 | [POWER (num_expr, num_expr)](#bk_power) | Devolve o poder da expressão numérica especificada para o valor especificado. |
-| [SIGN (num_expr)](#bk_sign) | Devolve o valor de início de sessão (-1, 0, 1) da expressão especificada numérico. |
-| [ACOS (num_expr)](#bk_acos) | Devolve o ângulo em radianos, cujo co-seno é a expressão numérica especificada; Também chamado de arco de cosseno. |
-| [ASIN (num_expr)](#bk_asin) | Devolve o ângulo em radianos, cujo seno é a expressão numérica especificada. Esta função também é denominada o arco de seno. |
-| [ATAN (num_expr)](#bk_atan) | Devolve o ângulo em radianos, cuja tangente é a expressão numérica especificada. Isso também é chamado o arco de tangente. |
-| [ATN2 (num_expr)](#bk_atn2) | Devolve o ângulo em radianos, entre o eixo x positivo e o ray da origem para o ponto (y, x), onde x e y são os valores de duas expressões de vírgula flutuante especificado. |
-| [COS (num_expr)](#bk_cos) | Devolve o cosseno trigonométricos do ângulo especificado, em radianos, a expressão especificada. |
-| [COT (num_expr)](#bk_cot) | Devolve a co-tangente trigonométricos do ângulo especificado, em radianos, a expressão numérica especificado. |
-| [DEGREES (num_expr)](#bk_degrees) | Devolve o ângulo correspondente em graus para um ângulo especificado em radianos. |
-| [INSTALADOR DE PLATAFORMA ()](#bk_pi) | Devolve o valor da constante de PI. |
-| [RADIANS (num_expr)](#bk_radians) | Devolve o radianos quando uma expressão numérica, em graus, que é introduzida. |
-| [SIN (num_expr)](#bk_sin) | Devolve o seno trigonométricos do ângulo especificado, em radianos, a expressão especificada. |
-| [TAN (num_expr)](#bk_tan) | Devolve a tangente de expressão de entrada, a expressão especificada. |
+| SIGN (num_expr) | Devolve o valor de início de sessão (-1, 0, 1) da expressão especificada numérico. |
+| ACOS (num_expr) | Devolve o ângulo em radianos, cujo co-seno é a expressão numérica especificada; Também chamado de arco de cosseno. |
+| ASIN (num_expr) | Devolve o ângulo em radianos, cujo seno é a expressão numérica especificada. Esta função também é denominada o arco de seno. |
+| ATAN (num_expr) | Devolve o ângulo em radianos, cuja tangente é a expressão numérica especificada. Isso também é chamado o arco de tangente. |
+| ATN2 (num_expr) | Devolve o ângulo em radianos, entre o eixo x positivo e o ray da origem para o ponto (y, x), onde x e y são os valores de duas expressões de vírgula flutuante especificado. |
+| COS (num_expr) | Devolve o cosseno trigonométricos do ângulo especificado, em radianos, a expressão especificada. |
+| COT (num_expr) | Devolve a co-tangente trigonométricos do ângulo especificado, em radianos, a expressão numérica especificado. |
+| DEGREES (num_expr) | Devolve o ângulo correspondente em graus para um ângulo especificado em radianos. |
+| PI () | Devolve o valor da constante de PI. |
+| RADIANS (num_expr) | Devolve o radianos quando uma expressão numérica, em graus, que é introduzida. |
+| SIN (num_expr) | Devolve o seno trigonométricos do ângulo especificado, em radianos, a expressão especificada. |
+| TAN (num_expr) | Devolve a tangente de expressão de entrada, a expressão especificada. |
 
 Por exemplo, agora, pode executar consultas conforme mostrado no exemplo a seguir:
 

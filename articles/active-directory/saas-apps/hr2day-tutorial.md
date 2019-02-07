@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bb03506bac22c8c82e856f403710a4908af6f9de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d77d72264580e4cde83f6cbb9f83bf7030d941e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149260"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure com HR2day por Merces
 
@@ -88,11 +88,11 @@ HR2day por Merces, atribuir os **nome de utilizador** no Azure AD para **Usernam
 
 Para configurar e testar o Azure AD início de sessão único com HR2day por Merces, tem de concluir os seguintes blocos de construção:
 
-1. [Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on): Permita que os utilizadores utilizar esta funcionalidade.
-1. [Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user): Teste do Azure AD início de sessão único com Eduarda Almeida.
-1. [Criar um HR2day por utilizador de teste Merces](#creating-an-hr2day-by-merces-test-user): Crie um equivalente da Eduarda Almeida HR2day por Merces que está ligado à representação de utilizador do Azure AD.
-1. [Atribua o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user): Ative a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. [Testar início de sessão único](#testing-single-sign-on): Certifique-se de que se a configuração funciona.
+1. Configure o Azure AD início de sessão único: Permita que os utilizadores utilizar esta funcionalidade.
+1. Crie um utilizador de teste do Azure AD: Teste do Azure AD início de sessão único com Eduarda Almeida.
+1. Crie um HR2day por utilizador de teste Merces: Crie um equivalente da Eduarda Almeida HR2day por Merces que está ligado à representação de utilizador do Azure AD.
+1. Atribua o utilizador de teste do Azure AD: Ative a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. Testar início de sessão único: Certifique-se de que se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 

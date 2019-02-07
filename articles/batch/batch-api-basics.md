@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bdb7b1477725235ca88e9cf527c7f711fd6f6b73
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732265"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818588"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -62,7 +62,7 @@ Todas as soluções que utilizam o serviço Batch precisam de alguns dos recurso
   * [Tarefa de início](#start-task)
   * [Tarefa do gestor de tarefas](#job-manager-task)
   * [Tarefas de preparação e de lançamento da tarefa](#job-preparation-and-release-tasks)
-  * [Tarefa de várias instâncias (Multi-instance task, MPI)](#multi-instance-tasks)
+  * Tarefa de várias instâncias (Multi-instance task, MPI)
   * [Dependências de tarefas](#task-dependencies)
 * [Pacotes de aplicações](#application-packages)
 
@@ -215,7 +215,7 @@ Pode especificar [pacotes de aplicações](#application-packages) para implement
 
 ### <a name="network-configuration"></a>Configuração da rede
 
-Pode especificar a sub-rede de uma [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) do Azure na qual devem ser criados os nós de computação do agrupamento. Veja a secção [Configuração de rede de conjunto](#pool-network-configuration) para obter mais informações.
+Pode especificar a sub-rede de uma [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md) do Azure na qual devem ser criados os nós de computação do agrupamento. Consulte a secção de configuração de rede de conjunto para obter mais informações.
 
 
 ## <a name="job"></a>Tarefa
@@ -271,7 +271,7 @@ Além das tarefas que define para realizar a computação num nó, também são 
 * [Tarefa de início](#start-task)
 * [Tarefa do gestor de tarefas](#job-manager-task)
 * [Tarefas de preparação e de lançamento da tarefa](#job-preparation-and-release-tasks)
-* [Tarefas de várias instâncias (MPI)](#multi-instance-tasks)
+* Tarefas de várias instâncias (MPI)
 * [Dependências de tarefas](#task-dependencies)
 
 ### <a name="start-task"></a>Tarefa de início

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: acf455bff739666712917008dc8090c6a95c6dc4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388429"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815657"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Limites do Gateway de caixa de dados do Azure (pré-visualização)
 
@@ -26,14 +26,14 @@ Considere estes limites, como implantar e operar a sua solução de Gateway de c
 
 ## <a name="data-box-gateway-service-limits"></a>Limites do serviço de Gateway de caixa de dados
 
-- Nesta versão, o serviço está disponível apenas em determinadas regiões nos EUA, UE e Ásia-Pacífico. Para obter mais informações, aceda a [Disponibilidade de região](#data-box-gateway-overview#region-availability). A conta de armazenamento deve ser fisicamente mais próxima da região em que o dispositivo implementado (pode ser diferente da geo de serviço).
+- Nesta versão, o serviço está disponível apenas em determinadas regiões nos EUA, UE e Ásia-Pacífico. Para obter mais informações, aceda a disponibilidade de região. A conta de armazenamento deve ser fisicamente mais próxima da região em que o dispositivo implementado (pode ser diferente da geo de serviço).
 - Mover um recurso de Gateway de caixa de dados para um grupo diferente de subscrição ou recurso não é suportada. Para obter mais detalhes, aceda a [mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="data-box-gateway-device-limits"></a>Limites do dispositivo de Gateway de caixa de dados
 
 A tabela seguinte descreve os limites para o dispositivo de Gateway de caixa de dados.
 
-| Descrição | Valor |
+| Descrição | Value |
 |---|---|
 |Não. de arquivos por dispositivo |100 milhões <br> Limite é de aproximadamente 25 milhões de ficheiros para todas as 2 TB de espaço em disco com o limite máximo em 100 milhões |
 |Não. de partilhas por dispositivo |24 |

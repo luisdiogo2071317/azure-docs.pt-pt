@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 6ac5a44f941f8ebcecc3a1d7e6b5e9dccf5704de
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242217"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813165"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Conceder acesso de aplicações para recursos do Azure Stack através da criação de principais de serviço
 
@@ -73,7 +73,7 @@ Quando iniciar sessão programaticamente, utilize o ID da sua aplicação e uma 
 
 1. Partir **registos das aplicações** no Active Directory, selecione a aplicação.
 
-2. Copie o **ID da Aplicação** e armazene-o no código da aplicação. As aplicações na [aplicações de exemplo](#sample-applications) utilizar **id de cliente** quando nos Referimos ao **ID da aplicação**.
+2. Copie o **ID da Aplicação** e armazene-o no código da aplicação. As aplicações nas aplicações de exemplo utilizam **id de cliente** quando nos Referimos ao **ID de aplicação**.
 
      ![ID da aplicação para a aplicação](./media/azure-stack-create-service-principal/image12.png)
 3. Para gerar uma chave de autenticação, selecione **Chaves**.

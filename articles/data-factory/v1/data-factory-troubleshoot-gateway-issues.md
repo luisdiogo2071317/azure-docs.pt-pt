@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022543"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813845"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Utilizar o Data Management Gateway para resolver problemas
 Este artigo fornece informações sobre como resolver problemas com o Data Management Gateway.
@@ -138,7 +138,7 @@ Poderá ver a seguinte mensagem de erro.
 Este erro ocorre quando o gateway estiver num ambiente que requer um proxy HTTP para aceder a recursos da Internet ou a palavra-passe de autenticação de seu proxy é alterado, mas não é atualizado em conformidade no seu gateway.
 
 #### <a name="resolution"></a>Resolução
-Siga as instruções no [considerações do servidor Proxy](#proxy-server-considerations) secção deste artigo e configurar as definições de proxy com o Data Management Gateway Configuration Manager.
+Siga as instruções na secção de considerações de servidor de Proxy deste artigo e configure as definições de proxy com o Data Management Gateway Configuration Manager.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>Gateway está online com funcionalidade limitada
 ### <a name="1-problem"></a>1. Problema
@@ -169,8 +169,8 @@ Gateway não é possível ligar ao serviço cloud através do Service Bus.
 Siga estes passos para obter o gateway online:
 
 1. Permitir o endereço IP regras de saída no computador gateway e do firewall Corporativo. Pode localizar endereços IP a partir do registo de eventos do Windows (ID = = 401): Foi efetuada uma tentativa de aceder a um soquete de uma forma proibido por suas permissões de acesso XX. XX. XX. XX:9350.
-* Configure definições de proxy no gateway. Consulte a [considerações do servidor Proxy](#proxy-server-considerations) secção para obter detalhes.
-* Ative as portas de saída 5671 e 9350 a 9354 em ambos os o Firewall do Windows no computador gateway e do firewall Corporativo. Consulte a [portas e firewall](#ports-and-firewall) secção para obter detalhes. Este passo é opcional, mas é recomendada para consideração de desempenho.
+* Configure definições de proxy no gateway. Consulte a secção de considerações do servidor de Proxy para obter detalhes.
+* Ative as portas de saída 5671 e 9350 a 9354 em ambos os o Firewall do Windows no computador gateway e do firewall Corporativo. Consulte a secção de firewall para obter detalhes e de portas. Este passo é opcional, mas é recomendada para consideração de desempenho.
 
 ### <a name="3-problem"></a>3. Problema
 Consulte o seguinte erro.

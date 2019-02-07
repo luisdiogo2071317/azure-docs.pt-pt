@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
-ms.openlocfilehash: bf3302f4f7323307163ec540accb4cc652512463
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2bd47c7955625eb43de40e61515bf7814a8c8355
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178805"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Active Directory do Azure com HubSpot
 
@@ -87,7 +87,7 @@ Para configurar e testar o Azure AD início de sessão único com HubSpot, tem d
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste HubSpot](#creating-a-hubspot-saml-test-user)**  - para ter um equivalente da Eduarda Almeida na HubSpot que está ligado à representação de utilizador do Azure AD.
+3. **Criar um utilizador de teste HubSpot** - para ter um equivalente da Eduarda Almeida na HubSpot que está ligado à representação de utilizador do Azure AD.
 4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 

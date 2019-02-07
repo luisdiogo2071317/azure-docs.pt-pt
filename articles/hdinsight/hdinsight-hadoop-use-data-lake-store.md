@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052773"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816378"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Data Lake com clusters do HDInsight do Azure
 
@@ -69,7 +69,7 @@ Para poder utilizar o armazenamento do Data Lake como armazenamento predefinido,
 - A pasta com todas as pastas de clusters.  Por exemplo: adl://mydatalakestore/clusters.
 - A pasta do cluster.  Por exemplo: adl://mydatalakestore/clusters/cluster1storage.
 
-Para obter mais informações para a criação de serviço principal e conceder acesso, consulte [acesso de configurar o armazenamento do Data Lake](#configure-data-lake-store-access).
+Para obter mais informações para a criação de serviço principal e conceder acesso, consulte Configurar o armazenamento do Data Lake acesso.
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>A extrair um certificado do Cofre de chaves do Azure para utilização na criação do cluster
 
@@ -117,12 +117,12 @@ Para poder utilizar o armazenamento do Data Lake como armazenamento adicional, s
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-Para obter mais informações para a criação de serviço principal e conceder acesso, consulte [acesso de configurar o armazenamento do Data Lake](#configure-data-lake-store-access).
+Para obter mais informações para a criação de serviço principal e conceder acesso, consulte Configurar o armazenamento do Data Lake acesso.
 
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>Utilizar mais do que um contas de armazenamento do Data Lake
 
-Adicionar uma conta de armazenamento do Data Lake como adicional e adicionar mais do que um armazenamento do Data Lake são efetuadas ao dar a permissão de cluster do HDInsight nos dados de contas de armazenamento do Data Lake de uma ou mais. Ver [acesso de configurar o armazenamento do Data Lake](#configure-data-lake-store-access).
+Adicionar uma conta de armazenamento do Data Lake como adicional e adicionar mais do que um armazenamento do Data Lake são efetuadas ao dar a permissão de cluster do HDInsight nos dados de contas de armazenamento do Data Lake de uma ou mais. Acesso de armazenamento Consulte Configurar o Data Lake.
 
 ## <a name="configure-data-lake-storage-access"></a>Configurar o acesso de armazenamento do Data Lake
 
@@ -241,7 +241,7 @@ Neste artigo, aprendeu a utilizar o Data Lake do Azure compatível com HDFS arma
 Para obter mais informações, consulte:
 
 * [Get started with Azure HDInsight (Introdução ao Azure HDInsight)][hdinsight-get-started]
-* [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Quickstart: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Criar um cluster do HDInsight para utilizar o armazenamento do Data Lake com o Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data]
 * [Utilizar o Apache Hive com o HDInsight][hdinsight-use-hive]

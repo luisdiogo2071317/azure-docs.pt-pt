@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8d597a3491f80bc09c3e0676d17971f2509ba47a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184123"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818741"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorizar o estado de replicação do Active Directory com o Log Analytics
 
@@ -49,7 +49,7 @@ Se não pretender ligar-se a qualquer um dos seus controladores de domínio dire
 2. [Ligar o computador do Windows ao Log Analytics](../../azure-monitor/platform/om-agents.md) ou [ligá-la com o seu ambiente existente do Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md), se já não está ligado.
 3. Nesse computador, defina a seguinte chave de registo:
 
-   * Chave: **Grupos de HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management\<ManagementGroupName > \Solutions\ADReplication**
+   * Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
    * Valor: **IsTarget**
    * Dados do valor: **verdadeiro**
 
@@ -127,7 +127,7 @@ R: Neste momento, não.
 R: Não, apenas um único controlador de domínio tem de ser adicionado. Se tiver vários controladores de domínio na sua área de trabalho do Log Analytics, os dados de todos eles são enviados para o Log Analytics.
 
 **P: Não quero adicionar quaisquer controladores de domínio a minha área de trabalho do Log Analytics. Posso continuar a utilizar a solução de estado de replicação do AD?**
-R: Sim. Pode definir o valor de uma chave de registo para ativá-la. Ver [para permitir que um controlador de domínio enviar dados de AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+R: Sim. Pode definir o valor de uma chave de registo para ativá-la. Consulte para ativar um controlador de domínio enviar dados de AD para o Log Analytics.
 
 **P: O que é o nome do processo que faz a recolha de dados?**
 R: AdvisorAssessment.exe
@@ -149,7 +149,7 @@ Para recolher dados, o pacote de solução de estado de replicação do AD reque
 
 Se precisar de assistência a ligar um dos seus controladores de domínio, pode ver a documentação em [computadores Windows ligar ao Log Analytics](../../azure-monitor/platform/om-agents.md). Em alternativa, se o seu controlador de domínio já está ligado a um ambiente existente do System Center Operations Manager, pode ver documentação em [ligar o System Center Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md).
 
-Se não pretender ligar qualquer um dos seus controladores de domínio diretamente ao Log Analytics ou para o System Center Operations Manager, veja [para permitir que um controlador de domínio enviar dados de AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+Se não pretender ligar qualquer um dos seus controladores de domínio diretamente ao Log Analytics ou para o System Center Operations Manager, consulte ativar um controlador de domínio enviar dados de AD para o Log Analytics.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Uso [pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver os dados detalhados de estado de replicação do Active Directory.

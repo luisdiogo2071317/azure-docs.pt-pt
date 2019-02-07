@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226338"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822787"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
 
@@ -56,7 +56,7 @@ Ao replicar máquinas virtuais VMware:
     >   * Pode selecionar uma conta de armazenamento standard ou premium. Se selecionar uma conta de premium, tem de especificar uma conta de armazenamento standard adicional para os registos de replicação em curso. Contas têm de estar na mesma região que o Cofre de serviços de recuperação.
     >   * Se pretender utilizar uma conta de armazenamento diferente, pode [criá-lo](../storage/common/storage-create-storage-account.md). Para criar uma conta de armazenamento com o Resource Manager, clique em **criar novo**. 
 
-8. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure estabelecerão uma ligação quando se puserem em marcha após a ativação pós-falha. A rede tem de estar na mesma região que o cofre de Serviços de Recuperação. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. Se não tiver uma rede, terá [criá-lo](#set-up-an-azure-network). Para criar uma rede utilizando o Gestor de recursos, clique em **criar novo**. Selecione uma sub-rede, se aplicável e, em seguida, clique em **OK**.
+8. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure estabelecerão uma ligação quando se puserem em marcha após a ativação pós-falha. A rede tem de estar na mesma região que o cofre de Serviços de Recuperação. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. Se não tiver uma rede, terá de criar uma. Para criar uma rede utilizando o Gestor de recursos, clique em **criar novo**. Selecione uma sub-rede, se aplicável e, em seguida, clique em **OK**.
 
     ![Ativar a definição de destino de replicação](./media/vmware-azure-enable-replication/enable-rep3.png)
 9. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, clique em **OK**. Se não é possível ver/selecionar qualquer máquina virtual específica, clique em [aqui](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.

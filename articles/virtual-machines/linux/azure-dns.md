@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 93614d4889c9c884f25c5e05cd620e8303226323
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357771"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819149"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais do Linux no Azure
 O Azure fornece resolução de nomes DNS por predefinição, todas as máquinas virtuais que estão numa única rede virtual. Pode implementar a sua própria solução de resolução de nome DNS ao configurar os seus próprios serviços DNS nas suas máquinas virtuais que aloja o Azure. Os seguintes cenários devem ajudar a escolher uma que funcione para a sua situação.
@@ -31,9 +31,9 @@ O tipo de resolução de nomes que utiliza depende de como as máquinas virtuais
 
 A tabela seguinte ilustra os cenários e soluções de resolução de nome correspondente:
 
-| **Cenário** | **Solução** | **Sufixo** |
+| **Cenário** | **Solução** | **Suffix** |
 | --- | --- | --- |
-| Resolução de nomes entre instâncias de função ou máquinas virtuais na mesma rede virtual |[Resolução de nomes fornecidos pelo Azure](#azure-provided-name-resolution) |nome de anfitrião ou nome de domínio completamente qualificado (FQDN) |
+| Resolução de nomes entre instâncias de função ou máquinas virtuais na mesma rede virtual |Resolução de nomes fornecidos pelo Azure |nome de anfitrião ou nome de domínio completamente qualificado (FQDN) |
 | Resolução de nomes entre instâncias de função ou máquinas virtuais em diferentes redes virtuais |Gerida pelo cliente servidores DNS que reencaminhar consultas entre redes virtuais para a resolução pelo Azure (proxy do DNS). Ver [resolução de nomes através de seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
 | Resolução de nomes de serviço de instâncias de função ou máquinas virtuais no Azure e de computadores no local |Gerida pelo cliente servidores DNS (por exemplo, o controlador de domínio no local, controlador de domínio só de leitura local ou um DNS secundário sincronizados através de transferências de zona). Ver [resolução de nomes através de seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
 | Resolução de nomes de anfitrião do Azure a partir de computadores no local |Reencaminhar consultas para um servidor de proxy gerida pelo cliente DNS na rede virtual correspondente. O servidor proxy encaminha consultas para o Azure para a resolução. Ver [resolução de nomes através de seu próprio servidor DNS](#name-resolution-using-your-own-dns-server). |Apenas FQDN |
@@ -87,7 +87,7 @@ Vários DNS diferentes, colocação em cache, como pacotes dnsmasq, estão dispo
 5. Reinicie o serviço de rede ("rede reiniciar o serviço do") para definir a cache como o resolvedor DNS local
 
 > [!NOTE]
-> : O pacote 'dnsmasq' é apenas uma das muitas caches DNS que estão disponíveis para Linux. Antes de usá-lo, verificar a respetiva adequação para as suas necessidades e sem outro cache está instalado.
+> : O pacote de 'dnsmasq' é apenas uma das muitas caches DNS que estão disponíveis para o Linux. Antes de usá-lo, verificar a respetiva adequação para as suas necessidades e sem outro cache está instalado.
 >
 >
 

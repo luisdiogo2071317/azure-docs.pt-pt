@@ -15,19 +15,19 @@ ms.topic: get-started-article
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b7f9bda37d63956ea672528c28b81eaaac9891a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4bc4387dd56de96edd17fcd8e5672cfda96cf67b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243771"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816412"
 ---
 # <a name="connect-to-azure-stack"></a>Ligar ao Azure Stack
 
 Para gerir os recursos, tem de ligar para o Azure Stack Development Kit. Este artigo descreve os passos necessários para ligar para o kit de desenvolvimento. Pode usar qualquer uma das seguintes opções de ligação:
 
-* [Ambiente de trabalho remoto](#connect-with-remote-desktop): permite que um único utilizador em simultâneo, ligue-se rapidamente do kit de desenvolvimento.
-* [Rede privada virtual (VPN)](#connect-with-vpn): permite que vários utilizadores em simultâneo ligar a partir de clientes fora da infraestrutura do Azure Stack (requer a configuração).
+* Ambiente de trabalho remoto: permite que um único utilizador em simultâneo, ligue-se rapidamente do kit de desenvolvimento.
+* Rede privada virtual (VPN): permite que vários utilizadores em simultâneo, ligar a partir de clientes fora da infraestrutura do Azure Stack (requer a configuração).
 
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>Ligar ao Azure Stack com o ambiente de trabalho remoto
 Com uma ligação de ambiente de trabalho remoto, um único utilizador em simultâneo pode trabalhar com o portal para gerir os recursos.

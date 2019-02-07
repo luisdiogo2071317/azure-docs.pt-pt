@@ -1,7 +1,7 @@
 ---
-title: Aceder a dados em arquivos de dados de treinamento
+title: Aceder a dados em arquivos de dados / blobs para formação
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar arquivos de dados para o armazenamento de dados de acesso durante o treinamento com o serviço Azure Machine Learning
+description: Saiba como utilizar arquivos de dados para armazenamento de dados de BLOBs de acesso durante o treinamento com o serviço Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 74ee7c4bf041edff559c6026f92418a496959556
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485862"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769900"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>Aceder a dados durante o treinamento de seus arquivos de dados
 Utilize um arquivo de dados para aceder e interagir com os seus dados em fluxos de trabalho do Azure Machine Learning.

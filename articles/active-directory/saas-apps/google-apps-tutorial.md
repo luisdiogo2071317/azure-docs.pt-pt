@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4705bb8c93381a2487ba94f9dfe3a7e8820f2fd9
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902470"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Active Directory do Azure com o G Suite
 
@@ -75,11 +75,11 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
     R: Para esta configuração, o atributo de correio eletrónico é necessário para os utilizadores ser capazes de início de sessão. Este atributo não pode ser definido manualmente.
 
-    O atributo de correio eletrónico é preenchido automaticamente para qualquer utilizador com uma licença válida do Exchange. Se o utilizador não tem capacidade de correio, este erro será recebido como a aplicação tem de obter este atributo para dar acesso.
+    O atributo de correio eletrónico é preenchido automaticamente para qualquer utilizador com uma licença válida do Exchange. Se o utilizador não está ativada por e-mail, este erro será recebido como a aplicação tem de obter este atributo para dar acesso.
 
-    Para atribuir uma licença do Exchange,. Vá para portal.office.com com uma conta de administrador e clique no Centro de administração, faturação, as subscrições, selecione a sua subscrição do Office 365 e, em seguida, clique em atribuir aos utilizadores, selecionar os utilizadores que pretende verificar seus subscrição e no painel da direita, clique em licenças de edição.
+    Pode ir para portal.office.com com uma conta de administrador, em seguida, clique no Centro de administração, faturação, as subscrições, selecione a subscrição do Office 365 e, em seguida, clique em atribuir para utilizadores, selecione os utilizadores que pretende verificar a sua subscrição e no painel da direita, clique em Edite licenças.
 
-    Assim que é atribuída a licença do Exchange, poderá demorar alguns minutos a ser aplicado. Depois disso, o atributo user.mail será preenchido automaticamente e o problema deve ser resolvido.
+    Assim que é atribuída a licença do Office 365, poderá demorar alguns minutos a ser aplicado. Depois disso, o atributo user.mail será preenchido automaticamente e o problema deve ser resolvido.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -142,30 +142,47 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Sobre o **configuração básica de SAML** secção, se pretende configurar para o **Gmail** execute os seguintes passos:
 
     ![URLs de domínio do G Suite e únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL de URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `https://google.com` |
-    | `https://google.com/a/<yourdomain.com>` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do G Suite](https://www.google.com/contact/) obter esses valores.
 
-5. A aplicação do G Suite espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra um exemplo disso. O valor predefinido **identificador de utilizador exclusivo** é **user.userprincipalname** mas G Suite espera que isso seja mapeado com o endereço de e-mail do utilizador. Para que pode usar **user.mail** atributo da lista ou utilize o valor do atributo adequado com base na configuração da sua organização.
+5. Sobre o **configuração básica de SAML** secção, se pretende configurar para o **Google Cloud Platform** execute os seguintes passos:
+
+    ![URLs de domínio do G Suite e únicas início de sessão em informações](common/sp-identifier.png)
+
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL de URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    | |
+    |--|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+    
+    > [!NOTE] 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do G Suite](https://www.google.com/contact/) obter esses valores.
+
+6. A aplicação do G Suite espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra um exemplo disso. O valor predefinido **identificador de utilizador exclusivo** é **user.userprincipalname** mas G Suite espera que isso seja mapeado com o endereço de e-mail do utilizador. Para que pode usar **user.mail** atributo da lista ou utilize o valor do atributo adequado com base na configuração da sua organização.
 
     ![image](common/edit-attribute.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
+7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | ---------------| --------------- |
     | Identificador de Utilizador Exclusivo | User.mail |
 
@@ -187,11 +204,11 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
 
     g. Clique em **Guardar**.
 
-7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+8. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-8. Sobre o **configurar o G Suite** secção, copie os URLs apropriados de acordo com seus requisitos.
+9. Sobre o **configurar o G Suite** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
@@ -203,7 +220,7 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
 
 ### <a name="configure-g-suite-single-sign-on"></a>Configurar o G Suite início de sessão único
 
-1. Abra um novo separador no seu browser e inicie sessão no [consola de administração do G Suite](https://admin.google.com/) com a sua conta de administrador.
+1. Abra um novo separador no seu browser e inicie sessão no [consola de administração do G Suite](http://admin.google.com/) com a sua conta de administrador.
 
 2. Clique em **segurança**. Se não vir a ligação, podem estar ocultos sob o **More Controls** menu na parte inferior do ecrã.
 

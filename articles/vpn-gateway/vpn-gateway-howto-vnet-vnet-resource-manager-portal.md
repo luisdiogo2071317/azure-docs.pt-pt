@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 245710d1ae3e7af4db5286a5db985fe35549ad3a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0646488c3dde4b0702d58bbd8905f4ae6bee1485
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098792"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821692"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma ligação de gateway VPN de VNet a VNet com o portal do Azure
 
@@ -83,57 +83,57 @@ Este artigo mostra-lhe como ligar VNets com o tipo de ligação de VNet a VNet. 
 **Valores da TestVNet1:**
 
 - **Definições de rede virtual**
-    - **Nome**: introduza *TestVNet1*.
-    - **Espaço de endereços**: introduza *10.11.0.0/16*.
-    - **Subscrição**: selecione a subscrição que pretende utilizar.
-    - **Grupo de recursos**: introduza *TestRG1*.
-    - **Localização**: selecione **E.U.A. Leste**.
+    - **Nome**: Introduza *TestVNet1*.
+    - **Espaço de endereços**: Enter *10.11.0.0/16*.
+    - **Subscrição**: Selecione a subscrição que pretende utilizar.
+    - **Grupo de recursos**: Enter *TestRG1*.
+    - **Localização**: Selecione **E.U.A. Leste**.
     - **Sub-rede**
-        - **Nome**: introduza *front-end*.
-        - **Intervalo de endereços**: introduza *10.11.0.0/24*.
+        - **Nome**: Enter *FrontEnd*.
+        - **Intervalo de endereços**: Enter *10.11.0.0/24*.
     - **A sub-rede de gateway**:
         - **Nome**: *GatewaySubnet* é autofilled.
-        - **Intervalo de endereços**: introduza *10.11.255.0/27*.
-    - **Servidor DNS**: selecione **personalizado** e introduza o endereço IP do seu servidor DNS.
+        - **Intervalo de endereços**: Enter *10.11.255.0/27*.
+    - **Servidor DNS**: Selecione **personalizado** e introduza o endereço IP do seu servidor DNS.
 
 - **Definições do gateway de rede virtual** 
-    - **Nome**: introduza *TestVNet1GW*.
-    - **Tipo de gateway**: selecione **VPN**.
-    - **Tipo de VPN**: selecione **baseado na rota**.
-    - **SKU**: selecione o gateway do SKU que pretende utilizar.
-    - **Nome do endereço IP público**: introduza *TestVNet1GWIP*
+    - **Nome**: Enter *TestVNet1GW*.
+    - **Tipo de gateway**: Selecione **VPN**.
+    - **Tipo de VPN**: Selecione **baseado na rota**.
+    - **SKU**: Selecione o gateway do SKU que pretende utilizar.
+    - **Nome do endereço IP público**: Introduza *TestVNet1GWIP*
     - **ligação** 
-       - **Nome**: introduza *TestVNet1toTestVNet4*.
-       - **Chave partilhada**: introduza *abc123*. É possível criar a chave partilhada por conta própria. Ao criar a ligação entre as VNets, os valores têm de corresponder.
+       - **Nome**: Enter *TestVNet1toTestVNet4*.
+       - **Chave partilhada**: Enter *abc123*. É possível criar a chave partilhada por conta própria. Ao criar a ligação entre as VNets, os valores têm de corresponder.
 
 **Valores da TestVNet4:**
 
 - **Definições de rede virtual**
-   - **Nome**: introduza *TestVNet4*.
-   - **Espaço de endereços**: introduza *10.41.0.0/16*.
-   - **Subscrição**: selecione a subscrição que pretende utilizar.
-   - **Grupo de recursos**: introduza *TestRG4*.
-   - **Localização**: selecione **E.U.A. oeste**.
+   - **Nome**: Enter *TestVNet4*.
+   - **Espaço de endereços**: Enter *10.41.0.0/16*.
+   - **Subscrição**: Selecione a subscrição que pretende utilizar.
+   - **Grupo de recursos**: Enter *TestRG4*.
+   - **Localização**: Selecione **E.U.A. oeste**.
    - **Sub-rede** 
-      - **Nome**: introduza *front-end*.
-      - **Intervalo de endereços**: introduza *10.41.0.0/24*.
+      - **Nome**: Enter *FrontEnd*.
+      - **Intervalo de endereços**: Enter *10.41.0.0/24*.
    - **GatewaySubnet** 
       - **Nome**: *GatewaySubnet* é autofilled.
-      - **Intervalo de endereços**: introduza *10.41.255.0/27*.
-   - **Servidor DNS**: selecione **personalizado** e introduza o endereço IP do seu servidor DNS.
+      - **Intervalo de endereços**: Enter *10.41.255.0/27*.
+   - **Servidor DNS**: Selecione **personalizado** e introduza o endereço IP do seu servidor DNS.
 
 - **Definições do gateway de rede virtual** 
-    - **Nome**: introduza *TestVNet4GW*.
-    - **Tipo de gateway**: selecione **VPN**.
-    - **Tipo de VPN**: selecione **baseado na rota**.
-    - **SKU**: selecione o gateway do SKU que pretende utilizar.
-    - **Nome do endereço IP público**: introduza *TestVNet4GWIP*.
+    - **Nome**: Enter *TestVNet4GW*.
+    - **Tipo de gateway**: Selecione **VPN**.
+    - **Tipo de VPN**: Selecione **baseado na rota**.
+    - **SKU**: Selecione o gateway do SKU que pretende utilizar.
+    - **Nome do endereço IP público**: Introduza *TestVNet4GWIP*.
     - **ligação** 
-       - **Nome**: introduza *TestVNet4toTestVNet1*.
-       - **Chave partilhada**: introduza *abc123*. É possível criar a chave partilhada por conta própria. Ao criar a ligação entre as VNets, os valores têm de corresponder.
+       - **Nome**: Enter *TestVNet4toTestVNet1*.
+       - **Chave partilhada**: Enter *abc123*. É possível criar a chave partilhada por conta própria. Ao criar a ligação entre as VNets, os valores têm de corresponder.
 
 ## <a name="create-and-configure-testvnet1"></a>Criar e configurar a TestVNet1
-Se já tiver uma VNet, certifique-se de que as definições são compatíveis com a conceção do seu gateway de VPN. Tenha em especial atenção as sub-redes que se possam sobrepor a outras redes. A ligação não funcionará corretamente se tiver sub-redes sobrepostas. Depois da VNet está configurada com as definições corretas, pode iniciar os passos a [especificar um servidor DNS](#dns) secção.
+Se já tiver uma VNet, certifique-se de que as definições são compatíveis com a conceção do seu gateway de VPN. Tenha em especial atenção as sub-redes que se possam sobrepor a outras redes. A ligação não funcionará corretamente se tiver sub-redes sobrepostas. Depois da VNet está configurada com as definições corretas, pode iniciar os passos na especificar uma seção de servidor DNS.
 
 ### <a name="to-create-a-virtual-network"></a>Para criar uma rede virtual
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -178,19 +178,19 @@ Quando os gateways de rede virtual para o TestVNet1 e o TestVNet4 estiverem conc
   ![Adicionar ligação](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Adicionar uma ligação")
 3. Sobre o **adicionar ligação** página, preencha os valores para a sua ligação:
 
-   - **Nome**: introduza um nome para a sua ligação. Por exemplo, *TestVNet1toTestVNet4*.
+   - **Nome**: Introduza um nome para a sua ligação. Por exemplo, *TestVNet1toTestVNet4*.
 
-   - **Tipo de ligação**: selecione **VNet-para-VNet** na lista suspensa.
+   - **Tipo de ligação**: Selecione **VNet a VNet** na lista suspensa.
 
-   - **Primeiro gateway de rede virtual**: este valor de campo é preenchido automaticamente porque está a criar esta ligação do gateway de rede virtual especificada.
+   - **Primeiro gateway de rede virtual**: Este valor de campo é preenchido automaticamente porque está a criar esta ligação do gateway de rede virtual especificada.
 
-   - **Segundo gateway de rede virtual**: Este campo é o gateway de rede virtual da VNet que pretende criar uma ligação a. Selecione **escolher outro gateway de rede virtual** para abrir o **gateway de rede virtual de escolha** página.
+   - **Segundo gateway de rede virtual**: Este campo é o gateway de rede virtual da VNet que pretende criar uma ligação para. Selecione **escolher outro gateway de rede virtual** para abrir o **gateway de rede virtual de escolha** página.
 
     - Veja os gateways de rede virtual que se encontram listados nesta página. Tenha em atenção que estão listados apenas os gateways da rede virtual na sua subscrição. Se pretender ligar a um gateway de rede virtual que não esteja na sua subscrição, utilize o [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
     - Selecione o gateway de rede virtual à qual pretende ligar.
 
-    - **Chave partilhada (PSK)**: neste campo, introduza uma chave partilhada para a sua ligação. Pode gerar ou criar esta chave de forma independente. Uma ligação site a site, a chave que utiliza é o mesmo para o dispositivo no local e a ligação de gateway de rede virtual. O conceito é semelhante aqui, exceto que em vez de se ligar a um dispositivo VPN, está a ligar a outro gateway de rede virtual.
+    - **Chave partilhada (PSK)**: Neste campo, introduza uma chave partilhada para a sua ligação. Pode gerar ou criar esta chave de forma independente. Uma ligação site a site, a chave que utiliza é o mesmo para o dispositivo no local e a ligação de gateway de rede virtual. O conceito é semelhante aqui, exceto que em vez de se ligar a um dispositivo VPN, está a ligar a outro gateway de rede virtual.
     
 4. Selecione **OK** para guardar as alterações.
 

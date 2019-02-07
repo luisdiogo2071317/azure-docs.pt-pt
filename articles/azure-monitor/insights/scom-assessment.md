@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186128"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819863"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução do System Center Operations Manager verificação de integridade (pré-visualização)
 
-![Símbolo de verificação de estado de funcionamento do Center Operations Manager do sistema](./media/scom-assessment/scom-assessment-symbol.png)
+![System Center Operations Manager Health Check symbol](./media/scom-assessment/scom-assessment-symbol.png)
 
 Pode utilizar a solução de verificação do System Center Operations Manager estado de funcionamento para avaliar o risco e estado de funcionamento do seu grupo de gestão do System Center Operations Manager num intervalo regular. Este artigo ajuda-o a instalar, configurar e utilizar a solução para que pode tomar medidas corretivas para potenciais problemas.
 
@@ -55,7 +55,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 
  Para configurar a avaliação através da consola de operações do Operations Manager, execute os passos abaixo na seguinte ordem:
 1. [Definir a conta Run As para o Centro de operações de Gestor de estado de funcionamento da verificação do sistema](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [Configurar a regra de verificação do System Center Operations Manager estado de funcionamento](#configure-the-assessment-rule)
+2. Configurar a regra de verificação do System Center Operations Manager estado de funcionamento
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes de recolha de dados de avaliação do System Center Operations Manager
 

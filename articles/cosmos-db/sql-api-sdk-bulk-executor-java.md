@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 956f2f723703e0263739ad57ebcb8215db634269
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 790aba3f523cadce97caa4c5c044276c349e6045
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040681"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769309"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca de executor do Java em massa: Transferir informações
 
@@ -31,18 +31,12 @@ ms.locfileid: "54040681"
 > * [executor em massa - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [executor em massa - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Descrição**</td><td>A biblioteca de executor em massa permite que os aplicativos de cliente realizar operações em massa em contas do Azure Cosmos DB. biblioteca de executor em massa fornece BulkImport e BulkUpdate espaços de nomes. O módulo pode em massa de BulkImport ingerir documentos de forma otimizada, de modo a que o débito aprovisionado para uma coleção é consumido para o respetivo limite máximo permitido. BulkUpdate módulo pode em massa atualizar os dados existentes nos contentores do Azure Cosmos DB como patches.</td></tr>
-
-<tr><td>**Transferência de SDK**</td><td>[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)</td></tr>
-
-<tr><td>**Biblioteca do BulkExecutor no GitHub**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)</td></tr>
-
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de .net API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)</td></tr>
-
-<tr><td>**Introdução**</td><td>[Introdução à biblioteca de executor de em massa Java SDK](bulk-executor-java.md)</td></tr>
-
-<tr><td>**Mínimo de runtime suportada**</td><td>[Kit de desenvolvimento Java (JDK) 7 +](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Descrição**|A biblioteca de executor em massa permite que os aplicativos de cliente realizar operações em massa em contas do Azure Cosmos DB. biblioteca de executor em massa fornece BulkImport e BulkUpdate espaços de nomes. O módulo pode em massa de BulkImport ingerir documentos de forma otimizada, de modo a que o débito aprovisionado para uma coleção é consumido para o respetivo limite máximo permitido. BulkUpdate módulo pode em massa atualizar os dados existentes nos contentores do Azure Cosmos DB como patches.|
+|**Transferência de SDK**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
+|**Biblioteca do BulkExecutor no GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
+| **Documentação da API**| [Documentação de referência de .net API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+|**Introdução**|Introdução à biblioteca de executor de em massa SDK de Java] (em massa-executor-java.md)|
+|**Mínimo de runtime suportada**|[Kit de desenvolvimento Java (JDK) 7 +](https://aka.ms/azure-jdks)|
 

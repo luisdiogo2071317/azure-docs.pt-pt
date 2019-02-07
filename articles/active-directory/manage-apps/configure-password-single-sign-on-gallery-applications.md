@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 02c25490ba19521715b48dc7ec92861078332a48
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731789"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815409"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação da galeria do Azure AD
 
@@ -50,7 +50,7 @@ Para configurar uma aplicação da galeria do Azure AD, que tem de:
 
 -   [Configurar a aplicação para a palavra-passe início de sessão único](#configure-the-application-for-password-single-sign-on)
 
--   [Atribuir a aplicação a um utilizador ou um grupo](#assign-the-application-to-a-user-or-a-group)
+-   Atribuir a aplicação a um utilizador ou um grupo
 
     -   [Atribuir um utilizador a uma aplicação diretamente](#assign-a-user-to-an-application-directly)
 

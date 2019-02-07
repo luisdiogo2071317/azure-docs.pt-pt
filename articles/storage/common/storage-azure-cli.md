@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d815bae2478d8853c63cd773cbfeaf5d3e90458c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659768"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816854"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilizar a CLI do Azure com o Storage do Azure
 
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>Gerir contas de armazenamento
 
 ### <a name="create-a-new-storage-account"></a>Criar uma nova conta de armazenamento
-Para utilizar o Armazenamento do Azure, é necessária uma conta de armazenamento. Pode criar uma nova conta de armazenamento do Azure depois de configurar o computador para [ligar à sua subscrição](#connect-to-your-azure-subscription).
+Para utilizar o Armazenamento do Azure, é necessária uma conta de armazenamento. Pode criar uma nova conta de armazenamento do Azure depois de configurar o computador para ligar à sua subscrição.
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Listar os blobs num contentor com o [lista de blob de armazenamento az](/cli/azure/storage/blob#az_storage_blob_list) comando.
+Listar os blobs num contentor com o [lista de blob de armazenamento az](/cli/azure/storage/blob) comando.
 
 ```azurecli
 az storage blob list \

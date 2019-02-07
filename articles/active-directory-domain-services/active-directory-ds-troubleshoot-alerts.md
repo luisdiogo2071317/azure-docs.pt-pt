@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 494acc55001bd3180d345801ef8d62800dd5e837
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817534"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Serviços de domínio do Azure AD - alertas de resolução de problemas
 Este artigo fornece os guias de resolução de problemas para todos os alertas que poderá notar no seu domínio gerido.
@@ -42,7 +42,7 @@ Escolha os passos de resolução de problemas que correspondem para o ID ou uma 
 | AADDS108 | *A subscrição utilizada pelos serviços de domínio do Azure AD foi movida para outro diretório. O Azure AD Domain Services tem de ter uma subscrição ativa no mesmo diretório para funcionar corretamente.* | [Diretórios de subscrição movido](#aadds108-subscription-moved-directories) |
 | AADDS109 | *Um recurso que é utilizado para o seu domínio gerido foi eliminado. Este recurso é necessária para o Azure AD Domain Services funcionar corretamente.* | [Um recurso foi eliminado](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *A sub-rede selecionada para a implementação do Azure AD Domain Services está cheio e não tem espaço para o controlador de domínio adicional que tem de ser criada.* | [Sub-rede está cheio](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | * Um principal de serviço que utiliza o Azure AD Domain Services para o seu domínio de serviço não está autorizado para gerir os recursos na subscrição do Azure. O principal de serviço tem de obter permissões para atender a seu domínio gerido. * | [Principal de serviço não autorizado](#aadds111-service-principal-unauthorized) |
+| AADDS111 | * Um principal de serviço que utiliza o Azure AD Domain Services para o seu domínio de serviço não está autorizado para gerir os recursos na subscrição do Azure. O principal de serviço tem de obter permissões para atender a seu domínio gerido. * | Principal de serviço não autorizado |
 | AADDS112 | *Identificámos que a sub-rede da rede virtual neste domínio poderá não ter endereços IP suficientes. O Azure AD Domain Services precisa de um mínimo dois disponíveis endereços IP na sub-rede está ativada no. Recomendamos um mínimo de ter 3 a 5 endereços IP livres na sub-rede. Isto pode ter ocorrido se outras máquinas virtuais são implementadas na sub-rede, portanto esgotar o número de endereços IP disponíveis ou se existe uma restrição no número de endereços IP disponíveis na sub-rede.* | [Endereços IP não suficientes](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Os recursos utilizados pelo Azure AD Domain Services foram detetados num Estado inesperado e não podem ser recuperados.* | [Os recursos são irrecuperáveis](#aadds113-resources-are-unrecoverable) |
 | AADDS114 | * A sub-rede selecionada para a implementação dos serviços de domínio do Azure AD é inválida e não pode ser utilizada. * | [Sub-rede inválida](#aadds114-subnet-invalid) |
@@ -201,7 +201,7 @@ Nossos principais de serviço precisam de acesso para poder gerir e criar recurs
 
 **Resolução:**
 
-1. [Eliminar o seu domínio gerido](#active-directory-ds-disable-aadds.md) do seu inquilino.
+1. Elimine o seu domínio gerido do inquilino.
 2. Corrigir o intervalo de endereços IP para a sub-rede
   1. Navegue para o [página de redes virtuais no portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
   2. Selecione a rede virtual que pretende utilizar para o Azure AD Domain Services.

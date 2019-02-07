@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: b6dc0a63340fee03b34f4c5b6eca8ff011d6b178
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744184"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814848"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 
@@ -56,23 +56,32 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
     ```
     Campo de ID de cópia fora o resultado do comando acima
     
-2. Obter serviço do Azure Key Vault do ID aplicação principal 
+2. Obtenha o serviço do Azure Key Vault do ID objeto principal ao executar o comando abaixo
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
+    Após a conclusão bem-sucedida deste comando localizar o ID de objeto no resultado
+    ```console
+        {
+            ...
+            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+            ...
+        }
+    ```
+    
 3. Atribua a função de operador de chave de armazenamento para o Azure Key Vault Identity
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Criar um cofre de chaves de conta de armazenamento gerida.     <br /><br />
-   Abaixo, iremos estiver a definir um período de regeneração de 90 dias. Após 90 dias, o Cofre de chaves irá regenerar 'chave1' e trocar a chave ativa de 'chave2' para 'chave1'.
+   Abaixo, iremos estiver a definir um período de regeneração de 90 dias. Após 90 dias, o Cofre de chaves irá regenerar 'chave1' e trocar a chave ativa de 'chave2' para 'chave1'. Agora ele irá marcar chave1 como a chave do Active Directory. 
    
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
     No caso do utilizador não tiver criado a conta de armazenamento e não tem permissões para a conta de armazenamento, os passos abaixo defina as permissões para a sua conta para se certificar de que pode gerir todas as permissões de armazenamento no Key Vault.
     

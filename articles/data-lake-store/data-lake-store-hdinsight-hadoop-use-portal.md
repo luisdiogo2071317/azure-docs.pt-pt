@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955835"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817041"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters do HDInsight com Gen1 de armazenamento do Azure Data Lake com o portal do Azure
 > [!div class="op_single_selector"]
@@ -55,10 +55,10 @@ Nesta secção, vai criar um cluster do HDInsight com contas de geração 1 de a
 
     ![Adicionar principal de serviço para o cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "principal de serviço de adicionar ao cluster do HDInsight")
 
-    - **Conta de selecionar Data Lake Store**: selecione uma conta de geração 1 do Data Lake armazenamento existente. É necessária uma conta de geração 1 de armazenamento do Data Lake existente.  Veja [Pré-requisitos](#prerequisites).
-    - **Caminho da raiz**: introduza um caminho em que os arquivos específicos do cluster devem ser armazenados. Na captura de ecrã, é __/clusters/myhdiadlcluster/__, na qual o __/clusters__ pasta tem de existir e o Portal cria *myhdicluster* pasta.  O *myhdicluster* é o nome do cluster.
-    - **Acesso do Data Lake Store**: configurar o acesso entre a conta de geração 1 do Data Lake Storage e o cluster do HDInsight. Para obter instruções, consulte [configurar Gen1 de armazenamento do Data Lake acesso](#configure-data-lake-store-access).
-    - **Contas de armazenamento adicionais**: adicionar as contas de armazenamento como contas de armazenamento adicional para o cluster. Para adicionar mais contas de geração 1 de armazenamento do Data Lake é feito ao dar as permissões de cluster nos dados de mais contas de geração 1 de armazenamento do Data Lake ao configurar uma conta de geração 1 de armazenamento do Data Lake como o tipo de armazenamento primário. Ver [configurar Gen1 de armazenamento do Data Lake acesso](#configure-data-lake-store-access).
+    - **Conta de selecionar Data Lake Store**: Selecione uma conta de geração 1 do Data Lake armazenamento existente. É necessária uma conta de geração 1 de armazenamento do Data Lake existente.  Veja [Pré-requisitos](#prerequisites).
+    - **Caminho da raiz**: Introduza um caminho em que os arquivos específicos do cluster devem ser armazenados. Na captura de ecrã, é __/clusters/myhdiadlcluster/__, na qual o __/clusters__ pasta tem de existir e o Portal cria *myhdicluster* pasta.  O *myhdicluster* é o nome do cluster.
+    - **Acesso do Data Lake Store**: Configure o acesso entre a conta de geração 1 do Data Lake Storage e o cluster do HDInsight. Para obter instruções, consulte Configurar Gen1 de armazenamento do Data Lake acesso.
+    - **Contas de armazenamento adicionais**: Adicione contas de armazenamento do Azure como contas de armazenamento adicional para o cluster. Para adicionar mais contas de geração 1 de armazenamento do Data Lake é feito ao dar as permissões de cluster nos dados de mais contas de geração 1 de armazenamento do Data Lake ao configurar uma conta de geração 1 de armazenamento do Data Lake como o tipo de armazenamento primário. Acesso de armazenamento Gen1 consulte Configurar o Data Lake.
 
 4. Sobre o **acesso do Data Lake Store**, clique em **selecione**e, em seguida, continuar com a criação do cluster, conforme descrito na [criar clusters Hadoop no HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 

@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245274"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809253"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecimento de acesso de aplicações ao Azure Stack
 
@@ -38,10 +38,10 @@ Principais de serviço são preferíveis a executar o aplicativo em suas própri
 
 Dependendo de como tiver implementado o Azure Stack, comece por criar um serviço principal. Este documento descreve a criação de um serviço principal para:
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). O Azure AD é um diretório de multi-inquilino, com base na cloud e o serviço de gestão de identidade. Pode utilizar o Azure AD com um ligado do Azure Stack.
-- [Serviços de Federação do Active Directory (AD FS)](#create-service-principal-for-ad-fs). O AD FS proporciona Federação de identidade simplificada segura e capacidades de início de sessão único (SSO) Web. Pode utilizar o AD FS com instâncias do Azure Stack conectadas ou desconectadas.
+- Azure Active Directory (Azure AD). O Azure AD é um diretório de multi-inquilino, com base na cloud e o serviço de gestão de identidade. Pode utilizar o Azure AD com um ligado do Azure Stack.
+- Serviços de Federação do Active Directory (AD FS). O AD FS proporciona Federação de identidade simplificada segura e capacidades de início de sessão único (SSO) Web. Pode utilizar o AD FS com instâncias do Azure Stack conectadas ou desconectadas.
 
-Depois de criar o principal de serviço, um conjunto de passos comuns para AD FS e o Azure Active Directory está habituado [delegar permissões](#assign-role-to-service-principal) à função.
+Depois de criar o principal de serviço, um conjunto de passos comuns para AD FS e o Azure Active Directory são usados para delegar permissões para a função.
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Gerir o principal de serviço para o Azure AD
 
@@ -63,7 +63,7 @@ Quando iniciar sessão programaticamente, utilize o ID para a sua aplicação e 
 
 1. Partir **registos das aplicações** no Active Directory, selecione a aplicação.
 
-2. Copie o **ID da Aplicação** e armazene-o no código da aplicação. As aplicações na [aplicações de exemplo](#sample-applications) secção Consulte este valor como o ID de cliente.
+2. Copie o **ID da Aplicação** e armazene-o no código da aplicação. As aplicações na secção de aplicações de exemplo referência a este valor como o ID de cliente.
 
      ![ID de cliente](./media/azure-stack-create-service-principal/image12.png)
 3. Para gerar uma chave de autenticação para uma aplicação Web / API, selecione **configurações** > **chaves**. 
@@ -74,7 +74,7 @@ Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor par
 
 ![chave guardada](./media/azure-stack-create-service-principal/image15.png)
 
-Depois de concluído, pode [atribuir uma função de seu aplicativo](#assign-role-to-service-principal).
+Depois de concluído, pode atribuir a aplicação uma função.
 
 ## <a name="manage-service-principal-for-ad-fs"></a>Gerir o principal de serviço para o AD FS
 

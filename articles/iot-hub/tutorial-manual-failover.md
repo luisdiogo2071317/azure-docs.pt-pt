@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
-ms.translationtype: HT
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250062"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821291"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: executar a ativação pós-falha manual de um hub IoT (pré-visualização pública)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Efetuar ativação pós-falha manual para um hub IoT (pré-visualização pública)
 
 A ativação pós-falha manual é uma funcionalidade do serviço Hub IoT que permite aos clientes executarem operações de [ativação pós-falha](https://en.wikipedia.org/wiki/Failover) no hub, de uma região primária para a região geograficamente emparelhada e correspondente no Azure. A ativação pós-falha manual pode ser feita em caso de um desastre regional ou de uma falha expandida do serviço. Também pode executar uma ativação pós-falha planeada para testar as capacidades de recuperação após desastre, embora seja recomendável a utilização de um hub IoT de teste em vez de um que esteja em execução na produção. A funcionalidade de ativação pós-falha manual é oferecida aos clientes sem custos adicionais.
 
@@ -50,7 +50,7 @@ Neste tutorial, vai realizar as seguintes tarefas:
     **Região**: selecione uma região perto de si e que faça parte da pré-visualização. Este tutorial utiliza `westus2`. Uma ativação pós-falha só pode ser executada entre regiões do Azure geograficamente emparelhadas. A região geograficamente emparelhada com westus2 é WestCentralUS.
     
    > [!NOTE]
-   > Aa ativação pós-falha manual está atualmente em pré-visualização pública e *não* está disponível nas seguintes regiões do Azure: E.U.A. Leste,E.U.A. Oeste, Europa do Norte, Europa Ocidental, Sul do Brasil e E.U.A. Centro-Sul.
+   > Ativação pós-falha manual está atualmente em pré-visualização pública e está *não* disponível nas seguintes regiões do Azure: E.U.A. leste, E.U.A. oeste, Europa do Norte, Europa Ocidental, sul do Brasil e dos E.U.A. centro-Sul.
 
    **Nome do Hub IoT**: especifique um nome para o seu hub IoT. O nome do hub tem de ser globalmente exclusivo. 
 
@@ -112,7 +112,7 @@ Uma reativação pós-falha é executada tal como uma ativação pós-falha manu
 
    ![Captura de ecrã do pedido de reativação pós-falha manual](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   As faixas são apresentadas, conforme explicado na secção [executar uma ativação pós-falha](#perform-a-failover). Após a conclusão da reativação pós-falha, mostra novamente `westus2` como a localização primária e `WestCentralUS` como a localização secundária, conforme definido originalmente.
+   Faixas são apresentadas como explicado na executar uma seção de ativação pós-falha. Após a conclusão da reativação pós-falha, mostra novamente `westus2` como a localização primária e `WestCentralUS` como a localização secundária, conforme definido originalmente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
@@ -124,7 +124,7 @@ Para remover os recursos que criou neste tutorial, elimine o grupo de recursos. 
 
 3. Clique em **Eliminar grupo de recursos**. Quando lhe for pedido, introduza o nome do grupo de recursos e clique em **Eliminar** para confirmar. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a configurar e executar uma ativação pós-falha manual e como pedir uma reativação pós-falha, executando as seguintes tarefas:
 

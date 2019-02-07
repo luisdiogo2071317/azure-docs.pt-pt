@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 02129fbddae2e3a82299eb3b03d6e73030b44c4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477884"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811465"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
@@ -37,7 +37,7 @@ As métricas são:
 
 * Ativado por predefinição em cada conta do Batch sem configuração adicional
 * Gerados a cada 1 minuto
-* Não persistente automaticamente, mas têm um histórico de sem interrupção de 30 dias. Pode manter as métricas de atividade como parte da [registo de diagnósticos](#work-with-diagnostic-logs).
+* Não persistente automaticamente, mas têm um histórico de sem interrupção de 30 dias. Pode manter as métricas de atividade como parte do registo de diagnósticos.
 
 ### <a name="view-metrics"></a>Ver métricas
 

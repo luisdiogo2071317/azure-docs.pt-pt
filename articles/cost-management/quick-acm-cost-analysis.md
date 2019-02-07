@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/31/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5f15a7d7a49724fda56cecd36e92cb40ced59b81
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510498"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769856"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: Explore e analise os custos com a análise de custos
 
@@ -32,7 +32,9 @@ Neste início rápido, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A análise de custos está disponível para todos os clientes do [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos para ver os dados de custos. Para obter mais informações sobre a atribuir acesso a dados de gestão de custos, veja [atribuir acesso a dados](assign-access-acm-data.md).
+Análise de custo suporta uma variedade de tipos de conta do Azure. Para ver a lista completa dos tipos de conta suportados, consulte [dados de compreender a gestão de custos](understand-cost-mgt-data.md). Para ver dados de custo, precisa de acesso de leitura, pelo menos, para a sua conta do Azure.
+
+Para [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) clientes, deve ter, pelo menos, acesso de leitura para um ou mais dos seguintes âmbitos para ver os dados de custo.
 
 - Conta de faturação
 - Departamento
@@ -40,6 +42,8 @@ A análise de custos está disponível para todos os clientes do [Contrato Enter
 - Grupo de gestão
 - Subscrição
 - Grupo de recursos
+
+Para obter mais informações sobre a atribuir acesso a dados de gestão de custos, veja [atribuir acesso a dados](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

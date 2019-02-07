@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477607"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812854"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço do Batch com o Active Directory
 
@@ -91,7 +91,7 @@ O ID de inquilino identifica o inquilino do Azure AD, que fornece serviços de a
 
 Para autenticar com a autenticação integrada, tem de conceder as permissões de aplicação para ligar à API de serviço do Batch. Este passo ativa a sua aplicação autenticar as chamadas à API de serviço do Batch com o Azure AD.
 
-Assim que tiver [registado a sua aplicação](#register-your-application-with-an-azure-ad-tenant), siga estes passos no portal do Azure para conceder acesso para o serviço Batch:
+Assim que tiver registado a sua aplicação, siga estes passos no portal do Azure para conceder acesso para o serviço Batch:
 
 1. No painel de navegação do lado esquerdo do portal do Azure, escolha **todos os serviços**. Clique em **registos das aplicações**.
 2. Procure o nome da sua aplicação na lista de registos de aplicações:

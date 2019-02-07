@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857708"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810767"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas do Azure Container Registry
 
@@ -46,15 +46,15 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Grupo de recursos dedicado
 
-Dado que os registos do contentor são recursos que são utilizados em vários anfitriões do contentor, um registo deve residir o seu próprio grupo de recursos.
+Como os registos de contentores são recursos que são utilizados em vários anfitriões de contentor, um registo deve residir no seu próprio grupo de recursos.
 
 Embora possa experimentar um tipo de anfitrião específico, como o Azure Container Instances, irá provavelmente eliminar a instância do contentor quando tiver terminado. No entanto, também pode manter a coleção de imagens enviadas para o Azure Container Registry. Ao colocar o seu registo no seu próprio grupo de recursos, está a minimizar o risco de eliminar acidentalmente a coleção de imagens no registo, ao eliminar o grupo de recursos de instância do contentor.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Ao autenticar com um registo de contentor do Azure, existem dois cenários principais: autenticação individual e autenticação de serviço (ou "sem interface"). A tabela seguinte apresenta uma breve descrição geral destes cenários e o método de autenticação recomendado para cada um.
 
-| Tipo | Cenário de exemplo | Método recomendado |
+| Type | Cenário de exemplo | Método recomendado |
 |---|---|---|
 | Identidade individual | Um programador a extrair imagens ou enviar imagens a partir da respetiva máquina de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identidade de serviço/sem interface | Compile e implemente pipelines onde o utilizador não esteja diretamente envolvido. | [Principal de serviço](container-registry-authentication.md#service-principal) |
@@ -63,7 +63,7 @@ Para obter informações aprofundadas sobre a autenticação do Azure Container 
 
 ## <a name="manage-registry-size"></a>Gerir o tamanho do registo
 
-As restrições de armazenamento de cada [registo de contentor SKU] [ container-registry-skus] são destinadas para alinhar com um cenário típico: **Básico** para começar a trabalhar, **Standard**, para a maioria das aplicações de produção, e **Premium**, para desempenho de hiper escala e [georreplicação][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
+As restrições de armazenamento de cada [SKU do container registry] [ container-registry-skus] são destinadas para alinhar com um cenário típico: **Básica** para começar a trabalhar, **padrão** para a maioria das aplicações de produção, e **Premium** para um desempenho de hiper escala e [georreplicação][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
 
 Utilize o comando da CLI do Azure [az acr show-utilização] [ az-acr-show-usage] para apresentar o tamanho atual do seu registo:
 

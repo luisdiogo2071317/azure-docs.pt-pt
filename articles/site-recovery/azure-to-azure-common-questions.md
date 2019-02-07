@@ -7,19 +7,30 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: a277e392acb8587e05bb78d1d8dacce40bf91f56
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bfce998fbabb89d5e9e964bd504571756941afb4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449559"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770491"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Perguntas mais comuns: Replicação do Azure para o Azure
 
 Este artigo fornece respostas a perguntas comuns sobre a implementação de recuperação após desastre (DR) de VMs do Azure para outra região do Azure com o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique o [fórum dos serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
+## <a name="in-this-article"></a>Neste artigo 
+1.  **[Perguntas gerais sobre o Azure para o Azure](#general)** 
+1.  **[Replicação](#replication)** 
+1.  **[Política de replicação](#replication-policy)** 
+1.  **[Consistência de multi-VMS](#multi-vm-consistency)** 
+1.  **[Plano de recuperação](#recovery-plan)** 
+1.  **[Reproteção e reativação pós-falha](#reprotection-and-failback)** 
+1.  **[Segurança](#security)** 
+
+
 ## <a name="general"></a>Geral
+
 ### <a name="how-is-site-recovery-priced"></a>Como é que o Site Recovery é cobrado?
 Revisão [preços do Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) detalhes.
 
@@ -113,7 +124,7 @@ O primeiro ponto de recuperação que é gerado tem a cópia completa. Pontos de
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Aumentar o período de retenção de pontos de recuperação aumenta o custo de armazenamento?
 Sim. Se aumentar o período de retenção de 24 horas para 72 horas, o Site Recovery irá guardar os pontos de recuperação para um adicional de 48 horas. O tempo extra incorre em custos de armazenamento. Por exemplo, se um ponto de recuperação de único tem alterações de delta de 10 GB e o custo por GB é de US $0.16 por mês, os encargos adicionais seria US $1.6 * 48 por mês.
 
-## <a name="multi-vm-consistency"></a>Consistência de multi-VMs 
+## <a name="multi-vm-consistency"></a>Consistência de multi-VMS 
 
 ### <a name="what-is-multi-vm-consistency"></a>O que é a consistência multi-VM?
 Isso significa certificar-se de que o ponto de recuperação é consistente em todas as máquinas virtuais replicadas.
@@ -198,7 +209,7 @@ Depende da situação. Por exemplo, se a região de origem VM existir, apenas as
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo isso take para a reativação pós-falha?
 Após a nova proteção, a quantidade de tempo para a reativação pós-falha é, normalmente, semelhante a hora de ativação pós-falha da região primária para uma região secundária. 
 
-## <a name="security"></a>Segurança
+## <a name="a-namesecuritysecurity"></a><a name="security">Segurança
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Os dados de replicação são enviados para o serviço de Recuperação de Sites?
 Não, recuperação de sites não interceta os dados replicados, e ele não tem quaisquer informações sobre o que está em execução nas suas máquinas virtuais. Apenas os metadados necessários para orquestrar a replicação e a ativação pós-falha são enviados para o serviço de Recuperação de Sites.  
 Site Recovery é ISO 27001:2013, 27018, HIPAA, DPA certified e está no processo de SOC2 e FedRAMP JAB.

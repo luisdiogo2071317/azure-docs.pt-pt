@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392262"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822549"
 ---
 # <a name="disaster-recovery-principles"></a>Princípios de recuperação após desastre
 
@@ -31,8 +31,8 @@ Nos cenários implementados até agora, os clientes utilizam a unidade na regiã
 
 Conforme mostrado neste gráfico de descrição geral, em seguida, terá de encomendar um segundo conjunto de volumes de disco. Os volumes de disco de destino são o mesmo tamanho que os volumes de produção para a instância de produção em unidades de recuperação após desastre. Estes volumes de disco estão associados com a unidade do servidor de instância grande do HANA no site de recuperação após desastre. Os seguintes volumes são replicados a partir da região de produção para o site de DR:
 
-- / hana/dados
-- / hana/logbackups 
+- /hana/data
+- /hana/logbackups 
 - /Hana/Shared (inclui o sap/usr /)
 
 O volume de /hana/log não é replicado porque o registo de transações do SAP HANA não é necessária da forma que a restauração a partir desses volumes. 
@@ -48,7 +48,7 @@ Em casos em que utiliza o HANA System Replication como funcionalidade de elevada
 
 
 >[!NOTE]
->A funcionalidade de replicação de armazenamento de instância grande do HANA é espelhamento e replicação de instantâneos de armazenamento. Se não efetuar instantâneos de armazenamento introduzida no [Backup e restauração](#backup-and-restore) secção deste artigo, não pode existir qualquer replicação para o site de recuperação após desastre. Execução de instantâneo de armazenamento é um pré-requisito para a replicação de armazenamento para o site de recuperação após desastre.
+>A funcionalidade de replicação de armazenamento de instância grande do HANA é espelhamento e replicação de instantâneos de armazenamento. Se não efetuar instantâneos de armazenamento como a apresentada na secção de cópia de segurança e restauro deste artigo, não pode ser qualquer replicação para o site de recuperação após desastre. Execução de instantâneo de armazenamento é um pré-requisito para a replicação de armazenamento para o site de recuperação após desastre.
 
 
 
@@ -81,7 +81,7 @@ Em seguida, configurar ou ajustar o agendamento de cópia de segurança de insta
 - Para o volume de cópia de segurança de registo de transação (tipo de instantâneo **registos**), o conjunto para replicar a cada 3 minutos para os destinos de volume de armazenamento equivalente no site de recuperação após desastre.
 
 Para minimizar o objetivo de ponto de recuperação, configure o seguinte:
-- Efetuar uma **hana** instantâneo de armazenamento do tipo (consulte "passo 7: executar instantâneos") a cada 30 minutos para 1 hora.
+- Efetuar uma **hana** instantâneo de armazenamento do tipo (consulte "passo 7: Executar instantâneos") a cada 30 minutos para 1 hora.
 - Execute backups de log de transação do SAP HANA a cada 5 minutos.
 - Efetuar uma **registos** escreva cada 5-15 minutos de instantâneos de armazenamento. Com este período de intervalo, alcançar um RPO de cerca de 15 a 25 minutos.
 

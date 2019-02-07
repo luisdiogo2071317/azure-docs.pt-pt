@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9c03e0ced565daef01304e288b71c46aa0035384
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fcd1d8c4dd1f9684db85514a80fea7022f52b0fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730098"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817092"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -39,7 +39,7 @@ A conta iniciar sessão no, ou ligar ao Azure, tem de ser atribuída para o [con
 
 ## <a name="create-a-peering"></a>Criar um peering
 
-Antes de criar um peering, familiarize-se com o [requisitos e restrições](#requirements-and-contstraints) e [as permissões necessárias](#permissions).
+Antes de criar um peering, familiarize-se com os requisitos e restrições e [as permissões necessárias](#permissions).
 
 1. Na caixa de pesquisa na parte superior do portal do Azure, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o. Não selecione **redes virtuais (clássico)** se aparece na lista, como não é possível criar um peering de uma rede virtual implementada por meio do modelo de implementação clássica.
 2. Selecione a rede virtual na lista que pretende criar como peering.
@@ -75,7 +75,7 @@ Para obter instruções passo a passo para implementar o peering entre redes vir
 
 ## <a name="view-or-change-peering-settings"></a>Ver ou alterar as definições de peering
 
-Antes de alterar um peering, familiarize-se com o [requisitos e restrições](#requirements-and-contstraints) e [as permissões necessárias](#permissions).
+Antes de alterar um peering, familiarize-se com os requisitos e restrições e [as permissões necessárias](#permissions).
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o. Não selecione **redes virtuais (clássico)** se aparece na lista, como não é possível criar um peering de uma rede virtual implementada por meio do modelo de implementação clássica.
 2. Na lista que pretende alterar as definições de peering para, selecione a rede virtual.

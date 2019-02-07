@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053539"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766422"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir os dados exportados
 
@@ -30,8 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Verificar se os dados são recolhidos
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-A exportação de dados está disponível para todos os clientes do [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). As seguintes permissões do Azure são suportadas por subscrição para a exportação de dados por utilizador e grupo:
+Exportação de dados está disponível para uma variedade de tipos de conta do Azure, incluindo [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) os clientes. Para ver a lista completa dos tipos de conta suportados, consulte [dados de compreender a gestão de custos](understand-cost-mgt-data.md). As seguintes permissões do Azure são suportadas por subscrição para a exportação de dados por utilizador e grupo:
 
 - Proprietário – pode criar, modificar ou eliminar exportações agendadas de uma subscrição.
 - Contribuinte – pode criar, modificar ou eliminar as respetivas exportações agendadas. Pode modificar o nome de exportações agendadas criadas por outros utilizadores.

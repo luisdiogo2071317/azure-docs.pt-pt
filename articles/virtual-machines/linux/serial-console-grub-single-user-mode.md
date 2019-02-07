@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857912"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810087"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 GRUB é o carregador de inicialização Unified geral. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.
@@ -39,7 +39,7 @@ Convém garantir que o GRUB está ativado na sua VM para que seja possível para
 A reiniciar a VM com o painel de consola de série aberto pode ser feita com uma SysRq `'b'` comando se [SysRq](./serial-console-nmi-sysrq.md) está ativado ou ao clicar o reinício botão no painel de descrição geral (aberto a VM num novo separador do browser para reiniciar o computador sem fechar o painel de consola de série). Siga as instruções de distribuição específicos abaixo para saber o que esperar de GRUB quando reiniciar.
 
 ## <a name="general-single-user-mode-access"></a>Acesso de modo de utilizador único geral
-Acesso manual para o modo de utilizador único pode ser necessários em situações onde não tiver configurado uma conta com a autenticação de palavra-passe. Terá de modificar a configuração de GRUB para introduzir manualmente o modo de utilizador único. Assim que tiver feito isso, consulte [utilizar modo de utilizador único para repor ou adicionar uma palavra-passe](#-Use-Single-User-Mode-to-reset-or-add-a-password) para obter mais instruções.
+Acesso manual para o modo de utilizador único pode ser necessários em situações onde não tiver configurado uma conta com a autenticação de palavra-passe. Terá de modificar a configuração de GRUB para introduzir manualmente o modo de utilizador único. Uma vez que o tiver feito isso, consulte Utilizar modo de utilizador único para repor ou adicionar uma palavra-passe para obter mais instruções.
 
 Em casos em que a VM não consegue arranque, Distribuições, muitas vezes, automaticamente irão remover em modo de utilizador único ou modo de emergência. No entanto, outras pessoas, exigem configuração adicional antes de pode soltar no modo de utilizador único ou de emergência automaticamente (como configurar uma palavra-passe de raiz).
 
@@ -55,7 +55,7 @@ RHEL cairá em modo de utilizador único automaticamente se ele não consegue ar
 ### <a name="grub-access-in-rhel"></a>Acesso GRUB no RHEL
 RHEL vem com GRUB ativada na. Para introduzir GRUB, reiniciar a VM com `sudo reboot` e pressione qualquer tecla. Verá a tela GRUB aparecer.
 
-> Nota: O Red Hat também fornece documentação para inicialização no modo de entra em ação, de modo de emergência, de modo de depuração e repor a palavra-passe de raiz. [Clique aqui para aceder ao mesmo](https://aka.ms/rhel7grubterminal).
+> Nota: Red Hat também fornece documentação para inicialização no modo de entra em ação, de modo de emergência, de modo de depuração e repor a palavra-passe de raiz. [Clique aqui para aceder ao mesmo](https://aka.ms/rhel7grubterminal).
 
 ### <a name="set-up-root-access-for-single-user-mode-in-rhel"></a>Configurar o acesso de raiz para o modo de utilizador único no RHEL
 Modo de utilizador único no RHEL exige que o utilizador de raiz ser ativada, o que está desabilitado por predefinição. Se tiver uma necessidade para ativar o modo de utilizador único, utilize as instruções seguintes:

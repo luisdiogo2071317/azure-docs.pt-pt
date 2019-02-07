@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469123"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809985"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -25,8 +25,7 @@ Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectivid
 
 > [!IMPORTANT]
 > **[Alteração futura] Para ligações de ponto final de serviço para servidores SQL do Azure, um `Default` comportamento de conectividade é alterado para `Redirect`.**
->
-> Alteração está em vigor para todas as regiões em ou antes de 2 de Janeiro de 2019.
+> Os clientes são aconselhados a criar novos servidores e o conjunto já existentes com o tipo de ligação explicitamente definida para redirecionamento (preferível) ou Proxy, dependendo da sua arquitetura de conectividade.
 >
 > Para impedir a conectividade através de um ponto de extremidade de serviço do usuário em ambientes existentes, como resultado desta alteração, podemos usar fazer de telemetria o seguinte:
 > - Para servidores que detectamos que foram acedidos através de pontos finais de serviço antes da alteração, vamos mudar o tipo de ligação para `Proxy`.
@@ -38,7 +37,7 @@ Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectivid
 >
 > Se não foi possível estabelecer ligações de ponto final de serviço para o servidor SQL do Azure e são suspecting o que são afetados por esta alteração, verifique se o tipo de ligação está explicitamente definido como `Redirect`. Se for este o caso, terá de abrir as regras de firewall VM e grupos de segurança de rede (NSG) para todos os endereços de IP do Azure na região que pertençam a Sql [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) para portas 11000 12000. Se não for uma opção para, alternar servidor explicitamente como `Proxy`.
 > [!NOTE]
-> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+> Este tópico aplica-se para os servidores de base de dados do Azure SQL que alojam bases de dados individuais e conjuntos elásticos e bases de dados do SQL Data Warehouse. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 

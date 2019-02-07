@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 6466dc1ec0dcaae6045fadfae7f3a552345be2e8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267299"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812043"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Implementar a matriz Virtual StorSimple – conjunto de cópia de segurança como um servidor de iSCSI através do portal do Azure
 
@@ -44,7 +44,7 @@ Antes de configurar e configurar a sua matriz Virtual StorSimple, certifique-se 
 Utilize as seguintes instruções passo a passo para preparar e configurar a sua matriz Virtual StorSimple:
 
 * [Passo 1: Concluir a configuração de interface do Usuário da local web e registar o seu dispositivo](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* [Passo 2: Concluir a configuração de dispositivo necessária](#step-2-complete-the-required-device-setup)
+* Passo 2: Concluir a configuração de dispositivo necessária
 * [Passo 3: Adicionar um volume](#step-3-add-a-volume)
 * [Passo 4: Montar, inicializar e formatar um volume](#step-4-mount-initialize-and-format-a-volume)
 

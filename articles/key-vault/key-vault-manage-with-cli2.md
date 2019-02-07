@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 9ebfb01071257c8879531c1879b6f8b3ba4493ef
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198903"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822498"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Key Vault com a CLI do Azure 
 
@@ -132,7 +132,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 O resultado deste comando mostra as propriedades do Cofre de chaves que criou. As duas propriedades mais importantes são:
 
-* **Nome**: No exemplo, o nome é ContosoKeyVault. Irá utilizar este nome para outros comandos do Key Vault.
+* **name**: No exemplo, o nome é ContosoKeyVault. Irá utilizar este nome para outros comandos do Key Vault.
 * **vaultUri**: No exemplo, o URI é https://contosokeyvault.vault.azure.net. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 A sua conta do Azure pode agora realizar quaisquer operações neste cofre de chaves. Até o momento, está autorizado mais ninguém.
@@ -247,7 +247,7 @@ Ative o Key Vault para implementação do modelo: Permite que o Resource Manager
 
 ## <a name="working-with-hardware-security-modules-hsms"></a>Trabalhar com módulos de segurança de Hardware (HSMs)
 
-Para mais segurança, pode importar ou gerar chaves a partir de módulos de segurança de hardware (HSMs) que nunca deixam o limite do HSM. Os HSMs têm a certificação FIPS 140-2 de nível 2 validada. Se este requisito não se aplica a si, ignore esta secção e aceda a [Eliminar o cofre de chaves e as chaves e segredos associados](#delete-the-key-vault-and-associated-keys-and-secrets).
+Para mais segurança, pode importar ou gerar chaves a partir de módulos de segurança de hardware (HSMs) que nunca deixam o limite do HSM. Os HSMs têm a certificação FIPS 140-2 de nível 2 validada. Se este requisito não se aplica a si, ignore esta secção e aceda ao eliminar o Cofre de chaves e as chaves associadas e segredos.
 
 Para criar estas chaves protegidas por HSM, tem de ter uma subscrição de cofre que suporta chaves protegidas por HSM.
 

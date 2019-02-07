@@ -1,77 +1,64 @@
 ---
-title: Migrar bases de dados de conhecimento de pré-visualização - Qna Maker
+title: Migrar bases de dados de conhecimento - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Criado com a pré-visualização gratuita do QnA Maker de bases de dados de conhecimento, terá de ser migrados para GA. do QnA Maker Pré-visualização do QnA Maker vão ser preterido em Janeiro de 2019.
+description: Mova uma base de dados de conhecimento criada com a ferramenta QnA Maker numa nova base de dados de conhecimento.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/06/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08373449b2e61da503ab785eda7d6df80d6d1c16
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227935"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809748"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento através de importação-exportação
-A ferramenta QnA Maker anunciámos a disponibilidade geral de 7 de Maio de 2018 no \\\build\ conferência. Disponibilidade geral do QnA Maker tem uma nova arquitetura baseada no Azure. Criado com a pré-visualização gratuita do QnA Maker de bases de dados de conhecimento, terá de ser migrados para GA. do QnA Maker Pré-visualização do QnA Maker vão ser preterido em Janeiro de 2019. Para obter mais informações sobre as alterações em disponibilidade geral do QnA Maker, veja o anúncio de disponibilidade geral do QnA Maker [mensagem de blogue](https://aka.ms/qnamakerga-blog).
 
-A ferramenta QnA Maker tem agora uma [modelo de preços](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
+Migrar uma base de dados de conhecimento necessita de exportar a partir de uma base de dados de conhecimento, em seguida, importar para outro. 
 
-Pré-requisitos
-> [!div class="checklist"]
-> * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-> * Configurar um novo [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="migrate-a-knowledge-base-from-qna-maker-preview-portal"></a>Migrar uma base de dados de conhecimento a partir do portal de pré-visualização do QnA Maker
-1. Navegue para [portal de pré-visualização do QnA Maker](https://aka.ms/qnamaker-old-portal
-) e clique em **meus serviços**.
-2. Selecione a base de dados de conhecimento que quer migrar ao clicar no ícone de edição.
+* Criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Configure um novo [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-    ![Editar a base de dados de conhecimento](../media/qnamaker-how-to-migrate-kb/preview-editkb.png)
+## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migrar uma base de dados de conhecimento do QnA Maker
+1. Inicie sessão no [portal do QnA Maker](https://qnamaker.ai).
+1. Selecione a base de dados de conhecimento que pretende migrar.
 
-3. Clique em **transferir a base de dados de conhecimento** transferir um ficheiro. tsv que contém os conteúdos da sua base de dados de conhecimento - perguntas, obter respostas, metadados, e a origem de dados nomes que foram extraídos.
+1. Na **definições** página, selecione **exportar a base de dados de conhecimento** transferir um ficheiro. tsv que contém os conteúdos da sua base de dados de conhecimento - perguntas, obter respostas, metadados, e a origem de dados nomes que eles eram extrair.
 
-    ![Transferir a base de dados de conhecimento](../media/qnamaker-how-to-migrate-kb/preview-download.png)
-
-4. Iniciar sessão para o [portal do QnA Maker](https://qnamaker.ai) com as suas credenciais do azure e clique em **criar uma base de dados de conhecimento**.
-    
-5. Se ainda não tenha criado um serviço QnA Maker, selecione **criar um serviço QnA**. Caso contrário, escolha um serviço QnA Maker de listas pendentes no passo 2. Selecione o serviço QnA Maker que irá alojar a Base de dados de conhecimento.
-
-    ![Configurar o serviço QnA](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
-
-6. Criar uma base de dados de conhecimento vazia 
+1. Selecione **criar uma base de dados de conhecimento** no menu superior, em seguida, criar uma base de dados de conhecimento vazia. 
 
     ![Origens de dados do conjunto](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
     - Dê o seu serviço um **nome.** São suportados nomes duplicados e carateres especiais são também suportados.
-    - Ignorar carregamento de ficheiros ou URLs que pretende utilizar os dados da sua base de dados de conhecimento de pré-visualização. Por agora, irá criar uma base de dados de conhecimento vazia.
 
-7. Selecione **Criar**.
+1. Selecione **Criar**.
 
     ![Criar KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-8. Nesta nova base de dados de conhecimento, abra a **configurações** separador e clique em **base de dados de conhecimento de importação**. Importa as perguntas, respostas e metadados e mantém os nomes de origem de dados do qual foram extraídos.
+1. Nesta nova base de dados de conhecimento, abra a **configurações** separador e selecione **base de dados de conhecimento de importação**. Importa as perguntas, respostas e metadados e mantém os nomes de origem de dados do qual foram extraídos.
 
    ![Base de dados de conhecimento de importação](../media/qnamaker-how-to-migrate-kb/Import.png)
 
-9. **Teste** a nova base de dados de conhecimento com o painel de teste. Saiba como [testar a sua base de dados de conhecimento](../How-To/test-knowledge-base.md).
-10. **Publicar** a base de dados de conhecimento. Saiba como [publicar a sua base de dados de conhecimento](../How-To/publish-knowledge-base.md).
-11. Utilize o ponto final abaixo no código da aplicação ou bot. Veja aqui como [criar um bot QnA](../Tutorials/create-qna-bot.md).
+1. **Teste** a nova base de dados de conhecimento com o painel de teste. Saiba como [testar a sua base de dados de conhecimento](../How-To/test-knowledge-base.md).
+1. **Publicar** a base de dados de conhecimento. Saiba como [publicar a sua base de dados de conhecimento](../How-To/publish-knowledge-base.md).
+1. Utilize o ponto de extremidade no código da aplicação ou bot. Veja aqui como [criar um bot QnA](../Tutorials/create-qna-bot.md).
 
     ![Valores do QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
-Neste momento, todo o conhecimento conteúdo - perguntas, respostas e metadados, junto com os nomes dos arquivos de origem e os URLs são importados para a nova base de dados de conhecimento. 
+    Neste momento, todo o conhecimento conteúdo - perguntas, respostas e metadados, junto com os nomes dos arquivos de origem e os URLs são importados para a nova base de dados de conhecimento. 
 
-## <a name="chatlogs-and-alterations"></a>Chatlogs ou alterações
-Alterações (sinónimos) não são importadas automaticamente. Utilize o [APIs de V2](https://aka.ms/qnamaker-v2-apis) para exportar as alterações da pilha de pré-visualização e o [V4 APIs](https://aka.ms/qnamaker-v4-apis) substituir na pilha de novo.
+## <a name="chat-logs-and-alterations"></a>Registos de chat ou alterações
+Alterações (sinónimos) não são importadas automaticamente. Utilize o [APIs de V2](https://aka.ms/qnamaker-v2-apis) para exportar as alterações de dados de conhecimento antigo e o [V4 APIs](https://aka.ms/qnamaker-v4-apis) para mover as alterações na nova base de dados de conhecimento.
 
-Não é possível migrar chatlogs, uma vez que a nova pilha utiliza o Application Insights para armazenar chatlogs. No entanto pode transferir o chatlogs do [portal de pré-visualização](https://aka.ms/qnamaker-old-portal).
+Não é possível migrar os logs de bate-papo, uma vez que a nova base de dados de conhecimento utiliza o Application Insights para armazenar registos de chat. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

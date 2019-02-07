@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a70c3ddb624639411dbee961b1c4d59ac1277147
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d7fc45faf1fb77c7d9181e5a2419096dd1ad0f1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016091"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817435"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento da fábrica de dados e execução
 > [!NOTE]
@@ -190,7 +190,7 @@ A tabela seguinte descreve as propriedades que pode utilizar o **disponibilidade
 | intervalo |Especifica um multiplicador para a frequência<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido.<br/><br/>Se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/><b>Nota</b>: Se especificar a frequência como minuto, recomendamos que defina o intervalo para não menos do que 15 |Sim |ND |
 | Estilo |Especifica se o setor deve ser gerado no início/fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Se a frequência está definida para o mês e estilo está definido como EndOfInterval, o setor é produzido no último dia do mês. Se o estilo é definido como StartOfInterval, o setor é produzido no primeiro dia do mês.<br/><br/>Se a frequência está definida como o dia e estilo está definido como EndOfInterval, o setor é produzido na última hora do dia.<br/><br/>Se a frequência está definida como hora e estilo está definido como EndOfInterval, o setor é produzido no fim da hora. Por exemplo, para um setor durante o período de 1 PM – 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo agendador para computar os limites de setor de conjunto de dados. <br/><br/><b>Nota</b>: Se o AnchorDateTime tem partes de data que são mais granulares do que a frequência, em seguida, as partes mais granulares são ignoradas. <br/><br/>Por exemplo, se o <b>intervalo</b> é <b>por hora</b> (frequência: hora e intervalo: 1) e o <b>AnchorDateTime</b> contém <b>minutos e segundos</b>, o <b>minutos e segundos</b> partes do AnchorDateTime são ignorados. |Não |01/01/0001 |
-| deslocamento |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/><b>Nota</b>: Se forem especificados anchorDateTime e desvio, o resultado é a mudança combinada. |Não |ND |
+| offset |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/><b>Nota</b>: Se forem especificados anchorDateTime e desvio, o resultado é a mudança combinada. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Por predefinição, diariamente (`"frequency": "Day", "interval": 1`) setores de iniciar o fuso horário UTC 12AM (meia-noite). Se pretender que a hora de início para ser o fuso horário UTC 6 da Manhã em vez disso, defina o deslocamento, conforme mostrado no seguinte fragmento: 
@@ -273,10 +273,10 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 | simultaneidade |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade parallel, que podem ser efetuadas em setores diferentes. Por exemplo, se precisar de uma atividade de passar por um grande conjunto de dados disponíveis, ter um valor maior da simultaneidade acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de setores de dados que estão a ser processados.<br/><br/>Por exemplo, se tiver 2 reparte (uma aconteça às 16:00 e outro às 17:00), e ambos são execução pendente. Se definir o executionPriorityOrder ser NewestFirst, o setor às 17:00 é processado pela primeira vez. Da mesma forma se definir o executionPriorityORder ser OldestFIrst, em seguida, o setor às 16:00 é processado. |
 | retry |Número inteiro<br/><br/>Valor máximo pode ser 10 |0 |Número de tentativas antes do processamento de dados para o setor está marcado como falha. Execução da atividade de um setor de dados é repetida até o número especificado de tentativas. A nova tentativa é feita logo que possível após a falha. |
-| tempo limite |Período de tempo |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
-| atraso |Período de tempo |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
-| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repetir: 3<br/>longRetry: 2<br/>longRetryInterval: 01: 00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
-| longRetryInterval |Período de tempo |00:00:00 |O atraso entre tentativas de repetição longa |
+| tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
+| atraso |TimeSpan |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
+| longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repetir: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
+| longRetryInterval |TimeSpan |00:00:00 |O atraso entre tentativas de repetição longa |
 
 Para obter mais informações, consulte [Pipelines](data-factory-create-pipelines.md) artigo. 
 
@@ -320,7 +320,7 @@ Como mencionado anteriormente, as atividades podem ser nos pipelines diferentes.
 
 ![Encadeamento de atividades em dois pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-Consulte a [copiar sequencialmente](#copy-sequentially) secção no apêndice para obter um exemplo.
+Consulte a secção sequencialmente no apêndice para obter um exemplo de cópia.
 
 ## <a name="model-datasets-with-different-frequencies"></a>Conjuntos de dados do modelo com diferentes frequências
 Nos exemplos, as frequências para conjuntos de dados de entrada e saídos e a janela de agendamento de atividade eram os mesmos. Alguns cenários exigem a capacidade de produzir a saída a uma frequência diferente das frequências de uma ou mais entradas. O Data Factory suporta estes cenários de modelagem.
@@ -452,7 +452,7 @@ A abordagem simple no qual o Data Factory automaticamente descobre o direito de 
 
 Tem de especificar que para cada execução de atividade, o Data Factory deverá utilizar o setor de dados da semana passada para o conjunto de dados de entrada semanal. Utilize as funções do Azure Data Factory conforme mostrado no seguinte fragmento para implementar esse comportamento.
 
-**Input1: BLOBs do Azure**
+**Input1: Azure blob**
 
 A primeira entrada é o blob do Azure a ser atualizado diariamente.
 
@@ -482,7 +482,7 @@ A primeira entrada é o blob do Azure a ser atualizado diariamente.
 }
 ```
 
-**Input2: BLOBs do Azure**
+**Input2: Azure blob**
 
 Input2 é o blob do Azure que está a ser atualizado semanalmente.
 
@@ -512,7 +512,7 @@ Input2 é o blob do Azure que está a ser atualizado semanalmente.
 }
 ```
 
-**Saída: BLOBs do Azure**
+**Saída: Azure blob**
 
 Um ficheiro de saída é criado todos os dias na pasta para o dia. Disponibilidade de saída está definida como **dia** (frequência: Dia, intervalo: 1).
 

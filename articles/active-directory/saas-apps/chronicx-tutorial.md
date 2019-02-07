@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 982a639fe7a57c2db484acc6b272e5314637d1c4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2b033cae63668c1b2af968d5c5b9df4e7b42dc35
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167670"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>Tutorial: Integração do Active Directory do Azure com ChronicX®
 
@@ -86,7 +86,7 @@ Para configurar e testar o Azure AD início de sessão único com ChronicX®, te
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste ChronicX®](#create-a-chronicx®-test-user)**  - para ter um equivalente da Eduarda Almeida na ChronicX® que está ligado à representação de utilizador do Azure AD.
+1. **Criar um utilizador de teste ChronicX®** - para ter um equivalente da Eduarda Almeida na ChronicX® que está ligado à representação de utilizador do Azure AD.
 1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 

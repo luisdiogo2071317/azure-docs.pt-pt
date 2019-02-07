@@ -6,17 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.lastreviewed: 12/06/2018
-keywords: ''
-ms.openlocfilehash: 5946f62821d05bd9036b9fc0e6b0fc8daa74c5dc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241207"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816361"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integração no datacenter - publicar pontos de extremidade
 
@@ -53,8 +52,8 @@ Infra-estrutura interna que vips não estão listados como não são necessário
 |Fila de Armazenamento|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Tabela de armazenamento|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |Blob de Armazenamento|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|Fornecedor de recursos do SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|Fornecedor de recursos do MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Fornecedor de Recursos SQL|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|Fornecedor de Recursos do MySQL|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |Serviço de Aplicações|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
@@ -69,19 +68,24 @@ O Azure Stack suporta apenas os servidores de proxy transparente. Numa implement
 > [!Note]  
 > O Azure Stack não suporta a utilização de Express Route para alcançar os serviços do Azure listados na tabela seguinte.
 
-|Objetivo|do IdP|Protocolo|Portas|
-|---------|---------|---------|---------|
-|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|
-|Distribuição de mercado|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
-|& Atualizações de patch|https://&#42;.azureedge.net|HTTPS|443|
-|Registo|https://management.azure.com|HTTPS|443|
-|Utilização|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|(Servidor de IP do NTP fornecido para a implementação)|UDP|123|
-|DNS|(Servidor de IP de DNS fornecido para a implementação)|TCP<br>UDP|53|
-|CRL|(URL em pontos de distribuição de CRL no seu certificado)|HTTP|80|
-|Cópia de segurança da infraestrutura|(IP ou FQDN do servidor de ficheiros de destino externo)|SMB|445|
-|     |     |     |     |
+|Objetivo|Destination URL|Protocolo|Portas|Rede de Origem|
+|---------|---------|---------|---------|---------|
+|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https://secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
+|Distribuição de mercado|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|VIP - /27 públicos|
+|& Atualizações de patch|https://&#42;.azureedge.net|HTTPS|443|VIP - /27 públicos|
+|Registo|https://management.azure.com|HTTPS|443|VIP - /27 públicos|
+|Utilização|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP - /27 públicos|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
+|NTP|(Servidor de IP do NTP fornecido para a implementação)|UDP|123|VIP - /27 públicos|
+|DNS|(Servidor de IP de DNS fornecido para a implementação)|TCP<br>UDP|53|VIP - /27 públicos|
+|CRL|(URL em pontos de distribuição de CRL no seu certificado)|HTTP|80|VIP - /27 públicos|
+|Cópia de segurança da infraestrutura|(IP ou FQDN do servidor de ficheiros de destino externo)|SMB|445|Infraestrutura de rede pública|
+|LDAP|Floresta do Active Directory fornecido para a integração de gráfico|TCP<br>UDP|389|VIP - /27 públicos|
+|LDAP SSL|Floresta do Active Directory fornecido para a integração de gráfico|TCP|636|VIP - /27 públicos|
+|LDAP GC|Floresta do Active Directory fornecido para a integração de gráfico|TCP|3268|VIP - /27 públicos|
+|SSL LDAP DE GC|Floresta do Active Directory fornecido para a integração de gráfico|TCP|3269|VIP - /27 públicos|
+|AD FS|AD FS ponto final de metadados fornecido para a integração do AD FS|TCP|443|VIP - /27 públicos|
+|     |     |     |     |     |
 
 > [!Note]  
 > URLs de saída são balanceado em carga utilizando o Gestor de tráfego do Azure para fornecer a melhor conectividade de possíveis com base na localização geográfica. Com os URLs com balanceamento de carga, a Microsoft pode atualizar e alterar os pontos finais de back-end sem afetar os clientes. A Microsoft não partilhar a lista de endereços IP para a carga balanceada URLs. Deve usar um dispositivo que suporte a filtragem por URL em vez de IP.

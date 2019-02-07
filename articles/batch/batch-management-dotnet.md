@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c65a71d9e64a1ea3f60abbe2e420652c12ba030e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549556"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813624"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerir contas do Batch e quotas com a biblioteca de cliente de gestão do Batch para .NET
 
@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> Aplicações que utilizam a biblioteca de gestão de lotes .NET e sua classe de BatchManagementClient exigir **administrador de serviços** ou **coadministrador** acesso à subscrição que possui o Batch conta para serem geridos. Para obter mais informações, consulte a [do Azure Active Directory](#azure-active-directory) secção e a [AccountManagement] [ acct_mgmt_sample] exemplo de código.
+> Aplicações que utilizam a biblioteca de gestão de lotes .NET e sua classe de BatchManagementClient exigir **administrador de serviços** ou **coadministrador** acesso à subscrição que possui o Batch conta para serem geridos. Para obter mais informações, consulte a secção Azure Active Directory e o [AccountManagement] [ acct_mgmt_sample] exemplo de código.
 > 
 > 
 

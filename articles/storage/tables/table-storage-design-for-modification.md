@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470540"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809527"
 ---
 # <a name="design-for-data-modification"></a>Design da modificação de dados
-Este artigo concentra-se em considerações de design para otimizar as inserções, atualizações e eliminações. Em alguns casos, terá de avaliar os designs que otimizar para a consulta em relação a designs que otimizar para modificação de dados, tal como acontece no designs para bases de dados relacionais (embora as técnicas para gerenciar as compensações de design são diferentes aspetos diferentes na base de dados relacional). A secção [padrões de Design de tabela](#table-design-patterns) descreve alguns padrões de design detalhado para o serviço de tabela e destaca alguns essas compensações. Na prática, verá que muitos designs otimizados para consultar entidades também funcionam bem para modificar entidades.  
+Este artigo concentra-se em considerações de design para otimizar as inserções, atualizações e eliminações. Em alguns casos, terá de avaliar os designs que otimizar para a consulta em relação a designs que otimizar para modificação de dados, tal como acontece no designs para bases de dados relacionais (embora as técnicas para gerenciar as compensações de design são diferentes aspetos diferentes na base de dados relacional). Os padrões de Design de tabela de seção descreve alguns padrões de design detalhado para o serviço de tabela e destaca alguns essas compensações. Na prática, verá que muitos designs otimizados para consultar entidades também funcionam bem para modificar entidades.  
 
 ## <a name="optimize-the-performance-of-insert-update-and-delete-operations"></a>Otimizar o desempenho de inserção, atualização e operações de eliminação
 Para atualizar ou eliminar uma entidade, deve conseguir identificá-lo utilizando o **PartitionKey** e **RowKey** valores. Nesse sentido, a sua escolha de **PartitionKey** e **RowKey** para modificar entidades deve seguir critérios semelhante à sua escolha para oferecer suporte a consultas de ponto de como deseja identificar entidades como forma mais eficiente possível. Não pretende utilizar uma análise de tabela ou da partição ineficiente localizar uma entidade para detetar os **PartitionKey** e **RowKey** valores tem de atualizar ou eliminá-lo.  
 
-Os padrões seguintes na secção [padrões de design de tabela](#table-design-patterns) atendem a otimizar o desempenho ou a inserção, atualização e operações de eliminação:  
+Os padrões seguintes na secção de endereço de padrões de design de tabela otimizar o desempenho ou a inserir, atualizar e eliminar operações:  
 
 * [Eliminar o volume alto padrão de](table-storage-design-patterns.md#high-volume-delete-pattern) -ativar a eliminação de um grande volume de entidades ao armazenar todas as entidades para eliminação simultânea em sua própria tabela separada; para eliminar as entidades a eliminar a tabela.  
 * [Padrão de série de dados](table-storage-design-patterns.md#data-series-pattern) -série de dados completos de Store numa única entidade para minimizar o número de pedidos que fizer.  

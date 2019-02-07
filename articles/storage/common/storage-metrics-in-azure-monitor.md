@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 4b71c5818ee6eade526134ab1b2508ed55f0c400
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699946"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811774"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -39,7 +39,7 @@ Para suportar as dimensões de métricas, pode filtrar métrica com o valor da d
 
 ### <a name="access-metrics-with-the-rest-api"></a>Métricas de acesso com a API REST
 
-O Azure Monitor proporciona [REST APIs](/rest/api/monitor/) para ler a definição de métrica e valores. Esta secção mostra como ler as métricas de armazenamento. ID de recurso é utilizado em todas as APIS REST. Para obter mais informações, leia [Noções básicas sobre o ID de recurso para os serviços no armazenamento](#understanding-resource-id-for-services-in-storage).
+O Azure Monitor proporciona [REST APIs](/rest/api/monitor/) para ler a definição de métrica e valores. Esta secção mostra como ler as métricas de armazenamento. ID de recurso é utilizado em todas as APIS REST. Para obter mais informações, leia a compreender o ID de recurso para os serviços de armazenamento.
 
 O exemplo seguinte mostra como usar [ArmClient](https://github.com/projectkudu/ARMClient) na linha de comandos para simplificar o teste com a API REST.
 
@@ -136,7 +136,7 @@ A seguinte resposta contém valores de métrica no formato JSON:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Métricas de acesso com o .net SDK
 
-O Azure Monitor proporciona [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler a definição de métrica e valores. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como utilizar o SDK com parâmetros diferentes. Tem de utilizar `0.18.0-preview` ou versão posterior para as métricas de armazenamento. ID de recurso é usado no .net SDK. Para obter mais informações, leia [Noções básicas sobre o ID de recurso para os serviços no armazenamento](#understanding-resource-id-for-services-in-storage).
+O Azure Monitor proporciona [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler a definição de métrica e valores. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como utilizar o SDK com parâmetros diferentes. Tem de utilizar `0.18.0-preview` ou versão posterior para as métricas de armazenamento. ID de recurso é usado no .net SDK. Para obter mais informações, leia a compreender o ID de recurso para os serviços de armazenamento.
 
 O exemplo seguinte mostra como utilizar o SDK de .net do Azure Monitor para ler métricas de armazenamento.
 

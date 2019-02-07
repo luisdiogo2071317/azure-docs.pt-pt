@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 311e2ee65b2c24eb1c288a2161bf371732aea452
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632896"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817670"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Analisar dados de atraso de voo com o Apache Hive no HDInsight
 [Apache Hive](https://hive.apache.org/) fornece um meio da execução [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) tarefas por meio de uma linguagem de script semelhante a SQL denominada *[HiveQL] [ hadoop-hiveql]*, que podem ser aplicado em resumir, consultar e analisar grandes volumes de dados.
@@ -30,7 +30,7 @@ Uma das principais vantagens do Azure HDInsight é a separação de dados de arm
 
 O diagrama seguinte ilustra o cenário e a estrutura deste Tutorial:
 
-![HDI. FlightDelays.flow][img-hdi-flightdelays-flow]
+![HDI.FlightDelays.flow][img-hdi-flightdelays-flow]
 
 Tenha em atenção que os números no diagrama correspondem aos títulos de secção. **M** significa para o processo principal. **A** significa o conteúdo no anexo.
 
@@ -232,7 +232,7 @@ Para obter mais informações sobre como criar um cluster do HDInsight e executa
     ```
 3. Ligar à base de dados SQL e veja os atrasos de voos média por cidade na tabela AvgDelays:
 
-    ![HDI. FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
+    ![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
 - - -
 
@@ -240,7 +240,7 @@ Para obter mais informações sobre como criar um cluster do HDInsight e executa
 Carregar o ficheiro de dados e o [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) arquivos de script (consulte [apêndice B](#appendix-b)) exige algum planejamento. A idéia é armazenar os ficheiros de dados e o ficheiro de HiveQL antes de criar um cluster do HDInsight e executar a tarefa do Hive. Tem duas opções:
 
 * **Utilize a mesma conta de armazenamento do Azure que será utilizada pelo cluster do HDInsight, como o sistema de ficheiros predefinido.** Uma vez que o cluster de HDInsight terá a chave de acesso da conta de armazenamento, não precisa de fazer alterações adicionais.
-* **Utilize uma conta de armazenamento do Azure diferente do sistema de ficheiros predefinido do cluster de HDInsight.** Se for este o caso, tem de modificar a parte da criação do Windows PowerShell script encontrado na [cluster de HDInsight criar e executar trabalhos de Apache Hive/Sqoop](#runjob) para ligar a conta de armazenamento como uma conta de armazenamento adicional. Para obter instruções, consulte [Apache Hadoop criar clusters no HDInsight][hdinsight-provision]. O cluster do HDInsight, em seguida, sabe que a chave de acesso para a conta de armazenamento.
+* **Utilize uma conta de armazenamento do Azure diferente do sistema de ficheiros predefinido do cluster de HDInsight.** Se for este o caso, tem de modificar a parte da criação do Windows PowerShell script encontrado no cluster do HDInsight de criar e executar tarefas do Apache Hive/Sqoop para ligar a conta de armazenamento como uma conta de armazenamento adicional. Para obter instruções, consulte [Apache Hadoop criar clusters no HDInsight][hdinsight-provision]. O cluster do HDInsight, em seguida, sabe que a chave de acesso para a conta de armazenamento.
 
 > [!NOTE]  
 > O caminho de armazenamento de BLOBs para o ficheiro de dados estiver codificado no ficheiro de script de HiveQL. Tem de atualizá-lo em conformidade.
@@ -556,7 +556,7 @@ Para obter uma lista completa dos comandos HiveQL, consulte [Apache de linguagem
 
    * **$hqlLocalFileName** -o script guarda o ficheiro de script de HiveQL localmente antes de o carregar para o armazenamento de Blobs. Este é o nome de ficheiro. O valor predefinido é <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
    * **$hqlBlobName** -este é o nome de blob do ficheiro do HiveQL script usado no armazenamento de Blobs do Azure. O valor predefinido é tutorials/flightdelay/flightdelays.hql. Uma vez que o arquivo será gravado diretamente para o armazenamento de Blobs do Azure, não existe uma "/" no início do nome do blob. Se quiser acessar o arquivo de armazenamento de BLOBs, terá de adicionar uma "/" no início do nome do ficheiro.
-   * **$srcDataFolder** e **$dstDataFolder** -= "tutoriais/flightdelay/dados" = "tutoriais/flightdelay/saída"
+   * **$srcDataFolder** and **$dstDataFolder** - = "tutorials/flightdelay/data" = "tutorials/flightdelay/output"
 
 - - -
 ## <a id="appendix-c"></a>Apêndice C - preparar uma base de dados SQL do Azure para o resultado da tarefa Sqoop

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334487"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820390"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência de tarefas do ACR: YAML
 
@@ -83,10 +83,10 @@ az configure --defaults acr=myregistry
 
 Propriedades da tarefa, normalmente, são apresentados na parte superior de um `acr-task.yaml` de ficheiros e são propriedades globais que se aplicam durante toda a execução completa da tarefa. Algumas dessas propriedades global podem ser substituídas dentro de um passo individual.
 
-| Propriedade | Tipo | Opcional | Descrição | Suportada de substituição | Valor predefinido |
+| Propriedade | Type | Opcional | Descrição | Suportada de substituição | Valor predefinido |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | cadeia | Não | A versão do `acr-task.yaml` de ficheiros como analisado pelo serviço de tarefas do ACR. Enquanto as tarefas de ACR tenta manter a compatibilidade com versões anteriores, este valor permite que tarefas de ACR manter a compatibilidade dentro de uma versão definida. | Não | Nenhuma |
-| `stepTimeout` | Int (segundos) | Sim | O número máximo de segundos que pode executar uma etapa. Esta propriedade pode ser substituída numa etapa ao definir a etapa [tempo limite](#timeout) propriedade. | Sim | 600 (10 minutos) |
+| `stepTimeout` | Int (segundos) | Sim | O número máximo de segundos que pode executar uma etapa. Esta propriedade pode ser substituída numa etapa ao definir a propriedade de tempo limite de um passo. | Sim | 600 (10 minutos) |
 | `totalTimeout` | Int (segundos) | Sim | O número máximo de segundos que uma tarefa pode ser executada. "Executar" inclui a execução e a conclusão de todos os passos na tarefa, se com êxito ou falha. Também inclui tarefas de impressão o resultado como dependências de imagem detetadas e o estado de execução da tarefa. | Não | 3600 (1 hora) |
 
 ## <a name="task-step-types"></a>Tipos de passo de tarefa
@@ -128,13 +128,13 @@ O `build` tipo de passo suporta as seguintes propriedades. Pode encontrar os det
 | -------- | ---- | -------- |
 | `detach` | Bool | Opcional |
 | `entryPoint` | cadeia | Opcional |
-| `env` | [string, string,...] | Opcional |
+| `env` | [string, string, ...] | Opcional |
 | `id` | cadeia | Opcional |
 | `ignoreErrors` | Bool | Opcional |
 | `keep` | Bool | Opcional |
 | `startDelay` | Int (segundos) | Opcional |
 | `timeout` | Int (segundos) | Opcional |
-| `when` | [string, string,...] | Opcional |
+| `when` | [string, string, ...] | Opcional |
 | `workingDirectory` | cadeia | Opcional |
 
 ### <a name="examples-build"></a>Exemplos: criar
@@ -187,12 +187,12 @@ O `push` tipo de passo suporta as seguintes propriedades. Pode encontrar os deta
 
 | | | |
 | -------- | ---- | -------- |
-| `env` | [string, string,...] | Opcional |
+| `env` | [string, string, ...] | Opcional |
 | `id` | cadeia | Opcional |
 | `ignoreErrors` | Bool | Opcional |
 | `startDelay` | Int (segundos) | Opcional |
 | `timeout` | Int (segundos) | Opcional |
-| `when` | [string, string,...] | Opcional |
+| `when` | [string, string, ...] | Opcional |
 
 ### <a name="examples-push"></a>Exemplos: push
 
@@ -232,13 +232,13 @@ O `cmd` tipo de passo suporta as seguintes propriedades:
 | -------- | ---- | -------- |
 | `detach` | Bool | Opcional |
 | `entryPoint` | cadeia | Opcional |
-| `env` | [string, string,...] | Opcional |
+| `env` | [string, string, ...] | Opcional |
 | `id` | cadeia | Opcional |
 | `ignoreErrors` | Bool | Opcional |
 | `keep` | Bool | Opcional |
 | `startDelay` | Int (segundos) | Opcional |
 | `timeout` | Int (segundos) | Opcional |
-| `when` | [string, string,...] | Opcional |
+| `when` | [string, string, ...] | Opcional |
 | `workingDirectory` | cadeia | Opcional |
 
 Pode encontrar os detalhes destas propriedades no [propriedades do passo de tarefa](#task-step-properties) seção deste artigo.
@@ -315,17 +315,17 @@ Utilizando o padrão `docker run` Convenção de referência, de imagem `cmd` po
 
 Cada tipo de passo suporta várias propriedades adequadas para o respetivo tipo. A tabela seguinte define todas as propriedades do passo disponíveis. Nem todos os tipos de passo suportam todas as propriedades. Para ver qual destas propriedades estão disponíveis para cada tipo de passo, consulte a [cmd](#cmd), [crie](#build), e [push](#push) passo secções de referência de tipo.
 
-| Propriedade | Tipo | Opcional | Descrição |
+| Propriedade | Type | Opcional | Descrição |
 | -------- | ---- | -------- | ----------- |
 | `detach` | Bool | Sim | Se o contêiner deve ser desligado quando em execução. |
 | `entryPoint` | cadeia | Sim | Substitui o `[ENTRYPOINT]` do contentor de um passo. |
-| `env` | [string, string,...] | Sim | Matriz de cadeias de caracteres em `key=value` formato que definem as variáveis de ambiente para o passo. |
+| `env` | [string, string, ...] | Sim | Matriz de cadeias de caracteres em `key=value` formato que definem as variáveis de ambiente para o passo. |
 | [`id`](#example-id) | cadeia | Sim | Identifica exclusivamente a etapa na tarefa. Outros passos da tarefa podem fazer referência a uma etapa `id`, por exemplo, para a dependência a verificar com `when`.<br /><br />O `id` também é o nome do contentor em execução. Processos em execução nos outros contentores na tarefa podem consultar o `id` como seu nome de anfitrião DNS, ou para aceder ao mesmo com os registos do docker [id], por exemplo. |
 | `ignoreErrors` | Bool | Sim | Quando definido como `true`, a etapa é marcada como concluída, independentemente de se Ocorreu um erro durante sua execução. Predefinição: `false`. |
 | `keep` | Bool | Sim | Se o contentor de um passo deve ser mantida após a execução. |
 | `startDelay` | Int (segundos) | Sim | Número de segundos de execução de um passo de atraso. |
 | `timeout` | Int (segundos) | Sim | Número máximo de segundos que um passo pode executar antes de a ser terminadas. |
-| [`when`](#example-when) | [string, string,...] | Sim | Configura a dependência de um passo num ou mais outros passos na tarefa. |
+| [`when`](#example-when) | [string, string, ...] | Sim | Configura a dependência de um passo num ou mais outros passos na tarefa. |
 | `workingDirectory` | cadeia | Sim | Define o diretório de trabalho de um passo. Por predefinição, as tarefas de ACR cria um diretório de raiz como o diretório de trabalho. No entanto, se sua compilação possui várias etapas, os passos anteriores podem partilhar artefactos com passos posteriores ao especificar o mesmo diretório de trabalho. |
 
 ### <a name="examples-task-step-properties"></a>Exemplos: Propriedades do passo de tarefa

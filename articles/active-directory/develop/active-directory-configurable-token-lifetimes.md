@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ecdeca5e6dae5fa60afdce499dc4eea022c4564c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912719"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817636"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização)
 
@@ -48,7 +48,8 @@ Pode definir políticas de duração do token para tokens de atualização, os t
 Os clientes utilizam tokens de acesso para aceder a um recurso protegido. Um token de acesso pode ser utilizado apenas para uma combinação de utilizador, o cliente e o recurso. Tokens de acesso não não possível revogar e são válidos até sua expiração. Um ator mal-intencionado que foi obtido um token de acesso pode utilizá-lo para a extensão do seu ciclo de vida. Ajustar o tempo de vida de um token de acesso é uma compensação entre melhorando o desempenho do sistema e aumentar a quantidade de tempo que o cliente manterá acesso depois da conta de utilizador está desativada. Desempenho do sistema aprimorado é obtido ao reduzir o número de vezes que um cliente precisa de adquirir um token de acesso atualizada.  A predefinição é 1 hora - depois de 1 hora, o cliente tem de utilizar o token de atualização para adquirir um novo token de atualização e token de acesso (geralmente silenciosamente). 
 
 ### <a name="refresh-tokens"></a>Tokens de atualização
-Quando um cliente adquire um token de acesso para aceder a um recurso protegido, o cliente também recebe um token de atualização. O token de atualização é utilizado para obter pares de token de acesso nova/atualização quando o token de acesso atual expira. Um token de atualização está vinculado a uma combinação de utilizador e de cliente. Pode ser um token de atualização [revogado em qualquer altura](access-tokens.md#token-revocation), e a validade do token é verificada sempre que o token é utilizado.  
+
+Quando um cliente adquire um token de acesso para aceder a um recurso protegido, o cliente também recebe um token de atualização. O token de atualização é utilizado para obter pares de token de acesso nova/atualização quando o token de acesso atual expira. Um token de atualização está vinculado a uma combinação de utilizador e de cliente. Pode ser um token de atualização [revogado em qualquer altura](access-tokens.md#token-revocation), e a validade do token é verificada sempre que o token é utilizado.  Atualizar os tokens não são revogados quando utilizados para obter novos tokens de acesso –, é melhor prática, no entanto, para eliminar em segurança o token antigo ao obter um novo. 
 
 É importante fazer uma distinção entre clientes confidenciais e os clientes públicos, como este problema afeta o tempo que os tokens de atualização podem ser utilizados. Para obter mais informações sobre os diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

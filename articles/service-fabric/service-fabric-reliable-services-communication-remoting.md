@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 4110b8f1b336a604c89180ac44ad470132765830
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620528"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820679"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicação remota do serviço em c# com o Reliable Services
 
@@ -239,7 +239,7 @@ Este passo certifica-se de que o serviço está a escutar apenas o serviço de e
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Utilize a pilha de (compatível com a interface) de comunicação remota V2
 
- A comunicação remota V2 (interface compatível, conhecido como V2_1) pilha possui todos os recursos da pilha de comunicação remota V2. Sua pilha de interface é compatível com a pilha de V1 de comunicação remota, mas não é compatível com versões anteriores com V2 e V1. Para atualizar do V1 para V2_1, sem afetar a disponibilidade do serviço, siga os passos no artigo [atualização do V1 para V2 (interface compatível)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+ A comunicação remota V2 (interface compatível, conhecido como V2_1) pilha possui todos os recursos da pilha de comunicação remota V2. Sua pilha de interface é compatível com a pilha de V1 de comunicação remota, mas não é compatível com versões anteriores com V2 e V1. Para atualizar do V1 para V2_1, sem afetar a disponibilidade do serviço, siga os passos no artigo da atualização do V1 para V2 (interface compatível).
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Utilize um atributo de assembly para utilizar a pilha de (compatível com a interface) de comunicação remota V2

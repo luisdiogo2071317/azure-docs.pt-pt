@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972044"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818129"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB enlaces das funções do Azure 2.x
 
-> [!div class="op_single_selector" title1="Selecione a versão do tempo de execução Azure Functions que você está usando: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
@@ -57,7 +57,7 @@ Veja o exemplo de idioma específico:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[Ignorar os exemplos de Acionador](#trigger---attributes)
+Ignorar os exemplos de Acionador
 
 ### <a name="trigger---c-example"></a>Acionador - exemplo do c#
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Ignorar os exemplos de Acionador](#trigger---attributes)
+Ignorar os exemplos de Acionador
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
@@ -131,7 +131,7 @@ Aqui está o código de script do c#:
     }
 ```
 
-[Ignorar os exemplos de Acionador](#trigger---attributes)
+Ignorar os exemplos de Acionador
 
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
@@ -199,7 +199,7 @@ Eis o código Java:
 Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@CosmosDBTrigger` anotação em parâmetros cujo valor virá do Cosmos DB.  Esta anotação pode ser utilizada com tipos nativos de Java, POJOs ou valores anuláveis usando opcional<T>.
 
 
-[Ignorar os exemplos de Acionador](#trigger---attributes)
+Ignorar os exemplos de Acionador
 
 ### <a name="trigger---python-example"></a>Acionador - exemplo de Python
 
@@ -1727,7 +1727,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 No C# e F# funções, quando a função é encerrado com êxito, todas as alterações efetuadas ao documento de entrada por meio de entrada nomeada parâmetros são mantidos automaticamente.
 
-Nas funções de JavaScript, as atualizações não são feitas automaticamente ao sair de função. Em alternativa, utilize `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para disponibilizar as atualizações. Consulte a [exemplo de JavaScript](#input---javascript-example).
+Nas funções de JavaScript, as atualizações não são feitas automaticamente ao sair de função. Em alternativa, utilize `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para disponibilizar as atualizações. Veja o exemplo de JavaScript.
 
 ## <a name="output"></a>Saída
 

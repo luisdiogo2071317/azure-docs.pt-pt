@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 00930fd99fd4c0078623aa11f3e2cd5b1c549034
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409178"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812672"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -54,7 +54,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Cache do Azure para Redis](#azure-redis-cache-limits)
+* Cache do Azure para Redis
 * [Cópia de segurança](#backup-limits)
 * [Batch](#batch-limits)
 * [Serviços BizTalk](#biztalk-services-limits)

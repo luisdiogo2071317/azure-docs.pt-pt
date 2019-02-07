@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260135"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821308"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar a partir do GitHub App Service do Azure com a integração contínua Jenkins e implementação
 
@@ -45,7 +45,7 @@ Para concluir este tutorial, precisa destes itens:
 
   Se não tiver um servidor do Jenkins, conclua estes passos agora no portal do Azure: [Criar servidor do Jenkins numa VM do Linux do Azure](/azure/jenkins/install-jenkins-solution-template)
 
-* R [GitHub](https://github.com) da conta para que possa obter uma cópia de trabalho ([fork](#fork)) para a aplicação de web de Java de exemplo. 
+* R [GitHub](https://github.com) conta para que possa obter uma cópia de trabalho (fork) para a aplicação de web de Java de exemplo. 
 
 * [CLI do Azure](/cli/azure/install-azure-cli), que pode executar na sua linha de comando local ou [Azure Cloud Shell](/azure/cloud-shell/overview)
 
@@ -162,7 +162,7 @@ Aqui está o resultado gerado pela **`create-for-rbac`** comando:
 
    ![Adicionar credenciais de principal de serviço do Azure](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-service-principal-credentials.png)
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Value | Descrição | 
    |----------|-------|-------------| 
    | **ID de subscrição** | <*yourAzureSubscription-ID*> | O valor de GUID para a sua subscrição do Azure <p>**Sugestão**: Se não souber o ID de subscrição do Azure, execute este comando da CLI do Azure da linha de comandos ou no Cloud Shell e, em seguida, utilizar o `id` valor GUID: <p>`az account list` | 
    | **ID de cliente** | <*yourAzureServicePrincipal-ID*> | O `appId` valor GUID gerado anteriormente para o seu principal de serviço do Azure | 

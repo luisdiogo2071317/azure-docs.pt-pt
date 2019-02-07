@@ -10,12 +10,12 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219775"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816218"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -92,7 +92,7 @@ Serviço de reconhecimento de voz de Microsoft fornece duas formas para os progr
 Existem três modos de reconhecimento: `interactive`, `conversation`, e `dictation`. O modo de reconhecimento ajusta o reconhecimento de voz com base na forma como os utilizadores têm probabilidades de falar. Escolha o modo de reconhecimento apropriado para a sua aplicação.
 
 > [!NOTE]
-> Modos de reconhecimento podem ter diferentes comportamentos no [protocolo REST](#rest-speech-recognition-api) do que na [protocolo WebSocket](#webSocket-speech-recognition-api). Por exemplo, a API REST não suporta reconhecimento contínuo, até mesmo no modo de ditado ou da conversação.
+> Modos de reconhecimento podem ter diferentes comportamentos no protocolo REST do que no protocolo WebSocket. Por exemplo, a API REST não suporta reconhecimento contínuo, até mesmo no modo de ditado ou da conversação.
 > [!NOTE]
 > Esses modos são aplicáveis quando utiliza o protocolo REST ou WebSocket diretamente. O [bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) utilizar parâmetros diferentes para especificar o modo de reconhecimento. Para obter mais informações, consulte a biblioteca de cliente da sua preferência.
 

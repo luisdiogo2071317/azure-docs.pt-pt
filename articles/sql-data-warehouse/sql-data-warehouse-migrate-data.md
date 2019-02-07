@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: a09037f2e33d87446696dd11477c4e8b45af4187
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11d41f9839456020ab65f11661c21f1e679cd76f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474178"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770657"
 ---
 # <a name="migrate-your-data"></a>Migre os seus dados
 Dados podem ser movidos de origens diferentes para o armazém de dados SQL com ferramentas de várias.  Cópia do ADF, o SSIS e o bcp podem todas ser utilizadas para atingir esse objetivo. No entanto, como a quantidade de dados aumenta deve pensar em dividir o processo de migração de dados em etapas. Isso lhe dá a oportunidade de otimizar a cada etapa para desempenho e resiliência garantir uma migração de dados uniforme.
@@ -29,11 +29,7 @@ Se seus dados é iniciado em arquivos simples, então, primeiro terá de transfe
 
 O PolyBase oferece também uma opção de alto desempenho para carregar os dados. No entanto, que significa utilizar duas ferramentas em vez de um. Se precisar do melhor desempenho, utilize o PolyBase. Se desejar uma experiência única ferramenta (e os dados não são grandes), em seguida, o ADF é sua resposta.
 
-
-> 
-> 
-
-Vá para o seguinte artigo para algumas excelentes [exemplos do ADF] [exemplos do ADF].
+Siga [deste tutorial]( /articles/data-factory/load-azure-sql-data-warehouse.md) para saber como utilizar o ADF para carregar dados para o armazém de dados.
 
 ## <a name="integration-services"></a>Serviços de Integração
 Integration Services (SSIS) é uma ferramenta poderosa e flexível extrair a transformação e carregamento (ETL) que suporta fluxos de trabalho complexos, de transformação de dados e de várias opções de carregamento de dados. Utilize o SSIS para simplesmente transferir dados para o Azure ou como parte de uma migração mais ampla.
@@ -182,7 +178,7 @@ Para obter mais sugestões de desenvolvimento, consulte [descrição geral do de
 
 <!--Article references-->
 [AZCopy]: ../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/copy-activity-overview.md 
+[ADF Copy]: ../data-factory/load-azure-sql-data-warehouse.md 
 [ADF Copy examples]: ../data-factory/quickstart-create-data-factory-dot-net.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [migrar o seu esquema]: sql-data-warehouse-migrate-schema.md

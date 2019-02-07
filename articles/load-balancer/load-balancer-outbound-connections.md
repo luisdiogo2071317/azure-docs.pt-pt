@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201385"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814831"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -34,17 +34,17 @@ Para efetuar esta função, o Azure utiliza tradução de endereços de rede de 
 Existem várias [cenários de saída](#scenarios). Pode combinar estes cenários, conforme necessário. Reveja-os cuidadosamente para compreender as capacidades, restrições e padrões de acordo com seu modelo de implementação e o cenário do aplicativo. Reveja a documentação de orientação para [gerir estes cenários](#snatexhaust).
 
 >[!IMPORTANT] 
->Balanceador de carga Standard apresenta novas capacidades e comportamentos diferentes a conectividade de saída.   Por exemplo, [cenário 3](#defaultsnat) não existir quando um Standard Balanceador de carga interno está presente e diferentes passos têm de ser efetuados.   Reveja com atenção todo este documento para compreender os conceitos e as diferenças entre SKUs geral.
+>Standard Balanceador de carga e o IP público Standard apresentam novas capacidades e comportamentos diferentes para conectividade de saída.  Eles não são os mesmos que os SKUs básico.  Se quiser conectividade de saída ao trabalhar com Standard SKUs, tem de defini-lo, com endereços IP públicos Standard ou Balanceador de carga Standard público explicitamente.  Isto inclui a criação de conectividade de saída ao utilizar e o Balanceador de carga interno do padrão.  Recomendamos que sempre usar regras de saída num Balanceador de carga Standard público.  [Cenário 3](#defaultsnat) não está disponível com o Standard SKU.  Isso significa que quando é utilizado um Standard Balanceador de carga interno, terá de tomar medidas para criar a conectividade de saída para as VMs no conjunto de back-end se conectividade de saída for o pretendido.  No contexto de conectividade de saída, uma única VM autónoma, todas as VMS no conjunto de disponibilidade, todas as instâncias numa VMSS se comportam como um grupo. Isso significa que, se uma única VM num conjunto de disponibilidade estiver associada um SKU Standard, todas as instâncias VM dentro deste conjunto de disponibilidade agora se comportam pelas mesmas regras como se eles estão associados a Standard SKU, mesmo que uma instância individual não é diretamente associada com o mesmo.  Reveja com cuidado todo este documento a compreender os conceitos globais, consulte [Balanceador de carga Standard](load-balancer-standard-overview.md) às diferenças entre SKUs e revisão [regras de saída](load-balancer-outbound-rules-overview.md).  Utilizar regras de saída permite-lhe controlo detalhado sobre todos os aspetos de conectividade de saída.
 
 ## <a name="scenarios"></a>Descrição geral do cenário
 
 O Balanceador de carga do Azure e os recursos relacionados são definidos explicitamente quando estiver usando [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Atualmente, o Azure fornece três métodos diferentes para alcançar a conectividade de saída para os recursos do Azure Resource Manager. 
 
-| Cenário | Método | Protocolos IP | Descrição |
-| --- | --- | --- | --- |
-| [1. VM com um endereço IP público de nível de instância (com ou sem o Balanceador de carga)](#ilpip) | SNAT, porta mascarando não utilizado | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído à configuração de IP de NIC de. da instância A instância tem todas as portas efêmeras disponíveis. |
-| [2. Balanceador de carga público associado a uma VM (nenhum endereço IP público de nível de instância na instância)](#lb) | SNAT com mascarando-porta (PAT) usando o front-ends do Balanceador de carga | TCP, UDP |Azure partilha o endereço IP público do front-ends de Balanceador de carga público com vários endereços IP privados. O Azure utiliza portas efêmeras do front-ends para PAT. |
-| [3. VM autónoma (nenhum Balanceador de carga, nenhum endereço IP público de nível de instância)](#defaultsnat) | SNAT com mascarando-porta (PAT) | TCP, UDP | Azure automaticamente designa um endereço IP público para SNAT, compartilha este endereço IP público com vários endereços IP privados do conjunto de disponibilidade e utiliza portas efêmeras deste endereço IP público. Este cenário é uma contingência para os cenários anteriores. Não o recomendamos se precisar de visibilidade e controlo. |
+| SKUs | Cenário | Método | Protocolos IP | Descrição |
+| --- | --- | --- | --- | --- |
+| Standard, Basic | [1. VM com um endereço IP público de nível de instância (com ou sem o Balanceador de carga)](#ilpip) | SNAT, porta mascarando não utilizado | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído à configuração de IP de NIC de. da instância A instância tem todas as portas efêmeras disponíveis. Ao utilizar o Balanceador de carga Standard, deve usar [regras de saída](load-balancer-outbound-rules-overview.md) definir explicitamente a conectividade de saída |
+| Standard, Basic | [2. Balanceador de carga público associado a uma VM (nenhum endereço IP público de nível de instância na instância)](#lb) | SNAT com mascarando-porta (PAT) usando o front-ends do Balanceador de carga | TCP, UDP |Azure partilha o endereço IP público do front-ends de Balanceador de carga público com vários endereços IP privados. O Azure utiliza portas efêmeras do front-ends para PAT. |
+| nenhum ou básico | [3. VM autónoma (nenhum Balanceador de carga, nenhum endereço IP público de nível de instância)](#defaultsnat) | SNAT com mascarando-porta (PAT) | TCP, UDP | Azure automaticamente designa um endereço IP público para SNAT, compartilha este endereço IP público com vários endereços IP privados do conjunto de disponibilidade e utiliza portas efêmeras deste endereço IP público. Este cenário é uma contingência para os cenários anteriores. Não o recomendamos se precisar de visibilidade e controlo. |
 
 Se não pretender que uma VM para comunicar com pontos finais fora do Azure no espaço de endereço IP público, pode utilizar grupos de segurança de rede (NSGs) para bloquear o acesso conforme necessário. A secção [impedir a conectividade de saída](#preventoutbound) aborda os NSGs mais detalhadamente. Instruções sobre como conceber, implementar e gerir uma rede virtual sem qualquer acesso de saída estão fora do escopo deste artigo.
 
@@ -68,7 +68,7 @@ Portas efêmeras de frontend de endereço IP público do Balanceador de carga s�
 
 Portas SNAT previamente são alocadas, conforme descrito no [SNAT de compreensão e PAT](#snat) secção. Eles são um recurso finito que pode esgotar-se. É importante compreender como estão [consumidos](#pat). Para compreender como estruturar para esse consumo e mitigar conforme necessário, reveja [esgotamento de gerenciamento de SNAT](#snatexhaust).
 
-Quando [vários endereços IP públicos estão associados com o Balanceador de carga básico](load-balancer-multivip-overview.md), qualquer de IP público destes endereços são um [candidato para fluxos de saída](#multivipsnat), e um é selecionado aleatoriamente.  
+Quando [vários endereços IP públicos estão associados com o Balanceador de carga básico](load-balancer-multivip-overview.md), qualquer um destes endereços IP públicos são candidatos para fluxos de saída e um é selecionado aleatoriamente.  
 
 Para monitorizar o estado de funcionamento das ligações de saída com o Balanceador de carga básico, pode usar [Log Analytics para o Balanceador de carga](load-balancer-monitor-log.md) e [registos de eventos de alerta](load-balancer-monitor-log.md#alert-event-log) para monitorizar as mensagens de esgotamento de porta SNAT.
 
@@ -156,15 +156,15 @@ A tabela seguinte mostra os preallocations de porta SNAT para os escalões de ta
 
 | Tamanho do conjunto (instâncias VM) | Portas SNAT pré-alocado por configuração de IP|
 | --- | --- |
-| 1 a 50 | 1,024 |
+| 1-50 | 1,024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
 | 401-800 | 64 |
-| 1000 801 | 32 |
+| 801-1,000 | 32 |
 
 >[!NOTE]
-> Ao utilizar o Balanceador de carga Standard com [vários front-ends](load-balancer-multivip-overview.md), [cada endereço IP de front-end multiplica o número de portas SNAT disponíveis](#multivipsnat) na tabela anterior. Por exemplo, um conjunto de back-end de 50 VM com 2 carga regras de balanceamento, cada um com um endereço IP de front-end separado, irá utilizar as portas SNAT de 2048 (2 x 1024) por configuração de IP. Consulte os detalhes para [vários front-ends](#multife).
+> Ao utilizar o Balanceador de carga Standard com [vários front-ends](load-balancer-multivip-overview.md), cada endereço IP de front-end multiplica o número de portas SNAT disponíveis na tabela anterior. Por exemplo, um conjunto de back-end de 50 VM com 2 carga regras de balanceamento, cada um com um endereço IP de front-end separado, irá utilizar as portas SNAT de 2048 (2 x 1024) por configuração de IP. Consulte os detalhes para [vários front-ends](#multife).
 
 Lembre-se de que o número de portas SNAT disponíveis não traduz diretamente para o número de fluxos. Uma única porta SNAT pode ser reutilizada para vários destinos exclusivos. As portas são consumidas apenas se for necessário para que os fluxos exclusivo. Para obter orientações de design e mitigação, consulte a seção sobre [como gerir este recurso exhaustible](#snatexhaust) e a secção que descreve [dar um TAPINHA](#pat).
 
@@ -257,7 +257,8 @@ Se um NSG bloquear pedidos de sonda de estado de funcionamento de etiqueta de pr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [Balanceador de carga](load-balancer-overview.md).
 - Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).
+- Saiba mais sobre [regras de saída](load-balancer-outbound-rules-overview.md) para Balanceador de carga Standard público.
+- Saiba mais sobre [Balanceador de carga](load-balancer-overview.md).
 - Saiba mais sobre [grupos de segurança de rede](../virtual-network/security-overview.md).
 - Saiba mais sobre algumas das outras principais [capacidades de rede](../networking/networking-overview.md) no Azure.

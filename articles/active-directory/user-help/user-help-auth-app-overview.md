@@ -11,18 +11,15 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
-ms.openlocfilehash: fa37ed942158ecc0f58aa5884ff93ce27bc42745
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 67265636b26a0eec3c40ee1f95872cc870099de7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751077"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809686"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
-
->[!Important]
->A aplicação Microsoft Authenticator funciona com qualquer aplicação que utiliza a verificação de dois fatores e de qualquer conta que suporte os padrões baseados no tempo palavra-passe Monouso (TOTP).
 
 Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo:
 
@@ -31,7 +28,11 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 - Fornecer início de sessão sem exigir uma palavra-passe, utilizando o seu nome de utilizador e dispositivo móvel com a impressão digital, face ou o PIN.
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).<br><br>Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
+>A aplicação Microsoft Authenticator funciona com qualquer aplicação que utiliza a verificação de dois fatores e de qualquer conta que suporte os padrões baseados no tempo palavra-passe Monouso (TOTP).
+
+>Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
+>Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda. Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
 
 ## <a name="terminology"></a>Terminologia
 |Termo|Descrição|
@@ -67,11 +68,10 @@ Dependendo do tipo de conta, a sua organização poderá decidir que tem de util
 
 |Artigo |Descrição |
 |------|------------|
-|[Transferir e instalar a aplicação](microsoft-authenticator-app-how-to.md)|Descreve onde e como obter e instalar a aplicação Microsoft Authenticator para dispositivos Android e iOS.|
-|[Adicionar a sua conta escolar ou profissional](microsoft-authenticator-app-add-work-account.md)|Descreve como adicionar o seu trabalho ou escola e contas pessoais diversos para a aplicação Microsoft Authenticator.|
-|[Adicionar uma conta Microsoft pessoal](microsoft-authenticator-app-add-personal-account.md)|Descreve como adicionar a sua conta Microsoft pessoal para a aplicação Microsoft Authenticator.|
-|[Adicionar uma conta de não-Microsoft](microsoft-authenticator-app-add-non-microsoft-account.md)|Descreve como adicionar as contas de terceiros para a aplicação Microsoft Authenticator.|
-|[Adicionar manualmente as suas contas](microsoft-authenticator-app-add-account-manual.md)|Descreve como adicionar manualmente as contas para a aplicação Microsoft Authenticator, se não for possível digitalizar o código de QR fornecido.|
-|[Inicie sessão com a aplicação](microsoft-authenticator-app-phone-signin-faq.md)|Descreve como iniciar sessão nas suas várias contas, com a aplicação Microsoft Authenticator.|
-|[Cópia de segurança e credenciais de recuperação da conta](microsoft-authenticator-app-backup-and-recovery.md)| Apresenta informações sobre como criar cópias de segurança e recuperar as suas credenciais da conta através da aplicação Microsoft Authenticator.|
-|[FAQ da aplicação Microsoft Authenticator](microsoft-authenticator-app-faq.md)|Disponibiliza respostas a perguntas mais frequentes sobre a aplicação.|
+|[Transferir e instalar a aplicação](user-help-auth-app-download-install.md)|Descreve onde e como obter e instalar a aplicação Microsoft Authenticator para dispositivos Android e iOS.|
+|[Adicionar as suas contas escolares ou profissional](user-help-auth-app-add-work-school-account.md)|Descreve como adicionar o seu trabalho ou escola e contas pessoais diversos para a aplicação Microsoft Authenticator.|
+|[Adicionar as suas contas pessoais](user-help-auth-app-add-personal-ms-account.md)|Descreve como adicionar o seu Microsoft pessoa e contas de terceiros para a aplicação Microsoft Authenticator.|
+|[Adicionar manualmente as suas contas](user-help-auth-app-add-account-manual.md)|Descreve como adicionar manualmente as contas para a aplicação Microsoft Authenticator, se não for possível digitalizar o código de QR fornecido.|
+|[Inicie sessão com a aplicação](user-help-auth-app-sign-in.md)|Descreve como iniciar sessão nas suas várias contas, com a aplicação Microsoft Authenticator.|
+|[Cópia de segurança e credenciais de recuperação da conta](user-help-auth-app-backup-recovery.md)| Apresenta informações sobre como criar cópias de segurança e recuperar as suas credenciais da conta através da aplicação Microsoft Authenticator.|
+|[FAQ da aplicação Microsoft Authenticator](user-help-auth-app-faq.md)|Disponibiliza respostas a perguntas mais frequentes sobre a aplicação.|

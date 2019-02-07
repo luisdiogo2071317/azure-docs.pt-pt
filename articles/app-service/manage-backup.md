@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1491068248d20a917e28db5a75dee3d4b3753f5c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1c58574a96c07dcb4008682efdf96fba111d7b61
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731195"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810342"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de cópia de segurança e restauro no [App Service do Azure](overview.md) permite-lhe facilmente criar cópias de segurança de aplicação com base numa agenda ou manualmente. Pode restaurar a aplicação para um instantâneo de um estado anterior ao substituir a aplicação existente ou restaurar para outra aplicação. 
@@ -52,7 +52,7 @@ As seguintes soluções de base de dados são suportadas com a funcionalidade c�
 ## <a name="requirements-and-restrictions"></a>Requisitos e restrições
 * A funcionalidade de cópia de segurança e restauro requer o plano do serviço de aplicações no **padrão** escalão ou **Premium** escalão. Para obter mais informações sobre o seu plano do serviço de aplicações para utilizar um escalão mais elevado de dimensionamento, veja [aumentar verticalmente uma aplicação no Azure](web-sites-scale.md).  
   **Premium** escalão permite um maior número de diário fazer uma cópia no-BREAK que **padrão** escalão.
-* Precisa de uma conta de armazenamento do Azure e o contentor na mesma subscrição que a aplicação que pretende criar cópias de segurança. Para obter mais informações sobre contas de armazenamento do Azure, consulte a [links](#moreaboutstorage) no final deste artigo.
+* Precisa de uma conta de armazenamento do Azure e o contentor na mesma subscrição que a aplicação que pretende criar cópias de segurança. Para obter mais informações sobre contas de armazenamento do Azure, veja as ligações no final deste artigo.
 * As cópias de segurança podem ser até 10 GB de conteúdo de aplicação e a base de dados. Se o tamanho da cópia de segurança excede este limite, obterá um erro.
 * Cópias de segurança de SSL ativada a base de dados do Azure para MySQL não é suportada. Se uma cópia de segurança estiver configurada, obterá com falhas de cópias de segurança.
 * Cópias de segurança de SSL ativada a base de dados do Azure para PostgreSQL não é suportada. Se uma cópia de segurança estiver configurada, obterá com falhas de cópias de segurança.

@@ -1,5 +1,5 @@
 ---
-title: 'Pré-requisitos - ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Pré-requisitos - ExpressRoute: Azure | Microsoft Docs'
 description: Esta página fornece uma lista de requisitos a serem satisfeitos para que possa ordenar um circuito do ExpressRoute do Azure. Ele inclui uma lista de verificação.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2458dadb8a97deee67a6df9b00ca5390fccb2902
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133489"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812281"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar se foram cumpridos os seguintes requisitos listados nas secções abaixo.
@@ -22,7 +22,7 @@ Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar
 
 ## <a name="azure-account"></a>Conta do Azure
 * Uma conta ativa do Microsoft Azure. Esta conta é necessária para configurar o circuito do ExpressRoute. Os circuitos do ExpressRoute são recursos incluídos nas subscrições do Azure. Uma subscrição do Azure é um requisito, mesmo se a conectividade estiver limitada a serviços cloud não pertencentes ao Microsoft Azure, como serviços do Office 365 e do Dynamics 365.
-* Uma subscrição ativa do Office 365 (se utilizar os serviços do Office 365). Para obter mais informações, consulte a secção [Requisitos específicos do Office 365](#office-365-specific-requirements) deste artigo.
+* Uma subscrição ativa do Office 365 (se utilizar os serviços do Office 365). Para obter mais informações, consulte a secção de requisitos específicos do Office 365 deste artigo.
 
 ## <a name="connectivity-provider"></a>Fornecedor de conectividade
 
@@ -32,8 +32,8 @@ Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar
 ## <a name="network-requirements"></a>Requisitos da rede
 * **Conectividade redundante**: não é necessário haver redundância na conectividade física entre o utilizador e o fornecedor. A Microsoft exige a configuração de sessões de BGP redundantes entre routers da Microsoft e routers de peering, mesmo se tiver apenas [uma ligação física a um Exchange de nuvem](expressroute-faqs.md#onep2plink).
 * **Encaminhamento**: consoante a forma como ligar a Cloud da Microsoft, utilizador ou o fornecedor tem de configurar e gerir as sessões de BGP para [domínios de encaminhamento](expressroute-circuit-peerings.md). Alguns fornecedores de conectividade Ethernet ou fornecedores do exchange na nuvem poderão oferecer gestão de BGP como um serviço de valor acrescentado.
-* **NAT**: a Microsoft só aceita endereços IP públicos através do peering da Microsoft. Se estiver a utilizar endereços IP privados na sua rede no local, utilizador ou o fornecedor tem de traduzir os endereços IP privados para os endereços IP públicos [com o NAT](expressroute-nat.md).
-* **QoS**: o Skype para Empresas tem vários serviços (por exemplo, voz, vídeo, texto) que exigem um tratamento QoS diferenciado. O utilizador e o fornecedor devem cumprir os [Requisitos de QoS](expressroute-qos.md).
+* **NAT**: Microsoft só aceita endereços IP públicos através do peering da Microsoft. Se estiver a utilizar endereços IP privados na sua rede no local, utilizador ou o fornecedor tem de traduzir os endereços IP privados para os endereços IP públicos [com o NAT](expressroute-nat.md).
+* **QoS**: Skype para empresas tem vários serviços (por exemplo, voz, vídeo, texto) que requerem tratamento do QoS diferenciado. O utilizador e o fornecedor devem cumprir os [Requisitos de QoS](expressroute-qos.md).
 * **Segurança de Rede**: tenha em conta a [segurança de rede](../best-practices-network-security.md) ao ligar à Microsoft Cloud através do ExpressRoute.
 
 ## <a name="office-365"></a>Office 365

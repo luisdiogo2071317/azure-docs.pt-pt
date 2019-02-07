@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190004"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821512"
 ---
 # <a name="outbound-connections-classic"></a>Ligações de saída (clássicas)
 
@@ -54,7 +54,7 @@ Implementações diferentes no modelo clássico têm diferentes funcionalidades:
 
 [Estratégias de atenuação](#snatexhaust) também têm as diferenças do mesmo.
 
-O [algoritmo utilizado para pré-alocação portas efêmeras](#ephemeralports) para PAT para implementações clássicas é igual de implementações de recursos do Azure Resource Manager.
+O algoritmo utilizado para pré-alocação portas efêmeras para PAT para implementações clássicas é igual de implementações de recursos do Azure Resource Manager.
 
 ### <a name="ilpip"></a>Cenário 1: VM com um endereço IP público de nível de instância
 
@@ -74,13 +74,13 @@ Portas efêmeras de frontend de endereço IP público do Balanceador de carga s�
 
 Portas SNAT são pré-alocado conforme descrito no [SNAT de compreensão e PAT](#snat) secção. Eles são um recurso finito que pode esgotar-se. É importante compreender como estão [consumidos](#pat). Para compreender como estruturar para esse consumo e mitigar conforme necessário, reveja [esgotamento de gerenciamento de SNAT](#snatexhaust).
 
-Quando [vários pontos finais públicos com balanceamento de carga](load-balancer-multivip.md) existe, qualquer um destes endereços IP públicos são uma [candidato para fluxos de saída](#multivipsnat), e um é selecionado aleatoriamente.  
+Quando [vários pontos finais públicos com balanceamento de carga](load-balancer-multivip.md) existe, qualquer um destes endereços IP públicos são candidatos para fluxos de saída e um é selecionado aleatoriamente.  
 
 ### <a name="defaultsnat"></a>Cenário 3: Nenhum endereço IP público associado
 
 Neste cenário, a VM ou a função de trabalho da Web não é parte de um ponto de final com balanceamento de carga público.  E, no caso de VM, não tem um endereço ILPIP atribuído a ele. Quando a VM cria um fluxo de saída, Azure traduz-se o endereço IP de origem privados do fluxo de saída para um endereço IP público de origem. O endereço IP público utilizado para este fluxo de saída não é configurável e não contam para o limite de recursos IP público da subscrição.  Azure atribui automaticamente este endereço.
 
-O Azure utiliza o SNAT com mascarando-porta ([dar um TAPINHA](#pat)) para efetuar esta função. Este cenário é semelhante à [cenário 2](#lb), mas não existe nenhum controle sobre o endereço IP utilizado. Este é um cenário de contingência para quando não existem cenários 1 e 2. Este cenário não é recomendada se pretender que o controle sobre o endereço de saída. Se as ligações de saída são uma parte crítica da sua aplicação, deve escolher outro cenário.
+O Azure utiliza o SNAT com mascarando-porta ([dar um TAPINHA](#pat)) para efetuar esta função. Este cenário é semelhante ao cenário 2, mas não existe nenhum controle sobre o endereço IP utilizado. Este é um cenário de contingência para quando não existem cenários 1 e 2. Este cenário não é recomendada se pretender que o controle sobre o endereço de saída. Se as ligações de saída são uma parte crítica da sua aplicação, deve escolher outro cenário.
 
 Portas SNAT são pré-alocado conforme descrito no [SNAT de compreensão e PAT](#snat) secção.  O número de VMs ou o endereço IP público de partilha do Web Worker Roles determina o número de portas efêmeras pré-alocado.   É importante compreender como estão [consumidos](#pat). Para compreender como estruturar para esse consumo e mitigar conforme necessário, reveja [esgotamento de gerenciamento de SNAT](#snatexhaust).
 
@@ -104,13 +104,13 @@ Padrões atenuar as condições que normalmente conduzem a exaustão de porta SN
 
 O Azure utiliza um algoritmo para determinar o número de pré-alocado SNAT portas disponíveis com base no tamanho do conjunto de back-end ao utilizar a porta SNAT de Disfarce ([dar um TAPINHA](#pat)). Portas SNAT são portas efêmeras disponíveis para um determinado endereço de origem IP público.
 
-Azure preallocates SNAT portas quando uma instância for implementada com base no número de instâncias VM ou a função de trabalho Web partilha um determinado endereço IP público.  Quando os fluxos de saída são criados, [dar um TAPINHA](#pat) dinamicamente consome (até ao limite preallocated) e as versões destas portas quando o fluxo for fechado ou [tempos limite de inatividade](#ideltimeout) acontecer.
+Azure preallocates SNAT portas quando uma instância for implementada com base no número de instâncias VM ou a função de trabalho Web partilha um determinado endereço IP público.  Quando os fluxos de saída são criados, [dar um TAPINHA](#pat) dinamicamente consome (até ao limite preallocated) e as versões destas portas quando fecha o fluxo ou limites de ociosidade acontecem.
 
 A tabela seguinte mostra os preallocations de porta SNAT para os escalões de tamanhos de conjuntos de back-end:
 
 | Instâncias | Portas SNAT pré-alocado por instância |
 | --- | --- |
-| 1 a 50 | 1,024 |
+| 1-50 | 1,024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |

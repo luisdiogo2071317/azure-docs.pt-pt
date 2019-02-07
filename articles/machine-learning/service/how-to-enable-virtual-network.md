@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: fb67821d883317901617bda101ae91a9a92018c2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2e7f6c066ea254fff90ba2f9ff1f559fdb680ddf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246403"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766695"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Executar com segurança inferência dentro de uma rede Virtual do Azure e de experimentações
 
@@ -231,4 +231,5 @@ Assim que concluir o processo de criação, pode fazer inferência num cluster d
 
 * [Configurar ambientes de treinamento](how-to-set-up-training-targets.md)
 * [Onde pretende implementar modelos](how-to-deploy-and-where.md)
-* [Proteger modelos implementados com SSL](how-to-secure-web-service.md)
+* [Implantar com segurança os modelos com SSL](how-to-secure-web-service.md)
+

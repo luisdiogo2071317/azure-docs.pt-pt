@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472988"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821189"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Manter os dados de trabalhos e tarefas para o armazenamento do Azure com a biblioteca convenções de ficheiros do Batch para .NET
 
@@ -112,7 +112,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 O `kind` parâmetro do [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[ SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) método categoriza os ficheiros persistentes. Há quatro predefinidas [TaskOutputKind] [ net_taskoutputkind] tipos: `TaskOutput`, `TaskPreview`, `TaskLog`, e `TaskIntermediate.` também pode definir categorias personalizadas de saída.
 
-Esses tipos de saída permitem-lhe especificar o tipo de saídas para listar quando consultar mais tarde o Batch para as saídas persistentes de uma determinada tarefa. Em outras palavras, ao listar as saídas para uma tarefa, pode filtrar a lista em um dos tipos de saída. Por exemplo, "dê-me os *pré-visualização* de saída para a tarefa *109*." Obter mais informações sobre a listagem e saídas de obter aparece na [de obter o resultado](#retrieve-output) posteriormente neste artigo.
+Esses tipos de saída permitem-lhe especificar o tipo de saídas para listar quando consultar mais tarde o Batch para as saídas persistentes de uma determinada tarefa. Em outras palavras, ao listar as saídas para uma tarefa, pode filtrar a lista em um dos tipos de saída. Por exemplo, "dê-me os *pré-visualização* de saída para a tarefa *109*." Obter mais informações sobre a listagem e saídas de obter aparece na saída de obter posteriormente neste artigo.
 
 > [!TIP]
 > O tipo de saída também determina onde no portal do Azure um determinado arquivo aparece: *TaskOutput*-categorizados arquivos são apresentados em **ficheiros de saída da tarefa**, e *TaskLog* ficheiros são apresentados em **registos de tarefas**.
@@ -197,7 +197,7 @@ O portal do Azure apresenta os ficheiros de saída de tarefa e os registos que p
 
 Para ativar a exibição dos seus ficheiros de saída no portal, tem de cumprir os seguintes requisitos:
 
-1. [Ligar uma conta de armazenamento do Azure](#requirement-linked-storage-account) à conta do Batch.
+1. Ligar uma conta de armazenamento do Azure à sua conta do Batch.
 1. Seguir as convenções de nomenclatura predefinidas para ficheiros e contentores de armazenamento ao persistir saídas. Pode encontrar a definição dessas convenções na biblioteca convenções de ficheiros [Leia-me][github_file_conventions_readme]. Se utilizar o [convenções de ficheiros do Azure Batch] [ nuget_package] biblioteca para manter a sua saída, os ficheiros são mantidos, de acordo com o padrão de convenções de ficheiros.
 
 Para ver os registos e ficheiros de saída da tarefa no portal do Azure, navegue para a tarefa cuja saída que está interessado, em seguida, clique em **ficheiros de saída guardados** ou **guardado registos**. Esta imagem mostra o **ficheiros de saída guardados** para a tarefa com o ID "007":

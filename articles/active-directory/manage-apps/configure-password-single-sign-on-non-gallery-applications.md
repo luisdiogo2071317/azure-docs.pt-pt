@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: f549c748c87405b47868c75cc01af81efd202af2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755361"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812488"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação de externas à Galeria
 
@@ -43,7 +43,7 @@ Esta é uma ótima maneira de começar a integrar rapidamente qualquer tipo de a
 
 -   Permitir que um **membro do grupo de negócio** para especificar os nomes de utilizador e palavras-passe atribuídas a um utilizador utilizando o [acesso da aplicação Self-Service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) funcionalidade
 
--   Permitir que um **administrador** para especificar os nomes de utilizador e palavras-passe atribuídas a um utilizador com as credenciais de atualização de funcionalidades quando [atribuir um utilizador a uma aplicação](#_How_to_configure_1)
+-   Permitir que um **administrador** para especificar os nomes de utilizador e palavras-passe atribuídas a um utilizador ao utilizar a funcionalidade das credenciais de atualização quando atribuir um utilizador a uma aplicação
 
 -   Permitir que um **administrador** para especificar o nome de utilizador partilhada ou a palavra-passe utilizada por um grupo de pessoas com as credenciais de atualização de funcionalidades quando [atribuir um grupo a uma aplicação](#assign-an-application-to-a-group-directly)
 
@@ -57,7 +57,7 @@ Para configurar uma aplicação da galeria do Azure AD, que tem de:
 
 -   [Configurar a aplicação para a palavra-passe início de sessão único](#configure-the-application-for-password-single-sign-on)
 
--   [Atribuir a aplicação a um utilizador ou um grupo](#assign-the-application-to-a-user-or-a-group)
+-   Atribuir a aplicação a um utilizador ou um grupo
 
     -   [Atribuir um utilizador a uma aplicação diretamente](#assign-a-user-to-an-application-directly)
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b2e87b2855ac1d76fe2ad544c17c33bfa14f635a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282208"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812383"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Descrição geral de certificados para serviços Cloud do Azure
-Os certificados são utilizados no Azure para serviços em nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com a API de gestão ([certificados de gestão](#what-are-management-certificates)). Este tópico fornece uma visão geral de ambos os tipos de certificado, como ao [crie](#create) e [implementar](#deploy) -los para o Azure.
+Os certificados são utilizados no Azure para serviços em nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com a API de gestão ([certificados de gestão](#what-are-management-certificates)). Este tópico fornece uma visão geral de ambos os tipos de certificado, como ao [criar](#create) e implementá-las para o Azure.
 
 Certificados utilizados no Azure são x.509 v3 certificados e podem ser assinados por outro certificado fidedigno ou podem ser autoassinados. Um certificado autoassinado esteja assinado por seu próprio criador, por isso ele não é considerado fidedigno por predefinição. A maioria dos navegadores podem ignorar este problema. Só deve utilizar certificados autoassinados quando desenvolver e testar seus serviços cloud. 
 
@@ -64,7 +64,7 @@ Pode utilizar qualquer ferramenta disponível para criar um certificado autoassi
     > Não é possível adquirir um certificado SSL para o cloudapp.net (ou para qualquer relacionados com o Azure) domínio; nome do requerente do certificado tem de corresponder ao nome de domínio personalizado utilizado para aceder à sua aplicação. Por exemplo, **contoso.net**, e não **contoso.cloudapp.net**.
 
 * Mínimo de encriptação de 2048 bits.
-* **Certificado de serviço só**: tem de residir no certificado do lado do cliente a *pessoais* arquivo de certificados.
+* **Apenas o certificado de serviço**: Tem de residir no certificado do lado do cliente do *pessoais* arquivo de certificados.
 
 Existem duas formas fáceis de criar um certificado no Windows, com o `makecert.exe` utilitário ou IIS.
 

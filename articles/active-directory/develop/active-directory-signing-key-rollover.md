@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6174dd210cf85bfa6a3daf38965d1da65801321c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d137f2217575bfddec5a2bc2ead4e210b8cf1865
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076337"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815344"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Iniciar o rollover da chave no Azure Active Directory
 Este artigo aborda o que precisa saber sobre as chaves públicas que são utilizadas no Azure Active Directory (Azure AD) para assinar os tokens de segurança. É importante observar que esses rollover de chaves periodicamente e, em caso de emergências, foi implementado imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de manipular o processo de rollover de chave ou estabeleça um processo periódico rollover manual de por meio de programação. Continue a ler para compreender como funcionam as chaves, como avaliar o impacto de rollover para seu aplicativo e como atualizar a sua aplicação ou estabelecer um processo de rollover manual periódica para lidar com o rollover da chave, se necessário.
@@ -44,7 +44,7 @@ Como o seu aplicativo manipula o rollover da chave depende de variáveis, como o
 * [Aplicações Web / APIs proteger recursos com o módulo de passport-azure-ad de node. js](#passport)
 * [Aplicações Web / APIs proteger os recursos e criados com o Visual Studio 2015 ou Visual Studio 2017](#vs2015)
 * [Aplicações Web de proteger os recursos e criado com o Visual Studio 2013](#vs2013)
-* [APIs da Web, proteger os recursos e criado com o Visual Studio 2013](#vs2013_webapi)
+* APIs da Web, proteger os recursos e criado com o Visual Studio 2013
 * [Aplicações Web de proteger os recursos e criado com o Visual Studio 2012](#vs2012)
 * [Aplicações Web de proteger os recursos e criado com o Visual Studio 2010, o 2008 usando o Windows Identity Foundation](#vs2010)
 * [Aplicações Web / APIs proteger os recursos através de qualquer outra biblioteca ou manualmente a implementar qualquer um dos protocolos suportados](#other)

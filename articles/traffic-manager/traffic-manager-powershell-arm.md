@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055137"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816225"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Com o PowerShell para gerir o Gestor de tráfego
 
@@ -57,7 +57,7 @@ A tabela seguinte descreve os parâmetros:
 
 | Parâmetro | Descrição |
 | --- | --- |
-| Nome |O nome de recurso para o recurso de perfil do Gestor de tráfego. Perfis no mesmo grupo de recursos tem de ter nomes exclusivos. Este nome está separado do nome DNS utilizado para consultas DNS. |
+| Name |O nome de recurso para o recurso de perfil do Gestor de tráfego. Perfis no mesmo grupo de recursos tem de ter nomes exclusivos. Este nome está separado do nome DNS utilizado para consultas DNS. |
 | ResourceGroupName |O nome do grupo de recursos que contém o recurso de perfil. |
 | TrafficRoutingMethod |Especifica o método de encaminhamento de tráfego de mensagens em fila utilizado para determinar qual ponto de extremidade é devolvido na resposta de uma consulta DNS. Valores possíveis são "Performance", 'Ponderado' ou 'Priority'. |
 | RelativeDnsName |Especifica a parte do nome de anfitrião do nome DNS fornecido por este perfil do Gestor de tráfego. Este valor é combinado com o nome de domínio DNS utilizado pelo Gestor de tráfego do Azure para formar o nome de domínio completamente qualificado (FQDN) do perfil. Por exemplo, definir o valor de "contoso" se torna "contoso.trafficmanager.net." |
@@ -66,7 +66,7 @@ A tabela seguinte descreve os parâmetros:
 | MonitorPort |Especifica a porta TCP utilizada para monitorizar o estado de funcionamento do ponto final. |
 | MonitorPath |Especifica o caminho relativo para o nome de domínio de ponto final utilizado para a sonda de estado de funcionamento do ponto final. |
 
-O cmdlet cria um perfil do Gestor de tráfego no Azure e retorna um objeto de perfil correspondente para o PowerShell. Neste momento, o perfil não contém quaisquer pontos de extremidade. Para obter mais informações sobre como adicionar pontos de extremidade para um perfil do Gestor de tráfego, consulte [adicionar pontos finais do Gestor de tráfego](#adding-traffic-manager-endpoints).
+O cmdlet cria um perfil do Gestor de tráfego no Azure e retorna um objeto de perfil correspondente para o PowerShell. Neste momento, o perfil não contém quaisquer pontos de extremidade. Para obter mais informações sobre como adicionar pontos de extremidade para um perfil do Gestor de tráfego, consulte Adicionar pontos finais do Gestor de tráfego.
 
 ## <a name="get-a-traffic-manager-profile"></a>Obter um perfil do Gestor de tráfego
 

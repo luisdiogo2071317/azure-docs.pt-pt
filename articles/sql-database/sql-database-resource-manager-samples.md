@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: af802a459777e8c3b10f7d1a5d84f4b87e011f0a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 71bdfb28a251a815775dc77c55986a10ea550ef7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747932"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770253"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Modelos do Azure Resource Manager para a base de dados do Azure SQL
 
@@ -40,7 +40,7 @@ A tabela seguinte inclui ligações para modelos Azure Resource Manager para a b
 | [Aplicação Web do Azure com a base de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Este exemplo cria uma aplicação Web do Azure gratuita e a base de dados SQL no nível de serviço "Básico".|
 | [Aplicação Web do Azure e Cache de Redis com a base de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Este modelo cria uma aplicação Web, o Cache de Redis e a base de dados SQL no mesmo grupo de recursos e cria duas cadeias de ligação na aplicação Web para a base de dados SQL e o Cache de Redis.|
 | [Importar dados do armazenamento de Blobs com o ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Este modelo do Azure Resource Manager cria o Azure Data Factory V2, que copia dados de armazenamento de Blobs do Azure para a base de dados SQL.|
-| [Cluster do HDInsight com um banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Este modelo permite-lhe criar um cluster do HDInsight, um servidor de base de dados SQL, uma base de dados SQL e duas tabelas. Este modelo é utilizado pelo Sqoop de utilização com o Hadoop no HDInsight artigo, https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop |
+| [Cluster do HDInsight com um banco de dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Este modelo permite-lhe criar um cluster do HDInsight, um servidor de base de dados SQL, uma base de dados SQL e duas tabelas. Este modelo é utilizado pelo [utilização Sqoop com o Hadoop no HDInsight artigo](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop) |
 | [Aplicação lógica do Azure que executa um procedimento armazenado de SQL com base numa agenda](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Este modelo permite-lhe criar uma aplicação lógica que será executado um procedimento SQL armazenado numa agenda. Quaisquer argumentos para o procedimento é possível colocar a seção de corpo do modelo.|
 
 ## <a name="managed-instance"></a>Instância Gerida

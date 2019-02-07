@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: f7925c3eb14915c2b811ccfcd3a3803b9bd7c806
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cd99f8bce8eca622412b834b5a7b75fda3ceb1f7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222920"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812060"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de v7 pré-visualização do URL do projeto
 
@@ -75,10 +75,10 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
 
 |Name|Value|Type|Necessário|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte [códigos de mercado](#market-codes).<br /><br /> **NOTA:** A API de pré-visualização do URL atualmente suporta apenas geografia dos EUA e do idioma inglês.<br /><br />|Cadeia|Sim|
-|<a name="query" />q|O URL para a pré-visualização|Cadeia|Sim|
-|<a name="responseformat" />responseFormat|O tipo de mídia a utilizar para a resposta. Seguem-se os valores possíveis de maiúsculas e minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> A predefinição é JSON. Para obter informações sobre o JSON de objetos que contém a resposta, consulte [objetos de resposta](#response-objects).<br /><br />Se especificar JsonLd, o corpo da resposta inclui os objetos de JSON LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON LD](http://json-ld.org/).|Cadeia|Não|
-|<a name="safesearch"/>safeSearch|Conteúdo para adultos ilegal ou pirateado conteúdo, é bloqueado com o código de erro 400 e o *isFamilyFriendly* sinalizador não for devolvido. <p>Para o conteúdo para adultos legal, segue-se o comportamento. Código de estado devolve 200 e o *isFamilyFriendly* sinalizador estiver definido como false.<ul><li>safeSearch=strict: Título, descrição, URL e imagem não serão devolvidos.</li><li>pesquisa segura = moderado; Obtenha title, URL e descrição mas não a imagem descritiva.</li><li>pesquisa segura = desativar; Obter todos os resposta objetos/elementos – title, URL, descrição e imagem.</li></ul> |Cadeia|Não é necessário. </br> O padrão é safeSearch = rigorosa.|
+|<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pré-visualização do URL atualmente suporta apenas geografia dos EUA e do idioma inglês.<br /><br />|String|Sim|
+|<a name="query" />q|O URL para a pré-visualização|String|Sim|
+|<a name="responseformat" />responseFormat|O tipo de mídia a utilizar para a resposta. Seguem-se os valores possíveis de maiúsculas e minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> A predefinição é JSON. Para obter informações sobre o JSON de objetos que contém a resposta, consulte [objetos de resposta](#response-objects).<br /><br />Se especificar JsonLd, o corpo da resposta inclui os objetos de JSON LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON LD](http://json-ld.org/).|String|Não|
+|<a name="safesearch"/>safeSearch|Conteúdo para adultos ilegal ou pirateado conteúdo, é bloqueado com o código de erro 400 e o *isFamilyFriendly* sinalizador não for devolvido. <p>Para o conteúdo para adultos legal, segue-se o comportamento. Código de estado devolve 200 e o *isFamilyFriendly* sinalizador estiver definido como false.<ul><li>safeSearch=strict: Título, descrição, URL e imagem não serão devolvidos.</li><li>pesquisa segura = moderado; Obtenha title, URL e descrição mas não a imagem descritiva.</li><li>pesquisa segura = desativar; Obter todos os resposta objetos/elementos – title, URL, descrição e imagem.</li></ul> |String|Não é necessário. </br> O padrão é safeSearch = rigorosa.|
 
 ## <a name="response-objects"></a>Objetos de resposta
 O esquema de resposta é qualquer um de uma [página Web] ou byl vrácen Prvek, tal como a API de pesquisa na Web. Se o pedido falhar, o objeto de nível superior é o [byl vrácen Prvek](#errorresponse) objeto.
@@ -92,19 +92,19 @@ Define o erro ocorrido.
 
 |Elemento|Descrição|Type|
 |-------------|-----------------|----------|
-|<a name="error-code" />Código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [códigos de erro](#error-codes).|Cadeia|
-|<a name="error-message" />mensagem|Uma descrição do erro.|Cadeia|
-|<a name="error-moredetails" />moreDetails|Uma descrição que fornece informações adicionais sobre o erro.|Cadeia|
-|<a name="error-parameter" />parameter|O parâmetro de consulta no pedido que causou o erro.|Cadeia|
-|<a name="error-subcode" />subCode|O código de erro que identifica o erro. Por exemplo, se `code` é InvalidRequest, `subCode` pode ser ParameterInvalid ou ParameterInvalidValue. |Cadeia|
-|<a name="error-value" />Valor|Valor do parâmetro de consulta que não era válido.|Cadeia|
+|<a name="error-code" />Código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [códigos de erro](#error-codes).|String|
+|<a name="error-message" />mensagem|Uma descrição do erro.|String|
+|<a name="error-moredetails" />moreDetails|Uma descrição que fornece informações adicionais sobre o erro.|String|
+|<a name="error-parameter" />parameter|O parâmetro de consulta no pedido que causou o erro.|String|
+|<a name="error-subcode" />subCode|O código de erro que identifica o erro. Por exemplo, se `code` é InvalidRequest, `subCode` pode ser ParameterInvalid ou ParameterInvalidValue. |String|
+|<a name="error-value" />Valor|Valor do parâmetro de consulta que não era válido.|String|
 
 ### <a name="errorresponse"></a>ErrorResponse
 O objeto de nível superior que a resposta inclui quando o pedido falhar.
 
 |Name|Value|Type|
 |----------|-----------|----------|
-|_type|Dica de tipo.|Cadeia|
+|_type|Dica de tipo.|String|
 |<a name="errors" />Erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Error](#error)[]|
 
 ### <a name="webpage"></a>Página Web
@@ -112,16 +112,16 @@ Define as informações sobre uma página da Web em pré-visualização.
 
 |Name|Value|Type|
 |----------|-----------|----------|
-|nome|O título da página, não necessariamente o título do HTML|Cadeia|
-|url|O URL que, na verdade, foi pesquisado (pedido pode seguiu redirecionamentos)|Cadeia|
-|descrição|Breve descrição da página e conteúdo|Cadeia|
+|nome|O título da página, não necessariamente o título do HTML|String|
+|url|O URL que, na verdade, foi pesquisado (pedido pode seguiu redirecionamentos)|String|
+|descrição|Breve descrição da página e conteúdo|String|
 |isFamilyFriendly|Mais precisos para itens no índice web; buscas em tempo real fazer esta deteção com base apenas no URL e não o conteúdo da página|boolean|
-|primaryImageOfPage/contentUrl|O URL para uma imagem representativo para incluir na pré-visualização|Cadeia|
+|primaryImageOfPage/contentUrl|O URL para uma imagem representativo para incluir na pré-visualização|String|
 
 ### <a name="identifiable"></a>Identificação
 |Name|Value|Type|
 |-------------|-----------------|----------|
-|ID|Um identificador de recurso|Cadeia|
+|ID|Um identificador de recurso|String|
 
 ## <a name="error-codes"></a>Códigos de erro
 

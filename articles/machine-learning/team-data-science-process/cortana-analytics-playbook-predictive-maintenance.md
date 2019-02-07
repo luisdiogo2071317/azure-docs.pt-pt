@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466834"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816650"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -325,7 +325,7 @@ Quando a série de tempo é estacionários e fáceis de prever, abordagens aleat
 ### <a name="time-dependent-split"></a>Divisão de dependente de tempo
 Esta secção descreve as melhores práticas para implementar a divisão de dependente de tempo. Uma divisão de bidirecional dependente de tempo entre conjuntos de testes e treinamento é descrita abaixo.
 
-Suponha que um fluxo de eventos de timestamped como medidas de vários sensores. Defina os recursos e as etiquetas de treinamento e exemplos de teste ao longo de períodos de tempo que contêm vários eventos. Por exemplo, para classificação binária, criar recursos com base nos eventos passados e criar etiquetas com base em eventos futuros no "X" unidades de tempo no futuro (consulte as secções sobre [com engenharia](#Feature-engineering) e [de modelagem técnicas](#Modeling-techniques-applied-to-PdM-use-cases)). Portanto, o etiquetagem período de tempo de um exemplo vem depois que o intervalo de tempo de seus recursos.
+Suponha que um fluxo de eventos de timestamped como medidas de vários sensores. Defina os recursos e as etiquetas de treinamento e exemplos de teste ao longo de períodos de tempo que contêm vários eventos. Por exemplo, para classificação binária, criar recursos com base nos eventos passados e criar etiquetas com base em eventos futuros no "X" unidades de tempo no futuro (consulte as secções sobre ["feature Engineering"](#Feature-engineering) e técnicas de modelação). Portanto, o etiquetagem período de tempo de um exemplo vem depois que o intervalo de tempo de seus recursos.
 
 Para divisão dependente de tempo, escolher uma _T o tempo limite de treinamento<sub>c</sub>_  no qual pretende preparar um modelo, com hiperparâmetros ajustados a utilização dos dados históricos até T<sub>c</sub>. Para evitar a fuga de etiquetas futuras que ultrapassam T<sub>c</sub> os dados de treinamento, escolha a hora mais recente para exemplos de treinamento de etiqueta ser X unidades antes de T<sub>c</sub>. No exemplo mostrado na figura 7, cada quadrado representa um registro no conjunto de dados em que as funcionalidades e as etiquetas são computadas, tal como descrito acima. A figura mostra os registos que devem passar à preparação e teste conjuntos para X = 2 e W = 3:
 

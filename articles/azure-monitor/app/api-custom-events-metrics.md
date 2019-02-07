@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d0e549f0da5eb30dd11992518789d76c0892bca3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747480"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814423"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -774,7 +774,7 @@ Pode anexar propriedades e medidas para seus eventos (e também para métricas, 
 
 *Propriedades* são valores de cadeia de caracteres que pode utilizar para filtrar a telemetria nos relatórios de utilização. Por exemplo, se a aplicação fornece vários jogos, pode anexar o assunto da cada evento, para que pode ver os jogos são mais populares.
 
-Existe um limite de 8192 o comprimento de cadeia de caracteres. (Se deseja enviar grandes segmentos de dados, utilize o parâmetro de mensagem de [TrackTrace](#track-trace).)
+Existe um limite de 8192 o comprimento de cadeia de caracteres. (Se deseja enviar grandes segmentos de dados, utilize o parâmetro de mensagem de TrackTrace.)
 
 *Métricas* são valores numéricos que podem ser apresentados graficamente. Por exemplo, poderá ver se existe um aumento gradual nas classificações que os jogadores alcançar. Os gráficos podem ser segmentados pelas propriedades que são enviadas com o evento, para que pode obter separado ou empilhados gráficos de jogos diferentes.
 
@@ -992,7 +992,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Chamadas de telemetria individuais podem substituir os valores predefinidos nos seus dicionários de propriedade.
 
-*Os clientes da web para JavaScript*, [utilizar inicializadores de telemetria de JavaScript](#js-initializer).
+*Para JavaScript clientes web*, utilize os inicializadores de telemetria de JavaScript.
 
 *Para adicionar propriedades para toda a telemetria*, incluindo os dados a partir de módulos de coleção padrão [implementar `ITelemetryInitializer` ](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 

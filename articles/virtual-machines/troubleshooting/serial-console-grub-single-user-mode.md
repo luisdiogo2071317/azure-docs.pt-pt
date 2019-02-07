@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103314"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814476"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 GRUB é o GRand Unified carregador de inicialização, que é provável que a primeira coisa que verá quando se reinicia uma VM. Uma vez que ele exibe antes do sistema operativo foi iniciado, não está acessível através de SSH. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.
@@ -44,7 +44,7 @@ Reiniciar a VM também pode ser feito com uma SysRq `'b'` comando se [SysRq](./s
 ![Reinício da consola de série do Linux](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Acesso de modo de utilizador único geral
-Acesso manual para o modo de utilizador único pode ser necessários em situações onde não tiver configurado uma conta com a autenticação de palavra-passe. Terá de modificar a configuração de GRUB para introduzir manualmente o modo de utilizador único. Assim que tiver feito isso, consulte [utilizar modo de utilizador único para repor ou adicionar uma palavra-passe](#-Use-Single-User-Mode-to-reset-or-add-a-password) para obter mais instruções.
+Acesso manual para o modo de utilizador único pode ser necessários em situações onde não tiver configurado uma conta com a autenticação de palavra-passe. Terá de modificar a configuração de GRUB para introduzir manualmente o modo de utilizador único. Uma vez que o tiver feito isso, consulte Utilizar modo de utilizador único para repor ou adicionar uma palavra-passe para obter mais instruções.
 
 Em casos em que a VM não consegue arranque, Distribuições, muitas vezes, automaticamente irão remover em modo de utilizador único ou modo de emergência. No entanto, outras pessoas, exigem configuração adicional antes de pode soltar no modo de utilizador único ou de emergência automaticamente (como configurar uma palavra-passe de raiz).
 

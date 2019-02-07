@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259943"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814287"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple para o programa de fornecedor de soluções de Cloud: Perguntas mais frequentes
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple para o programa de fornecedor de soluções de Cloud: Perguntas Mais Frequentes
 
 
 ## <a name="overview"></a>Descrição geral
@@ -31,7 +31,7 @@ Perguntas e respostas estão organizadas nas seguintes categorias:
 
  - [Modelo do StorSimple e o programa de fornecedor de soluções de Cloud (CSP)](#storsimple-and-csp-model)
  - [Implementar e gerir a matriz virtual como um parceiro](#deploy-and-manage-storsimple-as-a-partner)
- - [Suporte para parceiros do StorSimple para CSP](#support-for-storsimple-partners)
+ - Suporte para parceiros do StorSimple para CSP
 
 ## <a name="storsimple-and-csp-model"></a>Modelo do StorSimple e o CSP
 

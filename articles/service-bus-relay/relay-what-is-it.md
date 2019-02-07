@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621032"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818044"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
 O serviço Azure Relay permite-lhe expor em segurança serviços que são executados na rede empresarial na cloud pública. Pode fazê-lo sem abrir uma porta no firewall, ou para fazer alterações intrusivas na sua infraestrutura de rede empresarial. 
@@ -44,7 +44,7 @@ No padrão de transferência de dados reencaminhados, os passos básicos envolvi
 O Reencaminhamento do Azure tem duas funcionalidades:
 
 - [Ligações Híbridas](#hybrid-connections) - utiliza web sockets de padrão aberto para permitir cenários de multiplataformas.
-- [Reencaminhamentos do WCF](#wcf-relays) - utiliza o Windows Communication Foundation (WCF) para ativar chamadas de procedimento remoto. O Reencaminhamento do WCF é a oferta de Reencaminhamento legada e que muitos utilizadores já utilizam nos respetivos modelos de programação do WCF.
+- Reencaminhamentos do WCF - utiliza Windows Communication Foundation (WCF) para ativar chamadas de procedimento remoto. O Reencaminhamento do WCF é a oferta de Reencaminhamento legada e que muitos utilizadores já utilizam nos respetivos modelos de programação do WCF.
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
@@ -70,7 +70,7 @@ Tanto as Ligações Híbridas como o Reencaminhamento do WCF permitem ligações
 | **Standards-Based Open Protocol (Protocolo Aberto Baseado em Normas)** | |x |
 | **Modelos de programação de RPC** | |x |
 
-## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitetura: processamento de pedidos de reencaminhamento recebidos
+## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitetura: Processamento de pedidos de reencaminhamento recebidos
 O diagrama seguinte mostra como os pedidos de reencaminhamento recebidos são processados pelo serviço Azure Relay:
 
 ![Processamento de Pedidos de Reencaminhamento de WCF Recebidos](./media/relay-what-is-it/ic690645.png)

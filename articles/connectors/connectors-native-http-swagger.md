@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123177"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817755"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chamar pontos finais REST com HTTP + Swagger connector no Azure Logic Apps
 
@@ -40,7 +40,7 @@ Eis um exemplo de como a utilização de HTTP + Swagger operação como uma aç�
 4. Escreva o URL para um documento Swagger:
    
    * O URL tem de ser um ponto final HTTPS para trabalhar a partir do Estruturador da aplicação lógica, e tiver ativado o CORS.
-   * Se o documento Swagger não cumpre este requisito, pode utilizar [armazenamento do Azure com a CORS ativada](#hosting-swagger-from-storage) para armazenar o documento.
+   * Se o documento Swagger não cumpre este requisito, pode utilizar o armazenamento do Azure com a CORS ativada para armazenar o documento.
 5. Clique em **seguinte** ler e processar do documento Swagger.
 6. Adicione todos os parâmetros que são necessários para a chamada HTTP.
    
@@ -71,7 +71,7 @@ Eis os passos para criar, configurar e armazenar documentos de Swagger no armaze
 ## <a name="technical-details"></a>Detalhes técnicos
 Seguem-se os detalhes para os acionadores e ações que este HTTP + Swagger connector suporta.
 
-## <a name="http--swagger-triggers"></a>HTTP + Swagger acionadores
+## <a name="http--swagger-triggers"></a>HTTP + Swagger triggers
 Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido numa aplicação lógica. [Saiba mais sobre os acionadores.](connectors-overview.md) O HTTP + Swagger connector tem um acionador.
 
 | Acionador | Descrição |
@@ -95,25 +95,25 @@ Um asterisco (*) significa que um campo obrigatório.
 | Nome a apresentar | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Método * |método |Verbo HTTP para utilizar. |
-| URI * |uri |URI do pedido HTTP. |
-| Cabeçalhos |cabeçalhos |Um objeto JSON de cabeçalhos HTTP para incluir. |
+| URI* |uri |URI do pedido HTTP. |
+| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos HTTP para incluir. |
 | Corpo |corpo |O corpo do pedido HTTP. |
-| Autenticação |autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte a [conector HTTP](connectors-native-http.md#authentication). |
+| Authentication |autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte a [conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 
 Resposta HTTP
 
-| Nome da propriedade | Tipo de dados | Descrição |
+| Nome da Propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
-| Código de Estado |Int |Código de estado de HTTP |
+| Código de Estado |int |Código de estado de HTTP |
 
 ### <a name="http-responses"></a>Respostas HTTP
 Ao fazer chamadas para várias ações, poderá obter respostas de determinados. Segue-se uma tabela que descreve as respostas correspondentes e descrições.
 
-| Nome | Descrição |
+| Name | Descrição |
 | --- | --- |
 | 200 |OK |
 | 202 |Aceite |

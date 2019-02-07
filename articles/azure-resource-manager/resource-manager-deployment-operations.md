@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6801ed86f15820473e6aaa694b0fea091586a222
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486780"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770219"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Ver as operações de implementação Azure Resource Manager
 
@@ -160,7 +160,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
 
 ## <a name="rest"></a>REST
 
-1. Obter informações sobre uma implementação com o [obter informações sobre uma implementação de modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) operação.
+1. Obter informações sobre uma implementação com o [obter informações sobre uma implementação de modelo](https://docs.microsoft.com/rest/api/resources/deployments) operação.
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -183,7 +183,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
   }
   ```
 
-2. Obter informações sobre as implementações com [listar todas as operações de implementação do modelo](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Obter informações sobre as implementações com [listar todas as operações de implementação do modelo](https://docs.microsoft.com/rest/api/resources/deployments). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

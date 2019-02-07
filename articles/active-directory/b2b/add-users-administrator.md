@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 2/6/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 43cceeb9b65bcee97855f96c781c5d157b32346a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 001eb1946ff0fdc073baaa6da76f4bfa63fc3652
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080928"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810632"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure
 
@@ -45,7 +45,7 @@ Para adicionar utilizadores de colaboração B2B ao diretório, siga estes passo
    ![Mostra onde o novo utilizador convidado está na interface do Usuário](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
-    > Alguns fornecedores de e-mail permitem aos utilizadores adicionar um plus símbolo (+) e texto adicional para os respetivos endereços de e-mail para o ajudar com coisas como a filtragem de caixa de entrada. No entanto, o Azure AD atualmente não suporta mais símbolos endereços de e-mail. Para evitar problemas de entrega, omita o símbolo de adição e quaisquer carateres até a seguir o símbolo @.
+    > Não são suportados endereços de e-mail de grupo, Introduza o endereço de e-mail para um indivíduo. Além disso, alguns fornecedores de e-mail permitem aos utilizadores adicionar um plus símbolo (+) e texto adicional para os respetivos endereços de e-mail para o ajudar com coisas como a filtragem de caixa de entrada. No entanto, o Azure AD atualmente não suporta mais símbolos endereços de e-mail. Para evitar problemas de entrega, omita o símbolo de adição e quaisquer carateres até a seguir o símbolo @.
 
 6. Selecione **Convidar** para enviar automaticamente o convite ao utilizador convidado. 
  

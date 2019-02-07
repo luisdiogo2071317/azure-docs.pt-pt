@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 12/21/2018
-ms.openlocfilehash: d3d776def9e031ca2bcc76d1b60a19f67a74b35a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c60ba4f4106ddd0c3fc643288894fb55d3d27f8c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240349"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816463"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK 
  
@@ -60,7 +60,7 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 - Foi corrigido um problema que impediu a aplicação de políticas RBAC para um grupo de utilizadores ao utilizar o ADFS.
 
 <!--3463840 - IS, ASDK --> 
-- Foi corrigido o problema com a falhar devido a do servidor de ficheiros inacessíveis da rede VIP pública cópias de segurança da infraestrutura. Esta correção Retroceder o serviço de cópia de segurança da infraestrutura para a rede de infraestrutura públicas. Se se inscreveu a versão mais recente [correção do Azure Stack para 1809](#azure-stack-hotfixes) que resolve esse problema, a atualização de 1811 não fará com que quaisquer modificações adicionais. 
+- Foi corrigido o problema com a falhar devido a do servidor de ficheiros inacessíveis da rede VIP pública cópias de segurança da infraestrutura. Esta correção Retroceder o serviço de cópia de segurança da infraestrutura para a rede de infraestrutura públicas. Se aplicar a correção do Azure Stack mais recente para 1809 que resolve esse problema, a atualização de 1811 não fará com que quaisquer modificações adicionais. 
 
 <!-- 2967387 – IS, ASDK --> 
 - Foi corrigido um problema em que a conta que utilizou para iniciar sessão no portal de utilizador ou administrador do Azure Stack são apresentadas como **utilizador não identificado**. Esta mensagem foi apresentada quando a conta não tem qualquer um *primeira* ou *última* nome especificado.   

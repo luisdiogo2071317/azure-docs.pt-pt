@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332647"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822260"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para Oracle no local com o Azure Data Factory
 
@@ -92,7 +92,7 @@ Se usar as ferramentas ou APIs, conclua os seguintes passos para criar um pipeli
 3. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. O exemplo no passo anterior, vai criar um conjunto de dados para especificar a tabela na base de dados do Oracle que contém os dados de entrada. Criar outro conjunto de dados para especificar o contentor de BLOBs e a pasta que contém os dados copiados da base de dados Oracle. Para as propriedades do conjunto de dados que são específicas para Oracle, consulte [propriedades do conjunto de dados](#dataset-properties).
 4. Criar uma **pipeline** que tem uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. O exemplo anterior, usa **OracleSource** como uma origem e **BlobSink** como sink para a atividade de cópia. Da mesma forma, se estiver a copiar do armazenamento de Blobs do Azure para uma base de dados do Oracle, usar **BlobSource** e **OracleSink** na atividade de cópia. Para propriedades de atividade de cópia que são específicas para uma base de dados do Oracle, consulte [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um arquivo de dados como uma origem ou sink, selecione a ligação para seu armazenamento de dados na secção anterior.
 
-Quando utiliza o assistente, as definições de JSON para estas entidades do Data Factory são criadas automaticamente para: ligada a serviços, conjuntos de dados e o pipeline. Ao utilizar ferramentas ou APIs (exceto para a API .NET), define essas entidades do Data Factory, utilizando o formato JSON. Para exemplos que têm definições de JSON para entidades do Data Factory que utilizar para copiar dados de ou para uma base de dados do Oracle no local, consulte [exemplos JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
+Quando utiliza o assistente, as definições de JSON para estas entidades do Data Factory são criadas automaticamente para: ligada a serviços, conjuntos de dados e o pipeline. Ao utilizar ferramentas ou APIs (exceto para a API .NET), define essas entidades do Data Factory, utilizando o formato JSON. Para exemplos que têm definições de JSON para entidades do Data Factory que utilizar para copiar dados de ou para uma base de dados do Oracle no local, consulte exemplos JSON.
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON que utilizar para definir entidades do Data Factory.
 
@@ -599,27 +599,27 @@ Ao mover dados do Oracle, são utilizados os seguintes mapeamentos do tipo de da
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(com suporte apenas no Oracle 10g e versões posteriores ao utilizar um controlador Microsoft) |
-| CHAR |Cadeia |
-| CLOB |Cadeia |
+| CHAR |String |
+| CLOB |String |
 | DATA |DateTime |
 | NÚMERO DE VÍRGULA FLUTUANTE |Número decimal, cadeia de caracteres (se precisão > 28) |
 | NÚMERO INTEIRO |Número decimal, cadeia de caracteres (se precisão > 28) |
 | INTERVALO DE ANO PARA MÊS |Int32 |
-| DIA DO INTERVALO COMO SEGUNDO |Período de tempo |
-| LONGA |Cadeia |
+| DIA DO INTERVALO COMO SEGUNDO |TimeSpan |
+| LONGA |String |
 | HÁ MUITO TEMPO NÃO PROCESSADOS |Byte[] |
-| NCHAR |Cadeia |
-| NCLOB |Cadeia |
+| NCHAR |String |
+| NCLOB |String |
 | NÚMERO |Número decimal, cadeia de caracteres (se precisão > 28) |
-| NVARCHAR2 |Cadeia |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Cadeia |
+| ROWID |String |
 | TIMESTAMP |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO LOCAL |DateTime |
 | TIMESTAMP COM O FUSO HORÁRIO |DateTime |
 | NÚMERO INTEIRO NÃO ASSINADO |Number |
-| VARCHAR2 |Cadeia |
-| XML |Cadeia |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Tipos de dados **intervalo ano para mês** e **intervalo dia TO segundo** não são suportados quando utiliza um controlador de Microsoft.

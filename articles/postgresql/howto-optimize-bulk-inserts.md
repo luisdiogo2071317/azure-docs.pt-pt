@@ -1,36 +1,40 @@
 ---
-title: Otimizar inserções em massa na base de dados do Azure para o servidor PostgreSQL
-description: Este artigo descreve como pode otimizar as operações de inserção em massa na base de dados do Azure para o servidor PostgreSQL.
+title: Otimizar inserções em massa numa base de dados do Azure para o servidor PostgreSQL
+description: Este artigo descreve como pode otimizar as operações de inserção em massa numa base de dados do Azure para o servidor PostgreSQL.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 9d2bfcddc649e4fff68bdba49df0945e88067036
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545241"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810246"
 ---
-# <a name="optimizing-bulk-inserts-and-use-of-transient-data-on-azure-database-for-postgresql-server"></a>Otimizar as inserções em massa e a utilização de dados transitórios na base de dados do Azure para o servidor PostgreSQL 
-Este artigo descreve como pode otimizar operações de inserção em massa e a utilização de dados transitórios numa base de dados do Azure para o servidor PostgreSQL.
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Otimizar inserções em massa e utilizar dados transitórios numa base de dados do Azure para o servidor PostgreSQL 
+Este artigo descreve como pode otimizar as operações de inserção em massa e usar dados transitórios numa base de dados do Azure para o servidor PostgreSQL.
 
-## <a name="using-unlogged-tables"></a>Utilizar tabelas unlogged
-Para os clientes que possuem operações de carga de trabalho que envolvem dados transitórios ou que inserir grandes conjuntos de dados em massa, considere o uso tabelas unlogged.
+## <a name="use-unlogged-tables"></a>Utilizar tabelas unlogged
+Se tiver de operações de carga de trabalho que envolvem dados transitórios ou que inserir grandes conjuntos de dados em massa, considere utilizar tabelas unlogged.
 
-Tabelas unlogged é uma funcionalidade de PostgreSQL que pode ser utilizada eficazmente para otimizar as inserções em massa. PostgreSQL utiliza Write-Ahead registo (WAL), que fornece atomicidade e durabilidade duas das propriedades do ACID por predefinição. Inserindo numa tabela unlogged média PostgreSQL seria fazer inserções sem gravar no log de transação, que por si só é uma operação de e/s, tornando essas tabelas consideravelmente mais rapidamente do que as tabelas comuns.
+Tabelas unlogged é uma funcionalidade de PostgreSQL que pode ser utilizada eficazmente para otimizar as inserções em massa. PostgreSQL utiliza o registo de escrita-Ahead (WAL). Ele fornece atomicidade e durabilidade, por predefinição. Atomicidade, consistência, isolamento e durabilidade constituem as propriedades ACID. 
 
-Seguem-se as opções para criar uma tabela unlogged:
-- Crie uma nova tabela unlogged usando a sintaxe: `CREATE UNLOGGED TABLE <tableName>`
-- Converter um existente com sessão iniciada a tabela a uma tabela unlogged usando a sintaxe: `ALTER <tableName> SET UNLOGGED`.  Isso pode ser revertido ao utilizar a sintaxe: `ALTER <tableName> SET LOGGED`
+Inserir num meio de tabela unlogged esse PostgreSQL inserções sem ter de escrever para a transação iniciar sessão, que por si só é uma operação de e/s. Como resultado, essas tabelas são consideravelmente mais rápidas do que as tabelas comuns.
+
+Utilize as seguintes opções para criar uma tabela unlogged:
+- Criar uma nova tabela unlogged utilizando a sintaxe `CREATE UNLOGGED TABLE <tableName>`.
+- Converter um existente com sessão iniciada tabela para uma tabela de unlogged utilizando a sintaxe `ALTER <tableName> SET UNLOGGED`.  
+
+Para reverter o processo, utilize a sintaxe `ALTER <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Compensação de tabela unlogged
-As tabelas unlogged não são seguras para falhas. Uma tabela unlogged é truncada automaticamente após uma pane ou sujeitos a um encerramento unclean. O conteúdo de uma tabela unlogged também não é replicado para servidores em espera. Índices criados numa tabela unlogged também são automaticamente unlogged.  Depois de concluída a operação de inserção, pode converter a tabela de sessão iniciada para a inserção é durável.
+Tabelas unlogged não são seguras para falhas. Uma tabela unlogged é truncada automaticamente após uma pane ou sujeitos a um encerramento unclean. O conteúdo de uma tabela unlogged também não é replicado para servidores em espera. Índices criados numa tabela unlogged também são automaticamente unlogged. Após a inserção operação for concluída, converter a tabela de sessão iniciada para que a inserção é durável.
 
-No entanto, em algumas cargas de trabalho do cliente, experienciamos aproximadamente uma melhoria de desempenho de 15 a 20% ao usar tabelas unlogged.
+Algumas cargas de trabalho do cliente tem ocorrido aproximadamente uma melhoria de desempenho de 15 a 20 por cento quando unlogged tabelas foram utilizadas.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Reveja a sua carga de trabalho para utilizações de dados transitórios e inserções em grande volume.  
-
-Reveja a seguinte documentação do PostgreSQL - [criar comandos de SQL de tabela](https://www.postgresql.org/docs/current/static/sql-createtable.html)
+Reveja a sua carga de trabalho para utilizações de dados transitórios e inserções em grande volume. Consulte a seguinte documentação de PostgreSQL:
+ 
+- [Criar comandos SQL de tabela](https://www.postgresql.org/docs/current/static/sql-createtable.html)

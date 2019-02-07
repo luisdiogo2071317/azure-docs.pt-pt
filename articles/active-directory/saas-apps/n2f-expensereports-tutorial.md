@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Relatórios de despesas integração do Azure Active Directory com N2F - | Documentos da Microsoft'
+title: 'Tutorial: Relatórios de despesas de integração do Active Directory do Azure com N2F - | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e N2F - relatórios de despesas.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 27fb299bc3bbbbf75bdf40ae02eac627763ce6d4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d8d3d9c14ee1eaa5e5d6dc3245c0d4071306f12a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006649"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811635"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: Integração do Azure Active Directory com N2F - despesas relatórios
+# <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: Relatórios de despesas de integração do Active Directory do Azure com N2F-
 
 Neste tutorial, saiba como integrar N2F - relatórios de despesas no Azure Active Directory (Azure AD).
 
@@ -61,7 +61,7 @@ Para configurar a integração do N2F - relatórios de despesas no Azure AD, tem
 
 **Para adicionar N2F - relatórios de despesas a partir da galeria, execute os seguintes passos:**
 
-1. Na ** [portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -85,11 +85,11 @@ Para o início de sessão único trabalhar, o Azure AD precisa de saber o que o 
 
 Para configurar e testar o Azure AD início de sessão único com N2F - relatórios de despesas, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) ** - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) ** - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um N2F - utilizador de teste de relatórios de despesas](#create-a-n2f---expense-reports-test-use) ** - para ter um equivalente da Eduarda Almeida na N2F - despesas relatórios que está ligada à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) ** - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on) ** - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **Criar um N2F - utilizador de teste de relatórios de despesas** - para ter um equivalente da Eduarda Almeida na N2F - despesas relatórios que está ligada à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -211,7 +211,7 @@ Para permitir que utilizadores do Azure AD iniciar sessão no N2F - relatórios 
 
     ![N2F - configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/user3.png)
 
-    a. Na **endereço de E-Mail** caixa de texto, introduza o endereço de e-mail do utilizador, como ** brittasimon@contoso.com **.
+    a. Na **endereço de E-Mail** caixa de texto, introduza o endereço de e-mail do utilizador, como **brittasimon@contoso.com**.
 
     b. Na **nome próprio** caixa de texto, introduza o nome de utilizador, como **Eduarda**.
 
@@ -254,7 +254,7 @@ Nesta secção, ativar a Eduarda Almeida utilizar o Azure início de sessão ún
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

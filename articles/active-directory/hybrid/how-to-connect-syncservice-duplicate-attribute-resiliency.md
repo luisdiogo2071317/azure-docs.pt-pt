@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: b32369000e7f300beaed98d7f832a5d11659f3f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f4a9b4aba54f3968584187e108e87177c44bbc8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487079"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815801"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
 Resiliência de atributos duplicados é uma funcionalidade do Azure Active Directory que eliminarão fricção causada por **UserPrincipalName** e **ProxyAddress** está em conflito ao executar um da Microsoft ferramentas de sincronização.
@@ -81,7 +81,7 @@ Em seguida, utilize os seguintes cmdlets e operadores para ver os erros de forma
 2. [Por tipo de propriedade](#by-property-type)
 3. [Por valor em conflito](#by-conflicting-value)
 4. [Utilizar uma pesquisa de cadeia de caracteres](#using-a-string-search)
-5. [Ordenados](#sorted)
+5. Ordenados
 6. [No todo ou numa quantidade limitada](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Ver tudo

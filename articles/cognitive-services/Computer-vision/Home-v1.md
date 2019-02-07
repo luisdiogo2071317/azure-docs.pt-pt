@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198151"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816548"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a Versão 1.0 da API de Imagem Digitalizada?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198151"
 >- [Versão 2.0 da API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 A API de Imagem Digitalizada baseada na cloud fornece aos programadores acesso a algoritmos avançados para processamento de imagens e devolução de informações. Ao carregar uma imagem ou especificar um URL de imagem, os algoritmos da Imagem Digitalizada da Microsoft podem analisar o conteúdo visual de formas diferentes com base nas entradas e opções do utilizador. Com a API de Imagem Digitalizada, os utilizadores podem analisar imagens para:
-* [Etiquetar imagens com base nos conteúdos.](#Tagging)
-* [Categorizar imagens.](#Categorizing)
-* [Identificar o tipo e a qualidade das imagens.](#Identifying)
+* Imagens de etiqueta com base no conteúdo.
+* Categorize imagens.
+* Identifica o tipo e a qualidade das imagens.
 * [Detetar rostos humanos e obter a devolução das respetivas coordenadas. ](#Faces)
-* [Reconhecer conteúdos específicos de um domínio.](#Domain-Specific)
-* [Gerar descrições dos conteúdos.](#Descriptions)
-* [Utilizar o reconhecimento ótico de carateres para identificar texto impresso encontrado em imagens.](#OCR)
-* [Reconhecer texto manuscrito.](#RecognizeText)
-* [Distinguir esquemas de cores.](#Color)
-* [Sinalizar conteúdos para adultos.](#Adult)
-* [Recortar fotografias para serem utilizadas como miniaturas.](#Thumbnails)
+* Reconhece conteúdo específico do domínio.
+* Gere descrições do conteúdo.
+* Utilize o reconhecimento ótico de carateres para identificar o texto impresso encontrado nas imagens.
+* Reconhece texto manuscrito.
+* Distingui os esquemas de cores.
+* Sinalizar conteúdo para adultos.
+* Fotografias de recorte para ser utilizado como miniaturas.
 
 ## <a name="requirements"></a>Requisitos
 * Suporte para métodos de entrada: Imagens RAW binárias na forma de um application/octet-stream ou URL da imagem.

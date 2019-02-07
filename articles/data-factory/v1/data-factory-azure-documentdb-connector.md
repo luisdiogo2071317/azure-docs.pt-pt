@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 54e78496b98fffefd2932a2ce7625f8b325fb32a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330403"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812655"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados para e do Azure Cosmos DB com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -301,11 +301,11 @@ O pipeline seguinte copia dados da coleção pessoa na base de dados do Azure Co
 ## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Exemplo: Copiar dados de Blobs do Azure para o Azure Cosmos DB
 O exemplo abaixo mostra:
 
-1. Um serviço ligado do tipo [DocumentDb](#azure-documentdb-linked-service-properties).
+1. Um serviço ligado do tipo DocumentDb.
 2. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties).
-5. R [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+4. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo DocumentDbCollection.
+5. R [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e DocumentDbCollectionSink.
 
 O exemplo copia dados do Azure blob para o Azure Cosmos DB. As propriedades JSON utilizadas nestes exemplos são descritas nas seções a seguir os exemplos.
 

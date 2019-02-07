@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0118c17045b86c88d8d92048787a20bd7d309c0b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298352"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814253"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
 
@@ -32,7 +32,7 @@ Extrair imagens de um registo de contentores do Azure para vários destinos de i
 
 Os programadores também podem enviar para um registo de contentores como parte de um fluxo de trabalho de desenvolvimento de contentores. Por exemplo, podem segmentar um registo de contentor a partir de uma ferramenta de integração e implementação contínua, como o [Serviços de DevOps do Azure](https://docs.microsoft.com/azure/devops/) ou o [Jenkins](https://jenkins.io/).
 
-Configure as [Tarefas do ACR](#azure-container-registry-build) para recompilar automaticamente as imagens da aplicação quando as imagens de base forem atualizadas. Utilize as Tarefas do ACR para automatizar as compilações de imagens quando a sua equipa consolidar código para um repositório Git.
+Configure tarefas de ACR para reconstruir automaticamente as imagens do aplicativo quando suas imagens bases são atualizadas. Utilize as Tarefas do ACR para automatizar as compilações de imagens quando a sua equipa consolidar código para um repositório Git.
 
 ## <a name="key-concepts"></a>Conceitos-chave
 

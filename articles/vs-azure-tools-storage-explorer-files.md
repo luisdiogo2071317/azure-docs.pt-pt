@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: d039654fc1d652a3997515a12caa48acaac124fe
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 194b13e889de4bc1c5938a6ce9cfded6fe2c88c8
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425297"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768287"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento com o Armazenamento de Ficheiros do Azure
 
@@ -47,7 +47,7 @@ Os passos seguintes mostram como criar uma partilha de ficheiros no Explorador d
 
     ![Criar a Partilha de Ficheiros](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. É apresentada uma caixa de texto abaixo da pasta **File Shares (Partilhas de Ficheiros)**. Introduza o nome da partilha de ficheiros. Veja a secção [Regras de nomenclatura de partilhas](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) para obter uma lista das regras e restrições à nomenclatura das partilhas de ficheiros.
+1. É apresentada uma caixa de texto abaixo da pasta **File Shares (Partilhas de Ficheiros)**. Introduza o nome da partilha de ficheiros. Veja a secção [Regras de nomenclatura de partilhas](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs) para obter uma lista das regras e restrições à nomenclatura das partilhas de ficheiros.
 
     ![Dar um nome à partilha](media/vs-azure-tools-storage-explorer-files/image2.png)
 

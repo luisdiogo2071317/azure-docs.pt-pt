@@ -1,5 +1,5 @@
 ---
-title: Criação de partições (pré-visualização) de saída do blob de personalizado do Azure Stream Analytics
+title: A criação de partições de saída de Blobs do Azure Stream Analytics, personalizado
 description: Este artigo descreve os padrões de caminho de DateTime personalizados e os recursos de campo ou atributos personalizados para a saída de armazenamento de BLOBs de tarefas do Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
@@ -7,16 +7,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 23f632ea2ca66f973192fdc01cd84c4d0be3a668
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746528"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765200"
 ---
-# <a name="azure-stream-analytics-custom-blob-output-partitioning-preview"></a>Criação de partições (pré-visualização) de saída do blob de personalizado do Azure Stream Analytics
+# <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>A criação de partições de saída de Blobs do Azure Stream Analytics, personalizado
 
 O Azure Stream Analytics suporta a criação de partições com campos personalizados ou atributos e DateTime personalizadas padrões de caminho de saída de blob personalizado. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480959"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811210"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -52,7 +52,7 @@ A tabela seguinte resume as funcionalidades importantes da matriz Virtual StorSi
 | Mobilidade de dados |Pode restaurar para o mesmo dispositivo ou ao nível do item recovery (servidor de ficheiros) |
 | Camadas de armazenamento |Armazenamento de hipervisor local e na cloud |
 | Tamanho da partilha |Camadas: até 20 TB; afixado localmente: até 2 TB |
-| Tamanho do volume |Em camadas: 500 GB a 5 TB; afixado localmente: 50 GB e 200 GB <br> Reserva local máxima de volumes em camadas é 200 GB. |
+| Tamanho do volume |Camadas: 500 GB para 5 TB; afixado localmente: 50 GB e 200 GB <br> Reserva local máxima de volumes em camadas é 200 GB. |
 | Instantâneos |Consistente com a falha |
 | Recuperação ao nível do item |Sim; os utilizadores podem restaurar a partir de partilhas |
 
@@ -98,7 +98,7 @@ O StorSimple Virtual Array é particularmente adequado para os fluxos de trabalh
 ### <a name="cloud-based-storage-management"></a>Gestão de armazenamento baseado na nuvem
 Pode utilizar o serviço de Gestor de dispositivos do StorSimple em execução no portal do Azure para gerir os dados armazenados em vários dispositivos e em vários locais. Isto é particularmente útil em cenários de ramificação distribuída. Tenha em atenção que tem de criar instâncias separadas do serviço StorSimple Device Manager para gerir as matrizes virtuais e os dispositivos físicos do StorSimple. Observe também que a matriz virtual utiliza agora o novo portal do Azure em vez do portal clássico do Azure.
 
-![gestão de armazenamento baseado na nuvem](./media/storsimple-ova-overview/cloud-based-storage-management.png)
+![Gestão de armazenamento baseado na nuvem](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Cópia de segurança independente do local
 Com a matriz virtual, instantâneos de cloud fornecem uma cópia independentemente da localização, o ponto no tempo de um volume ou partilha. Instantâneos de cloud estão ativados por predefinição e não podem ser desativados. Todos os volumes e partilhas são cópia de segurança ao mesmo tempo por meio de uma única política de cópia de segurança diária, e pode efetuar cópias de segurança ad-hoc adicionais sempre que necessário.
@@ -169,7 +169,7 @@ Além da matriz virtual e outros componentes, a solução StorSimple usa as segu
 
 * [A criação de camadas de armazenamento automática](#automatic-storage-tiering) 
 * [Afixado localmente compartilhamentos e volumes](#locally-pinned-shares-and-volumes)
-* [A eliminação de duplicados e compressão de dados em camadas ou uma cópia de segurança para a cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* A eliminação de duplicados e compressão de dados em camadas ou uma cópia de segurança para a cloud 
 * [Cópias de segurança agendadas e sob demanda](#scheduled-and-on-demand-backups)
 
 ### <a name="automatic-storage-tiering"></a>A criação de camadas de armazenamento automática
@@ -179,7 +179,7 @@ Dados de uma determinada partilha em camadas ou um volume são garantidos que se
 
 Volumes em camadas, criados para iSCSI tem uma reserva local máxima de 200 GB, independentemente do tamanho do volume.
 
-![a criação de camadas de armazenamento automática](./media/storsimple-ova-overview/automatic-storage-tiering.png)
+![A criação de camadas de armazenamento automática](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
 > [!NOTE]
 > Pode especificar um volume afixado localmente como, caso em que os dados permanecem na matriz virtual e nunca é em camadas para a cloud. Para obter mais informações, aceda a [localmente afixado compartilhamentos e volumes](#locally-pinned-shares-and-volumes).

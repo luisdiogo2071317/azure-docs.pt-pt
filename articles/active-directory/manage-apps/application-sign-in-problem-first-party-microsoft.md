@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4d75ab2328cbc18142742c3111ef1f5e7d8eb8f2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f67633ec62b28f54a97cccd0f27b43bdb626ee58
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731483"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822770"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao iniciar sessão para uma aplicação da Microsoft
 
@@ -34,11 +34,11 @@ Existem três formas principais que um utilizador pode obter acesso a uma aplica
 
 -   Para aplicações que a Microsoft ou um 3rd Party publica livremente para qualquer pessoa a utilizar, podem também ser concedido acesso aos utilizadores através de **consentimento de administrador**. Isso significa que um administrador determinou que a aplicação pode ser utilizada por todas as pessoas na organização, para que inicie sessão para a aplicação com uma conta de Administrador Global e concedem acesso a todas as pessoas na organização.
 
-Para resolver o seu problema, comece com o [áreas com problemas gerais com acesso a aplicações a serem considerados](#general-problem-areas-with-application-access-to-consider) e, em seguida, leia o [passo a passo: Passos para resolver problemas de acesso do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access) para entrar em detalhes.
+Para resolver o seu problema, comece com o [áreas com problemas gerais com acesso a aplicações a serem considerados](#general-problem-areas-with-application-access-to-consider) e, em seguida, leia o passo a passo: Passos para resolver problemas de acesso do Microsoft Application para entrar em detalhes.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Áreas com problemas gerais com acesso à aplicação a considerar
 
-Segue-se uma lista das áreas de problema geral que pode pormenorizar se tiver uma idéia de como iniciar, mas recomendamos que leia o passo a passo para começar rapidamente: [Passo a passo: Passos para resolver problemas de acesso do Microsoft Application](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Segue-se uma lista das áreas de problema geral que pode pormenorizar se tiver uma idéia de como iniciar, mas recomendamos que leia o passo a passo para começar rapidamente: Descrição Passo a Passo: Passos para resolver problemas de acesso do Microsoft Application.
 
 -   [Problemas com a conta de utilizador](#problems-with-the-users-account)
 

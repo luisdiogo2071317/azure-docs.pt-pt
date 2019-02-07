@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9f8ffe71743f4832d8ce633f050206d21f411276
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f65b9904b15815c997c1608940109ad296ee6007
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082202"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822872"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -103,10 +103,10 @@ As políticas afetam o comportamento de tempo de execução de uma atividade, es
 | simultaneidade |Número inteiro <br/><br/>Valor máximo: 10 |1 |Número de execuções simultâneas da atividade.<br/><br/>Determina o número de execuções de atividade parallel, que podem ser efetuadas em setores diferentes. Por exemplo, se precisar de uma atividade de passar por um grande conjunto de dados disponíveis, ter um valor maior da simultaneidade acelera o processamento de dados. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina a ordenação de setores de dados que estão a ser processados.<br/><br/>Por exemplo, se tiver 2 reparte (uma aconteça às 16:00 e outro às 17:00), e ambos são execução pendente. Se definir o executionPriorityOrder ser NewestFirst, o setor às 17:00 é processado pela primeira vez. Da mesma forma se definir o executionPriorityORder ser OldestFIrst, em seguida, o setor às 16:00 é processado. |
 | retry |Número inteiro<br/><br/>Valor máximo pode ser 10 |0 |Número de tentativas antes do processamento de dados para o setor está marcado como falha. Execução da atividade de um setor de dados é repetida até o número especificado de tentativas. A nova tentativa é feita logo que possível após a falha. |
-| tempo limite |Período de tempo |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
-| atraso |Período de tempo |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
+| tempo limite |TimeSpan |00:00:00 |Tempo limite para a atividade. Exemplo: 10: 00:00 (implica o tempo limite de 10 minutos)<br/><br/>Se um valor não for especificado ou for 0, o tempo limite é infinito.<br/><br/>Se o tempo de processamento de dados num setor excede o valor de tempo limite, ser cancelada e o sistema tenta repetir o processamento. O número de repetições depende da propriedade de repetição. Quando ocorre o tempo limite, o estado é definido como excedido. |
+| atraso |TimeSpan |00:00:00 |Especifica o atraso antes de processamento de dados do setor a ser iniciada.<br/><br/>A execução da atividade de um setor de dados é iniciada depois do atraso é posterior à hora de execução esperada.<br/><br/>Exemplo: 10: 00:00 (implica o atraso de 10 minutos) |
 | longRetry |Número inteiro<br/><br/>Valor máximo: 10 |1 |O número de tentativas de repetição longa antes da execução de setor falhou.<br/><br/>estão espaçadas a tentativas de longRetry, longRetryInterval. Por isso, se tiver de especificar uma hora entre tentativas de repetição, utilize o longRetry. Se forem especificados repetição e longRetry, cada tentativa de longRetry inclui tentativas de repetição e o número máximo de tentativas é tentar * longRetry.<br/><br/>Por exemplo, se tivermos as seguintes definições na política de atividade:<br/>Repetir: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Suponha que existe apenas um setor para executar (estado está a aguardar) e a execução da atividade falha sempre. Inicialmente, deveria haver 3 tentativas de execução consecutivos. Após cada tentativa, o estado do setor seria repetição. Depois de primeiros 3 tentativas ao longo, o estado do setor seria LongRetry.<br/><br/>Depois de uma hora (ou seja, o valor do longRetryInteval), deveria haver outro conjunto de 3 tentativas de execução consecutivos. Depois disso, seria possível executar o estado do setor e não existem mais tentativas devem ser tentadas. Assim geral 6 foram feitas tentativas.<br/><br/>Se qualquer execução for bem-sucedida, o estado do setor seria prontos e não existem mais tentativas são tentadas.<br/><br/>longRetry pode ser usado em situações em que a chegada de dados dependentes em momentos não determinística ou o ambiente geral é instável em que o processamento de dados ocorre. Nesses casos, as repetições não um após o outro podem ajudar ao fazê-lo e fazê-lo após um intervalo de tempo resulta na saída desejada.<br/><br/>Nota de advertência: não definir valores altos para longRetry ou longRetryInterval. Normalmente, os valores mais altos implicam outros problemas sistêmicos. |
-| longRetryInterval |Período de tempo |00:00:00 |O atraso entre tentativas de repetição longa |
+| longRetryInterval |TimeSpan |00:00:00 |O atraso entre tentativas de repetição longa |
 
 ### <a name="typeproperties-section"></a>secção typeProperties
 A secção typeProperties é diferente para cada atividade. Atividades de transformação têm apenas as propriedades de tipo. Ver [atividades de transformação de dados](#data-transformation-activities) secção deste artigo para exemplos JSON que definem as atividades de transformação num pipeline.
@@ -247,7 +247,7 @@ Seguinte tabela descreve as propriedades na definição JSON da atividade:
 | -------- | ----------- | -------- |
 | nome | Nome do serviço ligado. | Sim |
 | Propriedades - tipo | Tipo de serviço ligado. Por exemplo: O armazenamento do Azure, base de dados SQL do Azure. |
-| typeProperties | A secção typeProperties tem elementos que são diferentes para cada arquivo de dados ou ambiente de computação. Ver [arquivos de dados](#datastores) secção para todos os dados de serviços ligados de arquivo e [ambientes de computação](#compute-environments) para todos os a computação de serviços ligados |
+| typeProperties | A secção typeProperties tem elementos que são diferentes para cada arquivo de dados ou ambiente de computação. Consulte a secção de armazenamentos de dados para todos os dados de serviços ligados de arquivo e [ambientes de computação](#compute-environments) para todos os a computação de serviços ligados |
 
 ## <a name="dataset"></a>Conjunto de dados
 Um conjunto de dados no Azure Data Factory é definido da seguinte forma:
@@ -290,7 +290,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 | typeProperties | Propriedades correspondentes ao tipo selecionado. Ver [ARQUIVOS de dados](#data-stores) na secção tipos suportados e as respetivas propriedades. |Sim |ND |
 | externo | Sinalizador booleano para especificar se um conjunto de dados é produzido explicitamente por um pipeline de fábrica de dados ou não. |Não |false |
 | disponibilidade | Define o período de processamento ou o modelo slicing para o conjunto de dados de produção. Para obter detalhes sobre o modelo de fragmentação do conjunto de dados, consulte [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
-| política |Define os critérios ou a condição que tem de preencher os setores do conjunto de dados. <br/><br/>Para obter detalhes, consulte [política de conjunto de dados](#Policy) secção. |Não |ND |
+| política |Define os critérios ou a condição que tem de preencher os setores do conjunto de dados. <br/><br/>Para obter detalhes, consulte a política de conjunto de dados de secção. |Não |ND |
 
 Cada coluna no **estrutura** seção contém as seguintes propriedades:
 
@@ -354,7 +354,7 @@ O **política** secção na definição do conjunto de dados define os critério
 
 A menos que um conjunto de dados está a ser produzido pelo Azure Data Factory, deverá ser marcado como **externo**. Esta definição geralmente aplica-se para as entradas da primeira atividade num pipeline, a menos que a atividade ou o encadeamento de pipeline está a ser utilizado.
 
-| Nome | Descrição | Necessário | Valor Predefinido |
+| Name | Descrição | Necessário | Valor Predefinido |
 | --- | --- | --- | --- |
 | dataDelay |Tempo para atrasar a verificação da disponibilidade dos dados externos para o determinado setor. Por exemplo, se os dados estão disponíveis por hora, a verificação para ver os dados externos estão disponíveis e o setor correspondente está preparado para pode ser atrasada utilizando dataDelay.<br/><br/>Só se aplica a hora presente.  Por exemplo, caso seja 1 que, neste momento, e este valor é 10 minutos, a validação começa em 1:10 PM.<br/><br/>Esta definição não afeta os setores no passado (setores com a hora de fim do setor + dataDelay < agora) são processados sem demora.<br/><br/>Tempo superior a 23:59 tem de horas especificado usando a `day.hours:minutes:seconds` formato. Por exemplo, para especificar a 24 horas, não utilize 24:00:00; em alternativa, utilize 1.00:00:00. Se usar 24: 00:00, ela é tratada como 24 dias (24.00:00:00). Para 1 dia e quatro horas, especifique 1:04:00:00. |Não |0 |
 | retryInterval |O tempo de espera entre uma falha e a próxima tentativa de repetição. Se uma tentativa falhar, repita seguinte é após retryInterval. <br/><br/>Se for 1 que, neste momento, começamos a primeira tentativa. Se a duração para concluir a primeira verificação de validação é de 1 minuto e a operação falhou, a próxima repetição é em 1:00 + 1 min (duração) + 1 min (intervalo de repetições) = 1:02 PM. <br/><br/>Para setores no passado, não existe nenhum atraso. A nova tentativa ocorre imediatamente. |Não |01: 00:00 (1 minuto) |
@@ -374,7 +374,7 @@ Clique na ligação para o arquivo que estiver interessado em ver os esquemas JS
 | Categoria | Arquivo de dados
 |:--- |:--- |
 | **Azure** |[Armazenamento de Blobs do Azure](#azure-blob-storage) |
-| &nbsp; |[Azure Data Lake Store](#azure-datalake-store) |
+| &nbsp; |Azure Data Lake Store |
 | &nbsp; |[BD do Cosmos para o Azure](#azure-cosmos-db) |
 | &nbsp; |[Base de Dados SQL do Azure](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
@@ -401,7 +401,7 @@ Clique na ligação para o arquivo que estiver interessado em ver os esquemas JS
 | &nbsp; |[OData](#odata) |
 | &nbsp; |[ODBC](#odbc) |
 | &nbsp; |[Salesforce](#salesforce) |
-| &nbsp; |[Tabela Web](#web-table) |
+| &nbsp; |Tabela Web |
 
 ## <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
@@ -1616,7 +1616,7 @@ Para definir um Amazon Redshift serviço ligado, defina o **tipo** do serviço l
 }
 ```
 
-Para obter mais informações, consulte [conector Amazon Redshift](#data-factory-amazon-redshift-connector.md#linked-service-properties) artigo.
+Para obter mais informações, consulte o artigo de conector Amazon Redshift.
 
 ### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Amazon Redshift, defina o **tipo** do conjunto de dados para **RelationalTable**e especifique as seguintes propriedades no **typeProperties** secção:
@@ -1645,7 +1645,7 @@ Para definir um conjunto de dados do Amazon Redshift, defina o **tipo** do conju
     }
 }
 ```
-Para obter mais informações, consulte [conector Amazon Redshift](#data-factory-amazon-redshift-connector.md#dataset-properties) artigo.
+Para obter mais informações, consulte o artigo de conector Amazon Redshift.
 
 ### <a name="relational-source-in-copy-activity"></a>Origem relacional na atividade de cópia
 Se estiver a copiar dados do Amazon Redshift, definir o **tipo de origem** da atividade copy na atividade **RelationalSource**e especifique os seguintes propriedades no **origem** secção:
@@ -1695,7 +1695,7 @@ Se estiver a copiar dados do Amazon Redshift, definir o **tipo de origem** da at
     }
 }
 ```
-Para obter mais informações, consulte [conector Amazon Redshift](#data-factory-amazon-redshift-connector.md#copy-activity-properties) artigo.
+Para obter mais informações, consulte o artigo de conector Amazon Redshift.
 
 ## <a name="ibm-db2"></a>IBM DB2
 
@@ -1730,7 +1730,7 @@ Para definir o IBM DB2 serviço ligado, defina o **tipo** do serviço ligado par
     }
 }
 ```
-Para obter mais informações, consulte [conector de DB2 da IBM](#data-factory-onprem-db2-connector.md#linked-service-properties) artigo.
+Para obter mais informações, consulte o artigo de conector de DB2 da IBM.
 
 ### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados DB2, defina o **tipo** do conjunto de dados para **RelationalTable**e especifique as seguintes propriedades no **typeProperties** secção:
@@ -1763,7 +1763,7 @@ Para definir um conjunto de dados DB2, defina o **tipo** do conjunto de dados pa
 }
 ```
 
-Para obter mais informações, consulte [conector de DB2 da IBM](#data-factory-onprem-db2-connector.md#dataset-properties) artigo.
+Para obter mais informações, consulte o artigo de conector de DB2 da IBM.
 
 ### <a name="relational-source-in-copy-activity"></a>Origem relacional na atividade de cópia
 Se estiver a copiar dados do IBM DB2, definir o **tipo de origem** da atividade de cópia para **RelationalSource**e especifique os seguintes propriedades no **origem** secção:
@@ -1811,7 +1811,7 @@ Se estiver a copiar dados do IBM DB2, definir o **tipo de origem** da atividade 
     }
 }
 ```
-Para obter mais informações, consulte [conector de DB2 da IBM](#data-factory-onprem-db2-connector.md#copy-activity-properties) artigo.
+Para obter mais informações, consulte o artigo de conector de DB2 da IBM.
 
 ## <a name="mysql"></a>MySQL
 
@@ -1942,7 +1942,7 @@ Para definir uma Oracle serviço ligado, defina o **tipo** do serviço ligado pa
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| driverType | Especifique qual driver para utilizar para copiar dados de/para a base de dados Oracle. Valores permitidos são **Microsoft** ou **ODP** (predefinição). Ver [suportada a instalação e a versão](#supported-versions-and-installation) seção sobre detalhes do controlador. | Não |
+| driverType | Especifique qual driver para utilizar para copiar dados de/para a base de dados Oracle. Valores permitidos são **Microsoft** ou **ODP** (predefinição). Consulte a secção de instalação e a versão de suportados em detalhes do controlador. | Não |
 | connectionString | Especifica as informações necessárias para ligar à instância de base de dados Oracle para a propriedade connectionString. | Sim |
 | gatewayName | Nome do gateway que é utilizado para ligar ao servidor Oracle no local |Sim |
 
@@ -2610,8 +2610,8 @@ Se estiver a copiar dados para uma base de dados do SQL Server, defina o **tipo 
 | --- | --- | --- | --- |
 | writeBatchTimeout |Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera. |Período de tempo<br/><br/> Exemplo: "00: 30:00" (30 minutos). |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
-| sqlWriterCleanupScript |Especifique a consulta para a atividade de cópia executar de forma a que os dados de um setor específico é limpo. Para obter mais informações, consulte [repetibilidade](#repeatability-during-copy) secção. |Uma instrução de consulta. |Não |
-| sliceIdentifierColumnName |Especifique o nome da coluna para a atividade de cópia preencher com o identificador de setor gerado automaticamente, o que é utilizado para limpar os dados de um setor específico quando voltar a executar. Para obter mais informações, consulte [repetibilidade](#repeatability-during-copy) secção. |Nome da coluna de uma coluna com o tipo de dados de binary(32). |Não |
+| sqlWriterCleanupScript |Especifique a consulta para a atividade de cópia executar de forma a que os dados de um setor específico é limpo. Para obter mais informações, consulte a secção de capacidade de repetição. |Uma instrução de consulta. |Não |
+| sliceIdentifierColumnName |Especifique o nome da coluna para a atividade de cópia preencher com o identificador de setor gerado automaticamente, o que é utilizado para limpar os dados de um setor específico quando voltar a executar. Para obter mais informações, consulte a secção de capacidade de repetição. |Nome da coluna de uma coluna com o tipo de dados de binary(32). |Não |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado que upserts (inserções/atualizações) os dados para a tabela de destino. |Nome do procedimento armazenado. |Não |
 | storedProcedureParameters |Parâmetros do procedimento armazenado. |Pares de nome/valor. Os nomes e tem maiúsculas e minúsculas de parâmetros têm de corresponder os nomes e os parâmetros do procedimento armazenado letras maiúsculas e minúsculas. |Não |
 | sqlWriterTableType |Especifique o nome de tipo de tabela para ser utilizado no procedimento armazenado. Atividade de cópia torna os dados que está a ser movidos disponíveis numa tabela temporária com este tipo de tabela. Código do procedimento armazenado pode então mesclar os dados a ser copiados com os dados existentes. |Um nome de tipo de tabela. |Não |
@@ -3175,10 +3175,10 @@ Para definir um conjunto de dados do Amazon S3, defina o **tipo** do conjunto de
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| bucketName |O nome do registo de S3. |Cadeia |Sim |
-| key |A chave de objeto de S3. |Cadeia |Não |
-| prefixo |Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se apenas quando o chave está vazia. |Cadeia |Não |
-| versão |A versão do objeto de S3 se o controlo de versões de S3 está ativado. |Cadeia |Não |
+| bucketName |O nome do registo de S3. |String |Sim |
+| key |A chave de objeto de S3. |String |Não |
+| prefixo |Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se apenas quando o chave está vazia. |String |Não |
+| versão |A versão do objeto de S3 se o controlo de versões de S3 está ativado. |String |Não |
 | Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não | |
 | Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não | |
 
@@ -3316,7 +3316,7 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | tipo |Certifique-se de que a propriedade de tipo é definida como **OnPremisesFileServer**. |Sim |
-| anfitrião |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos. |Sim |
+| anfitrião |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver definições de serviço e o conjunto de dados de exemplo ligada para obter exemplos. |Sim |
 | ID de utilizador |Especifica o ID de utilizador que tem acesso ao servidor. |Não (se escolher encryptedCredential) |
 | palavra-passe |Especifique a palavra-passe para o utilizador (ID de utilizador). |Não (se escolher encryptedCredential |
 | encryptedCredential |Especifique as credenciais encriptadas que pode obter ao executar o cmdlet New-AzureRmDataFactoryEncryptValue. |Não (se optar por especificar o ID de utilizador e palavra-passe em texto simples) |
@@ -3369,7 +3369,7 @@ Para definir um conjunto de dados do sistema de ficheiros, defina o **tipo** do 
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| folderPath |Especifica o Subcaminho para a pasta. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
+| folderPath |Especifica o Subcaminho para a pasta. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver definições de serviço e o conjunto de dados de exemplo ligada para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
 | fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado é no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especifique um filtro para ser usado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros. <br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplo 1: "fileFilter": "*. log"<br/>Exemplo 2: "fileFilter": 2016-1-?.txt"<br/><br/>Tenha em atenção que fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. |Não |
 | partitionedBy |Pode usar partitionedBy para especificar um folderPath/nome de ficheiro dinâmica para dados de séries temporais. Um exemplo é folderPath parametrizado por cada hora de dados. |Não |
@@ -3634,7 +3634,7 @@ Para definir um conjunto de dados FTP, defina o **tipo** do conjunto de dados pa
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| folderPath |Caminho de sub-rotina para a pasta. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim
+| folderPath |Caminho de sub-rotina para a pasta. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver definições de serviço e o conjunto de dados de exemplo ligada para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim
 | fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especifique um filtro para ser usado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com HDFS. |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro para dados de séries de tempo. Por exemplo, folderPath parametrizado por cada hora de dados. |Não |
@@ -3728,7 +3728,7 @@ Para definir um HDFS serviço ligado, defina o **tipo** do serviço ligado para 
 | --- | --- | --- |
 | tipo |A propriedade de tipo tem de ser definida como: **Hdfs** |Sim |
 | Url |URL para o HDFS |Sim |
-| authenticationType |Anónimo, ou Windows. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte [nesta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o seu ambiente no local em conformidade. |Sim |
+| authenticationType |Anónimo, ou Windows. <br><br> Para utilizar **a autenticação Kerberos** para o conector do HDFS, consulte esta secção para configurar o seu ambiente no local em conformidade. |Sim |
 | userName |Autenticação de nome de utilizador para Windows. |Sim (para autenticação do Windows) |
 | palavra-passe |Palavra-passe para a autenticação do Windows. |Sim (para autenticação do Windows) |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar para o HDFS. |Sim |
@@ -3769,7 +3769,7 @@ Para definir um HDFS serviço ligado, defina o **tipo** do serviço ligado para 
 }
 ```
 
-Para obter mais informações, consulte [conector HDFS](#data-factory-hdfs-connector.md#linked-service-properties) artigo.
+Para obter mais informações, consulte o artigo de conector do HDFS.
 
 ### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do HDFS, defina o **tipo** do conjunto de dados para **partilha de ficheiros**e especifique as seguintes propriedades no **typeProperties** secção:
@@ -3805,7 +3805,7 @@ Para definir um conjunto de dados do HDFS, defina o **tipo** do conjunto de dado
 }
 ```
 
-Para obter mais informações, consulte [conector HDFS](#data-factory-hdfs-connector.md#dataset-properties) artigo.
+Para obter mais informações, consulte o artigo de conector do HDFS.
 
 ### <a name="file-system-source-in-copy-activity"></a>Origem do sistema de ficheiros na atividade de cópia
 Se estiver a copiar dados do HDFS, definir o **tipo de origem** da atividade copy na atividade **FileSystemSource**e especifique os seguintes propriedades no **origem** secção:
@@ -3852,7 +3852,7 @@ Se estiver a copiar dados do HDFS, definir o **tipo de origem** da atividade cop
 }
 ```
 
-Para obter mais informações, consulte [conector HDFS](#data-factory-hdfs-connector.md#copy-activity-properties) artigo.
+Para obter mais informações, consulte o artigo de conector do HDFS.
 
 ## <a name="sftp"></a>SFTP
 
@@ -3864,7 +3864,7 @@ Para definir um SFTP serviço ligado, defina o **tipo** do serviço ligado para 
 | --- | --- | --- | --- |
 | anfitrião | Nome ou endereço IP do servidor SFTP. |Sim |
 | porta |Porta em que o servidor SFTP está a escutar. O valor predefinido é: 21 |Não |
-| authenticationType |Especifique o tipo de autenticação. Valores permitidos: **Basic**, **SshPublicKey**. <br><br> Consulte a [usando a autenticação básica](#using-basic-authentication) e [a utilizar o SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções em mais propriedades e exemplos de JSON, respetivamente. |Sim |
+| authenticationType |Especifique o tipo de autenticação. Valores permitidos: **Basic**, **SshPublicKey**. <br><br> Consulte a utilizar a autenticação básica e [através de SSH autenticação de chave pública](#using-ssh-public-key-authentication) secções em mais propriedades e exemplos de JSON, respetivamente. |Sim |
 | skipHostKeyValidation | Especifique se pretende ignorar a validação da chave de anfitrião. | Não. O valor predefinido: Falso |
 | hostKeyFingerprint | Especifique a impressão digital da chave de anfitrião. | Sim se o `skipHostKeyValidation` é definido como false.  |
 | gatewayName |Nome do Gateway de gestão de dados para ligar a um servidor SFTP no local. | Sim se copiam dados a partir de um servidor SFTP no local. |
@@ -3976,7 +3976,7 @@ Para definir um conjunto de dados do SFTP, defina o **tipo** do conjunto de dado
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| folderPath |Caminho de sub-rotina para a pasta. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
+| folderPath |Caminho de sub-rotina para a pasta. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver definições de serviço e o conjunto de dados de exemplo ligada para obter exemplos.<br/><br/>Pode combinar essa propriedade com o **partitionBy** ter pasta caminhos baseados no setor de início/fim datas-horas. |Sim |
 | fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado seria a seguir este formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especifique um filtro para ser usado para selecionar um subconjunto de ficheiros em folderPath em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com HDFS. |Não |
 | partitionedBy |partitionedBy pode ser utilizado para especificar um folderPath dinâmica, o nome de ficheiro para dados de séries de tempo. Por exemplo, folderPath parametrizado por cada hora de dados. |Não |
@@ -4743,7 +4743,7 @@ Para definir um conjunto de dados da Web, defina o **tipo** do conjunto de dados
 |:--- |:--- |:--- |
 | tipo |Tipo de conjunto de dados. tem de ser definido como **WebTable** |Sim |
 | caminho |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição do serviço ligado. |
-| índice |O índice da tabela no recurso. Ver [Get índice de uma tabela numa página HTML](#get-index-of-a-table-in-an-html-page) secção para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
+| índice |O índice da tabela no recurso. Veja Get índice de uma tabela numa seção da página HTML para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
 #### <a name="example"></a>Exemplo
 
@@ -4820,14 +4820,14 @@ A tabela seguinte lista os ambientes de computação suportados pela fábrica de
 
 | Ambiente de computação | Atividades |
 | --- | --- |
-| [Cluster de HDInsight a pedido](#on-demand-azure-hdinsight-cluster) ou [seu próprio cluster do HDInsight](#existing-azure-hdinsight-cluster) |[Atividade personalizada do .NET](#net-custom-activity), [atividade do Hive](#hdinsight-hive-activity), [Pig a atividade](#hdinsight-pig-activity), [atividade MapReduce](#hdinsight-mapreduce-activity), [atividade de transmissão em fluxo Hadoop](#hdinsight-streaming-activityd), [Atividade do spark](#hdinsight-spark-activity) |
+| [Cluster de HDInsight a pedido](#on-demand-azure-hdinsight-cluster) ou [seu próprio cluster do HDInsight](#existing-azure-hdinsight-cluster) |[Atividade personalizada do .NET](#net-custom-activity), [atividade do Hive](#hdinsight-hive-activity), [Pig a atividade](#hdinsight-pig-activity), [atividade MapReduce](#hdinsight-mapreduce-activity), atividade, de transmissão em fluxo Hadoop [atividade do Spark](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[Atividade personalizada do .NET](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Atividade de execução de lote do Machine Learning](#machine-learning-batch-execution-activity), [atividade de recursos de atualização de Machine Learning](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Procedimento Armazenado](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Cluster do Azure HDInsight a pedido
-O serviço Azure Data Factory pode criar automaticamente um cluster do HDInsight baseado em Windows/Linux sob demanda para processar dados. O cluster é criado na mesma região que a conta de armazenamento (linkedServiceName propriedade no JSON) associada ao cluster. Pode executar as seguintes atividades de transformação neste serviço ligado: [atividade personalizada do .NET](#net-custom-activity), [atividade do Hive](#hdinsight-hive-activity), [Pig atividade](#hdinsight-pig-activity), [MapReduce atividade](#hdinsight-mapreduce-activity), [atividade de transmissão em fluxo Hadoop](#hdinsight-streaming-activityd), [atividade do Spark](#hdinsight-spark-activity).
+O serviço Azure Data Factory pode criar automaticamente um cluster do HDInsight baseado em Windows/Linux sob demanda para processar dados. O cluster é criado na mesma região que a conta de armazenamento (linkedServiceName propriedade no JSON) associada ao cluster. Pode executar as seguintes atividades de transformação neste serviço ligado: [atividade personalizada do .NET](#net-custom-activity), [atividade do Hive](#hdinsight-hive-activity), [Pig atividade](#hdinsight-pig-activity), [MapReduce atividade](#hdinsight-mapreduce-activity), atividade, de transmissão em fluxo do Hadoop [atividade do Spark](#hdinsight-spark-activity).
 
 ### <a name="linked-service"></a>Serviço ligado
 A tabela seguinte fornece descrições para as propriedades utilizadas na definição de JSON do Azure de um serviço de ligado de HDInsight a pedido.
@@ -4865,7 +4865,7 @@ O seguinte JSON define um serviço de ligado de HDInsight a pedido baseado em Li
 Para obter mais informações, consulte [serviços ligados de computação](data-factory-compute-linked-services.md) artigo.
 
 ## <a name="existing-azure-hdinsight-cluster"></a>Cluster de HDInsight do Azure existente
-Pode criar um serviço ligado de HDInsight de Azure para registar o seu próprio cluster do HDInsight com o Data Factory. Pode executar as seguintes atividades de transformação de dados sobre este serviço ligado: [atividade personalizada do .NET](#net-custom-activity), [atividade do Hive](#hdinsight-hive-activity), [Pig atividade](#hdinsight-pig-activity), [ Atividade MapReduce](#hdinsight-mapreduce-activity), [atividade de transmissão em fluxo Hadoop](#hdinsight-streaming-activityd), [atividade do Spark](#hdinsight-spark-activity).
+Pode criar um serviço ligado de HDInsight de Azure para registar o seu próprio cluster do HDInsight com o Data Factory. Pode executar as seguintes atividades de transformação de dados sobre este serviço ligado: [atividade personalizada do .NET](#net-custom-activity), [atividade do Hive](#hdinsight-hive-activity), [Pig atividade](#hdinsight-pig-activity), [ Atividade MapReduce](#hdinsight-mapreduce-activity), atividade, de transmissão em fluxo do Hadoop [atividade do Spark](#hdinsight-spark-activity).
 
 ### <a name="linked-service"></a>Serviço ligado
 A tabela seguinte fornece descrições para as propriedades utilizadas na definição de JSON do Azure de um serviço ligado de HDInsight de Azure.
@@ -4937,7 +4937,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| Tipo |A propriedade de tipo deve ser definida como: **AzureML**. |Sim |
+| Type |A propriedade de tipo deve ser definida como: **AzureML**. |Sim |
 | mlEndpoint |O URL de classificação do lote. |Sim |
 | apiKey |API do modelo de área de trabalho publicado. |Sim |
 
@@ -4965,7 +4965,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| Tipo |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
+| Type |A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. |Sim |
 | accountName |Nome da conta do Azure Data Lake Analytics. |Sim |
 | dataLakeAnalyticsUri |URI do Azure Data Lake Analytics. |Não |
 | Autorização |Código de autorização é obtido automaticamente depois de clicar em **autorizar** botão no Editor do Data Factory e concluir o início de sessão OAuth. |Sim |
@@ -5216,7 +5216,7 @@ Estas propriedades de tipo são específicas para a atividade Pig. Outras propri
 }
 ```
 
-Para obter mais informações, consulte [atividade Pig](#data-factory-pig-activity.md) artigo.
+Para obter mais informações, consulte atividade Pig do artigo.
 
 ## <a name="hdinsight-mapreduce-activity"></a>Atividade MapReduce do HDInsight
 Pode especificar as seguintes propriedades numa definição de JSON de atividade de MapReduce. A propriedade de tipo para a atividade tem de ser: **HDInsightMapReduce**. Tem de criar um serviço ligado do HDInsight em primeiro lugar e especificar o nome do mesmo como um valor para o **linkedServiceName** propriedade. As seguintes propriedades são suportadas os **typeProperties** secção ao definir o tipo de atividade como HDInsightMapReduce:
@@ -5385,7 +5385,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 Tenha em atenção os seguintes pontos:
 
 - O **tipo** estiver definida como **HDInsightSpark**.
-- O **rootPath** está definida como **adfspark\\pyFiles** onde adfspark é o contentor de Blobs do Azure e pyFiles é uma pasta bem nesse contentor. Neste exemplo, o armazenamento de Blobs do Azure é o que está associado ao cluster do Spark. Pode carregar o ficheiro para um armazenamento do Azure diferente. Se fizer isso, crie um serviço ligado do armazenamento do Azure para ligar essa conta de armazenamento à fábrica de dados. Em seguida, especifique o nome do serviço ligado como um valor para o **sparkJobLinkedService** propriedade. Ver [propriedades de atividade do Spark](#spark-activity-properties) para obter detalhes sobre esta propriedade e outras propriedades compatíveis com a atividade do Spark.
+- O **rootPath** está definida como **adfspark\\pyFiles** onde adfspark é o contentor de Blobs do Azure e pyFiles é uma pasta bem nesse contentor. Neste exemplo, o armazenamento de Blobs do Azure é o que está associado ao cluster do Spark. Pode carregar o ficheiro para um armazenamento do Azure diferente. Se fizer isso, crie um serviço ligado do armazenamento do Azure para ligar essa conta de armazenamento à fábrica de dados. Em seguida, especifique o nome do serviço ligado como um valor para o **sparkJobLinkedService** propriedade. Ver as propriedades de atividade do Spark para obter detalhes sobre esta propriedade e outras propriedades compatíveis com a atividade do Spark.
 - O **entryFilePath** está definido para o **test.py**, que é o ficheiro de python.
 - O **getDebugInfo** estiver definida como **sempre**, que significa que os ficheiros de registo são sempre gerado (êxito ou falha).
 

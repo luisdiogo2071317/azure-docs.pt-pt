@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: 48b7d7450503b27b5515e655be3f048f57c2238d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856592"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818078"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -39,7 +39,7 @@ Para utilizar as filas e tópicos particionados com o Azure Service Bus, utiliza
 
 ### <a name="standard"></a>Standard
 
-No escalão mensagens padrão, pode criar filas do Service Bus e tópicos em 1, 2, 3, 4 ou tamanhos de 5 GB (a predefinição é 1 GB). Com a criação de partições ativado, o Service Bus cria cópias de 4 (4 partições) da entidade por cada GB que especificar. Assim, se criar uma fila que é de 5 GB de tamanho, com 4 partições o tamanho máximo da fila torna-se (5 \* 4) = 20 GB. Pode ver o tamanho máximo de sua particionada fila ou tópico examinando sua entrada [portal do Azure][Azure portal], no **descrição geral** painel para essa entidade.
+No escalão mensagens padrão, pode criar filas do Service Bus e tópicos em 1, 2, 3, 4 ou tamanhos de 5 GB (a predefinição é 1 GB). Com a criação de partições ativado, o Service Bus cria cópias de 16 (16 partições) da entidade por cada GB que especificar. Assim, se criar uma fila que é de 5 GB de tamanho, com 16 partições o tamanho máximo da fila se torna (5 \* 16) = 80 GB. Pode ver o tamanho máximo de sua particionada fila ou tópico examinando sua entrada [portal do Azure][Azure portal], no **descrição geral** painel para essa entidade.
 
 ### <a name="premium"></a>Premium
 

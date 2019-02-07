@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745062"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820424"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Executar exemplos de MapReduce no HDInsight baseado em Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -54,7 +54,7 @@ Hoje em dia, muitas pessoas preferem Apache Hive e Apache Pig ao longo do MapRed
 ## <a name="hdinsight-sample-wordcount"></a>Contagem - Java de palavras
 Para submeter um projeto do MapReduce, primeiro crie uma definição de tarefa de MapReduce. Na definição de tarefa, especifica o ficheiro. jar do programa MapReduce e a localização do ficheiro jar, que é **wasb:///example/jars/hadoop-mapreduce-examples.jar**, o nome da classe e os argumentos.  O programa de MapReduce do wordcount recebe dois argumentos: o ficheiro de origem que é utilizado para a contagem de palavras e a localização de saída.
 
-O código-fonte pode ser encontrado na [apêndice A](#apendix-a---the-word-count-MapReduce-program-in-java).
+O código-fonte pode ser encontrado no apêndice A.
 
 Para o procedimento de desenvolvimento de um Java MapReduce de programa, consulte - [programas Java MapReduce desenvolver para o Apache Hadoop no HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -135,7 +135,7 @@ Entretanto, o reducer recolhe a saída e orientados a linha dos [stdout] [ stdin
 
 **Para submeter um c# transmissão em fluxo de trabalho de contagem do word**
 
-* Siga o procedimento descrito [contagem - Java de palavras](#word-count-java)e substitua a definição de tarefa com a seguinte linha:
+* Siga o procedimento na contagem de palavras - Java e substitua a definição de tarefa com a seguinte linha:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -157,7 +157,7 @@ O script fornecido para este exemplo submete uma tarefa de jar do Hadoop e é co
 
 **Para submeter um trabalho de estimador de pi**
 
-* Siga o procedimento descrito [contagem - Java de palavras](#word-count-java)e substitua a definição de tarefa com a seguinte linha:
+* Siga o procedimento na contagem de palavras - Java e substitua a definição de tarefa com a seguinte linha:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -185,7 +185,7 @@ Por exemplo, cada um correspondendo a um dos programas MapReduce descritos na in
 
 **Para submeter as tarefas**
 
-* Siga o procedimento descrito [contagem - Java de palavras](#word-count-java)e utilize as seguintes definições de tarefa:
+* Siga o procedimento na contagem de palavras - Java e utilize as seguintes definições de tarefa:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

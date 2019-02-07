@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: e4ea964600c03ce3f3b5b276ed02d12f573814bf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756500"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822617"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ligar computadores sem acesso à Internet através do gateway do Log Analytics
 
@@ -34,7 +34,7 @@ O gateway do Log Analytics suporta:
 * Runbook Workers híbridos de automatização do Azure  
 * Computadores Windows com o Microsoft Monitoring Agent diretamente ligado a uma área de trabalho do Log Analytics
 * Computadores com Linux com o agente do Log Analytics para Linux diretamente ligado a uma área de trabalho do Log Analytics  
-* System Center Operations Manager 2012 SP1 com UR7, Operations Manager 2012 R2 com o UR3, o Operations Manager 2016 e o grupo de gestão do Operations Manager versão 1801 integrado com o Log Analytics.  
+* System Center Operations Manager 2012 SP1 com UR7, Operations Manager 2012 R2 com o UR3, Operations Manager 2016 ou posterior grupo de gestão integrado com o Log Analytics.  
 
 Se as políticas de segurança de TI não permitir que os computadores na sua rede para ligar à Internet, tais como ponto de venda (POS) dispositivos ou servidores que suportam serviços de TI, mas precisa conectá-los a automatização do Azure ou o Log Analytics para gerir e monitorizá-las , pode ser configurados para comunicar diretamente com o gateway do Log Analytics para receber a configuração e reencaminhar dados em seu nome.  Se estes computadores são configurados com o agente do Log Analytics para ligar diretamente a uma área de trabalho do Log Analytics, todos os computadores em vez disso, comunica com o gateway do Log Analytics.  O gateway transfere dados dos agentes para o serviço diretamente, não analisa quaisquer dados em trânsito.
 

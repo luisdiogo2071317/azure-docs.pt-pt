@@ -8,16 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5f5b389c66821282668f0b4fce9e0b67af028e9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157467"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816956"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e cipher suites no Gateway de aplicação
 
-Saiba como configurar versões de política SSL e cipher suites no Gateway de aplicação. É possível selecionar uma [lista de políticas predefinidas](#predefined-ssl-policies) que contêm configurações diferentes das versões de política SSL e ativado conjuntos de cifras. Também tem a capacidade de definir uma [política personalizada do SSL](#configure-a-custom-ssl-policy) com base nos seus requisitos.
+Saiba como configurar versões de política SSL e cipher suites no Gateway de aplicação. Pode selecionar a partir de uma lista de políticas predefinidas que contenham diferentes configurações de versões de política SSL e ativada conjuntos de cifras. Também tem a capacidade de definir uma [política personalizada do SSL](#configure-a-custom-ssl-policy) com base nos seus requisitos.
 
 ## <a name="get-available-ssl-options"></a>Obter as opções de SSL disponíveis
 

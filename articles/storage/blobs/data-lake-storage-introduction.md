@@ -1,6 +1,6 @@
 ---
-title: Introdução de pré-visualização do Azure Data Lake Storage geração 2
-description: Fornece uma descrição geral de pré-visualização do Azure Data Lake Storage geração 2
+title: Introdução de geração 2 de Lake armazenamento de dados do Azure
+description: Fornece uma descrição geral de geração 2 de armazenamento do Azure Data Lake
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 17b6d0ecf56ec07d3a46949b6ae3b63a6c4b94d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250117"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809441"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução à pré-visualização do Azure Data Lake Storage geração 2
+# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introdução ao Azure Data Lake Storage Gen2
 
-Pré-visualização da geração 2 do armazenamento do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, criado nos [armazenamento de Blobs do Azure](storage-blobs-introduction.md). Geração 2 de armazenamento do Data Lake é o resultado da convergir as capacidades das nossas dois serviços de armazenamento existente, o armazenamento de Blobs do Azure e a geração 1 de armazenamento do Azure Data Lake. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/index), como semântica do sistema de arquivo, diretório e segurança ao nível do ficheiro e dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre partir [Armazenamento de Blobs do azure](storage-blobs-introduction.md).
+Geração de armazenamento 2 do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, criado nos [armazenamento de Blobs do Azure](storage-blobs-introduction.md). Geração 2 de armazenamento do Data Lake é o resultado da convergir as capacidades das nossas dois serviços de armazenamento existente, o armazenamento de Blobs do Azure e a geração 1 de armazenamento do Azure Data Lake. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/index), como semântica do sistema de arquivo, diretório e segurança ao nível do ficheiro e dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre partir [Armazenamento de Blobs do azure](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Concebido para análise de macrodados de enterprise
 

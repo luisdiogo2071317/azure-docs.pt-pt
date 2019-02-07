@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 290f0426befa322b20882682bf4555f80af016d1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660396"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821478"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerir a utilização e custos para o Log Analytics
 
@@ -128,7 +128,7 @@ Quando parar a recolha de dados, o OperationStatus indica um aviso. Quando inici
 |Deixa de coleção de razão| Solução| 
 |-----------------------|---------|
 |Foi atingido o limite diário de escalão de preço gratuito de legado |Aguarde até ao dia seguinte para a coleção reiniciar automaticamente ou alterar para um escalão de preço pago.|
-|Foi atingido o limite diário da sua área de trabalho|Aguarde pela coleção reiniciar automaticamente ou aumentar o limite de volume de dados diário descrito em [gerir o volume de dados diário máximo](#manage-the-maximum-daily-volume). O tempo de reposição de limite diário é mostra no **gestão de volumes de dados** página. |
+|Foi atingido o limite diário da sua área de trabalho|Aguarde pela coleção reiniciar automaticamente ou aumentar o limite de volume de dados diário é descrito em Gerenciar o volume de dados máximo diário. O tempo de reposição de limite diário é mostra no **gestão de volumes de dados** página. |
 |Subscrição do Azure está num estado suspenso devido a:<br> Versão de avaliação gratuita terminada<br> Passagem do Azure expirou<br> Atingido o limite de gastos mensal (por exemplo, numa assinatura do MSDN ou o Visual Studio)|Converter numa subscrição paga<br> Remover o limite, ou aguarde até que o limite é zerado|
 
 Para ser notificado quando parar a recolha de dados, utilize os passos descritos em *criar limite de dados diário* alerta para ser notificado quando parar a recolha de dados e siga os passos utilizam os passos descritos em adicionam ações a regras de configurar um e-mail de alerta webhook ou runbook de ação para a regra de alerta. 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: 2b8a0db21ab4beb2128ae0a1cebbf9fb42691f3c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2ede7a172eda1122b0668984cc8e11937b3ae852
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177412"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768188"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda para a verificação de dois passos
 
@@ -36,7 +36,7 @@ Há vários motivos por que poderá ter de utilizar um método de verificação 
 
 - **Perdeu o seu telemóvel ou tem um novo número de telefone.** Se perdeu o seu telemóvel ou ter obtido um novo número, pode iniciar sessão com um método diferente ou peça ao seu administrador para limpar as definições. É altamente recomendável permitir que o seu administrador de saber se o seu telemóvel tiver sido perdido ou roubado, para que as atualizações adequadas podem ser feitas à sua conta. Depois das definições forem verificadas, será solicitado a [registar para a verificação de](multi-factor-authentication-end-user-first-time.md) da próxima vez que iniciar sessão.
 
-- **Não a obter o texto de autenticação ou de uma chamada telefónica.** Há vários motivos por que não poderá obter o texto ou chamada telefónica. Se conseguiu fazer com textos ou chamadas telefónicas no passado, isto é provavelmente um problema com o fornecedor de telefone, não a sua conta. Se tiver muitas vezes, atrasos devido a um sinal ruim, recomendamos que utilize o [aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) no seu dispositivo móvel. Esta aplicação pode gerar códigos de segurança aleatório para o início de sessão, sem necessidade de qualquer sinal de célula ou a ligação à Internet.<br><br>Se estiver a tentar receber uma mensagem de texto, peça um amigo para texto como um teste para se certificar-se de que pode obter uma e, se obteve várias mensagens, certifique-se de estiver a utilizar o código do mais atual.
+- **Não a obter o texto de autenticação ou de uma chamada telefónica.** Há vários motivos por que não poderá obter o texto ou chamada telefónica. Se conseguiu fazer com textos ou chamadas telefónicas no passado, isto é provavelmente um problema com o fornecedor de telefone, não a sua conta. Se tiver muitas vezes, atrasos devido a um sinal ruim, recomendamos que utilize o [aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) no seu dispositivo móvel. Esta aplicação pode gerar códigos de segurança aleatório para o início de sessão, sem necessidade de qualquer sinal de célula ou a ligação à Internet.<br><br>Se estiver a tentar receber uma mensagem de texto, peça um amigo para texto como um teste para se certificar-se de que pode obter uma e, se obteve várias mensagens, certifique-se de estiver a utilizar o código do mais atual.
 
 - **As palavras-passe de aplicação não estão funcionando.** As palavras-passe de aplicação substituem a palavra-passe normal para aplicativos de área de trabalho mais antigos que não suportam a verificação de dois passos. Em primeiro lugar, certifique-se de que escreveu corretamente a palavra-passe. Se de que não corrigi-lo, tente iniciar sessão no [criar uma nova palavra-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md) ou contactar o administrador para [eliminar suas palavras-passe de aplicação existentes](../authentication/howto-mfa-userdevicesettings.md) para que possa criar um novo.
 
@@ -61,4 +61,4 @@ Se já tentou estes passos, mas é ainda em execução em problemas, contacte o 
 
 * [Gerir as definições de verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md)
 
-* [FAQ de aplicação Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+* [FAQ de aplicação Microsoft Authenticator](user-help-auth-app-faq.md)

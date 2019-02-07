@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542837"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813913"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de utilizador no Batch
 
@@ -66,7 +66,7 @@ Nível de elevação da conta de utilizador indica se uma tarefa é executada co
 
 Por predefinição, as tarefas executadas em Batch através de uma conta de utilizador automático, como usuário padrão sem acesso elevado e com o âmbito da tarefa. Quando a especificação de auto-utilizador está configurada para o âmbito de tarefa, o serviço Batch cria uma conta de utilizador automaticamente para essa tarefa apenas.
 
-A alternativa ao âmbito da tarefa é o âmbito de agrupamento. Quando a especificação de auto-utilizador para uma tarefa está configurada para o âmbito de agrupamento, a tarefa é executada sob uma conta de utilizador automaticamente que está disponível para qualquer tarefa no conjunto. Para obter mais informações sobre o âmbito de agrupamento, consulte a secção intitulada [executar uma tarefa que o utilizador automático com âmbito de agrupamento](#run-a-task-as-the-autouser-with-pool-scope).   
+A alternativa ao âmbito da tarefa é o âmbito de agrupamento. Quando a especificação de auto-utilizador para uma tarefa está configurada para o âmbito de agrupamento, a tarefa é executada sob uma conta de utilizador automaticamente que está disponível para qualquer tarefa no conjunto. Para obter mais informações sobre o âmbito de agrupamento, consulte a seção intitulada executar uma tarefa que o utilizador automático com âmbito de agrupamento.   
 
 O âmbito de padrão é diferente em nós do Windows e Linux:
 

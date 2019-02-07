@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185975"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765688"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recolher dados de registo com o agente do Log Analytics do Azure
 
-O agente do Azure Log Analytics (OMS), anteriormente conhecido como o agente Microsoft Monitoring Agent (MMA) ou do Linux do OMS, foi desenvolvido para gerenciamento abrangente em máquinas no local, computadores monitorizados por [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)e as máquinas virtuais em qualquer cloud. Os agentes Windows e Linux anexar a uma área de trabalho do Log Analytics para recolher dados de origens diferentes, bem como quaisquer registos exclusivos ou métrica como definido numa solução de monitorização. 
+O agente do Azure Log Analytics, anteriormente conhecido como o agente Microsoft Monitoring Agent (MMA) ou do Linux do OMS, foi desenvolvido para gerenciamento abrangente em máquinas no local, computadores monitorizados por [System Center Operations Manager ](https://docs.microsoft.com/system-center/scom/)e as máquinas virtuais em qualquer cloud. Os agentes Windows e Linux anexar a uma área de trabalho do Log Analytics para recolher dados de origens diferentes, bem como quaisquer registos exclusivos ou métrica como definido numa solução de monitorização. 
 
 Este artigo fornece uma visão geral detalhada do agente, sistema e os requisitos de rede e os métodos de implementação diferentes.   
 
@@ -41,7 +41,7 @@ O agente para Linux e Windows não é apenas para ligar ao Log Analytics, automa
 ## <a name="supported-windows-operating-systems"></a>Sistemas de operativos do Windows
 As seguintes versões do sistema operativo Windows são suportadas oficialmente para o agente do Windows:
 
-* Windows Server 2008 Service Pack 1 (SP1) ou posterior
+* Windows Server 2008 R2 ou posterior
 * Windows 7 SP1 e posterior.
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux suportados

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 28b73a70ef9ffd4e73117d599448434823747eca
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567405"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822447"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -92,7 +92,7 @@ Para associar um grupo de segurança de rede para ou desassociar um grupo de seg
 
 ### <a name="delete-a-network-security-group"></a>Eliminar um grupo de segurança de rede
 
-Se um grupo de segurança de rede está associado a quaisquer sub-redes ou a interfaces de rede, não pode ser eliminada. [Desassociar](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) um grupo de segurança de rede de todas as sub-redes e interfaces de rede antes de tentar eliminá-lo.
+Se um grupo de segurança de rede está associado a quaisquer sub-redes ou a interfaces de rede, não pode ser eliminada. Desassociar um grupo de segurança de rede de todas as sub-redes e interfaces de rede antes de tentar eliminá-lo.
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *grupos de segurança de rede* na caixa de pesquisa. Quando **grupos de segurança de rede** aparecer nos resultados da pesquisa, selecione-o.
 2. Selecione o grupo de segurança de rede que pretende eliminar a partir da lista.

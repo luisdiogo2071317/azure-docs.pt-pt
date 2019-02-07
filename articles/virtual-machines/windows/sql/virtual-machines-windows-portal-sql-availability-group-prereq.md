@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359838"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818027"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Concluir os pré-requisitos para a criação de grupos de disponibilidade Always On em máquinas virtuais do Azure
 
@@ -81,7 +81,7 @@ Para criar a rede virtual:
 
     A tabela seguinte mostra as definições para a rede virtual:
 
-   | **Campo** | Valor |
+   | **Campo** | Value |
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Espaço de endereços** |10.33.0.0/24 |
@@ -121,7 +121,7 @@ A nova rede virtual tem uma sub-rede, com o nome **administrador**. Os controlad
 
 A tabela seguinte resume as definições de configuração de rede:
 
-| **Campo** | Valor |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |**autoHAVNET** |
 | **Espaço de endereços** |Este valor depende dos espaços de endereços disponíveis na sua subscrição. Um valor de típico é 10.0.0.0/16. |
@@ -174,7 +174,7 @@ Repita os passos anteriores para criar duas máquinas virtuais. Dê um nome de d
 
 A tabela seguinte mostra as definições para essas duas máquinas:
 
-| **Campo** | Valor |
+| **Campo** | Value |
 | --- | --- |
 | **Nome** |Primeiro controlador de domínio: *ad-principal-dc*.</br>Controlador de domínio de segundo *ad-secundário-dc*. |
 | **Tipo de disco da VM** |SSD |
@@ -413,7 +413,7 @@ Depois de reiniciar cada máquina virtual como um membro do domínio, adicione *
 
 ### <a name="setServiceAccount"></a>Definir as contas de serviço do SQL Server
 
-Em cada VM do SQL Server, defina a conta de serviço do SQL Server. Utilizar as contas que criou quando [configuradas as contas de domínio](#DomainAccounts).
+Em cada VM do SQL Server, defina a conta de serviço do SQL Server. Utilize as contas que criou quando configurou as contas de domínio.
 
 1. Open **Gestor de configuração do SQL Server**.
 2. Com o botão direito do serviço do SQL Server e, em seguida, clique em **propriedades**.

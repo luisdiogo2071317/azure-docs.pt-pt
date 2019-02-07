@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd94330835c52b27c61c484d44991152d092fbe7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632030"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811703"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Apache Hadoop baseado em Windows no HDInsight com o portal do Azure
 
@@ -77,7 +77,7 @@ Não é suportada a instalação de software personalizada no cluster, utilizand
    * **Dashboard**, **Dashboard do Cluster** e **URL**: Estas são todas as formas de aceder ao dashboard do cluster, o que é o Web do Ambari para clusters baseados em Linux.
    * **Secure Shell**: Mostra as instruções para ligar ao cluster através de ligação de Secure Shell (SSH).
    * **Dimensionar Cluster**: Permite-lhe alterar o número de nós de trabalho para este cluster.
-   * **Eliminar**: Elimina o cluster.
+   * **Delete**: Elimina o cluster.
    * **Início Rápido**: Apresenta informações que irão ajudá-lo a começar a utilizar o HDInsight.
    * **Os utilizadores**: Permite-lhe definir permissões para *portal management* deste cluster para outros utilizadores na sua subscrição do Azure.
 
@@ -203,7 +203,7 @@ Existem várias formas, pode programar o processo:
 Para obter informações sobre preços, consulte [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para eliminar um cluster a partir do Portal, veja [eliminar clusters](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>Alterar nome de utilizador do cluster
-Um cluster do HDInsight pode ter duas contas de usuário. A conta de utilizador de cluster do HDInsight é criada durante o processo de criação. Também pode criar uma conta de utilizador do RDP para aceder ao cluster através de RDP. Ver [ambiente de trabalho remoto permitem](#connect-to-hdinsight-clusters-by-using-rdp).
+Um cluster do HDInsight pode ter duas contas de usuário. A conta de utilizador de cluster do HDInsight é criada durante o processo de criação. Também pode criar uma conta de utilizador do RDP para aceder ao cluster através de RDP. Consulte ativar ambiente de trabalho remoto.
 
 **Para alterar o nome de utilizador de cluster do HDInsight e a palavra-passe**
 

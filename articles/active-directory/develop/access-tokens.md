@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080570"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811567"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
@@ -76,10 +76,10 @@ Afirmações estão presentes somente se um valor existe para preenchê-lo. Port
 |Afirmação | Formato | Descrição |
 |--------|--------|-------------|
 | `typ` | Cadeia de caracteres - sempre "JWT" | Indica que o token é um JWT.|
-| `nonce` | Cadeia | Um identificador exclusivo utilizado para proteger contra ataques de repetição de token. O recurso pode gravar este valor para proteger contra repetições. |
-| `alg` | Cadeia | Indica o algoritmo que foi utilizado para assinar o token, por exemplo, "RS256" |
-| `kid` | Cadeia | Especifica o thumbprint para a chave pública que é utilizado para assinar este token. Emitida na v1.0 e v2.0 em tokens de acesso. |
-| `x5t` | Cadeia | Funciona da mesma (em utilização e valor) como `kid`. `x5t` é emitida uma afirmação herdada apenas na v1.0 tokens de acesso para efeitos de compatibilidade. |
+| `nonce` | String | Um identificador exclusivo utilizado para proteger contra ataques de repetição de token. O recurso pode gravar este valor para proteger contra repetições. |
+| `alg` | String | Indica o algoritmo que foi utilizado para assinar o token, por exemplo, "RS256" |
+| `kid` | String | Especifica o thumbprint para a chave pública que é utilizado para assinar este token. Emitida na v1.0 e v2.0 em tokens de acesso. |
+| `x5t` | String | Funciona da mesma (em utilização e valor) como `kid`. `x5t` é emitida uma afirmação herdada apenas na v1.0 tokens de acesso para efeitos de compatibilidade. |
 
 ### <a name="payload-claims"></a>Afirmações de payload
 
@@ -101,16 +101,16 @@ Afirmações estão presentes somente se um valor existe para preenchê-lo. Port
 | `groups` | Matriz JSON de GUIDs | Fornece os IDs de objeto que representam as associações de grupo do requerente. Estes valores são exclusiva (veja a ID de objeto) e podem ser usados com segurança para gerir o acesso, como a imposição de autorização para aceder a um recurso. Os grupos incluídos na afirmação grupos são configurados numa base por aplicação, por meio do `groupMembershipClaims` propriedade do [manifesto do aplicativo](reference-app-manifest.md). Um valor nulo será excluir todos os grupos, um valor de "SecurityGroup" irá incluir apenas as associações de grupo de segurança do Active Directory e um valor de "All" irá incluem grupos de segurança e listas de distribuição do Office 365. <br><br>Consulte a `hasgroups` afirmação abaixo para obter detalhes sobre como utilizar o `groups` a afirmação com a concessão implícita. <br>Para outros fluxos, se o número de grupos que o usuário estiver no é feito por um limite de (150 para SAML, 200 para JWT), em seguida, uma afirmação de utilização excedida será adicionada às origens de afirmação apontando para o ponto de extremidade do gráfico que contém a lista de grupos do utilizador. |
 | `hasgroups` | Booleano | Se estiver presente, sempre `true`, que indica o utilizador está em pelo menos um grupo. Utilizado em vez do `groups` afirmação para JWTs nos fluxos de concessão implícita se os grupos de totais de afirmação se estende o fragmento do URI para além dos limites de comprimento de URL (atualmente 6 ou mais grupos). Indica que o cliente deve usar o gráfico para determinar os grupos do utilizador (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objeto JSON | Para pedidos de token que não estão limitado de comprimento (consulte `hasgroups` acima), mas ainda demasiado grande para o token, uma ligação para a lista de grupos de completa para o utilizador serão incluída. Para JWTs como uma afirmação distribuída, para SAML como uma nova afirmação em vez do `groups` de afirmação. <br><br>**Valor de JWT exemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
-| `preferred_name` | Cadeia | Apresente apenas nos tokens de v2.0. O nome de utilizador principal que represente o usuário. Pode ser um endereço de e-mail, número de telefone ou um nome de utilizador genérica sem um formato especificado. Seu valor é mutável e podem ser alterados ao longo do tempo. Uma vez que é mutável, este valor não pode ser utilizado para tomar decisões de autorização. O `profile` âmbito é necessário para receber esta afirmação. |
-| `name` | Cadeia | Fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido para que seja exclusivo, é mutável e foi concebido para ser utilizado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta afirmação. |
+| `preferred_name` | String | Apresente apenas nos tokens de v2.0. O nome de utilizador principal que represente o usuário. Pode ser um endereço de e-mail, número de telefone ou um nome de utilizador genérica sem um formato especificado. Seu valor é mutável e podem ser alterados ao longo do tempo. Uma vez que é mutável, este valor não pode ser utilizado para tomar decisões de autorização. O `profile` âmbito é necessário para receber esta afirmação. |
+| `name` | String | Fornece um valor legível por humanos que identifica o assunto do token. O valor não é garantido para que seja exclusivo, é mutável e foi concebido para ser utilizado apenas para fins de exibição. O `profile` âmbito é necessário para receber esta afirmação. |
 | `oid` | Cadeia de caracteres, um GUID | O identificador imutável para um objeto no Microsoft identity platform, neste caso, uma conta de utilizador. Também pode ser utilizado para realizar verificações de autorização com segurança e como uma chave nas tabelas de base de dados. Este ID identifica exclusivamente o utilizador em todas as aplicações – dois aplicativos diferentes, iniciar sessão no mesmo utilizador irão receber o mesmo valor no `oid` de afirmação. Portanto, `oid` podem ser utilizados quando a tomada de consulta para o Microsoft online services, como o Microsoft Graph. O Microsoft Graph irá devolver este ID como o `id` propriedade para uma determinada conta de utilizador. Uma vez que o `oid` permite que várias aplicações correlacionar os utilizadores, o `profile` âmbito é necessário para receber esta afirmação. Tenha em atenção que, se existir um único utilizador em vários inquilinos, o utilizador irá conter um ID de objeto diferentes em cada inquilino - que são consideradas diferentes contas, mesmo que o usuário faz logon em cada conta com as mesmas credenciais. |
 | `rh` | Cadeia opaca | Uma afirmação interna utilizada pelo Azure para revalide tokens. Recursos não devem utilizar esta afirmação. |
 | `scp` | Cadeia de caracteres, um espaço separados por lista de âmbitos | O conjunto de âmbitos exposto pela sua aplicação para o qual o aplicativo cliente do pedido (e recebidos) de consentimento. Seu aplicativo deve verificar que esses âmbitos são aqueles válido expostos pela sua aplicação e tomar decisões de autorização com base no valor de nestes âmbitos. Incluído apenas para [tokens de utilizador](#user-and-application-tokens). |
 | `roles`| Cadeia de caracteres, um espaço separados por lista de permissões | O conjunto de permissões exposto pela sua aplicação que a aplicação requerente, deu permissão para chamar. Isto é utilizado durante a [credenciais de cliente](v1-oauth2-client-creds-grant-flow.md) fluxo no lugar de âmbitos de utilizador e está presente apenas no [tokens de aplicativos](#user-and-application-tokens). |
 | `sub` | Cadeia de caracteres, um GUID | O principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser utilizado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso e pode ser utilizado como uma chave em tabelas de base de dados. Uma vez que o assunto é sempre presente os tokens que problemas do Azure AD, recomendamos que utilize este valor num sistema de autorização para fins gerais. O assunto é, no entanto, um identificador pairwise - é exclusivo para um ID de aplicação em particular. Por conseguinte, se um único utilizador se inscreve para duas aplicações diferentes com dois IDs de cliente diferentes, essas aplicações irão receber dois valores diferentes para a afirmação do requerente. Isto pode ou não pode ser desejável dependendo dos requisitos de arquitetura e a privacidade. |
 | `tid` | Cadeia de caracteres, um GUID | Representa o que o utilizador é de inquilino do Azure AD. Para contas profissionais e escolares, o GUID é o ID de inquilino imutável da organização que o utilizador pertence. Contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O `profile` âmbito é necessário para receber esta afirmação. |
-| `unique_name` | Cadeia | Apresente apenas nos tokens de v1.0. Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido de ser exclusivo dentro de um inquilino e deve ser utilizado apenas para fins de exibição. |
-| `upn` | Cadeia | O nome de utilizador do utilizador. Pode ser um número de telefone, endereço de e-mail ou uma cadeia não formatada. Só deve ser utilizada para fins de exibição e fornecer sugestões de nome de utilizador em cenários de reautenticação. |
+| `unique_name` | String | Apresente apenas nos tokens de v1.0. Fornece um valor legível por humanos que identifica o requerente do token. Este valor não é garantido de ser exclusivo dentro de um inquilino e deve ser utilizado apenas para fins de exibição. |
+| `upn` | String | O nome de utilizador do utilizador. Pode ser um número de telefone, endereço de e-mail ou uma cadeia não formatada. Só deve ser utilizada para fins de exibição e fornecer sugestões de nome de utilizador em cenários de reautenticação. |
 | `uti` | Cadeia opaca | Uma afirmação interna utilizada pelo Azure para revalide tokens. Recursos não devem utilizar esta afirmação. |
 | `ver` | Cadeia de caracteres, 1.0 ou 2.0 | Indica a versão do token de acesso. |
 
@@ -120,20 +120,20 @@ As seguintes declarações serão incluídas na v1.0 tokens se aplicável, mas n
 
 | Afirmação | Formato | Descrição |
 |-----|--------|-------------|
-| `ipaddr`| Cadeia | O endereço IP, o utilizador autenticado de. |
+| `ipaddr`| String | O endereço IP, o utilizador autenticado de. |
 | `onprem_sid`| Cadeia de caracteres, em [formato do SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Em casos em que o utilizador tem uma autenticação no local, esta afirmação fornece seu SID. Pode usar `onprem_sid` para autorização em aplicativos herdados. |
 | `pwd_exp`| int, um carimbo de UNIX | Indica que a senha do usuário expira. |
-| `pwd_url`| Cadeia | Um URL onde os utilizadores possam ser enviados para repor a palavra-passe. |
+| `pwd_url`| String | Um URL onde os utilizadores possam ser enviados para repor a palavra-passe. |
 | `in_corp`|boolean | Sinais, se o cliente está a iniciar sessão da rede empresarial. Se não forem, a afirmação não está incluída. |
-| `nickname`| Cadeia | Um nome adicional para o utilizador, separado do primeiro ou último nome.|
-| `family_name` | Cadeia | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto user. |
-| `given_name` | Cadeia | Fornece o primeiro ou o nome dado do utilizador, conforme definido no objeto user. |
+| `nickname`| String | Um nome adicional para o utilizador, separado do primeiro ou último nome.|
+| `family_name` | String | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto user. |
+| `given_name` | String | Fornece o primeiro ou o nome dado do utilizador, conforme definido no objeto user. |
 
 #### <a name="the-amr-claim"></a>O `amr` de afirmação
 
 As identidades da Microsoft podem autenticar numa variedade de formas, que podem ser relevantes ao seu aplicativo. O `amr` afirmação é uma matriz que pode conter vários itens, tais como `["mfa", "rsa", "pwd"]`, para uma autenticação que utilizou uma palavra-passe e a aplicação de autenticador. 
 
-| Valor | Descrição |
+| Value | Descrição |
 |-----|-------------|
 | `pwd` | Autenticação de palavra-passe, a palavra-passe da Microsoft de um utilizador ou o segredo do cliente de uma aplicação. |
 | `rsa` | Autenticação tiveram como base a prova de uma chave RSA, por exemplo com o [aplicação Microsoft Authenticator](https://aka.ms/AA2kvvu). Isto inclui se a autenticação foi realizada por um JWT autoassinado com um serviço pertencentes à empresa X509 certificado. |
@@ -239,6 +239,8 @@ Atualizar tokens podem ser invalidados ou revogados em qualquer altura, por vár
 > Um início de sessão "não-palavra-passe com base" é aquele em que o utilizador não escreva uma palavra-passe para obtê-la. Por exemplo, utilizar o rosto com o Windows Hello, uma chave de FIDO ou um PIN. 
 >
 > Existe um problema conhecido com o Windows primário atualizar Token. Se PRT é obtida por meio de uma palavra-passe e, em seguida, o usuário se conecta por meio de Hello, isso não altera a origem de PRT e vai ser revogada se o utilizador altera a palavra-passe.
+>
+> Tokens de atualização não são também invalidados ou revogadas quando usado para obter um novo token de acesso e atualizar o token.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

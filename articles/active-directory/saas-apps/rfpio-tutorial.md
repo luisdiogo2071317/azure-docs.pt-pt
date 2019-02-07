@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197352"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutorial: Integração do Active Directory do Azure com RFPIO
 
@@ -88,11 +88,11 @@ RFPIO, atribua o valor de **nome de utilizador** no Azure AD como o valor de **U
 
 Para configurar e testar o Azure AD início de sessão único com RFPIO, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**– para permitir aos utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**– para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste RFPIO](#creating-a-rfpio-test-user)**  – para ter um equivalente da Eduarda Almeida no RFPIO que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**– para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#testing-single-sign-on)**  – para verificar se a configuração funciona.
+1. **Configurar o Azure AD Single Sign-On**– para permitir aos utilizadores utilizar esta funcionalidade.
+1. **Criar um utilizador de teste do Azure AD**– para testar o Azure AD início de sessão único com Eduarda Almeida.
+1. **Criar um utilizador de teste RFPIO** – para ter um equivalente da Eduarda Almeida no RFPIO que está ligado à representação de utilizador do Azure AD.
+1. **Atribua o utilizador de teste do Azure AD**– para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **Testar início de sessão único** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 

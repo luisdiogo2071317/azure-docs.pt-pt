@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1c6d5754af7455a4e4cf864062a1c29dd32c88b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 40e519495b8a245f72e51167f5807f9c585cb344
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492857"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817551"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Azure AD Connect sincronização o Service Manager
 
@@ -42,7 +42,7 @@ O separador conectores é utilizado para gerir todos os sistemas, que o motor de
 | Conector de importação |Não utilize. |
 | Atualizar conector |Não utilize. |
 | Actualizar Esquema |Atualiza o esquema em cache. É preferencial para utilizar a opção no Assistente de instalação em vez disso, desde que também as atualizações de sincronizar as regras. |
-| [Procurar espaço conector](#search-connector-space) |Utilizado para localizar objetos e, a [siga um objeto e os respetivos dados através do sistema](#follow-an-object-and-its-data-through-the-system). |
+| [Procurar espaço conector](#search-connector-space) |Utilizado para localizar objetos e a seguir um objeto e os respetivos dados através do sistema. |
 
 ### <a name="delete"></a>Eliminar
 A ação de eliminação é utilizada para duas coisas diferentes.  

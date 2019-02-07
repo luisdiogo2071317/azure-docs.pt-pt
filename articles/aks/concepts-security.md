@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 7f031bf6fed57857f38d989fb72f99dd93f04de5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489228"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818996"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Este artigo apresenta os conceitos principais que proteger seus aplicativos no A
 - [Segurança de nó](#node-security)
 - [Atualizações de cluster](#cluster-upgrades)
 - [Segurança da rede](#network-security)
-- [Segredos do Kubernetes](#secrets)
+- Segredos do Kubernetes
 
 ## <a name="master-security"></a>Segurança principal
 

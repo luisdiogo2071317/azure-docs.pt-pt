@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 66daa71ffbe97e9f5374eedd7f51e5afe02f0b94
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755531"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815249"
 ---
 # <a name="register-in-dev-center"></a>Registe-se no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
@@ -98,7 +98,7 @@ Se tiver problemas com o registo do Dev Center, em seguida, siga estes passos pa
     
     Clique no botão de e-mail de início.  
 1.  Na página de início de sessão, inicie sessão com qualquer ID. Microsoft Se não tiver um ID Microsoft, em seguida, crie uma.  
-    *   Para obter mais informações sobre a criação de um ID Microsoft, visite o [diretrizes para criar um ID da Microsoft para gerir uma conta do Azure Marketplace](#guidelines-for-creating-a-microsoft-id-to-manage-an-azure-marketplace-account) secção.  
+    *   Para obter mais informações sobre a criação de um ID Microsoft, visite as diretrizes para a criação de um ID da Microsoft para gerir uma seção de conta do Azure Marketplace.  
 2.  Preencha os detalhes do problema.  
 3.  Para submeter o pedido, clique no botão Submit. 
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300273"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815664"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizar o Armazenamento Premium do Azure com o SQL Server em Máquinas Virtuais
 ## <a name="overview"></a>Descrição geral
@@ -1191,7 +1191,7 @@ Se tem apenas dois servidores de SQL e quiser migrá-los para um novo serviço c
 
 Depois de recuperadas secundário migrado e adicionado no novo recurso de endereço IP para o novo serviço cloud antes da ativação pós-falha primário existente, deve levar estes passos dentro do Gestor de ativação pós-falha do Cluster:
 
-Para adicionar endereço IP, consulte a [apêndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), passo 14.
+Para adicionar endereço IP, consulte o apêndice, passo 14.
 
 1. Para o recurso de endereço IP atual, altere o proprietário possível para "Principal SQL Server existente", no exemplo, "dansqlams4":
 

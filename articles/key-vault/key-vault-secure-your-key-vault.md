@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077339"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821621"
 ---
 # <a name="secure-your-key-vault"></a>Proteger o seu cofre de chaves
 
@@ -34,7 +34,7 @@ Tanto o plano de gestão, como o de dados, utilizam o Azure Active Directory na 
 
 Eis uma breve descrição geral dos tópicos abrangidos:
 
-[Autenticação com o Azure Active Directory](#authentication-using-azure-active-directory) - esta secção explica como um chamador se autentica com o Azure Active Directory para aceder a um cofre de chaves através dos planos de gestão e de dados. 
+Autenticação com o Azure Active Directory – esta secção explica como um chamador se autentica com o Azure Active Directory para aceder a um cofre de chaves através do plano de gestão e plano de dados. 
 
 Para a autenticação, ambos os planos utilizam o Azure Active Directory (Azure AD). Para autorização, o plano de gestão utiliza o controlo de acesso baseado em funções (RBAC), enquanto o plano de dados utiliza a política de acesso do Cofre de chaves.
 
@@ -67,8 +67,8 @@ Acessa as interfaces de plano de dados e de plano de gerenciamento por meio dos 
 
 | Plano de acesso | Pontos finais de acesso | Operações | Mecanismo de controlo de acesso |
 | --- | --- | --- | --- |
-| Plano de gestão |**Global:**<br> management.azure.com:443<br><br> **O Azure na China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 |Criar/ler/atualizar/eliminar Cofre de chaves <br> Definir políticas de acesso para o Key Vault<br>Definir etiquetas para o Cofre de chaves |RBAC de Gestor de recursos do Azure |
-| Plano de dados |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **O Azure na China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |Para as chaves: Desencriptar, encriptar, UnwrapKey, WrapKey, verificar, assinar, obter, listar, atualizar, criar, importar, eliminar, cópia de segurança, restauro<br><br> Para segredos: Obter, listar, definir, eliminar |Política de acesso do Cofre de chaves |
+| Plano de gestão |**Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 |Criar/ler/atualizar/eliminar Cofre de chaves <br> Definir políticas de acesso para o Key Vault<br>Definir etiquetas para o Cofre de chaves |Azure Resource Manager RBAC |
+| Plano de dados |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |Para as chaves: Desencriptar, encriptar, UnwrapKey, WrapKey, verificar, assinar, obter, listar, atualizar, criar, importar, eliminar, cópia de segurança, restauro<br><br> Para segredos: Obter, listar, definir, eliminar |Política de acesso do Cofre de chaves |
 
 Plano de dados e o plano acesso controlos de gestão de trabalham de forma independente. Por exemplo, se quiser conceder um acesso de aplicação para utilizar as chaves num cofre de chaves, só tem de conceder acesso do plano de dados. Conceder acesso através de políticas de acesso do Cofre de chaves. Por outro lado, um utilizador que precisa para ler as propriedades do Cofre de chaves e etiquetas, mas não aceder a dados (chaves, segredos ou certificados), só precisa de acesso do plano de gestão. Conceder acesso ao atribuir o acesso de leitura para o utilizador com o RBAC.
 

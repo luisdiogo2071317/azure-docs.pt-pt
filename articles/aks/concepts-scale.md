@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381070"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819115"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Este artigo apresenta as principais conceitos que o ajudam a dimensionar aplica�
 - [Dimensionar Manualmente](#manually-scale-pods-or-nodes)
 - [Horizontal de pods dimensionamento automático (HPA)](#horizontal-pod-autoscaler)
 - [Dimensionamento automático de cluster](#cluster-autoscaler)
-- [Integração de instância de contentor (ACI) do Azure com o AKS](#burst-to-azure-container-instance)
+- Integração de instância de contentor (ACI) do Azure com o AKS
 
 ## <a name="manually-scale-pods-or-nodes"></a>Dimensionar Manualmente pods ou nós
 
@@ -65,7 +65,7 @@ Se um nó não tem recursos de computação suficiente para executar um pod pedi
 
 Quando o dimensionamento automático de cluster avisos pods que não não possível agendar devido a restrições de recursos do conjunto de nó, o número de nós dentro do conjunto de nó é aumentado para fornecer os recursos de computação adicionais. Quando esses nós adicionais estão disponíveis para utilização dentro do conjunto de nós e implementado com êxito, os pods, em seguida, são agendados para serem executadas nos mesmos.
 
-Se a sua aplicação precisa para dimensionar rapidamente, alguns pods podem permanecer num Estado aguardar para ser agendados até que os nós adicionais implementados pelo dimensionamento automático do cluster podem aceitar os pods agendados. Para aplicações que têm a rajadas alta demanda, pode [escala connosco virtuais e o Azure Container Instances](#burst-to-azure-container-instance).
+Se a sua aplicação precisa para dimensionar rapidamente, alguns pods podem permanecer num Estado aguardar para ser agendados até que os nós adicionais implementados pelo dimensionamento automático do cluster podem aceitar os pods agendados. Para aplicações que têm a rajadas alta demanda, pode dimensionar connosco virtuais e o Azure Container Instances.
 
 ### <a name="scale-down-events"></a>Reduzir verticalmente eventos
 

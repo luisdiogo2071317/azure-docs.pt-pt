@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409581"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821827"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Exemplos de integração do Azure Service Bus no Azure Event Grid
 
 Neste artigo, saiba como configurar uma função do Azure e uma aplicação lógica que recebem mensagens com base na receção de eventos do Azure Event Grid. Terá de efetuar o seguinte:
  
-* Crie uma [função do Azure de teste](#test-function-setup) simples para depurar e ver o fluxo inicial de eventos do Event Grid. Efetue este passo, independentemente de executar os restantes.
-* Crie uma [função do Azure para receber e processar mensagens do Azure Service Bus](#receive-messages-using-azure-function) com base em eventos do Event Grid.
-* Utilize a [funcionalidade Logic Apps do Serviço de Aplicações do Azure](#receive-messages-using-azure-logic-app).
+* Crie uma função do Azure de teste simple para depurar e ver o fluxo inicial de eventos do Event Grid. Efetue este passo, independentemente de executar os restantes.
+* Crie uma função do Azure para receber e processar mensagens do Service bus do Azure com base em eventos do Event Grid.
+* Utilize a funcionalidade de Logic Apps do App Service do Azure.
 
 O exemplo que criar pressupõe que o tópico do Service Bus tem duas subscrições. O exemplo também pressupõe que a subscrição do Event Grid foi criada para enviar eventos apenas para uma subscrição do Service Bus. 
 
@@ -217,7 +217,7 @@ Ligue uma aplicação lógica ao Azure Service Bus e ao Azure Event Grid da segu
 
     ![18][]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre o [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Saiba mais sobre as [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/).

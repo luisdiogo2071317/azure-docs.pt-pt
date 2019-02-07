@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 746e1c082d370cdcf1fca6597923b0e38b9a6d62
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ffbd785126bbc204191554e5d62d642a582a3c8d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105241"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822566"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerir a Cache do Azure para Redis com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -125,10 +125,10 @@ A tabela seguinte contém as propriedades e as descrições para os parâmetros 
 
 | Parâmetro | Descrição | Predefinição |
 | --- | --- | --- |
-| Nome |Nome da cache | |
+| Name |Nome da cache | |
 | Localização |Localização da cache | |
 | ResourceGroupName |Nome do grupo de recursos no qual pretende criar a cache | |
-| Tamanho |O tamanho da cache. Valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1GB |
+| Tamanho |O tamanho da cache. Valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
 | ShardCount |O número de partições horizontais para criar quando criar uma cache premium com clustering ativado. Valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Especifica o SKU da cache. Valores válidos são: Básico, Standard e Premium |Standard |
 | RedisConfiguration |Especifica as definições de configuração do Redis. Para obter detalhes sobre cada definição, consulte o seguinte procedimento [RedisConfiguration propriedades](#redisconfiguration-properties) tabela. | |
@@ -144,10 +144,10 @@ A tabela seguinte contém as propriedades e as descrições para os parâmetros 
 | --- | --- | --- |
 | capacidade de cópia de segurança de RDB |Se [persistência de dados de Redis](cache-how-to-premium-persistence.md) está ativada |Apenas Premium |
 | rdb-storage-connection-string |A cadeia de ligação para a conta de armazenamento para [persistência de dados de Redis](cache-how-to-premium-persistence.md) |Apenas Premium |
-| frequência de cópia de segurança de RDB |A frequência de cópia de segurança de [persistência de dados de Redis](cache-how-to-premium-persistence.md) |Apenas Premium |
-| reservado de maxmemory |Configura a [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos de fora de cache |Standard e Premium |
-| política de maxmemory |Configura a [política de expulsão](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para a cache |Todos os escalões de preço |
-| notificar-keyspace-eventos |Configura [notificações keyspace](cache-configure.md#keyspace-notifications-advanced-settings) |Standard e Premium |
+| rdb-backup-frequency |A frequência de cópia de segurança de [persistência de dados de Redis](cache-how-to-premium-persistence.md) |Apenas Premium |
+| maxmemory-reserved |Configura a [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos de fora de cache |Standard e Premium |
+| maxmemory-policy |Configura a [política de expulsão](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para a cache |Todos os escalões de preço |
+| notify-keyspace-events |Configura [notificações keyspace](cache-configure.md#keyspace-notifications-advanced-settings) |Standard e Premium |
 | hash-max-ziplist-entries |Configura [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
 | hash-max-ziplist-value |Configura [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
 | set-max-intset-entries |Configura [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
@@ -260,7 +260,7 @@ O `databases` definição pode ser configurada apenas durante a criação de cac
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Para obter mais informações sobre o `databases` propriedade, veja [predefinido a Cache do Azure para a configuração do servidor Redis](cache-configure.md#default-redis-server-configuration). Para obter mais informações sobre como criar uma cache com o [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet, consulte o anterior [para criar uma Cache do Azure para Redis](#to-create-a-redis-cache) secção.
+Para obter mais informações sobre o `databases` propriedade, veja [predefinido a Cache do Azure para a configuração do servidor Redis](cache-configure.md#default-redis-server-configuration). Para obter mais informações sobre como criar uma cache com o [New-azurermrediscache foi](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) cmdlet, consulte o anterior para criar uma Cache do Azure para a secção de Redis.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Para atualizar uma Cache do Azure para Redis
 A Cache para instâncias de Redis do Azure são atualizados com o [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0) cmdlet.

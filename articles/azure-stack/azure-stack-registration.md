@@ -16,12 +16,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36699acab7a10a11ae60c62bab8e5130362ddfc7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247396"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817262"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -142,7 +142,7 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Inicie o ISE do PowerShell como administrador e navegue para o **registo** pasta na **AzureStack-Tools-master** diretório criado quando [baixei as ferramentas do Azure Stack](#bkmk_tools). Importar os **RegisterWithAzure.psm1** módulo com o PowerShell:
+5. Inicie o ISE do PowerShell como administrador e navegue para o **registo** pasta na **AzureStack-Tools-mestre** diretório criado quando transferiu as ferramentas do Azure Stack. Importar os **RegisterWithAzure.psm1** módulo com o PowerShell:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -206,7 +206,7 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Inicie o ISE do PowerShell como administrador e navegue para o **registo** pasta na **AzureStack-Tools-master** diretório criado quando [baixei as ferramentas do Azure Stack](#bkmk_tools). Importar os **RegisterWithAzure.psm1** módulo com o PowerShell:
+5. Inicie o ISE do PowerShell como administrador e navegue para o **registo** pasta na **AzureStack-Tools-mestre** diretório criado quando transferiu as ferramentas do Azure Stack. Importar os **RegisterWithAzure.psm1** módulo com o PowerShell:
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -225,11 +225,11 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registre-se desligado com a faturação de capacidade
 
-Se está a registar Azure Stack num ambiente desligado (sem conectividade de internet), terá de obter um registo de token do ambiente do Azure Stack e, em seguida, utilizar esse token num computador que pode ligar ao Azure e tem [PowerShell para o Azure Stack instalado](#bkmk_powershell).  
+Se estiver a registar Azure Stack num ambiente desligado (com nenhuma conectividade com a internet), terá de obter um registo de token do ambiente do Azure Stack e, em seguida, utilizar esse token num computador que pode ligar ao Azure e com o PowerShell para o Azure Stack instalado.  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Obter um registo de token do ambiente do Azure Stack
 
-1. Inicie o ISE do PowerShell como administrador e navegue para o **registo** pasta na **AzureStack-Tools-master** diretório criado quando [baixei as ferramentas do Azure Stack](#bkmk_tools). Importar os **RegisterWithAzure.psm1** módulo:  
+1. Inicie o ISE do PowerShell como administrador e navegue para o **registo** pasta na **AzureStack-Tools-mestre** diretório criado quando transferiu as ferramentas do Azure Stack. Importar os **RegisterWithAzure.psm1** módulo:  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -448,15 +448,15 @@ Para executar o cmdlet, terá de:
 | Parâmetro | Type | Descrição |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | As credenciais utilizadas para [aceder ao ponto final com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). O nome de utilizador está no formato **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Cadeia | Uma pré-configurado remota consola do PowerShell que fornece-lhe capacidades como a recolha de registos e outro post tarefas de implementação. Para obter mais informações, consulte a [utilizando o ponto final com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
+| PrivilegedEndpoint | String | Uma pré-configurado remota consola do PowerShell que fornece-lhe capacidades como a recolha de registos e outro post tarefas de implementação. Para obter mais informações, consulte a [utilizando o ponto final com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Cadeia |  |
-| ResourceGroupLocation | Cadeia |  |
-| BillingModel | Cadeia | O modelo de faturação que utiliza a sua subscrição. Valores permitidos para este parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | O modelo de faturação que utiliza a sua subscrição. Valores permitidos para este parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso | Determina se é ou não a funcionalidade de gestão do marketplace está disponível no portal. Definido como VERDADEIRO se registar com ligação à internet. Definido como FALSO se registar em ambientes desligados. Para registros desconectados, o [ferramenta de distribuição offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) pode ser utilizado para transferência de itens do marketplace. |
 | UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado tem de desativar os relatórios de utilização. Valores permitidos para este parâmetro são: VERDADEIRO, FALSO. |
-| AgreementNumber | Cadeia |  |
-| RegistrationName | Cadeia | Defina um nome exclusivo para o registo, se estiver a executar o script de Registro em mais de uma instância do Azure Stack com o mesmo Azure ID de subscrição. O parâmetro tem um valor predefinido de **AzureStackRegistration**. No entanto, se utilizar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
+| AgreementNumber | String |  |
+| RegistrationName | String | Defina um nome exclusivo para o registo, se estiver a executar o script de Registro em mais de uma instância do Azure Stack com o mesmo Azure ID de subscrição. O parâmetro tem um valor predefinido de **AzureStackRegistration**. No entanto, se utilizar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -470,14 +470,14 @@ Get-AzsRegistrationToken gera um token de registo a partir os parâmetros de ent
 | Parâmetro | Type | Descrição |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | As credenciais utilizadas para [aceder ao ponto final com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). O nome de utilizador está no formato **AzureStackDomain\CloudAdmin**. |
-| PrivilegedEndpoint | Cadeia |  Uma pré-configurado remota consola do PowerShell que fornece-lhe capacidades como a recolha de registos e outro post tarefas de implementação. Para obter mais informações, consulte a [utilizando o ponto final com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
+| PrivilegedEndpoint | String |  Uma pré-configurado remota consola do PowerShell que fornece-lhe capacidades como a recolha de registos e outro post tarefas de implementação. Para obter mais informações, consulte a [utilizando o ponto final com privilégios](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artigo. |
 | AzureContext | PSObject |  |
-| ResourceGroupName | Cadeia |  |
-| ResourceGroupLocation | Cadeia |  |
-| BillingModel | Cadeia | O modelo de faturação que utiliza a sua subscrição. Valores permitidos para este parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
+| ResourceGroupName | String |  |
+| ResourceGroupLocation | String |  |
+| BillingModel | String | O modelo de faturação que utiliza a sua subscrição. Valores permitidos para este parâmetro são: Capacidade, PayAsYouUse e desenvolvimento. |
 | MarketplaceSyndicationEnabled | Verdadeiro/Falso |  |
 | UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado tem de desativar os relatórios de utilização. Valores permitidos para este parâmetro são: VERDADEIRO, FALSO. |
-| AgreementNumber | Cadeia |  |
+| AgreementNumber | String |  |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

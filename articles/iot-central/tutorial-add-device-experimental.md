@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 6b0acd33f6062ef0effe15001c8a8513e88715ba
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5933f74dcedb579023d187061229cdd53bce6414
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735457"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819443"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
@@ -38,13 +38,13 @@ Neste tutorial, ficará a saber como:
 
 Antes de começar, o construtor deve concluir, pelo menos, o primeiro tutorial do construtor para criar a aplicação do Azure IoT Central:
 
-* [Definir um novo tipo de dispositivo](tutorial-define-device-type.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (obrigatório)
-* [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (Opcional)
-* [Personalizar as vistas do operador](tutorial-customize-operator.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (Opcional)
+* [Definir um novo tipo de dispositivo](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (obrigatório)
+* [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (Opcional)
+* [Personalizar as vistas do operador](tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) (Opcional)
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-Para adicionar um dispositivo real à sua aplicação, utilize o modelo de dispositivo **Ar Condicionado Ligado** que criou no tutorial [Definir um novo tipo de dispositivo](tutorial-define-device-type.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+Para adicionar um dispositivo real à sua aplicação, utilize o modelo de dispositivo **Ar Condicionado Ligado** que criou no tutorial [Definir um novo tipo de dispositivo](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 1. Para adicionar um novo dispositivo como operador, selecione **Device Explorer** no menu de navegação à esquerda:
 
@@ -88,7 +88,7 @@ O código de exemplo neste artigo está escrito em [Node.js](https://nodejs.org/
 * Responder a um operador que utiliza a definição **Definir Temperatura**.
 * Processe o comando Echo a partir da sua aplicação do Azure IoT Central.
 
-Os artigos explicativos referenciados na secção [Passos Seguintes](#next-steps) fornecem exemplos mais completos e mostram a utilização de outras linguagens de programação. Para obter mais informações sobre a forma como os dispositivos se ligam ao Azure IoT Central, veja o artigo [Conectividade de dispositivos](concepts-connectivity.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+Os artigos explicativos referenciados na secção [Passos Seguintes](#next-steps) fornecem exemplos mais completos e mostram a utilização de outras linguagens de programação. Para obter mais informações sobre a forma como os dispositivos se ligam ao Azure IoT Central, veja o artigo [Conectividade de dispositivos](concepts-connectivity-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.org/):
 
@@ -359,15 +359,15 @@ Agora que ligou um dispositivo real à sua aplicação do Azure IoT Central, eis
 
 Como operador, vai aprender a:
 
-* [Gerir os seus dispositivos](howto-manage-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Utilizar conjuntos de dispositivos](howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Criar análise personalizada](howto-create-analytics.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Gerir os seus dispositivos](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Utilizar conjuntos de dispositivos](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Criar análise personalizada](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
 
 Como programador de dispositivos, vai aprender a:
 
-* [Preparar e ligar um DevKit](howto-connect-devkit.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Preparar e ligar um DevKit](howto-connect-devkit-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
 * [Preparar e ligar um Raspberry Pi](howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Ligar um cliente Node.js genérico à aplicação do Azure IoT Central](howto-connect-nodejs.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Ligar um cliente Node.js genérico à aplicação do Azure IoT Central](howto-connect-nodejs-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
 * [Personalizar o código][lnk-nodejs-device-ref]
 
 

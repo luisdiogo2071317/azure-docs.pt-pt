@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 47227b1f9ceb4ba9e35180aa0cb171d1edd5bb9a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696851"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821563"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar uma VM do Linux a partir de um disco personalizado com a CLI do Azure
 
@@ -31,8 +31,8 @@ Este artigo mostra-lhe como carregar um disco de rígido virtual (VHD) personali
 Para criar várias VMs a partir do seu disco personalizado, primeiro de criar uma imagem da sua VM ou o VHD. Para obter mais informações, consulte [criar uma imagem personalizada de uma VM do Azure com a CLI](tutorial-custom-images.md).
 
 Tem duas opções para criar um disco personalizado:
-* [Carregar um VHD](#option-1-upload-a-specialized-vhd)
-* [Copiar uma VM do Azure existente](#option-2-copy-an-existing-azure-vm)
+* Carregar um VHD
+* Copiar uma VM do Azure existente
 
 ## <a name="quick-commands"></a>Comandos rápidos
 

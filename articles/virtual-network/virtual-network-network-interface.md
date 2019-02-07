@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 93534cf80a007dbb848a515ec4ec165c67e3b456
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: deca97b0749ceab9f2dfaf3c3940ac6b02b9c104
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730701"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822192"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -52,7 +52,7 @@ Ao criar uma máquina virtual utilizando o portal do Azure, o portal cria uma in
     |Atribuição de endereços IP privados|Sim| Nessa configuração, estará a escolher o método de atribuição para o endereço IPv4. Escolha entre os seguintes métodos de atribuição: **Dinâmico:** Ao selecionar esta opção, o Azure atribui automaticamente o endereço seguinte disponível do espaço de endereço da sub-rede que selecionou. **Estático:** Ao selecionar esta opção, tem de atribuir manualmente um endereço IP disponível a partir do espaço de endereços da sub-rede que selecionou. Endereços estáticos e dinâmicos não são alterados até que alterá-los ou a interface de rede for eliminada. Pode alterar o método de atribuição depois de criar a interface de rede. O servidor DHCP do Azure atribui este endereço para a interface de rede no sistema operativo da máquina virtual.|
     |Grupo de segurança de rede|Não| Deixe definido como **None**, selecione um existente [grupo de segurança de rede](security-overview.md), ou [criar um grupo de segurança de rede](tutorial-filter-network-traffic.md). Grupos de segurança de rede permitem filtrar o tráfego de rede dentro e fora de uma interface de rede. Pode aplicar a zero ou um grupo de segurança de rede a uma interface de rede. Também pode ser aplicado a zero ou um grupo de segurança de rede para a sub-rede que a interface de rede é atribuída a. Quando um grupo de segurança de rede é aplicado a uma interface de rede e a sub-rede que a interface de rede é atribuída a, resultados inesperados, às vezes, ocorrerem. Para resolver problemas relacionados com grupos de segurança de rede aplicados às interfaces de rede e sub-redes, veja [resolver problemas dos grupos de segurança de rede](diagnose-network-traffic-filter-problem.md).|
     |Subscrição|Sim|Selecione uma das sua do Azure [subscrições](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). A máquina virtual, anexar uma interface de rede para e a rede virtual que a ligue tem de existir na mesma subscrição.|
-    |Endereço IP privado (IPv6)|Não| Se selecionar esta caixa de verificação, é atribuído um endereço de IPv6 para a interface de rede, além de endereço IPv4 atribuído à interface de rede. Consulte a [IPv6](#IPv6) seção deste artigo para obter informações importantes sobre a utilização de IPv6 com interfaces de rede. Não é possível selecionar um método de atribuição para o endereço IPv6. Se optar por atribuir um endereço IPv6, é atribuída com o método dinâmico.
+    |Endereço IP privado (IPv6)|Não| Se selecionar esta caixa de verificação, é atribuído um endereço de IPv6 para a interface de rede, além de endereço IPv4 atribuído à interface de rede. Consulte a secção de IPv6 deste artigo para obter informações importantes sobre a utilização de IPv6 com interfaces de rede. Não é possível selecionar um método de atribuição para o endereço IPv6. Se optar por atribuir um endereço IPv6, é atribuída com o método dinâmico.
     |Nome do IPv6 (apenas será exibida quando o **endereço IP privado (IPv6)** caixa de verificação) |Sim, se o **endereço IP privado (IPv6)** caixa de verificação.| Este nome é atribuído a uma configuração de IP secundária para a interface de rede. Para saber mais sobre as configurações de IP, veja [ver definições de interface de rede](#view-network-interface-settings).|
     |Grupo de recursos|Sim|Selecione um existente [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou criar uma. Uma interface de rede pode existir no grupo de recursos idêntica ou diferente, que a máquina virtual, que anexar a ela, ou a rede virtual liga-o para.|
     |Localização|Sim|A máquina virtual é anexar uma interface de rede para e a rede virtual que a ligue tem de existir na mesma [localização](https://azure.microsoft.com/regions), também referido como uma região.|

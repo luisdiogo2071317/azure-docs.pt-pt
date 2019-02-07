@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 15ecd594dea9251b64cdfcba3bf620bc101504ec
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 988e72a20fdd80e41ce8fc1ef568d90d4283a848
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486100"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813505"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve vários locais e topologias do Azure Active Directory (Azure AD) que utilizam o Azure AD Connect sync como a solução de integração principais. Este artigo inclui configurações suportadas e não suportadas.
@@ -63,7 +63,7 @@ Se tiver várias florestas, todas as florestas tem de estar acessível por um ú
 
 O Assistente de instalação do Azure AD Connect oferece várias opções para consolidar os utilizadores que são representados em várias florestas. O objetivo é que um utilizador é representado apenas uma vez no Azure AD. Existem algumas topologias comuns que pode configurar no caminho de instalação personalizada do Assistente de instalação. Sobre o **identificar os utilizadores de forma exclusiva** , selecione a opção correspondente que representa a sua topologia. A consolidação é configurada apenas para os utilizadores. Grupos de duplicados não são consolidados com a configuração padrão.
 
-Topologias de comuns são abordadas nas secções sobre [separar as topologias](#multiple-forests-separate-topologies), [completa de malha](#multiple-forests-full-mesh-with-optional-galsync), e [a topologia de recurso de conta](#multiple-forests-account-resource-forest).
+Topologias de comuns são abordadas nas secções sobre topologias separadas, [completa de malha](#multiple-forests-full-mesh-with-optional-galsync), e [a topologia de recurso de conta](#multiple-forests-account-resource-forest).
 
 Assume a configuração predefinida do Azure AD Connect:
 

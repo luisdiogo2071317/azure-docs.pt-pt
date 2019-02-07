@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076831"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821580"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -70,7 +70,7 @@ Utilize os passos nesta secção para saber como adicionar um novo HDInsight par
 
     Como um serviço gerido, o HDInsight requer acesso sem restrições para vários endereços IP no Centro de dados do Azure. Para permitir a comunicação com estes endereços IP, atualize quaisquer grupos de segurança de rede existentes ou rotas definidas pelo utilizador.
 
-    HDInsight hospeda vários serviços, utilizam uma variedade de portas. Bloqueia o tráfego para estas portas. Para obter uma lista de portas para permitir que através de firewalls de aplicação virtual, consulte a [segurança](#security) secção.
+    HDInsight hospeda vários serviços, utilizam uma variedade de portas. Bloqueia o tráfego para estas portas. Para obter uma lista de portas para permitir que através de firewalls de aplicação virtual, consulte a secção de segurança.
 
     Para localizar a sua configuração de segurança existente, utilize os seguintes comandos do Azure PowerShell ou CLI clássica do Azure:
 

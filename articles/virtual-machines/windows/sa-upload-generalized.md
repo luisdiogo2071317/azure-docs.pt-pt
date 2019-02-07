@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 199343fce4774ea643bc22c879efc6717aa0a510
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 658cee95d695a310291d5b7180815c89bc2f0401
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244734"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818112"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carregar um VHD generalizado para o Azure para criar uma nova VM
 
@@ -41,7 +41,7 @@ Um VHD generalizado teve que todas as suas informações de conta pessoal removi
   * Generalizar a máquina virtual com o Sysprep
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalizar uma máquina de virtual do Windows com o Sysprep
-Esta secção mostra-lhe como generalizar a máquina virtual do Windows para utilização como uma imagem. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para mais detalhes sobre o Sysprep, veja [Como utilizar o Sysprep: uma Introdução](https://technet.microsoft.com/library/bb457073.aspx).
+Esta secção mostra-lhe como generalizar a máquina virtual do Windows para utilização como uma imagem. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para obter detalhes sobre o Sysprep, consulte [como utilizar Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
 Certifique-se de que as funções de servidor em execução na máquina são suportadas pelo Sysprep. Para obter mais informações, consulte [suporte de Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -97,7 +97,7 @@ Para mostrar as contas de armazenamento disponíveis, escreva:
 Get-AzureRmStorageAccount
 ```
 
-Se pretender utilizar uma conta de armazenamento existente, avance para o [carregar a imagem VM](#upload-the-vm-vhd-to-your-storage-account) secção.
+Se pretender utilizar uma conta de armazenamento existente, avance para o carregamento a secção de imagem VM.
 
 Se precisar de criar uma conta de armazenamento, siga estes passos:
 

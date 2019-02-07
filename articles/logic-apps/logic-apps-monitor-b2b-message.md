@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534881"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818299"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Monitorizar mensagens B2B com o Azure Log Analytics no Azure Logic Apps
 
-Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta de integração, os parceiros podem trocar mensagens entre si. Para verificar se esta comunicação funciona como esperado, pode monitorizar AS2, X12, e EDIFACT mensagens e configurar para a sua conta de integração com o registo de diagnósticos [do Azure Log Analytics](../log-analytics/log-analytics-overview.md). Este serviço monitoriza os seus ambientes na cloud e no local, o ajudam a manter a disponibilidade e desempenho e recolhe detalhes de tempo de execução e os eventos de depuração mais avançada. Também pode [utilizá-los com outros serviços](#extend-diagnostic-data) , como o armazenamento do Azure e os Hubs de eventos do Azure.
+Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta de integração, os parceiros podem trocar mensagens entre si. Para verificar se esta comunicação funciona como esperado, pode monitorizar AS2, X12, e EDIFACT mensagens e configurar para a sua conta de integração com o registo de diagnósticos [do Azure Log Analytics](../log-analytics/log-analytics-overview.md). Este serviço monitoriza os seus ambientes na cloud e no local, o ajudam a manter a disponibilidade e desempenho e recolhe detalhes de tempo de execução e os eventos de depuração mais avançada. Também pode utilizar estes dados com outros serviços como o armazenamento do Azure e os Hubs de eventos do Azure.
 
 > [!NOTE]
 > Esta página ainda pode ter referências para Microsoft Operations Management Suite (OMS), que é [extinguir em Janeiro de 2019](../azure-monitor/platform/oms-portal-transition.md), mas substitui esses passos com o Azure Log Analytics, sempre que possível. 
@@ -44,12 +44,12 @@ Pode ativar o registo diretamente a partir de sua conta de integração ou [atra
 1. Agora, localize e selecione a sua conta de integração. Nas listas de filtro, selecione os valores que se aplicam à sua conta de integração.
 Quando tiver terminado, escolha **Adicionar definição de diagnóstico**.
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Value | Descrição | 
    |----------|-------|-------------|
    | **Subscrição** | <*Azure-subscription-name*> | A subscrição do Azure que está associada à sua conta de integração | 
-   | **Grupo de recursos** | <*Azure-resource--nome do grupo*> | O grupo de recursos do Azure para a sua conta de integração | 
+   | **Grupo de recursos** | <*Azure-resource-group-name*> | O grupo de recursos do Azure para a sua conta de integração | 
    | **Tipo de recurso** | **Contas de integração** | O tipo para o qual pretende ativar o registo de recurso do Azure | 
-   | **Recurso** | <*nome da conta de integração*> | O nome do seu recurso do Azure onde pretende ativar o registo | 
+   | **Recurso** | <*integration-account-name*> | O nome do seu recurso do Azure onde pretende ativar o registo | 
    ||||  
 
    Por exemplo:
@@ -86,12 +86,12 @@ Quando tiver terminado, escolha **Adicionar definição de diagnóstico**.
 1. Agora, localize e selecione a sua conta de integração. Nas listas de filtro, selecione os valores que se aplicam à sua conta de integração.
 Quando tiver terminado, escolha **Adicionar definição de diagnóstico**.
 
-   | Propriedade | Valor | Descrição | 
+   | Propriedade | Value | Descrição | 
    |----------|-------|-------------|
    | **Subscrição** | <*Azure-subscription-name*> | A subscrição do Azure que está associada à sua conta de integração | 
-   | **Grupo de recursos** | <*Azure-resource--nome do grupo*> | O grupo de recursos do Azure para a sua conta de integração | 
+   | **Grupo de recursos** | <*Azure-resource-group-name*> | O grupo de recursos do Azure para a sua conta de integração | 
    | **Tipo de recurso** | **Contas de integração** | O tipo para o qual pretende ativar o registo de recurso do Azure | 
-   | **Recurso** | <*nome da conta de integração*> | O nome do seu recurso do Azure onde pretende ativar o registo | 
+   | **Recurso** | <*integration-account-name*> | O nome do seu recurso do Azure onde pretende ativar o registo | 
    ||||  
 
    Por exemplo:

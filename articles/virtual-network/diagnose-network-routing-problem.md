@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429639"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819795"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de encaminhamento de máquina virtual
 
@@ -116,7 +116,7 @@ Resolver problemas de encaminhamento, normalmente, é composta por:
 - É associada à sub-rede que a interface de rede está em garantir que a tabela de rota que contém quaisquer rotas personalizadas que definiu. Saiba como [associar uma tabela de rotas a uma sub-rede](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Para garantir que os dispositivos, como de VPN do Azure ou rede de gateway de aplicações virtuais implementou sejam operável. Utilize o [diagnóstico de VPN](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) capacidade do observador de rede para determinar quaisquer problemas com um gateway de VPN do Azure.
 
-Se ainda estiver a ter problemas de comunicação, consulte [considerações](#considerations) e [diagnóstico adicional](#additional-dignosis).
+Se ainda estiver a ter problemas de comunicação, consulte [considerações](#considerations) e diagnóstico adicional.
 
 ## <a name="considerations"></a>Considerações
 

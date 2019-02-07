@@ -13,12 +13,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 6a5a2fee11d785c7513b6c1d1e66bd8b80d80292
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9fd7a3c03c72a63f4163f85ac41248e200397206
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749717"
+ms.locfileid: "55770725"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar a minha conta para verificação de dois passos
 Verificação de dois passos é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na. Se estiver lendo este artigo, provavelmente recebeu uma mensagem de e-mail do seu administrador escolar ou profissionais sobre o multi-factor Authentication. Ou talvez tentou iniciar sessão e recebeu uma mensagem a pedir-lhe configurar a verificação de segurança adicional. Se for esse o caso **não pode iniciar sessão até ter concluído o processo de inscrição automática**.
@@ -106,4 +106,4 @@ Se pretender adicionar uma conta para a aplicação móvel manualmente, em vez d
 ## <a name="next-steps"></a>Passos Seguintes
 * Alterar as opções preferenciais e [gerir as definições de verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md)
 * Configurar [palavras-passe de aplicação](multi-factor-authentication-end-user-app-passwords.md) para aplicações nativas dos dispositivos que não suportam a verificação de dois passos.
-* Veja a [aplicação Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para depressa, autenticação segura, mesmo quando não tiver o serviço de célula.
+* Veja a [aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) para depressa, autenticação segura, mesmo quando não tiver o serviço de célula.

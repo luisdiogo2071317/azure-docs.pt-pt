@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 81e9ad5affda7b5e246bd7eb3406a40fd7f24dbb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339115"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814032"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -176,7 +176,7 @@ Centro de segurança permitirá que a solução correta no espaço de trabalho c
 Pode remover manualmente o Microsoft Monitoring Agent. Não é recomendado que limita as recomendações do Centro de segurança e alertas.
 
 > [!NOTE]
-> Se a recolha de dados estiver ativada, o Centro de segurança irá reinstalar o agente depois é removê-lo.  Terá de desativar a recolha de dados antes de remover manualmente o agente. Ver [como parar a criação automática do agente de instalação e a área de trabalho?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) para obter instruções sobre como desativar a recolha de dados.
+> Se a recolha de dados estiver ativada, o Centro de segurança irá reinstalar o agente depois é removê-lo.  Terá de desativar a recolha de dados antes de remover manualmente o agente. Ver como impedir a criação automática do agente de instalação e a área de trabalho? Para obter instruções sobre como desativar a recolha de dados.
 >
 >
 

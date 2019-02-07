@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce30b752ecf1d5413ae534fa03907cbf11b1c694
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794486"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816446"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure
 
@@ -42,7 +42,7 @@ Selecione o nome de cluster a partir da [ **clusters do HDInsight** página](#sh
 
 **Menu superior:**  
 - **Mover**: Move o cluster para outro grupo de recursos ou para outra subscrição.  
-- **Eliminar**: Elimina o cluster.  
+- **Delete**: Elimina o cluster.  
 - **Atualizar**:  Atualiza o modo de exibição.
 
 **Menu à esquerda:**  
@@ -124,7 +124,7 @@ Pode adicionar mais contas de armazenamento do Azure e contas de armazenamento d
 O funcionalidade de dimensionamento do cluster permite-lhe alterar o número de nós de trabalho utilizado por um cluster de HDInsight do Azure, sem ter de voltar a criar o cluster.
 
 > [!NOTE]  
-> Apenas clusters com o HDInsight versão 3.1.3 ou superior são suportadas. Se tiver a certeza de que a versão do seu cluster, consulte a página de propriedades.  Ver [listar e Mostrar clusters](#list-and-show-clusters).
+> Apenas clusters com o HDInsight versão 3.1.3 ou superior são suportadas. Se tiver a certeza de que a versão do seu cluster, consulte a página de propriedades.  Ver a lista e Mostrar clusters.
 
 Partir do [home page do cluster](#homePage):
 
@@ -247,10 +247,10 @@ A palavra-passe é alterada em todos os nós do cluster.
 4. Partir do **ações de Script** painel, selecione **submeter novo**. 
 5. Partir do **submeter ação de script** painel, introduza as seguintes informações:
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | Tipo de script | Selecione **- personalizado** na lista pendente.|
-   | Nome |"Alterar ssh palavra-passe" |
+   | Name |"Alterar ssh palavra-passe" |
    | URI do script de bash |O URI para o ficheiro de changepassword.sh |
    | Tipo ou tipos de nós: (Head, trabalho, Nimbus, Supervisor, Zookeeper, etc.) |✓ para todos os tipos de nó listados |
    | Parâmetros |Introduza o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve haver um espaço entre o nome de utilizador e a palavra-passe. |
@@ -283,7 +283,7 @@ Ver [clusters do HDInsight gerir com a IU do Apache Ambari Web](hdinsight-hadoop
 
 
 ## <a name="monitor-cluster-usage"></a>Monitorizar a utilização do cluster
-O **utilização** seção do painel do cluster de HDInsight apresenta informações sobre o número de núcleos disponíveis para a sua subscrição para utilização com o HDInsight, bem como o número de núcleos alocados para este cluster e como eles são alocados para os nós dentro deste cluster. Ver [listar e Mostrar clusters](#list-and-show-clusters).
+O **utilização** seção do painel do cluster de HDInsight apresenta informações sobre o número de núcleos disponíveis para a sua subscrição para utilização com o HDInsight, bem como o número de núcleos alocados para este cluster e como eles são alocados para os nós dentro deste cluster. Ver a lista e Mostrar clusters.
 
 > [!IMPORTANT]  
 > Para monitorizar os serviços fornecidos pelo cluster do HDInsight, tem de utilizar a Web do Ambari ou a API de REST do Ambari. Para obter mais informações sobre a utilização do Ambari, consulte [clusters do HDInsight gerir com o Apache Ambari](hdinsight-hadoop-manage-ambari.md)

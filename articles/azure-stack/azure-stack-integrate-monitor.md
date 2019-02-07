@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/06/2019
+ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241649"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816104"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar a solução de monitorização externa com o Azure Stack
 
@@ -38,6 +38,9 @@ Cada solução do Azure Stack é fornecido com um host de ciclo de vida do hardw
 O diagrama seguinte mostra o fluxo de tráfego entre um sistema integrado do Azure Stack, o anfitrião de ciclo de vida do hardware, uma solução de monitorização externa e um sistema de coleção de concessão de permissões/dados externos.
 
 ![Diagrama que mostra o tráfego entre o Azure Stack, monitoramento e solução de emissão de permissões.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+
+> [!NOTE]
+> Integração de monitorização externos diretamente com servidores físicos e dispositivos de rede não é permitida e ativamente bloqueada por listas de controlo de acesso (ACL). 
 
 Este artigo explica como integrar o Azure Stack com soluções de monitorização externas, como o System Center Operations Manager e Nagios. Ele também inclui como trabalhar com alertas por meio de programação com o PowerShell ou por meio de chamadas de REST API.
 

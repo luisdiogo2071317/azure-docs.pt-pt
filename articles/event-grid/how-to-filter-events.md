@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477341"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816922"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtro de eventos do Event Grid
 
@@ -20,7 +20,7 @@ Este artigo mostra como filtrar eventos durante a criação de uma subscrição 
 
 ## <a name="filter-by-event-type"></a>Filtrar por tipo de evento
 
-Ao criar uma subscrição do Event Grid, pode especificar quais [tipos de evento](event-schema.md) para enviar para o ponto final. Os exemplos nesta secção criar subscrições de eventos para um grupo de recursos mas limitar os eventos que são enviados para o `Microsoft.Resources.ResourceWriteFailure` e `Microsoft.Resources.ResourceWriteSuccess`. Se precisar de mais flexibilidade ao filtrar eventos por tipos de eventos, consulte [filtrar por campos de dados e operadores avançados](#filter-by-advanced-operators-and-data-fields).
+Ao criar uma subscrição do Event Grid, pode especificar quais [tipos de evento](event-schema.md) para enviar para o ponto final. Os exemplos nesta secção criar subscrições de eventos para um grupo de recursos mas limitar os eventos que são enviados para o `Microsoft.Resources.ResourceWriteFailure` e `Microsoft.Resources.ResourceWriteSuccess`. Se precisar de mais flexibilidade ao filtrar eventos por tipos de eventos, consulte filtrar por campos de dados e operadores avançados.
 
 Para o PowerShell, utilize o `-IncludedEventType` parâmetro ao criar a subscrição.
 
@@ -77,7 +77,7 @@ Para um modelo do Resource Manager, utilize o `includedEventTypes` propriedade.
 
 ## <a name="filter-by-subject"></a>Filtrar por assunto
 
-Pode filtrar eventos pelo requerente dos dados de eventos. Pode especificar um valor a corresponder para o início ou fim do assunto. Se precisar de mais flexibilidade ao filtrar eventos por assunto, consulte [filtrar por campos de dados e operadores avançados](#filter-by-advanced-operators-and-data-fields).
+Pode filtrar eventos pelo requerente dos dados de eventos. Pode especificar um valor a corresponder para o início ou fim do assunto. Se precisar de mais flexibilidade ao filtrar eventos por assunto, consulte filtrar por campos de dados e operadores avançados.
 
 O exemplo de PowerShell seguinte, vai criar uma subscrição de evento que filtra pelo início do assunto. Utilizar o `-SubjectBeginsWith` parâmetro para limitar os eventos para as que para um recurso específico. Passar o ID de recurso de um grupo de segurança de rede.
 

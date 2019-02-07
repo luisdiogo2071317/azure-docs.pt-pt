@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/05/2019
-ms.openlocfilehash: be6e2cbea7dd23cbe6932f0110ac1c8b630a17c2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753202"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816599"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -41,7 +41,7 @@ Instância de gerida de base de dados de SQL do Azure pode ser implementada na g
 | Memória | 7 GB por vCore | 5.1 GB por vCore |
 | Memória de OLTP dentro da memória | 3 GB por vCore | 2.6 GB por vCore |
 | Armazenamento máximo (fins gerais) |  8 TB | 1 TB |
-| Armazenamento máximo (crítico para a empresa) | 8 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
+| Armazenamento máximo (crítico para a empresa) | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 ### <a name="service-tier-characteristics"></a>Características de camada de serviço
 

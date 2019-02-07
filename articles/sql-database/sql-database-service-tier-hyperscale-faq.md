@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5982fcee41dd8c99aaa781a8ff3cd55ff2489929
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/06/2019
+ms.openlocfilehash: 3ee952f10cebe374767e0db4a592695eeb1b4417
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511306"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810070"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -222,7 +222,7 @@ Sim. Alguns dos recursos de base de dados do Azure SQL não são suportadas numa
 
 Sim. Pode utilizar todas as tecnologias existentes de migração para migrar a Hiperescala, incluindo BACPAC, replicação transacional, a lógicos de carregamento de dados. Consulte também os [serviço de migração de base de dados do Azure](../dms/dms-overview.md).
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>O que é o meu Moro durante a migração no local ou o ambiente de máquina virtual para Hiperescala e como pode minimizar
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>O que é o meu período de indisponibilidade durante a migração no local ou o ambiente de máquina virtual para Hiperescala e como pode minimizar
 
 Tempo de inatividade é o mesmo que o período de indisponibilidade quando migrar as bases de dados para uma base de dados na base de dados do Azure SQL. Pode usar [replicação transacional](replication-to-sql-database.md#data-migration-scenario
 ) para minimizar a migração de um período de indisponibilidade para bases de dados até alguns TB de tamanho. Para a base de dados muito grande (mais de 10 TB), pode considerar a migração de dados com o ADF, Spark ou outras tecnologias de movimento de dados.
