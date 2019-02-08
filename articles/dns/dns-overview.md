@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770525"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893499"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
@@ -30,7 +30,7 @@ Os domínios DNS no DNS do Azure estão alojados na rede global do Azure de serv
 
  O DNS do Azure baseia-se no Azure Resource Manager, que disponibiliza funcionalidades como:
 
-* [Controlo de acesso baseado em funções](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) para controlar quem tem acesso a ações específicas para a sua organização.
+* [Controlo de acesso baseado em funções](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para controlar quem tem acesso a ações específicas para a sua organização.
 
 * [Registos de atividades](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para monitorizar a forma como um utilizador na sua organização alterou um recurso ou encontrar um erro quando resolver um problema.
 

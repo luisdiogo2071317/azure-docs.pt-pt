@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734628"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893601"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -65,14 +65,14 @@ Pode configurar bases de dados SQL do Azure para recolher a telemetria de diagn�
 
 | Telemetria para bases de dados de monitorização | Base de dados e suporte de bases de dados agrupadas | Suporte a instância gerenciados |
 | :------------------- | ------------------- | ------------------- |
-| [Todas as métricas](sql-database-metrics-diag-logging.md#all-metrics): Contém a percentagem de DTU/CPU, limite de DTU/da CPU, físico dados lidos percentagem, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento e percentagem de armazenamento do XTP. | Sim | Não |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de execução de consulta como a utilização da CPU e estatísticas de duração de consulta. | Sim | Sim |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (o que as suas consultas aguardado), como CPU, o registo e o bloqueio. | Sim | Sim |
-| [Erros](sql-database-metrics-diag-logging.md#errors-dataset): Contém informações sobre erros do SQL na base de dados. | Sim | Sim |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Contém informações sobre quanto tempo a base de dados gasto aguardando tipos diferentes de espera. | Sim | Não |
-| [Tempos limite](sql-database-metrics-diag-logging.md#time-outs-dataset): Contém informações sobre tempos limite na base de dados. | Sim | Não |
-| [Blocos](sql-database-metrics-diag-logging.md#blockings-dataset): Contém informações sobre o bloqueio de eventos na base de dados. | Sim | Não |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Contém informações inteligentes sobre o desempenho. Para obter mais informações, consulte [informações inteligentes](sql-database-intelligent-insights.md). | Sim | Sim |
+| [Todas as métricas](#all-metrics): Contém a percentagem de DTU/CPU, limite de DTU/da CPU, físico dados lidos percentagem, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento e percentagem de armazenamento do XTP. | Sim | Não |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de execução de consulta como a utilização da CPU e estatísticas de duração de consulta. | Sim | Sim |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (o que as suas consultas aguardado), como CPU, o registo e o bloqueio. | Sim | Sim |
+| [Erros](#errors-dataset): Contém informações sobre erros do SQL na base de dados. | Sim | Sim |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo a base de dados gasto aguardando tipos diferentes de espera. | Sim | Não |
+| [Tempos limite](#time-outs-dataset): Contém informações sobre tempos limite na base de dados. | Sim | Não |
+| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos na base de dados. | Sim | Não |
+| [SQLInsights](#intelligent-insights-dataset): Contém informações inteligentes sobre o desempenho. Para obter mais informações, consulte [informações inteligentes](sql-database-intelligent-insights.md). | Sim | Sim |
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -169,7 +169,7 @@ Pode configurar um recurso de instância gerida para recolher a telemetria de di
 
 | Recurso | Monitorização de telemetria |
 | :------------------- | ------------------- |
-| **Instância gerida** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, espaço de armazenamento reservada, lidos/escritos de bytes e espaço de armazenamento utilizado. |
+| **Instância gerida** | [ResourceUsageStats](#logs-for-managed-instances) contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, espaço de armazenamento reservada, lidos/escritos de bytes e espaço de armazenamento utilizado. |
 
 Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurso de instância gerida, siga estes passos:
 

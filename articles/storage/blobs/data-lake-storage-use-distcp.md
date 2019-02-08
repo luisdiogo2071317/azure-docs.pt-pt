@@ -1,6 +1,6 @@
 ---
-title: Copiar dados para o Azure Data Lake armazenamento Gen2 pré-visualização a utilizar o DistCp | Documentos da Microsoft
-description: Utilize a ferramenta de DistCp para copiar dados de e para pré-visualização do Data Lake Storage geração 2
+title: Copiar dados para a geração 2 de armazenamento do Azure Data Lake, utilizar o DistCp | Documentos da Microsoft
+description: Utilize a ferramenta de DistCp para copiar dados para e de geração 2 de armazenamento do Data Lake
 services: storage
 author: seguler
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244152"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864065"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>Utilizar o DistCp para copiar dados entre os Blobs de armazenamento do Azure e a pré-visualização do Azure Data Lake Storage geração 2
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Utilizar o DistCp para copiar dados entre os Blobs de armazenamento do Azure e de geração 2 de armazenamento do Azure Data Lake
 
 Pode usar [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) para copiar dados entre uma conta de armazenamento de fins gerais V2 e uma conta de armazenamento de fins gerais V2 com espaço de nomes hierárquico ativado. Este artigo fornece instruções sobre como utilizam a ferramenta de DistCp.
 
@@ -24,8 +24,8 @@ DistCp fornece uma variedade de parâmetros da linha de comandos e é altamente 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Uma conta de armazenamento do Azure existente sem capacidades de pré-visualização de geração 2 de armazenamento do Data Lake (espaço de nomes hierárquico) ativada**.
-* **Uma conta de armazenamento do Azure com a geração 2 de armazenamento do Data Lake funcionalidade (pré-visualização) ativada**. Para obter instruções sobre como criar um, consulte [criar uma conta de armazenamento de pré-visualização do Azure Data Lake Storage geração 2](data-lake-storage-quickstart-create-account.md)
+* **Uma conta de armazenamento do Azure existente sem capacidades de geração 2 de armazenamento do Data Lake (espaço de nomes hierárquico) ativada**.
+* **Uma conta de armazenamento do Azure com a funcionalidade de geração 2 de armazenamento do Data Lake ativada**. Para obter instruções sobre como criar um, consulte [criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md)
 * **Um sistema de ficheiros** que criou na conta de armazenamento com espaço de nomes hierárquico ativado.
 * **Cluster de HDInsight do Azure** com acesso a uma conta de armazenamento com o Data Lake Storage Gen2 ativada. Ver [Use Azure Data Lake armazenamento Gen2 com o Azure HDInsight clusters](data-lake-storage-use-hdi-cluster.md). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
 

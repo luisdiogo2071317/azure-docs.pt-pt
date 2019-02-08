@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b63a4ed26688b73b9a8b1568433c7ae7606e6c6a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 00e1823ab87048857267456f8e7d295d725a194d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698971"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890506"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Instalar aplicações num conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais em Ubuntu e utiliza a Extensão de Script Personalizado para instalar uma aplicação Web básica. Após executar o script, pode aceder à aplicação Web através de um browser.
@@ -46,7 +46,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, um co
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/ad/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vmss create](/cli/azure/vmss#az_vmss_create) | Cria o conjunto de dimensionamento de máquinas virtuais e liga-o à rede virtual, à sub-rede e ao grupo de segurança de rede. É também criado um balanceador de carga para distribuir o tráfego para instâncias de VM individuais. Este comando também especifica a imagem da VM a ser utilizada e as credenciais administrativas.  |
+| [az vmss create](/cli/azure/vmss) | Cria o conjunto de dimensionamento de máquinas virtuais e liga-o à rede virtual, à sub-rede e ao grupo de segurança de rede. É também criado um balanceador de carga para distribuir o tráfego para instâncias de VM individuais. Este comando também especifica a imagem da VM a ser utilizada e as credenciais administrativas.  |
 | [az vmss extension set](/cli/azure/vmss/extension) | Instala a Extensão do Script Personalizado do Azure para executar um script que prepara os discos de dados em cada instância da VM. |
 | [az network lb rule create](/cli/azure/network/lb/rule) | Cria uma regra de balanceador de carga para distribuir tráfego na porta TCP 80 pelas instâncias de VM no conjunto de dimensionamento. |
 | [az network public-ip show](/cli/azure/network/public-ip) | Obtém informações sobre o endereço IP público atribuído, utilizado pelo balanceador de carga. |

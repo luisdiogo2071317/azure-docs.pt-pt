@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: e9e00dd9d05ff7339a6b5fd93e86bae61fbbf5ee
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188439"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864422"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar os registos do Azure Monitor para VMs (pré-visualização)
 O Monitor para VMs do Azure recolhe métricas de desempenho e a ligação, o computador e o processamento de dados de inventário e informações de estado de funcionamento e encaminhá-la para o arquivo de dados do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
@@ -117,7 +117,7 @@ Registos com um tipo de *ServiceMapComputer_CL* tiver dados de inventário para 
 
 | Propriedade | Descrição |
 |:--|:--|
-| Tipo | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para o computador da área de trabalho |
 | ResourceName_s | O identificador exclusivo para o computador da área de trabalho |
@@ -131,7 +131,7 @@ Registos com um tipo de *ServiceMapComputer_CL* tiver dados de inventário para 
 | PhysicalMemory_d | A memória física em MB |
 | Cpus_d | O número de CPUs |
 | CpuSpeed_d | A velocidade de CPU em MHz|
-| VirtualizationState_s | *desconhecido*, *físico*, *virtual*, *hipervisor* |
+| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
 | VirtualMachineType_s | *Hyper-v*, *vmware*e assim por diante |
 | VirtualMachineNativeMachineId_g | O ID da VM como atribuído pelo seu hipervisor |
 | VirtualMachineName_s | O nome da VM |
@@ -142,7 +142,7 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 
 | Propriedade | Descrição |
 |:--|:--|
-| Tipo | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um processo dentro da área de trabalho |
 | ResourceName_s | O identificador exclusivo para um processo na máquina em que está em execução|
@@ -167,6 +167,12 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 ### <a name="list-all-known-machines"></a>Listar todas as máquinas conhecidas
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
+### <a name="when-was-the-vm-last-rebooted"></a>Quando foi a VM pela última vez reiniciada
+`let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+
+### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Resumo das VMs do Azure, imagem, localização e SKU
+`ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Liste a capacidade de memória física de todos os computadores geridos.
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
@@ -185,7 +191,7 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lista de todos os processos num computador especificado
 `ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
-### <a name="list-all-computers-running-sql"></a>Lista de todos os computadores que executam o SQL
+### <a name="list-all-computers-running-sql-server"></a>Lista de todos os computadores a executar o SQL Server
 `ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões de produto exclusiva de curl em meu datacenter
@@ -193,6 +199,18 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computadores de todos os computadores em execução no CentOS
 `ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+
+### <a name="bytes-sent-and-received-trends"></a>Bytes enviados e recebidos tendências
+`VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+
+### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>As VMs do Azure são a transmitir o máximo de bytes
+`VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+
+### <a name="link-status-trends"></a>Tendências de estado de ligação
+`VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+
+### <a name="connection-failures-trend"></a>Tendência de falhas de ligação
+`VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as ligações de saída de um grupo de máquinas
 ```

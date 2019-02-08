@@ -8,16 +8,16 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0ec682ea852f3c6da6248f3c16b539725ca18c0f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694172"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895810"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados de geração 2 de armazenamento do Azure Data Lake ao utilizar o Azure Databricks
 
-Este início rápido mostra como executar uma tarefa do Apache Spark com o Azure Databricks para realizar análises em dados armazenados numa conta de armazenamento com a pré-visualização de geração 2 de armazenamento do Azure Data Lake ativada.
+Este início rápido mostra como executar uma tarefa do Apache Spark com o Azure Databricks para realizar análises em dados armazenados numa conta de armazenamento com o Azure Data Lake Storage Gen2 ativada.
 
 Como parte da tarefa do Spark, vou analisar um dados de subscrição de canal de rádio para obter informações sobre a utilização gratuita/paga com base nos dados demográficos.
 

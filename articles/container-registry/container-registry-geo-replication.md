@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870343"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858268"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georreplicação no Azure Container Registry
 
@@ -26,14 +26,18 @@ Um registo georreplicado fornece as seguintes vantagens:
 * Sem taxas de saída adicionais, como imagens são extraídas de um registo de local, replicado na mesma região que o anfitrião do contentor
 * Gestão única de um registo por várias regiões
 
+> [!NOTE]
+> Se precisar de manter cópias das imagens de contentor em mais do que um registo de contentor do Azure, Azure Container Registry também suporta [importação de imagens](container-registry-import-images.md). Por exemplo, um fluxo de trabalho do DevOps, pode importar uma imagem de um registo de desenvolvimento para um registo de produção, sem a necessidade de utilizar comandos do Docker.
+>
+
 ## <a name="example-use-case"></a>Caso de utilização de exemplo
-Contoso é executado um site de presença pública localizado nos EUA, Canadá e na Europa. Para atender a esses mercados com conteúdo local e perto da rede, a Contoso é executado [Azure Container Service](/azure/container-service/kubernetes/) clusters do Kubernetes (ACS) no Oeste dos E.U.A., este dos E.U.A., Canadá Central e Europa Ocidental. A aplicação do Web site, implementada como uma imagem do Docker, utiliza o mesmo código e a mesma imagem em todas as regiões. Conteúdo, local para essa região, é obtido a partir de uma base de dados, o que está aprovisionado de forma exclusiva em cada região. Cada implementação regional tem sua configuração exclusiva para os recursos, como a base de dados local.
+Contoso é executado um site de presença pública localizado nos EUA, Canadá e na Europa. Para atender a esses mercados com conteúdo local e perto da rede, a Contoso é executado [do Azure Kubernetes Service](/azure/aks/) (AKS) clusters no Oeste dos E.U.A., este dos E.U.A., Canadá Central e Europa Ocidental. A aplicação do Web site, implementada como uma imagem do Docker, utiliza o mesmo código e a mesma imagem em todas as regiões. Conteúdo, local para essa região, é obtido a partir de uma base de dados, o que está aprovisionado de forma exclusiva em cada região. Cada implementação regional tem sua configuração exclusiva para os recursos, como a base de dados local.
 
 A equipe de desenvolvimento está localizada em Seattle WA, utilizando o Datacenter E.U.A. oeste.
 
 ![Enviar para vários registos](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Enviar para vários registos*
 
-Antes de utilizar as funcionalidades de georreplicação, a Contoso tinha um registo baseadas nos E.U.A. oeste dos e.u.a., com um registo adicional na Europa Ocidental. Para atender a esses diferentes regiões, a equipe de desenvolvimento tinha que enviar imagens para dois registos diferentes.
+Antes de utilizar as funcionalidades de georreplicação, a Contoso tinha um registo baseadas nos E.U.A. oeste dos e.u.a., com um registo adicional na Europa Ocidental. Para atender a esses diferentes regiões, a equipe de desenvolvimento enviados por push imagens aos dois registos diferentes.
 
 ```bash
 docker push contoso.azurecr.io/public/products/web:1.2

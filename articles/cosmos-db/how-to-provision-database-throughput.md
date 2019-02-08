@@ -6,38 +6,38 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: c648522e689c64de8e7e09b85ca3b6eb26b6945b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 759adf95604e66209cf3ec5083246d16e952114a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477204"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884193"
 ---
-# <a name="provision-throughput-on-an-azure-cosmos-database"></a>Débito de aprovisionar uma base de dados do Cosmos do Azure
+# <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Aprovisione o débito para a base de dados no Azure Cosmos DB
 
-Este artigo explica como aprovisionar débito para uma base de dados no Azure Cosmos DB. Pode aprovisionar débito para um único [contentor](how-to-provision-container-throughput.md) ou para uma base de dados e partilhá-la entre os contentores na mesma. Pode aprovisionar o débito de nível de base de dados com o portal do Azure ou SDKs do Cosmos DB.
+Este artigo explica como aprovisionar débito para uma base de dados no Azure Cosmos DB. Pode aprovisionar débito para um único [contentor](how-to-provision-container-throughput.md) ou para uma base de dados e partilhá-la entre os contentores na mesma. Pode aprovisionar o débito de nível de base de dados com o portal do Azure ou SDKs do Azure Cosmos DB.
 
-## <a name="provision-throughput-using-azure-portal"></a>Aprovisionar débito com o portal do Azure
+## <a name="provision-throughput-by-using-azure-portal"></a>Débito de aprovisionamento através do portal do Azure
 
 ### <a id="portal-sql"></a>API de SQL (Core)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Crie uma nova conta do Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) ou selecione uma conta existente.
+1. [Criar uma nova conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account), ou selecione uma conta existente.
 
-1. Abra o painel **Data Explorer** e selecione **Nova Base de Dados**. Em seguida, preencha o formulário com os seguintes detalhes:
+1. Abra o **Data Explorer** painel e selecione **nova base de dados**. Indique os detalhes seguintes:
 
-   * Introduzir o ID da Base de Dados. 
-   * Selecione Débito de Aprovisionamento.
-   * Introduza um débito, por exemplo, 1000 RUs.
+   * Introduza um ID de base de dados. 
+   * Selecione **débito aprovisionar**.
+   * Introduza uma taxa de transferência (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-![Aprovisionar débito de base de dados da API de SQL](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+![Caixa de diálogo de captura de ecrã da nova base de dados](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-net-sdk"></a>Aprovisionar débito com o SDK do .NET
+## <a name="provision-throughput-by-using-net-sdk"></a>Débito de aprovisionamento com o .NET SDK
 
 > [!Note]
-> Utilize a API de SQL para aprovisionar débito para todas as APIs. Também pode, opcionalmente, utilizar o exemplo abaixo para a API para Cassandra.
+> Utilize a API de SQL para aprovisionar débito para todas as APIs. Pode, opcionalmente, utilize o seguinte exemplo para a API de Cassandra também.
 
 ### <a id="dotnet-all"></a>Todas as APIs
 
@@ -63,7 +63,7 @@ session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provision
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja os seguintes artigos para saber mais sobre o aprovisionamento de débito no Cosmos DB:
+Consulte os seguintes artigos para saber mais sobre o aprovisionamento de débito no Azure Cosmos DB:
 
 * [Como aprovisionar o débito para um contentor](how-to-provision-container-throughput.md)
 * [Unidades de pedido e débito no Azure Cosmos DB](request-units.md)

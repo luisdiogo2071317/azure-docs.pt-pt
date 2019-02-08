@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 539567634b940584c3bff47011e0891cc96ff0bd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813216"
+ms.locfileid: "55862076"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
@@ -89,7 +89,7 @@ Segue-se um resumo das páginas de Assistente de instalação rápida, as creden
 
 | Página do Assistente | Credenciais recolhidas | Permissões necessárias | Utilizado para |
 | --- | --- | --- | --- |
-| N/A |Utilizador que executa o Assistente de instalação |Administrador do servidor local |<li>Cria a conta de conta de serviço ADSync que é utilizada para executar o serviço de sincronização. |
+| N/A |Utilizador que executa o Assistente de instalação |Administrador do servidor local |<li>Cria a conta de serviço do ADSync que é utilizada para executar o serviço de sincronização. |
 | Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>Criação da conta do conector do Azure AD que é utilizada para operações de sincronização em curso no Azure AD.</li> |
 | Ligar ao AD DS |Credenciais do Active Directory no local |Membro do grupo Admins de empresa (EA) no Active Directory |<li>Cria a conta do conector do AD DS no Active Directory e concede permissões a ele. Isso criou a conta é utilizado para ler e escrever informações de diretório durante a sincronização.</li> |
 

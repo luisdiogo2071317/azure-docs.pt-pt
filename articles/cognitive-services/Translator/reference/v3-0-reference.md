@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Documentação de referência para o V3.0 de API de texto do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459096"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878702"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -49,7 +49,7 @@ Para forçar o pedido deve ser processada por um Data Center específico, altere
 |Azure|Ásia-Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Subscrever a API de texto do Translator ou [dos serviços cognitivos tudo-em-um](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivos da Microsoft e usar sua assinatura da chave (disponível no portal do Azure) para autenticar. 
 

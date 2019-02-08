@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/06/2019
 ms.author: juliako
-ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153968"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878362"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de evento em direto
 
@@ -45,7 +45,7 @@ A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
 | Resolução máxima de vídeo de vídeo de saída|Mesmo que a entrada|720p (em 30 quadros por segundo)|
 | Protocolos de entrada|RTMP, MP4 fragmentado (Smooth Streaming)|RTMP, MP4 fragmentado (Smooth Streaming)|
 | Preço|Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Vídeo em direto"|Consulte a [página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Vídeo em direto"|
-| Tempo de execução máximo|24 x 365 live linear|24x7|
+| Tempo de execução máximo| 24 horas x 365 dias, em direto lineares | Até 24 horas|
 | Capacidade de transmitir através de embedded 608 de legenda oculta CEA/708 legendagem de áudio de dados|Sim|Sim|
 | Suporte para a inserção de slates|Não|Não|
 | Suporte para ad sinalização através da API| Não|Não|

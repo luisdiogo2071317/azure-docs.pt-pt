@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 5995c896f02720d82862895795e1e8d43f6bb226
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d24dcc6f12347c66abc033f4c8b25c3b49870a44
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756472"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895776"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilizar o portal para anexar um disco de dados a uma VM do Linux 
 Este artigo mostra-lhe como anexar discos de novos e existentes para máquinas virtuais do Linux através do portal do Azure. Também pode [anexar um disco de dados a uma VM do Windows no portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -102,10 +102,10 @@ Aqui, *sdc* é o disco que Desejamos.
 ### <a name="partition-a-new-disk"></a>Um novo disco de partição
 Se estiver a utilizar um disco existente que contém dados, avance para a montagem do disco. Se associar um novo disco, precisa particionar o disco.
 
-Particionar o disco com `parted`, se o tamanho do disco é 2 tebibytes (TiB) ou superior, em seguida, tem de utilizar GPT criação de partições, se está sob 2TiB, em seguida, pode usar o particionamento de MBR ou GPT. Torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `parted` processos no */desenvolvimento/sdc*:
+Particione o disco com `fdisk`. Se o tamanho do disco é 2 tebibytes (TiB) ou superior, em seguida, tem de utilizar GPT particionamento, pode usar `parted` para executar a criação de partições de GPT. Se o tamanho do disco está sob 2TiB, em seguida, pode utilizar MBR ou GPT criação de partições. Torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `fdisk` processos no */desenvolvimento/sdc*:
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Utilize o `n` comando para adicionar uma nova partição. Neste exemplo, escolhemos também `p` para um site primário de partição e aceitar o restante dos valores predefinidos. O resultado será semelhante ao seguinte exemplo:

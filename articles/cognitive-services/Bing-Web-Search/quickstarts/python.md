@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Utilize este guia de introdução para enviar pedidos para a API de pesquisa Web do Bing REST com o Python e receber uma resposta JSON
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4aab5c51d36b3db01175216be9f4e62a897d6132
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4535014dad75bd598b7e55877c447df4609e5902
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178227"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871410"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Python para chamar a API de pesquisa Web Bing  
 Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).

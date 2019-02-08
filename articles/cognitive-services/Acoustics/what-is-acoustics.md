@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: O plug-in Projeto Acoustics fornece oclusão, reverberação e espacialização para os projetos direcionados para RV e ecrãs tradicionais.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 175203269f524f5c680345602e6382f5c26f1bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8305eca478854eeff29268a86e4e49b697261ca2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178907"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868264"
 ---
 # <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 O plug-in Projeto Acoustics fornece oclusão, reverberação e espacialização para os projetos direcionados para RV e ecrãs tradicionais. Fornece uma forma de criar acústica para jogos que cria camadas para as intenções do designer através de uma simulação de ondas baseada em física.

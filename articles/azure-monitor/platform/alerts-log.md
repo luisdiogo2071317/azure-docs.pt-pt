@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7ff4a4d64b69809c53ad70edf1455880da24d52a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751485"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892512"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor
 
@@ -317,12 +317,12 @@ O json de exemplo acima podem ser salvas como (Digamos) sampleScheduledQueryRule
 > Alertas de registo para o Log Analytics também podem ser geridas com o legado [API de alerta do Log Analytics](../../azure-monitor/platform/api-alerts.md) e os modelos de legado do [guardada do Log Analytics, pesquisas e alertas](../../azure-monitor/insights/solutions-resources-searches-alerts.md) também. Para obter mais informações sobre como utilizar a nova API de ScheduledQueryRules descritas aqui, por padrão, consulte [mudar para a nova API para alertas do Log Analytics](alerts-log-api-switch.md).
 
 
-Alertas de registo não tem comandos dedicados do PowerShell ou CLI atualmente; mas, conforme ilustrado abaixo podem ser utilizados por meio do cmdlet do PowerShell do Azure Resource Manager para o exemplo de modelo do Resource mostrado anteriormente (sampleScheduledQueryRule.json) no [secção do modelo do Resource](#azure-resource-template-for-application-insights) :
+Alertas de registo não tem comandos dedicados do PowerShell ou CLI atualmente; mas, conforme ilustrado abaixo podem ser utilizadas por meio do cmdlet do PowerShell do Azure Resource Manager para exemplo de modelo do Resource mostrado anteriormente (sampleScheduledQueryRule.json) na secção de modelo do Resource:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-Ilustrado abaixo utilização através do comando do Azure Resource Manager na CLI do Azure para o exemplo de modelo do Resource mostrado anteriormente (sampleScheduledQueryRule.json) na [secção do modelo do Resource](#azure-resource-template-for-application-insights) :
+Ilustrado abaixo utilização através do comando do Azure Resource Manager na CLI do Azure para o modelo de recurso mostrado anteriormente (sampleScheduledQueryRule.json) de exemplo na secção de modelo do Resource:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

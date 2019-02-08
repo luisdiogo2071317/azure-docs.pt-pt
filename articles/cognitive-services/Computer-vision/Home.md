@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: O serviço Imagem Digitalizada fornece aos programadores acesso a algoritmos avançados para processamento de imagens e devolução de informações.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c68e50d02a27097c9fa8a699468ce679162240a1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561302"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872651"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 

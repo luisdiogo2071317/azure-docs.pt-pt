@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f7df77447d0571b6d111e316f3f2bcf85b4e1aa4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813828"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893768"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD
 
@@ -147,7 +147,7 @@ Se tiver configurado a aplicação para preauthenticate com o Azure AD, os utili
 
 2. Depois de todas as verificações tenham passado, o Azure AD STS emite um token assinado para o aplicativo e redireciona o usuário voltar para o serviço de Proxy de aplicações.
 
-3. Proxy da aplicação verifica se o token foi emitido para corrigir o aplicativo. Ele executa outras verificações também, como garantir que o token foi assinado pelo Azure AD e, se não ainda dentro da janela de válido.
+3. Proxy da aplicação verifica se o token foi emitido para a aplicação correta. Ele executa outras verificações também, como garantir que o token foi assinado pelo Azure AD e, se não ainda dentro da janela de válido.
 
 4. Conjuntos de Proxy de aplicações tiver ocorrido um cookie de autenticação criptografado para indicar que a autenticação à aplicação. O cookie inclui um timestamp de expiração que se baseia o token do Azure AD e outros dados, como o nome de utilizador que a autenticação se baseia. O cookie é encriptado com uma chave particular conhecida apenas para o serviço de Proxy de aplicações.
 

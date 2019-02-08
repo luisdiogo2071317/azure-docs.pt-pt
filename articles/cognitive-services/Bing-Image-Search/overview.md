@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: A API de Pesquisa de Imagens do Bing permite-lhe utilizar as capacidades cognitivas de pesquisa de imagens do Bing na sua aplicação. Com o envio de consultas de pesquisa de utilizadores com a API, pode obter e apresentar imagens relevantes e de alta qualidade semelhantes às Imagens do Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: b5fc297850ef4b8bfbc0e4bdcf21877e1b94ffe1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765651"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861756"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>O que é a API de Pesquisa de Imagens do Bing?
 

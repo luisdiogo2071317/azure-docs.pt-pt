@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 2235c281b5b25390838a8f201481cfbdc9e5c223
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479211"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891986"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Criar um cluster de Kubernetes com o controlador de entrada do Gateway de aplicação com o serviço Kubernetes do Azure e o Terraform
 [O Azure Kubernetes Service (AKS)](/azure/aks/) gere o seu ambiente alojado do Kubernetes. AKS torna rápido e fácil de implementar e gerir aplicações em contentores sem conhecimentos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
@@ -35,7 +35,7 @@ Neste tutorial, irá aprender a realizar as seguintes tarefas na criação de um
 
 - **Configurar o Terraform**: Siga as instruções no artigo, [Terraform e configurar o acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Principal de serviço do Azure**: Siga as instruções na secção do **criar o principal de serviço** secção no artigo [criar um Azure principal de serviço com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Tome nota dos valores para o appId, displayName e palavra-passe.
+- **Principal de serviço do Azure**: Siga as instruções na secção do **criar o principal de serviço** secção no artigo [criar um Azure principal de serviço com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para o appId, displayName e palavra-passe.
     - Tenha em atenção o ID de objeto do Principal de serviço, executando o seguinte comando
 
     ```bash
@@ -617,7 +617,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
 
     ![Exemplo de resultados "terraform plan"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
-1. Execute o comando `terraform apply` para aplicar o plano para criar o cluster do Kubernetes. O processo para criar um cluster do Kubernetes pode demorar vários minutos, o que faz com que a sessão do Cloud Shell exceda o tempo limite. Se o tempo limite da sessão do Cloud Shell for excedido, pode seguir os passos na secção ["Recuperar de um tempo limite do Cloud Shell"](#recover-from-a-dloud-shell-timeout) para que possa concluir o tutorial.
+1. Execute o comando `terraform apply` para aplicar o plano para criar o cluster do Kubernetes. O processo para criar um cluster do Kubernetes pode demorar vários minutos, o que faz com que a sessão do Cloud Shell exceda o tempo limite. Se a sessão do Cloud Shell exceder o tempo limite, pode seguir os passos na secção "Recuperar de um tempo limite do Cloud Shell" para que possa concluir o tutorial.
 
     ```bash
     terraform apply out.plan

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Crie um bot integrado com um aplicativo de LUIS e Application Insights com o node. js.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 74ad3110faabb6618ffe91e5a896b9b7f4bc0d3a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221254"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870610"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar o LUIS resultados para o Application Insights e as funções do Azure
 Este tutorial adiciona informações de solicitação e resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.

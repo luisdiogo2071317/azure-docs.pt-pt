@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Aprender a reconhecer a conversão de voz (de um arquivo, usando um microfone, com um modelo personalizado, continuamente ou da) com o SDK de voz para Java.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 5bf1ec96689bc5b1d6e667edc01b83b385daae56
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 56f12c9f38b92203e2be37824b9247b321a86169
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223855"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875398"
 ---
 # <a name="recognize-speech-by-using-the-speech-sdk-for-java"></a>Reconhecer fala com o SDK de voz para Java
 

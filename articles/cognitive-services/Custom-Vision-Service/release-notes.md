@@ -3,21 +3,23 @@ title: Notas de versão – serviço de visão personalizada
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: bba65a495963142e8b3201a026dc13a8cfff8e70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b712f47fe9272e0ae6ccb9ab9847462729434698
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207365"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894416"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de versão do serviço de visão personalizada
 
+## <a name="january-22-2019"></a>22 de Janeiro de 2019
+- Suporte adicionado para novas regiões do Azure: E.U.A. oeste 2, E.U.A. leste, E.U.A. Leste 2, Europa Ocidental, Europa do Norte, Sudeste asiático, leste da Austrália, Índia Central, sul do Reino Unido, leste do Japão e Centro-Norte. Suporte continua para o Centro-Sul. 
 
 ## <a name="december-12-2018"></a>12 de Dezembro de 2018
 - Suporte à exportação para modelos de deteção de objetos (introduzida objeto deteção Compact domínio).

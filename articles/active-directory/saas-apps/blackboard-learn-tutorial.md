@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f1d1ad091f08545225b1f9aa195329df19c4194d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811575"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Tutorial: Integração do Active Directory do Azure com Blackboard Saiba
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD início de sessão único com Blackboard saiba, execu
 
 6. Na **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar atributos de token SAML, conforme mostrado na imagem e execute os seguintes passos. Podemos mapeou Userprincipalname como o atributo de utilizador exclusivo aqui, mas pode mapeá-lo para o valor apropriado, o que distingue exclusivamente o utilizador na organização e que mapeia para o campo de nome de utilizador Blackboard saiba.
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
 
@@ -211,7 +211,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-blackboard-learn-test-user"></a>Criar utilizador de teste Blackboard Saiba
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Blackboard saiba. Aplicação de mais de blackboard suporta apenas no tempo de aprovisionamento de utilizador. Certifique-se de que configurou as afirmações conforme descrito na secção  **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Blackboard saiba. Aplicação de mais de blackboard suporta apenas no tempo de aprovisionamento de utilizador. Certifique-se de que configurou as afirmações conforme descrito na secção **Configuring Azure AD Single Sign-On**
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

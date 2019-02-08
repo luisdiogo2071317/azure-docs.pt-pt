@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f9172418f15b129a71242038efd4cdb7683bbf7
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516283"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873024"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Gerir o acesso, energia e modo de conectividade para o Gateway de caixa de dados do Azure (pré-visualização)
 
@@ -35,7 +35,7 @@ O acesso ao seu dispositivo de Gateway de caixa de dados é controlado pelo uso 
 
 ### <a name="change-device-administrator-password"></a>Alterar senha de administrador do dispositivo
 
-Se se esqueceu a palavra-passe, em seguida, pode alterar a palavra-passe. Siga estes passos na IU do local para alterar a palavra-passe de administrador do dispositivo.
+Siga estes passos na IU do local para alterar a palavra-passe de administrador do dispositivo.
 
 1. Na IU da web local, aceda a **manutenção > alteração de palavra-passe**.
 2. Introduza a palavra-passe atual e, em seguida, a nova palavra-passe. A palavra-passe fornecida tem de ter entre 8 e 16 carateres. A palavra-passe tem de ter 3 dos seguintes carateres: carateres em maiúsculas, minúsculas, numéricos e especiais. Certifique-se a nova palavra-passe.
@@ -75,11 +75,11 @@ Para alterar o modo do dispositivo, siga estes passos:
 2. Desativar a **Cloud carregamento e transferência**.
 3. Para executar o dispositivo no modo desligado parcialmente, ative **do Azure management portal**.
 
-    ![Modo de conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
+    ![Modo de conetividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
  
 4. Para executar o dispositivo no modo desligado, desative **do Azure management portal**. Agora, o dispositivo só pode ser gerido através da IU da web local.
 
-    ![Modo de conectividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
+    ![Modo de conetividade](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-2.png)
 
 ## <a name="manage-power"></a>Gerenciar a energia
 

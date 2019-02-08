@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105190"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895844"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação após desastre de máquinas de virtuais de VMware no local ou servidores físicos para um site secundário
 
@@ -50,7 +50,7 @@ s para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recove
 --|--|--
 **Componentes necessários** |Serviço de mobilidade nas máquinas replicadas. Local no servidor de configuração, o servidor de processos, o servidor de destino mestre. Servidor de processo temporário no Azure para reativação pós-falha.|Serviço de mobilidade, servidor de processos, o servidor de configuração e o destino principal
 **Configuração e orquestração** |O Cofre dos serviços de recuperação no portal do Azure | Usando vContinuum 
-**Replicados**|Disco (Windows e Linux) |Windows volume<br> Disco-Linux
+**Replicados**|Disco (Windows e Linux) |Volume-Windows<br> Disk-Linux
 **Cluster de disco partilhado**|Não suportado|Suportadas
 **Alterações a dados limites (média)** |10 MB/s dados por disco<br> Dados de 25MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Dados > 10 MB/s por disco  <br> Dados > 25 MB/s por VM
 **Monitorização** |No portal do Azure|No c++ /CX (servidor de configuração)
@@ -82,7 +82,7 @@ Instale as atualizações da seguinte forma:
 
 Transfira o [atualizar](https://aka.ms/asr-scout-update7) ficheiro. zip e a [MySQL e PHP atualizam](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) ficheiros de configuração. O ficheiro. zip de atualização contém todas as a base de binários e os binários de atualização cumulativos dos seguintes componentes: 
   - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.GZ
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
   - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
   - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
@@ -217,8 +217,8 @@ Atualização do Scout 5 é uma atualização cumulativa. Contém todas as corre
 - Se os servidores de origem, o destino mestre, configuração, processo e servidores de RX já estiver a executar a atualização 4, em seguida, aplicá-la apenas no servidor de destino mestre. 
 
 #### <a name="new-platform-support"></a>Novo suporte de plataforma
-* SUSE Linux Enterprise Server 11 4(SP4) do pacote de serviço
-* SLES 11 SP4 64 bits **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** é empacotado com o pacote básico do Scout GA (**InMage_Scout_Standard_8.0.1 GA.zip**). Transferir o pacote de disponibilidade geral no portal, conforme descrito em [criar um cofre](#create-a-vault).
+* SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
+* SLES 11 SP4 64 bits **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** é empacotado com o pacote básico do Scout GA (**InMage_Scout_Standard_8.0.1 GA.zip**). Transferir o pacote de disponibilidade geral no portal, conforme descrito em criar um cofre.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>Correções de erros e melhorias
@@ -252,7 +252,7 @@ A atualização 4 do Scout é uma atualização cumulativa. Inclui todas as corr
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64bit **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** é empacotado com o pacote básico do Scout GA **InMage_Scout_Standard_8.0.1 GA.zip**. Transferir o pacote de Scout GA do portal conforme descrito em [criar um cofre](#create-a-vault).
+> RHEL/CentOS 7 64bit **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** é empacotado com o pacote básico do Scout GA **InMage_Scout_Standard_8.0.1 GA.zip**. Transferir o pacote de GA do Scout no portal, conforme descrito em criar um cofre.
 
 #### <a name="bug-fixes-and-enhancements"></a>Correções de erros e melhorias
 
@@ -314,7 +314,7 @@ Atualização 3 corrige os problemas seguintes:
     * Carregamento de ficheiros maliciosos: Ficheiros estão limitados a extensões específicas: z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf , sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml e zip.
     * Scripts entre sites persistente: Foram adicionadas validações de entrada.
 
-### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Do Azure Site Recovery Scout 8.0.1 Update 2 (atualização 03 15 de Dezembro)
+### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 
 Correções na atualização 2 incluem:
 

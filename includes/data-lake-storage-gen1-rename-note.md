@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 3a6679f2cc599d2ec9aff5e31422be799140b7ff
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5c395bd03fab2613a28aa35c9975ec71ffa34eb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032151"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55885145"
 ---
 > [!NOTE]
-> O Azure Data Lake Store foi mudado para Gen1 de armazenamento do Azure Data Lake. Se estiver interessado em saber mais sobre a pré-visualização da Gen2 de armazenamento do Azure Data Lake, consulte o [página de produto](https://aka.ms/adlsgen2-product).
+> Geração de armazenamento 2 do Azure Data Lake está agora em disponibilidade geral. Recomendamos que comece hoje a utilizar. Para obter mais informações, consulte a [página do produto](https://aka.ms/adlsgen2-product).
 > 
 
 

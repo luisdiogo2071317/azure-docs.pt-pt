@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: dc9c3b6740533ae26cf395e436908a359cadf8d9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: c92bb8e7441e9701d11f3223fa6ebde7869d6233
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321318"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895735"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -27,6 +27,8 @@ Um acionador HTTP pode ser personalizado para responder às [webhooks](https://e
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+O código neste artigo por predefinição, sintaxe de 2.x de funções que usa o .NET Core. Para obter informações sobre a sintaxe de 1.x, consulte a [modelos de funções de 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
@@ -63,26 +65,21 @@ A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) qu
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
-public static async Task<HttpResponseMessage> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, 
-    ILogger log)
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] 
+    HttpRequest req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
 
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
+    string name = req.Query["name"];
 
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
 
@@ -117,48 +114,46 @@ Aqui está o *Function* ficheiro:
 
 O [configuração](#trigger---configuration) seção explica essas propriedades.
 
-Aqui está o script código c# que liga `HttpRequestMessage`:
+Aqui está o script código c# que liga `HttpRequest`:
 
-```csharp
+```cs
 using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
-    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
+    string name = req.Query["name"];
 
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
     name = name ?? data?.name;
 
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 ```
 
-É possível ligar a um objeto personalizado em vez de `HttpRequestMessage`. Este objeto é criado no corpo do pedido, analisado como JSON. Da mesma forma, um tipo pode ser transmitido para a resposta HTTP de enlace de saída e retornado como o corpo da resposta, juntamente com um código de 200 estado.
+É possível ligar a um objeto personalizado em vez de `HttpRequest`. Este objeto é criado a partir do corpo do pedido e analisar como JSON. Da mesma forma, um tipo pode ser transmitido para a resposta HTTP de enlace de saída e retornado como o corpo da resposta, juntamente com um código de 200 estado.
 
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-public static string Run(CustomObject req, ILogger log)
-{
-    return "Hello " + req?.name;
+public static string Run(Person person, ILogger log)
+{   
+    return person.Name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {person.Name}")
+        : new BadRequestObjectResult("Please pass an instance of Person.");
 }
 
-public class CustomObject {
-     public string name {get; set;}
+public class Person {
+     public string Name {get; set;}
 }
 ```
 
@@ -547,12 +542,12 @@ A autorização pode definir métodos HTTP de nível e permitidos nos parâmetro
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
+public static Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
 {
     ...
 }
- ```
+```
 
 Para obter um exemplo completo, consulte [acionador - exemplo do c#](#trigger---c-example).
 
@@ -572,7 +567,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
-Para C# e F# as funções, é possível declarar o tipo de Acionador de entrada de ser um `HttpRequestMessage` ou um tipo personalizado. Se escolher `HttpRequestMessage`, obtém acesso total para o objeto de solicitação. Para um tipo personalizado, o tempo de execução tenta analisar o corpo do pedido JSON para definir as propriedades do objeto.
+Para C# e F# as funções, é possível declarar o tipo de Acionador de entrada de ser um `HttpRequest` ou um tipo personalizado. Se escolher `HttpRequest`, obtém acesso total para o objeto de solicitação. Para um tipo personalizado, o tempo de execução tenta analisar o corpo do pedido JSON para definir as propriedades do objeto.
 
 Para funções de JavaScript, o runtime das funções fornece o corpo do pedido em vez do objeto de solicitação. Para obter mais informações, consulte a [exemplo de Acionador de JavaScript](#trigger---javascript-example).
 
@@ -612,13 +607,19 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 Isso permite que o código de função oferecer suporte a dois parâmetros no endereço _categoria_ e _id_. Pode usar qualquer [restrição de rota da API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com os parâmetros. O seguinte código de função do c# faz uso de ambos os parâmetros.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
-                                                ILogger log)
+public static Task<IActionResult> Run(HttpRequest req, string category, int? id, ILogger log)
 {
     if (id == null)
-        return  req.CreateResponse(HttpStatusCode.OK, $"All {category} items were requested.");
+    {
+        return (ActionResult)new OkObjectResult($"All {category} items were requested.");
+    }
     else
-        return  req.CreateResponse(HttpStatusCode.OK, $"{category} item with id = {id} has been requested.");
+    {
+        return (ActionResult)new OkObjectResult($"{category} item with id = {id} has been requested.");
+    }
+    
+    // -----
+    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
 }
 ```
 
@@ -674,7 +675,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 {
     ClaimsPrincipal identities = req.HttpContext.User;
     // ...
-    return new OkResult();
+    return new OkObjectResult();
 }
 ```
 
@@ -730,7 +731,7 @@ Para obter programaticamente teclas de função, não há nenhuma API suportada.
 
 A maioria dos modelos de Acionador HTTP requerem uma chave de API no pedido. Portanto, o seu pedido HTTP normalmente é parecido com o seguinte URL:
 
-    https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
+    https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
 A chave pode ser incluída numa variável de cadeia de caracteres de consulta com o nome `code`, como anteriormente. Também pode ser incluído num `x-functions-key` cabeçalho de HTTP. O valor da chave pode ser qualquer tecla de função definido para a função, ou qualquer chave de anfitrião.
 
@@ -774,7 +775,7 @@ O webhook Slack gera um token para, em vez de permitir que especifique, pelo que
 
 Autorização de Webhook é processada pelo componente de destinatário do webhook, parte do acionador HTTP, e o mecanismo varia consoante o tipo de webhook. Cada mecanismo de contar com uma chave. Por predefinição, é utilizada a tecla de função com o nome "predefinição". Para utilizar uma chave diferente, configure o fornecedor de webhook para enviar o nome da chave com o pedido de uma das seguintes formas:
 
-* **Cadeia de consulta**: O fornecedor transmite o nome da chave no `clientid` consulta, como o parâmetro de cadeia de caracteres, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Cadeia de consulta**: O fornecedor transmite o nome da chave no `clientid` consulta, como o parâmetro de cadeia de caracteres, `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
 * **Cabeçalho do pedido**: O fornecedor transmite o nome da chave no `x-functions-clientid` cabeçalho.
 
 ## <a name="trigger---limits"></a>Acionador - limites
@@ -805,7 +806,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 ## <a name="output---usage"></a>Saída - utilização
 
-Para enviar uma resposta HTTP, use os padrões de resposta de idioma padrão. Em c# ou de script c#, tornar a função de tipo de retorno `HttpResponseMessage` ou `Task<HttpResponseMessage>`. No c#, um atributo de valor de retorno não a é necessário.
+Para enviar uma resposta HTTP, use os padrões de resposta de idioma padrão. Em c# ou de script c#, tornar a função de tipo de retorno `IActionResult` ou `Task<IActionResult>`. No c#, um atributo de valor de retorno não a é necessário.
 
 Por exemplo respostas, consulte a [exemplo de Acionador](#trigger---example).
 

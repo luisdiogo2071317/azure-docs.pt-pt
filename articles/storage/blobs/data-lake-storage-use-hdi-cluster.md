@@ -1,22 +1,22 @@
 ---
-title: Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
-description: Saiba como consultar dados da pré-visualização do Azure Data Lake Storage Gen2 e armazenar os resultados da sua análise.
+title: Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
+description: Saiba como consultar dados da geração 2 de armazenamento do Azure Data Lake e armazenar os resultados da sua análise.
 author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 739076289a1324cb47f0c980f0d21b153c7b5edc
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0932c576a47af85c496d5d2d12dbc1b997d48e16
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662963"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874333"
 ---
-# <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
+# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
-Para analisar dados num cluster do HDInsight, pode armazenar os dados em qualquer combinação de armazenamento de Blobs do Azure, armazenamento de Blobs do Azure com o Azure Data Lake armazenamento Gen2 pré-visualização ativada ou Gen1 de armazenamento do Azure Data Lake. Todas as opções de armazenamento permitem eliminar em segurança os clusters do HDInsight que são utilizados para o cálculo sem perda de dados de utilizador.
+Para analisar dados num cluster do HDInsight, pode armazenar os dados em qualquer combinação de armazenamento de Blobs do Azure, armazenamento de Blobs do Azure com o Azure Data Lake Storage Gen2 ativada ou Gen1 de armazenamento do Azure Data Lake. Todas as opções de armazenamento permitem eliminar em segurança os clusters do HDInsight que são utilizados para o cálculo sem perda de dados de utilizador.
 
 O Hadoop suporta uma noção do sistema de ficheiros predefinido. O sistema de ficheiros predefinido implica um esquema e uma autoridade predefinidos. Também pode ser utilizado para resolver caminhos relativos. Durante o processo de criação de cluster do HDInsight, pode especificar um contentor de BLOBs no armazenamento do Azure ou o espaço de nomes hierárquico oferecidos pela geração 2 de armazenamento do Data Lake como o sistema de ficheiros predefinido. Em alternativa com o HDInsight 3.5, pode selecionar um contentor ou o espaço de nomes hierárquico como o sistema de ficheiros predefinido com algumas exceções.
 
@@ -154,7 +154,7 @@ az storage account create \
 ```
 
 > [!NOTE]
-> Durante a pré-visualização pública de geração 2 de armazenamento do Data Lake apenas `--sku Standard_LRS` é suportada.
+> Durante o público de geração 2 de armazenamento do Data Lake apenas `--sku Standard_LRS` é suportada.
 
 É-lhe pedido que especifique a região geográfica na qual foi criada a conta de armazenamento. Crie a conta de armazenamento na mesma região que pretenda criar o seu cluster do HDInsight.
 

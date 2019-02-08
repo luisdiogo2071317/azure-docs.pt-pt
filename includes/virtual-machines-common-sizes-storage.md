@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b4de9efbe85d5ab497bccd1742df23ddc1b3af43
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bb88736762219028d58fe70d0ec32309967c95a4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354664"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55830663"
 ---
 Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  Os exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento local débito e de rede da largura de banda para cada tamanho otimizada.
 
@@ -31,7 +31,7 @@ Armazenamento Premium: Suportadas
 
 Cache de armazenamento Premium: Não suportado
 
-| Tamanho          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe | Débito de disco de NVMe<sup>2</sup> (IOPS de leitura / MBps) | Tamanho da Cache do anfitrião<sup>3</sup> | Discos de dados de máx. | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
+| Tamanho          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Débito de disco de NVMe<sup>3</sup> (IOPS de leitura / MBps) | Tamanho da Cache do anfitrião<sup>4</sup> | Discos de dados de máx. | NICs. Máx. / esperado de largura de banda de rede (Mbps) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2,000 | N/A | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | N/A | 32 | 4 / 6,400  | 
@@ -39,11 +39,13 @@ Cache de armazenamento Premium: Não suportado
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18,000   | N/A | 32 | 8 / 25,600 |
 | Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | N/A | 32 | 8 / 32,000 |
  
-<sup>1</sup> VMs da série Lsv2 tem um disco de recursos temporário com base de SCSI padrão para utilização do ficheiro de paginação/troca de SO (d no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, de 4.000 IOPS e velocidade para cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece GiB 800 40.000 IOPS e 800 MBPS) de transferência de 80 MBps. Isto garante que as unidades de nvme, algo podem ser completamente dedicadas para a utilização de aplicações.
+<sup>1</sup> VMs da série Lsv2 tem um disco de recursos temporário com base de SCSI padrão para utilização do ficheiro de paginação/troca de SO (d no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, de 4.000 IOPS e velocidade para cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece GiB 800 40.000 IOPS e 800 MBPS) de transferência de 80 MBps. Isto garante que as unidades de nvme, algo podem ser completamente dedicadas para a utilização de aplicações. Este disco é Efêmera e todos os dados serão perdidos em Parar/desalocar.
 
-<sup>2</sup> a tecnologia Hyper-V NVMe Direct fornece acesso otimizado para unidades de NVMe mapeados de forma segura para o espaço VM do convidado.  Obter o máximo de desempenho, é necessário usar a compilação mais recente do WS2019 ou Ubuntu 18.04 ou 16.04 no Azure Marketplace.  Desempenho de gravação varia com base no tamanho de e/s, a carga de unidade e a utilização de capacidade.
+<sup>2</sup> discos de NVMe locais são efémeros, dados serão perdidos nestes discos, se parar/desalocar a VM.
 
-<sup>3</sup> VMs da série Lsv2 não oferecem cache do anfitrião para o disco de dados como não se beneficiem as cargas de trabalho Lsv2.  No entanto, as VMs de Lsv2 pode acomodar a opção de disco de SO efémero de VM do Azure (até 30 GiB). 
+<sup>3</sup> a tecnologia Hyper-V NVMe Direct fornece acesso otimizado para unidades de NVMe locais em segurança mapeado para o espaço VM do convidado.  Obter o máximo de desempenho, é necessário usar a compilação mais recente do WS2019 ou Ubuntu 18.04 ou 16.04 no Azure Marketplace.  Desempenho de gravação varia com base no tamanho de e/s, a carga de unidade e a utilização de capacidade.
+
+<sup>4</sup> VMs da série Lsv2 não oferecem cache do anfitrião para o disco de dados como não se beneficiem as cargas de trabalho Lsv2.  No entanto, as VMs de Lsv2 pode acomodar a opção de disco de SO efémero de VM do Azure (até 30 GiB). 
 
 
 

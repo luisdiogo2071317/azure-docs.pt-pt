@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Como moderar imagens com uma lista personalizada de imagens através do SDK do Content Moderator para C#.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f7894fa54b634df450d3f7eb90d594cf0315970c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228190"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881796"
 ---
 # <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Início rápido: Moderar com listas de imagem personalizadaC#
 

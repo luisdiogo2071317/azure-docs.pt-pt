@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: f597669245787d935867389dc4780ec9d949bb8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7fecf8c5fdafb64f7922054dd2bb9755b0dec031
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241240"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881346"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Ambiente de trabalho remoto desliga-se frequentemente na VM do Azure
 
 Este artigo explica como resolver problemas de desconexões freqüentes para uma máquina virtual do Azure (VM) através de Remote Desktop Protocol RDP).
 
 > [!NOTE] 
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez de usar o modelo de implementação clássica.
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez de usar o modelo de implementação clássica.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -81,10 +81,10 @@ Para resolver este problema, usar o controle Serial ou [Repare a VM offline](#re
 
         REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v ' MaxIdleTime' /t REG_DWORD /d 0 /f
+        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxIdleTime' /t REG_DWORD /d 0 /f
 11. Defina o controle "Limitar o número máximo de ligações simultâneo":
 
-        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxInstanceCount' /t REG_DWORD /d ffffffff /f
+        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxInstanceCount' /t REG_DWORD /d 4294967295 /f
 
 12. Reinicie a VM e tente novamente ligar ao mesmo através de RDP.
 
@@ -152,7 +152,7 @@ Para resolver este problema, usar o controle Serial ou [Repare a VM offline](#re
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
-16. Definir o controle de tempo de inatividade de sessão do RDP: REG ADD ' HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp "/v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f 
+16. Defina o controle de tempo de inatividade de sessão do RDP:     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f 
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v ' MaxIdleTime' /t REG_DWORD /d 0 /f
 

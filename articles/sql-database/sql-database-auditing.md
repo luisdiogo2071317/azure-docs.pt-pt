@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/07/2019
+ms.openlocfilehash: 26517e55685de6e1fd9174bb1892b877f0e263d6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297689"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895657"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -41,7 +41,7 @@ Pode utilizar a auditoria de base de dados SQL para:
 - **Analisar** relatórios. Pode encontrar eventos suspeitos, atividade invulgar e tendências.
 
 > [!IMPORTANT]
-> Registos de auditoria são escritos **Blobs de acréscimo** num armazenamento de Blobs do Azure na sua subscrição do Azure.
+> Registos de auditoria são escritos **Blobs de acréscimo** no armazenamento de Blobs do Azure na sua subscrição do Azure.
 >
 > - **O armazenamento Premium** está atualmente **nepodporuje** por Blobs de acréscimo.
 > - **Armazenamento na VNet** está atualmente **nepodporuje**.

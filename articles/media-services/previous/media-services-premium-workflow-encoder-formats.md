@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a24448507fa16a48ab3522c3307261d989d773ee
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450205"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895029"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow formatos e codecs do
 
@@ -33,7 +33,7 @@ Este documento contém uma lista de formatos de ficheiro de entrada e saída e c
 
 [Formatos e Codecs de entrada de fluxo de trabalho de Premium de codificador de multimédia](#input_formats)
 
-[E Codecs do codificador de multimédia Premium formatos de saída de fluxo de trabalho](#output_formats)
+E Codecs do codificador de multimédia Premium formatos de saída de fluxo de trabalho
 
 **Media Encoder Premium Workflow** suporta legendagem de áudio descritas [isso](#closed_captioning) secção. 
 

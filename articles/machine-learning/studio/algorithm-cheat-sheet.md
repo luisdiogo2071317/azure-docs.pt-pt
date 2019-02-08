@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: f445f13d3c2d63e8942864458064658d237aa763
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245963"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884006"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning cábula do algoritmo para o Azure Machine Learning Studio
 
@@ -67,8 +67,6 @@ Transferir e imprimir o Machine Learning Studio Trapacear algoritmos no tamanho 
 * Para obter uma lista por categoria de todos os algoritmos de aprendizagem automática disponíveis no Machine Learning Studio, consulte [inicializar modelo] [ initialize-model] no algoritmo do Machine Learning Studio e, em seguida, ajuda do módulo.
 
 * Para obter uma lista alfabética completa de algoritmos e módulos no Machine Learning Studio, consulte [lista A-Z dos módulos do Machine Learning Studio] [ a-z-list] no algoritmo de Machine Learning Studio e a ajuda do módulo.
-
-* Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).
 
 
 

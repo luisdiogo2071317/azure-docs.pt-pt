@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ff717b6cec36f7932f2e4e57dfef9ced0ea902d4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619916"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893061"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook de Segurança no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a utilizar os playbooks de segurança no Centro de Segurança do Azure para responder a problemas relacionados com segurança.
@@ -93,7 +93,7 @@ Neste fluxo de trabalho, pode ver quanto tempo demorou a execução de cada tare
 Pode alterar playbooks existentes no Centro de Segurança para adicionar ações ou condições. Para tal, basta clicar no nome do playbook que quer alterar, no separador Playbooks, e o Estruturador da Aplicação Lógica é aberto.
 
 > [!NOTE]
-> Para obter mais informações sobre como utilizar o Azure Logic Apps para criar o seu próprio playbook, leia [Criar o seu primeiro fluxo de trabalho de aplicação lógica para automatizar processos entre aplicações na cloud e serviços cloud](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger).
+> Para obter mais informações sobre como utilizar o Azure Logic Apps para criar o seu próprio playbook, leia [Criar o seu primeiro fluxo de trabalho de aplicação lógica para automatizar processos entre aplicações na cloud e serviços cloud](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
 ## <a name="see-also"></a>Consulte também

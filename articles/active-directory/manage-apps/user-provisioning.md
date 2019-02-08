@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e47bf2a75b06f0804e446b0fdde4215b6e8193f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190926"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874724"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) permite-lhe automatizar a criação, a manuten
 
 * A capacidade de acordo com as identidades existentes entre sistemas de origem e de destino.
 * Mapeamentos de atributo personalizável que definem que dados de utilizador devem fluir do sistema de origem para o sistema de destino.
-* Alertas de e-mail opcional de erros de aprovisionamento
+* Alertas de e-mail opcional para erros de aprovisionamento.
 * Registos de atividade e de relatórios para ajudar com a monitorização e resolução de problemas.
 
 ## <a name="why-use-automated-provisioning"></a>Porquê utilizar o aprovisionamento automatizado?
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) permite-lhe automatizar a criação, a manuten
 Alguns comuns motivações para utilizar esta funcionalidade incluem:
 
 * Evitar os custos, ineficiências e erro humano associados aos processos de aprovisionamento manuais.
-* Evitar os custos associados de hospedagem e manter soluções de aprovisionamento personalizada e scripts
+* Evitar os custos associados de hospedagem e manter soluções de aprovisionamento personalizada e scripts.
 * Para proteger a sua organização removendo instantaneamente as identidades dos utilizadores de aplicações de SaaS chave quando deixam a organização.
 * Para importar facilmente um grande número de utilizadores para uma determinada aplicação SaaS ou de sistema.
 * Para usufruir a ter um único conjunto de políticas para determinar quem está a ser aprovisionada e quem pode iniciar sessão a uma aplicação.
@@ -107,7 +107,7 @@ No ecrã de gestão de aplicações, aprovisionamento está configurado no **apr
 
 ![Definições](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Filtros de âmbito** indicar ao serviço de aprovisionamento que utilizadores e de grupo no sistema de origem deve ser aprovisionado e/ou desaprovisionado ao sistema de destino. Há dois aspectos para filtros que são avaliados em conjunto de âmbito que determinar quem está no âmbito de aprovisionamento:
+* **Filtros de âmbito** indicar ao serviço de aprovisionamento que utilizadores e grupos no sistema de origem devem ser aprovisionados e/ou desaprovisionados ao sistema de destino. Há dois aspectos para filtros que são avaliados em conjunto de âmbito que determinar quem está no âmbito de aprovisionamento:
 
     * **Filtre os valores de atributo** -no menu "Âmbito de objeto de origem" os mapeamentos de atributos permite a filtragem de valores de atributo específico. Por exemplo, pode especificar que apenas os utilizadores com um atributo de "Departamento" de "Sales" devem estar no âmbito de aprovisionamento. Para obter mais informações, consulte [com filtros de âmbito](define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -197,13 +197,13 @@ A tabela seguinte resume as horas de sincronização para cenários comuns de ap
 
 | Configuração de âmbito | Os utilizadores, grupos e membros no âmbito | Tempo de sincronização inicial | Hora de sincronização incremental |
 | -------- | -------- | -------- | -------- |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |  < a 1000 |  < a 30 minutos | < a 30 minutos |
+| Sincronizar os utilizadores atribuídos e apenas a grupos |  < 1,000 |  < a 30 minutos | < a 30 minutos |
 | Sincronizar os utilizadores atribuídos e apenas a grupos |  1.000 - 10.000 | 142 - minutos 708 | < a 30 minutos |
-| Sincronizar os utilizadores atribuídos e apenas a grupos |   10 000 - 100.000 | 1,170 - minutos 2,340 | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  < a 1000 | < a 30 minutos  | < a 30 minutos |
+| Sincronizar os utilizadores atribuídos e apenas a grupos |   10,000 - 100,000 | 1,170 - minutos 2,340 | < a 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  < 1,000 | < a 30 minutos  | < a 30 minutos |
 | Sincronizar todos os utilizadores e grupos no Azure AD |  1.000 - 10.000 | < 120 de 30 minutos | < a 30 minutos |
-| Sincronizar todos os utilizadores e grupos no Azure AD |  10 000 - 100.000  | 713 - minutos 1,425 | < a 30 minutos |
-| Sincronizar todos os utilizadores no Azure AD|  < a 1000  | < a 30 minutos | < a 30 minutos |
+| Sincronizar todos os utilizadores e grupos no Azure AD |  10,000 - 100,000  | 713 - minutos 1,425 | < a 30 minutos |
+| Sincronizar todos os utilizadores no Azure AD|  < 1,000  | < a 30 minutos | < a 30 minutos |
 | Sincronizar todos os utilizadores no Azure AD | 1.000 - 10.000  | 43 - minutos de 86 | < a 30 minutos |
 
 
@@ -214,13 +214,13 @@ Para a configuração **sincronização atribuído apenas grupos de utilizadores
     
 Resumo dos fatores que influenciam o tempo que demora a concluir uma **inicial sincronização**:
 
-* O número total de utilizadores e grupos no âmbito de aprovisionamento
+* O número total de utilizadores e grupos no âmbito de aprovisionamento.
 
-* O número total de utilizadores, grupos e membros do grupo presentes no sistema de origem (Azure AD)
+* O número total de utilizadores, grupos e membros do grupo presentes no sistema de origem (Azure AD).
 
 * Se pretende ou não os utilizadores no âmbito de aprovisionamento são correspondidos com os utilizadores existentes no aplicativo de destino, ou tem de ser criado pela primeira vez. Tarefas de sincronização para o qual todos os utilizadores são criados pela primeira vez demorar aproximadamente *duas vezes desde* como sincronizar tarefas para o qual todos os utilizadores são correspondidos com os utilizadores existentes.
 
-* Número de erros no [registos de auditoria](check-status-user-account-provisioning.md). O desempenho é mais lento, se existirem muitos erros e o serviço de aprovisionamento tornou-se num Estado de quarentena 
+* Número de erros no [registos de auditoria](check-status-user-account-provisioning.md). O desempenho é mais lento, se existirem muitos erros e o serviço de aprovisionamento tornou-se num Estado de quarentena.    
 
 * Limites de velocidade e a limitação implementada pelo sistema de destino do pedido. Alguns sistemas de destino implementam limites de velocidade do pedido e a limitação que pode afetar o desempenho durante as operações de sincronização de grandes dimensões. Nestas condições, uma aplicação que recebe demasiados pedidos demasiado rápidos poderá atrasar a respetiva taxa de resposta ou fechar a ligação. Para melhorar o desempenho, o conector tem de ajustar por não enviar os pedidos de aplicações mais rapidamente do que a aplicação pode processá-los. Aprovisionamento conectores criados pela Microsoft fazer esta alteração. 
 

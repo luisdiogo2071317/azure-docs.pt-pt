@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, vai analisar uma imagem através da API de Imagem Digitalizada com o Node.js.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4623bbd566c37fcbc32377fc8af642ed78d30a6c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b69fc8ea3f0c65ad9ab460d1302d4f5690782420
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222342"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869624"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Início rápido: Analisar uma imagem remota através da API REST com node. js na visão do computador
 

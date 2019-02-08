@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilize fluxos de trabalho com operações de tarefa a API de revisão para automatizar as revisões de humanos em loop com base em suas diretivas de conteúdo e os limiares.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4abe3a864b798552caa27d07a422a7d67b2e4018
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 56b3bffc7aca1ace4dfae78cdcd4394daae9360e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221390"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872799"
 ---
 # <a name="automate-moderation-reviews-with-workflows"></a>Automatizar as revisões de moderação com fluxos de trabalho
 

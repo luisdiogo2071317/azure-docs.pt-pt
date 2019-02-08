@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker extrai automaticamente pares de pergunta-resposta de conteúdo semiestruturado, tais como FAQs, manuais de produto, diretrizes, documentos de suporte e armazenadas como páginas da web, ficheiros PDF ou arquivos de documento do Word de MS de políticas. Conteúdo também pode ser adicionado para a base de dados de conhecimento de ficheiros de conteúdo de QnA estruturados.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: b30f910b7eebabe02443e5b3ce328a89a25c7a6f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 09e01f7705c61bdf110c0bc84cefa396f430f7f8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213706"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884516"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 

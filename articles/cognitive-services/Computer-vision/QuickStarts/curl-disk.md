@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá analisar uma imagem local através da API de Imagem Digitalizada com o cURL.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 91e127c1ad41c459d0f1a1c2070cb193d59dd80b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b73c574f790891e2ad849fd0bd9fb27c313051f0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209966"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869267"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Início rápido: Analisar uma imagem local com a API REST e cURL na visão do computador
 

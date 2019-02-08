@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c71c7423b4cde2a24c8154899eec256e5746b6d7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814848"
+ms.locfileid: "55865374"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 
@@ -56,13 +56,13 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
     ```
     Campo de ID de cópia fora o resultado do comando acima
     
-2. Obtenha o serviço do Azure Key Vault do ID objeto principal ao executar o comando abaixo
+2. Obtenha o serviço de ID de objeto do Azure Key Vault principal ao executar o comando abaixo
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    Após a conclusão bem-sucedida deste comando localizar o ID de objeto no resultado
+    Após a conclusão bem-sucedida deste comando localize o ID de objeto no resultado:
     ```console
         {
             ...
@@ -71,7 +71,7 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
         }
     ```
     
-3. Atribua a função de operador de chave de armazenamento para o Azure Key Vault Identity
+3. Atribua a função de operador de chave de armazenamento para a identidade do Azure Key Vault.
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cb44311ecdf6a2c9284b14884184863237422f96
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e7939b8d7a6a64519ac8239591c37e06ced56599
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754545"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890523"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida de aplicação de Service Fabric
 Como com outras plataformas, uma aplicação no Azure Service Fabric normalmente executa as seguintes fases: design, desenvolvimento, teste, implantação, atualizar, manutenção e remoção. O Service Fabric fornece suporte de primeira classe para o ciclo de vida do aplicativo completo das aplicações na cloud, desde o desenvolvimento através de implementação, gestão diária e manutenção até à desativação final. O modelo de serviço permite que várias funções diferentes para participar de forma independente do ciclo de vida do aplicativo. Este artigo fornece uma descrição geral das APIs e como elas são usadas pelas funções de diferentes em todas as fases do ciclo de vida de aplicação do Service Fabric.
@@ -58,7 +58,7 @@ Ver [implementar uma aplicação](service-fabric-deploy-remove-applications.md) 
 
 ## <a name="test"></a>Teste
 1. Depois de implementar para o cluster de desenvolvimento local ou um cluster de teste, uma *desenvolvedor de serviço* executa o cenário de teste de ativação pós-falha incorporada utilizando o [ **FailoverTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) e [ **FailoverTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) classes, ou o [ **Invoke-ServiceFabricFailoverTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). O cenário de teste de ativação pós-falha executa um serviço especificado por meio de transições de importantes e as ativações pós-falha para verificar se está ainda disponível e em funcionamento.
-2. O *desenvolvedor de serviço* , em seguida, executa o teste de chaos incorporada cenário com o [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) e [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) classes, ou o [ **Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). O cenário de teste de chaos induces aleatoriamente várias nó, o pacote de código e falhas de réplica para o cluster.
+2. O *desenvolvedor de serviço* , em seguida, executa o teste de chaos incorporada cenário com o [ **ChaosTestScenarioParameters** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) e [  **ChaosTestScenario** ](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) classes, ou o [ **Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). O cenário de teste de chaos induces aleatoriamente várias nó, o pacote de código e falhas de réplica para o cluster.
 3. O *desenvolvedor de serviço* [testa a comunicação de serviço para serviço](service-fabric-testability-scenarios-service-communication.md) ao criar cenários de teste que mover réplicas primárias em todo o cluster.
 
 Ver [introdução ao serviço de análise de falhas](service-fabric-testability-overview.md) para obter mais informações.

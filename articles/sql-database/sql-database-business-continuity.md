@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 90d95d7ad1ffb3200a69e0e7980dae2d7ed97470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755174"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894331"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -132,7 +132,7 @@ Se estiver a utilizar as cópias de segurança automatizadas com o armazenamento
 Após a recuperação a partir de qualquer mecanismo de recuperação, tem de efetuar as seguintes tarefas adicionais antes de os seus utilizadores e aplicações ficarem funcionais:
 
 - Redirecionar os clientes e as aplicações de cliente para o novo servidor e base de dados restaurada
-- Certifique-se de regras de firewall IP ao nível do servidor adequadas estão em vigor para os utilizadores a ligar ou usar [firewalls ao nível da base de dados](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) para ativar as regras adequadas.
+- Certifique-se de regras de firewall IP ao nível do servidor adequadas estão em vigor para os utilizadores a ligar ou usar [firewalls ao nível da base de dados](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) para ativar as regras adequadas.
 - Certificar-se de que estão implementados inícios de sessão e permissões ao nível da base de dados mestra no local adequados (ou utilizar [utilizadores contidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configurar auditorias, conforme adequado
 - Configurar alertas, conforme adequado

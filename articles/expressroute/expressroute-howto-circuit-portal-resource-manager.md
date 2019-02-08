@@ -1,5 +1,5 @@
 ---
-title: 'Criar e modificar um circuito do ExpressRoute - portal: Azure | Documentos da Microsoft'
+title: 'Criar e modificar um circuito do ExpressRoute - portal: Azure | Microsoft Docs'
 description: Criar, aprovisionar, certifique-se, atualizar, eliminar e desaprovisionar um circuito do ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091532"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894722"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ Num browser, navegue para o [Portal do Azure](http://portal.azure.com) e inicie 
   ![Configurar o escalão de SKU e, em seguida, medição de dados](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **Escalão** determina se um padrão de ExpressRoute ou de um suplemento premium do ExpressRoute está ativado. Pode especificar **padrão** para obter o SKU standard ou **Premium** para o suplemento premium.
-  * **Dados de medição** determina o tipo de faturação. Pode especificar **ilimitados** de um plano de dados limitados e **ilimitado** para um plano de dados ilimitados. Tenha em atenção que é possível alterar o tipo de faturação de **ilimitados** ao **ilimitado**, mas não é possível alterar o tipo de **ilimitado** para **ilimitados**.
+  * **Dados de medição** determina o tipo de faturação. Pode especificar **ilimitados** de um plano de dados limitados e **ilimitado** para um plano de dados ilimitados. Tenha em atenção que é possível alterar o tipo de faturação de **ilimitados** ao **ilimitado**.
+    > [!IMPORTANT] Não é possível alterar o tipo de **ilimitado** ao **ilimitados**.
   * **Localização de peering** é a localização física onde são peering com a Microsoft.
 
     > [!IMPORTANT]
@@ -77,20 +78,20 @@ Nesta página, **estado do fornecedor** fornece informações sobre o estado atu
 
 Quando cria um novo circuito do ExpressRoute, o circuito está no estado seguinte:
 
-Estado do fornecedor: não aprovisionado<BR>
-Circuito do Estado: ativada
+Estado do fornecedor: Não aprovisionado<BR>
+Estado do circuito: Ativado
 
 ![Iniciar o processo de aprovisionamento](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 O circuito muda para o seguinte estado quando o fornecedor de conectividade está no processo de ativá-la para:
 
-Estado do fornecedor: aprovisionamento<BR>
-Circuito do Estado: ativada
+Estado do fornecedor: Aprovisionamento<BR>
+Estado do circuito: Ativado
 
 Para poder ser capaz de utilizar um circuito do ExpressRoute, tem de estar no seguinte estado:
 
-Estado do fornecedor: aprovisionado<BR>
-Circuito do Estado: ativada
+Estado do fornecedor: Aprovisionado<BR>
+Estado do circuito: Ativado
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Verificar periodicamente o estado e o estado da chave de circuito
 Pode ver as propriedades do circuito que tem interesse, selecioná-la. Verifique os **estado do fornecedor** e certifique-se de que foi movido para **aprovisionado** antes de continuar.
@@ -117,10 +118,11 @@ Pode modificar algumas propriedades de um circuito do ExpressRoute sem afetar a 
 Pode efetuar as seguintes tarefas sem tempo de inatividade:
 
 * Ativar ou desativar um suplemento ExpressRoute Premium para o seu circuito do ExpressRoute.
-* Aumente a largura de banda do circuito do ExpressRoute, desde que haja capacidade na porta. Desatualização de largura de banda de um circuito não é suportada. 
-* Alterar o plano de medição da *dados limitados* ao *dados ilimitados*. Não é suportada a alteração do plano de medição de dados ilimitados para dados limitados.
+* Aumente a largura de banda do circuito do ExpressRoute, desde que haja capacidade na porta.
+  > [!IMPORTANT] Desatualização de largura de banda de um circuito não é suportada. 
+* Alterar o plano de medição da *dados limitados* ao *dados ilimitados*.
+  > [!IMPORTANT] Não é suportada a alteração do plano de medição de dados ilimitados para dados limitados.
 * Pode ativar e desativar *permitir operações clássicas*.
-
 > [!IMPORTANT]
 > Poderá ter de recriar o circuito do ExpressRoute, se houver a capacidade inadequada na porta existente. Não é possível atualizar o circuito se não existir nenhuma capacidade adicional disponível naquele local.
 >

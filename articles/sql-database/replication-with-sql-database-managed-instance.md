@@ -1,6 +1,6 @@
 ---
-title: Configurar a replicação na instância gerida da base de dados SQL do Azure | Documentos da Microsoft
-description: Saiba mais sobre como configurar a replicação transacional na instância gerida da base de dados SQL do Azure
+title: Configurar a replicação numa base de dados de instância gerida de SQL Database do Azure | Documentos da Microsoft
+description: Saiba mais sobre como configurar a replicação transacional num banco de dados de instância gerida de base de dados do Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,28 +11,28 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467668"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893023"
 ---
-# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configurar a replicação na instância gerida da base de dados SQL do Azure
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação numa base de dados de instância gerida de base de dados do Azure SQL
 
-Replicação transacional permite-lhe replicar os dados dos bancos de dados do SQL Server ou de instância gerida da base de dados SQL do Azure para a instância gerida, ou para enviar por push as alterações feitas em seus bancos de dados na instância gerida para outro SQL Server, base de dados única base de dados SQL ou conjunto elástico ou outra instância gerida. A replicação está em pré-visualização pública no [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerida pode alojar as bases de dados do publicador, o distribuidor e o subscritor. Ver [configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para configurações disponíveis.
+Replicação transacional permite-lhe replicar dados num banco de dados de instância gerida de base de dados do Azure SQL de uma base de dados do SQL Server ou outra instância da base de dados. Também pode utilizar a replicação transacional para enviar por push as alterações feitas num banco de dados de instância na instância gerida da base de dados do Azure SQL para uma base de dados do SQL Server, para uma base de dados na base de dados SQL do Azure, para uma base de dados agrupado num conjunto elástico SQL Database do Azure. Replicação transacional está na pré-visualização pública no [instância gerida de base de dados do Azure SQL](sql-database-managed-instance.md). Uma instância gerida pode alojar as bases de dados do publicador, o distribuidor e o subscritor. Ver [configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para configurações disponíveis.
 
 ## <a name="requirements"></a>Requisitos
 
-Editor e distribuidor na base de dados do Azure SQL requer:
+Configurar uma instância gerida a funcionar como um publicador ou distribuidor requer:
 
-- O Azure SQL Database Managed Instance que não esteja na configuração de Geo-DR.
+- Que a instância gerida não está atualmente a participar numa relação de georreplicação.
 
    >[!NOTE]
-   >Bases de dados SQL do Azure que não estão configurados com a instância gerida só é possível os subscritores.
+   >Bases de dados individuais e bases de dados agrupadas na base de dados do Azure SQL só é possível os subscritores.
 
-- Todas as instâncias do SQL Server tem de estar na mesma vNet.
+- Todas as instâncias geridas tem de estar na mesma vNet.
 
 - Conectividade utiliza a autenticação do SQL entre os participantes de replicação.
 
@@ -44,28 +44,25 @@ Editor e distribuidor na base de dados do Azure SQL requer:
 
 Suporta:
 
-- Combinação de replicação de instantâneo e transacional de instâncias de instância gerida da base de dados SQL do Azure e no local.
-
-- Os assinantes podem ser bases de dados agrupadas em conjuntos elásticos da base de dados do Azure SQL, base de dados na base de dados do Azure SQL ou no local.
-
+- Combinação de replicação de instantâneo e transacional do SQL Server no local e instâncias geridas na base de dados do Azure SQL.
+- Os assinantes podem estar em bases de dados no local do SQL Server, bases de dados individuais na base de dados do Azure SQL ou bases de dados agrupadas em conjuntos elásticos da base de dados do Azure SQL.
 - Unidirecional ou bidirecional de replicação.
 
-Não são suportadas as seguintes funcionalidades:
+As seguintes funcionalidades não são suportadas numa instância gerida na base de dados do Azure SQL:
 
 - Subscrições atualizáveis.
-
 - Georreplicação ativa.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Configurar o exemplo de publicação e distribuição
 
-1. [Criar uma instância de gerida de base de dados do Azure SQL](sql-database-managed-instance-create-tutorial-portal.md) no portal.
+1. [Criar uma instância gerida da base de dados do Azure SQL](sql-database-managed-instance-create-tutorial-portal.md) no portal.
 2. [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho.
 
    Certifique-se de que copie as chaves de armazenamento. Ver [ver e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Crie uma base de dados para o publicador.
+3. Crie uma base de dados de instância para o publicador.
 
-   Nos scripts de exemplo abaixo, substitua `<Publishing_DB>` com o nome desta base de dados.
+   Nos scripts de exemplo abaixo, substitua `<Publishing_DB>` com o nome da base de dados de instância.
 
 4. Crie um utilizador de base de dados com a autenticação de SQL para o distribuidor. Utilize uma palavra-passe segura.
 

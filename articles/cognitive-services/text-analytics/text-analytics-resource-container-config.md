@@ -4,19 +4,19 @@ titlesuffix: Text Analytics - Azure Cognitive Services
 description: Análise de texto fornece cada contentor com uma estrutura comum de configuração, para que possa facilmente configurar e gerir as definições de armazenamento, registo e telemetria e segurança para os seus contentores.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 2360cb56f40bf899cec5d4a5fb6637eaac59f4d1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e390b3fbaca23dd60d1ab7553a2d69cfb9b4897c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224331"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878260"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configurar os contentores do docker de análise de texto
 
@@ -79,8 +79,8 @@ A sintaxe exata da localização de montagem do anfitrião varia consoante o sis
 
 |Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia | Contentores de análise de texto não utilize esta opção.|
-|Opcional| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentor. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | String | Contentores de análise de texto não utilize esta opção.|
+|Opcional| `Output` | String | O destino de montagem de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentor. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="hierarchical-settings"></a>Definições de hierárquicas
 

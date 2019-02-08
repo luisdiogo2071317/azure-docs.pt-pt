@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1a9cbb14bc6d6df25dbc627bba5a3e72db5350a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c7a73472696b0315f0ef11722ca98de79562258e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727335"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895317"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicação com o redirecionamento externo com a CLI do Azure
 
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Adicionar um serviço de escuta e a regra de encaminhamento
 
-Um serviço de escuta é necessário para ativar o gateway de aplicação encaminhar o tráfego de forma adequada. Criar o serviço de escuta usando [criar gateway de aplicação de rede az http-listener](/cli/azure/network/application-gateway) com a porta de front-end criada com [az rede application-gateway frontend-port criar](/cli/azure/network/application-gateway). Uma regra é necessária para o serviço de escuta de saber para onde enviar o tráfego de entrada. Crie uma regra básica com o nome *redirectRule* usando [criar regra de gateway de aplicação de rede de az](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) com a configuração de redirecionamento.
+Um serviço de escuta é necessário para ativar o gateway de aplicação encaminhar o tráfego de forma adequada. Criar o serviço de escuta usando [criar gateway de aplicação de rede az http-listener](/cli/azure/network/application-gateway) com a porta de front-end criada com [az rede application-gateway frontend-port criar](/cli/azure/network/application-gateway). Uma regra é necessária para o serviço de escuta de saber para onde enviar o tráfego de entrada. Crie uma regra básica com o nome *redirectRule* usando [criar regra de gateway de aplicação de rede de az](/cli/azure/network/application-gateway) com a configuração de redirecionamento.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

@@ -6,14 +6,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 02/07/2018
 ms.author: normesta
-ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ff158b726c57f4aa5b7822dc0273ab42c350522c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731552"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895538"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -23,7 +23,7 @@ Este artigo contém problemas conhecidos e limitações temporárias com geraç�
 
 APIs de armazenamento de BLOBs e APIs de geração 2 do Azure Data Lake não são interoperáveis entre si.
 
-Se tiver ferramentas personalizadas, aplicações ou scripts que utilizam APIs de Blob e pretende utilizá-los para trabalhar com todo o conteúdo que carregar para a sua conta, em seguida, não a ativar espaços de nomes hierárquicos na sua conta de armazenamento de BLOBs até que as APIs de BLOBs tornam-se interoperável com as APIs de geração 2 de Lake de dados do Azure. Com uma conta de armazenamento sem o espaço de nomes hierárquico significa que, em seguida, não tem acesso a recursos específicos de geração 2 de armazenamento do Data Lake, como o sistema de ficheiros e diretórios acessar listas de controlo.
+Se tiver ferramentas, aplicações, serviços ou scripts que utilizam APIs de Blob e pretende utilizá-los para trabalhar com todo o conteúdo que carregar para a sua conta, em seguida, não a ativar um espaço de nomes hierárquico na sua conta de armazenamento de BLOBs até que o tornam-se de APIs de Blob interoperável com APIs de geração 2 do Azure Data Lake. Com uma conta de armazenamento sem um espaço de nomes hierárquico significa que, em seguida, não tem acesso a recursos específicos de geração 2 de armazenamento do Data Lake, como o sistema de ficheiros e diretórios acessar listas de controlo.
 
 ## <a name="blob-storage-apis"></a>APIs de armazenamento de BLOBs
 
@@ -41,15 +41,15 @@ Se utilizou estas APIs para carregar os dados antes de eles foram desativados, e
 
 * Mesmo que não são a ativamente afetados na produção, diga-nos se estes dados para ser copiado para outra conta de armazenamento por algum motivo são necessários e em caso afirmativo, por que?
 
-Nessas circunstâncias, podemos pode restaurar o acesso à API do Blob para um período de tempo limitado, de modo a que pode copiar esses dados para uma conta de armazenamento que não tem espaços de nomes hierárquicos ativados.
+Nessas circunstâncias, podemos pode restaurar o acesso à API do Blob para um período de tempo limitado, de modo a que pode copiar esses dados para uma conta de armazenamento que não tem a funcionalidade de espaço de nomes hierárquico ativada.
 
-Discos não geridos da Máquina Virtual (VM) dependem de APIs de armazenamento de BLOBs desativado, portanto, se pretender ativar espaços de nomes hierárquicos numa conta de armazenamento, considere colocar os discos VM não geridos para uma conta de armazenamento que não tem espaços de nomes hierárquicos ativados.
+Discos não geridos da Máquina Virtual (VM) dependem de APIs de armazenamento de BLOBs desativado, portanto, se pretender ativar um espaço de nomes hierárquico numa conta de armazenamento, considere colocar os discos VM não geridos para uma conta de armazenamento que não tem a funcionalidade de espaço de nomes hierárquico ativado.
 
 ## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
 
 Para ver ou gerir contas de geração 2 de armazenamento do Data Lake ao utilizar o Explorador de armazenamento do Azure, tem de ter, pelo menos, versão `1.6.0` da ferramenta que está disponível como uma [gratuitamente para download](https://azure.microsoft.com/features/storage-explorer/).
 
-Tenha em atenção que a versão do Explorador de armazenamento que está incorporada no Portal do Azure faz atualmente não suporta a visualização ou gerenciamento de contas de geração 2 de armazenamento do Data Lake com espaços de nomes hierárquicos ativados.
+Tenha em atenção que a versão do Explorador de armazenamento que está incorporada no Portal do Azure faz atualmente não suporta a visualização ou gerenciamento de contas de geração 2 de armazenamento do Data Lake com a funcionalidade de espaço de nomes hierárquico ativada.
 
 ## <a name="blob-viewing-tool"></a>Ferramenta de visualização de blob
 
@@ -75,17 +75,17 @@ Em alternativa, utilize a versão de pré-visualização mais recente do AzCopy 
 
 Eliminação de forma recuperável e instantâneos não estão disponíveis para contas de geração 2 de armazenamento do Azure Data Lake.
 
-Todas as funcionalidades de controlo de versões incluindo [instantâneos](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) e [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) não ainda estão disponíveis para contas de armazenamento que têm espaços de nomes hierárquicos ativados.
+Todas as funcionalidades de controlo de versões incluindo [instantâneos](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) e [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) não ainda estão disponíveis para contas de armazenamento que têm a funcionalidade de espaço de nomes hierárquico ativada.
 
 ## <a name="object-level-storage-tiers"></a>Camadas de armazenamento ao nível do objeto
 
-Camadas de armazenamento ao nível do objeto (frequente, esporádico e arquivo) ainda não estão disponíveis para contas do Azure Data Lake Storage Gen 2, mas estão disponíveis para contas de armazenamento que não tenham espaços de nomes hierárquicos ativados.
+Camadas de armazenamento ao nível do objeto (frequente, esporádico e arquivo) ainda não estão disponíveis para contas do Azure Data Lake Storage Gen 2, mas estão disponíveis para contas de armazenamento que não têm a funcionalidade de espaço de nomes hierárquico ativada.
 
-## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Políticas de gestão (pré-visualização) de ciclo de vida de armazenamento de Blobs do Azure
+## <a name="azure-blob-storage-lifecycle-management-policies"></a>Políticas de gestão de ciclo de vida de armazenamento de Blobs do Azure
 
-Políticas de gestão (pré-visualização) de ciclo de vida de armazenamento de Blobs do Azure ainda não estão disponíveis para contas de geração 2 de armazenamento do Azure Data Lake.
+Políticas de gestão de ciclo de vida de armazenamento de Blobs do Azure ainda não estão disponíveis para contas de geração 2 de armazenamento do Azure Data Lake.
 
-Estas políticas estão disponíveis para contas de armazenamento que não tenham espaços de nomes hierárquicos ativados.
+Estas políticas estão disponíveis para contas de armazenamento que não têm a funcionalidade de espaço de nomes hierárquico ativada.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 

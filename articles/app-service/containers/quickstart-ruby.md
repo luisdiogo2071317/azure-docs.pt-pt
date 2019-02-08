@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: e57142631668ba0b74573b2953e84f581023b24f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c5858aaf09cd832a5d60d32bb33aeeb51795b406
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660651"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870440"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux
 
@@ -53,7 +53,7 @@ Execute a aplicação localmente, para ver que aspeto deveria ter quando a imple
 
 O primeiro passo é instalar os gems necessários. Existe um `Gemfile` incluído no exemplo, pelo que não tem de especificar os gems a instalar. Para isto, iremos utilizar o bundler:
 
-```
+```bash
 bundle install
 ```
 

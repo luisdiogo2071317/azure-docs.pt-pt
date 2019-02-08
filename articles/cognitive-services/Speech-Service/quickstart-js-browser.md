@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer voz em JavaScript num browser com o SDK de Serviço de Voz
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: a38553bc2c549989fe24f3a95e972858f6813fc5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d51624e5ae4d0e1052b562cd9142238828614597
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211156"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872191"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK do serviço de voz
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0c2ff94d65e775a12fd76b3115aa8b69ae9a405f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b4dc2e48093398077071eb2423a80c86eb62c67
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815018"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894943"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Encaminhar o tráfego de rede com uma tabela de rotas com o PowerShell
 
@@ -248,7 +248,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 Apesar de encaminhamento de rastreio é utilizado para testar o encaminhamento neste artigo, não é recomendado permitir o ICMP através da Firewall do Windows para implementações de produção.
 
-Ativou o reencaminhamento de IP dentro do Azure na interface de rede da VM em [Ativar o encaminhamento de IP](#enable-ip-forwarding). Dentro da VM, é necessário que o sistema operativo, ou uma aplicação em execução na mesma, consiga também reencaminhar o tráfego de rede. Ativar o reencaminhamento de IP dentro do sistema operativo dos *myVmNva*.
+Ativou o reencaminhamento de IP no Azure para a interface de rede da VM em Ativar reencaminhamento de IP. Dentro da VM, é necessário que o sistema operativo, ou uma aplicação em execução na mesma, consiga também reencaminhar o tráfego de rede. Ativar o reencaminhamento de IP dentro do sistema operativo dos *myVmNva*.
 
 Na linha de comandos no *myVmPrivate* VM, o ambiente de trabalho remoto para o *myVmNva*:
 

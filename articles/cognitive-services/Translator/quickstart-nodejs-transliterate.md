@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a transliterar (converter) texto a partir de um script para outro com o Node.js e a API de Texto do Microsoft Translator. Neste exemplo, o japonês é transliterado para utilizar o alfabeto latino.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 2fe70e570cc5cb5b2572719c496f044c39b1bfa4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1d957adb58104b0c635999f724d99f089c1d1c30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207926"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55855871"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto com node. js
 
@@ -93,7 +93,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 A forma mais fácil de autenticar um pedido é transmitir a sua chave de subscrição como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que vamos utilizar neste exemplo. Como alternativa, pode trocar a chave de subscrição por um token de acesso e transmiti-lo como um cabeçalho `Authorization` para validar o pedido. Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

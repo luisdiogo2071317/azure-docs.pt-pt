@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Emoções com PHP.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3acf47ee26974ddff4f6063eef95bb29be61fce3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9faf263dbc5f8c590018d1c446ba340b3b9781eb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215500"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884075"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início rápido: Crie uma aplicação para reconhecer emoções no rostos numa imagem.
 

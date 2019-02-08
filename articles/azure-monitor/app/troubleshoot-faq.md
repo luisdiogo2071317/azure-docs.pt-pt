@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 115be0ad1b7dec44f036f6d50c2ac30ceba37ba7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4400873e337c6003d2115afd77c40a31db1d5889
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457093"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895963"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas Mais Frequentes
 
@@ -246,12 +246,12 @@ Recomendamos que utilize os nossos SDKs e utiliza o [API do SDK](../../azure-mon
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Pode monitorizar um servidor de web da intranet?
 
 Sim, mas será necessário permitir o tráfego para os nossos serviços por exceções de firewall ou proxy redirecionamentos.
-- QuickPulse `rt.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
 - ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
 - TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
-Consulte a nossa lista de serviços e endereços IP [aqui](../../azure-monitor/app/ip-addresses.md).
+Consulte a nossa lista completa de serviços e endereços IP [aqui](../../azure-monitor/app/ip-addresses.md).
 
 ### <a name="firewall-exception"></a>Exceção de firewall
 

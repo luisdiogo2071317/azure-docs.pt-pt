@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Saiba como especificar um domínio de categorização de imagem para devolver informações mais detalhadas sobre uma imagem.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 76484a2340e527dc016f321dbafa29adb7c358b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157539"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872004"
 ---
 # <a name="detecting-domain-specific-content"></a>Detetar conteúdo específico de um domínio
 
@@ -33,7 +33,7 @@ Existem duas opções para utilizar os modelos específicos de um domínio:
 
 Pode listar os modelos de domínios específicos suportados de imagem digitalizada. Atualmente, o de imagem digitalizada suporta os seguintes modelos de domínios específicos para a detecção de conteúdo específicos de domínio:
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
 | celebridades | Reconhecimento de celebridades, suportado para imagens classificada no `people_` categoria |
 | Pontos de referência | Reconhecimento de marcos, suportado para imagens classificada no `outdoor_` ou `building_` categorias |

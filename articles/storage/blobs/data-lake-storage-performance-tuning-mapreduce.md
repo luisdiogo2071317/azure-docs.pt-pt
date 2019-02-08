@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1df7765f4f006d3d79f867fbf23929f6b9b0cf08
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249117"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884397"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o MapReduce no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
 
@@ -23,7 +23,7 @@ Compreenda os fatores que deve considerar quando ajustar o desempenho das tarefa
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de geração 2 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md).
-* **Cluster de HDInsight do Azure** com acesso a uma conta de geração 2 de armazenamento do Data Lake. Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
+* **Cluster de HDInsight do Azure** com acesso a uma conta de geração 2 de armazenamento do Data Lake. Consulte [clusters de utilização do Azure Data Lake Storage Gen2 com o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 * **Utilizar o MapReduce no HDInsight**.  Para obter mais informações, consulte [utilizar o MapReduce no Hadoop no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Diretrizes de geração 2 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 ajuste orientação de desempenho](data-lake-storage-performance-tuning-guidance.md)
 

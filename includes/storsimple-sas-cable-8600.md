@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 792589f4aa2a80c05378224ffe4e4d1dad2f935c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165643"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889457"
 ---
-<!--author=alkohli last changed:02/22/16-->
-
 #### <a name="to-attach-the-sas-cables"></a>Para anexar os cabos SAS
 1. Identifique a primária e as inclusões EBOD. As dois inclusões podem ser identificadas ao observar a seus respectivos planos de back. Veja a imagem seguinte para obter orientações. 
    
@@ -20,7 +18,7 @@ ms.locfileid: "50165643"
    
     **Criar uma vista de principal e as inclusões EBOD**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    |:--- |:--- |
    | 1 |Bastidor principal |
    | 2 |Bastidor EBOD |
@@ -30,7 +28,7 @@ ms.locfileid: "50165643"
    
     **Localização do número de série autocolante**
    
-   | Etiqueta | Descrição |
+   | Label | Descrição |
    |:--- |:--- |
    | 1 |Na sabedoria do bastidor |
 3. Utilize os cabos SAS fornecidos para ligar o bastidor EBOD ao bastidor principal da seguinte forma:
@@ -43,7 +41,7 @@ ms.locfileid: "50165643"
       
       **Cablagem de SAS**
       
-      | Etiqueta | Descrição |
+      | Label | Descrição |
       |:--- |:--- |
       | A |Bastidor principal |
       | B |Bastidor EBOD |

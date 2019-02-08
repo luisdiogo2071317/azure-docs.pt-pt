@@ -3,7 +3,7 @@ title: Aumentar a quota de ponto final
 titleSuffix: Azure Cognitive Services
 description: Compreensão de idiomas (LUIS) oferece a capacidade para aumentar a quota de pedido de ponto de extremidade para além de quota de uma chave única. Isso é feito através da criação de mais chaves para LUIS e adicioná-los para a aplicação do LUIS no **Publish** página no **recursos e as chaves** secção.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ba3ca363afe96c137a4a9eecdeda33e0f9129111
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491727"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868434"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilizar o Gestor de tráfego do Microsoft Azure para gerir a quota de ponto final através de chaves
 Compreensão de idiomas (LUIS) oferece a capacidade para aumentar a quota de pedido de ponto de extremidade para além de quota de uma chave única. Isso é feito através da criação de mais chaves para LUIS e adicioná-los para a aplicação do LUIS no **Publish** página no **recursos e as chaves** secção. 

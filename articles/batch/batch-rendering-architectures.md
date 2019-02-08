@@ -5,15 +5,15 @@ services: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
-ms.date: 08/13/2018
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543500"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893821"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para a composição do Azure
 
@@ -27,9 +27,9 @@ O diagrama seguinte mostra um cenário híbrido, que inclui os seguintes serviç
 
 * **Rede** -no local: O Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** - entrada e de ficheiros de saída: NFS ou CFS com VMs do Azure, sincronizadas com o armazenamento no local através do Azure File Sync ou RSync.
+* **Armazenamento** - entrada e de ficheiros de saída: NFS ou CFS com VMs do Azure, sincronizadas com o armazenamento no local através do Azure File Sync ou RSync. Em alternativa: Avere vFXT para entrada ou saída ficheiros a partir de dispositivos no local do NFS.
 
-  ![Segurança - da cloud híbrida com o NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![Segurança - da cloud híbrida com o NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Híbrido com Blobfuse
 
@@ -51,9 +51,9 @@ O diagrama seguinte mostra um cenário híbrido totalmente conectada para comput
 
 * **Rede** -no local: O Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** -em vários locais: Avere vFXT. Arquivamento opcional de locais ficheiros através do Azure Data Box para o armazenamento de Blobs.
+* **Armazenamento** -em vários locais: Avere vFXT. Arquivamento opcional de locais ficheiros através do Azure Data Box para armazenamento de BLOBs, ou no local Avere FXT para a aceleração de NAS.
 
-  ![Segurança - da cloud híbrida de computação e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![Segurança - da cloud híbrida de computação e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

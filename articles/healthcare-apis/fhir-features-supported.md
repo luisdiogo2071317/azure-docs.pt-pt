@@ -7,12 +7,12 @@ ms.service: healthcare-apis
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: a2851272d15ed2ce2c7f940cc3e429ef9f8b4446
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1752ec8b2f846b51ef8222c54a00d5a5a0cdd05a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824145"
+ms.locfileid: "55875203"
 ---
 # <a name="features"></a>Funcionalidades
 
@@ -102,7 +102,7 @@ Todos os tipos de parâmetro de pesquisa são suportados. Em cadeia de parâmetr
 
 ## <a name="persistence"></a>Persistência
 
-A Microsoft FHIR Server tem um módulo de persistência conectável (veja [ `Microsoft.Health.Fhir.Core.Features.Persistence` ](https://github.com/Microsoft/fhir-server/src/Microsoft.Health.Fhir.Core/Features/Persistence)).
+A Microsoft FHIR Server tem um módulo de persistência conectável (veja [ `Microsoft.Health.Fhir.Core.Features.Persistence` ](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence)).
 
 Atualmente, o código-fonte aberto FHIR Server inclui uma implementação para [do Azure Cosmos DB](../cosmos-db/index-overview.md).
 

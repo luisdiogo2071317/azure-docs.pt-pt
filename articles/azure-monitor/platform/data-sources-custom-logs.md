@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 628cbcbfb712d2fcaa53bdaee262f88a78dd1527
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198784"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895674"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados no Log Analytics
 A origem de dados de registos personalizado no Log Analytics permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog. Depois de recolhidos, pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleção de campos individuais.
@@ -40,6 +40,10 @@ Os ficheiros de registo a recolher devem coincidir com os seguintes critérios.
   
 >[!NOTE]
 > Se a sua aplicação cria um novo ficheiro de registo por dia ou quando atingir um determinado tamanho, o agente do Log Analytics para Linux não Deteta-las após ser reiniciado. Isso é porque o agente apenas enumera e começa a monitorizar a existência de padrões com os registos especificados após a inicialização e, por isso precisa planejar em torno dele automatizando o reinício do agente.  Esta limitação não existe com o agente do Log Analytics para Windows.  
+>
+
+>[!NOTE]
+> Um máximo de 500 registos personalizados pode ser criado por área de trabalho do Log Analytics. 
 >
 
 ## <a name="defining-a-custom-log"></a>Definir um registo personalizado
@@ -81,7 +85,7 @@ A tabela seguinte fornece exemplos de padrões válidos para especificar os fich
 | Descrição | Caminho |
 |:--- |:--- |
 | Todos os ficheiros numa *c:\Logs.* com extensão. txt no agente do Windows |C:\Logs\\\*. txt |
-| Todos os ficheiros numa *c:\Logs.* com um nome a partir do registo e uma extensão. txt no agente do Windows |C:\Logs\log\*. txt |
+| Todos os ficheiros numa *c:\Logs.* com um nome a partir do registo e uma extensão. txt no agente do Windows |C:\Logs\log\*.txt |
 | Todos os ficheiros numa */var/log/audit* com extensão. txt no agente do Linux |/var/log/audit/*.txt |
 | Todos os ficheiros numa */var/log/audit* com um nome a partir do registo e uma extensão. txt no agente do Linux |/var/log/audit/log\*. txt |
 

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de geração 1 de armazenamento do Azure Data Lake para Gen2 (pré-visualização) com o Azure Data Factory
-description: Utilize o Azure Data Factory para copiar dados de geração 1 de armazenamento do Azure Data Lake para geração 2 (pré-visualização)
+title: Copiar dados de geração 1 de armazenamento do Azure Data Lake para geração 2 com o Azure Data Factory
+description: Utilize o Azure Data Factory para copiar dados de geração 1 de armazenamento do Azure Data Lake para geração 2
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: da42e0bf86aca571fb26367f18bbf07f90f5531b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679363"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884618"
 ---
-# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Copiar dados de geração 1 de armazenamento do Azure Data Lake para Gen2 (pré-visualização) com o Azure Data Factory
+# <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados de geração 1 de armazenamento do Azure Data Lake para geração 2 com o Azure Data Factory
 
-Pré-visualização da geração 2 do armazenamento do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, incorporado ao [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md). Permite-lhe interagir com os dados através de ambos os paradigmas de armazenamento de sistema e o objeto de ficheiro.
+Geração de armazenamento 2 do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, incorporado ao [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md). Permite-lhe interagir com os dados através de ambos os paradigmas de armazenamento de sistema e o objeto de ficheiro.
 
 Se estiver a utilizar o Azure Data Lake Storage Gen1, pode avaliar a nova capacidade de geração 2 ao copiar dados de geração 1 de armazenamento do Data Lake para geração 2 com o Azure Data Factory.
 
@@ -45,11 +45,11 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
       
    ![Página Nova fábrica de dados](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Nome**: introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSDemo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
-    * **Subscrição**: selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
-    * **Grupo de recursos**: selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
-    * **Versão**: selecione **V2**.
-    * **Localização**: selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar noutras localizações e regiões. 
+    * **Nome**: Introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSDemo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Subscrição**: Selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
+    * **Grupo de recursos**: Selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
+    * **Versão**: Selecione **V2**.
+    * **Localização**: Selecione a localização da fábrica de dados. Apenas são apresentadas as localizações suportadas na lista pendente. Os arquivos de dados que são utilizados pelo data factory podem estar noutras localizações e regiões. 
 
 3. Selecione **Criar**.
 4. Depois de concluída a criação, vá para a fábrica de dados. Verá o **fábrica de dados** home page do conforme mostrado na imagem seguinte: 
@@ -92,7 +92,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
     ![Especifique a pasta de saída](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-7. Na **o arquivo de dados de destino** página, clique em **+ criar nova ligação**e, em seguida, selecione **Gen2 de armazenamento do Azure Data Lake (pré-visualização)** e selecione **continuar** :
+7. Na **o arquivo de dados de destino** página, clique em **+ criar nova ligação**e, em seguida, selecione **Gen2 de armazenamento do Azure Data Lake**e selecione **continuar**:
 
     ![Página arquivo de dados de destino](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: afcac73af84010f37eccd018f39852712e495b84
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: f0f0e32ccbb8fdac934f81e2f90132f63a91f069
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773802"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892121"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Adicionar as contas de não-Microsoft
 Adicione as contas de não-Microsoft, como para o Google, Facebook ou GitHub para a aplicação Microsoft Authenticator para verificação de dois fatores. A aplicação Microsoft Authenticator funciona com qualquer aplicação que utiliza a verificação de dois fatores e de qualquer conta que suporte os padrões baseados no tempo palavra-passe Monouso (TOTP).
@@ -55,7 +55,7 @@ Adicione a sua conta do Google ao ativar a verificação de dois fatores e, em s
 4. Utilizar a câmara do dispositivo para analisar o código QR a partir da **configurar Authenticator** página no seu PC.
 
     >[!Note]
-    >Se a câmara não está a funcionar corretamente, pode [introduzir manualmente o código QR e o URL](#add-an-account-to-the-app-manually).
+    >Se a câmara não está a funcionar corretamente, pode introduzir o código QR e o URL manualmente.
 
 5. Reveja os **contas** página da aplicação Microsoft Authenticator no seu dispositivo, para certificar-se de que as informações da conta é a direita e de que existe um código de verificação de seis dígitos associados.
 
@@ -94,7 +94,7 @@ Adicione a sua conta do Facebook, a ativação da verificação de dois fatores 
 3. Utilizar a câmara do dispositivo para analisar o código QR a partir da **dois avaliar autenticação** página no seu PC.
 
     >[!Note]
-    >Se a câmara não está a funcionar corretamente, pode [introduzir manualmente o código QR e o URL](#add-an-account-to-the-app-manually).
+    >Se a câmara não está a funcionar corretamente, pode introduzir o código QR e o URL manualmente.
 
 4. Reveja os **contas** página da aplicação Microsoft Authenticator no seu dispositivo, para certificar-se de que as informações da conta é a direita e de que existe um código de verificação de seis dígitos associados.
 
@@ -165,7 +165,7 @@ Adicione a sua conta Amazon, a ativação da verificação de dois fatores e, em
 6. Utilizar a câmara do dispositivo para analisar o código QR a partir da **escolha como vai receber códigos de** página no seu PC.
 
     >[!Note]
-    >Se a câmara não está a funcionar corretamente, pode [introduzir manualmente o código QR e o URL](#add-an-account-to-the-app-manually).
+    >Se a câmara não está a funcionar corretamente, pode introduzir o código QR e o URL manualmente.
 
 5. Reveja os **contas** página da aplicação Microsoft Authenticator no seu dispositivo, para certificar-se de que as informações da conta é a direita e de que existe um código de verificação de seis dígitos associados.
 

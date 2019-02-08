@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaf6890223526b213ac4ec1180288b95fe6eaa29
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c32b24007a041b9eb2cc1a5418c221239f3267b6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149867"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893882"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos de Provisionamento para aplicações de SaaS no Azure Active Directory de usuários
 Microsoft Azure AD fornece suporte para aprovisionamento de utilizadores para aplicações de SaaS de terceiros, como o Salesforce, Google Apps e outros. Se tiver de aprovisionamento de utilizadores para uma aplicação SaaS de terceiros ativada, o portal do Azure controla os valores de atributo na forma de mapeamentos de atributos.
@@ -102,7 +102,7 @@ Aplicações e sistemas que suportam a personalização da lista de atributos in
 * As aplicações que suportam [SCIM 2.0](https://tools.ietf.org/html/rfc7643), em que os atributos definidos na [esquema central](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
 
 >[!NOTE]
->Editar a lista de atributos suportados apenas é recomendada para os administradores que tem personalizado o esquema de seus aplicativos e sistemas e tenham conhecimento de primeira mão de como seus atributos personalizados foram definidos. Às vezes, isso exige familiaridade com as ferramentas APIs e os desenvolvedores fornecidas por um aplicativo ou sistema. 
+>Editar a lista de atributos suportados apenas é recomendada para os administradores que tem personalizado o esquema de seus aplicativos e sistemas e tenham conhecimento de primeira mão de como seus atributos personalizados foram definidos. Às vezes, é necessário estar familiarizado com as APIs e ferramentas de programação fornecido por um aplicativo ou sistema. 
 
 ![Editor](./media/customize-application-attributes/25.png) 
 

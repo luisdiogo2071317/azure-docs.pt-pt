@@ -1,6 +1,6 @@
 ---
-title: Utilizar a pré-visualização de geração 2 de Lake armazenamento de dados do Azure URI
-description: Utilizar a pré-visualização de geração 2 de Lake armazenamento de dados do Azure URI
+title: Utilize a geração 2 Lake armazenamento de dados do Azure URI
+description: Utilize a geração 2 Lake armazenamento de dados do Azure URI
 services: storage
 author: jamesbak
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 63dcea94fd880102a784e6f776855c44d4e97c87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe020ab1091b91ba21174b59d0ce25ab0c6122ca
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243322"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878311"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utilize a geração 2 Lake armazenamento de dados do Azure URI
 
-O [sistema de ficheiros do Hadoop](http://www.aosabook.org/en/hdfs.html) controladores que seja compatível com a pré-visualização do Azure Data Lake Storage Gen2 é conhecido pelo respetivo identificador de esquema `abfs` (sistema de ficheiros de Blob do Azure). Consistente com outros controladores de sistema de ficheiros do Hadoop, o driver ABFS emprega um formato de URI para endereçar ficheiros e diretórios dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake.
+O [sistema de ficheiros do Hadoop](http://www.aosabook.org/en/hdfs.html) controladores que seja compatível com a geração 2 de armazenamento do Azure Data Lake é conhecido pelo respetivo identificador de esquema `abfs` (sistema de ficheiros de Blob do Azure). Consistente com outros controladores de sistema de ficheiros do Hadoop, o driver ABFS emprega um formato de URI para endereçar ficheiros e diretórios dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake.
 
 ## <a name="uri-syntax"></a>Sintaxe de URI
 

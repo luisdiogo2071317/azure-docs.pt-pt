@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Mostra como página por meio de todas as páginas Web que pesquisa personalizada do Bing pode devolver.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 50c4389830c6a9c131610e9091f7166097b1e728
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 625b85190c3b5fe338d804974ecd9c0c1a9d7a0d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158252"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868621"
 ---
 # <a name="paging-webpages"></a>Páginas Web de paginação 
 

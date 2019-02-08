@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: abf5857ed105f85e51c7eac4a5d1eb8cabe7a44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3c57e46ebb8828cbf2e44ced95d2d37afe5671c5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815120"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893923"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Instalar o Ansible em máquinas virtuais do Azure
 
@@ -25,7 +25,7 @@ O Ansible permite-lhe automatizar a implementação e a configuração de recurs
 
 - **Aceder ao Linux ou a uma máquina virtual do Linux** - se não tiver uma máquina virtual do Linux, crie uma [máquina virtual do Linux](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
 
-- **Principal de serviço do Azure**: Siga as instruções na secção do **criar o principal de serviço** secção no artigo [criar principal de serviço de Azure CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Tome nota dos valores para **appId**, **displayName**, **password** e **tenant**.
+- **Principal de serviço do Azure**: Siga as instruções na secção do **criar o principal de serviço** secção no artigo [criar principal de serviço de Azure CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Tome nota dos valores para **appId**, **displayName**, **password** e **tenant**.
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Instalar o Ansible numa máquina virtual do Linux para o Azure
 

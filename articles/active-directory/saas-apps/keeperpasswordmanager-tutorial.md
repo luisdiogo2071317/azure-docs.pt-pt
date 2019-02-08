@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 70dfc03c37b2e7a93218ff7e710dbd22f622d418
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 01c6fd8cb0e4995bfd4409072d47d2743d1aed1f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813309"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integração do Active Directory do Azure com o Gestor de palavra-passe de extinção do responsável & Digital de cofre
 
@@ -78,7 +78,7 @@ Para início de sessão único funcionar, uma relação de ligação entre um ut
 Para configurar e testar o Azure AD início de sessão único com o Gestor de palavra-passe de extinção do responsável & Digital de cofre, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configure o Gestor de palavra-passe de extinção do responsável e Digital Cofre de início de sessão único](#configure-keeper-password-manager-&-digital-vault-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **Configure o Gestor de palavra-passe de extinção do responsável e Digital cofre Single Sign-On** - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 5. **[Criar utilizador de teste de cofre Digital e Gestor de palavra-passe de extinção do responsável](#create-keeper-password-manager--digital-vault-test-user)**  - para ter um equivalente da Eduarda Almeida no Gestor de palavra-passe de extinção do responsável & Digital cofre que está ligada à representação de utilizador do Azure AD.

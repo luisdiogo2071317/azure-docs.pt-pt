@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Este tutorial descreve o cenário de exemplo de Unity para o Projeto Acoustics, incluindo a implementação no ambiente de trabalho e na VR.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7d8ba2f25bd53b407ab6860bc57163a79b7d228a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ecd19ec343b2744a70456fd1d3ad226856768d71
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174266"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880716"
 ---
 # <a name="unity-sample-walkthrough"></a>Tutorial de exemplo de Unity
 Este é um tutorial do exemplo do Projeto Acoustics. Para obter mais informações sobre o que é o Projeto Acoustics, consulte a [Introdução ao Projeto Acoustics](what-is-acoustics.md). Para obter ajuda na adição do pacote do Projeto Acoustics a um projeto Unity já existente, utilize o [Guia de Introdução](getting-started.md).

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 37b88b254b350d5c9e006e882a2dc5a39b880b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 64481be769cf7506508a0d06e10fe0f59e975f16
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477816"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895878"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199073"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871256"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipos de índice no Azure Cosmos DB
 
@@ -40,9 +40,9 @@ Seguem-se exemplos de consultas de Hash, intervalo, e os índices espaciais pode
 
 | **Tipo de índice** | **Caso de utilização/descrição** |
 | ---------- | ---------------- |
-| Hash  | Hash sobre/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM c coleção onde c.prop = "valor"<br><br>Hash sobre/propriedades / [] /? (ou / ou/propriedades /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECIONAR etiqueta de coleção c associação marca IN c.props marca onde = 5  |
-| Intervalo  | Intervalo em/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM c coleção onde c.prop = "valor"<br><br>SELECT FROM c coleção onde c.prop > 5<br><br>SELECIONAR a partir de coleção c ORDER BY c.prop   |
-| Espacial     | Intervalo em/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM c de coleção<br><br>ONDE ST_DISTANCE (c.prop, {"type": "Point", "coordenadas": [0,0, 10.0]}) < 40<br><br>SELECIONAR a partir de coleção c onde ST_WITHIN(c.prop, {"type": "Polígono",...}) – indexação nos pontos ativados<br><br>SELECIONAR a partir de coleção c onde ST_WITHIN({"type": "Point",...}, c.prop) – com indexação de polígonos ativados.     |
+| Hash  | Hash sobre/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash sobre/propriedades / [] /? (ou / ou/propriedades /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
+| Intervalo  | Intervalo em/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
+| Espacial     | Intervalo em/prop /? (ou /) pode ser utilizado para servir as seguintes consultas de forma eficiente:<br><br>SELECT FROM c de coleção<br><br>ONDE ST_DISTANCE (c.prop, {"type": "Point", "coordenadas": [0,0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Point",...}) – indexação nos pontos ativados<br><br>SELECIONAR a partir de coleção c onde ST_WITHIN({"type": "Polígono",...}, c.prop) – com indexação de polígonos ativados.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Comportamento predefinido de tipos de índice
 

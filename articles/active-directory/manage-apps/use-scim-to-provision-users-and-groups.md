@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: faebf6c5e7b32ec842c19af07e36a1120156e103
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732588"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894127"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
 
@@ -38,9 +38,9 @@ Esse recurso pode ser usado em conjunto com a capacidade de "traga a sua própri
 
 Existem dois casos de utilização para utilizar o SCIM no Azure Active Directory:
 
-* **Aprovisionamento de utilizadores e grupos para aplicações que suportam SCIM** -aplicações que suportam SCIM 2.0 e utilizam tokens de portador do OAuth para autenticação funciona com o Azure AD sem configuração.
+* **Aprovisionamento de utilizadores e grupos para aplicações que suportam SCIM** -aplicações que suportam SCIM 2.0 e utilizam tokens de portador do OAuth para autenticação de trabalham com o Azure AD sem configuração.
   
-* **Criar sua própria solução de configuração para aplicações que suportam a outros aprovisionamento baseado na API** -para aplicações não SCIM, pode criar um ponto de extremidade SCIM para traduzir entre o ponto de final do Azure AD SCIM e qualquer API, o aplicativo oferece suporte para Aprovisionamento de utilizadores. Para ajudar a desenvolver um ponto de extremidade SCIM, há bibliotecas de Common Language Infrastructure (CLI), juntamente com os exemplos de código que mostram como para fornecer um ponto de extremidade SCIM e traduzir mensagens SCIM.  
+* **Criar sua própria solução de configuração para aplicações que suportam a outros aprovisionamento baseado na API** -para aplicações não SCIM, pode criar um ponto de extremidade SCIM para traduzir entre o ponto de final do Azure AD SCIM e qualquer API, o aplicativo oferece suporte para Aprovisionamento de utilizadores. Para ajudar a desenvolver um ponto de extremidade SCIM, há bibliotecas de Common Language Infrastructure (CLI), juntamente com os exemplos de código que mostram como fornecer um ponto de extremidade SCIM e traduzir mensagens SCIM.  
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Aprovisionamento de utilizadores e grupos para aplicações que suportam SCIM
 O Azure AD pode ser configurado para automaticamente os utilizadores de aprovisionamento atribuído e grupos para aplicativos que implementam uma [sistema para a gestão de identidade entre domínios 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) serviço web e aceitar tokens de portador do OAuth para autenticação. Dentro da especificação de SCIM 2.0, aplicativos têm de cumprir estes requisitos:
@@ -74,7 +74,7 @@ Aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas 
    *Figura 3: Configurar o aprovisionamento no portal do Azure*
     
 6. Na **URL de inquilino** campo, introduza o URL do ponto final SCIM do aplicativo. Exemplo: https://api.contoso.com/scim/v2/
-7. Se o ponto de extremidade SCIM exige um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para o opcional **segredo de Token** campo. Se este campo for deixado em branco, o Azure AD incluído um token de portador do OAuth emitido a partir do Azure AD com cada solicitação. Aplicações que utilizam o Azure AD como fornecedor de identidade pode validar este Azure AD-emitiu o token.
+7. Se o ponto de extremidade SCIM exige um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para o opcional **segredo de Token** campo. Se este campo for deixado em branco, o Azure AD inclui um token de portador do OAuth emitido a partir do Azure AD com cada solicitação. Aplicações que utilizam o Azure AD como fornecedor de identidade podem validar este token emitido de AD do Azure.
 8. Clique nas **Testar ligação** botão para que o Azure Active Directory tentar estabelecer ligação ao ponto final do SCIM. Se as tentativas de falharem, são apresentadas informações de erro.  
 
     >[!NOTE]
@@ -86,7 +86,7 @@ Aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas 
     >[!NOTE]
     >Opcionalmente, pode desativar a sincronização de objetos de grupo, desativando os mapeamento de "grupos". 
 
-11. Sob **configurações**, o **âmbito** campo define quais os utilizadores e ou grupos são sincronizados. Selecionar "Sincronização apenas atribuído aos utilizadores e grupos" (recomendado) só irá sincronizar os utilizadores e grupos atribuídos na **utilizadores e grupos** separador.
+11. Sob **configurações**, o **âmbito** campo define quais usuários e grupos são sincronizados. Selecionar "Sincronização apenas atribuído aos utilizadores e grupos" (recomendado) só irá sincronizar os utilizadores e grupos atribuídos na **utilizadores e grupos** separador.
 12. Assim que a configuração estiver concluída, alterar os **estado de aprovisionamento** para **no**.
 13. Clique em **guardar** para iniciar o serviço de aprovisionamento do AD do Azure. 
 14. Se a sincronização atribuído apenas a utilizadores e grupos (recomendados), certifique-se de que selecione os **utilizadores e grupos** separador e atribua os utilizadores e/ou grupos que pretende sincronizar.
@@ -153,7 +153,7 @@ Para facilitar este processo, [exemplos de código](https://github.com/Azure/Azu
    ![][2]
    *Figura 4: Configurar o aprovisionamento no portal do Azure*
     
-6. Na **URL de inquilino** , insira o URL e a porta do ponto final do SCIM exposta de internet. A entrada é algo como http://testmachine.contoso.com:9000 ou endereço IP de exposto http://<ip-address>:9000/, em que < endereço ip > é a internet.  
+6. Na **URL de inquilino** , insira o URL e a porta do ponto final do SCIM exposta de internet. A entrada é algo como http://testmachine.contoso.com:9000 ou http://\<ip-address >: 9000 /, onde \<ip-address > é a internet expostos IP endereço.  
 7. Se o ponto de extremidade SCIM exige um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para o opcional **segredo de Token** campo. Se este campo for deixado em branco, do Azure AD irá incluir um token de portador do OAuth emitido a partir do Azure AD com cada solicitação. Aplicações que utilizam o Azure AD como fornecedor de identidade pode validar este Azure AD-emitiu o token.
 8. Clique nas **Testar ligação** botão para que o Azure Active Directory tentar estabelecer ligação ao ponto final do SCIM. Se as tentativas de falharem, são apresentadas informações de erro.  
 

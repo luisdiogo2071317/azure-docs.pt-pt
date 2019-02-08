@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c79f25eff553c359d969cd80a10eabbaaf50067d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 25335081e594c64b8d8cee02eebec6119e609618
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081406"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891503"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -52,7 +52,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
-    | Definições        | Valor           | Descrição  |
+    | Definições        | Value           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Aplicação Web Java | Tipo de aplicação que está a monitorizar |
@@ -82,6 +82,8 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 4. Marque **Enable telemetry with Application Insights (Ativar telemetria com o Application Insights)** > Selecione o recurso do App Insights e a **Chave de instrumentação** associada que pretende ligar à sua aplicação Java.
 
    ![Menu de Configuração do Azure no Eclipse](./media/java-quick-start/0007-j.png)
+
+5. Depois de configurar o plug-in do Application Insights terá [publicar/voltar a publicá](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure) seu aplicativo novamente, antes ele poderá começar a enviar telemetria.
 
 > [!NOTE]
 > O Application Insights SDK para Java é capaz de capturar e visualizar métricas dinâmicas, mas, quando ativa primeiro a recolha de dados telemétricos, pode demorar alguns minutos até que os dados comecem a aparecer no portal. Se esta aplicação for uma aplicação de teste de tráfego reduzido, tenha em atenção que a maioria das métricas só é capturada quando existem operações ou pedidos ativos.

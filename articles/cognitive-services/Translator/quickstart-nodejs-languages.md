@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá obter uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário, e exemplos que utilizam a API de Texto do Microsoft Translator com Node.js.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/29/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 71af575273b7299979679fa149c4960143b2b221
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: eb852f0449a7f59ba0235ffc8ad7c8aff6f3babc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208351"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892772"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Início rápido: Utilizar a API de texto do Translator para obter uma lista de idiomas suportados com node. js
 
 Neste início rápido, irá aprender a fazer um pedido GET que devolve uma lista de idiomas suportados com o Node.js e a API REST de Texto do Microsoft Translator.
-
-Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
 * [Node 8.12.x ou posterior](https://nodejs.org/en/)
-* Uma chave de subscrição do Azure para Tradução de Texto
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
@@ -43,25 +40,6 @@ const uuidv4 = require('uuid/v4');
 > Se ainda não utilizou estes módulos, terá de instalá-los antes de executar o seu programa. Para instalar estes pacotes, execute: `npm install request uuidv4`.
 
 Estes módulos são obrigatórios para construir o pedido HTTP e criar um identificador exclusivo para o cabeçalho `'X-ClientTraceId'`.
-
-## <a name="set-the-subscription-key"></a>Definir a chave de subscrição
-
-Este código irá tentar ler a chave de subscrição de Tradução de Texto a partir da variável de ambiente `TRANSLATOR_TEXT_KEY`. Se não estiver familiarizado com variáveis de ambiente, pode definir `subscriptionKey` como cadeia e comentar a instrução condicional.
-
-Copie este código para o seu projeto:
-
-```javascript
-/* Checks to see if the subscription key is available
-as an environment variable. If you are setting your subscription key as a
-string, then comment these lines out.
-
-If you want to set your subscription key as a string, replace the value for
-the Ocp-Apim-Subscription-Key header as a string. */
-const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
-if (!subscriptionKey) {
-  throw new Error('Environment variable for your subscription key is not set.')
-};
-```
 
 ## <a name="configure-the-request"></a>Configurar o pedido
 
@@ -79,17 +57,12 @@ let options = {
       'api-version': '3.0',
     },
     headers: {
-      'Ocp-Apim-Subscription-Key': subscriptionKey,
       'Content-type': 'application/json',
       'X-ClientTraceId': uuidv4().toString()
     },
     json: true,
 };
 ```
-
-### <a name="authentication"></a>Autenticação
-
-A forma mais fácil de autenticar um pedido é transmitir a sua chave de subscrição como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que vamos utilizar neste exemplo. Como alternativa, pode trocar a chave de subscrição por um token de acesso e transmiti-lo como um cabeçalho `Authorization` para validar o pedido. Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Fazer o pedido e imprimir a resposta
 

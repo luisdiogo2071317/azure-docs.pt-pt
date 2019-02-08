@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bb2d1182d473203e045b85e25d7c7a90f45a3ac6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493324"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894382"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos obsoletos no Azure AD
 
@@ -122,7 +122,7 @@ Para limpar o Azure AD:
 
 - **Dispositivos Windows 10** - desative ou elimine os dispositivos Windows 10 no seu AD no local e permita que o Azure AD Connect sincronize o estado do dispositivo alterado com o Azure AD.
 
-- **Windows 7/8** - desative ou elimine os dispositivos Windows 10 no Azure AD. Não pode utilizar o Azure AD Connect para desativar ou eliminar dispositivos Windows 7/8 no Azure AD.
+- **O Windows 7/8** – desativar ou eliminar dispositivos do Windows 7/8 no Azure AD. Não pode utilizar o Azure AD Connect para desativar ou eliminar dispositivos Windows 7/8 no Azure AD.
 
 
 

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: A API de Imagem Digitalizada fornece aos programadores acesso a algoritmos avançados para processamento de imagens e devolução de informações.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 35002ccfc294b59a13e6826b4ca75a1ab6c68b62
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816548"
+ms.locfileid: "55870304"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a Versão 1.0 da API de Imagem Digitalizada?
 

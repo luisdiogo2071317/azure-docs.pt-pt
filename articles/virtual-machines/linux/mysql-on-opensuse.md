@@ -1,6 +1,6 @@
 ---
 title: Instalar o MySQL numa VM OpenSUSE no Azure | Documentos da Microsoft
-description: Aprenda a instalar o MySQL numa máquina VMirtual do OpenSUSE Linux no Azure.
+description: Aprenda a instalar o MySQL numa máquina Virtual do OpenSUSE Linux no Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 98eb331fbd82ff718b01c99afd6840e3c2252777
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06fb4b9c39b773393d7a58bba44f240265e2200f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227867"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893706"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalar o MySQL numa máquina virtual com o OpenSUSE Linux no Azure
 
@@ -130,7 +130,7 @@ Esse procedimento alterna para a linha de comandos do MySQL em que pode emitir i
 
 Agora, crie um novo utilizador do MySQL.
 
-```   
+```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
@@ -142,7 +142,7 @@ A ponto e vírgula (;) no final da linha é crucial para terminar o comando.
 
 Criar uma base de dados e conceder a `mysqluser` permissões de utilizador.
 
-```   
+```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
@@ -151,7 +151,7 @@ Os nomes de utilizador de base de dados e de palavras-passe só são utilizadas 
 
 Ative o início de sessão de outro computador. Neste exemplo, é o endereço IP do computador para permitir o início de sessão *10.112.113.114*.
 
-```   
+```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    

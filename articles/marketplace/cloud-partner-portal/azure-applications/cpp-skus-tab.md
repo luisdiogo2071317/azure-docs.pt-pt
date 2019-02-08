@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0af7a7fd43bba46de6faa770bf3042fbf58a90f6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197285"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890904"
 ---
 # <a name="azure-application-skus-tab"></a>Separador de SKUs de aplicação do Azure
 
@@ -90,7 +90,7 @@ Configure as seguintes definições de SKU:
   >[!NOTE]
   >Guarde as alterações de preços para ativar a exportação/importação de dados de preços.
 
-- **Simplificado de preços de moeda** -introduza o preço para o SKU e, em USD por mês. Tem de ser igual a preços antigo. Para obter mais informações, consulte [preços de moeda simplificado](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing).
+- **Simplificado de preços de moeda** -introduza o preço para o SKU e, em USD por mês. Tem de ser igual a preços antigo. Para obter mais informações, consulte [preços de moeda simplificado](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### <a name="package-details-for-solution-template"></a>Detalhes do pacote para o modelo de solução
 

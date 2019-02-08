@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use o teste de batch para trabalhar continuamente na sua aplicação para refiná-la e melhorar a compreensão de idiomas.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: a5e3d52727d9f86631760a6ba33bae2172bb532b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 084f347c688c6b255ecbb58c16d8463d06cc2347
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212586"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870917"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com expressões de 1000 no portal do LUIS
 

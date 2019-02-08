@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b717e26e61a6633ea51817bcb21ebeb15a20969
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478224"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892008"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Início rápido: Importar um ficheiro BACPAC para uma nova base de dados do Azure SQL
 
@@ -28,7 +28,7 @@ Pode migrar uma base de dados do SQL Server para uma base de dados SQL do Azure 
 
 ## <a name="import-from-a-bacpac-file-in-the-azure-portal"></a>Importar a partir de um ficheiro BACPAC no portal do Azure
 
-Esta secção mostra como, na [portal do Azure](https://portal.azure.com), para criar uma base de dados SQL do Azure a partir de um ficheiro BACPAC armazenado no armazenamento de Blobs do Azure. O portal *apenas* armazenamento de BLOBs suporta a importação de um ficheiro BACPAC do Azure.
+Esta secção mostra como, na [portal do Azure](https://portal.azure.com), para criar uma base de dados SQL do Azure a partir de um ficheiro BACPAC armazenado no armazenamento de Blobs do Azure. O portal *apenas* suporta a importação de um ficheiro BACPAC do armazenamento de Blobs do Azure.
 
 > [!NOTE]
 > [O Azure SQL Database Managed Instance](sql-database-managed-instance.md) suporta a importação a partir de um ficheiro BACPAC com os outros métodos neste artigo, mas não suporta atualmente a migrar no portal do Azure.

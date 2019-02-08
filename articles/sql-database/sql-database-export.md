@@ -12,16 +12,16 @@ ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d00d9b4a945b139ed7b930609fdab24e4a211551
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463757"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891102"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportar uma base de dados SQL do Azure para um ficheiro BACPAC
 
-Quando for necessário exportar uma base de dados de arquivamento ou para mover para outra plataforma, pode exportar o esquema de base de dados e os dados para um [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) ficheiro. Um ficheiro BACPAC é um arquivo ZIP com uma extensão de BACPAC que contém os metadados e dados a partir de uma base de dados do SQL Server. Um ficheiro BACPAC pode ser armazenado no armazenamento de Blobs do Azure ou no armazenamento local numa localização no local e posteriormente importado no banco de dados do Azure SQL ou numa instalação do SQL Server no local.
+Quando for necessário exportar uma base de dados de arquivamento ou para mover para outra plataforma, pode exportar o esquema de base de dados e os dados para um [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) ficheiro. Um ficheiro BACPAC é um arquivo ZIP com uma extensão de BACPAC que contém os metadados e dados a partir de uma base de dados do SQL Server. Um ficheiro BACPAC pode ser armazenado no armazenamento de Blobs do Azure ou no armazenamento local numa localização no local e mais tarde importados back para a base de dados do Azure SQL ou para um SQL Server no local instalação.
 
 > [!IMPORTANT]
 > O Azure SQL Database exportação automatizada foram retirada no dia 1 de Março de 2017. Pode usar [retenção de cópia de segurança de longa duração](sql-database-long-term-retention.md

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f1d072d40967ac6d106de7489e0a2148fe7948ed
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: af5f1a5b8775e1e7346d4280dab77b98760b3209
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598106"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895232"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
 
@@ -33,7 +33,7 @@ Para concluir este tutorial:
 
 - <a href="https://hub.docker.com/" target="_blank">Inscrever numa conta do Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Instale o Docker para Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers" target="_blank">Mude o Docker para executar contentores do Windows</a>.
+- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Mude o Docker para executar contentores do Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Instale o Visual Studio 2017</a> com as cargas de trabalho **ASP.NET e de desenvolvimento na Web** e de **desenvolvimento no Azure**. Se já instalou o Visual Studio 2017:
     - Instale as atualizações mais recentes do Visual Studio ao clicar em **Ajuda** > **Procurar Atualizações**.
     - Adicione as cargas de trabalho ao Visual Studio, ao clicar em **Ferramentas** > **Obter Ferramentas e Funcionalidades**.

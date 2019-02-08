@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: b1aa60b028efb4bf4820f1f084a7cf0eea6e9639
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: adcf823879ee04c43d74743aa5d94184b63fd337
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808124"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integração do Active Directory do Azure com o serviço de segurança de Web do Symantec (WSS)
 
@@ -79,7 +79,7 @@ Para o início de sessão único funcionar, uma relação de ligação entre um 
 Para configurar e testar o Azure AD início de sessão único com o serviço de segurança de Web do Symantec (WSS), tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o serviço de segurança Web (WSS) da Symantec Single Sign-On](#configure-symantec-web-security-service-(wss)-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **Configurar o serviço de segurança Web (WSS) da Symantec Single Sign-On** - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 5. **[Criar utilizador de teste do serviço de segurança Web (WSS) da Symantec](#create-symantec-web-security-service-wss-test-user)**  - para ter um equivalente da Eduarda Almeida na segurança de Web da Symantec Service (WSS) que está ligado à representação de utilizador do Azure AD.

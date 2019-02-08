@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: c62be5041792690f023361da6254157aed1beeb2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: e0455ef99016fe1029f17256a6dbf5d9bbd8aa4d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749057"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890574"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
 
@@ -56,10 +56,13 @@ O modelo de compra baseado em vCore permite que escolha os recursos de computaç
 
 > [!IMPORTANT]
 > Computação, IOs, dados e armazenamento de registo é cobrada por base de dados ou conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para moreinformation sobre as cobranças de instância gerida, veja [instâncias geridas](sql-database-managed-instance.md).
-> **Limitações de região:** Para a lista atualizada de regiões suportadas, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se quiser criar uma instância gerida na região que não é atualmente suportado, pode [enviar o pedido de suporte através do portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Limitações de região:** Para a lista atualizada de regiões suportadas, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Se quiser criar uma instância gerida na região que não é atualmente suportado, pode [enviar o pedido de suporte através do portal do Azure](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Se a sua base de dados ou conjunto elástico consome mais de 300 conversão de DTU para vCore pode reduzir o custo. Pode converter a utilizar a API de escolha ou no portal do Azure, sem períodos de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra DTU cumpre os requisitos de negócios e desempenho, deve continuar a utilizá-lo. Se optar por converter o modelo de DTU para o modelo de vCore, selecione o tamanho de computação com a seguinte regra geral: cada 100 DTUS no escalão Standard requer, pelo menos, 1 vCore na camada de fins gerais; cada 125 DTU no escalão Premium requer, pelo menos, 1 vCore na camada de negócio críticos.
+Se a sua base de dados individual ou um conjunto elástico consome mais de 300 DTUs, a conversão para o modelo de compra baseado em vCore pode reduzir o custo. Se optar por converter, pode converter a utilizar a API de escolha ou no portal do Azure, sem períodos de indisponibilidade. No entanto, a conversão não é necessária e não é feita automaticamente. Se o modelo de compra baseado em DTU cumpre os requisitos de negócios e desempenho, deve continuar a utilizá-lo. Se optar por converter o modelo de compra baseado em DTU para o modelo de compra baseado em vCore, selecione o tamanho de computação com as seguintes regras básicas: 
+
+- Cada 100 DTUS no escalão Standard requer, pelo menos, 1 vCore na camada de fins gerais
+- Cada 125 DTU no escalão Premium requer, pelo menos, 1 vCore na camada de negócio críticos
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 

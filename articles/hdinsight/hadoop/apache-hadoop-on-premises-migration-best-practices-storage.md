@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 3e1d5ed05b7acc8f7e0fcc772a4124984c6cba45
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911749"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884543"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de armazenamento
 
@@ -50,7 +50,7 @@ Armazenamento do Azure oferece [eliminação de forma recuperável para objetos 
 Pode criar [instantâneos de blob](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). Um instantâneo é uma versão só de leitura de um blob que está a ser utilizado num ponto no tempo e fornece uma forma de fazer cópias de segurança de um blob. Assim que tiver sido criado um instantâneo, ele possa ser lido, copiado, ou eliminado, mas não modificado.
 
 > [!Note]
-> Para a versão mais antiga do distribuições de Hadoop no local no local que não tenha o certificado de "wasbs", ele precisa ser importados para o arquivo de confiança de Java.
+> Para versões mais antigas das distribuições de Hadoop no local que não têm o certificado de "wasbs", eles precisam ser importados para o arquivo de confiança de Java.
 
 Os seguintes métodos podem ser utilizados para importar certificados para o arquivo de confiança de Java:
 

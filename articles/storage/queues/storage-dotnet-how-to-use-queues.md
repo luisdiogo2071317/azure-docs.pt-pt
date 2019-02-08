@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 715c466c149a2d5a026e58ac0b908b41a51b9a90
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 14fdde7c38f29b7d9383911992f2bafb7d726d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455495"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871494"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -34,7 +34,7 @@ Este tutorial demonstra como escrever código .NET para alguns cenários comuns 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Biblioteca de Clientes do Armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Gestor de Configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* Uma [Conta do Storage do Azure](../common/storage-quickstart-create-account.md)
+* Uma [Conta do Storage do Azure](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 07be781c917a466b67580a99490eca4f6ff29985
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9e5570b937fe97cc9b6ccd9ac804a35ff8e07d6f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239796"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883071"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o Hive no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
 
@@ -23,7 +23,7 @@ As predefinições foram definidas para proporcionar um bom desempenho em muitos
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de geração 2 de armazenamento do Data Lake**. Para obter instruções sobre como criar um, consulte [início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md)
-* **Cluster de HDInsight do Azure** com acesso a uma conta de geração 2 de armazenamento do Data Lake.
+* **Cluster de HDInsight do Azure** com acesso a uma conta de geração 2 de armazenamento do Data Lake. Consulte [clusters de utilização do Azure Data Lake Storage Gen2 com o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 * **Em execução do Hive no HDInsight**.  Para saber mais sobre a execução de tarefas do Hive no HDInsight, veja [utilizar o Hive no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Diretrizes de geração 2 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen2 ajuste orientação de desempenho](data-lake-storage-performance-tuning-guidance.md)
 

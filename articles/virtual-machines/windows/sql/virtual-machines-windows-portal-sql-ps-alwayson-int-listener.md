@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/22/2017
+ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: dd09dd337cfe11729ef3ddc5d9b19f024d64300e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064003"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873007"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais Always On grupo serviços de escuta disponibilidade - Resource Manager
 Este tópico mostra como:
@@ -40,16 +40,42 @@ Tópicos relacionados incluem:
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
+## <a name="verify-powershell-version"></a>Verificar a versão do PowerShell
+
+Os exemplos neste artigo são testados com o Azure PowerShell versão 5.4.1 do módulo.
+
+Certifique-se de que o módulo do PowerShell é 5.4.1 ou posterior.
+
+Ver [instalar o módulo Azure PowerShell](http://docs.microsoft.com/powershell/azure/install-az-ps).
+
 ## <a name="configure-the-windows-firewall"></a>Configurar a Firewall do Windows
+
 Configure a Firewall do Windows para permitir o acesso do SQL Server. As regras de firewall permitam ligações de TCP para o uso de portas por instância do SQL Server e a sonda de serviço de escuta. Para obter instruções detalhadas, consulte [configurar uma Firewall do Windows para acesso ao motor de base de dados](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Crie uma regra de entrada para a porta do SQL Server e para a porta de sonda.
 
 Se estiver a restrição do acesso com um grupo de segurança de rede do Azure, certifique-se de que as regras de permissão incluem os endereços de IP da VM do SQL Server back-end e o Balanceador de carga IP flutuante endereços para o serviço de escuta de AG e o endereço IP de núcleo de cluster, se aplicável.
 
+## <a name="determine-the-load-balancer-sku-required"></a>Determinar o Balanceador de carga SKU necessário
+
+[Balanceador de carga do Azure](../../../load-balancer/load-balancer-overview.md) está disponível em 2 SKUs: Básico e Standard. Recomenda-se o Balanceador de carga standard. Se as máquinas virtuais num conjunto de disponibilidade, o Balanceador de carga básico é permitida. Balanceador de carga Standard requer que todos os endereços IP da VM utilizarem endereços IP padrão.
+
+O atual [modelo de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) para um disponibilidade grupo utiliza um balanceador de carga básico com endereços IP básicos.
+
+Os exemplos neste artigo, especifique um balanceador de carga standard. Nos exemplos, o script inclui `-sku Standard`.
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+```
+
+Para criar um balanceador de carga básico, remover `-sku Standard` partir da linha que cria o Balanceador de carga. Por exemplo:
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+```
+
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de exemplo: Criar um balanceador de carga interno com o PowerShell
+
 > [!NOTE]
-> Se tiver criado o seu grupo de disponibilidade com o [modelo de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), o Balanceador de carga interno já foi criado. 
-> 
-> 
+> Se tiver criado o seu grupo de disponibilidade com o [modelo de Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), o Balanceador de carga interno já foi criado.
 
 O seguinte script do PowerShell cria um balanceador de carga interno, configura a regras de balanceamento de carga e define um endereço IP do Balanceador de carga. Para executar o script, abra o ISE do Windows PowerShell e cole o script no painel de Script. Utilize `Connect-AzureRmAccount` para iniciar sessão no PowerShell. Se tiver várias subscrições do Azure, utilize `Select-AzureRmSubscription ` para definir a subscrição. 
 
@@ -86,7 +112,7 @@ $SQLHealthProbe = New-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -Protoco
 
 $ILBRule = New-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP 
 
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe 
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 
 $bepool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB 
 

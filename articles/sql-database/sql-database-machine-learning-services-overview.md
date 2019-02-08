@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824172"
+ms.locfileid: "55875608"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Serviços de Machine Learning (com R) na base de dados do Azure SQL (pré-visualização)
 
 Serviços de Machine Learning é um recurso do Azure SQL Database, utilizado para a execução de scripts do R na base de dados. A funcionalidade inclui pacotes de Microsoft R para Análise Preditiva de alto desempenho e o machine learning. Os dados relacionais podem ser usados nos scripts de R por meio de procedimentos armazenados, instruções de R que contém script T-SQL ou código de R que contém o T-SQL.
 
-> [!NOTE]
-> Serviços de Machine Learning (com R) na base de dados do Azure SQL está atualmente em pré-visualização pública. [Inscreva-se na pré-visualização](#signup) abaixo.
+> [!IMPORTANT]
+> Serviços de Machine Learning (com R) na base de dados do Azure SQL está atualmente em pré-visualização pública para bases de dados individuais e conjuntos elásticos com o modelo de compra baseado em vCore na **fins gerais** e **críticosdenegócio** escalões de serviço. Esta pré-visualização pública inicial, o **hiperescala** escalão de serviço e o **instância gerida** opção de implementação não são suportadas. Atualmente, a única linguagem suportada é R. Ainda não há suporte para Python neste momento. 
+>
+> A pré-visualização está atualmente disponível nas seguintes regiões: oeste Europa, Europa do Norte, E.U.A. oeste 2, E.U.A. leste, Centro-Sul, e.u.a. Centro-Norte, Canadá Central, Sudeste asiático, Sul da Índia e Sudeste da Austrália. 
+>
+> [Inscreva-se na pré-visualização](#signup) abaixo.
 
 ## <a name="what-you-can-do-with-r"></a>O que pode fazer com R
 
@@ -55,10 +59,6 @@ Para se inscrever na pré-visualização pública, siga estes passos:
 2. Enviar um e-mail à Microsoft em [ sqldbml@microsoft.com ](mailto:sqldbml@microsoft.com) para se inscrever na pré-visualização pública. A pré-visualização pública do Machine Learning Services (com R) na Base de Dados SQL do Azure não está ativada por predefinição.
 
 Assim que estão inscritos no programa, Microsoft irá carregar para a pré-visualização pública e ativar R para sua existente ou novo banco de dados.
-
-Serviços de Machine Learning (com R) na base de dados SQL está atualmente disponível apenas no modelo de compra baseado em vCore na **fins gerais** e **críticas para a empresa** escalões autónomo de serviço e Opções de implementação de conjuntos elásticos. Esta pré-visualização pública inicial, o **Hiperescala** escalão de serviço e **instância gerida** opções de implementação não são suportadas.
-
-Atualmente, a única linguagem suportada é R. Ainda não há suporte para Python neste momento. A pré-visualização está inicialmente disponível nas seguintes regiões: oeste Europa, Europa do Norte, E.U.A. oeste 2, E.U.A. leste, Centro-Sul, e.u.a. Centro-Norte, Canadá Central, Sudeste asiático, Sul da Índia e Sudeste da Austrália. Regiões adicionais serão adicionadas mais tarde.
 
 Não utilize serviços de Machine Learning com R para cargas de trabalho de produção durante a pré-visualização pública.
 

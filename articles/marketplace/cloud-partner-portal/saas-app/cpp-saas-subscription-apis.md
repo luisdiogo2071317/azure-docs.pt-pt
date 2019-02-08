@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e56169d74d1669c3bb7adda06590145d2ca31b72
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695377"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893345"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Venda de SaaS através do Azure - APIs
 
@@ -68,7 +68,7 @@ Para registar uma nova aplicação com o portal do Azure, execute os seguintes p
     -   **Início de sessão no URL**: Para aplicações de aplicação/API da Web, indique o URL de base da sua aplicação. Por exemplo, **http://localhost:31544** pode ser o URL para uma aplicação web em execução no seu computador local. Os utilizadores, em seguida, usaria este URL para iniciar sessão a uma aplicação de cliente da web.
     -   **URI de redirecionamento**: Para aplicações nativas, forneça o URI utilizado pelo Azure AD para devolver respostas token. Introduza um valor específico para seu aplicativo, por exemplo **http://MyFirstAADApp**.
 
-        ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-2.png) para obter exemplos específicos de aplicações web ou aplicações nativas, veja o guia de introdução orientada instalações que estão disponíveis na secção introdução do [guia para programadores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
+        ![Registos de aplicações do AD de SaaS](./media/saas-offer-app-registration-2.png) para obter exemplos específicos de aplicações web ou aplicações nativas, veja o guia de introdução orientada instalações que estão disponíveis na secção introdução do [guia para programadores do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 5.  Quando terminar, clique em **Criar**. Azure AD atribui um ID de aplicação exclusivo para seu aplicativo e\'re direcionado para seu aplicativo\'página registo principal. Dependendo de se a sua aplicação é do tipo nativo ou Web, dispõe de várias opções para lhe adicionar mais capacidades.
 
@@ -148,7 +148,9 @@ A versão de API atual é `api-version=2017-04-15`.
 
 ### <a name="resolve-subscription"></a>Resolver a subscrição
 
-Ação de publicação em resolver o ponto final permite aos utilizadores resolver um token para um ID de recurso persistente.
+Ação de publicação em resolver o ponto final permite aos utilizadores resolver um token do marketplace para uma ID de recurso persistente.  O ID de recurso é o identificador exclusivo para a subscrição de SAAS. 
+
+Quando um utilizador é redirecionado para o site de um ISV, o URL contém um token nos parâmetros de consulta. O ISV deve utilizar este token e fazer um pedido para resolvê-lo. A resposta contém o exclusivo ID de subscrição de SAAS, nome, ID de oferta e plano para o recurso. Este token é válido apenas uma hora.
 
 *Pedido*
 

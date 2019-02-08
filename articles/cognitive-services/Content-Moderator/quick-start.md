@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Neste início rápido, irá utilizar a ferramenta de revisão de moderador de conteúdo online para testar a funcionalidade básica do Content Moderator sem ter de escrever qualquer código.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 52c69aee4a8fdf8ad08590113c95ff3de3b0883b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: cfaf0bf20449262fcebb6cefc1b0a499c6190ae8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55205802"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861175"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início rápido: Experimente o Content Moderator na web
 

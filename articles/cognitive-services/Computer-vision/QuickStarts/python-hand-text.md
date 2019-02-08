@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 69a2c457b7971cb856507393851317769c99a5e2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3e7284932199a97fa5256e1deea09fadeb01f29b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209201"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869505"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Extrair texto manuscrito usando a REST API e Python em de imagem digitalizada
 

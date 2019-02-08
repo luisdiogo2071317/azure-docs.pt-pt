@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Este artigo contém keyphrase informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: a2bb486de0999ad61cf2fdfdfb57dd91d376f597
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b8bff1ecce7a50f819d00db243eb3e7868c9982e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206602"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869058"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>keyPhrase entidade criados previamente para uma aplicação LUIS
 keyPhrase extrai uma variedade de expressões-chave de uma expressão. Não é necessário adicionar expressões de exemplo que contém keyPhrase à aplicação. entidade keyPhrase é suportada no [várias culturas](luis-language-support.md#languages-supported) como parte do [análise de texto](../text-analytics/overview.md) funcionalidades. 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0ac37c2bb0430cc4299947638596be8698ae4a34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814542"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892344"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Criar WSFC, o serviço de escuta e configurar o ILB para um grupo de disponibilidade Always On numa VM do SQL Server com o modelo de início rápido do Azure
 Este artigo descreve como utilizar os modelos de início rápido do Azure para parcialmente automatizar a implementação de uma configuração de grupo Always On disponibilidade para máquinas virtuais SQL Server no Azure. Existem dois modelos de início rápido do Azure que são utilizados neste processo. 
@@ -166,7 +166,7 @@ O grupo de disponibilidade selecionado utilizado no serviço de escuta de AG mod
 ### <a name="connection-only-works-from-primary-replica"></a>Ligação só funciona da réplica primária
 Este comportamento é provável que uma falha de **101-sql-vm-aglistener-setup** implementação do modelo mantendo a configuração de ILB num estado inconsistente. Certifique-se de que o conjunto de back-end lista o conjunto de disponibilidade e de que existem regras para a sonda de estado de funcionamento e para as regras de balanceamento de carga. Se nada estiver em falta, em seguida, a configuração de ILB é um estado inconsistente. 
 
-Para resolver esse comportamento, remover o serviço de escuta usando [PowerShell](#remove-availability-group-listener)eliminar o Balanceador de carga interno através do portal do Azure e recomeçar [passo 3](#step-3---manually-create-the-internal-load-balanced-ilb). 
+Para resolver esse comportamento, remover o serviço de escuta usando [PowerShell](#remove-availability-group-listener), eliminar o Balanceador de carga interno através do portal do Azure e iniciar novamente o passo 3. 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest - lista de máquinas virtuais do SQL só pode ser atualizado
 Este erro pode ocorrer ao implementar o **101-sql-vm-aglistener-setup** modelo se o serviço de escuta foi eliminado através do SQL Server Management Studio (SSMS), mas não foi eliminado do fornecedor de recursos de VM do SQL Server. A eliminar o serviço de escuta através do SSMS não remove os metadados do serviço de escuta do fornecedor de recursos de VM do SQL Server; o serviço de escuta tem de ser eliminado do fornecedor de recursos usando [PowerShell](#remove-availability-group-listener). 

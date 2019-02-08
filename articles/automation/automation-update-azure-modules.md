@@ -6,36 +6,65 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c0636a3e1fa50f90c68393aea910f36d38d8eaf5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 637cf4b0e53055e114536e591b334d51d5ddcc92
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437272"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883904"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar módulos do Azure PowerShell na automatização do Azure
+
+Para atualizar os módulos do Azure na sua conta de automatização é recomendado agora, utilize o [runbook de módulos do Azure atualizar](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), que é o código-fonte aberto agora. Além disso, pode continuar a utilizar o runbook de programa auxiliar [atualização AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) ou utilizar o **atualizar módulos do Azure** botão no portal para atualizar os módulos do Azure. Para saber mais sobre como utilizar o runbook de código-fonte aberto, veja [módulos do Azure de atualização com código-fonte aberto runbook](#open-source).
 
 Os módulos Azure PowerShell mais comuns são fornecidos por predefinição em cada conta de automatização. A equipa do Azure atualiza regularmente o os módulos do Azure. Na sua conta de automatização, é apresentada uma forma de atualizar os módulos na conta quando existem novas versões do portal.
 
 > [!NOTE]
 > A nova [módulo do Azure PowerShell Az](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) não são suportados na automatização do Azure.
 
-Uma vez que os módulos são atualizados regularmente pelo grupo de produtos, as alterações podem ocorrer com os cmdlets incluídos. Esta ação pode afetar negativamente os runbooks dependendo do tipo de alteração, tal como mudar o nome de um parâmetro ou descontinuar um cmdlet inteiramente. Para evitar ter impacto nos seus runbooks e os processos que automatizar, testar e validar antes de continuar. Se não tiver uma conta de automatização dedicada a finalidade para esta finalidade, considere a criação de um para que pode testar vários cenários diferentes durante o desenvolvimento dos seus runbooks. Esse teste deve incluir alterações iterativas, como atualizar os módulos do PowerShell. Se desenvolver seus scripts localmente, recomenda-se de ter as mesmas versões do módulo localmente que tem na sua conta de automatização quando um teste para garantir que receberá os mesmos resultados. Depois dos resultados são validados e aplicou as alterações necessárias, pode mover as alterações para produção.
+Uma vez que os módulos são atualizados regularmente pelo grupo de produtos, as alterações podem ocorrer com os cmdlets incluídos. Esta ação pode afetar negativamente os runbooks dependendo do tipo de alteração, tal como mudar o nome de um parâmetro ou descontinuar um cmdlet inteiramente.
+
+Para evitar ter impacto nos seus runbooks e os processos que automatizar, testar e validar antes de continuar. Se não tiver uma conta de automatização dedicada a finalidade para esta finalidade, considere a criação de um para que pode testar vários cenários diferentes durante o desenvolvimento dos seus runbooks. Esse teste deve incluir alterações iterativas, como atualizar os módulos do PowerShell. 
+
+Se desenvolver seus scripts localmente, é recomendado ter as mesmas versões do módulo localmente que tem na sua conta de automatização quando um teste para garantir que receberá os mesmos resultados. Depois dos resultados são validados e aplicou as alterações necessárias, pode mover as alterações para produção.
 
 > [!NOTE]
 > Uma nova conta de automatização não pode conter os módulos mais recentes.
 
-## <a name="updating-azure-modules"></a>Atualizar módulos do Azure
+## <a name="open-source"></a>Atualizar módulos do Azure com o código-fonte aberto runbook
+
+Para começar a utilizar o **AutomationAzureModulesForAccount de atualização** runbook para atualizar os módulos do Azure, transfira-o a partir do [repositório de runbook de módulos do Azure atualizar](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) no GitHub. Em seguida, pode importá-lo para a sua conta de automatização ou executá-lo como um script. As instruções sobre como fazer isso podem ser encontradas na [repositório de runbook de módulos do Azure de atualização](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).
+
+### <a name="considerations"></a>Considerações
+
+Seguem-se algumas considerações para levar em conta ao utilizar este processo para atualizar os módulos do Azure:
+
+* Se importar este runbook com o nome original `Update-AutomationAzureModulesForAccount`, ele irá substituir o runbook interno com este nome. Como resultado, o runbook importado será executado quando o **módulos do Azure de atualização** botão é emitidos via push ou quando este runbook seja invocado diretamente por meio da API do Azure Resource Manager para esta conta de automatização.
+
+* Apenas `Azure` e `AzureRM.*` módulos são atualmente suportados. A nova [módulos do Azure PowerShell Az](/powershell/azure/new-azureps-module-az) ainda não são suportados.
+
+* Evite a partir de contas de automatização que contêm módulos Az este runbook.
+
+* Antes de iniciar este runbook, certifique-se de que a sua conta de automatização tem um [credencial da conta Run As do Azure](manage-runas-account.md) criado.
+
+* Pode usar esse código como um script do PowerShell regular em vez de um runbook: basta iniciar sessão no Azure com o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) comando pela primeira vez, em seguida, passar `-Login $false` ao script.
+
+* Para utilizar este runbook em Clouds soberanas, utilize o `AzureRmEnvironment` parâmetro para passar o ambiente correto para o runbook.  Os valores aceitáveis são **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, e **AzureUSGovernment**. Estes valores podem ser recuperados do usando `Get-AzureRmEnvironment | select Name`. Se não passar um valor para este parâmetro, o runbook será predefinido para a cloud pública do Azure **AzureCloud**
+
+* Se pretender utilizar uma versão do módulo Azure PowerShell específica em vez de mais recente disponível na galeria do PowerShell, passar essas versões para o opcional `ModuleVersionOverrides` parâmetro do **Update-AutomationAzureModulesForAccount**runbook. Para obter exemplos, consulte a [AutomationAzureModulesForAccount.ps1 atualização](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1
+) runbook. Os módulos do Azure PowerShell que não são mencionados no `ModuleVersionOverrides` parâmetro são atualizados com as versões mais recentes do módulo na galeria do PowerShell. Se passar nada para o `ModuleVersionOverrides` parâmetro, todos os módulos são atualizados com as versões mais recentes do módulo na galeria do PowerShell. Este comportamento é igual a **módulos do Azure de atualização** botão.
+
+## <a name="update-azure-modules-in-the-azure-portal"></a>Atualizar módulos do Azure no portal do Azure
 
 1. Na página de módulos de sua conta de automatização, há uma opção chamada **módulos do Azure de atualização**. Ele está sempre ativado.<br><br> ![Atualizar a opção de módulos do Azure na página de módulos](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
   > [!NOTE]
   > Antes de atualizar seus módulos do Azure, que é recomendado que Atualize-os num teste de conta de automatização para garantir que seus scripts existentes funcionam conforme esperado antes de atualizar seus módulos do Azure.
   >
-  > O **módulos do Azure de atualização** botão só está disponível na cloud pública. não está disponível na [regiões de soberania](https://azure.microsoft.com/global-infrastructure/). Veja [maneiras alternativas de atualizar seus módulos](#alternative-ways-to-update-your-modules) secção para saber mais.
+  > O **módulos do Azure de atualização** botão só está disponível na cloud pública. não está disponível na [regiões de soberania](https://azure.microsoft.com/global-infrastructure/). Utilize o **AutomationAzureModulesForAccount atualização** runbook para atualizar os módulos do Azure. Pode baixá-lo do [repositório de runbook de módulos do Azure de atualização](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Para saber mais sobre como utilizar o runbook de código-fonte aberto, veja [módulos do Azure de atualização com código-fonte aberto runbook](#open-source).
 
 2. Clique em **módulos do Azure de atualização**, é mostrada uma notificação de confirmação que pede-lhe se pretende continuar.<br><br> ![Atualizar notificação de módulos do Azure](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
@@ -63,7 +92,9 @@ Se utilizar cmdlets destes módulos do PowerShell do Azure nos runbooks, quer pa
 
 Conforme mencionado, o **módulos do Azure de atualização** botão não está disponível em Clouds soberanas, só está disponível na cloud do Azure global. Isso é que a versão mais recente dos módulos do PowerShell do Azure da galeria do PowerShell poderá não funcionar com os recursos de Gestor de recursos atualmente implementados nessas nuvens.
 
-Pode importar e executar o [AzureModule.ps1 atualização](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook para tentar atualizar os módulos do Azure na sua conta de automatização. Em geral, é uma boa idéia para atualizar todos os módulos do Azure ao mesmo tempo. No entanto, este processo pode falhar se as versões que está a tentar importar a partir da Galeria não ser compatível com os serviços do Azure atualmente implementados para o ambiente do Azure de destino. Isso pode exigir que verifique se que as versões compatíveis do módulos são especificadas nos parâmetros do runbook.
+Ainda pode importar e executar o [AzureModule.ps1 atualização](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook para tentar atualizar os módulos do Azure na sua conta de automatização. Mas é recomendado que utilize o **AutomationAzureModulesForAccount atualização** runbook para atualizar os módulos do Azure. Pode baixá-lo do [repositório de runbook de módulos do Azure de atualização](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Para saber mais sobre como utilizar o runbook de código-fonte aberto, veja [módulos do Azure de atualização com código-fonte aberto runbook](#open-source).
+
+Em geral, é uma boa idéia para atualizar todos os módulos do Azure ao mesmo tempo. No entanto, este processo pode falhar se as versões que está a tentar importar a partir da Galeria não ser compatível com os serviços do Azure atualmente implementados para o ambiente do Azure de destino. Isso pode exigir que verifique se que as versões compatíveis do módulos são especificadas nos parâmetros do runbook.
 
 Utilize o `AzureRmEnvironment` parâmetro para passar o ambiente correto para o runbook.  Os valores aceitáveis são **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, e **AzureUSGovernment**. Estes valores podem ser recuperados do usando `Get-AzureRmEnvironment | select Name`. Se não passar um valor para este parâmetro, o runbook será predefinido para a cloud pública do Azure **AzureCloud**
 
@@ -71,6 +102,4 @@ Se pretender utilizar uma versão do módulo Azure PowerShell específica em vez
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre como criar módulos personalizados para integrar mais automação com outros sistemas, serviços ou soluções e os módulos de integração, consulte [módulos de integração](automation-integration-modules.md).
-
-
+* Visite o [runbook de módulos do Azure de atualização](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) para saber mais sobre ele.

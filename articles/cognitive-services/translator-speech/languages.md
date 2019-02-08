@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Ver os idiomas suportados pela API de voz do Translator.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: c2b518b695fa18a2babb5c5bc4ee84a1193b69d4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460350"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873055"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas suportados pela API de voz do Translator
 

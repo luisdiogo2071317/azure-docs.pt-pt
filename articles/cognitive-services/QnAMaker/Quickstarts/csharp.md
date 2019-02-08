@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Obter C# baseado em REST informações exemplos de código para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 34290704bf5220302a0ce73aa59c1a3b212f2723
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 630b8233caded0865271d625d12a8bcf193c2bde
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217667"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866258"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Como utilizar a API de REST do QnA Maker comC# 
 <a name="HOLTop"></a>

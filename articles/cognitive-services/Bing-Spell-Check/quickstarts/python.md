@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Verificação de Ortografia do Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: 09000b5224e08ff79a55d028ddfba7b89855333f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5aa67c0e582d64f258da7abd01a9492daaf91efd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181287"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882289"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-python"></a>Início Rápido da API de Verificação de Ortografia do Bing com Python 
 

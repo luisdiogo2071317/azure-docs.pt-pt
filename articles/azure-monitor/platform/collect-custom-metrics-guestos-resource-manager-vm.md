@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 49c37c5dd2910cda234c479dc624f6c6ae92f6c1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467932"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894603"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas de SO convidado para a métrica do Azure Monitor armazenam utilizando um modelo do Resource Manager para uma máquina virtual do Windows
 
@@ -27,7 +27,7 @@ Se estiver familiarizado com modelos do Resource Manager, saiba mais sobre [impl
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal).
+- A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
 - Tem de ter [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 

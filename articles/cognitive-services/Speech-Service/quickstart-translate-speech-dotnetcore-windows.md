@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá criar um aplicativo simples do .NET Core para capturar a voz do utilizador, convertê-lo em outro idioma e o texto na linha de comando de saída. Este guia foi concebido para utilizadores do Windows.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 1f2aea353bdff41ef340e1f68dd684a994d70d7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a49c79ace71c68b2dc309b94fef1010627f7a81b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227765"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882034"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Início rápido: Traduzir a conversão de voz com o SDK de voz para .NET Core
 

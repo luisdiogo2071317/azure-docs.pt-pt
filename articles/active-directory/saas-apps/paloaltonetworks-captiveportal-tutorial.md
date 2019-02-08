@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 15ddb29f090ca8dc14befc93e3377c181038b554
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1888ac8098773d6110e5510a3dd6c0ca1220f5d7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816165"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de cativas de redes da Palo Alto
 
@@ -81,7 +81,7 @@ Para configurar e testar o Azure AD início de sessão único com o Portal de ca
 2. **[Configurar Portal de cativas da Palo Alto redes início de sessão único](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Configure as definições de início de sessão únicas no aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**: Teste do Azure AD início de sessão único com o usuário *Eduarda Almeida*.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**: Defina Eduarda Almeida para utilizar o Azure AD início de sessão único.
-5. **[Criar um utilizador de teste do Portal de cativas de redes da Palo Alto](#create-palo-alto-networks-captive-portal-test-user)**: Criar um utilizador de contraparte *Eduarda Almeida* da Palo Alto redes Portal cativas que está ligada ao utilizador do Azure AD.
+5. **Criar um utilizador de teste do Portal de cativas da Palo Alto redes**: Criar um utilizador de contraparte *Eduarda Almeida* da Palo Alto redes Portal cativas que está ligada ao utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**: Certifique-se de que a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d6fed65dad0e8f12495177b274cef181e9e91879
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044319"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877512"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize a biblioteca de .NET de executor em massa para realizar operações em massa no Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Atualmente, a biblioteca de executor de em massa é suportada pelo Azure Cosmos 
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar. 
 
-* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` URI. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
+* Pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure, sem encargos e compromissos. Em alternativa, pode utilizar o [emulador do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) com o `https://localhost:8081` ponto final. A Chave Primária é fornecida em [Autenticar pedidos](local-emulator.md#authenticating-requests).
 
 * Criar uma conta do Azure Cosmos DB SQL API com os passos descritos em [criar conta de base de dados](create-sql-api-dotnet.md#create-a-database-account) secção do artigo de início rápido do .NET. 
 
@@ -112,10 +112,10 @@ O aplicativo de "BulkImportSample" gera documentos aleatórios e em massa import
 
    |**Parâmetro**  |**Descrição**  |
    |---------|---------|
-   |NumberOfDocumentsImported (longa)   |  O número total de documentos que foram importadas com êxito sem os documentos fornecidos para a maior parte importar chamada à API.       |
+   |NumberOfDocumentsImported (long)   |  O número total de documentos que foram importadas com êxito sem os documentos fornecidos para a maior parte importar chamada à API.       |
    |TotalRequestUnitsConsumed (double)   |   As unidades de pedido total (RU) consumidas pela maior parte importar chamada à API.      |
-   |TotalTimeTaken (intervalo de tempo)    |   O tempo total que a importação em massa chamada à API para concluir a execução.      |
-   |BadInputDocuments (lista<object>)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
+   |TotalTimeTaken (TimeSpan)    |   O tempo total que a importação em massa chamada à API para concluir a execução.      |
+   |BadInputDocuments (List<object>)   |     A lista de documentos de formato incorreto que não foram importadas com êxito na massa importar chamada à API. Utilizador deve corrigir os documentos devolvidos e repita a importação. Documentos de formato incorreto incluem documentos cujo valor de ID não é uma cadeia de caracteres (nulo ou qualquer outro tipo de dados é considerado inválido).    |
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Dados de atualização em massa no Azure Cosmos DB
 
@@ -161,9 +161,9 @@ Pode atualizar os documentos existentes com a API de BulkUpdateAsync. Neste exem
 
    |**Parâmetro**  |**Descrição** |
    |---------|---------|
-   |NumberOfDocumentsUpdated (longa)    |   O número total de documentos que foram atualizadas com êxito dos fornecido para a chamada de API de atualização em massa.      |
+   |NumberOfDocumentsUpdated (long)    |   O número total de documentos que foram atualizadas com êxito dos fornecido para a chamada de API de atualização em massa.      |
    |TotalRequestUnitsConsumed (double)   |    As unidades de total do pedido (RU) consumidos pela atualização em massa, chamada de API.    |
-   |TotalTimeTaken (intervalo de tempo)   | O tempo total que a maior parte chamada à API para concluir a execução de atualização. |
+   |TotalTimeTaken (TimeSpan)   | O tempo total que a maior parte chamada à API para concluir a execução de atualização. |
     
 ## <a name="performance-tips"></a>Sugestões de desempenho 
 

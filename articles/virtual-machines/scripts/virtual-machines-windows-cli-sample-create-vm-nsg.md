@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: be2d2a56bf19c91224fc09e9bf36b669db87ef81
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0afdcef546d53c2caf13828576338c47e03c4fc9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660260"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894830"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>Proteger o tráfego de rede entre as máquinas virtuais
 
@@ -49,12 +49,12 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Cria uma rede e sub-rede virtual do Azure. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Cria uma sub-rede. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
-| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_update) | Atualiza uma regra NSG. Neste exemplo, a regra de back-end é atualizada para transmitir o tráfego apenas da sub-rede do front-end. |
-| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#az_network_nsg_rule_list) | Devolve informações sobre uma regra do grupo de segurança de rede. Neste exemplo, o nome da regra é armazenado numa variável para utilização posterior no script. |
+| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet) | Cria uma sub-rede. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
+| [az network nsg rule update](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Atualiza uma regra NSG. Neste exemplo, a regra de back-end é atualizada para transmitir o tráfego apenas da sub-rede do front-end. |
+| [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Devolve informações sobre uma regra do grupo de segurança de rede. Neste exemplo, o nome da regra é armazenado numa variável para utilização posterior no script. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes

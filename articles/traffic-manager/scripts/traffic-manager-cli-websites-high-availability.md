@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
-ms.openlocfilehash: 6070c037138cfb0716c9a31d5923ecddb1a30790
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 284e0817023c13cee441d50dc226d5c2aa5f54c2
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413571"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891526"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Encaminhar o tráfego de elevada disponibilidade de aplicações através da CLI do Azure
 
@@ -50,10 +50,10 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Cria um plano do Serviço de Aplicações. É como um farm de servidores para a sua aplicação web do Azure. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Cria um plano do Serviço de Aplicações. É como um farm de servidores para a sua aplicação web do Azure. |
 | [az webapp web create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Cria uma aplicação web do Azure no plano do serviço de aplicações. |
-| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) | Cria um perfil do Gestor de Tráfego do Azure. |
+| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Cria um perfil do Gestor de Tráfego do Azure. |
 | [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Adiciona um ponto final a um perfil de Gestor de tráfego do Azure. |
 
 ## <a name="next-steps"></a>Passos Seguintes

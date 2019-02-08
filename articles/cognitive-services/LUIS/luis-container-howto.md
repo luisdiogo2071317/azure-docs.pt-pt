@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: O contentor de LUIS carrega a aplicação publicada ou preparada para um contentor do docker e fornece acesso para as previsões de consulta de pontos finais da API do contentor.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 1ae4396c6b91f81e273e6ad171f4cac9b55445f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296907"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864738"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -252,7 +252,7 @@ Obter mais [exemplos](luis-container-configuration.md#example-docker-run-command
 
 O contêiner fornece o ponto final de predição de consulta baseado em REST APIs. Pontos finais para aplicações publicadas, (de teste ou produção) tem um _diferentes_ rota que pontos de extremidade para aplicações preparados. 
 
-Usar o host, https://localhost:5000, para o contentor APIs. 
+Usar o host, `https://localhost:5000`, para o contentor APIs. 
 
 |Tipo de pacote|Método|Encaminhar|Parâmetros de consulta|
 |--|--|--|--|

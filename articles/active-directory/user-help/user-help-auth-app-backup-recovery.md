@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 734e337ba8dff996e9b9cecd7602115bf97b4810
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 97785927d5629aeca81b08353f2f9850c0a31ea0
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773993"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894637"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Cópia de segurança e recuperar credenciais de conta com a aplicação Microsoft Authenticator
 
@@ -83,7 +83,7 @@ Para contas Microsoft pessoais, pode provar a sua identidade ao introduzir a pal
     ![Aplicação Microsoft Authenticator, permitindo-lhe analisar o código QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Para mais informações sobre como obter um código QR, veja [começar com a aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install#add-accounts-to-the-app) ou [definir informações de segurança para utilizar uma aplicação de autenticação](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), com base nos se o seu administrador tiver ativado a informações de segurança.
+    >Para mais informações sobre como obter um código QR, veja [começar com a aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [definir informações de segurança para utilizar uma aplicação de autenticação](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), com base nos se o seu administrador tiver ativado a informações de segurança.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Resolução de problemas de cópia de segurança e recuperação
 Há alguns motivos por que a cópia de segurança pode não estar disponível:

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cadf4c564ab8600094bc545ae7270eb9c0642e1e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767457"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890965"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões nos quais serviços de multimédia do Azure v3 existe
 
@@ -40,7 +40,7 @@ Serviços de multimédia do Azure v3 está disponível através do Azure Resourc
 * [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Localizações do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="region-code-name"></a>Nome do código de região 
+### <a name="region-code-name"></a>Nome do código de região 
 
 Quando precisa fornecer o **localização** parâmetro, tem de fornecer o nome de código de região que o **localização** valor. Para obter o nome de código da região que pertença a sua conta e que sua chamada deve ser roteada para, pode executar a seguinte linha [da CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -62,6 +62,14 @@ Por exemplo, para a região do Azure E.U.A. oeste 2 (apresentado abaixo), irá u
       "subscriptionId": null
     }
 ```
+
+## <a name="endpoints"></a>Pontos Finais  
+
+| Ponto Final|Global Azure | Azure Government|Azure Alemanha|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
+| Audiência do token | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 89d5c9c4e553ac82b604c1d3a20eb67b4055e6c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e681d192b3df429fc7aa5f340baa56fa739bad34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492900"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891645"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect com permissões de administrador do SQL delegado
 Antes da compilação mais recente do Azure AD Connect, a delegação administrativa, ao implementar as configurações necessárias do SQL, não era suportada.  Os utilizadores que pretendem instalar o Azure AD Connect é necessário ter permissões de administrador (SA) de servidor no SQL server.
@@ -54,10 +54,7 @@ Para aprovisionar a base de dados fora de banda e instale o Azure AD Connect com
 ## <a name="additional-information"></a>Informações adicionais
 Assim que a base de dados é aprovisionado, o administrador do Azure AD Connect pode instalar e configurar sincronização no local a suas necessidades.  
 
-O **/UseExistingDatabase** sinalizador é necessário quando utilizar uma base de dados previamente criada.  Não é apenas utilizado em situações de recuperação.
-
-Além de oferecer suporte a novas instalações do Azure AD Connect, esta funcionalidade também permite que a delegação para qualquer cenário relacionados para o **/UseExistingDatabase** sinalizador.  Para obter mais informações sobre como instalar o Azure AD Connect com uma base de dados existente, consulte [instalar o Azure AD Connect com a base de dados ADSync existente](how-to-connect-install-existing-database.md)
-
+Para obter mais informações sobre como instalar o Azure AD Connect com uma base de dados existente, consulte [instalar o Azure AD Connect com a base de dados ADSync existente](how-to-connect-install-existing-database.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Introdução ao Azure AD Connect com as definições rápidas](how-to-connect-install-express.md)

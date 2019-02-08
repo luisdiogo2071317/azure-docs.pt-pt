@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002055"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892563"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados confidenciais | Atenuações 
 | Produtos/serviços | Artigo |
@@ -38,7 +38,7 @@ ms.locfileid: "53002055"
 
 ## <a id="binaries-info"></a>Certifique-se de que os binários são oculto se contiverem informações confidenciais
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -49,7 +49,7 @@ ms.locfileid: "53002055"
 
 ## <a id="efs-user"></a>Considere utilizar o sistema de ficheiros encriptados (EFS) é utilizado para proteger dados confidenciais de utilizadores específicos
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Compilação |  
@@ -60,7 +60,7 @@ ms.locfileid: "53002055"
 
 ## <a id="filesystem"></a>Certifique-se de que os dados confidenciais armazenados pelo aplicativo no sistema de ficheiros estão encriptados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -71,7 +71,7 @@ ms.locfileid: "53002055"
 
 ## <a id="cache-browser"></a>Certifique-se de que o conteúdo confidencial não está em cache no navegador
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -124,18 +124,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>Encriptar secções dos arquivos de configuração da aplicação Web que contêm dados confidenciais
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Como: Encriptar secções de configuração no ASP.NET 2.0 usando o DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [especificação de um fornecedor de configuração protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [utilizando o Azure Key Vault para proteger segredos da aplicação](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referências**              | [How To: Encriptar secções de configuração no ASP.NET 2.0 usando o DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [especificação de um fornecedor de configuração protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [utilizando o Azure Key Vault para proteger segredos da aplicação](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Passos** | Arquivos de configuração, tais como o Web. config appSettings costumam ser usados para armazenar informações confidenciais, incluindo os nomes de utilizador, palavras-passe, cadeias de ligação de base de dados e chaves de encriptação. Se não proteger essas informações, a aplicação está vulnerável a atacantes ou obtenção de informações confidenciais, como nomes de conta de utilizador e palavras-passe, nomes de base de dados e os nomes dos servidores que usuários mal-intencionados. Com base no tipo de implementação (azure/no local), criptografe as seções confidenciais dos ficheiros de configuração com DPAPI ou serviços, como o Azure Key Vault. |
 
 ## <a id="autocomplete-input"></a>Desativar explicitamente o atributo de autocompletar HTML em formulários confidenciais e de entradas
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -154,7 +154,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="data-mask"></a>Certifique-se de que os dados confidenciais apresentados no ecrã de utilizador está oculto
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -165,18 +165,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="dynamic-users"></a>Máscara de dados dinâmica de implementar para limitar os utilizadores de exposição não privilegiado de dados confidenciais
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | O SQL Azure, OnPrem |
+| **Tecnologias aplicáveis** | Sql Azure, OnPrem |
 | **Atributos**              | MsSQL2016 de versão - V12, versão do SQL - SQL |
 | **Referências**              | [Máscara de dados dinâmicos](https://msdn.microsoft.com/library/mt130841) |
 | **Passos** | É a finalidade de máscara de dados dinâmicos limitar a exposição de dados confidenciais, impedindo os utilizadores que não devem ter acesso aos dados de visualizá-lo. Máscara de dados dinâmicos não têm como objetivo para impedir que os utilizadores da base de dados ligar diretamente à base de dados e executar consultas exaustivas que expõem os dados confidenciais. Máscara de dados dinâmica é complementar aos outros recursos de segurança do SQL Server (auditoria, encriptação, segurança ao nível da linha...) e é altamente recomendável para utilizar esta funcionalidade em conjunto com os mesmos além do mais para melhor proteger os dados confidenciais no base de dados. Tenha em atenção que esta funcionalidade é suportada apenas pelo SQL Server a partir de 2016 e a base de dados do Azure SQL. |
 
 ## <a id="salted-hash"></a>Certifique-se de que as senhas são armazenadas no formato de hash de Salt
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -187,18 +187,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="db-encrypted"></a>Certifique-se de que os dados confidenciais nas colunas de base de dados são encriptados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Versão do SQL - todos os |
-| **Referências**              | [Encriptar dados confidenciais no SQL server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [como: encriptar uma coluna de dados no SQL Server](https://msdn.microsoft.com/library/ms179331), [Encrypt por certificado](https://msdn.microsoft.com/library/ms188061) |
+| **Referências**              | [Encriptar dados confidenciais no SQL server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [como: Encriptar uma coluna de dados no SQL Server](https://msdn.microsoft.com/library/ms179331), [certificado para encriptar](https://msdn.microsoft.com/library/ms188061) |
 | **Passos** | Dados confidenciais, como números de cartão de crédito tem de ser encriptados na base de dados. Dados podem ser encriptados utilizando a encriptação de nível de coluna ou por uma função de aplicativo usando as funções de encriptação. |
 
 ## <a id="tde-enabled"></a>Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -209,7 +209,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="backup"></a>Certifique-se de que as cópias de segurança da base de dados são encriptadas
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -220,7 +220,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="api-browser"></a>Certifique-se de que os dados confidenciais relevantes para a Web API não são armazenados no armazenamento do navegador
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -244,7 +244,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>Encriptar dados confidenciais armazenados no Cosmos DB
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -255,7 +255,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="disk-vm"></a>Utilizar o Azure Disk Encryption para encriptar discos utilizados por máquinas virtuais
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade da VM IaaS do Azure | 
 | **Fase do SDL**               | Implementação |  
@@ -266,7 +266,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="fabric-apps"></a>Encriptar os segredos em aplicações do Service Fabric
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Service Fabric | 
 | **Fase do SDL**               | Compilação |  
@@ -277,7 +277,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="modeling-teams"></a>Execute a Modelagem de segurança e utilizar unidades de negócios ou várias onde for necessário
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -288,7 +288,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="entities"></a>Minimizar o acesso para partilhar recursos em entidades críticas
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Implementação |  
@@ -299,7 +299,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="good-practices"></a>Treinar os usuários sobre os riscos associados a funcionalidade de partilha do Dynamics CRM e boas práticas de segurança
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Implementação |  
@@ -310,7 +310,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="exception-mgmt"></a>Incluir uma regra de padrões de desenvolvimento proscribing que mostra os detalhes de configuração na gestão de exceções
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Implementação |  
@@ -321,7 +321,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="sse-preview"></a>Utilizar a encriptação do serviço de armazenamento do Azure (SSE) para dados Inativos (pré-visualização)
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -332,24 +332,24 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="client-storage"></a>Utilize a encriptação do lado do cliente para armazenar dados confidenciais no armazenamento do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutorial: encriptar e desencriptar blobs no armazenamento do Microsoft Azure com o Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [armazenar dados em forma segura em BLOBs do Azure Armazenamento com extensões de encriptação do Azure](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
+| **Referências**              | [Encriptação do lado do cliente e o Azure Cofre de chaves para o armazenamento do Microsoft Azure](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Tutorial: Encriptar e desencriptar blobs no armazenamento do Microsoft Azure com o Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [armazenar dados em forma segura no armazenamento de Blobs do Azure com extensões de encriptação do Azure](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) |
 | **Passos** | <p>A biblioteca de cliente de armazenamento do Azure para o pacote .NET Nuget suporta a encriptação de dados em aplicativos de cliente antes de carregar para o armazenamento do Azure e a desencriptação de dados durante a transferência para o cliente. A biblioteca também suporta a integração com o Cofre de Chaves do Azure para a gestão de chaves da conta do Storage. Eis uma breve descrição de como funciona a encriptação do lado do cliente:</p><ul><li>O SDK do cliente de armazenamento do Azure gera uma chave de encriptação de conteúdo (CEK), que é uma chave simétrica de uma único uso</li><li>Dados de cliente são encriptados utilizando este CEK</li><li>O CEK, em seguida, é encapsulado (encriptada) com a chave de encriptação de chaves (KEK). A KEK é identificada por um identificador de chave e pode ser um par de chaves assimétricas ou uma chave simétrica e pode ser gerenciada localmente ou armazenada no Azure Key Vault. O próprio cliente de armazenamento nunca tem acesso para a KEK. Ele simplesmente invoca o algoritmo de chave de encapsulamento de aplicações fornecido pelo Cofre de chaves. Os clientes podem optar por utilizar fornecedores personalizados para a chave de encapsulamento de aplicações/abertura se desejarem</li><li>Os dados encriptados, em seguida, são carregados para o serviço de armazenamento do Azure. Verifique os links na seção referências para obter detalhes de implementação de nível baixo.</li></ul>|
 
 ## <a id="pii-phones"></a>Encriptar sensível ou dados PII escritos para o armazenamento local de telemóveis
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, Xamarin  |
 | **Atributos**              | N/A  |
-| **Referências**              | [Gerir definições e funcionalidades nos seus dispositivos com políticas do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [porta-chaves Valet](https://components.xamarin.com/view/square.valet) |
+| **Referências**              | [Gerir definições e funcionalidades nos seus dispositivos com políticas do Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), [porta-chaves Valet](https://components.xamarin.com/view/square.valet) |
 | **Passos** | <p>Se a aplicação escreve informações confidenciais, como PII do usuário (e-mail, número de telefone, nome próprio, apelido, preferências etc.) -no sistema de arquivos do mobile, em seguida, ele deve ser encriptado antes de gravar o sistema de arquivos local. Se o aplicativo é uma aplicação empresarial, em seguida, explore a possibilidade de aplicativo de publicação através do Windows Intune.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -393,7 +393,7 @@ Se a aplicação não é uma aplicação empresarial, em seguida, utilizar keyst
 
 ## <a id="binaries-end"></a>Oculte binários gerados antes de distribuir aos utilizadores finais
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Compilação |  
@@ -404,11 +404,11 @@ Se a aplicação não é uma aplicação empresarial, em seguida, utilizar keyst
 
 ## <a id="cert"></a>Definir clientCredentialType para o certificado ou do Windows
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | .NET framework 3 |
+| **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/A  |
 | **Referências**              | [Fortaleça](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **Passos** | Utilizar um token de nome de usuário com uma palavra-passe de texto simples através de um canal não encriptado expõe a palavra-passe para os invasores que podem detectar as mensagens SOAP. Fornecedores de serviços que utilizam o token de nome de usuário pode aceitar as palavras-passe enviadas em texto não encriptado. Enviar palavras-passe de texto simples através de um canal não encriptado, pode expor as credenciais para os invasores que possa farejá-lo a mensagem SOAP. | 
@@ -423,7 +423,7 @@ Definir clientCredentialType para o certificado ou Windows.
 
 ## <a id="security"></a>Modo de segurança do WCF não está ativado
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  

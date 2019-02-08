@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
-ms.openlocfilehash: d4a47130dadb782f41579bd20c4b5e1d1e9978bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 11541318ca7e693cc422ecaeab182407cc5bd736
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188597"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895759"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o dia de trabalho para aprovisionamento automático de utilizadores
 
@@ -713,7 +713,7 @@ Assim que as configurações de aplicação de aprovisionamento de dia de trabal
 
 3. Esta operação irá iniciar a sincronização inicial, o que pode demorar um número variável de horas, consoante o número de utilizadores está no inquilino do Workday. 
 
-4. Em qualquer altura, verifique os **registos de auditoria** separador no portal do Azure para ver as ações que efetuou o serviço de aprovisionamento. Os registos de auditoria apresenta uma lista de todos os eventos de sincronização individuais realizados pelo serviço de aprovisionamento, por exemplo, o que os utilizadores estão a ser lido de dia de trabalho e, em seguida, em seguida, adicionados ou atualizados para o Active Directory. Consulte a [resolução de problemas](#troubleshooting-provisioning-issues) secção para obter instruções sobre como rever os registos de auditoria e correção de erros de aprovisionamento.
+4. Em qualquer altura, verifique os **registos de auditoria** separador no portal do Azure para ver as ações que efetuou o serviço de aprovisionamento. Os registos de auditoria apresenta uma lista de todos os eventos de sincronização individuais realizados pelo serviço de aprovisionamento, por exemplo, o que os utilizadores estão a ser lido de dia de trabalho e, em seguida, em seguida, adicionados ou atualizados para o Active Directory. Consulte a secção de resolução de problemas para obter instruções sobre como rever os registos de auditoria e corrigir erros de aprovisionamento.
 
 5. Depois de concluída a sincronização inicial, ele irá escrever um relatório de resumo de auditoria no **aprovisionamento** separador, conforme mostrado abaixo.
 

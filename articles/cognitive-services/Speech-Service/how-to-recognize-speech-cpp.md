@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Aprender a reconhecer a conversão de voz (de um arquivo, usando um microfone, com um modelo personalizado, continuamente ou da) com o SDK de voz para C++.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: bab79fcb9033d179973e10c6356664ee295961b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 05c94689ef2ca1ecc0051a4b502e03f980c68c87
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226355"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884283"
 ---
 # <a name="recognize-speech-by-using-the-speech-sdk-for-c"></a>Reconhecer fala com o SDK de voz para C++
 

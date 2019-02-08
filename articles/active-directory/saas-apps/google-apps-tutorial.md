@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 50f95ea10308e27fa36bda77c4f3e1bd4914bb30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769411"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Active Directory do Azure com o G Suite
 
@@ -42,7 +42,7 @@ Para configurar a integração do Azure AD com G Suite, terá dos seguintes iten
 - Uma subscrição do Google Apps ou a subscrição de Google Cloud Platform.
 
 > [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção. Este documento foi criado com o utilizador novo experiência de início de sessão único. Se ainda estiver a utilizar o antigo, a configuração terá um aspeto diferent. Pode ativar a nova experiência nas definições de início de sessão único da aplicação do G Suite. Aceda a **do Azure AD, aplicações empresariais**, selecione **G Suite**, selecione **início de sessão único** e, em seguida, clique em **Experimente a nossa nova experiência**.
+> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção. Este documento foi criado com o utilizador novo experiência de início de sessão único. Se ainda estiver a utilizar o antigo, a configuração terá uma aparência diferente. Pode ativar a nova experiência nas definições de início de sessão único da aplicação do G Suite. Aceda a **do Azure AD, aplicações empresariais**, selecione **G Suite**, selecione **início de sessão único** e, em seguida, clique em **Experimente a nossa nova experiência**.
 
 Para testar os passos neste tutorial, deve seguir estas recomendações:
 
@@ -146,7 +146,7 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
 
     ![URLs de domínio do G Suite e únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL de URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |
@@ -163,7 +163,7 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
 
     ![URLs de domínio do G Suite e únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL de URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |

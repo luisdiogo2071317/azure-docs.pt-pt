@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157470"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895640"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Encaminhar o tráfego de rede com uma tabela de rotas com a CLI do Azure
 
@@ -44,7 +44,7 @@ Se optar por instalar e utilizar a CLI localmente, este início rápido requer a
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
 
-Antes de poder criar uma tabela de rotas, crie um grupo de recursos com [criar grupo az](/cli/azure/group#az_group_create) para todos os recursos criados neste artigo. 
+Antes de poder criar uma tabela de rotas, crie um grupo de recursos com [criar grupo az](/cli/azure/group) para todos os recursos criados neste artigo. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -78,7 +78,7 @@ az network route-table route create \
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
 
-Antes de poder associar uma tabela de rotas a uma sub-rede, tem de criar uma rede virtual e uma sub-rede. Criar uma rede virtual com uma sub-rede com [vnet de rede de az criar](/cli/azure/network/vnet#az_network_vnet_create).
+Antes de poder associar uma tabela de rotas a uma sub-rede, tem de criar uma rede virtual e uma sub-rede. Criar uma rede virtual com uma sub-rede com [vnet de rede de az criar](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -107,7 +107,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-Associar o *myRouteTablePublic* tabela de rotas para o *público* sub-rede com [atualização de sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update).
+Associar o *myRouteTablePublic* tabela de rotas para o *público* sub-rede com [atualização de sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -136,7 +136,7 @@ az vm create \
 
 A criação da VM demora alguns minutos. Não avance para o passo seguinte enquanto o Azure concluir a criação da VM e devolve resultados sobre a VM. 
 
-Para que as interfaces de rede possam reencaminhar o tráfego de rede que lhes é enviado e que não seja destinado para o seu próprio endereço IP, o reencaminhamento de IP tem de estar ativado nas mesmas. Ativar o reencaminhamento de IP para a interface de rede com [atualização de nic de rede de az](/cli/azure/network/nic#az_network_nic_update).
+Para que as interfaces de rede possam reencaminhar o tráfego de rede que lhes é enviado e que não seja destinado para o seu próprio endereço IP, o reencaminhamento de IP tem de estar ativado nas mesmas. Ativar o reencaminhamento de IP para a interface de rede com [atualização de nic de rede de az](/cli/azure/network/nic).
 
 ```azurecli-interactive
 az network nic update \
@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-Dentro da VM, é necessário que o sistema operativo, ou uma aplicação em execução na mesma, consiga também reencaminhar o tráfego de rede. Ativar o reencaminhamento de IP dentro do sistema de operativo da VM com [conjunto de extensão az vm](/cli/azure/vm/extension#az_vm_extension_set):
+Dentro da VM, é necessário que o sistema operativo, ou uma aplicação em execução na mesma, consiga também reencaminhar o tráfego de rede. Ativar o reencaminhamento de IP dentro do sistema de operativo da VM com [conjunto de extensão az vm](/cli/azure/vm/extension):
 
 ```azurecli-interactive
 az vm extension set \
@@ -268,7 +268,7 @@ Fechar as sessões SSH para ambos os *myVmPublic* e *myVmPrivate* VMs.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, utilize [eliminação do grupo de az](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos nele contidos.
+Quando já não for necessário, utilize [eliminação do grupo de az](/cli/azure/group) para remover o grupo de recursos e todos os recursos nele contidos.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

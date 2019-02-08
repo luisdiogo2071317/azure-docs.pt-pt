@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: 3521f910ded2e24de9cfa7b1aa1d635843527ef5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511838"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878821"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Escalões de serviço de base de dados SQL do Azure
 
 Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados do SQL Server que é ajustada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três modelos de arquiteturais que são utilizados na base de dados do Azure SQL:
+
 - [Fins gerais](sql-database-service-tier-general-purpose.md) concebido para a maioria das cargas de trabalho genéricas.
 - [Crítico para a empresa](sql-database-service-tier-business-critical.md) concebido para cargas de trabalho de baixa latência com uma das réplicas legível.
 - [Hiperescala](sql-database-service-tier-hyperscale.md) concebido para bases de dados muito grandes (até 100 TB) com várias réplicas legíveis.
@@ -40,8 +41,8 @@ Considere o seguinte:
 - Quando configura o tamanho de base de dados necessária (tamanho do MDF), 30% de armazenamento adicional é adicionado automaticamente para suportar LDF
 - Tamanho de armazenamento na instância gerida tem de ser especificado em múltiplos de 32 GB.
 - Pode escolher qualquer tamanho de base de dados entre 10 GB e o máximo suportado
-  - Para o armazenamento Standard, aumentar ou diminuir o tamanho em incrementos de 10 GB
-  - Para armazenamento Premium, aumentar ou diminuir o tamanho em incrementos de 250 GB
+  - Para o armazenamento nos escalões de serviço standard ou para fins gerais, aumentar ou diminuir o tamanho em incrementos de 10 GB
+  - Para o armazenamento em camadas de críticos de serviço premium ou buxiness, aumentar ou diminuir o tamanho em incrementos de 250 GB
 - No escalão de serviço para fins gerais, `tempdb` utiliza SSD anexado e este custo de armazenamento está incluído no preço vCore.
 - No escalão de serviço crítico para a empresa, `tempdb` partilhas o SSD anexado com os arquivos MDF e LDF e o custo de armazenamento de tempDB está incluído no preço vCore.
 

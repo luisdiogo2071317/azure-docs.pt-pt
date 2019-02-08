@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: 2c21c08e71592e417d8ee3850af61ca2c1486a76
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 67f893f0e201b6800e6c1a4bc1f656003f6daee5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464736"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879416"
 ---
 # <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>Descrição Passo a Passo: Desenvolver uma solução preditiva para a avaliação de risco de crédito no Azure Machine Learning Studio
 
@@ -28,7 +28,7 @@ Nestas instruções, analisamos mais aprofundadamente o processo de desenvolvime
 
 Estas instruções partem do princípio de que já utilizou o Machine Learning Studio pelo menos uma vez e que compreende, de alguma forma, os conceitos de machine learning. Porém, não parte do princípio de que é um especialista.
 
-Se nunca tiver utilizado o **Azure Machine Learning Studio** antes, poderá querer começar com o tutorial, [Create your first data science experiment in Azure Machine Learning Studio (Criar a primeira experimentação de ciência de dados no Azure Machine Learning Studio)](create-experiment.md). Esse tutorial orienta-o ao longo do Machine Learning Studio pela primeira vez. Mostra-lhe as noções básicas de como arrastar e largar módulos na experimentação, ligá-los entre si, executar a experimentação e analisar os resultados. Outra ferramenta que pode ser útil para começar a trabalhar é um diagrama que dá uma visão geral das funcionalidades do Machine Learning Studio. Pode transferir e imprimi-lo a partir daqui: [Diagrama de descrição geral das capacidades do Azure Machine Learning Studio](studio-overview-diagram.md).
+Se nunca tiver utilizado o **Azure Machine Learning Studio** antes, poderá querer começar com o tutorial, [Create your first data science experiment in Azure Machine Learning Studio (Criar a primeira experimentação de ciência de dados no Azure Machine Learning Studio)](create-experiment.md). Esse tutorial orienta-o ao longo do Machine Learning Studio pela primeira vez. Mostra-lhe as noções básicas de como arrastar e largar módulos na experimentação, ligá-los entre si, executar a experimentação e analisar os resultados.
  
 Se não estiver familiarizado com o machine learning em geral, existe uma série em vídeo que poderá ser útil para si. Chama-se [Data Science for Beginners (Ciência de Dados para Principiantes)](data-science-for-beginners-the-5-questions-data-science-answers.md) e pode dar-lhe uma excelente introdução ao machine learning utilizando linguagem e conceitos do dia a dia.
 

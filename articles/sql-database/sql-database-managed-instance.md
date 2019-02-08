@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 2e2bf4f0f7ba4546c2f8609ee3ec7efc072024ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: c0067dc96837d758e4c2551bcb29faf63c1a7715
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751553"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895046"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a SQL Database, avançada de segurança de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -93,8 +93,8 @@ Ambas as camadas de serviço garantem 99,99% de disponibilidade e permitem-lhe s
 A lista seguinte descreve característica-chave da camada de serviços de fins gerais:
 
 - Design para a maioria dos aplicativos de negócios com requisitos de desempenho típico
-- Armazenamento Premium do Azure de alto desempenho (8 TB)
-- Incorporado [elevada disponibilidade](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) com base em fiável o armazenamento Premium do Azure e [do Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- Armazenamento de Blobs do Azure de elevado desempenho (8 TB)
+- Incorporado [elevada disponibilidade](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) com base no armazenamento de Blobs do Azure fiável e [do Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 Para obter mais informações, consulte [em geral de armazenamento camada escalão fins](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) e [(para fins gerais) de instâncias de geridas de práticas recomendadas de armazenamento e considerações para](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -107,7 +107,7 @@ Camada de serviços críticos de negócios foi concebida para aplicações com r
 A lista seguinte descreve as principais características da camada de serviços críticos de negócio:
 
 - Concebido para aplicações de negócio com mais elevado desempenho e requisitos de HA
-- É fornecido com o armazenamento SSD extremamente rápido (até 1 TB em Gen 4 e até 4 TB nos fins 5)
+- É fornecido com o armazenamento SSD local extremamente rápido (até 1 TB em Gen 4 e até 4 TB nos fins 5)
 - Incorporado [elevada disponibilidade](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) com base nos [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [do Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Incorporado adicional [réplica de base de dados só de leitura](sql-database-read-scale-out.md) que pode ser utilizado em relatórios e outras cargas de trabalho só de leitura
 - [OLTP dentro da memória](sql-database-in-memory.md) que podem ser utilizados para a carga de trabalho com requisitos de alto desempenho  

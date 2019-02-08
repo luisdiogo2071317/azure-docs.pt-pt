@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: f848c6b654f3378df04d1320d957e76ac5384465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bab3b37d2d5063c77f8aceee84646b1ee72b0617
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427829"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892546"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Como utilizar o Packer para criar imagens de máquinas virtuais do Windows no Azure
 Cada máquina virtual (VM) no Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão do SO. Imagens podem incluir aplicações pré-instaladas e configurações. O Azure Marketplace proporciona muitas imagens que o primeiro e de terceiros para o sistema operacional mais comuns e ambientes de aplicativos, ou criar suas próprias imagens personalizadas ajustadas às suas necessidades. Este artigo fornece detalhes sobre como utilizar a ferramenta de código-fonte aberto [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
@@ -70,7 +70,6 @@ Crie um ficheiro denominado *windows.json* e cole o seguinte conteúdo. Introduz
 | *client_secret*                     | Palavra-passe que especificou no `$securePassword` |
 | *tenant_id*                         | Saída de `$sub.TenantId` comando |
 | *subscription_id*                   | Saída de `$sub.SubscriptionId` comando |
-| *object_id*                         | ID de objeto do principal de serviço de vista com `$sp.Id` |
 | *managed_image_resource_group_name* | Nome do grupo de recursos que criou no primeiro passo |
 | *managed_image_name*                | Nome para a imagem de disco gerido, que é criada |
 
@@ -83,7 +82,6 @@ Crie um ficheiro denominado *windows.json* e cole o seguinte conteúdo. Introduz
     "client_secret": "P@ssw0rd!",
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "object_id": "a7dfb070-0d5b-47ac-b9a5-cf214fff0ae2",
 
     "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",

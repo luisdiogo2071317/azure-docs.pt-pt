@@ -3,20 +3,21 @@ title: Aplicações de web do ASP.NET Core Azure Linux com o Application Insight
 description: Uma descrição geral conceptual e um tutorial passo a passo sobre como utilizar o Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
+ms.reviewer: mbullwin
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb294f0a3c22d52bc40f30e1d8655aed185857c6
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.author: cweining
+ms.openlocfilehash: 5787db7e2b726a10891fcabb0b215399d0d4e0ae
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118494"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884312"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Aplicações web de ASP.NET Core Azure Linux de perfil com o Application Insights Profiler
 
@@ -174,4 +175,4 @@ Estamos a trabalhar numa resolução para este problema.
 ## <a name="next-steps"></a>Passos Seguintes
 Se utilizar contentores personalizadas que são alojadas pelo App Service do Azure, siga as instruções em [ ative Profiler de serviço para uma aplicação ASP.NET Core em contentores](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) para ativar o Application Insights Profiler.
 
-Reportar quaisquer problemas ou sugestões para o repositório do GitHub do Application Insights: [Application Insights-Profiler-AspNetCore: Problemas](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+Reportar quaisquer problemas ou sugestões para o repositório do GitHub do Application Insights: [ApplicationInsights-Profiler-AspNetCore: Problemas](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).

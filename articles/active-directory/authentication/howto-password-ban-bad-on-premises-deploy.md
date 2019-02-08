@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: 824bedf782d6d227f2fa3adcf52492bb5a3eb478
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c018bec98fc9e1edc22a8535d06961d192f4c992
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696868"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880421"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Pré-visualização: Implementar a proteção de palavras-passe do AD do Azure
 
@@ -169,7 +169,7 @@ Existem dois programas de instalação necessários para proteção de palavra-p
       Os exemplos acima apenas terá êxito se o usuário conectado atualmente também é um administrador de domínio do Active Directory para o domínio de raiz. Se não for este o caso, pode fornecer credenciais de domínio alternativo por meio do parâmetro - ForestCredential.
 
    > [!NOTE]
-   > Se vários servidores de proxy estão instalados no seu ambiente, não importa qual o servidor proxy está utiliza para registar a floresta.
+   > Se vários servidores de proxy estão instalados no seu ambiente, não importa qual o servidor proxy é utilizado para registar a floresta.
 
    > [!TIP]
    > Pode haver um atraso considerável (vários segundos) na primeira vez que este cmdlet é executado para um determinado inquilino do Azure antes do cmdlet conclui a execução. A menos que uma falha é comunicada este atraso não deve ser considerado alarmante.

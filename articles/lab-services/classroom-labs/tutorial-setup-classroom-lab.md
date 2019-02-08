@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1e2511ed22cfc6e81844bfdc4672d5fc67ea744f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095758"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893226"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -43,13 +43,12 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 2. Selecione **Iniciar sessão** e introduza as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
 3. Na janela **Novo Laboratório**, realize as ações abaixo: 
     1. Especifique um **nome** para o seu laboratório. 
-    2. Especifique o **número máximo de utilizadores** permitido no laboratório. 
+    2. Especifique o número máximo **número de máquinas virtuais** no laboratório. Pode aumentar ou decreate o número de VMs, depois de criar o laboratório ou num laboratório existente. Para obter mais informações, consulte [atualizar o número de VMs num laboratório](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Selecione **Guardar**.
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, execute os passos seguintes:
     1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. 
-    2. Selecione a **região** na qual pretende que as VM sejam criadas. 
     3. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. 
     4. Selecione **Seguinte**.
 
@@ -69,14 +68,12 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 7. Depois de concluída a configuração do modelo, verá a página seguinte: 
 
     ![Configurar a página do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. Os passos seguintes são opcionais neste tutorial: 
+8. Sobre o **modelo de configurar** página, efetue os seguintes passos: Essas etapas são **opcional** para o tutorial.
     1. Inicie a VM de modelo através da seleção de **Iniciar**.
     2. Ligue-se à VM de modelo através da seleção de **Ligar**. 
     3. Instalar e configurar o software na sua VM de modelo. 
     4. **Parar** a VM.  
     5. Introduzir uma **descrição** do modelo
-
-        ![Em seguida, na página Configurar modelo](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. Selecione **Seguinte** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as ações seguintes. 
     1. Para publicar o modelo imediatamente, selecione a caixa de verificação *Compreendo que não é possível modificar o modelo após a publicação. Este processo pode ser feito apenas uma vez e pode demorar até uma hora*e selecione **Publicar**.  
@@ -103,7 +100,9 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 
 1. Selecione **utilizadores** no menu da esquerda. Por predefinição, o **restringir o acesso** opção está ativada. Quando esta definição está ativado, um utilizador não é possível registar com o laboratório, mesmo que o utilizador tem a ligação de registo, a menos que o utilizador está na lista de utilizadores. Apenas os utilizadores da lista podem registar com o laboratório, utilizando a ligação de registo que envia. Neste procedimento, pode adicionar utilizadores à lista. Em alternativa, pode desativar **restringir o acesso**, que permite aos utilizadores para se registar com o laboratório, desde que tenham uma ligação de registo. 
 2. Selecione **adicionar utilizadores** na barra de ferramentas. 
-3. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
+
+    ![Adicionar botão de utilizadores](../media/how-to-configure-student-usage/add-users-button.png)
+1. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
 
     ![Endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Selecione **Guardar**. Ver os endereços de e-mail dos utilizadores e os respetivos Estados (registados ou não) na lista. 

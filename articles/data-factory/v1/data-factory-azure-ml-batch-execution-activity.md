@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c280a1f7e060ab7637e8d0b2484951f72b58a89c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081199"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894110"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory
 
@@ -54,7 +54,7 @@ O serviço Data Factory permite-lhe criar pipelines de dados que movimentam e tr
 Ver [introdução ao Azure Data Factory](data-factory-introduction.md) e [crie seu primeiro pipeline](data-factory-build-your-first-pipeline.md) artigos para começar rapidamente com o serviço do Azure Data Factory.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Fábrica de dados e Machine Learning em conjunto
-O Azure Data Factory permite-lhe facilmente criar pipelines que utilizem um publicados [do Azure Machine Learning] [ azure-machine-learning] web service para Análise Preditiva. Utilizar o **atividade de execução de Batch** num pipeline do Azure Data Factory, pode invocar um serviço web do Azure Machine Learning studio para fazer previsões sobre os dados no batch. Ver [invocar um serviço web do Azure Machine Learning studio usando a atividade de execução de Batch](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) secção para obter detalhes.
+O Azure Data Factory permite-lhe facilmente criar pipelines que utilizem um publicados [do Azure Machine Learning] [ azure-machine-learning] web service para Análise Preditiva. Utilizar o **atividade de execução de Batch** num pipeline do Azure Data Factory, pode invocar um serviço web do Azure Machine Learning studio para fazer previsões sobre os dados no batch. Ver invocar um serviço web do Azure Machine Learning studio usando a seção de atividade de execução do Batch para obter detalhes.
 
 Ao longo do tempo, os modelos preditivos no experiências de classificação do Azure Machine Learning studio necessário reestruturar utilizando conjuntos de dados de entrada novo. Pode voltar a preparar um modelo de studio do Azure Machine Learning a partir de um pipeline de fábrica de dados, efetuando os seguintes passos:
 

@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730019"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869097"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automática para dimensionar nós de computação de um conjunto do Batch
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Quando cria um conjunto de dimensionamento automático ativado, não especifique o _targetDedicatedComputeNodes_ parâmetro ou o _targetLowPriorityComputeNodes_ parâmetro na chamada para **CreatePool** . Em vez disso, especifique a **AutoScaleEnabled** e **AutoScaleFormula** propriedades no conjunto. Os valores para estas propriedades determinam o número de destino de cada tipo de nó. Além disso, para manualmente uma capacidade de dimensionamento automático de redimensionamento conjunto (por exemplo, com [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), primeiro **desativar** dimensionamento automático sobre o agrupamento e, em seguida, redimensione-o.
+> Quando cria um conjunto de dimensionamento automático ativado, não especifique o _targetDedicatedNodes_ parâmetro ou o _targetLowPriorityNodes_ parâmetro na chamada para **CreatePool** . Em vez disso, especifique a **AutoScaleEnabled** e **AutoScaleFormula** propriedades no conjunto. Os valores para estas propriedades determinam o número de destino de cada tipo de nó. Além disso, para manualmente uma capacidade de dimensionamento automático de redimensionamento conjunto (por exemplo, com [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), primeiro **desativar** dimensionamento automático sobre o agrupamento e, em seguida, redimensione-o.
 >
 >
 
@@ -412,7 +412,7 @@ Quando ativar o dimensionamento automático num conjunto existente, tenha em ate
   * Se omitir a fórmula de dimensionamento automático ou intervalo de avaliação, o serviço Batch continua a utilizar o valor atual dessa definição.
 
 > [!NOTE]
-> Se tiver especificado os valores para o *targetDedicatedComputeNodes* ou *targetLowPriorityComputeNodes* parâmetros do **CreatePool** método quando criou o conjunto no .NET, ou para os parâmetros comparáveis em outro idioma, em seguida, esses valores serão ignorados durante a fórmula de dimensionamento automática é avaliada.
+> Se tiver especificado os valores para o *targetDedicatedNodes* ou *targetLowPriorityNodes* parâmetros do **CreatePool** método quando criou o conjunto no .NET, ou para o parâmetros comparáveis em outro idioma, em seguida, esses valores serão ignorados durante a fórmula de dimensionamento automática é avaliada.
 >
 >
 

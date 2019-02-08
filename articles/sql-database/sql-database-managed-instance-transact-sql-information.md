@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f1adcca48882ca3a149046cbc0729612666363cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 59599686b2a9ccee7250e33f0786d4c7af816983
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734611"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894314"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Base de dados SQL do Azure geridos diferenças do T-SQL de instância do SQL Server
 
@@ -27,7 +27,7 @@ A opção de implementação de instância gerida fornece compatibilidade com o 
 
 Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças. <a name="Differences"></a>
 - [Disponibilidade](#availability) incluindo as diferenças nos [Always-On](#always-on-availability) e [cópias de segurança](#backup),
-- [Segurança](#security) incluindo as diferenças nos [auditoria](#auditing), [certificados](#certificates), [credenciais](#credentials), [provedores criptográficos](#cryptographic-providers), [Inícios de sessão / utilizadores](#logins--users), [chave e a chave mestra de serviço do serviço](#service-key-and-service-master-key),
+- [Segurança](#security) incluindo as diferenças nos [auditoria](#auditing), [certificados](#certificates), [credenciais](#credential), [provedores criptográficos](#cryptographic-providers), [Inícios de sessão / utilizadores](#logins--users), [chave e a chave mestra de serviço do serviço](#service-key-and-service-master-key),
 - [Configuração](#configuration) incluindo as diferenças nos [a extensão do conjunto da memória intermédia](#buffer-pool-extension), [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels),[base de dados espelhamento](#database-mirroring), [opções de base de dados](#database-options), [SQL Server Agent](#sql-server-agent), [opções da tabela](#tables),
 - [Funcionalidades](#functionalities) incluindo [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transações distribuídas](#distributed-transactions), [ Eventos expandidos](#extended-events), [bibliotecas externas](#external-libraries), [Filestream e Filetable](#filestream-and-filetable), [pesquisa semântica de texto completo](#full-text-semantic-search), [ligado servidores](#linked-servers), [Polybase](#polybase), [replicação](#replication), [restaurar](#restore-statement), [Service Broker](#service-broker), [ Os procedimentos armazenados, funções e disparadores](#stored-procedures-functions-triggers),
 - [Recursos que têm um comportamento diferente em instâncias geridas](#Changes)
@@ -74,11 +74,11 @@ Para obter informações sobre cópias de segurança com o T-SQL, consulte [cóp
 
 As principais diferenças entre auditoria em bases de dados na base de dados do Azure SQL e bancos de dados no SQL Server são:
 
-- Com a opção de implementação de instância gerida na base de dados do Azure SQL, a auditoria funciona no nível do servidor e arquivos `.xel` ficheiros na conta de armazenamento de Blobs do Azure de registo.
+- Com a opção de implementação de instância gerida na base de dados do Azure SQL, a auditoria funciona no nível do servidor e arquivos `.xel` ficheiros de registo no armazenamento de Blobs do Azure.
 - Com a base de dados individual e opções de implementação do conjunto elástico na base de dados do Azure SQL, a auditoria funciona ao nível da base de dados.
 - No SQL Server no local / virtual máquinas, funciona de auditoria no servidor de nível, mas armazena os eventos nos registos de eventos do windows/sistema de ficheiros.
   
-Destinos de armazenamento de Blobs do Azure oferece suporte a auditoria na instância gerida de XEvent. Registos de ficheiros e do windows não são suportados.
+Auditoria de XEvent na instância gerida suporta destinos de armazenamento de Blobs do Azure. Registos de ficheiros e do windows não são suportados.
 
 A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazenamento de Blobs do Azure são:
 
@@ -170,7 +170,7 @@ Para obter mais informações, consulte [ALTER DATABASE SET PARTNER e SET WITNES
 - Objetos em memória não são suportados na camada de serviço de fins gerais.  
 - Existe um limite de 280 ficheiros por instância, implicando 280 ficheiros máximos por base de dados. Ficheiros de registo e dados são contabilizados para este limite.  
 - Base de dados não pode conter grupos de ficheiros que contêm dados filestream.  Restauro falhará se contiver. bak `FILESTREAM` dados.  
-- Cada arquivo é colocado no armazenamento Premium do Azure. E/s e o débito por ficheiro dependem do tamanho de cada arquivo individual, tal como fazem para discos de armazenamento Premium do Azure. Consulte [desempenho do disco Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Cada arquivo é colocado no armazenamento de Blobs do Azure. E/s e o débito por ficheiro dependem do tamanho de cada ficheiro individual.  
 
 #### <a name="create-database-statement"></a>Instrução CREATE DATABASE
 
@@ -275,10 +275,10 @@ Para obter informações sobre a criação e tabelas de alteração, consulte [C
 
 ### <a name="bulk-insert--openrowset"></a>Inserção em massa / openrowset
 
-Uma instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que os ficheiros têm de ser importados do armazenamento de BLOBs:
+Uma instância gerida não é possível aceder a partilhas de ficheiros e pastas do Windows, para que os ficheiros têm de ser importados do armazenamento de Blobs do Azure:
 
 - `DATASOURCE` é necessário em `BULK INSERT` comando ao importar ficheiros do armazenamento de Blobs do Azure. Ver [inserção em massa](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` é necessário em `OPENROWSET` funcionar quando ler um conteúdo de um ficheiro de armazenamento de Blobs do Azure. Ver [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` é necessário em `OPENROWSET` funcionar quando ler um conteúdo de um ficheiro do armazenamento de Blobs do Azure. Ver [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
@@ -305,7 +305,7 @@ Nenhuma das MSDTC nem [transações elásticas](sql-database-elastic-transaction
 
 Alguns destinos específicos do Windows para XEvents não são suportados:
 
-- `etw_classic_sync target` Não é suportada. Store `.xel` armazenamento de BLOBs de ficheiros no Azure. Ver [etw_classic_sync destino](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- `etw_classic_sync target` Não é suportada. Store `.xel` armazenamento de BLOBs de ficheiros no Azure. Ver [etw_classic_sync destino](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - `event_file target`Não é suportada. Store `.xel` armazenamento de BLOBs de ficheiros no Azure. Ver [event_file destino](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliotecas externas
@@ -347,7 +347,7 @@ Operações
 
 ### <a name="polybase"></a>Polybase
 
-Tabelas externas, fazer referência aos arquivos no armazenamento de Blobs do HDFS ou o Azure não são suportadas. Para obter informações sobre o Polybase, veja [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+Tabelas externas que fazem referência os ficheiros no armazenamento do HDFS ou de Blobs do Azure não são suportadas. Para obter informações sobre o Polybase, veja [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação
 

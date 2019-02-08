@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 221dd8a26f0d01d79d066c214bd53f7e881e5554
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 747f58ba5062bd8bcc3995bbfa73cea49e8ddc4b
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201230"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892903"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Sugestões de desempenho para o Azure Cosmos DB e Java
 
@@ -103,11 +103,11 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
    <a id="tune-page-size"></a>
 8. **Otimizar o tamanho da página para feeds de consultas/leitura para um melhor desempenho**
 
-    Quando efetuar uma massa ler de documentos ao utilizar a leitura do feed funcionalidade (por exemplo, [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments#com.microsoft.azure.documentdb.documentclient.readDocumentsStringFeedOptionsc)) ou ao emitir uma consulta SQL, os resultados são retornados de uma maneira segmentada se o conjunto de resultados é demasiado grande. Por predefinição, os resultados são devolvidos em blocos de 100 itens ou de 1 MB, consoante o limite for atingida primeiro.
+    Quando efetuar uma massa ler de documentos ao utilizar a leitura do feed funcionalidade (por exemplo, [readDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.readdocuments)) ou ao emitir uma consulta SQL, os resultados são retornados de uma maneira segmentada se o conjunto de resultados é demasiado grande. Por predefinição, os resultados são devolvidos em blocos de 100 itens ou de 1 MB, consoante o limite for atingida primeiro.
 
     Para reduzir o número de percursos de ida necessária para obter resultados de todos os aplicáveis e rede, pode aumentar o tamanho de página utilizando a [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) cabeçalho do pedido para até 1000. Em casos em que precisa exibir apenas alguns resultados, por exemplo, se a API de interface ou a aplicação do utilizador devolve apenas 10 resulta de uma hora, também pode diminuir o tamanho da página para 10 para reduzir o débito consumido para leituras e consultas.
 
-    Também pode definir o tamanho de página utilizando a [setPageSize método](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize#com.microsoft.azure.documentdb.feedoptionsbase.setPageSizeInteger).
+    Também pode definir o tamanho de página utilizando a [setPageSize método](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptionsbase.setpagesize).
 
 ## <a name="indexing-policy"></a>Política de Indexação
  

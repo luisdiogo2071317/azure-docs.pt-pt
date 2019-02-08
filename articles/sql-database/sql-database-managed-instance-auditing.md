@@ -13,13 +13,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729002"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894399"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância de base de dados do SQL do Azure gerido
 
@@ -154,7 +154,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
 
 Para obter informações adicionais:
 
-- [Auditoria de diferenças entre bases de dados individuais, o conjunto elástico, s e instâncias geridas no Azure SQL Database e bases de dados no SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Auditoria de diferenças entre bases de dados individuais, o conjunto elástico, s e instâncias geridas no Azure SQL Database e bases de dados no SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -223,11 +223,11 @@ O log Analytics dá-lhe as informações operacionais em tempo real através da 
 
 As principais diferenças entre auditoria em bases de dados na base de dados do Azure SQL e bancos de dados no SQL Server são:
 
-- Com a opção de implementação de instância gerida na base de dados do Azure SQL, a auditoria funciona no nível do servidor e arquivos `.xel` ficheiros na conta de armazenamento de Blobs do Azure de registo.
+- Com a opção de implementação de instância gerida na base de dados do Azure SQL, a auditoria funciona no nível do servidor e arquivos `.xel` ficheiros de registo no armazenamento de Blobs do Azure.
 - Com a base de dados individual e opções de implementação do conjunto elástico na base de dados do Azure SQL, a auditoria funciona ao nível da base de dados.
 - No SQL Server no local / virtual máquinas, funciona de auditoria no servidor de nível, mas armazena os eventos nos registos de eventos do windows/sistema de ficheiros.
 
-Destinos de armazenamento de Blobs do Azure oferece suporte a auditoria na instância gerida de XEvent. Os registos de ficheiros e do windows estão **nepodporuje**.
+Auditoria de XEvent na instância gerida suporta destinos de armazenamento de Blobs do Azure. Os registos de ficheiros e do windows estão **nepodporuje**.
 
 A chave de diferenças no `CREATE AUDIT` sintaxe de auditoria para o armazenamento de Blobs do Azure são:
 

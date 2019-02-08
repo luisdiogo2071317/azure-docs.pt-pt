@@ -4,31 +4,31 @@ titlesuffix: Azure Cognitive Services
 description: Saiba mais sobre os atributos de entidade que pode utilizar com o gráfico para instituições académicas na API de conhecimento académico.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: f227cc03578adcfbf73fec3ae8941045e8352513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: accc2803895f3892075cdd9877ca98344ab88bd1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183004"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884822"
 ---
 # <a name="entity-attributes"></a>Atributos de entidade
 
 O gráfico para instituições académicas é composta por 7 tipos de entidade. Todas as entidades terão um ID de entidade e um tipo de entidade.
 
 ## <a name="common-entity-attributes"></a>Atributos de entidade comuns
-Nome    |Descrição                |Tipo       | Operações
+Name    |Descrição                |Type       | Operações
 ------- | ------------------------- | --------- | ----------------------------
 Id      |ID de entidade                  |Int64      |Igual a
 Ty      |Tipo de entidade                |Enum   |Igual a
 
 ## <a name="entity-type-enum"></a>Enumeração de tipo de entidade
-Nome                                                            |valor
+Name                                                            |valor
 ----------------------------------------------------------------|-----
 [Artigo](PaperEntityAttributes.md)                               |0
 [Autor](AuthorEntityAttributes.md)                             |1

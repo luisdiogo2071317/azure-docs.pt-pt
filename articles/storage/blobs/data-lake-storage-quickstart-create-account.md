@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732452"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884465"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake
 
@@ -93,7 +93,7 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
 6. Escolha a subscrição na qual pretende criar a conta de armazenamento.
 7. Selecione **seguinte: Advanced >**
 8. Deixe os valores em **SECURITY** e **redes virtuais** campos definidos para as predefinições.
-9. Na secção **Armazenamento do Data Lake Gen2 (pré-visualização)** defina o **Espaço de nomes hierárquico** como **Ativado**.
+9. Na **geração 2 de armazenamento do Data Lake** secção conjunto **espaço de nomes hierárquico** para **ativado**.
 10. Clique em **rever + criar** para criar a conta de armazenamento.
 
     ![A captura de ecrã mostra a criação da conta de armazenamento no portal do Azure](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)

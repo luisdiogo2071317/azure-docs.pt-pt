@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: O recurso de vanguarda através do LUIS é o conceito de aprendizagem ativa. Depois que o LUIS tiver consultas de ponto de extremidade, aprendizagem ativa melhora a qualidade dos resultados por expressões seleciona com que ela seja verificá-lo. Se coloca essas expressões com uma etiqueta, formar e publicar, em seguida, LUIS identifica expressões com mais precisão.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 13a9fba996ea2929bb7165c395176fbfb8c051c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 04590c447d6d4499d50115fbf7bed0a600fe3142
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208062"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864252"
 ---
 # <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>Como rever os discursos de ponto final no portal do LUIS
 

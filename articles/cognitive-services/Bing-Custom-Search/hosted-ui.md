@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilize este artigo para configurar e integrar uma interface do Usuário alojado para pesquisa personalizada do Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: 0336cc922e8f86792814196719e659d33a943bb8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0a952910ee397f4bd5d2fbdeac7162dd428cf31b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193612"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862501"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a sua experiência de interface do Usuário alojada
 

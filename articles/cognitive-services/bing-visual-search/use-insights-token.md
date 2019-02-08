@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Mostra como utilizar o insight de uma imagem token com a API pesquisa Visual do Bing para obter informações sobre uma imagem.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a1a2128e4e13494a76dfad9f051be56e02dbd995
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813369"
+ms.locfileid: "55878804"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Com um token de informações para obter informações sobre uma imagem
 

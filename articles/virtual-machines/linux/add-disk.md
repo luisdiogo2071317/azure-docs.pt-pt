@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754307"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892781"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar.
@@ -73,10 +73,10 @@ O resultado é semelhante ao seguinte exemplo:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Aqui, *sdc* é o disco que Desejamos. Particionar o disco com `parted`, se o tamanho do disco é 2 tebibytes (TiB) ou superior, em seguida, tem de utilizar GPT criação de partições, se está sob 2TiB, em seguida, pode usar o particionamento de MBR ou GPT. Torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `parted` processos no */desenvolvimento/sdc*:
+Aqui, *sdc* é o disco que Desejamos. Particionar o disco com `parted`, se o tamanho do disco é 2 tebibytes (TiB) ou superior, em seguida, tem de utilizar GPT criação de partições, se está sob 2TiB, em seguida, pode usar o particionamento de MBR ou GPT. Se estiver a utilizar o MBR criação de partições, pode utilizar `fdisk`. Torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `fdisk` processos no */desenvolvimento/sdc*:
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 Utilize o `n` comando para adicionar uma nova partição. Neste exemplo, escolhemos também `p` para um site primário de partição e aceitar o restante dos valores predefinidos. O resultado será semelhante ao seguinte exemplo:

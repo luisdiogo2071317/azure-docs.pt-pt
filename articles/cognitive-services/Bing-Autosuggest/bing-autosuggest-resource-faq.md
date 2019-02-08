@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Obtenha respostas a perguntas comuns sobre a API de sugestão automática do Bing.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: b0ec10bbf03e8a8d005eece4b6496b74b2943233
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cc14ceafaf0d9dd913cdef3864b0391f05d721e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173263"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882255"
 ---
 # <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Perguntas mais frequentes (FAQ) de perguntas sobre o Bing API de sugestão automática
  

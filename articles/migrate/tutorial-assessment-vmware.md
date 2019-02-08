@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dee649c388ee1e9207d1fc0ecb454d03cda304b0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 40a43fd8ea1f47b564d0c0ee2b5e67fd011f2ff9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730769"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895980"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -182,7 +182,7 @@ Importe o ficheiro transferido para o vCenter Server.
     - Selecione a nuvem do Azure para o qual pretende migrar (Global do Azure ou do Azure Government).
     - Aceite os termos de licenciamento e leia as informações de terceiros.
     - O recoletor verifica se a VM tem acesso à Internet.
-    - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre os requisitos de conectividade de internet e o [lista de URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) que acessa o recoletor.
+    - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre os requisitos de conectividade de internet e o [lista de URLs](https://docs.microsoft.com/azure/migrate/concepts-collector) que acessa o recoletor.
 
       > [!NOTE]
       > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP. Se tiver um proxy de interceção, a ligação à internet inicialmente poderá falhar se não tiver importado o certificado de proxy; [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector) na forma como pode corrigir este problema ao importar o certificado de proxy como um certificado fidedigno na VM do recoletor.

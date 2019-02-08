@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: d49c8a8434dfa7202707731f46ea31c77d32541d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4ec63251e73e694a69f84262e9de7cce6eb8f11f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812264"
+ms.locfileid: "55878498"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Início rápido: Configurar clusters no HDInsight
 
-Neste início rápido, saiba como definir e configurar clusters no HDInsight com o Hadoop, Spark, Kafka, Interactive Query, HBase, R Server ou Storm. Saiba também como personalizar os clusters, associá-las a um domínio e anexe-os a uma conta de armazenamento com [pré-visualização de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-introduction.md) ativada.
+Neste início rápido, saiba como definir e configurar clusters no HDInsight com o Hadoop, Spark, Kafka, Interactive Query, HBase, R Server ou Storm. Saiba também como personalizar os clusters, associá-las a um domínio e anexe-os a uma conta de armazenamento com [geração 2 de armazenamento do Azure Data Lake](data-lake-storage-introduction.md) ativada.
 
 Um cluster do Hadoop é composta por várias máquinas de virtuais (nós) que são utilizadas para processamento distribuído de tarefas. O Azure HDInsight processa os detalhes de implementação da instalação e configuração de nós individuais, para que tenha apenas fornecer informações de configuração geral.
 

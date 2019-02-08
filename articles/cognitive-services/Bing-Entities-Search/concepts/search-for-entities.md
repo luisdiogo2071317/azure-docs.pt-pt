@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilize a API de pesquisa de entidades do Bing para extrair e procurar entidades e locais das consultas de pesquisa.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: b1d46d125d390f8612c5708e1964e0626acde343
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e78cc86a91e229b5d4d4aead5709da2f694ecac1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757475"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895368"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Pesquisa de entidades com a API de entidades do Bing
 
@@ -174,7 +174,7 @@ Quando apresentar as informações da entidade (nome, descrição e imagem), tam
 
 ## <a name="find-places"></a>Encontrar locais
 
-O `places` campo é um [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) objeto que contém uma lista de [local](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) objetos (consulte a [tipos de entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) para obter mais informações). A lista contém uma ou mais entidades locais que satisfazem o pedido.
+O `places` campo é um [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) objeto que contém uma lista de [local](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) objetos (consulte a [tipos de entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) para obter mais informações). A lista contém uma ou mais entidades locais que satisfazem o pedido.
 
 Os locais incluem restaurantes, hotéis ou empresas locais. O campo [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) contém sugestões que identificam o tipo da entidade de local. A lista contém uma lista de sugestões, como Local, EmpresaLocal, Restaurante. Cada sugestão sucessiva na matriz restringe o tipo da entidade. Para obter uma lista de tipos possíveis, veja [Tipos de Entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 

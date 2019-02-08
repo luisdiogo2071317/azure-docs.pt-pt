@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b2485b65c54bdd5dcd523226e17c180bf1eb86a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bb0c8dfd70027d3049e3b04e034d7e813e0c00f3
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734203"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890319"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Gerir o tráfego da Web com a CLI do Azure
 
@@ -47,12 +47,12 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Cria uma rede virtual. |
 | [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnetwork) | Cria uma sub-rede numa rede virtual. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Cria o endereço IP público do gateway de aplicação. |
 | [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Cria um gateway de aplicação. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | Cria um conjunto de dimensionamento de máquinas virtuais. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Cria um conjunto de dimensionamento de máquinas virtuais. |
 | [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | Obtém o endereço IP público do gateway de aplicação. |
 
 ## <a name="next-steps"></a>Passos Seguintes

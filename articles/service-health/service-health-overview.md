@@ -1,25 +1,20 @@
 ---
 title: Descrição geral do Estado de funcionamento do serviço | Documentos da Microsoft
 description: Obter informações personalizadas sobre como as aplicações do Azure são afetadas por problemas de serviço do Azure, atuais e futuras e manutenção.
-services: Resource health
-documentationcenter: ''
-author: rboucher
-manager: ''
-editor: ''
-ms.assetid: ''
+services: service-health
+author: stephbaron
+ms.author: stbaron
+documentationcenter: service-health
 ms.service: service-health
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.author: robb
-ms.openlocfilehash: aa7a925255b0c30b84c3b32bb53ba3f31c11fa6b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162295"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871707"
 ---
 # <a name="service-health"></a>Service Health
 Serviço de estado de funcionamento fornece um dashboard personalizável que controla o estado de funcionamento dos seus serviços do Azure nas regiões onde usá-los. Neste dashboard, pode controlar o Active Directory eventos como problemas de serviço em curso, futura manutenção planeada ou aconselhamentos sobre o estado de funcionamento relevantes. Quando eventos tornam-se inativos, eles serão colocados no seu histórico de estado de funcionamento até 90 dias. Por fim, pode utilizar o dashboard de estado de funcionamento do serviço para criar e gerir alertas de estado de funcionamento do serviço que proativamente notificá-lo quando os problemas de serviço estão a afetar.

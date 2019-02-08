@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilize este guia de introdução para enviar um pedido para a API de REST do Search do Bing entidade com PHP e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 8d963c0de272b29ab592536802ad23387a9b8dad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d2ec75f233984cdce462ff7b05bbe97e62daeb65
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753440"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866496"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com PHP
 

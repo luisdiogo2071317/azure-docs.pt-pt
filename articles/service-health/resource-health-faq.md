@@ -1,25 +1,18 @@
 ---
 title: FAQ do Estado de funcionamento do recurso do Azure | Documentos da Microsoft
 description: Descrição geral do Estado de funcionamento de recursos do Azure
-services: Resource health
-documentationcenter: dev-center-name
 author: stephbaron
-manager: ''
-editor: ''
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
-ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Supportability
-ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: 821495ceb052184f3216c8ed696b39db33db00ac
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.topic: conceptual
+ms.service: service-health
+ms.date: 01/29/2019
+ms.workload: Supportability
+ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977216"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884550"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ do Estado de funcionamento do recurso do Azure
 Aprenda as respostas a perguntas comuns sobre o Azure Resource Health.
@@ -38,9 +31,9 @@ Estado de funcionamento do recurso executa várias verificações com base na [t
 
 ## <a name="what-does-each-of-the-health-status-mean"></a>O que cada um o estado de funcionamento significa?
 Existem três Estados de funcionamento de diferentes:
-- Disponível: Existem não problemas conhecidos na plataforma do Azure que pode estar a afetar este recurso
+- Disponível: Não existem problemas conhecidos na plataforma do Azure que pode estar a afetar este recurso
 - Indisponível: Estado de funcionamento do recurso detetou problemas que estejam a afetar o recurso
-- Desconhecido: Estado de funcionamento de recursos pode não determinar o estado de funcionamento de um recurso uma vez que parou de receber informações sobre ele. 
+- Desconhecido: Estado de funcionamento do recurso não pode determinar o estado de funcionamento de um recurso uma vez que parou de receber informações sobre ele. 
 
 ## <a name="what-does-the-unknown-status-mean-is-something-wrong-with-my-resource"></a>O que significa o estado desconhecido? Há algo de errado com o meu recurso?
 O estado de funcionamento é definido como unknown quando o estado de funcionamento do recurso para receber informações sobre um recurso específico. Enquanto este estado não é uma indicação definitiva do Estado do recurso, nos casos em que estiver tendo problemas, ele pode indicar que existe um problema do Azure.

@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, obtém uma lista de idiomas com suporte para tradução, Transliteração e pesquisa de dicionário com a API de texto do Translator.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: e638375c9c8316c00ee8da000ca5223330072985
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ae7408ac635b2825ab17f40786c3fd60b76d78ac
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215576"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892461"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Início rápido: Utilizar a API de texto do Translator para obter uma lista dos idiomas com suporte a utilizarC#
 
 Neste início rápido, obtém uma lista de idiomas com suporte para tradução, Transliteração e pesquisa de dicionário com a API de texto do Translator.
-
-Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [SDK do .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacote de NuGet Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), ou no seu editor de texto favorito
-* Uma chave de subscrição do Azure para Tradução de Texto
 
 ## <a name="create-a-net-core-project"></a>Criar um projeto .NET Core
 
@@ -72,14 +69,13 @@ static void GetLanguages()
 }
 ```
 
-## <a name="set-the-subscription-key-host-name-and-path"></a>Definir a chave de subscrição, nome de anfitrião e caminho
+## <a name="set-the-host-name-and-path"></a>Definir o nome de anfitrião e o caminho
 
 Adicionar estas linhas para o `GetLanguages` função.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
 string route = "/languages?api-version=3.0";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
 ## <a name="instantiate-the-client-and-make-a-request"></a>Criar uma instância do cliente e fazer um pedido
@@ -109,17 +105,11 @@ Adicione este código para o `HttpRequestMessage`:
 ```csharp
 // Set the method to GET
 request.Method = HttpMethod.Get;
-
 // Construct the full URI
 request.RequestUri = new Uri(host + route);
-
-// Add the authorization header
-request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-
 // Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
-
 // Print the response
 Console.WriteLine(jsonResponse);
 Console.WriteLine("Press any key to continue.");

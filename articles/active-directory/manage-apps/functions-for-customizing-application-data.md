@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3361bc384f3da3d2bde6eab703056dd85356b5f8
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179043"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895419"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -34,7 +34,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
   1. Atributos, que devem estar entre parênteses Retos. Por exemplo: [attributeName]
   2. Constantes de cadeia de caracteres, têm de estar entre aspas duplas. Por exemplo: "United States"
   3. Outras funções. Por exemplo: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \"Contoso\""
+* Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lista de funções
 [Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Comutador](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
@@ -220,7 +220,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
-| **culture** |Opcional |Cadeia |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
+| **culture** |Opcional |String |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
 
 - - -
 ### <a name="toupper"></a>ToUpper
@@ -233,7 +233,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
-| **culture** |Opcional |Cadeia |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
+| **culture** |Opcional |String |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
 
 ## <a name="examples"></a>Exemplos
 ### <a name="strip-known-domain-name"></a>Nome de domínio conhecidos de faixa

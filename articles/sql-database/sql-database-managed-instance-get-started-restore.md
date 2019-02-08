@@ -12,16 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: f75ea7bd728b16c91122119c3e14da2a1e123d45
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452316"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895741"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Início rápido: Restaurar uma base de dados para uma instância gerida 
 
-Neste início rápido, irá utilizar o SQL Server Management Studio (SSMS) para restaurar uma base de dados (a Wide World Importers - ficheiro de cópia de segurança Standard) de armazenamento de Blobs do Azure para uma base de dados do SQL do Azure [instância gerida](sql-database-managed-instance.md). 
+Neste início rápido, usará SQL Server Management Studio (SSMS) para restaurar uma base de dados (a Wide World Importers - ficheiro de cópia de segurança Standard) de armazenamento de Blobs do Azure para uma base de dados do SQL do Azure [instância gerida](sql-database-managed-instance.md). 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 

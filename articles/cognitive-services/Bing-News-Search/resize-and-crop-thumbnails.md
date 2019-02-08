@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Redimensionar e cortar as miniaturas de imagens incluídas nas respostas de API de pesquisa de notícias do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 89f5bec0593f924d6f54df2ee0c5a51ab42874bf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7fcd1faf2d1f7688a9902b38a20f9324eb739c23
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158822"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874248"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>Redimensionamento e corte imagens em miniatura
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258855"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892240"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança ao nível de linha com as Coleções de Área de Trabalho do Power BI
 
@@ -94,7 +94,7 @@ Isso conclui todo o trabalho que precisa ser feito no Power BI Desktop, mas há 
 * **nome de utilizador** (opcional) – utilizado com RLS trata de uma cadeia de caracteres que pode ser utilizada para ajudar a identificar o utilizador ao aplicar regras RLS. Ver a utilizar a linha de segurança ao nível com o Power BI Embedded
 * **funções** – uma cadeia que contém as funções para selecionar ao aplicar regras de segurança de nível de linha. Se passar mais de uma função, devem ser passadas como uma matriz de cadeia de caracteres.
 
-Criar o token ao utilizar o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) método. Se a propriedade de nome de utilizador estiver presente, também tem de passar pelo menos um valor em funções.
+Criar o token ao utilizar o [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) método. Se a propriedade de nome de utilizador estiver presente, também tem de passar pelo menos um valor em funções.
 
 Por exemplo, pode alterar o EmbedSample. DashboardController linha 55 pode ser atualizada de
 

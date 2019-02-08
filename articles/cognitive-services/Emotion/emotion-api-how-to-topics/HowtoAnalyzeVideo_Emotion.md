@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Utilize a API de Emoções para efetuar uma análise quase em tempo real em fotogramas obtidos a partir de uma transmissão de fluxo de vídeo em direto.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 01/25/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec36193e341cac899e696c642a1d600f3f80a5f2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7373fa92834fb2abdfc027901c0f2f8542c306be
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224869"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878481"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemplo: Como Analisar Vídeos em Tempo Real
 

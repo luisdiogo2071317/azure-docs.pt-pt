@@ -4,17 +4,17 @@ titlesuffix: Azure Cognitive Services
 description: Como criar uma conta de APIs serviços cognitivos da Microsoft no portal do Azure.
 services: cognitive-services
 author: garyericson
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: f4c6375dcdefe62fbfb224f766f642953acf1623
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435978"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873977"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Início rápido: Criar uma conta dos serviços cognitivos no portal do Azure
 
@@ -99,7 +99,7 @@ O recurso de serviços cognitivos, pode utilizar o URL de ponto final e chaves n
 
 ## <a name="see-also"></a>Consulte também
 
-* [Início rápido: Extrair texto manuscrito a partir de uma imagem](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
+* [Quickstart: Extrair texto manuscrito a partir de uma imagem](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text)
 * [Tutorial: Criar uma aplicação para detetar e rostos numa imagem de fotograma](https://docs.microsoft.com/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial)
 * [Criar uma página Web de pesquisa personalizada](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page)
 * [Integrar a compreensão de idiomas (LUIS) com um bot, com o Bot Framework](https://docs.microsoft.com/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample)

@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4637b2532ebc81bf3a89d1f83fc7210cadace860
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700813"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876952"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux com uma imagem personalizada (pré-visualização)
 
@@ -232,7 +232,7 @@ A função precisa da cadeia de ligação para ligar à conta de armazenamento p
 Neste caso, `<storage_account>` é o nome da conta de armazenamento que criou. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account). Adicione estas definições de aplicação na aplicação de funções com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
+$storageConnectionString=$(az storage account show-connection-string \
 --resource-group myResourceGroup --name <storage_account> \
 --query connectionString --output tsv)
 

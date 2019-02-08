@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 17fdcb4a57379fd11e841715a6908a4a0d280bd9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563342"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891475"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure com o Azure Monitor para VMs (pré-visualização)
 Azure inclui vários serviços que executar individualmente uma tarefa ou função específica no espaço de monitorização, mas o fornecimento de uma perspectiva detalhada do Estado de funcionamento do sistema operativo alojada em máquinas virtuais do Azure não estava disponível.  Enquanto poderia monitorar para condições diferentes usando o Log Analytics ou no Azure Monitor, que não foram projetados para modelar e representam o estado de funcionamento dos componentes principais ou de estado de funcionamento geral da máquina virtual.  Com o Azure Monitor para a funcionalidade de estado de funcionamento de VMs, proativamente monitoriza a disponibilidade e desempenho do Windows ou Linux SO convidado com um modelo que representam os principais componentes e suas relações, os critérios que especifica como medir o estado de funcionamento desses componentes, e o alerte quando é detetada uma condição de mau estado de funcionamento.  
@@ -106,7 +106,7 @@ Para ver o estado de funcionamento de uma VM do Azure, selecione **Insights (pr�
 
 ![O Azure Monitor para descrição geral do Estado de funcionamento de VMs de uma máquina virtual do Azure selecionada](./media/vminsights-health/vminsights-directvm-health.png)
 
-Sobre o **estado de funcionamento** separador, na secção **estado de funcionamento da VM do convidado**, a tabela mostra o estado de funcionamento atual da sua máquina virtual e o número total de alertas de estado de funcionamento da VM gerados por um componente em mau estado de funcionamento. Consulte a [alertas](#alerting-and-alert-management) secção para obter mais detalhes sobre a experiência de alertas.  
+Sobre o **estado de funcionamento** separador, na secção **estado de funcionamento da VM do convidado**, a tabela mostra o estado de funcionamento atual da sua máquina virtual e o número total de alertas de estado de funcionamento da VM gerados por um componente em mau estado de funcionamento. Consulte a secção de alertas para obter mais detalhes sobre a experiência de alertas.  
 
 Os Estados de funcionamento definidos para uma VM são descritos na tabela a seguir: 
 

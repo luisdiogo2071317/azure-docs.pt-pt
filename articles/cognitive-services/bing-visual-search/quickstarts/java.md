@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Aprenda a carregar uma imagem para a API de pesquisa Visual do Bing e obter conhecimentos sobre ele.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 67cd215479efb40e3eb7e81c6c519a59b6526f47
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6a3eb9a7b85f3cd50384389ee8b03681c097dc27
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172039"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859879"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Início rápido: Obtenha informações de imagem usando a API de REST de pesquisa Visual do Bing e o Java
 

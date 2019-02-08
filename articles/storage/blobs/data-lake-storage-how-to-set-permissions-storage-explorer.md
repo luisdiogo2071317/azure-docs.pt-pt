@@ -1,6 +1,6 @@
 ---
 title: Definir permissões de geração 2 de armazenamento do Data Lake com o Explorador de armazenamento do Azure
-description: Este como, saiba como definir permissões com o Explorador de armazenamento do Azure em arquivos e diretórios dentro de seu Gen2 de armazenamento do Azure Data Lake conta de armazenamento com capacidade de (pré-visualização).
+description: Isso como, saiba como definir permissões com o Explorador de armazenamento do Azure em arquivos e diretórios dentro de sua conta de armazenamento com capacidade de geração 2 de armazenamento do Azure Data Lake.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: fd4ca3946ed4c32a8fd2f08c1c242c33dbca2aaf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238318"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867057"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Definir permissões de nível de ficheiros e diretórios a utilizar o Explorador de armazenamento do Azure com a geração 2 de armazenamento do Azure Data Lake (pré-visualização)
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Definir permissões de nível de ficheiros e diretórios a utilizar o Explorador de armazenamento do Azure com a geração 2 de armazenamento do Azure Data Lake
 
-Ficheiros armazenados na geração 2 de armazenamento do Azure Data Lake (pré-visualização) suporte bem permissões granulares e acesso, controlar a gestão de (ACL lista). Em conjunto, tudo bem permissões granulares e gestão de ACL permitem-lhe gerir o acesso aos seus dados num nível muito granular.
+Ficheiros armazenados na geração 2 de armazenamento do Azure Data Lake suportam permissões detalhadas e gestão de (ACL lista) do controlo de acesso. Em conjunto, tudo bem permissões granulares e gestão de ACL permitem-lhe gerir o acesso aos seus dados num nível muito granular.
 
 Neste artigo, irá aprender a utilizar o Explorador de armazenamento do Azure para:
 

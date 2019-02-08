@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Utilize o método de interpretação para devolver interpretações formatadas de cadeias de consulta com base em dados Academic Graph e a gramática para instituições académicas nos serviços cognitivos da Microsoft.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171665"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860529"
 ---
 # <a name="interpret-method"></a>interpretar o método
 
@@ -29,7 +29,7 @@ Para fornecer uma experiência interativa, é possível chamar este método repe
 
 ## <a name="request-parameters"></a>Parâmetros do Pedido
 
-Nome     | Valor | Necessário?  | Descrição
+Name     | Value | Necessário?  | Descrição
 ---------|---------|---------|---------
 **query**    | Cadeia de texto | Sim | Consulta introduzida pelo utilizador.  Se completa é definida como 1, consulta será interpretada como um prefixo para gerar sugestões de conclusão automática de consulta.        
 **Modelo**    | Cadeia de texto | Não  | Nome do modelo que pretende consultar.  Atualmente, o valor é predefinido para *mais recente*.        
@@ -40,7 +40,7 @@ Nome     | Valor | Necessário?  | Descrição
 <br>
   
 ## <a name="response-json"></a>Resposta (JSON)
-Nome     | Descrição
+Name     | Descrição
 ---------|---------
 **query** |O *consulta* parâmetro no pedido.
 **interpretations** |Uma matriz de 0 ou mais diferentes formas de entrada do usuário em relação a gramática de correspondentes.

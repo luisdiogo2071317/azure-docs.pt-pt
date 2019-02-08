@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 577860baa74d9f0cd7f411a64d9e6bfa9322731c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490452"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894995"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
 Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
@@ -29,7 +29,9 @@ Se tiver o **restringir o acesso** ativado, adicione utilizadores (endereços de
 
 1. Selecione **utilizadores** no menu da esquerda.
 2. Selecione **adicionar utilizadores** na barra de ferramentas. 
-3. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
+
+    ![Adicionar botão de utilizadores](../media/how-to-configure-student-usage/add-users-button.png)
+1. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
 
     ![Endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Selecione **Guardar**. Ver os endereços de e-mail dos utilizadores e os respetivos Estados (registados ou não) na lista. 

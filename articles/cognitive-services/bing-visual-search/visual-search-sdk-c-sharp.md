@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Aprenda a carregar uma imagem usando o SDK de pesquisa Visual do Bing e obter conhecimentos sobre ele.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: fe6ec751ed18af24e8a38d6993d8047b62eeed44
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 3c6a103d3d4c1890a58b833d29c88eb040ac9810
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769764"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860699"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Início rápido: Obtenha informações de imagem com o SDK de pesquisa Visual do Bing paraC#
 

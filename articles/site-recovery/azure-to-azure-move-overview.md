@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 55ab80dc0d914810ad430f59acc304620a7054d4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823431"
+ms.locfileid: "55882986"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -33,7 +33,7 @@ Este documento descreve os vários cenários em que iria querer mover as suas VM
 Os clientes mover as VMs pelos seguintes motivos:-
 
 - Se já havia implantado numa região e uma nova região foi adicionado suporte, que é mais próxima para os utilizadores finais de serviço ou aplicação, em seguida, iria querer **mover as suas VMs, tal como está, para a nova região** para reduzir a latência. A mesma abordagem é efetuada se de que pretende consolidar subscrições ou existem governação / regras de organização que requeira a transferência. 
-- Se a sua VM foi implementada como uma única instância VM ou como parte de disponibilidade do conjunto e pretende aumentar a disponibilidade SLAsm, pode **mover as suas VMs um conjunto de disponibilidade**. 
+- Se a sua VM foi implementada como uma única instância VM ou como parte de disponibilidade do conjunto e pretende aumentar a disponibilidade SLAs, pode **mover as suas VMs para uma zona de disponibilidade**. 
 
 ## <a name="how-to-move-azure-vms"></a>Como mover VMs do Azure
 Mover VMs envolve os seguintes passos:

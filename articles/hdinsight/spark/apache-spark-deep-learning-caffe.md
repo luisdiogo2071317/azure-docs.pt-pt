@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 451ccff9747988ee019f2be9e0cccec12c9c1ef9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118239"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891084"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Utilizar o Caffe para aprendizagem profunda distribuída no Azure HDInsight Spark
 
@@ -64,7 +64,7 @@ Há duas etapas na ação de script. A primeira etapa é instalar todas as bibli
 
 O segundo passo consiste em transferir, compilar e instalar o protobuf 2.5.0 para Caffe durante o tempo de execução. O Protobuf 2.5.0 [é necessário](https://github.com/yahoo/CaffeOnSpark/issues/87), no entanto, esta versão não está disponível como um pacote em 16 de Ubuntu, por isso terá de compilá-lo do código-fonte. Também existem alguns recursos na Internet sobre como compilá-lo. Para obter mais informações, consulte [aqui](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-Para começar, basta executar esta ação de script no cluster a todos os nós de trabalho e nós principais (para o HDInsight 3.5). Pode executar as ações de script num cluster existente, ou utilize ações de script durante a criação de cluster. Para obter mais informações sobre as ações de script, consulte a documentação [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+Para começar, basta executar esta ação de script no cluster a todos os nós de trabalho e nós principais (para o HDInsight 3.5). Pode executar as ações de script num cluster existente, ou utilize ações de script durante a criação de cluster. Para obter mais informações sobre as ações de script, consulte a documentação [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
 ![Ações de script para instalar dependências](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
@@ -183,7 +183,7 @@ Pode alterar outras linhas, conforme necessário.
 O segundo arquivo (${CAFFE_ON_SPARK}/data/lenet_memory_train_test.prototxt) define como a rede de neurônio é o aspeto e a entrada relevante e ficheiro de saída. terá também de atualizar o ficheiro para refletir a localização de dados de treinamento. Altere a parte seguinte lenet_memory_train_test.prototxt (precisa para apontar para a localização certa específica ao seu cluster):
 
 - Altere o "file:/Users/mridul/bigml/demodl/mnist_train_lmdb" para "wasb: / / / projetos/machine_learning/image_dataset/mnist_train_lmdb"
-- alterar "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" para "wasb: / / / projetos/machine_learning/image_dataset/mnist_test_lmdb"
+- change "file:/Users/mridul/bigml/demodl/mnist_test_lmdb/" to "wasb:///projects/machine_learning/image_dataset/mnist_test_lmdb"
 
 ![Configuração do Caffe](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
@@ -213,7 +213,7 @@ Pode dar uma olhada e quantos recursos são alocados para este aplicativo espec�
 
 Convém verificar os registos de controlador ou registos de contentor se existirem falhas. Para os registos de driver, pode clique o ID da aplicação na IU do YARN, em seguida, clique no botão "Registos". Os registos de driver são escritos em stderr.
 
-![IU DO YARN 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
+![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
 
 Por exemplo, poderá ver algumas do erro abaixo dos registos de driver, indicando que alocar executores demasiados.
 

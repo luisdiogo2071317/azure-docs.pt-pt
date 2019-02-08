@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Saiba os atributos que pode utilizar com a entidade de instância da conferência na API de conhecimento académico.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: db025f377a3fab2f788252db0c8e3555837a6de8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196111"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879195"
 ---
 # <a name="conference-instance-entity"></a>Entidade de instância de conferência
 
@@ -24,9 +24,9 @@ ms.locfileid: "55196111"
 Name    |Descrição                            |Type       | Operações
 ------- | ------------------------------------- | --------- | ----------------------------
 Id      |ID de entidade                              |Int64      |Igual a
-CIN     |Nome da conferência instância normalizado ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |Cadeia     |Igual a
-DCN     |Nome de exibição de instância de conferência ({ConferenceSeriesName}: {ConferenceInstanceYear})       |Cadeia     |nenhum
-CIL     |Localização da instância de conferência    |Cadeia     |É igual a,<br/>StartsWith
+CIN     |Nome da conferência instância normalizado ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |String     |Igual a
+DCN     |Nome de exibição de instância de conferência ({ConferenceSeriesName}: {ConferenceInstanceYear})       |String     |nenhum
+CIL     |Localização da instância de conferência    |String     |É igual a,<br/>StartsWith
 CISD    |Data de início da instância de conferência  |Date       |É igual a,<br/>IsBetween
 CIED    |Data de fim da instância de conferência    |Date       |É igual a,<br/>IsBetween
 CIARD   |Registo de abstrair data de vencimento da instância de conferência  |Date       |É igual a,<br/>IsBetween
@@ -35,7 +35,7 @@ CIFVD   |Versão final data de vencimento da instância de conferência  |Date  
 CINDD   |Data de notificação da instância de conferência   |Date       |É igual a,<br/>IsBetween
 CD.T    |Título de um evento de instância de conferência   |Date       |É igual a,<br/>IsBetween
 CD.D    |Data de um evento de instância de conferência    |Date       |É igual a,<br/>IsBetween
-PCS.CN  |Nome da série de conferências da instância |Cadeia     |Igual a
+PCS.CN  |Nome da série de conferências da instância |String     |Igual a
 PCS.CId |ID de série de conferências da instância |Int64    |Igual a
 Cc      |Contagem de citação total de instâncias de conferência           |Int32      |nenhum  
 ECC     |Contagem de citação estimado total de instâncias de conferência |Int32      |nenhum

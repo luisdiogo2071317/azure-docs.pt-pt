@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a70e83737c6b56aee3279375ec653f12810b13b4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 3940c2f239a4354cfb44a499f7375f4ba34f8aa8
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749819"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892032"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução ao Azure SQL Database instância gerida
 
@@ -27,7 +27,7 @@ O [instância gerida](sql-database-managed-instance-index.yml) opção de implem
 
 Os inícios Rápidos seguintes permitem-lhe rapidamente criar uma instância gerida, configurar uma máquina virtual ou do ponto de ligação de VPN de site para a aplicação de cliente e restaurar uma base de dados para a nova instância gerida com um `.bak` ficheiro:
 
-- [Criar uma instância gerida no portal do Azure](sql-database-managed-instance-get-started.md). No portal do Azure, configure os parâmetros necessários (nome de utilizador/palavra-passe, número de núcleos, ao armazenamento máximo) e criar automaticamente o ambiente de rede do Azure sem necessidade de saber sobre o funcionamento em rede detalhes e requisitos de infraestrutura. Apenas Certifique-se de que tem um [tipo de subscrição](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que tem permissão para criar uma instância gerida. Se tem sua própria rede que pretende utilizar ou se pretender personalizar a rede, consulte como [configurar o ambiente de rede](#configure-network-environment) para uma instância gerida.
+- [Criar uma instância gerida no portal do Azure](sql-database-managed-instance-get-started.md). No portal do Azure, configure os parâmetros necessários (nome de utilizador/palavra-passe, número de núcleos, ao armazenamento máximo) e criar automaticamente o ambiente de rede do Azure sem necessidade de saber sobre o funcionamento em rede detalhes e requisitos de infraestrutura. Apenas Certifique-se de que tem um [tipo de subscrição](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que tem permissão para criar uma instância gerida. Se tiver sua própria rede que pretende utilizar ou pretender personalizar a rede, veja como configurar o ambiente de rede para uma instância gerida.
 - Uma instância gerida é criada na própria VNet com nenhum ponto final público. Para obter acesso de aplicação de cliente, pode criar uma VM na mesma VNet (sub-rede diferente) ou criar uma ligação de VPN ponto a site para a VNet a partir do computador cliente através de um dos seguintes inícios rápidos.
   - Crie [Máquina Virtual do Azure na instância gerida VNet](sql-database-managed-instance-configure-vm.md) para conectividade de aplicativo de cliente, incluindo o SQL Server Management Studio.
   - Configurar [ligação de VPN ponto a site para a sua instância gerida](sql-database-managed-instance-configure-p2s.md) partir do computador cliente em que tiver o SQL Server Management Studio e outros aplicativos de conectividade do cliente. Este é outro das duas opções para a conectividade à sua instância gerida e a sua VNet.
@@ -44,7 +44,7 @@ Assim que tiver a certeza de que pode migrar a base de dados para uma instância
 
 Estes inícios rápidos permitem-lhe rapidamente criar, configurar e restaurar a cópia de segurança da base de dados para uma instância gerida. Em alguns cenários, precisaria personalizar ou automatizar a implementação de instâncias geridas e o ambiente de rede necessário. Estes cenários serão descritos abaixo.
 
-## <a name="customizing-network-environment"></a>Personalizar o ambiente de rede
+## <a name="customize-network-environment"></a>Personalizar o ambiente de rede
 
 Embora a VNet/sub-rede podem ser configurada automaticamente quando a instância é criada no portal do Azure, pode querer criar a VNet/sub-rede antes de criar instâncias geridas, para que possa configurar os parâmetros da VNet e sub-rede. A maneira mais fácil para criar e configurar o ambiente de rede está a utilizar um [implementação de recursos do Azure](sql-database-managed-instance-create-vnet-subnet.md) modelo para criar e configurar a rede e a sub-rede para a instância gerida. Basta pressionar o Azure Resource Manager botão implementar e preencher o formulário com parâmetros. 
 

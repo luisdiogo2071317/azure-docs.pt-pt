@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 02/07/2019
+ms.openlocfilehash: 79d6e185b64fdaf332f877718487809ba6273441
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970292"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895793"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na base de dados do Azure para MariaDB
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados.
@@ -34,7 +34,7 @@ Seguem-se o número máximo de ligações por vCores e escalão de preço:
 |Memória Otimizada| 16| 5000|
 
 Quando as ligações excederem o limite, poderá receber o erro seguinte:
-> ERRO 1040 (08004): Demasiadas ligações
+> ERROR 1040 (08004): Demasiadas ligações
 
 ## <a name="storage-engine-support"></a>Suporte ao mecanismo de armazenamento
 
@@ -52,6 +52,7 @@ Quando as ligações excederem o limite, poderá receber o erro seguinte:
 ### <a name="unsupported"></a>Não suportado
 - Função DBA: Várias definições de parâmetros do servidor e inadvertidamente podem degradar o desempenho do servidor ou negar as propriedades ACID do DBMS. Como tal, para manter a integridade de serviço e o SLA num nível de produto, este serviço não expõe a função DBA. A conta de usuário padrão, é criada quando é criada uma nova instância de base de dados, permite que o utilizador efetuar a maioria das instruções DDL e DML na instância gerida da base de dados.
 - Privilégio SUPER: Da mesma forma [privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
+- DEFINER: Requer privilégios superutilizadores para criar e é restrito. Se importar dados através de uma cópia de segurança, remova a `CREATE DEFINER` comandos manualmente ou utilizando o `--skip-definer` ao realizar um mysqldump de comando.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte de instrução de manipulação de dados
 
@@ -76,6 +77,9 @@ Quando as ligações excederem o limite, poderá receber o erro seguinte:
 
 ### <a name="subscription-management"></a>Gestão de subscrições
 - Dinamicamente movendo servidores previamente criadas pela subscrição e grupo de recursos não é atualmente suportada.
+
+### <a name="vnet-service-endpoints"></a>Pontos finais de serviço de VNet
+- Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
 
 ## <a name="current-known-issues"></a>Atuais problemas conhecidos
 - Instância de servidor MariaDB apresenta a versão de servidor incorreto depois de ligação é estabelecida. Para obter versão do motor de instância de servidor correto, utilize o `select version();` comando.

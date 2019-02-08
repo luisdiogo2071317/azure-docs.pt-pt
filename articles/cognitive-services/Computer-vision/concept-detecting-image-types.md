@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados com a funcionalidade de deteção do tipo de imagem da API de visão do computador.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: da7cce0cd69823f254cd6b666dc468f155b9e097
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6cd7b2a8a70a315b05c0824a863803bbc6ffabb2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156280"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872140"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Detetar tipos de imagem com imagem digitalizada
 
@@ -26,7 +26,7 @@ Imagem digitalizada pode analisar o tipo de conteúdo de imagens ao indicar se u
 
 Imagem digitalizada analisa uma imagem e classifica a probabilidade da imagem a ser clip-art numa escala de 0 a 3, conforme descrito na tabela seguinte.
 
-| Valor | Significado |
+| Value | Significado |
 |-------|---------|
 | 0 | Não é ClipArt |
 | 1 | Ambígua |

@@ -7,12 +7,12 @@ ms.service: healthcare-apis
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: c0602d44a5b01e31cd2082e2b05d17c4289adaa1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e8305c5a69fa3fda29f4f1292b7faa59f8ec3608
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824149"
+ms.locfileid: "55870151"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registar uma aplicação de recurso no Azure Active Directory
 
@@ -42,7 +42,9 @@ Uma aplicação de recurso tem um identificador URI (URI de ID de aplicação), 
 
 2. Clique em **definir** junto a *URI de ID de aplicação*.
 
-3. Clique em **Adicionar âmbito** e adicionar qualquer âmbitos que pretende definir para API. O Azure AD não permite atualmente barras (`/`) em nomes de âmbito. Recomendamos que utilize `$` em vez disso. Como um âmbito `patient/*.read` seria `patient$*.read`.
+3. Introduza o URI do identificador e clique em **guardar**. Um identificador de bom URI seria o URI do seu servidor FHIR.
+
+4. Clique em **Adicionar âmbito** e adicionar qualquer âmbitos que pretende definir para API. O Azure AD não permite atualmente barras (`/`) em nomes de âmbito. Recomendamos que utilize `$` em vez disso. Como um âmbito `patient/*.read` seria `patient$*.read`.
 
     ![Público-alvo e âmbito](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
 
