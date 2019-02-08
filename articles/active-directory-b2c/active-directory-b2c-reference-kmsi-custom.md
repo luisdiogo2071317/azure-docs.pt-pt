@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812311"
+ms.locfileid: "55870967"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Ativar manter sessão iniciada (KMSI) no Azure Active Directory B2C
 
@@ -154,7 +154,7 @@ Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percur
 
     O valor de **SessionExpiryInSeconds** representa a hora de expiração de uma sessão SSO. Isso é utilizado internamente pelo Azure AD B2C para verificar se a sessão para KMSI expirou ou não. O valor de **KeepAliveInDays** determina o valor de Expires/Max-Age do cookie SSO no navegador da web. Ao contrário **SessionExpiryInSeconds**, **KeepAliveInDays** serve para impedir que o navegador de limpar o cookie quando está fechado. Um utilizador silenciosamente pode iniciar sessão apenas se existir o cookie de sessão SSO, que é controlada pela **KeepAliveInDays**e não está expirado, que é controlado pelas **SessionExpiryInSeconds**. 
     
-    Se um utilizador não permite **manter sessão iniciada** na página de inscrição e início de sessão, uma sessão expira após o tempo indicado pelo **SessionExpiryInSeconds** passou ou o browser é fechado. Se um utilizador ativa **manter sessão iniciada**, o valor de **KeepAliveInDays** substitui o valor de **SessionExpiryInSeconds** e determina o tempo de expiração da sessão. Até mesmo os usuários, feche o browser e abra-o novamente, eles podem ainda silenciosamente início de sessão, desde que esteja dentro do momento da **KeepAliveInDays**. É recomendado que defina o valor de **SessionExpiryInSeconds** um período curto (segundos 1200), enquanto o valor de **KeepAliveInDays** pode ser definida para um período relativamente longo (7 dias), como mostra a exemplo a seguir:
+    Se um utilizador não permite **manter sessão iniciada** na página de inscrição e início de sessão, uma sessão expira após o tempo indicado pelo **SessionExpiryInSeconds** passou ou o browser é fechado. Se um utilizador ativa **manter sessão iniciada**, o valor de **KeepAliveInDays** substitui o valor de **SessionExpiryInSeconds** e determina o tempo de expiração da sessão. Mesmo que os utilizadores feche o browser e abra-o novamente, eles podem ainda silenciosamente início de sessão, desde que esteja dentro do momento da **KeepAliveInDays**. É recomendado que defina o valor de **SessionExpiryInSeconds** um período curto (segundos 1200), enquanto o valor de **KeepAliveInDays** pode ser definida para um período relativamente longo (7 dias), como mostra a exemplo a seguir:
 
     ```XML
     <RelyingParty>

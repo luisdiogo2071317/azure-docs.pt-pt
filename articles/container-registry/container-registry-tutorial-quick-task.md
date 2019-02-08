@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754378"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860478"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Criar e implementar imagens de contentor na cloud com tarefas de registo de contentor do Azure
 
@@ -21,7 +21,7 @@ O **ACR Tasks** é um conjunto de funcionalidades no Azure Container Registry qu
 
 O ciclo de desenvolvimento de "ciclo interno" é o processo iterativo de escrita de código, compilar e testar a sua aplicação antes de a consolidar para o controlo de origem. Uma tarefa rápida expande o seu “ciclo interno” para a cloud, fornecendo-lhe a validação da compilação com êxito e o envio automático de imagens compiladas com êxito para o registo de contentor. As imagens são compiladas de forma nativa na cloud, junto do seu registo, o que permite uma implementação mais rápida.
 
-Todos os seus conhecimentos do Dockerfile podem ser transferidos diretamente para o ACR Tasks. Não tem de alterar o Dockerfiles para compilar na cloud com o ACR Tasks, apenas o comando que está a executar.
+Todos os seus conhecimentos do Dockerfile podem ser transferidos diretamente para o ACR Tasks. Não tem de alterar o Dockerfiles para compilar na cloud com o ACR Tasks, apenas o comando que está a executar. 
 
 Neste tutorial, a primeira parte de uma série:
 
@@ -30,7 +30,7 @@ Neste tutorial, a primeira parte de uma série:
 > * Compilar uma imagem do contentor no Azure
 > * Implementar um contentor no Azure Container Instances
 
-Nos tutoriais subsequentes, vai aprender a utilizar o ACR Tasks para obter compilações automatizadas de imagens do contentor após a consolidação do código e a atualização da imagem de base.
+Nos tutoriais subsequentes, vai aprender a utilizar o ACR Tasks para obter compilações automatizadas de imagens do contentor após a consolidação do código e a atualização da imagem de base. Também pode executar tarefas de ACR [tarefas de vários passos](container-registry-tasks-multi-step.md) (atualmente em pré-visualização), utilizar um YAML de ficheiros para definir os passos para criar, emitir e, opcionalmente, pode testar vários contentores.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756585"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875496"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Serviços de multimédia do Azure v3 perguntas mais frequentes
 
@@ -36,17 +36,7 @@ Recomenda-se que submeter tarefas através de um URL de HTTP (s) que aponta para
 
 ### <a name="how-does-pagination-work"></a>Como funciona a paginação?
 
-Serviços de multimédia suportam $top para recursos que dão suporte a OData, mas o valor transmitido para $top tem de ser inferior a 1000 (por exemplo, o tamanho da página para a paginação).
-
-Isto permite-lhe optar por colocar uma pequena amostra dos itens com $top (por exemplo, os itens mais recentes 100) ou página, no entanto, todos os itens com a paginação. 
-
-Serviços de multimédia não suporta paginação por meio dos dados com um utilizador especificado tamanho da página.
-
-Para obter mais informações, consulte [filtragem, ordenação, paginação](entities-overview.md).
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Como recuperar uma entidade em serviços de multimédia v3?
-
-v3 baseia-se numa superfície de API unificada, que expõe a funcionalidade de gerenciamento e operações incorporada **do Azure Resource Manager**. De acordo com **do Azure Resource Manager**, os nomes de recursos são sempre de ser exclusivos. Assim, pode usar qualquer cadeia de caracteres de identificador exclusivo (por exemplo, GUIDs) para o seu recurso.
+Ao utilizar a paginação, deve sempre utilizar a ligação seguinte enumere a coleção e não dependem de um tamanho de página em particular. Para obter detalhes e exemplos, consulte [filtragem, ordenação, paginação](entities-overview.md).
 
 ## <a name="live-streaming"></a>Transmissão em direto 
 

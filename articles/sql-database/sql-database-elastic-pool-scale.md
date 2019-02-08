@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455104"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868123"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar recursos de conjunto elástico na base de dados do Azure SQL
 
@@ -27,8 +27,8 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 
 - Pode aprovisionar um armazenamento até ao limite de tamanho máximo:
 
-  - Para o armazenamento Standard, aumentar ou diminuir o tamanho em incrementos de 10 GB
-  - Para armazenamento Premium, aumentar ou diminuir o tamanho em incrementos de 250 GB
+  - Para o armazenamento nos escalões de serviço standard ou para fins gerais, aumentar ou diminuir o tamanho em incrementos de 10 GB
+  - Para armazenamento no premium ou crítico para a empresa escalões de serviço, aumentar ou diminuir o tamanho em incrementos de 250 GB
 - Armazenamento para um conjunto elástico pode ser aprovisionado por aumentar ou diminuir o tamanho máximo.
 - O preço do armazenamento de um conjunto elástico é a quantidade de armazenamento, multiplicada pelo preço de unidade de armazenamento da camada de serviços. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 

@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: O serviço de voz personalizada agora é parte integrante do serviço de voz. Mude para o serviço de voz para tirar partido dos mais recentes atualizações de qualidade e funcionalidade.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 594233b9e345f9578c218b042a64ea167d50addb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211037"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856901"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrar do serviço de voz personalizada para o serviço de voz
 
@@ -40,12 +40,6 @@ O modelo de preços é mais simples, com um modelo de preços baseado em hora pa
 3. Siga os guias de início rápido e amostras de SDK para utilizar as APIs corretas. Se utilizar as APIs REST, terá também de utilizar os pontos de extremidade corretos e as chaves do recurso.
 
 4. Atualize a aplicação de cliente para utilizar o serviço de voz e APIs.
-
-> [!NOTE]
-> * Se ativou a voz na compreensão de idiomas (LUIS), um único recurso de LUIS na mesma região irá funcionar para LUIS, bem como todos os serviços de voz. Para obter mais informações, consulte [reconhecer intenções de voz](how-to-recognize-intents-from-speech-csharp.md).
-> * Tradução de texto em texto não é parte integrante do serviço de voz. Esta funcionalidade requer a sua própria subscrição de recursos do Azure.
- 
-
 
 ## <a name="migration-for-existing-customers"></a>Migração para os clientes existentes
 

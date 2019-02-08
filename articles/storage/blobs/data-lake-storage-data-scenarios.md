@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1c50a6e14955b2c31222ff1317aa99ad28866ec8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239037"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864745"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilizar a geração 2 de armazenamento do Azure Data Lake para requisitos de grandes volumes de dados
 
@@ -82,6 +82,8 @@ Para carregar conjuntos de dados que variam em vários terabytes, usando os mét
 Depois dos dados estão disponíveis na geração 2 de armazenamento do Data Lake pode executar a análise de nesses dados com as aplicações de grandes volumes de dados suportados. Atualmente, pode utilizar o Azure HDInsight e o Azure Databricks para executar tarefas de análises de dados em dados armazenados na geração 2 de armazenamento do Data Lake.
 
 ![Analisar dados de geração 2 de armazenamento do Data Lake](./media/data-lake-storage-data-scenarios/analyze-data.png "analisar dados de geração 2 de armazenamento do Data Lake")
+
+Por exemplo, veja [Use Azure Data Lake armazenamento Gen2 com o Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
 
 
 ## <a name="download-data-from-data-lake-storage-gen2"></a>Transferir dados da geração 2 de armazenamento do Data Lake

@@ -10,14 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3e3c456da122e33a67b2ee3377bc15cb684b896
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979071"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864864"
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Introdução ao Azure Data Lake Store com a CLI do Azure
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -37,7 +40,7 @@ Antes de começar este artigo, tem de ter o seguinte:
 
 * **CLI do Azure** -veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para obter instruções.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Este artigo utiliza uma abordagem de autenticação mais simples com o Data Lake Storage Gen1 em que inicia sessão como utilizador final. O nível de acesso para a Gen1 de armazenamento do Data Lake conta e sistema de ficheiros é, então, governado pelo nível de acesso do utilizador com sessão iniciada. No entanto, existem outras abordagens para autenticar com o Data Lake Storage Gen1, que são **autenticação de utilizador final** ou **autenticação serviço a serviço**. Para obter instruções e mais informações sobre como autenticar, consulte [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
 

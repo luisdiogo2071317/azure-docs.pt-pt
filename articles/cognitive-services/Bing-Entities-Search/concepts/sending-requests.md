@@ -4,18 +4,18 @@ titleSuffix: Azure cognitive Services
 description: Saiba como enviar pedidos de pesquisa para a API de pesquisa de entidades do Bing
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 9058a97b6d13d0b4af421d4d612b56fb9c5c1298
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 8eab941f9589e84d7193cc32f91d080d7cda7c08
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757471"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864762"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Envio de pedidos de pesquisa para a API de pesquisa de entidades do Bing
 

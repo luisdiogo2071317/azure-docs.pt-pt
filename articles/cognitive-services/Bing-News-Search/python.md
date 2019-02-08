@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Utilize este guia de introdução para enviar um pedido para a API de REST do Search do Bing notícias com Python e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7d048287cb70f93088468e9cd477101b0fe2259f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f6ae2315c14a92d72d2efa03b96397512120ab06
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197658"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866241"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Início rápido: Efetua uma pesquisa de notícias com Python e a API de REST de pesquisa do Bing notícias
 
