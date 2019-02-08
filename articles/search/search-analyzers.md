@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 121b5542f9388355b97744aa224ac824dd8d8728
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631947"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867210"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores de processamento no Azure Search de texto
 
@@ -53,7 +53,7 @@ Pode personalizar um analisador predefinido, tais como **padrão** ou **parar**,
  
  | Cenário | Impacto | Passos |
  |----------|--------|-------|
- | Adicionar um novo campo | Mínimo | Se o campo ainda não existe no esquema, não há nenhum revisão do campo porque o campo ainda não tiver uma presença física no seu índice. Uso [índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarefa.|
+ | Adicionar um novo campo | minimal | Se o campo ainda não existe no esquema, não há nenhum revisão do campo porque o campo ainda não tiver uma presença física no seu índice. Uso [índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarefa.|
  | Adicione um analisador para um campo indexado existente. | Reconstruir | O índice invertido para esse campo deve ser recriado desde o backup e o conteúdo para os campos têm de ser reindexado. <br/> <br/>Para índices em permanente desenvolvimento, [elimine](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [criar](https://docs.microsoft.com/rest/api/searchservice/create-index) o índice de retirada a nova definição de campo. <br/> <br/>Para índices em produção, deve criar um novo campo para fornecer a definição revisada e começar a utilizar. Uso [índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para incorporar o novo campo. Mais tarde, como parte da manutenção planeada de índice, é possível limpar o índice para remover campos obsoletos. |
 
 ## <a name="tips-and-best-practices"></a>Dicas e melhores práticas
@@ -92,7 +92,7 @@ Percorrendo neste exemplo:
 * Analisadores são uma propriedade da classe de campo para um campo pesquisável.
 * Um analisador personalizado faz parte de uma definição de índice. Ele pode ser apenas superficialmente personalizado (por exemplo, personalizar uma única opção de um filtro) ou personalizado em vários locais.
 * Neste caso, o analisador personalizado é "my_analyzer", que por sua vez usa um atomizador padrão personalizado "my_standard_tokenizer" e dois filtros de token: filtro de asciifolding em minúsculas e personalizadas "my_asciifolding".
-* Também define um filtro de char map_dash"personalizada" para substituir todos os traços com carateres de sublinhado antes de atomização (as padrão atomizador quebras no dash, mas não no caráter de sublinhado).
+* Também define a 2 de char personalizado de filtros "map_dash" e "remove_whitespace". Primeiro substitui todos os traços com carateres de sublinhado, enquanto a segunda remove todos os espaços em branco. O espaço em branco tem de ser codificados nas regras de mapeamento de UTF-8. Os filtros de char são aplicados antes de atomização e afetarão os tokens resultantes (os padrão atomizador quebras no dash e espaços, mas não no caráter de sublinhado).
 
 ~~~~
   {
@@ -116,7 +116,8 @@ Percorrendo neste exemplo:
            "name":"my_analyzer",
            "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
            "charFilters":[
-              "map_dash"
+              "map_dash",
+              "remove_whitespace"
            ],
            "tokenizer":"my_standard_tokenizer",
            "tokenFilters":[
@@ -130,6 +131,11 @@ Percorrendo neste exemplo:
            "name":"map_dash",
            "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
            "mappings":["-=>_"]
+        },
+        {
+           "name":"remove_whitespace",
+           "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
+           "mappings":["\\u0020=>"]
         }
      ],
      "tokenizers":[

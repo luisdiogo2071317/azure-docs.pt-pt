@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Explore uma aplicação básica do Windows para reconhecer as emoções expressas nos rostos numa imagem.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1609b210d47c30d3934b6e61dc9ec0bd7257f8db
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7921aac33abc6df121f734778fca7f9dddb19be7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208228"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862552"
 ---
 # <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Tutorial: Reconheça emoções num rosto numa imagem.
 

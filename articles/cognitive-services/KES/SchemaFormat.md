@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Saiba mais sobre o formato de esquema no conhecimento exploração de serviço (KES) API.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227306"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860716"
 ---
 # <a name="schema-format"></a>Formato de esquema
 
@@ -43,12 +43,12 @@ Segue-se uma lista dos tipos de dados de atributo suportados:
 
 | Type | Descrição | Operações | Exemplo |
 |------|-------------|------------|---------|
-| Cadeia | A cadeia de caracteres (1 a 1024 carateres) | é igual a, starts_with | "hello world" |
+| String | A cadeia de caracteres (1 a 1024 carateres) | é igual a, starts_with | "hello world" |
 | Int32 | O número inteiro de 32 bits com sinal | é igual a, starts_with, is_between | 2016 |
 | Int64 | O número inteiro de 64 bits com sinal | é igual a, starts_with, is_between | 9876543210 |
-| Valor de duplo | Valor de vírgula flutuante de dupla precisão | é igual a, starts_with, is_between | 1.602E-19 |
+| Double | Valor de vírgula flutuante de dupla precisão | é igual a, starts_with, is_between | 1.602E-19 |
 | Date | Data (1400-01-01 e 9999-12-31) | é igual a, is_between | '2016-03-14' |
-| GUID | Identificador exclusivo global | é igual a | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| Guid | Identificador exclusivo global | é igual a | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blobs | Dados não-indexada internamente comprimidos | *Nenhum* | "Capacitar todas as pessoas e todas as organizações do mundo a irem mais" |
 | Composição | Composição de vários atributos secundárias| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 

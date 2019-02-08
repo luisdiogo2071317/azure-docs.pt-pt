@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d60c99349fef26fc1ead7f6ea4b77d0c364c4abb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244475"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868145"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos para o Azure Machine Learning Studio
 
@@ -44,9 +44,7 @@ Cientistas de dados de várias que falei com disse que a forma-se de que apenas 
 Eis um exemplo do [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [Compare classificadores de Roc: Reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
-> Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).
-> 
-> 
+> Para transferir uma visão geral de fácil de compreender o infográfico de noções básicas do machine learning para saber mais sobre os algoritmos populares utilizados para responder a perguntas comuns de machine learning, consulte [de Machine learning Noções básicas com exemplos de algoritmos](basics-infographic-with-algorithm-examples.md).
 
 ## <a name="flavors-of-machine-learning"></a>Tipos do machine learning
 
@@ -242,13 +240,13 @@ Iniciado e liderado pelo John Langford do Microsoft Research próprio, VW é uma
 
 ## <a name="next-steps"></a>Próximos Passos
 
-* Para um infográfico transferível que descreve os algoritmos e fornece exemplos, consulte [Infográfico transferível: Noções básicas com exemplos de algoritmos de aprendizagem máquina](basics-infographic-with-algorithm-examples.md).
+* Para transferir uma visão geral de fácil de compreender o infográfico de noções básicas do machine learning para saber mais sobre os algoritmos populares utilizados para responder a perguntas comuns de machine learning, consulte [de Machine learning Noções básicas com exemplos de algoritmos](basics-infographic-with-algorithm-examples.md).
 
 * Para obter uma lista por categoria de todos os algoritmos de aprendizagem automática disponíveis no Machine Learning Studio, consulte [inicializar modelo](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) no algoritmo do Machine Learning Studio e, em seguida, ajuda do módulo.
 
 * Para obter uma lista alfabética completa de algoritmos e módulos no Machine Learning Studio, consulte [lista A-Z dos módulos do Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) no algoritmo de Machine Learning Studio e a ajuda do módulo.
 
-* Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).
+* Pode transferir e imprimir um diagrama que dá uma visão geral das funcionalidades do Machine Learning Studio: [Microsoft Azure Machine Learning Studio descrição geral de funcionalidades (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 <!-- Media -->
 

@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Este artigo contém os limites de conhecidos do Azure Cognitive Services compreensão de idiomas (LUIS). LUIS tem várias áreas de limites. Limite de modelo controla intenções, entidades e recursos do LUIS. Limites de quota com base no tipo de chave. Combinação de teclado controla o Web site do LUIS.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c9c88a2d77aea203b4ef19d2e5188caa5c99b46c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5285e6d0aa6fe320ded729ad3b00389b27e0b9d9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219146"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859271"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o seu modelo do LUIS e chaves
 LUIS tem várias áreas de limites. A primeira é o [limites de modelo](#model-boundaries), que controla o intenções, entidades e recursos do LUIS. É a segunda área [limites de quota](#key-limits) com base no tipo de chave. É uma terceira área dos limites da [combinação de teclado](#keyboard-controls) para controlar o Web site do LUIS. É uma área de quarta a [mapeamento de região do mundo](luis-reference-regions.md) entre o LUIS criação de Web site e o LUIS [endpoint](luis-glossary.md#endpoint) APIs. 

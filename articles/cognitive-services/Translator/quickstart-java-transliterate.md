@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a transcrição de texto (converter) a partir de um script para outro e usando Java e a API de REST de texto do Translator. Neste exemplo, o japonês é transliterado para utilizar o alfabeto latino.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: e42aa7ec796b3be912614ced5f3a4db47f67c124
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 76de6b91d6b136dc0d2f6933e29f24ca3ea3e785
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210068"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857078"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto com Java
 

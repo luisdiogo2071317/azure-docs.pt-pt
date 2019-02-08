@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com Ruby.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
-ms.openlocfilehash: 07da6172b53b9904eb30a61d8b69b0f5b6693fdd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f56029fb0d5ca0d9105064400f9e1f9e90a8fa38
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470115"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857299"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>Início rápido: Obter comprimentos de frase com a API de REST de texto do Translator (Ruby)
 

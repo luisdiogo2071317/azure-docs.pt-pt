@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Aprenda a reconhecer entidades usando a API de REST de análise de texto.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5b8ebc76355d39c1e81217fd1f7af09f876838c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220397"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55862350"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto (pré-visualização)
 

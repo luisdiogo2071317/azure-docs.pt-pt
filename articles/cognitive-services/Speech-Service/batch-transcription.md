@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Transcrição de batch é ideal se quiser transcrição de uma grande quantidade de áudio em armazenamento, como Blobs do Azure. Ao utilizar a API de REST dedicada, que pode apontar para arquivos de áudio com uma assinatura de acesso partilhado (SAS) URI e assincronamente receber transcrições.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228666"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867125"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição de Batch?
 
@@ -49,7 +49,7 @@ A API de transcrição do Batch suporta os seguintes formatos:
 > [!NOTE]
 > A API de transcrição do Batch requer uma chave de S0 (camada de pagar). Ele não funciona com uma chave gratuita (f0).
 
-Para fluxos de áudio estéreo, a API de transcrição do Batch divide o canal do esquerda e direito durante a transcrição. Os dois ficheiros JSON com o resultado são todos criados a partir de um canal único. Os carimbos de data / por expressão permitem aos programadores criar uma transcrição final ordenada. O exemplo JSON seguinte mostra a saída de um canal, includuing propriedades para configurar o filtro de linguagem inapropriada e o modelo de pontuação.
+Para fluxos de áudio estéreo, a API de transcrição do Batch divide o canal do esquerda e direito durante a transcrição. Os dois ficheiros JSON com o resultado são todos criados a partir de um canal único. Os carimbos de data / por expressão permitem aos programadores criar uma transcrição final ordenada. O JSON seguinte mostra um pedido de exemplo, includuing propriedades para configurar a linguagem inapropriada filtrar, o modelo de pontuação e carimbos de data / ao nível do word
 
 ```json
 {
@@ -60,7 +60,8 @@ Para fluxos de áudio estéreo, a API de transcrição do Batch divide o canal d
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ Atualmente, o armazenamento apenas suportado é o armazenamento de Blobs do Azur
 Pode encontrar o exemplo neste artigo sobre [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Uma transcrição de áudio requer, normalmente, um intervalo de tempo igual a duração do arquivo de áudio, mais uma sobrecarga de dois a três minutos.
+> Não fornecemos um SLA de tempo para áudio trascriptions através do batch. No entanto, uma vez a tarefa de transcrição actioned (no estado de execução), é typially processados mais rapidamente do que em tempo real.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

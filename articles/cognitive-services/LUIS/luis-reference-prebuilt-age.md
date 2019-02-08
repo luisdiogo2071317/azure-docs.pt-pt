@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Este artigo contém idade informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 7644f2c4f4479ae234dc2d4b501be17455230bde
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a6aeffb40092252a4e48a200da640f22a149f089
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217854"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867312"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Idade entidade criados previamente para uma aplicação LUIS
 A entidade de idade pré-criados captura o valor de idade tanto numericamente e em termos de dias, semanas, meses e anos. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a idade para os objetivos do aplicativo. Entidade de idade é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
