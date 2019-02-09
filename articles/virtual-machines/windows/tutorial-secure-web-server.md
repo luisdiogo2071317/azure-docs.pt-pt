@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e21352baa45cb5d19df26760bdab2e8fafff8bce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: b964da7060ab2c793d15981b21aba7190a7b2bde
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886395"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977933"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor de web numa máquina virtual Windows no Azure com certificados SSL armazenados no Key Vault
 
@@ -35,7 +35,11 @@ Para proteger servidores Web, pode ser utilizado um certificado SSL (Secure Sock
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.7.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
+
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 
 ## <a name="overview"></a>Descrição geral
@@ -45,26 +49,26 @@ Em vez de utilizar uma imagem de VM personalizada, que inclua certificados integ
 
 
 ## <a name="create-an-azure-key-vault"></a>Criar um Azure Key Vault
-Para poder criar um Key Vault e certificados, crie primeiro um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupSecureWeb* na localização *E.U.A. Leste*:
+Antes de poder criar um Key Vault e certificados, crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupSecureWeb* na localização *E.U.A. Leste*:
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
 $location = "East US"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
-Em seguida, crie um Key Vault com [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault). Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua `mykeyvault` no exemplo seguinte pelo seu próprio nome exclusivo do Key Vault:
+Em seguida, crie um Key Vault com [New-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault). Cada Key Vault requer um nome exclusivo com todas as letras minúsculas. Substitua `mykeyvault` no exemplo seguinte pelo seu próprio nome exclusivo do Key Vault:
 
 ```azurepowershell-interactive
 $keyvaultName="mykeyvault"
-New-AzureRmKeyVault -VaultName $keyvaultName `
+New-AzKeyVault -VaultName $keyvaultName `
     -ResourceGroup $resourceGroup `
     -Location $location `
     -EnabledForDeployment
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Gerar um certificado e armazená-lo no Key Vault
-Para efeitos de produção, deve importar um certificado válido assinado por um fornecedor fidedigno com [Import-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate). Para este tutorial, o exemplo seguinte mostra como pode gerar um certificado autoassinado com [Add-AzureKeyVaultCertificate](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) que utiliza a política de certificado predefinida de [New-AzureKeyVaultCertificatePolicy](/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy). 
+Para efeitos de produção, deve importar um certificado válido assinado por um fornecedor fidedigno com [Import-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/import-azurekeyvaultcertificate). Para este tutorial, o exemplo seguinte mostra como pode gerar um certificado autoassinado com [Add-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultcertificate) que utiliza a política de certificado predefinida de [New-AzureKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/new-azurekeyvaultcertificatepolicy). 
 
 ```azurepowershell-interactive
 $policy = New-AzureKeyVaultCertificatePolicy `
@@ -87,11 +91,11 @@ Definir um nome de utilizador e palavra-passe de administrador para a VM com [Ge
 $cred = Get-Credential
 ```
 
-Agora, pode criar a VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se não existirem já, são criados os recursos de rede de apoio. Para permitir um tráfego Web seguro, o cmdlet também abre a porta *443*.
+Agora, pode criar a VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se não existirem já, são criados os recursos de rede de apoio. Para permitir um tráfego Web seguro, o cmdlet também abre a porta *443*.
 
 ```azurepowershell-interactive
 # Create a VM
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $resourceGroup `
     -Name "myVM" `
     -Location $location `
@@ -103,7 +107,7 @@ New-AzureRmVm `
     -OpenPorts 443
 
 # Use the Custom Script Extension to install IIS
-Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
+Set-AzVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName "IIS" `
     -VMName "myVM" `
     -Location $location `
@@ -113,25 +117,25 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server -IncludeManagementTools"}'
 ```
 
-Demora alguns minutos até que a VM seja criada. O último passo utiliza a Extensão de Script Personalizado do Azure para instalar o servidor Web IIS com [Set-AzureRmVmExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
+Demora alguns minutos até que a VM seja criada. O último passo utiliza a extensão de Script personalizado do Azure para instalar o servidor de web IIS com [Set-AzVmExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>Adicionar um certificado do Key Vault à VM
-Para adicionar o certificado do Key Vault a uma VM, obtenha o ID do seu certificado com [Get-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret). Adicione o certificado à VM com [Add-AzureRmVMSecret](/powershell/module/azurerm.compute/add-azurermvmsecret):
+Para adicionar o certificado do Key Vault a uma VM, obtenha o ID do seu certificado com [Get-AzureKeyVaultSecret](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultsecret). Adicionar o certificado à VM com o [Add-AzVMSecret](https://docs.microsoft.com/powershell/module/az.compute/add-azvmsecret):
 
 ```azurepowershell-interactive
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
-$vm=Get-AzureRmVM -ResourceGroupName $resourceGroup -Name "myVM"
-$vaultId=(Get-AzureRmKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId
-$vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $vaultId -CertificateStore "My" -CertificateUrl $certURL
+$vm=Get-AzVM -ResourceGroupName $resourceGroup -Name "myVM"
+$vaultId=(Get-AzKeyVault -ResourceGroupName $resourceGroup -VaultName $keyVaultName).ResourceId
+$vm = Add-AzVMSecret -VM $vm -SourceVaultId $vaultId -CertificateStore "My" -CertificateUrl $certURL
 
-Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
+Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
 ```
 
 
 ## <a name="configure-iis-to-use-the-certificate"></a>Configurar o IIS para utilizar o certificado
-Utilize a Extensão de Script Personalizado novamente com [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para atualizar a configuração do IIS. Esta atualização aplica o certificado injetado do Key Vault para o IIS e configura o enlace Web:
+Utilize a extensão de Script personalizado novamente com [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) para atualizar a configuração do IIS. Esta atualização aplica o certificado injetado do Key Vault para o IIS e configura o enlace Web:
 
 ```azurepowershell-interactive
 $PublicSettings = '{
@@ -139,7 +143,7 @@ $PublicSettings = '{
     "commandToExecute":"powershell -ExecutionPolicy Unrestricted -File secure-iis.ps1"
 }'
 
-Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
+Set-AzVMExtension -ResourceGroupName $resourceGroup `
     -ExtensionName "IIS" `
     -VMName "myVM" `
     -Location $location `
@@ -151,10 +155,10 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 
 
 ### <a name="test-the-secure-web-app"></a>Testar a aplicação Web segura
-Obtenha o endereço IP público da sua VM com [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress). O exemplo seguinte obtém o endereço IP para `myPublicIP` criado anteriormente:
+Obtenha o endereço IP público da VM com [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). O exemplo seguinte obtém o endereço IP para `myPublicIP` criado anteriormente:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
+Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
 Agora, pode abrir um browser e introduzir `https://<myPublicIP>` na barra de endereço. Para aceitar o aviso de segurança se tiver utilizado um certificado autoassinado, selecione **Detalhes** e, em seguida **Aceda à página Web**:

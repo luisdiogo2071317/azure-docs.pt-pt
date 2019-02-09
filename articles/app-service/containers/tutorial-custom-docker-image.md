@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632981"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984822"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores
 
@@ -59,7 +59,7 @@ cd docker-django-webapp-linux
 
 No repositório Git, veja _Dockerfile_. Este ficheiro descreve o ambiente do Python que é necessário para executar a sua aplicação. Além disso, a imagem configura um servidor [SSH](https://www.ssh.com/ssh/protocol/) para comunicação segura entre o contentor e o anfitrião.
 
-```docker
+```Dockerfile
 FROM python:3.4
 
 RUN mkdir /code
@@ -254,7 +254,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="test-the-web-app"></a>Testar a aplicação Web
 
-Navegue para a aplicação Web (`http://<app_name>azurewebsites.net`) para confirmar que está a funcionar. 
+Navegue para a aplicação Web (`http://<app_name>.azurewebsites.net`) para confirmar que está a funcionar. 
 
 ![Testar a configuração da porta da aplicação Web](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -280,7 +280,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para que a
 
 * Uma instrução [RUN](https://docs.docker.com/engine/reference/builder/#run) que chama `apt-get` e, em seguida, define a palavra-passe da conta de raiz como `"Docker!"`.
 
-    ```docker
+    ```Dockerfile
     ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
             && apt-get install -y --no-install-recommends dialog \
@@ -294,7 +294,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para que a
 
 * Uma instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) que diz ao motor do Docker para copiar o ficheiro [sshd_config](https://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. O seu ficheiro de configuração deve basear-se [neste ficheiro sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
@@ -305,7 +305,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para que a
 
 * Uma instrução [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) que expõe a porta 2222 no contentor. Embora a palavra-passe de raiz seja conhecida, não é possível aceder à porta 2222 a partir da Internet. Esta é uma porta interna a que só podem aceder os contentores dentro da rede de bridge de uma rede virtual privada. Depois disso, os comandos copiam os detalhes de configuração do SSH e iniciam o serviço `ssh`.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 8000 2222
     ```
 

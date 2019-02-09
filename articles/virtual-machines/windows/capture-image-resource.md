@@ -15,16 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: ff2352005470755c8ca0f472c4a790a820fea6b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a5e3fbc3369f19af8d93e23d669a4449ab3d414c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754392"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980589"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerida de uma VM generalizada no Azure
 
 Um recurso de imagem gerida pode ser criado a partir de uma máquina virtual (VM) generalizada que é armazenada como um disco gerido ou um disco não gerido numa conta de armazenamento. A imagem, em seguida, pode ser utilizada para criar múltiplas VMs. Para obter informações sobre como são faturadas imagens gerenciadas, consulte [preços dos Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM do Windows com o Sysprep
 
@@ -85,11 +87,11 @@ Para generalizar a VM do Windows, siga estes passos:
 Criar uma imagem diretamente a partir da VM garante que a imagem inclui todos os discos associados a VM, incluindo o disco do SO e de quaisquer discos de dados. Este exemplo mostra como criar uma imagem gerida a partir de uma VM que utiliza discos geridos.
 
 
-Antes de começar, certifique-se de que tem a versão mais recente do módulo Azurerm PowerShell, que deve ser a versão 5.7.0 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM.Compute` no PowerShell. Se precisar de atualizar, veja [instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar PowerShell localmente, execute `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Antes de começar, certifique-se de que tem a versão mais recente do módulo Azurerm PowerShell, que deve ser a versão 5.7.0 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM.Compute` no PowerShell. Se precisar de atualizar, veja [instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/azurerm/install-az-ps). Se estiver a executar PowerShell localmente, execute `Connect-AzAccount` para criar uma ligação com o Azure.
 
 
 > [!NOTE]
-> Se gostaria de armazenar a imagem no armazenamento com redundância de zona, terá de criá-la numa região que suporta [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o `-ZoneResilient` parâmetro na configuração de imagem (`New-AzureRmImageConfig` comando).
+> Se gostaria de armazenar a imagem no armazenamento com redundância de zona, terá de criá-la numa região que suporta [zonas de disponibilidade](../../availability-zones/az-overview.md) e incluir o `-ZoneResilient` parâmetro na configuração de imagem (`New-AzImageConfig` comando).
 
 Para criar uma imagem de VM, siga estes passos:
 
@@ -104,30 +106,30 @@ Para criar uma imagem de VM, siga estes passos:
 2. Certifique-se de que a VM foi desalocada.
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Definir o estado da máquina virtual para o **generalizado**. 
    
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
 4. Obtenha a máquina virtual. 
 
     ```azurepowershell-interactive
-    $vm = Get-AzureRmVM -Name $vmName -ResourceGroupName $rgName
+    $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
     ```
 
 5. Crie a configuração da imagem.
 
     ```azurepowershell-interactive
-    $image = New-AzureRmImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
+    $image = New-AzImageConfig -Location $location -SourceVirtualMachineId $vm.Id 
     ```
 6. Crie a imagem.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
+    New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
     ``` 
 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Criar uma imagem a partir de um disco gerido com o PowerShell
@@ -148,7 +150,7 @@ Se quiser criar uma imagem de apenas o disco do SO, especifica o ID de disco ger
 2. Obtenha a VM.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
+   $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. Obtenha o ID do disco gerido.
@@ -160,14 +162,14 @@ Se quiser criar uma imagem de apenas o disco do SO, especifica o ID de disco ger
 3. Crie a configuração da imagem.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -ManagedDiskId $diskID
     ```
     
 4. Crie a imagem.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -188,19 +190,19 @@ Pode criar uma imagem gerida a partir de um instantâneo de uma VM generalizada 
 2. Obtém o instantâneo.
 
    ```azurepowershell-interactive
-   $snapshot = Get-AzureRmSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
+   $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
    ```
    
 3. Crie a configuração da imagem.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsState Generalized -OsType Windows -SnapshotId $snapshot.Id
     ```
 4. Crie a imagem.
 
     ```azurepowershell-interactive
-    New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ``` 
 
 
@@ -221,20 +223,20 @@ Crie uma imagem gerida a partir de um VHD do SO generalizado numa conta de armaz
 2. Parar/desalocar a VM.
 
     ```azurepowershell-interactive
-    Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
 3. Marque a VM como generalizada.
 
     ```azurepowershell-interactive
-    Set-AzureRmVm -ResourceGroupName $rgName -Name $vmName -Generalized 
+    Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized  
     ```
 4.  Crie a imagem com o VHD do SO generalizado.
 
     ```azurepowershell-interactive
-    $imageConfig = New-AzureRmImageConfig -Location $location
-    $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
-    $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
+    $imageConfig = New-AzImageConfig -Location $location
+    $imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized -BlobUri $osVhdUri
+    $image = New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
     ```
 
     

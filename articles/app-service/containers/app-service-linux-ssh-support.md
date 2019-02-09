@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251313"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984480"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o serviço de aplicações do Azure no Linux
 
@@ -58,7 +58,7 @@ Essas etapas são mostradas no repositório do App Service do Azure, como [um ex
     > [!NOTE]
     > Esta configuração não permite ligações externas ao contentor. SSH só pode ser acedido através do Kudu / SCM Site, o que for autenticado com as credenciais de publicação.
 
-    ```docker
+    ```Dockerfile
     # ------------------------
     # SSH Server support
     # ------------------------
@@ -74,13 +74,13 @@ Essas etapas são mostradas no repositório do App Service do Azure, como [um ex
     > * `Ciphers` tem de incluir, pelo menos, um dos seguintes: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` tem de incluir, pelo menos, um dos seguintes: `hmac-sha1,hmac-sha1-96`.
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
 3. Incluir a porta 2222 no [ `EXPOSE` instrução](https://docs.docker.com/engine/reference/builder/#expose) para o Dockerfile. Embora a palavra-passe de raiz seja conhecida, não é possível aceder à porta 2222 a partir da Internet. É uma porta única interna acessível apenas por contêineres dentro da rede de ponte de uma rede virtual privada.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 2222 80
     ```
 
@@ -93,7 +93,7 @@ Essas etapas são mostradas no repositório do App Service do Azure, como [um ex
 
 O Dockerfile utiliza a [ `ENTRYPOINT` instrução](https://docs.docker.com/engine/reference/builder/#entrypoint) para executar o script.
 
-    ```docker
+    ```Dockerfile
     COPY init_container.sh /opt/startup
     ...
     RUN chmod 755 /opt/startup/init_container.sh
