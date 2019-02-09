@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117457"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965363"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -195,6 +195,63 @@ Quando [configurar as páginas da web do Application Insights](../../azure-monit
 Para a percentagem de amostragem, escolha uma percentagem que esteja próxima 100/N, onde N é um número inteiro.  Amostragem atualmente não suporta outros valores.
 
 Se também ativar a amostragem de taxa fixa no servidor, os clientes e o servidor irão sincronizar, de modo que, a pesquisa em, pode navegar entre as vistas de página relacionado e pedidos.
+
+## <a name="aspnet-core-sampling"></a>Amostragem de ASP.NET Core
+
+Amostragem adaptável está ativada por predefinição para todos os aplicativos do ASP.NET Core. Pode desativar ou personalizar o comportamento de amostragem.
+
+### <a name="turning-off-adaptive-sampling"></a>Desativar a amostragem adaptável
+
+A funcionalidade de amostragem padrão pode ser desabilitada quando adicionamos o serviço do Application Insights, no método ```ConfigureServices```, utilizando ```ApplicationInsightsServiceOptions```:
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+O código acima irá desativar a funcionalidade de amostragem. Siga os passos abaixo para adicionar a amostragem com mais opções de personalização.
+
+### <a name="configure-sampling-settings"></a>Configurar as definições de amostragem
+
+Utilizar métodos de extensão de ```TelemetryProcessorChainBuilder``` conforme mostrado abaixo para personalizar o comportamento de amostragem.
+
+> [!IMPORTANT]
+> Se usar esse método para configurar a amostragem, certifique-se de usar aiOptions.EnableAdaptiveSampling = false; definições com AddApplicationInsightsTelemetry().
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**Se utilizar o método acima para configurar a amostragem, certifique-se de usar ```aiOptions.EnableAdaptiveSampling = false;``` definições com AddApplicationInsightsTelemetry().**
+
+Sem isso, haverá vários processadores de amostragem da cadeia de TelemetryProcessor que leva a conseqüências indesejadas.
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>Amostragem de taxa fixa para web sites ASP.NET e Java
 Taxa fixa amostragem reduz o tráfego enviado a partir do servidor web e navegadores da web. Ao contrário de amostragem adaptável, reduz a telemetria a um preço fixo decidido por. Ele também sincroniza o cliente e amostragem de servidor para que os itens relacionados são retidos - por exemplo, quando examinar uma vista de página na pesquisa, pode encontrar a solicitação relacionada.

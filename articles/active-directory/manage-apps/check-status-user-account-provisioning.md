@@ -3,8 +3,8 @@ title: Relatórios sobre aprovisionamento de contas de utilizadores automático 
 description: Saiba como verificar o estado das tarefas de configuração de contas de utilizadores automático e como resolver problemas de aprovisionamento de utilizadores individuais.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a013c8d3c78801414ab83fd89a59caa316f1c28f
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203917"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958707"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o aprovisionamento de contas de utilizadores automático
 
@@ -58,13 +58,13 @@ A partir daqui, pode acessar o relatório de resumo de aprovisionamento e os reg
 
 O relatório de resumo de aprovisionamento está visível no **aprovisionamento** separador para determinada aplicação. O mesmo está localizado no **detalhes de sincronização** secção abaixo **definições**e fornece as seguintes informações:
 
-* O número total de utilizadores e grupos que foram sincronizadas e estão atualmente no âmbito de aprovisionamento entre o sistema de origem e o sistema de destino
+* O número total de utilizadores e grupos que foram sincronizadas e estão atualmente no âmbito de aprovisionamento entre o sistema de origem e o sistema de destino.
 
 * A última vez em que a sincronização foi executada. As sincronizações ocorram, normalmente, a cada 20 e 40 minutos, depois de um [inicial sincronização](user-provisioning.md#what-happens-during-provisioning) foi concluída.
 
-* Se pretende ou não uma [inicial sincronização](user-provisioning.md#what-happens-during-provisioning) foi concluída
+* Se pretende ou não uma [inicial sincronização](user-provisioning.md#what-happens-during-provisioning) foi concluída.
 
-* Se pretende ou não o processo de aprovisionamento foi colocado em quarentena e o que é o motivo do Estado de quarentena (por exemplo, falha na comunicação com o sistema de destino devido a credenciais de administrador inválido)
+* Se pretende ou não o processo de aprovisionamento foi colocado em quarentena e o que é o motivo do Estado de quarentena (por exemplo, falha na comunicação com o sistema de destino devido a credenciais de administrador inválido).
 
 O relatório de resumo de provisionamento deve ser o primeiro contato de administradores local para verificar o estado de funcionamento operacional a tarefa de aprovisionamento.
 
@@ -79,7 +79,7 @@ Todas as atividades executadas pelo serviço de aprovisionamento são registadas
 
 * **Exportar eventos** -um evento de "exportação" é registrado sempre que o serviço de aprovisionamento do AD Azure escreve um objeto de conta ou grupo do utilizador para um sistema de destino. Esses eventos registram todos os atributos de utilizador e os respetivos valores que foram escritas pelo Azure AD do serviço de aprovisionamento no momento do evento. Se tiver ocorrido um erro ao escrever o objeto de conta ou grupo do utilizador no sistema de destino, será apresentado aqui.
 
-* **Processar eventos de caução** -escrows processo ocorrerem quando o serviço de aprovisionamento encontra uma falha ao tentar uma operação e começa a repetir a operação num intervalo de término de tempo. Um evento de "caução" é registado sempre que foi extinguida uma operação de aprovisionamento.
+* **Processar eventos de caução** -escrows processo ocorrerem quando o serviço de aprovisionamento encontra uma falha ao tentar uma operação e começa a repetir a operação num intervalo de término de tempo. Um evento de "caução" é registado sempre que uma operação de aprovisionamento foi repetida.
 
 Ao examinar o aprovisionamento de eventos para um usuário individual, ocorrem os eventos normalmente pela seguinte ordem:
 
@@ -102,7 +102,7 @@ Ao examinar o aprovisionamento de eventos para um usuário individual, ocorrem o
 
 2. Partir do **categoria** menu, selecione **aprovisionamento da conta**.
 
-3. Na **intervalo de datas** menu, selecione o intervalo de datas que pretende procurar,
+3. Na **intervalo de datas** menu, selecione o intervalo de datas que pretende procurar.
 
 4. Na **pesquisa** barra, introduza o ID de utilizador do utilizador que pretende procurar. O formato do valor de ID deve corresponder a tudo o que selecionou como o ID principal de correspondência na configuração do mapeamento do atributo (por exemplo, userPrincipalName ou employee ID número). O valor de ID necessário será visível na coluna destino (s).
 

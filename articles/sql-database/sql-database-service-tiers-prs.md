@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507822"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958495"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Será descontinuada a camada de serviços do Azure SQL da base de dados Premium RS (pré-visualização) – opções para a migração
 
@@ -50,8 +50,8 @@ Das cargas de trabalho intensivas de computação Premium RS, recomendamos que m
 
 |**Se estiver no momento...**|**Migre para o comparável baseado em vCore...**|**Migre para o comparável baseado em DTU...**|
 |---|---|---|
-|Premium RS 1|VCore de 1 de finalidade geral (geração 4)|Standard 3|
-|Premium RS 2|VCores de 2 de finalidade geral (geração 4)|Standard 4|
+|Premium RS 1|VCore de 1 de finalidade geral (Gen4)|Standard 3|
+|Premium RS 2|VCores de 2 de finalidade geral (Gen4)|Standard 4|
 |Premium RS 4|Geral 4 vCores para fins (Gen4)|Standard 6|
 |Premium RS 6|VCores de 6 de finalidade geral (Gen4)|Standard 7|
 
@@ -59,8 +59,8 @@ Das cargas de trabalho intensivas de computação Premium RS, recomendamos que m
 
 |**Se estiver no momento...**|**Migre para o comparável baseado em vCore...**|**Migre para o comparável baseado em DTU...**|
 |---|---|---|
-|O Premium RS 125 DTU do conjunto|VCore de 1 de finalidade geral (geração 4)|Conjunto standard de 100 eDTUs|
-|250 DTU do conjunto Premium RS|VCores de 2 de finalidade geral (geração 4)|EDTUs do conjunto standard 250|
+|O Premium RS 125 DTU do conjunto|VCore de 1 de finalidade geral (Gen4)|Conjunto standard de 100 eDTUs|
+|250 DTU do conjunto Premium RS|VCores de 2 de finalidade geral (Gen4)|EDTUs do conjunto standard 250|
 |500 DTU do conjunto Premium RS|Geral 4 vCores para fins (Gen4)|Conjunto standard 500 eDTUs|
 |1000 DTUS do conjunto Premium RS|Geral 8 vCores para fins (Gen4)|Conjunto standard 1000 eDTUs|
 
@@ -70,10 +70,10 @@ Recomendamos que migre as bases de dados individuais e/s intensiva para o nosso 
 
 |**Se estiver no momento...**|**Migre para o comparável baseado em vCore...**|**Migre para o comparável baseado em DTU...**|
 |---|---|---|
-|Premium RS 1|(Pré-visualização) VCore de 1 de Hiperescala (geração 4) ou 1 críticos de negócios vCore (geração 4)|Premium 1|
-|Premium RS 2|(Pré-visualização) Hiperescala 2 vCores (geração 4) ou 2 críticos de negócios vCores (geração 4|Premium 2|
-|Premium RS 4|(Pré-visualização) 4 de Hiperescala vCores (geração 4) ou vCores de 4 críticos de negócios (Gen4)|Premium 4
-|Premium RS 6|(Pré-visualização) 6 de Hiperescala vCores (geração 4) ou vCores de 6 críticos de negócios (Gen4)|Premium 6|
+|Premium RS 1|(Pré-visualização) VCore de 1 de Hiperescala (Gen4) ou 1 críticos de negócios vCore (Gen4)|Premium 1|
+|Premium RS 2|(Pré-visualização) Hiperescala 2 vCores (Gen4) ou 2 críticos de negócios vCores (Gen4|Premium 2|
+|Premium RS 4|(Pré-visualização) 4 de Hiperescala vCores (Gen4) ou vCores de 4 críticos de negócios (Gen4)|Premium 4
+|Premium RS 6|(Pré-visualização) 6 de Hiperescala vCores (Gen4) ou vCores de 6 críticos de negócios (Gen4)|Premium 6|
 
 |**Se estiver no momento...**|**Migre para o comparável baseado em vCore...**|**Migre para o comparável baseado em DTU...**|
 |---|---|---|

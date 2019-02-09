@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7c2c8967cbdb404ca23f860f019cfbb6cce5415b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167143"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982731"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -58,13 +58,15 @@ Para compreender melhor o PIM e a respetiva documentação, deve rever os termos
 | --- | --- | --- |
 | Elegível | Type | Uma atribuição de função que requer que um utilizador efetuar uma ou mais ações para utilizar a função. Se um utilizador se tornou qualificado para uma função, o que significa que os utilizadores podem ativar a função quando precisam de executar tarefas com privilégios. Não existe nenhuma diferença no acesso concedido a qualquer pessoa com uma permanente em comparação com uma atribuição de função elegível. A única diferença é que, algumas pessoas não precisam que o acesso o tempo todo. |
 | ativo | Type | Uma atribuição de função que não necessita de um utilizador efetuar qualquer ação para utilizar a função. Os utilizadores atribuídos como ativo têm os privilégios atribuídos à função. |
-| ativar |  | O processo de efetuar uma ou mais ações para utilizar a função que é elegível para um utilizador. Ações podem incluir a efetuar uma verificação de autenticação multifator (MFA), fornecer uma justificação de negócio ou o pedido de aprovação de aprovadores designados. |
+| ativar |  | O processo de efetuar uma ou mais ações para utilizar uma função que é elegível para um utilizador. Ações podem incluir a efetuar uma verificação de autenticação multifator (MFA), fornecer uma justificação de negócio ou o pedido de aprovação de aprovadores designados. |
 | Atribuído | Estado | Um utilizador com uma atribuição de função do Active Directory. |
-| Ativado | Estado | Um utilizador com uma atribuição de função elegível, efetuar as ações para ativar a função e agora está ativo. |
+| Ativado | Estado | Um utilizador com uma atribuição de função elegível, efetuar as ações para ativar a função e agora está ativo.  Depois de ativado, o utilizador pode utilizar a função para um período de-de-período de tempo pré-configurado antes de que precisam de ativar novamente. |
 | elegível permanente | Duração | Uma atribuição de função em que um usuário sempre é elegível para ativar a função. |
 | Ativa permanente | Duração | Uma atribuição de função em que um utilizador pode sempre utilizar a função sem realizar qualquer ação. |
 | expirar elegíveis | Duração | Uma atribuição de função em que um utilizador é elegível para ativar a função dentro de uma data de início e de fim especificada. |
 | expirar Active Directory | Duração | Uma atribuição de função em que um utilizador pode utilizar a função sem executar quaisquer ações dentro de uma data de início e de fim especificada. |
+| acesso just-in-time (JIT) |  | Um modelo no qual os utilizadores recebem permissões temporárias para efetuar tarefas com privilégios, que impede que os utilizadores não autorizados ou mal-intencionados de obter acesso depois das permissões tiverem expirado. O acesso é concedido somente quando os utilizadores a necessidade. |
+| princípio de acesso de privilégio mínimo |  | Uma prática recomendada de segurança em que cada utilizador é fornecido com apenas os privilégios mínimos necessários para realizar as tarefas que estão autorizados a efetuar. Esta prática minimiza o número de administradores globais e em vez disso, utiliza funções de administrador específicas para determinados cenários. |
 
 ## <a name="what-does-pim-look-like"></a>O que o aspeto de PIM?
 
@@ -104,6 +106,6 @@ PIM suporta os seguintes cenários:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Comece a utilizar o PIM](pim-getting-started.md)
 - [Requisitos de licença para utilizar o PIM](subscription-requirements.md)
 - [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Implementar o PIM](pim-deployment-plan.md)

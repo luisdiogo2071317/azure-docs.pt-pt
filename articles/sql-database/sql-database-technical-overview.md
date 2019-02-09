@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755430"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982272"
 ---
-# <a name="the-azure-sql-database-service"></a>O serviço de base de dados do Azure SQL
+# <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL?
 
 A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. Base de dados SQL proporciona um desempenho dimensionável de forma dinâmica dentro de dois modelos de compras diferentes: um modelo de compra baseado em vCore e um modelo de compra baseado em DTU. A Base de Dados SQL disponibiliza também opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análises e relatórios aprofundados e [OLTP dentro da memória](sql-database-in-memory.md) para processamento transacional avançado. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente.
 
@@ -67,10 +67,10 @@ A escalabilidade dinâmica é diferente do dimensionamento automático. O dimens
 Base de dados SQL disponibiliza dois modelos de compras:
 
 - O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória, recursos de e/s em três escalões de serviço para suportar cargas de trabalho de base de dados de pedidos leves. Computação tamanhos dentro de cada camada fornecem uma mistura diferentes destes recursos, ao qual pode adicionar recursos de armazenamento adicionais.
-- O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite-lhe escolher o número de vCores a quantidade ou memória e a quantidade e velocidade de armazenamento.
+- O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite-lhe escolher o número de vCores a quantidade ou memória e a quantidade e velocidade de armazenamento. O modelo de compra baseado em vCore também permite que use [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos. Para obter mais informações sobre o benefício híbrido do Azure, consulte [perguntas mais frequentes sobre](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > O [camada de serviços de hiperescala](sql-database-service-tier-hyperscale.md) está atualmente em pré-visualização pública. Não recomendamos a execução de qualquer carga de trabalho de produção nos bancos de dados de hiperescala ainda. Não é possível atualizar uma base de dados de hiperescala para outros escalões de serviço. Para fins de teste, recomendamos que faça uma cópia da base de dados atual e atualizar a cópia para a camada de serviços de hiperescala.
+  > O [camada de serviços de hiperescala](sql-database-service-tier-hyperscale.md) para bases de dados individuais está atualmente em pré-visualização pública. Não recomendamos a execução de qualquer carga de trabalho de produção nos bancos de dados de hiperescala ainda. Não é possível atualizar uma base de dados de hiperescala para outros escalões de serviço. Para fins de teste, recomendamos que faça uma cópia da base de dados atual e atualizar a cópia para a camada de serviços de hiperescala.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Conjuntos elásticos para maximizar a utilização de recursos
 
@@ -195,6 +195,41 @@ Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo.
   Um editor de código gratuito, transferível e código aberto para Windows, macOS e Linux que suporta extensões, incluindo o [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, base de dados do Azure SQL e SQL Data Warehouse.
 
 A Base de Dados suporta a criação de aplicações com Python, Java, Node.js, PHP, Ruby e .NET em macOS, Linux e Windows. A Base de Dados SQL suporta as mesmas [bibliotecas de ligações](sql-database-libraries.md) que o SQL Server.
+
+## <a name="sql-database-frequently-asked-questions-faq"></a>Base de dados SQL perguntas mais frequentes (FAQ)
+
+### <a name="what-is-the-current-version-of-sql-database"></a>O que é a versão atual da base de dados SQL
+
+A versão atual da base de dados SQL é V12. Versão V11 foi preterido.
+
+### <a name="can-i-control-when-patching-downtime-occurs"></a>Posso controlar quando ocorre um período de indisponibilidade de aplicação de patches
+
+Não. O impacto da aplicação de patches em geral, não é perceptível se [empregar a lógica de repetição](sql-database-develop-overview.md#resiliency) na sua aplicação. Para obter mais informações sobre como preparar para eventos de manutenção planeada na sua base de dados SQL do Azure, consulte [planejamento para eventos de manutenção do Azure na base de dados do Azure SQL](sql-database-planned-maintenance.md).
+
+### <a name="azure-hybrid-benefit-questions"></a>Perguntas do benefício híbrido do Azure
+
+#### <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Existem direitos de uso de dupla com o benefício híbrido do Azure para o SQL Server
+
+Terá de 180 dias de direitos de uso dual da licença para garantir que as migrações executem de forma totalmente integrada. Depois desse período de 180 dias, a licença do SQL Server só pode ser utilizada na nuvem na base de dados SQL e não tem uso dual direitos no local e na cloud.
+
+#### <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Azure Hybrid Benefit para o SQL Server difere da mobilidade de licenças
+
+Hoje em dia, podemos oferecer benefícios da mobilidade de licenças para clientes do SQL Server com Software Assurance, que permite a reatribuição de suas licenças para servidores compartilhados de terceiros. Este benefício pode ser utilizado no IaaS do Azure e AWS EC2.
+O benefício híbrido do Azure para o SQL Server é diferente da mobilidade de licenças em duas áreas principais:
+
+- Ele fornece benefícios econômicos para mover cargas de trabalho altamente virtualizadas para o Azure. Os clientes de SQL EE podem obter 4 núcleos no Azure, o SKU de fins gerais para cada núcleo tiver no local para aplicativos altamente virtualizados. Mobilidade de licenças não permite quaisquer benefícios de custo especial para mover cargas de trabalho virtualizadas para a cloud.
+- Ele fornece para um destino de PaaS do Azure (instância de gerida de base de dados do SQL), que é altamente compatível com o SQL Server no local
+
+#### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quais são os direitos específicos do benefício híbrido do Azure, para o SQL Server
+
+Os clientes da base de dados SQL terão os seguintes direitos associados com o benefício híbrido do Azure para o SQL Server:
+
+|Requisitos de espaço de licença|O que faz o benefício híbrido do Azure para SQL Server obter?|
+|---|---|
+|Clientes de núcleo do SQL Server Enterprise Edition com SA|<li>Pode pagar a taxa Base no SKU de críticos de negócio ou para fins gerais</li><br><li>1 núcleo no local = 4 núcleos no SKU de fins gerais</li><br><li>1 núcleo no local = 1 núcleo na SKU crítica de negócios</li>|
+|Clientes de núcleo do SQL Server Standard Edition com SA|<li>Paguem apenas taxa Base na SKU de fins gerais</li><br><li>1 núcleo no local = 1 núcleo no SKU de fins gerais</li>|
+|||
+
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Envolver a equipa de engenharia do SQL Server
 

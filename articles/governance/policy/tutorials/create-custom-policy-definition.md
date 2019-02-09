@@ -4,16 +4,16 @@ description: Crie uma definição de política personalizada do Azure Policy par
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 9474fa843541e0a70a27fa00583d097bfe24fb8a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb9ead3dc10c7f3b5e561196624c4798775d5c3d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885590"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962983"
 ---
 # <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 
@@ -182,13 +182,13 @@ Nos resultados, podemos ver um suportados pelas contas de armazenamento com o no
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-No Azure PowerShell, o `Get-AzureRmPolicyAlias` cmdlet é utilizado para procurar os aliases de recursos.
+No Azure PowerShell, o `Get-AzPolicyAlias` cmdlet é utilizado para procurar os aliases de recursos.
 Vamos filtrar para o **Microsoft. Storage** espaço de nomes com base em detalhes sobre o recurso do Azure, temos anteriormente.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
 
-# Use Get-AzureRmPolicyAlias to list aliases for Microsoft.Storage
+# Use Get-AzPolicyAlias to list aliases for Microsoft.Storage
 (Get-AzPolicyAlias -NamespaceMatch 'Microsoft.Storage').Aliases
 ```
 
@@ -207,7 +207,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzureRmGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 Os resultados semelhante-se de que o que vemos nos modelos do Resource Manager e através do Explorador de recursos do Azure. No entanto, os resultados de gráfico de recursos do Azure também incluem [alias](../concepts/definition-structure.md#aliases) detalhes. Este é o resultado de exemplo de uma conta de armazenamento para aliases:

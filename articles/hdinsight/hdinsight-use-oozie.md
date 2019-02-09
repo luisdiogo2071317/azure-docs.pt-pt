@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 983ea87a7387c4ce6bb0c1c67bf46d81c717e69a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993090"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984261"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -123,26 +123,23 @@ Existem duas ações definidas no fluxo de trabalho. A ação de início é *Run
 
 O RunHiveScript tem várias variáveis. Transmitir os valores ao submeter a tarefa de Oozie da sua estação de trabalho com o Azure PowerShell.
 
-<table border = "1">
-<tr><th>Variáveis de fluxo de trabalho</th><th>Descrição</th></tr>
-<tr><td>${jobTracker}</td><td>Especifica o URL do controlador de tarefa do Hadoop. Uso <strong>jobtrackerhost:9010</strong> no HDInsight versão 3.0 e 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Especifica o URL do nó de nome de Hadoop. Utilizar o endereço de sistema de ficheiros predefinido, por exemplo, <i>wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net</i>.</td></tr>
-<tr><td>${queueName}</td><td>Especifica o nome da fila que a tarefa foi submetida para o. Utilize o <strong>predefinição</strong>.</td></tr>
-</table>
+|Variáveis de fluxo de trabalho|Descrição|
+|---|---|
+|${jobTracker}|Especifica o URL do controlador de tarefa do Hadoop. Uso **jobtrackerhost:9010** no HDInsight versão 3.0 e 2.1.|
+|${nameNode}|Especifica o URL do nó de nome de Hadoop. Utilizar o endereço de sistema de ficheiros predefinido, por exemplo, *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+|${queueName}|Especifica o nome da fila que a tarefa foi submetida para o. Utilize o **predefinição**.|
 
-<table border = "1">
-<tr><th>Variável de ação do Hive</th><th>Descrição</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Especifica o diretório de origem para o comando de Hive Create Table.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída para a instrução INSERT substituir.</td></tr>
-<tr><td>${hiveTableName}</td><td>Especifica o nome da tabela do Hive que faz referência os arquivos de dados do log4j.</td></tr>
-</table>
+|Variável de ação do Hive|Descrição|
+|---|---|
+|${hiveDataFolder}|Especifica o diretório de origem para o comando de Hive Create Table.|
+|${hiveOutputFolder}|Especifica a pasta de saída para a instrução INSERT substituir.|
+|${hiveTableName}|Especifica o nome da tabela do Hive que faz referência os arquivos de dados do log4j.|
 
-<table border = "1">
-<tr><th>Variável de ação de Sqoop</th><th>Descrição</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>Especifica a cadeia de ligação de base de dados SQL do Azure.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>Especifica a tabela de base de dados SQL do Azure, onde os dados são exportados para.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Especifica a pasta de saída para a instrução INSERT substituir o Hive. Esta é a mesma pasta para a exportação de Sqoop (exportação-dir).</td></tr>
-</table>
+|Variável de ação de Sqoop|Descrição|
+|---|---|
+|${sqlDatabaseConnectionString}|Especifica a cadeia de ligação de base de dados SQL do Azure.|
+|${sqlDatabaseTableName}|Especifica a tabela de base de dados SQL do Azure, onde os dados são exportados para.|
+|${hiveOutputFolder}|Especifica a pasta de saída para a instrução INSERT substituir o Hive. Esta é a mesma pasta para a exportação de Sqoop (exportação-dir).|
 
 Para obter mais informações sobre o fluxo de trabalho Oozie e com ações de fluxo de trabalho, consulte [documentação do Apache Oozie 4.0] [ apache-oozie-400] (para o HDInsight versão 3.0) ou [documentação do Apache Oozie 3.3.2] [ apache-oozie-332] (para o HDInsight versão 2.1).
 

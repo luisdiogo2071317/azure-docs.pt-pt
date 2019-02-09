@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 33bab4b66532a4cdcbd33c2f8594476d07985f4b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 88efa25e09cf6034e9320569358488d9aebb7ad6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096947"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958444"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início rápido: Criar um novo inquilino no Azure Active Directory
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
@@ -34,7 +34,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) da sua organizaç
 Depois de iniciar sessão no portal do Azure, pode criar um novo inquilino para a sua organização. O novo inquilino representa a sua organização e ajuda-o a gerir uma instância específica dos serviços cloud da Microsoft para os seus utilizadores internos e externos.
 
 ### <a name="to-create-a-new-tenant"></a>Para criar um novo inquilino
-1. Selecione **Azure Active Directory**, selecione **Criar recursos**, selecione **Identidade** e, em seguida, selecione **Azure Active Directory**.
+1. Selecione **criar um recurso**, selecione **identidade**e, em seguida, selecione **Azure Active Directory**.
 
     É apresentada a página **Criar diretório**.
 

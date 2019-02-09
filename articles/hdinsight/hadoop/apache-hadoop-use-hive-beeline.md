@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3470caec801c5be54f04fc09a5da734a973f0c82
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408107"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962167"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com Apache Hive
 
@@ -25,6 +25,7 @@ Beeline é um cliente de ramo de registo que está incluído nos nós principais
 
 * __Utilizar Beeline a partir de uma ligação de SSH para um nó de nó principal ou de extremidade__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __Utilizar Beeline num cliente, ligar ao HDInsight através de uma rede Virtual do Azure__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Utilizar Beeline num cliente, ligação a um cluster de HDInsight pacote de segurança da empresa (ESP) através de uma rede Virtual do Azure__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __Utilizar Beeline num cliente, ligar ao HDInsight através da internet pública__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -35,6 +36,8 @@ Beeline é um cliente de ramo de registo que está incluído nos nós principais
 > Substitua `clustername` pelo nome do seu cluster do HDInsight.
 >
 > Ao ligar ao cluster através de uma rede virtual, substitua `<headnode-FQDN>` com o nome de domínio completamente qualificado de um nó principal do cluster.
+>
+> Ao ligar a um cluster de pacote de segurança da empresa (ESP), substitua `<AAD-Domain>` com o nome do Azure Active Directory (AAD) que o cluster está associado. Substitua `<username>` com o nome de uma conta no domínio com permissões para aceder ao cluster.
 
 ## <a id="prereq"></a>Pré-requisitos
 
@@ -67,6 +70,12 @@ Beeline é um cliente de ramo de registo que está incluído nos nós principais
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * Quando ligar a um cluster de pacote de segurança da empresa (ESP) associado ao Azure Active Directory (AAD), também tem de especificar o nome de domínio `<AAD-Domain>` e o nome de uma conta de utilizador de domínio com permissões para aceder ao cluster `<username>`:
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Comandos de beeline começam com um `!` por exemplo, de caracteres `!help` apresenta a ajuda. No entanto, a `!` podem ser omitidas para alguns comandos. Por exemplo, `help` também funciona.

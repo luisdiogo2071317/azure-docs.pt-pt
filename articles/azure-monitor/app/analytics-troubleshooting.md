@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189937"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960688"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Resolver problemas de Análise no Application Insights
 Problemas com [Analytics do Application Insights](analytics.md)? Comece aqui. A análise é a ferramenta de pesquisa poderosa do Azure Application Insights.
@@ -31,12 +31,12 @@ Problemas com [Analytics do Application Insights](analytics.md)? Comece aqui. A 
 
 Desativar a extensão ou utilize um browser diferente.
 
-## <a name="e-a"></a> "Erro inesperado"
+## <a name="e-a"></a> "Unexpected error"
 ![Ecrã de erro inesperado](media/analytics-troubleshooting/010.png)
 
 Ocorreu um erro interno durante a exceção de tempo de execução de portal sem tratamento.
 
-* Limpe a cache do navegador. 
+* Limpe a cache do navegador.
 
 ## <a name="e-b"></a>403... Volte a tentar recarregar
 ![403... Volte a tentar recarregar](media/analytics-troubleshooting/020.png)
@@ -71,7 +71,7 @@ Ocorreu um erro relacionado com a autenticação (durante a autenticação ou du
 ## <a name="e-d"></a>404 ... Recurso não encontrado
 ![404... não foram encontrados recursos](media/analytics-troubleshooting/040.png)
 
-Recurso de aplicação foi eliminado do Application Insights e t de não estiver disponível mais. Isto pode acontecer se tiver guardado o URL para a página de análise.
+Recurso de aplicação foi eliminado do Application Insights e não deixa de poder está disponível. Isto pode acontecer se tiver guardado o URL para a página de análise.
 
 ## <a name="e-e"></a>403 ... Sem autorização
 ![403... não autorizado](media/analytics-troubleshooting/050.png)

@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816361"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977752"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integração no datacenter - publicar pontos de extremidade
 
@@ -38,11 +38,11 @@ Infra-estrutura interna que vips não estão listados como não são necessário
 |Ponto final (VIP)|DNS host A record|Protocolo|Portas|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|O Azure Resource Manager (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|Portal (utilizador)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|O Azure Resource Manager (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portal (utilizador)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (user)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Lista de revogação de certificados|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP E UDP|53|
@@ -79,7 +79,6 @@ O Azure Stack suporta apenas os servidores de proxy transparente. Numa implement
 |NTP|(Servidor de IP do NTP fornecido para a implementação)|UDP|123|VIP - /27 públicos|
 |DNS|(Servidor de IP de DNS fornecido para a implementação)|TCP<br>UDP|53|VIP - /27 públicos|
 |CRL|(URL em pontos de distribuição de CRL no seu certificado)|HTTP|80|VIP - /27 públicos|
-|Cópia de segurança da infraestrutura|(IP ou FQDN do servidor de ficheiros de destino externo)|SMB|445|Infraestrutura de rede pública|
 |LDAP|Floresta do Active Directory fornecido para a integração de gráfico|TCP<br>UDP|389|VIP - /27 públicos|
 |LDAP SSL|Floresta do Active Directory fornecido para a integração de gráfico|TCP|636|VIP - /27 públicos|
 |LDAP GC|Floresta do Active Directory fornecido para a integração de gráfico|TCP|3268|VIP - /27 públicos|
@@ -89,9 +88,6 @@ O Azure Stack suporta apenas os servidores de proxy transparente. Numa implement
 
 > [!Note]  
 > URLs de saída são balanceado em carga utilizando o Gestor de tráfego do Azure para fornecer a melhor conectividade de possíveis com base na localização geográfica. Com os URLs com balanceamento de carga, a Microsoft pode atualizar e alterar os pontos finais de back-end sem afetar os clientes. A Microsoft não partilhar a lista de endereços IP para a carga balanceada URLs. Deve usar um dispositivo que suporte a filtragem por URL em vez de IP.
-
-> [!Note]  
-> No 1809, o serviço de cópia de segurança da infraestrutura comunica com o servidor de ficheiro externo da rede VIP pública. Antes de 1809, o serviço comunicadas através da rede de infraestrutura públicas. Se o seu ambiente não permite o acesso aos recursos de infraestrutura da rede VIP pública, aplicam-se a versão mais recente [correção 1809](azure-stack-update-1809.md#post-update-steps) para o Azure Stack. Esta correção irá mover o serviço de cópia de segurança da infraestrutura novamente para a rede de infraestrutura públicas. 1811, se aplicar a correção de 1809, o serviço de cópia de segurança da infraestrutura permanece na rede pública de infraestrutura. Se não aplicar a correção, a atualização move o serviço de volta para a rede de infraestrutura públicas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

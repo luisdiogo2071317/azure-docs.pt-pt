@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbf614f9749039b054e1134df31334a6248e2b78
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816242"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981405"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquina virtual que utiliza as zonas de disponibilidade
 
@@ -117,12 +117,12 @@ Demora alguns minutos para criar e configurar todos os o conjunto de dimensionam
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
-Para utilizar zonas de disponibilidade, tem de criar o seu conjunto de dimensionamento numa região do Azure suportada. Adicionar a `-Zone` parâmetro para o [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) comando e especifique exatamente em qual zona usar (como zona *1*, *2*, ou *3*).
+Para utilizar zonas de disponibilidade, tem de criar o seu conjunto de dimensionamento numa região do Azure suportada. Adicionar a `-Zone` parâmetro para o [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) comando e especifique exatamente em qual zona utilizar (como zona *1*, *2*, ou *3*).
 
 O exemplo seguinte cria um conjunto nomeado de dimensionamento de zona única *myScaleSet* na *E.U.A. Leste 2* zona *1*. Os recursos de rede do Azure para a rede virtual, o endereço IP público e o balanceador de carga são criados automaticamente. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `
@@ -139,7 +139,7 @@ New-AzureRmVmss `
 Para criar um conjunto de dimensionamento com redundância de zona, especificar várias zonas com o `-Zone` parâmetro. O exemplo seguinte cria um conjunto nomeado de dimensionamento com redundância de zona *myScaleSet* entre *E.U.A. Leste 2* zonas *1, 2, 3*. Os recursos de rede do Azure com redundância de zona para a rede virtual, o endereço IP público e o Balanceador de carga são criados automaticamente. Quando solicitado, forneça as suas próprias credenciais administrativas pretendidas para as instâncias de VM no conjunto de dimensionamento:
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `

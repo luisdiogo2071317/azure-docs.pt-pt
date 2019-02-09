@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629973"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980606"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão Azure Desired State Configuration
 
@@ -35,16 +35,16 @@ Este artigo fornece informações sobre os dois cenários: utilizar a extensão 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Computador local**: para interagir com a extensão de VM do Azure, tem de utilizar o portal do Azure ou o SDK do PowerShell do Azure.
-- **Agente convidado**: A VM do Azure que está configurado na configuração de DSC tem de ser um sistema operacional que oferece suporte ao Windows Management Framework (WMF) 4.0 ou posterior. Para obter a lista completa das versões de SO suportadas, consulte a [histórico de versões de extensão do DSC](/powershell/dsc/azuredscexthistory).
+- **Computador local**: Para interagir com a extensão de VM do Azure, tem de utilizar o portal do Azure ou o SDK do PowerShell do Azure.
+- **Agente convidado**: VM do Azure que está configurado na configuração de DSC tem de ser um sistema operacional que oferece suporte ao Windows Management Framework (WMF) 4.0 ou posterior. Para obter a lista completa das versões de SO suportadas, consulte a [histórico de versões de extensão do DSC](/powershell/dsc/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Termos e conceitos
 
 Este guia pressupõe que está familiarizado com os seguintes conceitos:
 
-- **Configuração**: documento de configuração do DSC da.
-- **Nó**: um destino para uma configuração de DSC. Este documento *nó* sempre se refere a uma VM do Azure.
-- **Dados de configuração**: um ficheiro. psd1 com dados ambientais para uma configuração.
+- **Configuração**: Um documento de configuração de DSC.
+- **Nó**: Um destino para uma configuração de DSC. Este documento *nó* sempre se refere a uma VM do Azure.
+- **Dados de configuração**: Um ficheiro. psd1 que tem dados ambientais para uma configuração.
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -70,17 +70,17 @@ Na maioria dos cenários, os modelos de implementação do Resource Manager est�
 
 Os cmdlets do PowerShell que são utilizados para gerir a extensão de DSC são recomendados para interativa de resolução de problemas e cenários de coleta de informações. Pode utilizar os cmdlets do empacotamento, publicar e monitorizar as implementações de extensão do DSC. Cmdlets para a extensão DSC ainda não são atualizados para funcionar com o [predefinida de script de configuração](#default-configuration-script).
 
-O **Publish-AzureRmVMDscConfiguration** cmdlet aceita um ficheiro de configuração, ele procura recursos de DSC dependentes e, em seguida, cria um ficheiro. zip. O ficheiro. zip contém a configuração e os recursos de DSC que são necessários adotar a configuração. O cmdlet também pode criar o pacote localmente ao utilizar o *- OutputArchivePath* parâmetro. Caso contrário, o cmdlet publica o arquivo. zip para o armazenamento de BLOBs e, em seguida, protege-la com um token SAS.
+O **Publish-AzVMDscConfiguration** cmdlet aceita um ficheiro de configuração, ele procura recursos de DSC dependentes e, em seguida, cria um ficheiro. zip. O ficheiro. zip contém a configuração e os recursos de DSC que são necessários adotar a configuração. O cmdlet também pode criar o pacote localmente ao utilizar o *- OutputArchivePath* parâmetro. Caso contrário, o cmdlet publica o arquivo. zip para o armazenamento de BLOBs e, em seguida, protege-la com um token SAS.
 
 O script de configuração. ps1 que o cmdlet cria está no arquivo. zip na raiz da pasta de arquivo. A pasta de módulo é colocada na pasta de arquivo nos recursos.
 
-O **Set-AzureRmVMDscExtension** cmdlet injeta as definições que requer a extensão DSC do PowerShell num objeto de configuração de VM.
+O **Set-AzVMDscExtension** cmdlet injeta as definições que requer a extensão DSC do PowerShell num objeto de configuração de VM.
 
-O **Get-AzureRmVMDscExtension** cmdlet obtém o estado da extensão DSC de uma VM específica.
+O **Get-AzVMDscExtension** cmdlet obtém o estado da extensão DSC de uma VM específica.
 
-O **Get-AzureRmVMDscExtensionStatus** cmdlet obtém o estado da configuração do DSC que é elaborada pelo processador de extensão de DSC. Esta ação pode ser efetuada numa única VM ou num grupo de VMs.
+O **Get-AzVMDscExtensionStatus** cmdlet obtém o estado da configuração do DSC que é elaborada pelo processador de extensão de DSC. Esta ação pode ser efetuada numa única VM ou num grupo de VMs.
 
-O **Remove-AzureRmVMDscExtension** cmdlet Remove o manipulador de extensão de uma VM específica. Este cmdlet faz *não* remover a configuração, desinstale o WMF ou alterar as definições aplicadas na VM. Ele apenas remove o manipulador de extensão. 
+O **Remove-AzVMDscExtension** cmdlet Remove o manipulador de extensão de uma VM específica. Este cmdlet faz *não* remover a configuração, desinstale o WMF ou alterar as definições aplicadas na VM. Ele apenas remove o manipulador de extensão. 
 
 Obter informações importantes sobre os cmdlets de extensão DSC do Gestor de recursos:
 
@@ -117,9 +117,9 @@ $location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage
-Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
-Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
 ```
 
 ## <a name="azure-portal-functionality"></a>Funcionalidade de portal do Azure
@@ -133,21 +133,21 @@ Para configurar o DSC no portal do:
 
 O portal recolhe a entrada seguinte:
 
-- **Módulos de configuração ou de Script**: Este campo é obrigatório (o formulário não tiver sido atualizado para o [predefinida de script de configuração](#default-configuration-script)). Scripts e módulos de configuração requerem um ficheiro. ps1, que tem um script de configuração ou um ficheiro. zip com um script de configuração. ps1 na raiz. Se utilizar um ficheiro. zip, todos os recursos dependentes têm de ser incluídos em pastas de módulo na. zip. Pode criar o ficheiro. zip com o **Publish-AzureVMDscConfiguration - OutputArchivePath** cmdlet que está incluído no SDK do PowerShell do Azure. O ficheiro. zip é carregado para o armazenamento de Blobs do utilizador e protegido por um token SAS.
+- **Módulos de configuração ou Script**: Este campo é obrigatório (o formulário não tiver sido atualizado para o [predefinida de script de configuração](#default-configuration-script)). Scripts e módulos de configuração requerem um ficheiro. ps1, que tem um script de configuração ou um ficheiro. zip com um script de configuração. ps1 na raiz. Se utilizar um ficheiro. zip, todos os recursos dependentes têm de ser incluídos em pastas de módulo na. zip. Pode criar o ficheiro. zip com o **Publish-AzureVMDscConfiguration - OutputArchivePath** cmdlet que está incluído no SDK do PowerShell do Azure. O ficheiro. zip é carregado para o armazenamento de Blobs do utilizador e protegido por um token SAS.
 
-- **Nome qualificado do módulo de configuração**: pode incluir várias funções de configuração num arquivo. ps1. Introduza o nome do script. ps1 configuração seguido \\ e o nome da função de configuração. Por exemplo, se o seu script. ps1 tiver configuration.ps1 o nome e a configuração é **IisInstall**, introduza **configuration.ps1\IisInstall**.
+- **O nome qualificado do módulo de configuração**: Pode incluir várias funções de configuração num arquivo. ps1. Introduza o nome do script. ps1 configuração seguido \\ e o nome da função de configuração. Por exemplo, se o seu script. ps1 tiver configuration.ps1 o nome e a configuração é **IisInstall**, introduza **configuration.ps1\IisInstall**.
 
-- **Argumentos de configuração**: se a função de configuração aceita argumentos, insira-os aqui no formato **argumentName1 = value1, argumentName2 = value2**. Esse formato é um formato diferente em que os argumentos de configuração são aceites em cmdlets do PowerShell ou modelos do Resource Manager.
+- **Argumentos de configuração**: Se a função de configuração aceita argumentos, insira-os aqui no formato **argumentName1 = value1, argumentName2 = value2**. Esse formato é um formato diferente em que os argumentos de configuração são aceites em cmdlets do PowerShell ou modelos do Resource Manager.
 
 - **Ficheiro de configuração de dados PSD1**: Este campo é opcional. Se a configuração necessitar de um ficheiro de dados de configuração. psd1, utilize este campo para selecionar o campo de dados e carregá-lo para seu armazenamento de Blobs do utilizador. O ficheiro de dados de configuração está protegido por um token SAS no armazenamento de Blobs.
 
 - **Versão do WMF**: Especifica a versão do Windows Management Framework (WMF) que deve ser instalado na sua VM. A definição dessa propriedade para instalações mais recente a versão mais recente do WMF. Atualmente, os valores possíveis apenas para esta propriedade são 4.0, 5.0, 5.1 e mais recentes. Estes valores possíveis são sujeitos a atualizações. O valor predefinido é **mais recente**.
 
-- **Recolha de dados**: determina se a extensão irá recolher telemetria. Para obter mais informações, consulte [recolha de dados de extensão DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Recolha de dados**: Determina se a extensão irá recolher telemetria. Para obter mais informações, consulte [recolha de dados de extensão DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
 - **Versão**: Especifica a versão da extensão do DSC para instalar. Para obter informações sobre as versões, veja [histórico de versões de extensão do DSC](/powershell/dsc/azuredscexthistory).
 
-- **Versão secundária de atualizar de automático**: Este campo é mapeado para o **AutoUpdate** mudar nos cmdlets e permite a extensão atualizar automaticamente para a versão mais recente durante a instalação. **Sim** instruirá o manipulador de extensão para utilizar a versão mais recente disponível e **não** irá forçar o **versão** especificada para ser instalado. Selecionar nenhum deles **Sim** nem **não** é igual a selecionando **não**.
+- **Automaticamente a atualização de versão secundária**: Este campo é mapeado para o **AutoUpdate** mudar nos cmdlets e permite a extensão atualizar automaticamente para a versão mais recente durante a instalação. **Sim** instruirá o manipulador de extensão para utilizar a versão mais recente disponível e **não** irá forçar o **versão** especificada para ser instalado. Selecionar nenhum deles **Sim** nem **não** é igual a selecionando **não**.
 
 ## <a name="logs"></a>Registos
 

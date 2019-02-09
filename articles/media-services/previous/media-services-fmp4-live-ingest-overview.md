@@ -4,7 +4,7 @@ description: Essa especificação descreve o protocolo e o formato fragmentado c
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228883"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984839"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação de ingestão de MP4 fragmentado em direto dos serviços de multimédia do Azure
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>(Legada) de especificação de ingestão de MP4 fragmentado em direto dos serviços de multimédia do Azure
+
 Essa especificação descreve o protocolo e o formato fragmentado com base em MP4 em direto transmissão em fluxo para ingestão de para serviços de multimédia do Azure. Os Media Services fornecem um serviço de transmissão em fluxo em direto que os clientes podem utilizar para transmitir em fluxo eventos em direto e transmissão de conteúdo em tempo real ao utilizar o Azure como a plataforma na cloud. Este documento também discute as melhores práticas para a criação altamente redundantes e robustos em direto de mecanismos de ingestão.
 
 ## <a name="1-conformance-notation"></a>1. Notação de conformidade
@@ -92,7 +93,7 @@ Esta opção, o codificador coloca uma faixa bitstream cada fragmento MP4 e, em 
 
 ![Faixas de fluxos separados][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Opção 3: Faixa de áudio com a faixa de vídeo de velocidade de transmissão mais baixa do pacote num fluxo
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Opção 3: Faixa de áudio do pacote com a faixa de vídeo de velocidade de transmissão mais baixa para um fluxo
 Esta opção, o cliente escolhe para agrupar a faixa de áudio com a faixa de vídeo de velocidade de transmissão mais baixa no bitstream um fragmento MP4 e deixe os outros roteiros de vídeo dois fluxos separados como. 
 
 ![Faixas de fluxos de áudio e vídeos][image4]

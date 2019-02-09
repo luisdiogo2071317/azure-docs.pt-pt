@@ -1,28 +1,28 @@
 ---
-title: Importar a coleção de Postman para chamadas de REST de transmissão em fluxo em direto da Azure
-description: Este artigo fornece uma definição da coleção Postman para chamadas de REST de serviços de suporte de dados do Azure.
+title: Importar a coleção do Postman para chamadas REST de transmissão em fluxo em direto da Azure
+description: Este artigo fornece uma definição de coleção do Postman para chamadas REST de serviços de multimédia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ea88d6a85fb0b22d12c9d30baf23c33074666568
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e931e8c3696b53724d7893100bb1749856f04f9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790735"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976357"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção de Postman com operações de transmissão em fluxo em direto
+# <a name="import-a-postman-collection-with-live-streaming-operations-legacy"></a>Importar uma coleção do Postman com operações de transmissão em direto (Legado)
 
-Este artigo contém uma definição do **Postman** coleção que contenha HTTP agrupada pedidos que chamada **transmissão em fluxo em direto** as APIs REST do serviços de suporte de dados do Azure. Para obter informações sobre como configurar **Postman** para que possam ser utilizado para chamar as APIs REST do suporte de dados de serviços, consulte [chama de configurar o Postman para API de REST dos serviços de suporte de dados](media-rest-apis-with-postman.md) tutorial.
+Este artigo contém uma definição do **Postman** coleção que contenha HTTP agrupado solicita essa chamada **transmissão em direto** APIs de REST de serviços de multimédia do Azure. Para obter informações sobre como configurar **Postman** para que possa ser utilizada para chamar as APIs de REST de serviços de multimédia, veja [chama de configurar o Postman para a API de REST dos serviços de multimédia](media-rest-apis-with-postman.md) tutorial.
 
 ```
 {

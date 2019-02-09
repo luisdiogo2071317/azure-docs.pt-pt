@@ -15,18 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e32e2833edc7027a984bb27b34608e4b1b898113
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 094df21bb0264ebbd8ad23c594ceb52db19d9c2f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767088"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979620"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo Azure Resource Manager
 
 Este artigo descreve aspectos de um modelo Azure Resource Manager que se aplicam a máquinas virtuais. Este artigo não descreve um modelo completo para a criação de uma máquina virtual; Para isso precisa de definições de recursos para contas de armazenamento, interfaces de rede, endereços IP públicos e redes virtuais. Para obter mais informações sobre como estes recursos podem ser definidos em conjunto, consulte a [instruções do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 Existem muitas [modelos na galeria](https://azure.microsoft.com/documentation/templates/?term=VM) que incluam o recurso da VM. Nem todos os elementos que podem ser incluídos num modelo são descritos aqui.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 Este exemplo mostra uma seção de recurso típico de um modelo para criar um número especificado de VMs:
 
@@ -163,8 +165,9 @@ A versão da API que especificar no seu modelo afeta as propriedades que pode de
 Use essas oportunidades para obter as mais recentes versões de API:
 
 - REST API - [listar todos os fornecedores de recursos](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell – [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- CLI do Azure - [show de fornecedor de az](https://docs.microsoft.com/cli/azure/provider)
+- PowerShell – [Get AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
+- CLI do Azure - [show de fornecedor de az](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+
 
 ## <a name="parameters-and-variables"></a>Parâmetros e variáveis
 
@@ -442,7 +445,7 @@ Pode ver o estado das extensões instaladas nas definições de extensões no po
 
 ![Obter estado da extensão](./media/template-description/virtual-machines-show-extensions.png)
 
-Também pode obter informações de extensão, utilizando o **Get-AzureRmVMExtension** comando do PowerShell, o **get de extensão de vm** comando da CLI do Azure, ou o **obter informações de extensão**REST API.
+Também pode obter informações de extensão, utilizando o **Get-AzVMExtension** comando do PowerShell, o **get de extensão de vm** comando da CLI do Azure, ou o **obter informações de extensão**REST API.
 
 ## <a name="deployments"></a>Implementações
 

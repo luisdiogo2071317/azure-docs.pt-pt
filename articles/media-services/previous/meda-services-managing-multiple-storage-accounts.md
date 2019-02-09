@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e103124b2b0e720517106f9b4453ee8a76688eca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565909"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977223"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerir recursos de serviços de multimédia em várias contas de armazenamento
+# <a name="managing-media-services-assets-across-multiple-storage-accounts-legacy"></a>Gerir recursos de serviços de multimédia em várias contas de armazenamento (legadas)
 
 Pode anexar várias contas de armazenamento a uma única conta de Media Services. Capacidade de anexar várias contas de armazenamento para uma conta de Media Services fornece as seguintes vantagens:
 

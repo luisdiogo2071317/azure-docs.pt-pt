@@ -3,8 +3,8 @@ title: Saiba de que quando um utilizador específico poderá aceder a uma aplica
 description: Como saber quando um usuário extremamente importante ser capaz de aceder a uma aplicação que configurou para o aprovisionamento de utilizadores com o Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 13568c42ed520ba9963541eb7c890612d9657b91
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2f6ebd6d9024c912e1af427ac5a5b62a817651ab
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174198"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964377"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Saber quando um utilizador específico poderá aceder a uma aplicação
 Ao utilizar o aprovisionamento automático de utilizadores com uma aplicação, do Azure AD automaticamente contas de utilizador de aprovisionamento e a atualização num aplicativo com base em coisas como [atribuição de utilizador e grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) regularmente agendada no tempo de intervalo, normalmente cada dez minutos.

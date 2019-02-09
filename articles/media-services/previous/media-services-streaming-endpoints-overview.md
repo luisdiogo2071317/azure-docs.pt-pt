@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: f0f3ec25f10faa25b6b90ba4d8114c15d25131c6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359992"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979144"
 ---
-# <a name="streaming-endpoints-overview"></a>Descrição geral de pontos finais de transmissão em fluxo 
+# <a name="streaming-endpoints-overview-legacy"></a>Descrição geral de pontos de extremidade (legada) de transmissão em fluxo
 
 ## <a name="overview"></a>Descrição geral
 
@@ -48,7 +48,7 @@ Para pontos finais adicionais: `{EndpointName}-{AccountName}.streaming.mediaserv
 
 A partir da versão de Janeiro de 2017 dos serviços de multimédia, tem dois tipos de transmissão em fluxo: **Standard** e **Premium**. Esses tipos são parte da versão de ponto final de transmissão em fluxo "2.0".
 
-Tipo|Descrição
+Type|Descrição
 ---|---
 **Standard**|Esta é a opção predefinida que funcionaria para a maioria dos cenários.<br/>Com esta opção, obtém o SLA/limitado, primeiros 15 dias depois de iniciar o ponto final de transmissão em fluxo é gratuito.<br/>Se criar mais de uma transmissão em fluxo de pontos de extremidade, apenas a primeira é gratuito durante os primeiros 15 dias, os outros são faturados assim que são iniciados. <br/>Tenha em atenção que versão de avaliação gratuita só se aplica às contas de serviços de suporte de dados recém-criado e ponto final de transmissão em fluxo predefinido. Pontos finais de transmissão em fluxo existentes e os pontos finais de transmissão em fluxo criados além disso, não inclui período de avaliação gratuita, mesmo que sejam atualizados para a versão 2.0 ou são criados como a versão 2.0.
 **Premium**|Esta opção é adequada para cenários de profissionais que necessitam de maior escala ou controle.<br/>SLA de variável com base na capacidade premium transmissão em fluxo (SU) de unidades adquirida, dedicados pontos finais de transmissão em fluxo em direto em ambiente isolado e não compitam por recursos.
@@ -71,7 +71,7 @@ Se sua **versão "1.0"** ponto final de transmissão em fluxo tem > = 1 premium 
 
 ### <a name="versions"></a>Versões
 
-|Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|SLA| 
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|SLA| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Clássica|1.0|0|ND|Gratuito|ND|
 |Ponto Final de Transmissão em Fluxo Standard|2.0|0|Sim|Pago|Sim|

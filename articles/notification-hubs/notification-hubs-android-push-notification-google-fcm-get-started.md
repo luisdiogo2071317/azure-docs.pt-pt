@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: 9467197715d79527699eac0acf9c23f204b0e639
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d2de4a4be8838cf696d2d3ed6589e8f154a6ca05
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814916"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959851"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Notificações push para dispositivos Android com Notification Hubs do Azure e o Google Firebase Cloud Messaging
 
@@ -91,14 +91,14 @@ O hub de notificação está agora configurado para trabalhar com o Firebase Clo
 
 1. No `Build.Gradle` ficheiro da **aplicação**, adicione as seguintes linhas na secção de **dependências**.
 
-    ```text
+    ```gradle
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
 2. Adicione o repositório seguinte depois da secção de **dependências**.
 
-    ```text
+    ```gradle
     repositories {
         maven {
             url "http://dl.bintray.com/microsoftazuremobile/SDK"
@@ -110,13 +110,13 @@ O hub de notificação está agora configurado para trabalhar com o Firebase Clo
 
 1. Na `Build.Gradle` de ficheiros para o **aplicação**, adicione as seguintes linhas no **dependências** secção se já não existir. 
 
-    ```text
+    ```gradle
     implementation 'com.google.firebase:firebase-core:16.0.0'
     ```
 
 2. Adicione o plug-in do seguinte no final do ficheiro se ainda não exista. 
 
-    ```text
+    ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
 
@@ -160,7 +160,7 @@ O hub de notificação está agora configurado para trabalhar com o Firebase Clo
     > [!IMPORTANT]
     > Substitua o marcador de posição `<your package NAME>` pelo nome do seu pacote real indicado no topo do ficheiro `AndroidManifest.xml`.
 4. Selecione **sincronizar agora** na barra de ferramentas.
-5. Adicione as seguintes permissões do fcm necessárias **abaixo o** `</application>` marca.  
+5. Adicione as seguintes permissões do fcm necessárias **abaixo o** `</application>` marca.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

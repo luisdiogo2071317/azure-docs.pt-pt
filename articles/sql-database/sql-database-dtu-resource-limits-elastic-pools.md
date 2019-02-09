@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6c4cd4e698630c06ab8e7ba144791800f091abfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7ce752fcee99b3f85099d83ab11451c427dea91e
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458946"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964020"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de recursos para conjuntos elásticos com o modelo de compra baseado em DTU 
 
@@ -126,12 +126,11 @@ A tabela seguinte descreve as propriedades de bases de dados agrupadas.
 | Armazenamento máximo por base de dados |O tamanho de base de dados máximo definido pelo utilizador para uma base de dados num conjunto. No entanto, bases de dados agrupadas partilham o armazenamento agrupado alocado. Mesmo que o armazenamento total máximo *por base de dados* está definido para ser maior que o total de armazenamento disponível *espaço do agrupamento de*, o espaço total, na verdade, é utilizado por todas as bases de dados não poderá exceder o limite de agrupamento disponível. Tamanho da base de dados de máx. refere-se ao tamanho máximo dos ficheiros de dados e não inclui o espaço utilizado por ficheiros de registo. |
 |||
  
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
-- Ver [limita a visão geral dos recursos num servidor de base de dados SQL](sql-database-resource-limits-database-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
+- Para limites de recursos de vCore para uma base de dados, consulte [limites de recursos para bases de dados individuais com o modelo de compra baseado em vCore](sql-database-vcore-resource-limits-single-databases.md)
+- Para limites de recursos DTU para bases de dados individuais, consulte [limites de recursos para bases de dados individuais com o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
+- Para limites de recursos de vCore para conjuntos elásticos, consulte [limites de recursos para conjuntos elásticos com o modelo de compra baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Para limites de recursos para instâncias geridas, consulte [geridos limites de recursos de instância](sql-database-managed-instance-resource-limits.md).
 - Para obter informações sobre os limites do Azure gerais, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
-- Para obter informações sobre DTUs e eDTUs, veja [DTUs e eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model).
-- Para obter informações sobre limites de tamanho de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.
+- Para obter informações sobre limites de recursos num servidor de base de dados, consulte [descrição geral dos limites de recursos num servidor de base de dados SQL](sql-database-resource-limits-database-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.

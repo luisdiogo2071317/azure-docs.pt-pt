@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 3662e8cc4bffba91207b77541c91caf247b3303d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1b91c5801a64581098250468c2cd1df448a7a7b1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895020"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976594"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Início rápido: Obter idiomas com suporte com a API de REST de texto de tradutor (PHP)
 

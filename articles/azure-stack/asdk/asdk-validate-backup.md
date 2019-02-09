@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 027d4a9f93032bfdd0f4cda96df74c92b5679540
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251576"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965329"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utilize o ASDK para validar uma cópia de segurança do Azure Stack
 Depois de implementar o Azure Stack e o aprovisionamento de recursos de utilizador, tais como ofertas, planos, quotas e subscrições, deve [ativar cópia de segurança do Azure Stack infraestrutura](../azure-stack-backup-enable-backup-console.md). Agendamento e execução de cópias de segurança da infraestrutura regular irão garantir que os dados de gestão de infraestrutura não são perdidos se ocorrer uma falha de serviço ou de hardware de catastrófico.
@@ -47,7 +47,7 @@ Cópias de segurança de infra-estrutura da sua implementação de sistemas inte
 
 
 
-### <a name="cloud-recovery-prerequisites"></a>Pré-requisitos de recuperação de nuvem
+### <a name="prereqs"></a>Pré-requisitos de recuperação de nuvem
 Antes de iniciar uma implementação de recuperação na cloud do ASDK, certifique-se de que tem as seguintes informações:
 
 |Pré-requisito|Descrição|
@@ -80,6 +80,43 @@ O **InstallAzureStackPOC.ps1** script é utilizado para iniciar a recuperação 
 > [!IMPORTANT]
 > Instalação de ASDK suporta exatamente uma placa de interface de rede (NIC) para funcionamento em rede. Se tiver várias NICs, certifique-se de que apenas uma está ativada (e todas as outras desativadas) antes de executar o script de implementação.
 
+### <a name="use-the-installer-to-deploy-the-asdk-in-recovery-mode"></a>Utilizar o instalador para implementar o ASDK no modo de recuperação
+Os passos nesta secção mostram como implementar o ASDK através de uma interface gráfica do usuário (GUI) fornecida ao transferir e executar o **asdk installer.ps1** script do PowerShell.
+
+> [!NOTE]
+> A interface de utilizador do instalador para o Development Kit do Azure Stack é um script aberto, com base no WCF e o PowerShell.
+
+1. Depois do computador anfitrião é inicializado com êxito na imagem CloudBuilder.vhdx, iniciam sessão utilizando as credenciais de administrador especificada quando [preparado o computador de anfitrião do kit de desenvolvimento](asdk-prepare-host.md) para a instalação de ASDK. Isso deve ser o mesmo que as credenciais de administrador local de anfitrião de kit de desenvolvimento.
+2. Abra uma consola elevada do PowerShell e execute o  **&lt;letra de unidade > \AzureStack_Installer\asdk-installer.ps1** script do PowerShell. O script pode agora ser numa unidade diferente que C:\ na imagem CloudBuilder.vhdx. Clique em **recuperar**.
+
+    ![Script do instalador ASDK](media/asdk-validate-backup/1.PNG) 
+
+3. Introduza informações de diretório do Azure AD (opcionais) e a palavra-passe de administrador local para o computador do anfitrião ASDK na página de fornecedor e as credenciais de identidade. Clique em **Seguinte**.
+
+    ![Página de identidades e credenciais](media/asdk-validate-backup/2.PNG) 
+
+4. Selecione a placa de rede a ser utilizado pelo computador do anfitrião ASDK e clique em **seguinte**. Todas as outras interfaces de rede serão desativadas durante a instalação de ASDK. 
+
+    ![Interface do adaptador de rede](media/asdk-validate-backup/3.PNG) 
+
+5. Na página de configuração de rede, forneça o servidor de tempo válido e endereços IP do reencaminhador DNS. Clique em **Seguinte**.
+
+    ![Página de configuração de rede](media/asdk-validate-backup/4.PNG) 
+
+6. Quando as propriedades de cartão de interface de rede foram verificadas, clique em **seguinte**. 
+
+    ![Verificação de definições de placa de rede](media/asdk-validate-backup/5.PNG) 
+
+7. Indique as informações necessárias descritas anteriormente em [secção pré-requisitos](#prereqs) na página de definições de cópia de segurança e o nome de utilizador e palavra-passe a ser utilizado para aceder à partilha. Clique em **seguinte**: 
+
+   ![Página de definições de cópia de segurança](media/asdk-validate-backup/6.PNG) 
+
+8. Reveja o script de implementação a ser utilizado para implementar o ASDK na página de resumo. Clique em **Deploy** para iniciar a implantação. 
+
+    ![Página de resumo](media/asdk-validate-backup/7.PNG) 
+
+
+### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>Utilize o PowerShell para implementar o ASDK no modo de recuperação
 Modificar os seguintes comandos do PowerShell para o seu ambiente e execute-os para implementar o ASDK no modo de recuperação de nuvem:
 
 ```powershell

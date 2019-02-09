@@ -1,6 +1,6 @@
 ---
-title: Resolução de falhas de extensão de VM do Windows | Microsoft Docs
-description: Saiba mais sobre a resolução de falhas de extensão de VM do Windows Azure
+title: Resolução de problemas de falhas de extensões de VM do Windows | Documentos da Microsoft
+description: Saiba mais sobre a resolução de problemas de falhas de extensões de VM do Windows Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: kundanap
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 9973eaa7e930d38e78289219e726b5934d82ee86
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf53df30dfccb76a6f33621038ba7f031a69f6de
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945422"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979705"
 ---
-# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Resolução de falhas de extensão de VM do Windows Azure
+# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Resolução de problemas de falhas de extensões de VM do Windows Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
-## <a name="viewing-extension-status"></a>Visualizar o estado de extensão
-Modelos Azure Resource Manager podem ser executados a partir do Azure PowerShell. Assim que o modelo for executado, o estado da extensão pode ser visualizado Explorador de recursos do Azure ou as ferramentas de linha de comandos.
+## <a name="viewing-extension-status"></a>Visualizar o estado da extensão
+Modelos Azure Resource Manager podem ser executados a partir do Azure PowerShell. Assim que o modelo é executado, o estado da extensão pode ser visualizado no Explorador de recursos do Azure ou as ferramentas de linha de comandos.
 
 Segue-se um exemplo:
 
 Azure PowerShell:
 
-      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Segue-se o resultado do exemplo:
 
@@ -59,13 +59,13 @@ Segue-se o resultado do exemplo:
     }
   ]
 
-## <a name="troubleshooting-extension-failures"></a>Resolução de problemas de falhas de extensão
-### <a name="rerun-the-extension-on-the-vm"></a>Executar novamente a extensão da VM
-Se estiver a executar scripts na VM com a extensão de Script personalizado, por vezes, é possível executar um erro em que a VM foi criada com êxito mas o script falhou. Nas seguintes condições, o modo recomendado para recuperar deste erro é remover a extensão e execute novamente o modelo novamente.
-Nota: no futuro, esta opção seria possível melhorada para remover a necessidade de desinstalar a extensão.
+## <a name="troubleshooting-extension-failures"></a>Resolução de problemas de falhas de extensões
+### <a name="rerun-the-extension-on-the-vm"></a>Executar novamente a extensão na VM
+Se estiver a executar scripts na VM com a extensão de Script personalizado, por vezes, pode executar um erro em que a VM foi criada com êxito mas o script falhou. Nestas condições, a forma recomendada para recuperar deste erro é remover a extensão e volte a executar o modelo.
+Nota: Futuramente, essa funcionalidade seria ser aprimorada para remover a necessidade de desinstalar a extensão.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Remova a extensão do Azure PowerShell
-    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Assim que a extensão foi removida, o modelo pode ser novamente executado para executar os scripts na VM.
 

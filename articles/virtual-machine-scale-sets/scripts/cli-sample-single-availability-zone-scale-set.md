@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c359f50a8c2641ba6bc80ab6ef7f80c814d2704d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 12e8ebea994b39b7c4324b52068b574749002117
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696971"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982238"
 ---
-# <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com o PowerShell
+# <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Criar um máquina virtual de zona única conjunto de dimensionamento com a CLI do Azure
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Ubuntu numa única Zona de Disponibilidade. Depois de executar o script, pode aceder à máquina virtual através de RDP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

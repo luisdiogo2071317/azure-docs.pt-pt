@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 051c9cb0c6c1af121a1bdd1f553ef124f980b49d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253997"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977156"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do agente da Máquina Virtual do Azure
 O agente de Máquina Virtual do Microsoft Azure (agente de VM) é um processo leve e seguro que gere a interação da máquina virtual (VM) com o controlador de malha do Azure. O agente da VM tem uma função primária na ativação e execução de extensões de máquina virtual do Azure. Extensões de VM ativar a configuração de pós-implementação de VM, como instalar e configurar o software. Extensões de VM também ativar funcionalidades de recuperação como a reposição de palavra-passe administrativa de uma VM. Sem o agente da VM do Azure, não não possível executar as extensões de VM.
@@ -72,12 +72,13 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 
 ### <a name="powershell"></a>PowerShell
 
-O módulo do PowerShell do Azure Resource Manager pode ser utilizado para obter informações sobre as VMs do Azure. Para ver informações sobre uma VM, como o estado de aprovisionamento para o agente de VM do Azure, utilize [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm):
+O módulo do PowerShell do Azure Resource Manager pode ser utilizado para obter informações sobre as VMs do Azure. Para ver informações sobre uma VM, como o estado de aprovisionamento para o agente de VM do Azure, utilize [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm):
 
-' "powershell" Get-AzureRmVM
+```powershell
+Get-AzVM
 ```
 
-The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
+O seguinte exemplo condensado saída mostra o *ProvisionVMAgent* propriedade aninhadas *OSProfile*. Esta propriedade pode ser utilizada para determinar se o agente da VM foi implementado a VM:
 
 ```PowerShell
 OSProfile                  :
@@ -91,7 +92,7 @@ OSProfile                  :
 O seguinte script pode ser utilizado para devolver uma lista concisa de nomes VM e o estado do agente de VM:
 
 ```PowerShell
-$vms = Get-AzureRmVM
+$vms = Get-AzVM
 
 foreach ($vm in $vms) {
     $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Windowsconfiguration | Select ProvisionVMAgent

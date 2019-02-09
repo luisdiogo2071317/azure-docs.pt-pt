@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 080cfb43f8fef04d2459dd0bb8779d2aa66cc359
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461344"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960978"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacional consistente de uma base de dados SQL do Azure
 
@@ -68,6 +68,7 @@ Inicie sessão na base de dados mestra com o início de sessão principal ao ní
 Comece a copiar a base de dados de origem com o [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) instrução. Executando esta instrução inicia o processo de copiar a base de dados. Como copiar uma base de dados é um processo assíncrono, a instrução CREATE DATABASE devolve antes da cópia da base de dados está concluída.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>Copiar uma base de dados SQL para o mesmo servidor
+
 Inicie sessão na base de dados mestra com o início de sessão principal ao nível do servidor ou o início de sessão que criou a base de dados que pretende copiar. Para a base de dados a copiar para ter êxito, inícios de sessão que não são o principal ao nível do servidor tem de ser membros da função dbmanager.
 
 Este comando copia Database1 para uma nova base de dados com o nome base de dados2 no mesmo servidor. Dependendo do tamanho da base de dados, a operação de cópia pode demorar algum tempo a concluir.
@@ -86,6 +87,9 @@ Este comando copia Database1 no servidor1 para uma nova base de dados com o nome
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## <a name="to-move-a-database-between-subscriptions"></a>Para mover uma base de dados entre subscrições
+
+Na [portal do Azure](https://portal.azure.com), clique em **servidores SQL** e, em seguida, selecione o servidor que aloja a base de dados da lista. Clique em **mover**e, em seguida, escolha os recursos para mover e a subscrição de destino.
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorizar o progresso da operação de cópia
 
@@ -96,7 +100,6 @@ Monitorize o processo de copiar ao consultar as exibições sys. Databases e sys
 
 > [!NOTE]
 > Se optar por cancelar a cópia enquanto ele estiver em curso, executar o [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) instrução na base de dados nova. Em alternativa, a instrução DROP DATABASE em execução na base de dados de origem também cancela o processo de cópia.
-> 
 
 ## <a name="resolve-logins"></a>Resolver inícios de sessão
 

@@ -1,6 +1,6 @@
 ---
-title: Transferir o modelo para uma VM do Azure | Microsoft Docs
-description: Transferir o templatefor uma VM para o ajudar a automatizar implementações no modelo de implementação Resource Manager
+title: Transferir o modelo para uma VM do Azure | Documentos da Microsoft
+description: Transferir o templatefor uma VM para ajudar a automatizar as implementações no modelo de implementação do Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,40 +15,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 93ed84cb146119c877c3a143c5f7af9ca8ba0656
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2017
-ms.locfileid: "26055794"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984533"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM
-Quando cria uma VM no Azure utilizando o portal ou PowerShell, um modelo do Resource Manager é criado automaticamente para si. Pode utilizar este modelo rapidamente duplicar uma implementação. O modelo contém informações sobre todos os recursos num grupo de recursos. Para uma máquina virtual, isto significa que o modelo contém tudo o que é criado para suportar a VM nesse grupo de recursos, incluindo os recursos de rede.
+Quando cria uma VM no Azure com o portal ou PowerShell, um modelo do Resource Manager é criado automaticamente para. Pode utilizar este modelo rapidamente duplicar uma implementação. O modelo contém informações sobre todos os recursos num grupo de recursos. Para uma máquina virtual, isso significa que o modelo contém tudo o que é criado para oferecer suporte a VM no grupo de recursos, incluindo os recursos de rede.
 
-## <a name="download-the-template-using-the-portal"></a>Transferir o modelo utilizando o portal
+## <a name="download-the-template-using-the-portal"></a>Transferir o modelo com o portal
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-2. Um menu à esquerda, selecione **máquinas virtuais**.
+2. Um menu da esquerda, selecione **máquinas virtuais**.
 3. Selecione a máquina virtual na lista.
-4. Selecione **scripts de automatização**.
-5. Selecione **transferir** no menu na parte superior e guarde o ficheiro. zip no computador local.
-6. Abra o ficheiro. zip e extrair os ficheiros para uma pasta. O ficheiro. zip contém:
+4. Selecione **script de automação**.
+5. Selecione **transferir** no menu na parte superior e guarde o ficheiro. zip para o computador local.
+6. Abra o ficheiro. zip e extraia os ficheiros para uma pasta. O ficheiro. zip contém:
    
-   * Deploy.ps1
-   * Deploy.SH 
+   * deploy.ps1
+   * deploy.sh 
    * deployer.RB
    * DeploymentHelper.cs
-   * Parameters. JSON
-   * Template
+   * parameters.json
+   * template.json
 
-O ficheiro Template é o modelo.
+O ficheiro Template JSON é o modelo.
 
 ## <a name="download-the-template-using-powershell"></a>Transferir o modelo com o PowerShell
-Também pode transferir o modelo. JSON ficheiro utilizando o [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) cmdlet. Pode utilizar o `-path` parâmetro para fornecer o nome e caminho do ficheiro. JSON. Este exemplo mostra como transferir o modelo para o grupo de recursos com o nome **myResourceGroup** para o **C:\users\public\downloads** pasta no computador local.
+Também pode transferir o modelo. JSON ficheiro com o [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) cmdlet. Pode utilizar o `-path` parâmetro para fornecer o nome de ficheiro e o caminho para o ficheiro. JSON. Este exemplo mostra como transferir o modelo para o grupo de recursos com o nome **myResourceGroup** para o **C:\users\public\downloads** pasta no seu computador local.
 
 ```powershell
-    Export-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
+    Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre a implementação de recursos através de modelos, consulte [instruções do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para saber mais sobre como implementar recursos com modelos, veja [instruções do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 

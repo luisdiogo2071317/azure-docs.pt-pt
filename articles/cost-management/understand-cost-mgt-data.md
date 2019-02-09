@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 6a888df453a2626756fa47115ef97d04be701265
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892867"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981762"
 ---
-# <a name="understand-cost-management-data"></a>Compreender os dados de gestão de custos
+# <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
 Este artigo ajuda-o a compreender melhor os dados que estão incluídos no Azure Cost Management. E explica a frequência com que dados são processados, recolhidos, mostrado e fechados. A faturação para utilização do Azure mensal. No entanto, o seu tipo de subscrição do Azure determina quando o seu mês de faturação termina. A frequência com que o Cost Management recebe a utilização de dados variam com base em diferentes fatores. Esses fatores incluem o tempo que demora a processar os dados e a frequência com que os serviços do Azure emitem utilização ao sistema de faturação.
 
@@ -28,14 +28,13 @@ As seguintes informações são apresentadas suportado atualmente [o Microsoft A
 | Categoria  | **Nome da oferta** | **Número da oferta** |
 | --- | --- | --- |
 | **O Azure Alemanha** | [Pay as you go do Azure Alemanha](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
-|**Azure Government**|Azure Government Enterprise|MS-AZR-USGOV-0017P|
-| **Contrato Enterprise (EA)**| Enterprise Programador/Teste | MS-AZR-0148P |
+| **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
+| **Contrato Enterprise (EA)** | Enterprise Programador/Teste | MS-AZR-0148P |
 | **Contrato Enterprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
 | **Microsoft Developer Network (MSDN)** | [O MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
 | **Pay as you go** | [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
 | **Pay as you go** | [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
 | **Pay as you go** | [Rede de parceiros da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Pay as you go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Pay as you go** | [Versão de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
 | **Pay as you go** | [Azure no Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
 | **Pay as you go** | [Azure para estudantes](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
@@ -54,6 +53,7 @@ A tabela seguinte mostra as ofertas não suportadas.
 | **Fornecedor de soluções cloud (CSP)** | O Azure Government CSP | MS-AZR-USGOV-0145P |
 | **Fornecedor de soluções cloud (CSP)** | Azure Alemanha no CSP para a Microsoft Cloud Germany | MS-AZR-DE-0145P |
 | **Pay as you go** | Azure para Estudantes Iniciantes | MS-AZR-0144P |
+| **Pay as you go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Planos de suporte** | Suporte Padrão | MS-AZR-0041P |
 | **Planos de suporte** | Suporte direto profissional | MS-AZR-0042P |
 | **Planos de suporte** | Suporte para programadores | MS-AZR-0043P |
@@ -69,17 +69,6 @@ Se não vir dados para uma subscrição e pretende determinar se a sua subscriç
 ## <a name="costs-included-in-cost-management"></a>Custos incluídos no Cost Management
 
 As tabelas seguintes mostram os dados que incluiu ou não está no Cost Management.
-
-**Tipos de conta**
-
-| **Incluído** | **Não incluído** |
-| --- | --- |
-| Contrato Enterprise (EA) | Na cloud (CSP) - de fornecedor de soluções para obter mais informações, consulte a [descrição geral do Centro de parceiros](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview). |
-| Pay as you go (PAYG) |   |
-| Programador/Teste |   |
-| Gratuito e versão de avaliação |   |
-| Rede de Parceiros |   |
-| Azure no Licenciamento Open | &nbsp;  |
 
 **Dados de utilização e custo**
 

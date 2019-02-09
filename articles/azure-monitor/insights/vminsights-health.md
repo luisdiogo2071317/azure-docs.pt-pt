@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 17fdcb4a57379fd11e841715a6908a4a0d280bd9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891475"
+ms.locfileid: "55961276"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure com o Azure Monitor para VMs (pré-visualização)
 Azure inclui vários serviços que executar individualmente uma tarefa ou função específica no espaço de monitorização, mas o fornecimento de uma perspectiva detalhada do Estado de funcionamento do sistema operativo alojada em máquinas virtuais do Azure não estava disponível.  Enquanto poderia monitorar para condições diferentes usando o Log Analytics ou no Azure Monitor, que não foram projetados para modelar e representam o estado de funcionamento dos componentes principais ou de estado de funcionamento geral da máquina virtual.  Com o Azure Monitor para a funcionalidade de estado de funcionamento de VMs, proativamente monitoriza a disponibilidade e desempenho do Windows ou Linux SO convidado com um modelo que representam os principais componentes e suas relações, os critérios que especifica como medir o estado de funcionamento desses componentes, e o alerte quando é detetada uma condição de mau estado de funcionamento.  
@@ -44,7 +44,7 @@ Para obter informações sobre como configurar o Azure Monitor para VMs, veja [a
 >
 >Não há nenhum regressão de qualquer funcionalidade entregue hoje em dia com a funcionalidade de estado de funcionamento do Azure Monitor para as VMs.
 
->Como resultado desta alteração, haverá alguma interrupção durante um curto período de tempo com o serviço e o histórico de estado de funcionamento. As duas experiências no diagnóstico de estado de funcionamento são afetadas - histórico de alterações de estado será reposto e alterações de estado anteriores para os critérios de estado de funcionamento não estarão disponíveis para revisão na coluna de alteração de estado da página de diagnóstico de estado de funcionamento. Se estiver interessado nos dados históricos de qualquer de missão crítica VM, em seguida, pode tirar uma captura de ecrã dos dados de critérios de estado de funcionamento e as alterações de estado correspondentes para sua referência. 
+>Como resultado desta alteração, duas experiências no diagnóstico de estado de funcionamento são afetadas - histórico de alterações de estado será reposto e alterações de estado anteriores para os critérios de estado de funcionamento não estarão disponíveis para revisão na coluna de alteração de estado da página de diagnóstico de estado de funcionamento. Se estiver interessado nos dados históricos de qualquer de missão crítica VM, em seguida, pode tirar uma captura de ecrã dos dados de critérios de estado de funcionamento e as alterações de estado correspondentes para sua referência. 
 
 ## <a name="monitoring-configuration-details"></a>Detalhes de configuração de monitorização
 Esta seção descreve os critérios de estado de funcionamento do padrão definidos para monitorizar o Windows Azure e máquinas virtuais do Linux. Todos os critérios de estado de funcionamento são previamente configurados para o alerta quando for cumprida a condição de mau estado de funcionamento. 

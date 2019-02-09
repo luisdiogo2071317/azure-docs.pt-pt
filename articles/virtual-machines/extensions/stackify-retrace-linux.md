@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415121"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979722"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>O stackify Retrace extensão de agente do Linux
 
@@ -46,8 +46,8 @@ O agente de Retrace pode ser executado nessas distribuições de Linux
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS, 16.10 e 17.04 |
 | Debian | 7.9 + e 8.2 +, 9 |
-| Red Hat | 6.7 +, 7.1 + |
-| CentOS | 6.3 +, 7.0 + |
+| Red Hat | 6.7+, 7.1+ |
+| CentOS | 6.3+, 7.0+ |
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 A extensão de agente stackify analisa para o Linux requer que a máquina virtual de destino está ligada à internet. 
@@ -147,7 +147,7 @@ Quando coloca a extensão de JSON na raiz do modelo, o nome do recurso inclui um
 
 ## <a name="powershell-deployment"></a>Implementação do PowerShell
 
-O `Set-AzureRmVMExtension` comando pode ser utilizado para implementar a extensão de máquina virtual o Stackify agente Linux Retrace numa máquina virtual existente. Antes de executar o comando, as configurações de públicas e privadas tem de ser armazenados numa tabela de hash do PowerShell.
+O `Set-AzVMExtension` comando pode ser utilizado para implementar a extensão de máquina virtual o Stackify agente Linux Retrace numa máquina virtual existente. Antes de executar o comando, as configurações de públicas e privadas tem de ser armazenados numa tabela de hash do PowerShell.
 
 A extensão requer o `environment` e `activationKey`.
 
@@ -155,7 +155,7 @@ A extensão requer o `environment` e `activationKey`.
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
+Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Stackify.LinuxAgent.Extension" `

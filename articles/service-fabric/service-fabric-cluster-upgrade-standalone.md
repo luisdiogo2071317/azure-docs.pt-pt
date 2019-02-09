@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 6f0ffac9ecf4d0c8f6c3dc7c57670b168417cd3a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ed50f49b110d910a298e608f3625a3bddfe8a0a8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855141"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963171"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>A atualizar e a atualizar um cluster autónomo do Service Fabric
 
 Para qualquer sistema moderno, a criação de uma upgradability é a chave para alcançar o sucesso a longo prazo de seu produto. Um cluster autónomo de Azure Service Fabric é um recurso que é proprietário. Este artigo descreve o que pode ser atualizado ou atualizado.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlar a versão de recursos de infraestrutura que é executado no seu cluster
-Certifique-se de que o cluster é sempre executada uma versão suportada do Service Fabric. Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior está marcada para o fim do suporte após um mínimo de 60 dias a contar da data do anúncio. Novas versões sejam anunciados [no blog da equipe de recursos de infraestrutura do serviço](https://blogs.msdn.microsoft.com/azureservicefabric/). A nova versão está disponível para escolher nesse ponto.
+Certifique-se de que o cluster é sempre executado um [suportada a versão do Service Fabric](service-fabric-versions.md). Quando a Microsoft anuncia o lançamento de uma nova versão do Service Fabric, a versão anterior está marcada para o fim do suporte após um mínimo de 60 dias a contar da data do anúncio. Novas versões sejam anunciados [no blog da equipe de recursos de infraestrutura do serviço](https://blogs.msdn.microsoft.com/azureservicefabric/). A nova versão está disponível para escolher nesse ponto.
 
 Pode definir o seu cluster para receber atualizações de recursos de infraestrutura automático à medida que são lançadas pela Microsoft ou pode selecionar manualmente uma versão de recursos de infraestrutura suportadas que pretende que o cluster na. Para obter mais informações, leia [atualizar a versão de Service Fabric que é executado no seu cluster](service-fabric-cluster-upgrade-windows-server.md).
 

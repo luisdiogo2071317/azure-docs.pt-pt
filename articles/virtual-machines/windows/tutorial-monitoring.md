@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/04/2017
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1bee08800eb5b480024001f742e8965cbd609a73
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2e7e67236a2f9709bafc0a0383f6ac12b26ca57e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428890"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984193"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Windows no Azure
 
@@ -40,7 +40,11 @@ Neste tutorial, ficará a saber como:
 > * Monitorizar alterações e inventário
 > * Configurar a monitorização avançada
 
-Este tutorial requer a versão do módulo 5.7.0 ou posterior do Azure PowerShell. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
+
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
@@ -50,10 +54,10 @@ Para configurar a monitorização e a gestão de atualizações do Azure neste t
 $cred = Get-Credential
 ```
 
-Crie agora uma VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se ainda não existirem, serão criados o grupo de recursos *myResourceGroupMonitorMonitor* e recursos de rede de apoio:
+Agora, crie a VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). O exemplo seguinte cria uma VM com o nome *myVM* na localização *EastUS*. Se ainda não existirem, serão criados o grupo de recursos *myResourceGroupMonitorMonitor* e recursos de rede de apoio:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupMonitor" `
     -Name "myVM" `
     -Location "East US" `
@@ -66,10 +70,10 @@ Demora alguns minutos até que os recursos e a VM sejam criados.
 
 À medida que as máquinas virtuais do Windows arrancam, o agente de diagnóstico de arranque captura a saída de ecrã que pode ser utilizada para fins de resolução de problemas. Esta capacidade está ativada por predefinição. As capturas de ecrã são armazenadas numa conta de armazenamento do Azure, também criada por predefinição.
 
-Pode obter os dados de diagnóstico de arranque com o comando [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata). No exemplo seguinte, os diagnósticos de arranque são transferidos para a raiz da unidade *C:\*.
+Pode obter os dados de diagnóstico de arranque com o comando [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata). No exemplo seguinte, os diagnósticos de arranque são transferidos para a raiz da unidade *C:\*.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
+Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## <a name="view-host-metrics"></a>Ver métricas de anfitrião
@@ -259,13 +263,13 @@ O gráfico mostra as alterações ocorridas ao longo do tempo. Após ter adicion
 
 Pode monitorizar a sua VM de forma mais avançada com as soluções como a Gestão de Atualizações e a Alteração e Inventário que a [Automatização do Azure](../../automation/automation-intro.md) proporciona.
 
-Quando tiver acesso à área de trabalho do Log Analytics, pode localizar a chave e o identificador da mesma ao selecionar **Definições avançadas**, em **DEFINIÇÕES**. Utilize o comando [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) para adicionar a extensão do agente de Monitorização da Microsoft à VM. Atualize os valores das variáveis no exemplo abaixo para refletir a chave e o ID da área de trabalho do Log Analytics.
+Quando tiver acesso à área de trabalho do Log Analytics, pode localizar a chave e o identificador da mesma ao selecionar **Definições avançadas**, em **DEFINIÇÕES**. Utilize o [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) comando para adicionar a extensão do Microsoft Monitoring agent para a VM. Atualize os valores das variáveis no exemplo abaixo para refletir a chave e o ID da área de trabalho do Log Analytics.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
+Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
   -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `

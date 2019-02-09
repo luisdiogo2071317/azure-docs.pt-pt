@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245978"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962252"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerações sobre a utilização de máquinas virtuais no Azure Stack
 
@@ -41,8 +41,9 @@ Máquinas de virtuais do Azure Stack fornecem recursos de computação a pedido 
 | Desempenho de discos da máquina virtual | Depende do tipo de disco e o tamanho. | Depende do tamanho VM da VM que os discos estão anexados para fazer referência a [tamanhos de máquinas virtuais suportados no Azure Stack](azure-stack-vm-sizes.md) artigo.
 | Versões da API | O Azure tem sempre as versões de API mais recentes para todas as funcionalidades de máquina virtual. | O Azure Stack oferece suporte a serviços específicos do Azure e as versões de API específicas para estes serviços. Para ver a lista de versões de API suportadas, consulte a [versões de API](#api-versions) seção deste artigo. |
 | Serviço de metadados de instância do Azure | O serviço de metadados de instância do Azure fornece informações sobre as instâncias de máquina virtual que podem ser utilizadas para gerir e configurar as suas máquinas virtuais em execução.  | O serviço de metadados de instância não é suportado no Azure Stack. |
-|Conjuntos de disponibilidade de máquinas virtuais|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização<br>Suporte de disco gerenciados|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização (até 20)<br>Não existe suporte de disco gerido|
-|Conjuntos de dimensionamento de máquinas virtuais|Dimensionamento automático suportado|Dimensionamento automático não suportado.<br>Adicione mais instâncias para um conjunto de dimensionamento com o portal, modelos do Resource Manager ou do PowerShell.
+| Conjuntos de disponibilidade de máquinas virtuais|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização (até 20)|
+| Conjuntos de dimensionamento de máquinas virtuais|Dimensionamento automático suportado|Dimensionamento automático não suportado.<br>Adicione mais instâncias para um conjunto de dimensionamento com o portal, modelos do Resource Manager ou do PowerShell. |
+| Diagnóstico de máquina virtual | Diagnóstico de VM do Linux | Diagnóstico de VM do Linux não é suportado no Azure Stack. Quando implementa uma VM do Linux com o diagnóstico VM ativado, a implementação falhar. A implementação falhar, também, se ativar as métricas básicas de VM do Linux através das definições de diagnóstico.
 
 ## <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais
 
@@ -71,7 +72,7 @@ Tamanhos de máquinas virtuais e as quantidades de recursos associados são cons
 
 ## <a name="virtual-machine-extensions"></a>Extensões da máquina virtual
 
- O Azure Stack inclui um pequeno conjunto de extensões. Atualizações e extensões adicionais estão disponíveis por meio de distribuição de mercado.
+O Azure Stack inclui um pequeno conjunto de extensões. Atualizações e extensões adicionais estão disponíveis por meio de distribuição de mercado.
 
 Utilize o seguinte script do PowerShell para obter a lista de extensões de máquinas virtuais que estão disponíveis no seu ambiente do Azure Stack:
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+Se uma extensão numa implantação de VM o aprovisionamento demora demasiado tempo, permitir que o tempo limite de aprovisionamento em vez de tentar interromper o processo para desaloque ou elimine a VM.
 
 ## <a name="api-versions"></a>Versões da API
 

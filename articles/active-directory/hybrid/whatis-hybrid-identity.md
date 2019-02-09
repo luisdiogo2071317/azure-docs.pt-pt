@@ -12,16 +12,16 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc18353ff89f8613847c977066e51620fb3e834f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bc468f328b8bd6066687996f5e74cfe867a4fc87
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494669"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984648"
 ---
 # <a name="what-is-hybrid-identity"></a>O que é a identidade híbrida? 
 
-Hoje, as empresas e corporações estão um se tornando cada vez mais uma mistura de locais e aplicações na cloud.  Os utilizadores necessitam de aceder a essas aplicações no local e na cloud. Este requisito se tornou um cenário um desafio. 
+Hoje, as empresas e corporações estão se tornando cada vez mais uma mistura de locais e aplicações na cloud.  Os utilizadores necessitam de aceder a essas aplicações no local e na cloud. Este requisito se tornou um cenário um desafio. 
 
 Soluções de identidade da Microsoft abrangem no local e de recursos com base na cloud.  Estas soluções criar uma identidade de utilizador comum para autenticação e autorização para todos os recursos, independentemente da localização. Chamamos a isto **identidade híbrida**.
 
@@ -42,14 +42,14 @@ Seguem-se alguns cenários comuns de identidades híbridas e gestão de acessos 
 |Preciso de:|PHS e SSO<sup>1</sup>| PTA e SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |Sincronizar contas de utilizador, de contactos e de grupos novas criadas no Active Directory no local com a cloud automaticamente.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Configurar o meu inquilino para cenários híbridos do Office 365|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Permitir que os meus utilizadores iniciem sessão e acedam aos serviços cloud com as palavras-passe no local|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Implementar o início de sessão único com as credenciais da empresa|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|  
-|Ter a certeza de que não há hashes de palavras-passe armazenados na cloud| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Ativar soluções de autenticação multifator na cloud| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Ativar soluções de autenticação multifator no local| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Suportar a autenticação de smartcards para os meus utilizadores<sup>4</sup>| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Apresentar notificações de expiração de palavras-passe no Portal do Office e no ambiente de trabalho do Windows 10| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Configure o meu inquilino para cenários de híbrida do Office 365.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Ative os meus utilizadores iniciar sessão e aceder aos serviços em nuvem com a palavra-passe no local.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Implemente o início de sessão único utilizando as credenciais empresariais.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|  
+|Certifique-se de que nenhum hashes de palavra-passe são armazenados na cloud.| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Ative soluções de multi-factor authentication na cloud.| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Ative soluções de autenticação multifator no local.| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Suporta a autenticação de smart card para os meus utilizadores. <sup>4</sup>| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Apresentar as notificações de expiração de palavra-passe no Portal do Office e no ambiente de trabalho do Windows 10.| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Sincronização de hash de palavras-passe com início de sessão único. 
 > 

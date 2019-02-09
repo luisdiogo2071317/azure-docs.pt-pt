@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c0067dc96837d758e4c2551bcb29faf63c1a7715
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895046"
+ms.locfileid: "55964156"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a SQL Database, avançada de segurança de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -107,7 +107,7 @@ Camada de serviços críticos de negócios foi concebida para aplicações com r
 A lista seguinte descreve as principais características da camada de serviços críticos de negócio:
 
 - Concebido para aplicações de negócio com mais elevado desempenho e requisitos de HA
-- É fornecido com o armazenamento SSD local extremamente rápido (até 1 TB em Gen 4 e até 4 TB nos fins 5)
+- É fornecido com o armazenamento SSD local extremamente rápido (até 1 TB no Gen4 e até 4 TB no Gen5)
 - Incorporado [elevada disponibilidade](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) com base nos [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [do Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Incorporado adicional [réplica de base de dados só de leitura](sql-database-read-scale-out.md) que pode ser utilizado em relatórios e outras cargas de trabalho só de leitura
 - [OLTP dentro da memória](sql-database-in-memory.md) que podem ser utilizados para a carga de trabalho com requisitos de alto desempenho  

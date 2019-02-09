@@ -3,8 +3,8 @@ title: Escrever expressões para mapeamentos de atributos no Azure Active Direct
 description: Saiba como utilizar os mapeamentos de expressão para transformar valores de atributo num formato aceitável durante o aprovisionamento automatizado de objetos de aplicação SaaS no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 3361bc384f3da3d2bde6eab703056dd85356b5f8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: c97fd915e9022171125c7c0f687413e433f82871
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895419"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983847"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -49,7 +49,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
 | **suffix** |Necessário |Cadeia |A cadeia a acrescentar ao final do valor de origem. |
 
 - - -
@@ -72,7 +72,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 
 **Descrição:**<br> JOIN() é semelhante ao Append(), exceto pelo fato de que possa combinar várias **origem** valores de cadeia de caracteres numa única cadeia de caracteres, e cada valor ficarão separado por um **separador** cadeia de caracteres.
 
-Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cada valor nesse atributo irá ser unidas, separados o valor de separador.
+Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cada valor nesse atributo será associado em conjunto, separados pelo valor de separador.
 
 **Parâmetros:**<br> 
 
@@ -105,7 +105,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia | Normalmente, um nome ou o último atributo de nome |
+| **Origem** |Necessário |String | Normalmente, um nome de primeiro ou último atributo de nome. |
 
 - - -
 ### <a name="not"></a>não
@@ -117,7 +117,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Booleano da cadeia |Era esperado **origem** valores são "True" ou "False".... |
+| **Origem** |Necessário |Booleano da cadeia |Era esperado **origem** valores são "True" ou "False". |
 
 - - -
 ### <a name="replace"></a>Substituir
@@ -128,7 +128,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 * Quando **oldValue** e **replacementValue** são fornecidos:
   
-  * Substitui todas as ocorrências de oldValue na origem com replacementValue
+  * Substitui todas as ocorrências de **oldValue** no **origem** com *replacementValue**
 * Quando **oldValue** e **modelo** são fornecidos:
   
   * Substitui todas as ocorrências do **oldValue** no **modelo** com o **origem** valor
@@ -167,7 +167,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **... uniqueValueRule1 uniqueValueRuleN** |Pelo menos 2 são vinculados a necessário, não superior |Cadeia | Lista de regras de geração de valor único para avaliar |
+| **... uniqueValueRule1 uniqueValueRuleN** |Pelo menos 2 são vinculados a necessário, não superior |String | Lista de regras de geração de valor único para avaliar. |
 
 
 - - -
@@ -219,7 +219,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
 | **culture** |Opcional |String |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
 
 - - -
@@ -232,7 +232,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
 | **culture** |Opcional |String |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
 
 ## <a name="examples"></a>Exemplos

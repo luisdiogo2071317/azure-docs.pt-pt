@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 9678259f4eb6fc634459f80e47b507ebe435ea37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878923"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983275"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar os contentores do Docker de compreensão de idiomas 
 
@@ -59,7 +59,7 @@ Não utilize a chave de arranque ou a chave de criação.
 
 ## <a name="billing-setting"></a>Definição de faturação
 
-O `Billing` definição especifica o URI do ponto final da _compreensão de idiomas_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _compreensão de idiomas_ recursos no Azure.
+O `Billing` definição especifica o URI do ponto final da _compreensão de idiomas_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _compreensão de idiomas_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
 
 Esta definição pode ser encontrada nos seguintes locais:
 

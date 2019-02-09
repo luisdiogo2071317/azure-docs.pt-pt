@@ -16,28 +16,31 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 20bf851cc9b2965a355286699e1ef255887d7650
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 22de937c33edc7c8ec6944acf657937a1ce604f7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697093"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981899"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais completo com o PowerShell
-Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016. Recursos individuais são configurados e criados, em vez da utilizar o [criação de recursos incorporadas as opções disponíveis aqui em New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). Depois de executar o script, pode aceder às instâncias de VMs através de RDP.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+Este script cria um conjunto de dimensionamento de máquinas virtuais com o Windows Server 2016. Recursos individuais são configurados e criados, em vez da utilizar o [recursos incorporadas criação opções disponível aqui em New-AzVmss](powershell-sample-create-simple-scale-set.md). Depois de executar o script, pode aceder às instâncias de VMs através de RDP.
+
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="sample-script"></a>Script de exemplo
+
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/complete-scale-set/complete-scale-set.ps1 "Create a complete virtual machine scale set")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 Execute o seguinte comando para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName
+Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Explicação do script
@@ -45,24 +48,24 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 
 | Comando | Notas |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Esta configuração é utilizada com o processo de criação de rede virtual. |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | Cria uma rede virtual. |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Cria um endereço IP público. |
-| [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) | Cria uma configuração de IP de front-end para um balanceador de carga. |
-| [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig) | Cria uma configuração do conjunto de endereços de back-end para um balanceador de carga. |
-| [New-AzureRmLoadBalancerInboundNatRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerinboundnatruleconfig) | Cria uma configuração de regras de NAT de entrada para um balanceador de carga. |
-| [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer) | Cria um balanceador de carga. |
-| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig) | Cria uma configuração de pesquisa para um balanceador de carga. |
-| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerruleconfig) | Cria uma configuração de regras para um balanceador de carga. |
-| [Set-AzureRmLoadBalancer](/powershell/module/AzureRM.Network/Set-AzureRmLoadBalancer) | Atualize o balanceador de carga com as informações fornecidas. |
-| [New-AzureRmVmssIpConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssIpConfig) | Crie uma configuração de IP para as instâncias de VM do conjunto de dimensionamento. As instâncias de VM estão ligadas ao conjunto de back-end do balanceador de carga, ao conjunto NAT e à sub-rede da rede virtual. |
-| [New-AzureRmVmssConfig](/powershell/module/AzureRM.Compute/New-AzureRmVmssConfig) | Cria uma configuração de conjunto de dimensionamento. Esta configuração inclui informações como o número de instâncias VM para criar, o SKU (tamanho) de VM e o modo de política de atualização. A configuração é adicionada pelos cmdlets adicionais e é utilizada durante a criação do conjunto de dimensionamento. |
-| [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Defina a imagem a ser utilizada para as instâncias VM e adicione-a à configuração de conjunto de dimensionamento. |
-| [Set-AzureRmVmssOsProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) | Define o nome de utilizador administrativo, as credenciais de palavra-passe e o prefixo de atribuição de nomes de VM. Adicione estes valores à configuração do conjunto de dimensionamento. |
-| [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/AzureRM.Compute/Add-AzureRmVmssNetworkInterfaceConfiguration) | Adicione uma interface de rede virtual às instâncias de VM, com base na configuração de IP. Adicione estes valores à configuração do conjunto de dimensionamento. |
-| [New-AzureRmVmss](/powershell/module/AzureRM.Compute/New-AzureRmVmss) | Crie o conjunto de dimensionamento, com base nas informações fornecidas na configuração do conjunto de dimensionamento. |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Cria uma configuração de sub-rede. Esta configuração é utilizada com o processo de criação de rede virtual. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Cria uma rede virtual. |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Cria um endereço IP público. |
+| [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) | Cria uma configuração de IP de front-end para um balanceador de carga. |
+| [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) | Cria uma configuração do conjunto de endereços de back-end para um balanceador de carga. |
+| [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) | Cria uma configuração de regras de NAT de entrada para um balanceador de carga. |
+| [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) | Cria um balanceador de carga. |
+| [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) | Cria uma configuração de pesquisa para um balanceador de carga. |
+| [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) | Cria uma configuração de regras para um balanceador de carga. |
+| [Set-AzLoadBalancer](/powershell/module/az.Network/Set-azLoadBalancer) | Atualize o balanceador de carga com as informações fornecidas. |
+| [New-AzVmssIpConfig](/powershell/module/az.Compute/New-azVmssIpConfig) | Crie uma configuração de IP para as instâncias de VM do conjunto de dimensionamento. As instâncias de VM estão ligadas ao conjunto de back-end do balanceador de carga, ao conjunto NAT e à sub-rede da rede virtual. |
+| [New-AzVmssConfig](/powershell/module/az.Compute/New-azVmssConfig) | Cria uma configuração de conjunto de dimensionamento. Esta configuração inclui informações como o número de instâncias VM para criar, o SKU (tamanho) de VM e o modo de política de atualização. A configuração é adicionada pelos cmdlets adicionais e é utilizada durante a criação do conjunto de dimensionamento. |
+| [Set-AzVmssStorageProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | Defina a imagem a ser utilizada para as instâncias VM e adicione-a à configuração de conjunto de dimensionamento. |
+| [Set-AzVmssOsProfile](/powershell/module/az.Compute/Set-azVmssStorageProfile) | Define o nome de utilizador administrativo, as credenciais de palavra-passe e o prefixo de atribuição de nomes de VM. Adicione estes valores à configuração do conjunto de dimensionamento. |
+| [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.Compute/Add-azVmssNetworkInterfaceConfiguration) | Adicione uma interface de rede virtual às instâncias de VM, com base na configuração de IP. Adicione estes valores à configuração do conjunto de dimensionamento. |
+| [New-AzVmss](/powershell/module/az.Compute/New-azVmss) | Crie o conjunto de dimensionamento, com base nas informações fornecidas na configuração do conjunto de dimensionamento. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).

@@ -1,6 +1,6 @@
 ---
-title: Como implementar o Windows 10 no Azure com direitos de alojamento de multi-inquilino
-description: Saiba como maximizar as vantagens do Windows Software Assurance para colocar licenças no local do Azure
+title: Como implementar o Windows 10 no Azure com direitos de alojamento multi-inquilino
+description: Saiba como maximizar os benefícios do Windows Software Assurance para colocar licenças no local para o Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 5952c602a90568a9ce9e71dfa2c0dd383aed4e16
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dc798dc78ed0cdbf11bbe3bc2dd805433b127a4d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915376"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976927"
 ---
-# <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de alojamento de multi-inquilino 
-Para clientes com Windows 10 Enterprise E3/E5 por utilizador ou de acesso de ambiente de trabalho virtuais do Windows por utilizador (licenças de subscrição de utilizador ou licenças de subscrição do suplemento do utilizador), o multi-inquilino de alojamento direitos para Windows 10 permite-lhe trazer as suas licenças do Windows 10 para a nuvem e executar máquinas virtuais do Windows 10 no Azure sem pagar outra licença. Para obter mais informações, consulte [de alojamento do multi-inquilino para o Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+# <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de alojamento multi-inquilino 
+Para os clientes com Windows 10 Enterprise E3/E5 por usuário ou o Windows Virtual Desktop Access por utilizador (licenças de subscrição de utilizador ou licenças de subscrição de utilizador do suplemento), o multi-inquilino de alojamento direitos para Windows 10 permite-lhe reunir as suas licenças do Windows 10 para a cloud e executar máquinas virtuais do Windows 10 no Azure sem ter de adquirir outra licença. Para obter mais informações, consulte [alojamento do multi-inquilino para o Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> Este artigo mostra-lhe implementar o benefício de licenciamento para imagens de ambiente de trabalho do Windows 10 Pro no Azure Marketplace.
-> - Para Windows 7, 8.1, 10 Enterprise (x64) as imagens no Azure Marketplace para subscrições de MSDN, consulte [cliente Windows no Azure para cenários de desenvolvimento/teste](client-images.md)
-> - Para o Windows Server licenciamento vantagens, consulte [híbrida do Azure utilizar benefícios para imagens do Windows Server](hybrid-use-benefit-licensing.md).
+> Este artigo mostra-lhe implementar o benefício de licenciamento para imagens de Desktop do Windows 10 Pro no Azure Marketplace.
+> - Para Windows 7, 8.1, 10 imagens de Enterprise (x64) no Azure Marketplace para as assinaturas do MSDN, consulte [cliente Windows no Azure para cenários de desenvolvimento/teste](client-images.md)
+> - Para obter os benefícios de licenciamento do servidor Windows, consulte [híbrido do Azure utilizar os benefícios para imagens do Windows Server](hybrid-use-benefit-licensing.md).
 >
 
-## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implementar a imagem do Windows 10 do Azure Marketplace 
-Para implementações de modelo do Powershell, o CLI e o Azure Resource Manager, pode encontrar a imagem do Windows 10 com o seguinte publishername, oferta, sku.
+## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implementar a imagem do Windows 10 no Azure Marketplace 
+Para implementações de modelo do Powershell, CLI e do Azure Resource Manager, a imagem do Windows 10 pode ser encontrada com a seguinte publishername, oferta, sku.
 
 | SO  |      Nome do Editor      |  Oferta | Sku |
 |:----------|:-------------:|:------|:------|
@@ -40,14 +40,14 @@ Para implementações de modelo do Powershell, o CLI e o Azure Resource Manager,
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS3-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS3-ProN  |
 
-## <a name="uploading-windows-10-vhd-to-azure"></a>Carregar o Windows 10 VHD para o Azure
-Se estiver a carregar um VHD de 10 Windows generalizado, tenha em atenção de que Windows 10 não tem uma conta de administrador incorporada ativada por predefinição. Para ativar a conta de administrador incorporada, incluem o seguinte comando como parte da extensão de Script personalizado.
+## <a name="uploading-windows-10-vhd-to-azure"></a>A carregar o Windows 10 VHD para o Azure
+Se estiver a carregar um VHD generalizado de 10 Windows, tenha em atenção de que Windows 10 não tem uma conta de administrador incorporada ativada por predefinição. Para ativar a conta de administrador incorporada, incluem o seguinte comando como parte da extensão de Script personalizado.
 
 ```powershell
 Net user <username> /active:yes
 ```
 
-É o seguinte fragmento de powershell para marcar todas as contas de administrador como o Active Directory, incluindo o administrador incorporado. Neste exemplo é útil se o nome de utilizador de administrador incorporado é desconhecido.
+O fragmento seguinte do powershell é marcar todas as contas de administrador como ativa, incluindo o administrador incorporado. Neste exemplo é útil se o nome de utilizador de administrador interno é desconhecido.
 ```powershell
 $adminAccount = Get-WmiObject Win32_UserAccount -filter "LocalAccount=True" | ? {$_.SID -Like "S-1-5-21-*-500"}
 if($adminAccount.Disabled)
@@ -61,16 +61,16 @@ Para obter mais informações:
 * [Como preparar um VHD do Windows para carregar para o Azure](prepare-for-upload-vhd-image.md)
 
 
-## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Implementar o Windows 10 com direitos de alojamento multi-inquilino
-Certifique-se de que tem [instalado e configurado o Azure PowerShell mais recente](/powershell/azure/overview). Depois de ter preparado o VHD, carrega o VHD para a conta de armazenamento do Azure utilizando o `Add-AzureRmVhd` cmdlet da seguinte forma:
+## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Implantando o Windows 10 com direitos de alojamento multi-inquilinos
+Certifique-se de que tem [instalado e configurado o Azure PowerShell mais recente](/powershell/azure/overview). Depois de preparar o VHD, carregar o VHD para a sua conta de armazenamento do Azure com o `Add-AzVhd` cmdlet da seguinte forma:
 
 ```powershell
-Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
+Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
     -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd"
 ```
 
 
-**Implementar utilizando a implementação de modelos do Azure Resource Manager** dentro os modelos do Resource Manager, um parâmetro adicional para `licenseType` pode ser especificado. Pode ler mais sobre [criação de modelos Azure Resource Manager](../../resource-group-authoring-templates.md). Assim que tiver o VHD carregado para o Azure, edite modelo do Resource Manager para incluir o tipo de licença como parte do fornecedor de computação e implementar o modelo como normal:
+**Implementar com a implementação de modelo do Azure Resource Manager** dentro de modelos do Resource Manager, um parâmetro adicional para `licenseType` pode ser especificado. Pode ler mais sobre [criar modelos do Azure Resource Manager](../../resource-group-authoring-templates.md). Assim que tiver o seu VHD carregado para o Azure, edite modelo do Resource Manager para incluir o tipo de licença como parte do fornecedor de computação e implementar o modelo como normal:
 ```json
 "properties": {  
    "licenseType": "Windows_Client",
@@ -79,18 +79,18 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
    }
 ```
 
-**Implementar através do PowerShell** quando implementar a VM do Windows Server através do PowerShell, tem um parâmetro adicional para `-LicenseType`. Assim que tiver o VHD carregado para o Azure, criar uma VM utilizando `New-AzureRmVM` e especifique o tipo de licenciamento da seguinte forma:
+**Implementar através do PowerShell** quando implementar a sua VM do Windows Server através do PowerShell, tem um parâmetro adicional para `-LicenseType`. Assim que tiver o seu VHD carregado para o Azure, criar uma VM com `New-AzVM` e especifique o tipo de licenciamento da seguinte forma:
 ```powershell
-New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
+New-AzVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Client"
 ```
 
-## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Certifique-se de que a VM está a utilizar o benefício de licenciamento
-Depois de ter implementado a VM através de qualquer um dos métodos de implementação do PowerShell ou Gestor de recursos, verifique se o tipo de licença com `Get-AzureRmVM` da seguinte forma:
+## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>Certifique-se de que a VM estiver a utilizar o benefício de licenciamento
+Assim que tiver implementado a sua VM através de qualquer um dos métodos de implementação do PowerShell ou do Resource Manager, verifique se o tipo de licença com `Get-AzVM` da seguinte forma:
 ```powershell
-Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-O resultado será semelhante ao seguinte exemplo para o Windows 10 com o tipo de licença correta:
+O resultado é semelhante ao seguinte exemplo para o Windows 10 com o tipo de licença correto:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -98,7 +98,7 @@ Location                 : westus
 LicenseType              : Windows_Client
 ```
 
-Saída Isto contrasta com a seguinte VM implementada sem licenciamento benefício de utilização de híbrida do Azure, tal como uma VM implementada diretamente a partir da galeria do Azure:
+Esta saída contrasta com a VM seguinte implementada sem o Azure Hybrid Use Benefit licenciamento, por exemplo, uma VM implementada diretamente a partir da galeria do Azure:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -108,7 +108,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Informações adicionais sobre a associação do Azure AD
 >[!NOTE]
->Azure Aprovisiona todas as VMs do Windows com a conta de administrador incorporada, que não pode ser utilizada para associar o AAD. Por exemplo, *definições > conta > acesso profissional ou escolar > + Connect* não funcionará. Tem de criar e iniciar sessão como uma segunda conta de administrador para efetuar a adesão do Azure AD manualmente. Também pode configurar o Azure AD através de um pacote de aprovisionamento, utilize a ligação é o *passos* secção para saber mais.
+>O Azure Aprovisiona todas as VMs do Windows com a conta de administrador incorporado, que não pode ser utilizada para associar o AAD. Por exemplo, *definições > conta > acesso de trabalho ou escola > + Connect* não funcionará. Tem de criar e iniciar sessão como uma segunda conta de administrador para aderir ao Azure AD manualmente. Também pode configurar o Azure AD através de um pacote de aprovisionamento, utilize a ligação é o *passos seguintes* secção para saber mais.
 >
 >
 

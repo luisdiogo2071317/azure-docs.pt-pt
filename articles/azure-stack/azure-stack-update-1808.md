@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: beb86284256d42c119e551a18d9900f0dad61b7f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d23aab91df2d69850e8c3b80a1c12f49f2e7fcaa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247498"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965176"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -130,9 +130,9 @@ Esta atualização também contém atenuação para a vulnerabilidade de canal d
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Instalar o Azure Stack [1807 atualizar](azure-stack-update-1807.md) antes de aplicar a atualização do Azure Stack 1808. 
+- Instale a atualização do Azure Stack 1807 antes de aplicar a atualização do Azure Stack 1808. 
 
-- Instalar o mais recente disponível [atualização ou correção para a versão 1807](azure-stack-update-1807.md#post-update-steps).  
+- Instale a atualização mais recente disponível ou a correção para a versão 1807.  
   > [!TIP]  
   > Subscrever o seguinte procedimento *RRS* ou *Atom* feeds para se manter atualizado com correções do Azure Stack:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 

@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580948"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984584"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher Registos de Atividades do Azure no Log Analytics entre subscrições
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>Recolher registos de atividades do Azure para o Log Analytics entre subscrições em diferentes inquilinos do Azure Active Directory
 
-Este artigo descreve um método para recolher Registos de Atividades do Azure numa área de trabalho do Log Analytics com o conector Azure Log Analytics Data Collector para o Logic Apps. Utilize o processo neste artigo quando tiver de enviar registos para uma área de trabalho noutro Azure Active Directory. Por exemplo, se for um fornecedor de serviços geridos, poderá querer recolher registos de atividades da subscrição de um cliente e armazená-los numa área de trabalho do Log Analytics na sua própria subscrição.
+Este artigo descreve um método para recolher Registos de Atividades do Azure numa área de trabalho do Log Analytics com o conector Azure Log Analytics Data Collector para o Logic Apps. Utilize o processo neste artigo quando tiver de enviar registos para uma área de trabalho noutro inquilino do Azure Active Directory. Por exemplo, se for um fornecedor de serviços geridos, poderá querer recolher registos de atividades da subscrição de um cliente e armazená-los numa área de trabalho do Log Analytics na sua própria subscrição.
 
 Se a área de trabalho do Log Analytics estiver na mesma subscrição do Azure ou noutra subscrição, mas no mesmo Azure Active Directory, utilize os passos em [Azure activity log solution](collect-activity-logs.md) (Solução de registos de atividades do Azure) para recolher registos de atividades do Azure.
 
@@ -128,7 +128,7 @@ Para obter o nome e a cadeia de ligação do Hub de Eventos, siga os passos em [
 
    |Definição | Descrição  |
    |:---|:---|
-   | Nome           | Nome exclusivo para a aplicação lógica. |
+   | Name           | Nome exclusivo para a aplicação lógica. |
    | Subscrição   | Selecione a subscrição do Azure que irá conter a aplicação lógica. |
    | Grupo de Recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para a aplicação lógica. |
    | Localização       | Selecione a região do datacenter para implementar a sua aplicação lógica. |

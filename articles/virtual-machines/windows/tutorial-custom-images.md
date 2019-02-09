@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8585023b01de55acb6c1b43b45e27af914a0a96
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884423"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976951"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell
 
-As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. Neste tutorial, vai criar a sua imagem personalizada de uma máquina virtual do Azure. Saiba como:
+As imagens personalizadas são como imagens do marketplace, mas são criadas por si. Imagens personalizadas podem ser utilizadas para iniciar as implementações e assegurar a consistência entre várias VMs. Neste tutorial, vai criar sua própria imagem personalizada de uma máquina virtual do Azure com o PowerShell. Saiba como:
 
 > [!div class="checklist"]
 > * Executar o Sysprep e generalizar VMs
@@ -40,13 +40,15 @@ Os passos abaixo detalham como tornar uma VM existente numa imagem personalizada
 
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente. Se for preciso, este [script de exemplo](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) pode criar um para si. Quando trabalhar no tutorial, substitua o grupo de recursos e os nomes da VM sempre que preciso.
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 5.7.0 ou posterior do módulo Azure AzureRM. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
+
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 ## <a name="prepare-vm"></a>Preparar a VM
 
-Para criar uma imagem de uma máquina virtual, tem de preparar a VM ao generalizar a VM, desalocar e, em seguida, marcar a VM de origem como generalizada no Azure.
+Para criar uma imagem de uma máquina virtual, terá de preparar a VM de origem ao generalizar ele, a desalocar e, em seguida, marcando-o como generalizado com o Azure.
 
 ### <a name="generalize-the-windows-vm-using-sysprep"></a>Generalizar a VM do Windows com o Sysprep
 
@@ -54,60 +56,71 @@ O Sysprep remove todas as suas informações de conta pessoal, entre outras cois
 
 
 1. Ligue à máquina virtual.
-2. Abra a janela da Linha de Comandos como administrador. Altere o diretório para *%windir%\system32\sysprep* e, em seguida, execute *sysprep.exe*.
-3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione *Entrar na Experiência 1ª Execução (OOBE) do Sistema* e certifique-se de que a caixa de verificação *Generalizar* está selecionada.
-4. Em **Opções de Encerramento**, selecione *Encerramento* e, em seguida, clique em **OK**.
+2. Abra a janela da Linha de Comandos como administrador. Altere o diretório para *%windir%\system32\sysprep*e, em seguida, execute `sysprep.exe`.
+3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Experiência 1ª Execução (OOBE) do Sistema** e certifique-se de que a caixa de verificação **Generalizar** está selecionada.
+4. Em **Opções de Encerramento**, selecione **Encerramento** e, em seguida, clique em **OK**.
 5. Quando o Sysprep estiver concluído, encerra a máquina virtual. **Não reinicie a VM**.
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Desaloque e marque a VM como generalizada
 
 Para criar uma imagem, a VM tem de ser desalocada e marcada como generalizada no Azure.
 
-Desalocou a VM com [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm).
+Desalocar a VM com [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
-Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Force
+Stop-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Force
 ```
 
-Defina o estado da máquina virtual para `-Generalized`, com [Set-AzureRmVm](/powershell/module/azurerm.compute/set-azurermvm). 
+Definir o estado da máquina virtual para o `-Generalized` usando [Set-AzVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). 
    
 ```azurepowershell-interactive
-Set-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM -Generalized
+Set-AzVM `
+   -ResourceGroupName myResourceGroup `
+   -Name myVM -Generalized
 ```
 
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Agora, pode criar uma imagem da VM com [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig) e [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage). O exemplo seguinte cria uma imagem designada *myImage* a partir de uma VM designada *myVM*.
+Agora, pode criar uma imagem da VM utilizando [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) e [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage). O exemplo seguinte cria uma imagem designada *myImage* a partir de uma VM designada *myVM*.
 
 Obtenha a máquina virtual. 
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+$vm = Get-AzVM `
+   -Name myVM `
+   -ResourceGroupName myResourceGroup
 ```
 
 Crie a configuração da imagem.
 
 ```azurepowershell-interactive
-$image = New-AzureRmImageConfig -Location EastUS -SourceVirtualMachineId $vm.ID 
+$image = New-AzImageConfig `
+   -Location EastUS `
+   -SourceVirtualMachineId $vm.ID 
 ```
 
 Crie a imagem.
 
 ```azurepowershell-interactive
-New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceGroup
+New-AzImage `
+   -Image $image `
+   -ImageName myImage `
+   -ResourceGroupName myResourceGroup
 ``` 
 
  
 ## <a name="create-vms-from-the-image"></a>Criar VMs a partir da imagem
 
-Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Criar uma VM a partir de uma imagem personalizada é semelhante à criação de uma VM com uma imagem do Marketplace. Quando utiliza uma imagem do Marketplace, tem de fornecer as informações sobre a imagem, o fornecedor da imagem, a oferta, o SKU e a versão. Com o parâmetro simplificado definido para o cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm), apenas terá de fornecer o nome da imagem personalizada, desde que esteja no mesmo grupo de recursos. 
+Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Criar uma VM a partir de uma imagem personalizada é semelhante à criação de uma VM com uma imagem do Marketplace. Quando utiliza uma imagem do Marketplace, tem de fornecer as informações sobre a imagem, o fornecedor da imagem, a oferta, o SKU e a versão. Utilizar o parâmetro simplificado definido para o [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet, só precisa fornecer o nome da imagem personalizada, desde que ele está no mesmo grupo de recursos. 
 
-Este exemplo cria uma VM com o nome *myVMfromImage* de *myImage*, no *myResourceGroup*.
+Este exemplo cria uma VM com o nome *myVMfromImage* partir do *myImage* , além de imagens *myResourceGroup*.
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `
@@ -126,14 +139,14 @@ Seguem-se alguns exemplos de tarefas comuns de imagens geridas e como concluí-l
 Liste todas as imagens por nome.
 
 ```azurepowershell-interactive
-$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
 Elimine uma imagem. Este exemplo elimina a imagem denominada *myImage* partir do *myResourceGroup*.
 
 ```azurepowershell-interactive
-Remove-AzureRmImage `
+Remove-AzImage `
     -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```

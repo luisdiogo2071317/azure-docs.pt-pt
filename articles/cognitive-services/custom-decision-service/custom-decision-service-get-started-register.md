@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
 ms.reviewer: marcozo
-ms.openlocfilehash: 0771c417a526c17d1bef7b0d40405efd94333929
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c56aef180f5e16d2ec1931caabe04295ef288ca9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869998"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980691"
 ---
 # <a name="register-your-application"></a>Registar a sua aplicação
 
 Para utilizar o serviço de decisão personalizada para a sua aplicação, tem de registá-lo no portal. Este artigo explica como.
 
-1. Vá para o [página frontal](https://ds.microsoft.com/) do serviço de decisão personalizada. No Friso, clique em **meu Portal**, conforme destacado na imagem:
+1. Vá para o [página frontal](https://portal.ds.microsoft.com/) do serviço de decisão personalizada. No Friso, clique em **meu Portal**, conforme destacado na imagem:
 
     ![Meu Portal](./media/portal.png)
 

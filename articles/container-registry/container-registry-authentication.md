@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 9682b9b832a8fd7374cb84e8cc6faad69df15945
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661637"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979076"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticar com um registo privado de contentor do Docker
 
@@ -60,7 +60,7 @@ Principais de serviço permitem a conectividade sem interface para um registo em
 
 Também pode iniciar sessão diretamente com um principal de serviço. Quando executar o seguinte comando, forneça interativamente o appID principal de serviço (nome de utilizador) e a palavra-passe quando lhe for pedido. Para melhores práticas gerir as credenciais de início de sessão, consulte a [início de sessão do docker](https://docs.docker.com/engine/reference/commandline/login/) referência do comando:
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -80,7 +80,7 @@ Cada registo de contentor inclui uma conta de utilizador de administrador, o que
 
 A conta de administrador é fornecido com duas palavras-passe, que podem ser regeneradas. Duas palavras-passe permitem-lhe manter a ligação ao registo, utilizando uma palavra-passe enquanto volta a gerar a outra. Se a conta de administrador estiver ativada, pode passar o nome de utilizador e a palavra-passe para o `docker login` quando lhe for pedido para a autenticação básica para o registo de comando. Por exemplo:
 
-```Docker
+```
 docker login myregistry.azurecr.io 
 ```
 

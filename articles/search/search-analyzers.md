@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 121b5542f9388355b97744aa224ac824dd8d8728
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 008a24fe9822ca51b81e1f6979a3731d794a8867
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867210"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964343"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores de processamento no Azure Search de texto
 
@@ -92,7 +92,7 @@ Percorrendo neste exemplo:
 * Analisadores são uma propriedade da classe de campo para um campo pesquisável.
 * Um analisador personalizado faz parte de uma definição de índice. Ele pode ser apenas superficialmente personalizado (por exemplo, personalizar uma única opção de um filtro) ou personalizado em vários locais.
 * Neste caso, o analisador personalizado é "my_analyzer", que por sua vez usa um atomizador padrão personalizado "my_standard_tokenizer" e dois filtros de token: filtro de asciifolding em minúsculas e personalizadas "my_asciifolding".
-* Também define a 2 de char personalizado de filtros "map_dash" e "remove_whitespace". Primeiro substitui todos os traços com carateres de sublinhado, enquanto a segunda remove todos os espaços em branco. O espaço em branco tem de ser codificados nas regras de mapeamento de UTF-8. Os filtros de char são aplicados antes de atomização e afetarão os tokens resultantes (os padrão atomizador quebras no dash e espaços, mas não no caráter de sublinhado).
+* Também define a 2 de char personalizado de filtros "map_dash" e "remove_whitespace". Primeiro substitui todos os traços com carateres de sublinhado, enquanto a segunda remove todos os espaços. Espaços precisam ser codificados nas regras de mapeamento de UTF-8. Os filtros de char são aplicados antes de atomização e afetarão os tokens resultantes (os padrão atomizador quebras no dash e espaços, mas não no caráter de sublinhado).
 
 ~~~~
   {

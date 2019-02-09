@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1b5c32d79e3664caf18cfc81fca563b295574cf4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7cc65c0564b6171e66c4337ce02e1c2d6449e101
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329322"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975420"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar tarefas de gestão em máquinas virtuais do Azure com a extensão de agente do SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
@@ -64,6 +64,8 @@ Requisitos para utilizar a extensão do agente IaaS do SQL Server na sua VM:
 
 * [Transferir e configurar os comandos do Azure PowerShell mais recente](/powershell/azure/overview)
 
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > Neste momento, o [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md) não é suportada para a FCI do servidor SQL no Azure. Recomendamos que desinstale a extensão de VMs que participam de um FCI. As funcionalidades suportadas pela extensão não estão disponíveis para as VMs de SQL após a desinstalação do agente.
 
@@ -71,7 +73,7 @@ Requisitos para utilizar a extensão do agente IaaS do SQL Server na sua VM:
 A extensão do agente IaaS do SQL Server é instalado automaticamente quando Aprovisiona uma das imagens de Galeria de máquina virtual do SQL Server. Se tiver de reinstalar a extensão manualmente em um destas VMs do SQL Server, utilize o seguinte comando do PowerShell:
 
 ```powershell
-Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
+Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
 > [!IMPORTANT]
@@ -85,13 +87,13 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 
 ![Extensão do agente de IaaS do SQL Server no portal do Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-Também pode utilizar o **Get-AzureRmVMSqlServerExtension** cmdlet do PowerShell do Azure.
+Também pode utilizar o **Get-AzVMSqlServerExtension** cmdlet do PowerShell do Azure.
 
-    Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 
 O comando anterior confirma que o agente está instalado e fornece informações de estado geral. Também pode obter informações de estado específicos sobre a cópia de segurança automatizada e a aplicação de patches com os seguintes comandos.
 
-    $sqlext = Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+    $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
 
@@ -100,9 +102,9 @@ No Portal do Azure, pode desinstalar a extensão ao clicar nas reticências no *
 
 ![Desinstale a extensão de agente IaaS do SQL Server no portal do Azure](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-Também pode utilizar o **Remove-AzureRmVMSqlServerExtension** cmdlet do PowerShell.
+Também pode utilizar o **Remove-AzVMSqlServerExtension** cmdlet do PowerShell.
 
-    Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+    Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
 
 ## <a name="next-steps"></a>Passos Seguintes
 Começar a utilizar um dos serviços suportados pela extensão. Para obter mais detalhes, consulte os artigos referenciados no [serviços suportados](#supported-services) seção deste artigo.

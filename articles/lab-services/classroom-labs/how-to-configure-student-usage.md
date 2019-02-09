@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 577860baa74d9f0cd7f411a64d9e6bfa9322731c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894995"
+ms.locfileid: "55964819"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
 Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
@@ -66,11 +66,14 @@ Pode definir quotas de por utilizador, utilizando os seguintes passos:
 
 1. Selecione **utilizadores** no menu da esquerda.
 2. Selecione **Quota por utilizador: ilimitado** na barra de ferramentas. 
-3. Sobre o **Quota por usuário** página, selecione **limitar o número de horas, um utilizador pode utilizar uma VM**. 
-4. Para **quantas horas que pretende dar a cada usuário**, introduza o número de horas e selecione **guardar**. 
+3. Sobre o **Quota por utilizador** página, selecione uma das seguintes opções: 
+    1. **Nenhuma**. Os utilizadores podem utilizar as suas máquinas virtuais apenas durante a hora agendada ou quando o proprietário de laboratório ativa máquinas virtuais para eles.
+    2. **Sem limite (predefinição)**. Os utilizadores podem utilizar as suas máquinas virtuais sem quaisquer restrições de tempo.
+    3. **Especifique o número de horas por utilizador**. Os utilizadores podem utilizar as suas máquinas virtuais para o número de conjunto de horas (especificadas abaixo), além da data agendada. Se selecionar esta opção, introduza o **número de horas** na caixa de texto. 
 
-    ![Número de horas por utilizador](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. Ver o número de horas na barra de ferramentas agora: **Quota de por utilizador: &lt;número de horas&gt;**. 
+        ![Número de horas por utilizador](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. Selecione **Guardar**. 
+5. Veja os valores alterados na barra de ferramentas agora: **Quota de por utilizador: &lt;número de horas&gt;**. 
 
     ![Quota de por utilizador](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -80,8 +83,19 @@ Pode definir quotas de por utilizador, utilizando os seguintes passos:
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar utilizadores ao carregar um ficheiro CSV
 Também pode adicionar utilizadores ao carregar um ficheiro CSV com endereços de e-mail dos utilizadores.
 
-1. Selecione **carregar CSV** na barra de ferramentas.
-2. Selecione o ficheiro CSV com endereços de e-mail do utilizador. Todos os endereços de e-mail devem ser uma coluna, quando abri-lo com o Excel. 
+1. Crie um ficheiro CSV com endereços de e-mail dos utilizadores numa coluna.
+
+    ![Quota de por utilizador](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. Sobre o **os utilizadores** página o laboratório, selecione **carregar CSV** na barra de ferramentas.
+
+    ![Carregar o botão CSV](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Selecione o ficheiro CSV com endereços de e-mail do utilizador. Quando seleciona **aberto** depois de selecionar o ficheiro CSV, consulte o seguinte **adicionar utilizadores** janela. A lista de endereços de e-mail é preenchida com endereços de e-mail a partir do ficheiro CSV. 
+
+    ![Adicionar a janela de utilizadores preenchida com os endereços de e-mail de um ficheiro CSV](../media/how-to-configure-student-usage/add-users-window.png)
+4. Selecione **salvar** no **adicionar utilizadores** janela. 
+5. Confirme que vê os utilizadores da lista de utilizadores. 
+
+    ![Lista de utilizadores adicionados](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="manage-user-vms"></a>Gerir VMs do utilizador
 Assim que os estudantes registar com o Azure Lab Services usando o registro link fornecido aos mesmos, verá as VMs atribuídas aos estudantes na **máquinas virtuais** separador. 

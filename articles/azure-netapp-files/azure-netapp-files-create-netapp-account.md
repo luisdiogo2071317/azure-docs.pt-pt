@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 47b9d25f8db2241bb578528780e28f43d56371e5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413188"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963085"
 ---
 # <a name="create-a-netapp-account"></a>Criar uma conta NetApp
 Criar uma conta NetApp permite-lhe configurar um conjunto de capacidade e, em seguida, criar um volume. Pode utilizar o painel do Azure NetApp Files para criar uma nova conta NetApp.
@@ -31,8 +31,8 @@ Tem de ter registado a sua subscrição para utilizar o fornecedor de recursos d
 
 ## <a name="steps"></a>Passos 
 
-1. Localize a pré-visualização do portal do Azure URL a partir do seu convite de pré-visualização e inicie sessão no portal. 
-2.  Aceda ao painel do Azure NetApp Files através de um dos seguintes métodos:  
+1. Inicie sessão no Portal do Azure. 
+2. Aceda ao painel do Azure NetApp Files através de um dos seguintes métodos:  
   * Procure **Azure NetApp Files** na caixa de pesquisa do portal do Azure.  
   * Clique em **Todos os serviços** na navegação e, em seguida, filtre para Azure NetApp Files.  
 
@@ -50,7 +50,6 @@ Tem de ter registado a sua subscrição para utilizar o fornecedor de recursos d
     Utilize um Grupo de Recursos existente ou crie um novo.
   * **Localização**  
     Selecione a região onde quer ter a conta e os respetivos recursos subordinados a localizar.  
-    Atualmente, o serviço Azure NetApp Files é suportado apenas na região E.U.A Leste.  
 
     ![Nova conta NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 

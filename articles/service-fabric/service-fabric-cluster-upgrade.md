@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102401"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961895"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>A atualizar e a atualizar um cluster do Azure Service Fabric
 
@@ -27,7 +27,7 @@ Para qualquer sistema moderno, a criação de uma upgradability é a chave para 
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>Controlar a versão de recursos de infraestrutura que é executado no seu cluster
 
-Certifique-se manter o seu cluster sempre a executar uma versão de recursos de infraestrutura suportadas. Como e quando podemos anunciar o lançamento de uma nova versão do service fabric, a versão anterior está marcada para o fim do suporte após um mínimo de 60 dias dessa data. As novas versões sejam anunciadas no blog da equipe de recursos de infraestrutura do serviço. A nova versão está disponível para, em seguida, escolha.
+Certifique-se de manter o seu cluster a executar uma [versão de recursos de infraestrutura suportada](service-fabric-versions.md) sempre. Como e quando podemos anunciar o lançamento de uma nova versão do service fabric, a versão anterior está marcada para o fim do suporte após um mínimo de 60 dias dessa data. As novas versões sejam anunciadas no blog da equipe de recursos de infraestrutura do serviço. A nova versão está disponível para, em seguida, escolha.
 
 14 dias antes da expiração da versão do que seu cluster está em execução, estado de funcionamento é gerado um evento que coloca o seu cluster num Estado de funcionamento de aviso. O cluster permanecer num Estado de aviso enquanto não atualizar para uma versão de recursos de infraestrutura suportadas.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Adicionar um gateway a uma VNet do Azure para o ExpressRoute: Portal | Documentos da Microsoft'
+title: 'Adicione um gateway a uma VNet do Azure para o ExpressRoute: Portal | Microsoft Docs'
 description: Este artigo orienta-o processo de adicionar um gateway de rede virtual a uma VNet do Resource Manager já criada para o ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a21c9682cfeaa7421d089bf75eb9d8b45e1d3d46
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091208"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982765"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurar um gateway de rede virtual para o ExpressRoute com o portal do Azure
 > [!div class="op_single_selector"]
@@ -42,9 +42,8 @@ Os passos para esta tarefa utilizam uma VNet com base nos valores na lista de re
 * Nome da sub-rede de gateway: "GatewaySubnet", deve nomeá sempre uma sub-rede de gateway *GatewaySubnet*.
     * Espaço de endereços de sub-rede de gateway = "192.168.200.0/26"
 * Nome do gateway = "ERGW"
-* Nome do gateway de IP = "MyERGWVIP"
-* Tipo de gateway "ExpressRoute" de = deste tipo é necessário para uma configuração de ExpressRoute.
 * Nome IP público do gateway = "MyERGWVIP"
+* Tipo de gateway "ExpressRoute" de = deste tipo é necessário para uma configuração de ExpressRoute.
 
 Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) dos seguintes passos antes de iniciar a configuração.
 
@@ -67,14 +66,14 @@ Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expr
 2. No painel **Criar gateway de rede virtual**, preencha os valores para o gateway de rede virtual.
 
     ![Create virtual network gateway blade fields](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Create virtual network gateway blade fields")
-3. **Nome**: dê um nome ao gateway. Não é o mesmo que atribuir nome a uma sub-rede de gateway. É o nome do objeto de gateway que está a criar.
-4. **Tipo de gateway**: selecione **ExpressRoute**.
-5. **SKU**: selecione o SKU de gateway na lista pendente.
-6. **Localização**: ajuste o campo **Localização** para apontar para a localização em que a sua rede virtual se encontra. Se a localização não está a apontar para a região onde reside a rede virtual, a rede virtual não é apresentada na lista pendente "Escolher uma rede virtual".
+3. **Nome**: Nome do seu gateway. Não é o mesmo que atribuir nome a uma sub-rede de gateway. É o nome do objeto de gateway que está a criar.
+4. **Tipo de gateway**: Selecione **ExpressRoute**.
+5. **SKU**: Selecione o SKU de gateway na lista pendente.
+6. **Localização**: Ajuste o campo **Localização** para apontar para a localização em que a sua rede virtual se encontra. Se a localização não está a apontar para a região onde reside a rede virtual, a rede virtual não é apresentada na lista pendente "Escolher uma rede virtual".
 7. Escolha a rede virtual à qual pretende adicionar este gateway. Clique em **Rede virtual** para abrir o painel **Escolher uma rede virtual**. Selecione a VNet. Se não vir o VNet, confirme que o campo **Localização** aponta para a região na qual a rede virtual está localizada.
 9. Escolha um endereço IP público. Clique em **Endereço IP público** para abrir o painel **Escolher endereço IP público**. Clique em **+Criar Novo** para abrir o painel **Escolher endereço IP público**. Introduza um nome para o seu endereço IP público. Este painel cria um objeto de endereço IP público ao qual um endereço IP público vai ser atribuído dinamicamente. Clique em **OK** para guardar as alterações a este painel.
-10. **Subscrição**: verifique se está selecionada a subscrição correta.
-11. **Grupo de recursos**: esta definição é determinada pela Rede Virtual que selecionar.
+10. **Subscrição**: Certifique-se de que a subscrição correta está selecionada.
+11. **Grupo de recursos**: Esta definição é determinada através da rede Virtual que selecionou.
 12. Não ajuste a **Localização** depois de especificar as definições anteriores.
 13. Verifique as definições. Se pretender que o gateway apareça no dashboard, pode selecionar **Afixar ao dashboard** na parte inferior do painel.
 14. Clique em **Criar** para começar a criar o gateway. As definições são validadas e o gateway será implementado. Criar gateway de rede virtual pode demorar até 45 minutos a concluir.

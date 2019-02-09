@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e7ec07c29f742202b17e94d96d88b0dfb223100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464352"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963850"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>O ajudam a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -34,6 +34,9 @@ Conjuntos elásticos resolvem este problema ao garantir que as bases de dados re
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
+
+> [!IMPORTANT]
+> Não existe nenhum custo por base de dados para conjuntos elásticos. É faturado por cada hora, que existe um conjunto no eDTU mais alto ou vCores, independentemente da utilização ou se o conjunto esteve ativo durante menos de uma hora.
 
 Conjuntos elásticos permitem aos programadores comprar recursos para um conjunto partilhado por várias bases de dados para acomodar períodos de utilização imprevisíveis bases de dados individuais. Pode configurar recursos para o conjunto com qualquer uma base no [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). O pedido de recurso para um conjunto é determinado pela utilização agregada de seus bancos de dados. A quantidade de recursos disponíveis para os conjuntos é controlada pelo orçamento do programador. O desenvolvedor simplesmente adiciona bases de dados ao conjunto, define os recursos mínimos e máximos para as bases de dados (o mínimo e máximo DTUs ou mínimo ou máximo vCores dependendo de sua escolha de obtenção de recursos modelo) e, em seguida, define os recursos do conjunto com base em suas orçamento. Os programadores podem utilizar os conjuntos para fazer crescer de forma contínua o serviço, de uma “lean startup” para uma empresa madura e em constante crescimento.
 

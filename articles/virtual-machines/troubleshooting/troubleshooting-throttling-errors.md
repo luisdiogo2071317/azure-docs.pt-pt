@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741118"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977821"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Resolução de problemas de erros de limitação de API 
 
@@ -34,8 +34,8 @@ Quando um cliente de API do Azure obtém um erro de limitação, o estado HTTP �
 
 | Cabeçalho                            | Formato do valor                           | Exemplo                               | Descrição                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| x-ms-ratelimit-restantes-recursos |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Contagem de chamadas de API restante para a política de limitação que abrangem o grupo de bucket ou operação de recursos incluindo o destino deste pedido                                                                   |
-| x-ms--de encargos de pedidos               | ```<count>   ```                             | 1                                     | O número de chamada de conta "cobrado" para este pedido HTTP na direção de limite da política aplicável. Isso normalmente é 1. Pedidos de lote, como para dimensionar um conjunto de dimensionamento de máquina virtual, podem cobrar contagens vários. |
+| x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Contagem de chamadas de API restante para a política de limitação que abrangem o grupo de bucket ou operação de recursos incluindo o destino deste pedido                                                                   |
+| x-ms-request-charge               | ```<count>   ```                             | 1                                     | O número de chamada de conta "cobrado" para este pedido HTTP na direção de limite da política aplicável. Isso normalmente é 1. Pedidos de lote, como para dimensionar um conjunto de dimensionamento de máquina virtual, podem cobrar contagens vários. |
 
 
 Tenha em atenção que um pedido de API pode estar sujeitos a múltiplas políticas de limitação. Haverá um separado `x-ms-ratelimit-remaining-resource` cabeçalho para cada política. 
@@ -79,8 +79,8 @@ Conforme ilustrado acima, todos os erros de limitação incluem o `Retry-After` 
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Taxa de e limitação de erro de analisador de chamada de API
 Uma versão de pré-visualização de um recurso de resolução de problemas está disponível para de API o fornecedor de recursos de computação. Estes cmdlets do PowerShell fornecem estatísticas sobre a taxa de pedidos de API por intervalo de tempo por operação e violações de limitação por grupo de operação (política):
--   [Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
--   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
 
 As estatísticas de chamada de API podem fornecer uma ótima visão para o comportamento dos clientes de uma subscrição e ativar fácil identificação de padrões de chamada que fazer com que a limitação.
 

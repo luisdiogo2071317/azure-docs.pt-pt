@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425599"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977563"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Criar uma VM a partir de uma imagem gerida
 
 Pode criar várias máquinas virtuais (VMs) a partir de uma VM gerida do Azure com o portal do Azure ou do PowerShell de imagem. Uma imagem VM gerida contém as informações necessárias para criar uma VM, incluindo os discos de SO e dados. Os discos rígidos virtuais (VHDs) que formam a imagem, incluindo os discos de SO e qualquer discos de dados, são armazenados como discos geridos. 
 
 Antes de criar uma nova VM, precisará [crie uma imagem VM gerida](capture-image-resource.md) para utilizar como imagem de origem. 
+
 
 ## <a name="use-the-portal"></a>Utilizar o portal
 
@@ -41,17 +42,17 @@ Antes de criar uma nova VM, precisará [crie uma imagem VM gerida](capture-image
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell
 
-Pode utilizar o PowerShell para criar uma VM a partir de uma imagem usando o parâmetro simplificado definido para o [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. A imagem tem de estar no mesmo grupo de recursos onde irá criar a VM.
+Pode utilizar o PowerShell para criar uma VM a partir de uma imagem usando o parâmetro simplificado definido para o [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. A imagem tem de estar no mesmo grupo de recursos onde irá criar a VM.
 
-Este exemplo requer o versão 5.6.0 do módulo do AzureRM ou posterior. Executar ` Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-O parâmetro de simplificada definido para [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) requer apenas que forneça um nome, grupo de recursos e o nome da imagem para criar uma VM a partir de uma imagem. New-AzureRmVm utilizará o valor do **-nome** parâmetro como o nome de todos os recursos que ele cria automaticamente. Neste exemplo, podemos fornecer nomes mais detalhados para cada um dos recursos, mas permitir que o cmdlet criá-los automaticamente. Também pode criar recursos com antecedência, como a rede virtual e passar o nome do recurso para o cmdlet. New-AzureRmVm irá utilizar os recursos existentes, se ele pode encontrá-los pelo respetivo nome.
+O parâmetro de simplificada definido para [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) requer apenas que forneça um nome, grupo de recursos e o nome da imagem para criar uma VM a partir de uma imagem. Novo-AzVm utilizará o valor do **-nome** parâmetro como o nome de todos os recursos que ele cria automaticamente. Neste exemplo, podemos fornecer nomes mais detalhados para cada um dos recursos, mas permitir que o cmdlet criá-los automaticamente. Também pode criar recursos com antecedência, como a rede virtual e passar o nome do recurso para o cmdlet. Novo-AzVm irá utilizar os recursos existentes, se ele pode encontrá-los pelo respetivo nome.
 
 O exemplo seguinte cria uma VM com o nome *myVMFromImage*, na *myResourceGroup* grupo de recursos, da imagem com o nome *myImage*. 
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVMfromImage" `
     -ImageName "myImage" `

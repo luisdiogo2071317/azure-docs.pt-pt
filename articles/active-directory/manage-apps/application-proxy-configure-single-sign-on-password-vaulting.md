@@ -3,22 +3,22 @@ title: Início de sessão único para aplicações com o Proxy de aplicações d
 description: Ative o único início de sessão em seus aplicativos publicados no local com o Proxy de aplicações do Azure AD no portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 775458b2924055fdf1a967cc2fa2f691758d7559
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c2ff9e05591654d78cd0c2f204914c3ad992ebc6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173127"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961606"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Palavra-passe vaulting para início de sessão único com o Proxy de aplicações
 

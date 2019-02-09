@@ -15,97 +15,99 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 32bcc87cad23c8a9145e2104794701997fca8998
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5746d8b1f4c12a9b39f1599da753db8109790a55
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883267"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984156"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerir um conjunto de dimensionamento com o Azure PowerShell
+
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos cmdlets Azure PowerShell comuns que permitem-lhe realizar estas tarefas.
 
-Para concluir estas tarefas de gestão, terá do módulo Azure PowerShell mais recente. Para obter informações, consulte [introdução ao Azure PowerShell](/powershell/azure/get-started-azureps). Se precisar de criar um conjunto de dimensionamento de máquina virtual, pode [criar conjunto de dimensionamento com o Azure PowerShell](quick-create-powershell.md).
+Se precisar de criar um conjunto de dimensionamento de máquina virtual, pode [criar conjunto de dimensionamento com o Azure PowerShell](quick-create-powershell.md).
 
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
 
 ## <a name="view-information-about-a-scale-set"></a>Ver informações sobre um conjunto de dimensionamento
-Para ver as informações gerais sobre um conjunto de dimensionamento, utilize [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss). O exemplo seguinte obtém informações sobre o conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:
+Para ver as informações gerais sobre um conjunto de dimensionamento, utilize [Get-AzVmss](/powershell/module/az.compute/get-azvmss). O exemplo seguinte obtém informações sobre o conjunto nomeado de dimensionamento *myScaleSet* no *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Ver VMs num conjunto de dimensionamento
-Para ver uma lista de instância de VM num conjunto de dimensionamento, utilize [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). O exemplo seguinte lista todas as instâncias VM no conjunto nomeado de dimensionamento *myScaleSet* e, no *myResourceGroup* grupo de recursos. Fornece seus próprios valores para estes nomes:
+Para ver uma lista de instância de VM num conjunto de dimensionamento, utilize [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). O exemplo seguinte lista todas as instâncias VM no conjunto nomeado de dimensionamento *myScaleSet* e, no *myResourceGroup* grupo de recursos. Fornece seus próprios valores para estes nomes:
 
 ```powershell
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-Para ver informações adicionais sobre uma instância VM específica, adicione a `-InstanceId` parâmetro [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) e especifique uma instância para ver. O exemplo seguinte mostra informações sobre a instância de VM *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:
+Para ver informações adicionais sobre uma instância VM específica, adicione a `-InstanceId` parâmetro [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) e especifique uma instância para ver. O exemplo seguinte mostra informações sobre a instância de VM *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Introduza os seus próprios nomes da seguinte forma:
 
 ```powershell
-Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Alterar a capacidade de um conjunto de dimensionamento
 Os comandos anteriores mostraram informações sobre o conjunto de dimensionamento e as instâncias de VM. Para aumentar ou diminuir o número de instâncias no conjunto de dimensionamento, pode alterar a capacidade. A escala definida automaticamente cria ou remove o número necessário de VMs, e configura as VMs para receber o tráfego de aplicativo.
 
-Em primeiro lugar, crie um objeto de conjunto de dimensionamento com [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) e especifique um valor novo para `sku.capacity`. Para aplicar a alteração de capacidade, utilize [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). As seguintes atualizações de exemplo *myScaleSet* no *myResourceGroup* grupo de recursos com uma capacidade de *5* instâncias. Fornece seus próprios valores da seguinte forma:
+Primeiro, crie um objeto de conjunto de dimensionamento com [Get-AzVmss](/powershell/module/az.compute/get-azvmss), em seguida, especifique um novo valor para `sku.capacity`. Para aplicar a alteração de capacidade, utilize [AzVmss atualização](/powershell/module/az.compute/update-azvmss). As seguintes atualizações de exemplo *myScaleSet* no *myResourceGroup* grupo de recursos com uma capacidade de *5* instâncias. Fornece seus próprios valores da seguinte forma:
 
 ```powershell
 # Get current scale set
-$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
+Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
 São necessários alguns minutos para atualizar a capacidade do seu conjunto de dimensionamento. Se diminuir a capacidade de uma escala definido, as VMs com a instância mais alta IDs são removidas primeiro.
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Parar e iniciar VMs num conjunto de dimensionamento
-Para parar uma ou mais VMs num conjunto de dimensionamento, utilize [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). O parâmetro `-InstanceId` permite-lhe especificar uma ou mais VMs que deverão ser paradas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são paradas. Para parar de várias VMs, separe cada ID de instância com uma vírgula.
+Para parar uma ou mais VMs num conjunto de dimensionamento, utilize [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). O parâmetro `-InstanceId` permite-lhe especificar uma ou mais VMs que deverão ser paradas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são paradas. Para parar de várias VMs, separe cada ID de instância com uma vírgula.
 
 O exemplo seguinte para a instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Fornece seus próprios valores da seguinte forma:
 
 ```powershell
-Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 Por predefinição, as VMs paradas são desalocadas e não implicam custos de computação. Se quiser que a VM permaneça no estado aprovisionado quando for parada, adicione o parâmetro `-StayProvisioned` ao comando anterior. As VMs paradas que continuem aprovisionadas incorrem em custos de computação regulares.
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Iniciar VMs num conjunto de dimensionamento
-Para iniciar uma ou mais VMs num conjunto de dimensionamento, utilize [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). O parâmetro `-InstanceId` permite-lhe especificar uma ou mais VMs que deverão ser iniciadas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são iniciadas. Para começar a várias VMs, separe cada ID de instância com uma vírgula.
+Para iniciar uma ou mais VMs num conjunto de dimensionamento, utilize [Start-AzVmss](/powershell/module/az.compute/start-azvmss). O parâmetro `-InstanceId` permite-lhe especificar uma ou mais VMs que deverão ser iniciadas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são iniciadas. Para começar a várias VMs, separe cada ID de instância com uma vírgula.
 
 O exemplo seguinte inicia a instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Fornece seus próprios valores da seguinte forma:
 
 ```powershell
-Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Reiniciar VMs num conjunto de dimensionamento
-Para reiniciar uma ou mais VMs num conjunto de dimensionamento, utilize [Retart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). O parâmetro `-InstanceId` permite-lhe especificar uma ou mais VMs que deverão ser reinciadas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são reiniciadas. Para reiniciar várias VMs, separe cada ID de instância com uma vírgula.
+Para reiniciar uma ou mais VMs num conjunto de dimensionamento, utilize [Retart-AzVmss](/powershell/module/az.compute/restart-azvmss). O parâmetro `-InstanceId` permite-lhe especificar uma ou mais VMs que deverão ser reinciadas. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são reiniciadas. Para reiniciar várias VMs, separe cada ID de instância com uma vírgula.
 
 O seguinte exemplo reinicia a instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Fornece seus próprios valores da seguinte forma:
 
 ```powershell
-Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Remover as VMs a partir de um conjunto de dimensionamento
-Para remover uma ou mais VMs num conjunto de dimensionamento, utilize [Remove-AzureRmVmss](/powershell/module/azurerm.compute/remove-azurermvmss). O `-InstanceId` parâmetro permite-lhe especificar uma ou mais VMs para remover. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são removidas. Para remover várias VMs, separe cada ID de instância com uma vírgula.
+Para remover uma ou mais VMs num conjunto de dimensionamento, utilize [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss). O `-InstanceId` parâmetro permite-lhe especificar uma ou mais VMs para remover. Se não especificar um ID de instância, todas as VMs no conjunto de dimensionamento são removidas. Para remover várias VMs, separe cada ID de instância com uma vírgula.
 
 O exemplo seguinte remove a instância *0* no conjunto nomeado de dimensionamento *myScaleSet* e o *myResourceGroup* grupo de recursos. Fornece seus próprios valores da seguinte forma:
 
 ```powershell
-Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
+Remove-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 

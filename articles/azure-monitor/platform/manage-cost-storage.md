@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 45ecc1cbe2a9cf7d11d7b17a7a72887dcb7aa1e3
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821478"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965414"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gerir a utilização e custos para o Log Analytics
 
@@ -117,6 +117,9 @@ Se pretender mover a sua área de trabalho para o escalão de preço atual, ter�
 > [!NOTE]
 > Se a sua área de trabalho estiver ligada a uma conta de Automatização, antes poder selecionar o escalão de preço *Autónomo (Por GB)*, tem de eliminar quaisquer soluções de **Automatização e Controlo** e desassociar a conta de Automatização. No painel da área de trabalho, em **Geral**, clique em **Soluções** para ver e eliminar soluções. Para desassociar a Conta de automatização, clique no nome da Conta de automatização no painel **Escalão de preços**.
 
+> [!NOTE]
+> Pode saber mais sobre como (definir o escalão de preço por meio de ARM) [https://docs.microsoft.com/en-us/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] e como garantir que a implementação de ARM será concluída com êxito, independentemente se a subscrição está no herdados ou no novo modelo de preços. 
+
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Por isso que o Log Analytics já não está a recolher dados de resolução de problemas
 Se estiver no escalão de preço gratuito herdado e ter enviado a mais de 500 MB de dados num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  O log Analytics cria um evento do tipo operação quando a recolha de dados é iniciada e interrompida. Execute a seguinte consulta na pesquisa para verificar se estiver a atingir o limite diário e dados em falta: 
@@ -128,7 +131,7 @@ Quando parar a recolha de dados, o OperationStatus indica um aviso. Quando inici
 |Deixa de coleção de razão| Solução| 
 |-----------------------|---------|
 |Foi atingido o limite diário de escalão de preço gratuito de legado |Aguarde até ao dia seguinte para a coleção reiniciar automaticamente ou alterar para um escalão de preço pago.|
-|Foi atingido o limite diário da sua área de trabalho|Aguarde pela coleção reiniciar automaticamente ou aumentar o limite de volume de dados diário é descrito em Gerenciar o volume de dados máximo diário. O tempo de reposição de limite diário é mostra no **gestão de volumes de dados** página. |
+|Foi atingido o limite diário da sua área de trabalho|Aguarde pela coleção reiniciar automaticamente ou aumentar o limite de volume de dados diário descrito em [gerir o volume de dados diário máximo](#manage-the-maximum-daily-volume). O tempo de reposição de limite diário é mostra no **gestão de volumes de dados** página. |
 |Subscrição do Azure está num estado suspenso devido a:<br> Versão de avaliação gratuita terminada<br> Passagem do Azure expirou<br> Atingido o limite de gastos mensal (por exemplo, numa assinatura do MSDN ou o Visual Studio)|Converter numa subscrição paga<br> Remover o limite, ou aguarde até que o limite é zerado|
 
 Para ser notificado quando parar a recolha de dados, utilize os passos descritos em *criar limite de dados diário* alerta para ser notificado quando parar a recolha de dados e siga os passos utilizam os passos descritos em adicionam ações a regras de configurar um e-mail de alerta webhook ou runbook de ação para a regra de alerta. 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732775"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984516"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Tutorial: Gerido de segurança de instância na base de dados do SQL Azure com inícios de sessão do Azure AD
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 > - Criar um início de sessão do Azure Active Directory (AD) para uma instância gerida
 > - Conceder permissões para inícios de sessão do Azure AD numa instância gerida
 > - Criar utilizadores do Azure AD a partir de inícios de sessão do Azure AD
-> - Atribuir permissões a utilizadores do Azure AD e a segurança de base de dados gerida
+> - Atribuir permissões a utilizadores do Azure AD e gerir a segurança da base de dados
 > - Utilize a representação com utilizadores do Azure AD
 > - Utilizar consultas entre bases de dados com utilizadores do Azure AD
 > - Saiba mais sobre as funcionalidades de segurança, como proteção contra ameaças, auditoria, máscara de dados e encriptação

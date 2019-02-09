@@ -16,18 +16,18 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f900fa5105f42dac57b392d41a8cd888850fc648
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 491664067c87de8f94d2395cb2ffbdeade2595b0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249500"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979552"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integração de datacenter do Azure Stack
 
-Este artigo descreve a experiência do cliente do Azure Stack ponto a ponto na compra de uma solução integrada através de uma implementação no local com êxito por um fornecedor de solução. Utilize estas informações para facilitar a sua jornada de e ajudar a definir expectativas sobre o que, como cliente do Azure Stack, deve esperar quando a integração do Azure Stack ao seu datacenter.
+Este artigo descreve a experiência do cliente do Azure Stack ponto a ponto na compra de um sistema integrado por meio de uma implementação no local com êxito por um fornecedor de solução. Utilize estas informações para facilitar a sua jornada de e para ajudar a definir expectativas para, um cliente do Azure Stack.
 
-Enquanto cliente do Azure Stack, deve prever as seguintes fases de integração do Centro de dados:
+Enquanto cliente do Azure Stack, deve prever as seguintes fases:
 
 |     |Fase de planejamento|Processo de encomenda|Pré-implementação|Processo de fábrica|Entrega de hardware|Implementação no local|
 |-----|-----|-----|-----|-----|-----|-----|
@@ -63,7 +63,7 @@ Durante esta fase, terá de decidir como pretende integrar o Azure Stack no seu 
 O [considerações de integração do Centro de dados gerais](azure-stack-datacenter-integration.md) artigo fornece informações que o ajuda a concluir o modelo, conhecido como a folha de cálculo de implementação. 
 
 > [!IMPORTANT]
-> Durante esta fase é importante que todas as informações de pré-requisitos são investigadas e decidir antes da ordenação a solução. Lembre-se de que este passo é demorado e exige a coordenação e a recolha de dados de várias disciplinas dentro da sua organização. 
+> Durante esta fase é importante que todas as informações de pré-requisitos são investigadas e decidir antes da ordenação a solução. Lembre-se de que este passo é demorado e exige a coordenação e a recolha de dados de várias disciplinas dentro da sua organização. Informações incorretas ou incompletas podem resultar numa implantação mais tempo. 
 
 Na fase de pré-implementação terá de decidir o seguinte:
 
@@ -90,7 +90,7 @@ O fornecedor de solução irá trabalhar no agendamento quando a solução vai d
 
 -   Todos os certificados têm de ser adquiridos e pronto.
 
--   Nome de domínio tem de ser escolhido no.
+-   Nome da região deve ser decidir.
 
 -   Todos os parâmetros de integração de rede são finalizados e coincide com o que tenha partilhado com o seu fornecedor de soluções.
 
@@ -102,16 +102,16 @@ Para implementar o Azure Stack, terá de estar presente para iniciar a implement
 
 Segue-se que deve esperar o engenheiro de no local durante a experiência de implementação:
 
-- Verifique todos os conectividade de cablagem e o limite para garantir que a solução está corretamente estruturada e cumpre os seus requisitos
-- Configurar a solução HLH (anfitrião de ciclo de vida de Hardware)
+- Verifique a todos os conectividade de cablagem e o limite para garantir que a solução está corretamente estruturada e cumpre os seus requisitos.
+- Configure a solução HLH (anfitrião de ciclo de vida de Hardware), se estiver presente.
 - Verifique se que as definições de todos os BMC, BIOS e de rede estão corretas.
-- Certifique-se que o firmware de todos os componentes está na versão mais recente aprovada pela solução
-- Iniciar a implementação
+- Certifique-se o firmware de todos os componentes na versão mais recente aprovada pela solução.
+- Inicie a implementação.
 
 > [!NOTE]
 > A conclusão, um procedimento de implementação, o engenheiro de no local pode demorar aproximadamente uma semana de negócios.
 
-## <a name="post-integration-phase"></a>Fase de pós-integração
+## <a name="post-deployment-phase"></a>Fase de pós-implementação
 Antes da solução é transferida para o cliente na fase de pós-integração, vários passos devem ser executados pelo parceiro. Nesta fase, a validação é importante certificar-se de que a implementação do sistema e de desempenho corretamente. 
 
 Ações que devem ser realizadas pelo parceiro OEM são:
@@ -122,13 +122,13 @@ Ações que devem ser realizadas pelo parceiro OEM são:
 
 -   [Distribuição de mercado](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Ficheiros de configuração de comutador de cópia de segurança
+-   Ficheiros de configuração do comutador e a configuração de HLH cópia de segurança
 
 -   Remover DVM
 
 -   Preparar um resumo de cliente para a implementação
 
--   [Verificar atualizações para tornar-se de que o software de solução é atualizado para a versão mais recente](azure-stack-updates.md)
+-   [Verificar atualizações para tornar-se de que o software de solução é atualizado para a versão mais recente](.\azure-stack-updates.md)
 
 Há várias etapas que são necessárias ou opcionais, consoante o tipo de instalação.
 

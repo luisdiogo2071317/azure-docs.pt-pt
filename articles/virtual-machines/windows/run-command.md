@@ -8,20 +8,22 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 33f96c67e7179104d1895cf62f834d3b592bee04
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487630"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983718"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell na sua VM do Windows com o comando de execução
 
 Execute o agente da VM para executar scripts do PowerShell dentro de uma VM do Windows Azure de usos de comando. Esses scripts podem ser utilizados para a máquina geral ou gestão de aplicações e podem ser utilizados para diagnosticar rapidamente e remediar problemas de acesso e de rede VM e obter a VM de volta para um bom estado.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="benefits"></a>Benefícios
 
-Existem várias opções que podem ser utilizadas para aceder às suas máquinas virtuais. Execute o comando pode executar scripts em suas máquinas virtuais utilizando remotamente o agente da VM. Execute o comando pode ser utilizado através do portal do Azure, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) para VMs do Windows.
+Existem várias opções que podem ser utilizadas para aceder às suas máquinas virtuais. Execute o comando pode executar scripts em suas máquinas virtuais utilizando remotamente o agente da VM. Execute o comando pode ser utilizado através do portal do Azure, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), ou [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) para VMs do Windows.
 
 Esta funcionalidade é útil em todos os cenários em que pretende executar um script dentro de uma máquina virtual e, é um das únicas formas de resolver problemas e remediar uma máquina virtual que não tem o RDP ou abrir o porta SSH devido a rede impróprias ou utilizador administrativo configuração.
 
@@ -72,10 +74,11 @@ Esta tabela mostra a lista de comandos disponíveis para as VMs do Windows. O **
 
 ## <a name="powershell"></a>PowerShell
 
-Segue-se um exemplo com o [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet para executar um script do PowerShell na VM do Azure. O cmdlet espera que o script referenciado no `ScriptPath` variável a ser local para onde o cmdlet está a ser executado.
+Segue-se um exemplo com o [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet para executar um script do PowerShell na VM do Azure. O cmdlet espera que o script referenciado no `-ScriptPath` parâmetro seja local para onde está a ser executado o cmdlet.
+
 
 ```azurepowershell-interactive
-Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## <a name="limiting-access-to-run-command"></a>Limitar o acesso a executar o comando

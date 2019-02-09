@@ -3,9 +3,8 @@ title: Gerir o acesso a aplicações com o Azure AD | Documentos da Microsoft
 description: Descreve como o Azure Active Directory permite às organizações especificar as aplicações a que cada utilizador tem acesso.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: barbkess
-ms.openlocfilehash: 0c8450523890430587bedebbcd77ceddd8a03e42
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.openlocfilehash: 1be695384ff6828561fe8e1e858d052cba302dc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183395"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982704"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a aplicações
 Gestão de acesso contínuo, avaliação de utilização e relatórios continuam a ser um desafio depois de uma aplicação é integrada ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou suporte técnico tem de realizar uma função ativa em curso no gerenciamento de acesso às suas aplicações. Às vezes, a atribuição é realizada por uma equipa de TI geral ou divisão. Muitas vezes, a decisão de atribuição se destina a ser designado como o tomador de decisões de negócios, que requerem a sua aprovação antes de IT facilita a atribuição.  Outras organizações investem na integração com um automatizada identidades e acessos sistema de gerenciamento existente, como o controlo de acesso baseado em funções (RBAC) ou o controlo de acesso baseado em atributo (ABAC). A integração e o desenvolvimento de regra tendem a ser dispendiosos e especializados. Monitorização ou relatórios sobre qualquer uma das abordagens de gerenciamento são o seu próprio investimento separado, dispendioso e complexo.
@@ -39,7 +38,7 @@ Usando esses modos de atribuição de dois, os administradores podem obter qualq
 Com o Azure AD, utilização e a atribuição de relatórios está totalmente integrado, permitindo que os administradores facilmente um relatório sobre o estado de atribuição, erros de atribuição e da utilização até mesmo.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Atribuição de aplicações complexas com o Azure AD
-Considere um aplicativo como o Salesforce. Em muitas organizações, o Salesforce é principalmente utilizado pelas organizações de vendas e marketing. Muitas vezes, os membros da equipe de marketing tem altamente acesso privilegiado ao Salesforce, enquanto os membros da equipe de vendas tem acesso limitado. Em muitos casos, uma vasta população de operadores de informações tem acesso restrito à aplicação. Exceções a essas regras complicam as coisas. Geralmente é prerogative das equipes de liderança de marketing ou vendas para conceder um acesso de utilizador ou alterar as suas funções, independentemente destas regras genéricas.
+Considere um aplicativo como o Salesforce. Em muitas organizações, o Salesforce é usado principalmente pelas equipes de marketing e vendas. Muitas vezes, os membros da equipe de marketing tem altamente acesso privilegiado ao Salesforce, enquanto os membros da equipe de vendas tem acesso limitado. Em muitos casos, uma vasta população de operadores de informações tem acesso restrito à aplicação. Exceções a essas regras complicam as coisas. Geralmente é prerogative das equipes de liderança de marketing ou vendas para conceder um acesso de utilizador ou alterar as suas funções, independentemente destas regras genéricas.
 
 Com o Azure AD, os aplicativos como o Salesforce podem de ser previamente configurados para início de sessão único (SSO) e o aprovisionamento automatizado. Assim que a aplicação está configurada, um administrador pode executar a ação única para criar e atribuir grupos adequados. Neste exemplo, um administrador pode executar as atribuições de seguintes:
 
@@ -47,7 +46,7 @@ Com o Azure AD, os aplicativos como o Salesforce podem de ser previamente config
   
   * Todos os membros de grupos de marketing seriam atribuídos à função de "marketing" no Salesforce
   * Todos os membros da equipa de vendas grupos seriam atribuídos à função de "venda", no Salesforce. Um refinamento adicional poderia usar vários grupos que representam as equipas de vendas regionais atribuídas a diferentes funções do Salesforce.
-* Para ativar o mecanismo de exceção, poderia ser criado um grupo de self-service para cada função. Por exemplo, o grupo de "Exceção de marketing de Salesforce" pode ser criado como um grupo de gestão personalizada. O grupo pode ser atribuído à função de marketing do Salesforce e a equipe de liderança de marketing pode ser feita proprietários. Membros da equipe de liderança do marketing poderiam adicionar ou remover utilizadores, definir uma política de associação, ou até mesmo aprovar ou negar pedidos de utilizadores individuais para associar. Esse mecanismo é oferecido por meio de uma experiência adequado dos operadores de informações que não necessita de treinamento especializado para os proprietários ou membros.
+* Para ativar o mecanismo de exceção, poderia ser criado um grupo de self-service para cada função. Por exemplo, o grupo de "Exceção de marketing de Salesforce" pode ser criado como um grupo de gestão personalizada. O grupo pode ser atribuído à função de marketing do Salesforce e a equipe de liderança de marketing pode ser feita proprietário. Membros da equipe de liderança do marketing poderiam adicionar ou remover utilizadores, definir uma política de associação, ou até mesmo aprovar ou negar pedidos de utilizadores individuais para associar. Esse mecanismo é oferecido por meio de uma experiência adequado dos operadores de informações que não necessita de treinamento especializado para os proprietários ou membros.
 
 Neste caso, todos os utilizadores atribuídos poderiam ser aprovisionados automaticamente para o Salesforce, à medida que são adicionados a grupos diferentes, que seria possível atualizar a respetiva atribuição de função no Salesforce. Os utilizadores seria capazes de detetar e aceder ao Salesforce, através do painel de acesso de aplicações Microsoft, clientes do Office web, ou até mesmo ao navegar para a página de início de sessão do Salesforce organizacional. Os administradores conseguirão ver facilmente o estado de utilização e a atribuição com relatórios do Azure AD.
 

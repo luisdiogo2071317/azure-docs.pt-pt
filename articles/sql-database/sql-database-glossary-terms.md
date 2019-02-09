@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: d773d270b3b352bcaef189d201d824695b42bcef
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753304"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980147"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de base de dados SQL do Azure dos termos
 
@@ -28,7 +28,7 @@ ms.locfileid: "55753304"
 ||Conjunto elástico|[Conjunto elástico](sql-database-elastic-pool.md)|
 ||Instância gerida|[Instância gerida](sql-database-managed-instance.md)|
 |Objetos do servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de base de dados](sql-database-servers.md)|
-||Instância gerida de base de dados SQL ou instância gerida|[Instância gerida](sql-database-managed-instance.md)|
+||Servidor de instância gerida da base de dados SQL, o servidor de instância gerida ou o servidor de instância|[Instância gerida](sql-database-managed-instance.md)|
 Objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na base de dados do Azure SQL|
 ||Base de dados individual|Uma base de dados criado como uma base de dados autónomo utilizando a opção de implementação de base de dados|
 ||Bases de dados agrupadas|Uma base de dados criada dentro ou movido para um conjunto elástico|
@@ -47,6 +47,6 @@ Objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na ba
 ||Quantidade de armazenamento|A quantidade de armazenamento disponível para um único banco de dados, o conjunto elástico ou a instância gerida|
 ||Geração de computação|A geração de processador num escalão de serviço|
 |Regras de firewall do servidor da base de dados|Regras de firewall do IP|[Regras de firewall do IP](sql-database-firewall-configure.md)|
-||Regras de firewall do IP ao nível do servidor|[Regras de firewall do IP ao nível do servidor](sql-database-firewall-configure.md#overview)|
+||Regras de firewall de IP ao nível do servidor|[Regras de firewall do IP ao nível do servidor](sql-database-firewall-configure.md#overview)|
 || Regras de firewall do IP de nível de base de dados|[Regras de firewall do IP de nível de base de dados](sql-database-firewall-configure.md#overview)|
 ||Pontos finais de rede virtual e regras|[Pontos finais e regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md)|

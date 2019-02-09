@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/08/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 27e9a5b33170855455e8906b659e0f0c009e42d3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384739"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984108"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e Codecs do Codificador de Multimédia Standard
+# <a name="media-encoder-standard-formats-and-codecs-legacy"></a>Media Encoder Standard formatos e Codecs (Legado)
 
-> [!div class="op_single_selector" title1="Selecione a versão do Media Services que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Versão 2](media-services-media-encoder-standard-formats.md)
 > * [Versão 3](../latest/media-encoder-standard-formats.md)
 
@@ -32,13 +32,13 @@ Este documento contém uma lista do importar mais comuns e formatos de ficheiro 
 | Formatos de ficheiro (extensões de ficheiro) | Suportadas |
 | --- | --- | --- | --- |
 | FLV (com codecs H.264 e AAC) (. flv) |Sim |
-| Ficheiros do MXF (.mxf) |Sim |
-| GXF (.gxf) |Sim |
-| 3GP MPEG2-PS, MPEG2-TS (. TS, .ps, .3gp, .3gpp, .mpg) |Sim |
-| Windows Media Video (WMV) / ASF (. wmv,. asf) |Sim |
+| MXF    (.mxf) |Sim |
+| GXF    (.gxf) |Sim |
+| MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sim |
+| Windows Media Video (WMV)/ASF (.wmv, .asf) |Sim |
 | AVI (descomprimido 8 bits/10 bits) (. avi) |Sim |
-| MP4 (. mp4, .m4a, .m4v) / ISMV (.isma, .ismv) |Sim |
-| [Recording(DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984) (. dvr-ms) |Sim |
+| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Sim |
+| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim |
 | Matroska/WebM (.mkv) |Sim |
 | WAVE/WAV (. wav) |Sim |
 | QuickTime (.mov) |Sim |
@@ -78,7 +78,7 @@ ou
 | Apple ProRes Proxy |Sim |
 | Apple ProRes 4444 |Sim |
 | Apple ProRes 4444 XQ |Sim |
-| HEVC/H.265| Perfil de principal|
+| HEVC/H.265| Principal e Main 10 (&#42;) perfis<br/>Suporte do perfil de 10 de Main destina-se para 4:2 de 8 bits: 0 conteúdo. |
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
 | Codecs de áudio de entrada | Suportadas |
@@ -86,7 +86,7 @@ ou
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG camada 2 |Sim |
 | MP3 (MPEG-1 camada de áudio 3) |Sim |
-| Áudio de suporte de dados do Windows |Sim |
+| Windows Media Audio |Sim |
 | WAV/PCM |Sim |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
@@ -102,8 +102,8 @@ A tabela seguinte lista os codecs e formatos de arquivo que são suportados para
 
 | Formato do Ficheiro | Codec de vídeo | Codec de áudio |
 | --- | --- | --- |
-| MP4 <br/><br/>(incluindo contentores de MP4 de velocidade de transmissão) |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, v2 HE-AAC |
-| MPEG2-TS |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, v2 HE-AAC |
+| MP4 <br/><br/>(incluindo contentores de MP4 de velocidade de transmissão) |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MPEG2-TS |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

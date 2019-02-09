@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2018
 ms.author: juliako
-ms.openlocfilehash: 06c6451a7c8532b32a1c130f6b71df97857d2e7f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b3805cf46fe0fbf2461ab11959de101d8d4154f0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353710"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984601"
 ---
-# <a name="azure-media-services-concepts"></a>Conceitos de serviços de multimédia do Azure
+# <a name="azure-media-services-concepts-legacy"></a>Conceitos dos serviços de multimédia do Azure (Legado)
+
 Este tópico apresenta uma visão geral dos conceitos mais importantes dos serviços de multimédia.
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Ativos e de armazenamento
@@ -74,7 +75,7 @@ Um contentor de blob fornece um agrupamento de um conjunto de blobs. Contentores
 ### <a name="a-idlocatorslocators"></a><a id="locators"/>Localizadores
 [Localizador](https://docs.microsoft.com/rest/api/media/operations/locator)s fornecer um ponto de entrada para aceder aos ficheiros contidos num elemento. Uma política de acesso é utilizada para definir as permissões e a duração do que um cliente tem acesso a um determinado recurso. Os localizadores podem ter um muitos para uma relação com uma política de acesso, de modo a que os localizadores diferentes podem fornecer tempos de início diferentes e tipos de ligação para diferentes clientes durante a utilização de todas as definições de duração; e a mesma permissão No entanto, devido a uma restrição de política de acesso partilhado definida pelos serviços de armazenamento do Azure, não pode ter mais de cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. 
 
-Os Media Services suportam dois tipos de Localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou transferir progressivamente os suportes de dados e localizadores de URL de SAS, usado para carregar ou transferir os ficheiros de multimédia to\from armazenamento do Azure. 
+Os Media Services suportam dois tipos de localizadores: Ondemandorigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Smooth Streaming) ou transferir progressivamente os suportes de dados e localizadores de URL de SAS, utilizados para carregar ou transferir ficheiros de multimédia to\from armazenamento do Azure. 
 
 >[!NOTE]
 >A permissão de lista (AccessPermissions.List) não deve ser usada ao criar um localizador de OnDemandOrigin. 
@@ -87,7 +88,7 @@ R [tarefa](https://docs.microsoft.com/rest/api/media/operations/job) é normalme
 
 Uma tarefa contém metadados sobre o processamento a ser executado. Cada tarefa contém um ou mais [tarefa](https://docs.microsoft.com/rest/api/media/operations/task)s que especificar uma tarefa de processamento atômica, seus ativos de entrada, saída ativos, um processador de multimédia e as respetivas definições associadas. Tarefas dentro de uma tarefa podem ser encadeadas alterado, em que o elemento de saída de uma tarefa é fornecido como o elemento de entrada para a próxima tarefa. Desta forma, uma tarefa pode conter todo o processamento necessário para uma apresentação do suporte de dados.
 
-## <a id="encoding"></a>Codificação
+## <a id="encoding"></a>Encoding
 Serviços de multimédia do Azure fornece várias opções para a codificação de multimédia na cloud.
 
 Quando a começar a utilizar os serviços de multimédia, é importante compreender a diferença entre codecs e formatos de arquivo.
@@ -107,7 +108,7 @@ Para obter informações sobre codificadores suportados, consulte [codificadores
 ## <a name="live-streaming"></a>Transmissão em Direto
 Nos serviços de multimédia do Azure, um canal representa um pipeline de processamento de conteúdo de transmissão em fluxo em direto. Um canal recebe transmissões em direto de entrada em uma das seguintes formas:
 
-* Um codificador em direto no local envia múltipla RTMP ou transmissão em fluxo uniforme (MP4 fragmentado) para o canal. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: codificadores Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision e Tricaster. Passam as transmissões em fluxo através de canais, sem qualquer outra transcodificação e codificação. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador em direto no local envia múltipla RTMP ou transmissão em fluxo uniforme (MP4 fragmentado) para o canal. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: Codificadores Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision e Tricaster. Passam as transmissões em fluxo através de canais, sem qualquer outra transcodificação e codificação. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 * Um fluxo de velocidade de transmissão única (em um dos seguintes formatos: RTMP ou transmissão em fluxo uniforme (MP4 fragmentado)) é enviada para o canal ativado para realizar live encoding com Media Services. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
 ### <a name="channel"></a>Canal
@@ -133,7 +134,7 @@ Para obter mais informações, consulte:
 * [Trabalhar com Canais que Recebem Transmissões em Fluxo em Direto com Velocidade de Transmissão Múltipla a partir de Codificadores no Local (Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders)](media-services-live-streaming-with-onprem-encoders.md)
 * [Quotas e limitações](media-services-quotas-and-limitations.md).
 
-## <a name="protecting-content"></a>Proteger conteúdo
+## <a name="protecting-content"></a>A proteger conteúdo
 ### <a name="dynamic-encryption"></a>Encriptação dinâmica
 Serviços de multimédia do Azure permite-lhe proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Serviços de multimédia permite-lhe fornecer o conteúdo encriptado dinamicamente com AES Advanced Encryption Standard () (usando as chaves de encriptação de 128 bits) e a encriptação comum (CENC) com o PlayReady e/ou Widevine DRM. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e PlayReady licenças para os clientes autorizados.
 

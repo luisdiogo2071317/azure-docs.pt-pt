@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 90d95d7ad1ffb3200a69e0e7980dae2d7ed97470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894331"
+ms.locfileid: "55960886"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 
@@ -100,6 +100,7 @@ Utilize grupos de ativação pós-falha automática se a sua aplicação cumprir
 - O custo adicional da georreplicação ativa é inferior aos potenciais encargos financeiros e perda empresarial associada.
 
 Quando tomar medidas, o período de tempo que demora a recuperar e a perda de dados incorrida depende de como optar por utilizar estas funcionalidades de continuidade de negócio na sua aplicação. Na verdade, pode optar por utilizar uma combinação de cópias de segurança da base de dados e a georreplicação ativa consoante os requisitos da aplicação. Para ver um debate das considerações de design do aplicativo para bases de dados autónomas e para conjuntos elásticos com estas funcionalidades de continuidade de negócio, veja [estruturar uma aplicação para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [elástico estratégias de recuperação após desastre do conjunto](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
 
 As secções seguintes fornecem uma visão geral dos passos para recuperar através de cópias de segurança da base de dados ou a georreplicação ativa. Para passos detalhados, incluindo o planejamento de requisitos, passos após recuperação e informações sobre como simular uma falha para executar um teste de recuperação após desastre, veja [recuperar uma base de dados SQL a partir de um período de indisponibilidade](sql-database-disaster-recovery.md).
 

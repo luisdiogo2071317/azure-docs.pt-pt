@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0f6677cce369117886a8b4534423414c2fd56d0c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d9cedd05e949d9684473d620629314a34802c1fc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331066"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977308"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Aplicação de Patches Automatizada para o SQL Server nas Máquinas Virtuais do Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -53,6 +53,8 @@ Para utilizar a aplicação de patches automatizada, considere os seguintes pré
 **Azure PowerShell**:
 
 * [Instalar os comandos do Azure PowerShell mais recente](/powershell/azure/overview) se quiser configurar a aplicação de patches automatizada com o PowerShell.
+
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > A aplicação de patches automatizada conta com a extensão do agente IaaS do SQL Server. Imagens de Galeria de máquinas virtuais SQL atuais adicione esta extensão por predefinição. Para obter mais informações, consulte [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
@@ -103,13 +105,13 @@ Se pretende ativar a aplicação de patches automatizada pela primeira vez, o Az
 ## <a name="configuration-with-powershell"></a>Configuração com o PowerShell
 Depois de aprovisionar a VM do SQL, utilize o PowerShell para configurar a aplicação de patches automatizada.
 
-No exemplo a seguir, o PowerShell é utilizado para configurar a aplicação de patches automatizada de mensagens em fila numa VM existente do SQL Server. O **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig** comando configura uma nova janela de manutenção para atualizações automáticas.
+No exemplo a seguir, o PowerShell é utilizado para configurar a aplicação de patches automatizada de mensagens em fila numa VM existente do SQL Server. O **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig** comando configura uma nova janela de manutenção para atualizações automáticas.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
-    Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > Se a extensão já não estiver instalada, instalar a extensão reinicia o serviço SQL Server.
@@ -125,7 +127,7 @@ Com base neste exemplo, a tabela seguinte descreve o efeito prático na VM do Az
 
 Pode demorar vários minutos para instalar e configurar o agente IaaS do SQL Server.
 
-Para desativar a aplicação de patches automatizada, execute o mesmo script sem o **-ative** parâmetro para o **AzureRM.Compute\New AzureRmVMSqlServerAutoPatchingConfig**. A ausência do **-ative** parâmetro sinaliza o comando para desabilitar o recurso.
+Para desativar a aplicação de patches automatizada, execute o mesmo script sem o **-ative** parâmetro para o **AzureRM.Compute\New AzVMSqlServerAutoPatchingConfig**. A ausência do **-ative** parâmetro sinaliza o comando para desabilitar o recurso.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre outras tarefas de automação disponíveis, consulte [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).

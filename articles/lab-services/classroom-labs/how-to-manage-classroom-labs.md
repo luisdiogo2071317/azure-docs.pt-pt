@@ -1,6 +1,6 @@
 ---
 title: Gerir laboratórios de sala de aula no Azure Lab Services | Documentos da Microsoft
-description: Saiba como criar e configurar um laboratório de sala de aula, veja todos os os sala de aula laboratórios, shre o registo estar vinculados a um utilizador de laboratório ou eliminar um laboratório.
+description: Saiba como criar e configurar um laboratório de sala de aula, ver todos os laboratórios de sala de aula, partilhar a ligação de registo com um utilizador de laboratório ou eliminar um laboratório.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7d311a3fa1b00a6324c9bb81a14c1a575319472f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819999"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962830"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e eliminar um laboratório de sala de aula. Ele também mostra como ver todos os laboratórios de sala de aula numa conta de laboratório. 
@@ -107,7 +107,12 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 3. Sobre o **laboratório de eliminação** caixa de diálogo, selecione **eliminar**. 
 
     ![Eliminar a caixa de diálogo](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
- 
+
+## <a name="switch-to-another-classroom-lab"></a>Mudar para outra laboratório de sala de aula
+Para mudar para outra laboratório de sala de aula do atual, selecione a lista pendente de laboratórios na conta de laboratório, na parte superior.
+
+![Selecione o laboratório de lista pendente na parte superior](../media/how-to-manage-classroom-labs/switch-lab.png)
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:

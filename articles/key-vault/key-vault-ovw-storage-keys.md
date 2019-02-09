@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: c71c7423b4cde2a24c8154899eec256e5746b6d7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9bff93fbec73eb73dca01660d46e35e194edb626
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865374"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963493"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 
@@ -44,6 +44,12 @@ ms.locfileid: "55865374"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Passo a passo instruções sobre como utilizar o Key Vault para gerir chaves de conta de armazenamento
 --------------------------------------------------------------------------------
+Conceitualmente são a lista de passos que são seguidos
+- Em primeiro lugar, obtemos uma conta de armazenamento (já existente)
+- Podemos, em seguida, obter um cofre de chaves (já existente)
+- Em seguida, adicionamos uma conta de armazenamento gerida pelo Cofre de chaves no cofre, definição chave1 como a chave do Active Directory e com um ponto de nova geração de 180 dias
+- Por último definimos um contexto de armazenamento para a conta de armazenamento especificada, com chave1
+
 Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter permissões de operador na sua conta de armazenamento
 
 > [!NOTE]
@@ -85,9 +91,41 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
     ```
     No caso do utilizador não tiver criado a conta de armazenamento e não tem permissões para a conta de armazenamento, os passos abaixo defina as permissões para a sua conta para se certificar de que pode gerir todas as permissões de armazenamento no Key Vault.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Passo a passo instruções sobre como utilizar o Cofre de chaves para criar e gerar tokens SAS
+--------------------------------------------------------------------------------
+Também pode fazer o Key Vault para gerar tokens SAS (assinatura de acesso partilhado). Uma assinatura de acesso partilhado fornece acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder clientes acesso a recursos na sua conta de armazenamento sem partilhar as chaves de conta. Este é o ponto fundamental da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da conta.
+
+Depois de concluir os passos indicados acima, podem executar os seguintes comandos para fazer o Key Vault para gerar SAS tokens para. 
+
+A lista de coisas que deve ser realizado dos passos abaixo, são
+- Define uma definição de SAS com o nome de conta "<YourSASDefinitionName>'numa conta de armazenamento geridas pelo KeyVault'<YourStorageAccountName>"no seu Cofre"<VaultName>'. 
+- Cria um token SAS de conta para serviços Blob, ficheiro, tabela e fila, para tipos de recursos, serviço, o contentor e o objeto, com todas as permissões, através de https e com as datas de início e de fim especificadas
+- Define uma definição de SAS de armazenamento gerida pelo Cofre de chaves no cofre, com o uri do modelo que o token SAS criado acima, de SAS. o tipo 'account' e válido por dias de N
+- Obtém o token de acesso real do segredo do KeyVault correspondente para a definição de SAS
+
+1. Neste passo, irá criar uma definição de SAS. Depois de criar essa definição de SAS, pode fazer com que o Cofre de chaves para gerar tokens SAS mais para. Esta operação requer a permissão de armazenamento/setsas.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+Pode ver a ajuda mais sobre a operação acima [aqui](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
+
+Quando esta operação é executada com êxito, deve ver um resultado semelhante a como mostrado abaixo. Copiá-lo
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. Neste passo, irá utilizar a gera ($sasToken) acima para criar uma definição de SAS. Para obter mais documentação Leia [aqui](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > No caso de que o utilizador não tem permissões para a conta de armazenamento, vamos primeiro, obtenha o Id de objeto do utilizador
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>Como aceder à sua conta de armazenamento com tokens SAS
+## <a name="fetch-sas-tokens-in-code"></a>Obter tokens SAS no código
 
 Nesta seção, abordaremos como pode fazer operações na sua conta de armazenamento, buscando [SAS tokens](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) do Key Vault
 
-Na abaixo da secção, demonstramos como obter a sua chave de conta de armazenamento que é armazenado no Cofre de chaves e usar isso para criar uma definição de SAS (assinatura de acesso partilhado) para a sua conta de armazenamento.
+No abaixo de secção, vamos demonstrar como obter tokens SAS, assim que uma definição de SAS é criada, conforme mostrado acima.
 
 > [!NOTE] 
   Existem 3 formas de autenticar para o Key Vault, como pode ler no [conceitos básicos](key-vault-whatis.md#basic-concepts)

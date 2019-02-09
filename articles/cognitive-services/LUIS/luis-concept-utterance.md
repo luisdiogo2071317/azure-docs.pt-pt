@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 63334c861cc85c7119ccd3111429dee47ada3162
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862943"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984363"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreender o que são expressões com boa para a sua aplicação LUIS
 
@@ -39,7 +39,7 @@ Quando obter iniciado pela primeira vez [adição de expressões de exemplo](lui
 
 ### <a name="utterances-arent-always-well-formed"></a>Expressões com não estão sempre bem formados
 
-Pode ser uma frase, como "Reservar um pedido de suporte para Paris para mim" ou um fragmento de uma frase, como "Reserva" ou "Voo Paris."  Os utilizadores fazem, muitas vezes, os erros de ortografia. Ao planejar a sua aplicação, considere se é ou não utilizar [Check][(luis-tutorial-bing-spellcheck) de ortografia do Bing para corrigir a entrada do usuário antes de o transmitir para LUIS. 
+Pode ser uma frase, como "Reservar um pedido de suporte para Paris para mim" ou um fragmento de uma frase, como "Reserva" ou "Voo Paris."  Os utilizadores fazem, muitas vezes, os erros de ortografia. Ao planejar a sua aplicação, considere se é ou não utilizar [verificação ortográfica do Bing](luis-tutorial-bing-spellcheck.md) para corrigir a entrada do usuário antes de o transmitir para LUIS. 
 
 Se não escrever expressões de utilizador de verificação, deve preparar o LUIS em expressões que incluem erros de digitação e erros de ortografia.
 

@@ -2,20 +2,20 @@
 title: Como configurar a palavra-passe início de sessão único para um applicationn externas à Galeria | Documentos da Microsoft
 description: Como configurar uma aplicação de externas à Galeria personalizada para segura baseada em palavra-passe de início de sessão único, quando não está listado na Galeria de aplicações do Azure AD
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: barbkess
-ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.openlocfilehash: e9b0cc8c1268cd5772e515cc923a3455763c1374
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812488"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961028"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação de externas à Galeria
 

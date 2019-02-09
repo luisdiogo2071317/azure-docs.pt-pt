@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6581c389cb7b1aa9c6ce6b9e84b56017264822f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 7ef7216b2d3adf99b0c1fd9ace84991169106529
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232958"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976270"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para os Serviços de Multimédia do Azure
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>Introdução ao SDK de cliente Java para serviços de multimédia do Azure (Legado)
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Este tutorial explica-lhe os passos para implementar um serviço básico de entrega de conteúdos de vídeo com os Serviços de Multimédia do Azure através do SDK de cliente Java.
@@ -34,7 +35,7 @@ O seguinte é necessário para concluir este tutorial:
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Como Criar uma Conta de Media Services](media-services-portal-create-account.md).
 * O atual [SDK de Java dos Serviços de Multimédia do Azure](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
-## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Como: importar o pacote SDK de cliente Java dos Serviços de Multimédia do Azure
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Como: Importar o pacote SDK de cliente de Java de serviços de multimédia do Azure
 
 Para começar a utilizar o SDK de Serviços de Multimédia para Java, adicione uma referência à versão atual (0.9.8) do pacote `azure-media` do [SDK de Java dos Serviços de Multimédia do Azure](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
@@ -48,7 +49,7 @@ Por exemplo, se a sua ferramenta de compilação for `gradle`, adicione a seguin
 >[!NOTE]
 >Pode encontrar o código fonte do SDK de Java dos Serviços de Multimédia do Azure no nosso [repositório do GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Certifique-se de que muda para o ramo 0.9 e não para o ramo principal. 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>Como: utilizar os Serviços de Multimédia do Azure com Java
+## <a name="how-to-use-azure-media-services-with-java"></a>Como: Utilizar os serviços de multimédia do Azure com Java
 
 >[!NOTE]
 >Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
@@ -58,10 +59,10 @@ O código seguinte mostra como criar um elemento, carregar um ficheiro de multim
 Antes de utilizar este código, configure uma conta dos Serviços de Multimédia. Para obter informações sobre como configurar uma conta, consulte [Como Criar uma Conta dos Media Services](media-services-portal-create-account.md).
 
 O código liga à API dos Serviços de Multimédia do Azure através da autenticação do principal de serviço do Azure AD. Crie uma aplicação do Azure AD e especifique os valores para as seguintes variáveis no código:
-* `tenant`: o domínio de inquilino do Azure AD onde reside a aplicação do Azure AD
-* `clientId`: o ID de cliente da aplicação do Azure AD
-* `clientKey`: a chave de cliente da aplicação do Azure AD
-* `restApiEndpoint`: o ponto final da API REST da conta dos Serviços de Multimédia do Azure
+* `tenant`: Domínio de inquilino do Azure AD onde reside a aplicação do Azure AD
+* `clientId`: O ID de cliente da aplicação do Azure AD
+* `clientKey`: A chave de cliente da aplicação do Azure AD
+* `restApiEndpoint`: O ponto final de REST API da conta dos serviços de multimédia do Azure
 
 Pode criar uma aplicação do Azure AD e obter os valores de configuração anteriores a partir do portal do Azure. Para obter mais informações, veja a secção **Autenticação do principal de serviço** do artigo [Introdução à autenticação do Azure AD através do portal do Azure](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 

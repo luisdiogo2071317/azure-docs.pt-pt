@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 4637b2532ebc81bf3a89d1f83fc7210cadace860
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2c80f988583571f3394a29747a6f452951cea878
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876952"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978039"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Criar uma função no Linux com uma imagem personalizada (pré-visualização)
 
@@ -93,7 +93,7 @@ cd MyFunctionProj
 
 Veja o _Dockerfile_ no diretório de raiz do projeto. Este ficheiro descreve o ambiente que é necessário para executar a aplicação de funções no Linux. O exemplo seguinte é um Dockerfile que cria um contentor que executa uma aplicação de funções no runtime do trabalho do JavaScript (Node.js): 
 
-```docker
+```Dockerfile
 FROM mcr.microsoft.com/azure-functions/node:2.0
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot

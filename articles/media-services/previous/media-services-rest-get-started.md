@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b76adda6e09cdce1f94c2d0691cbe7e4cc2b6b50
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237609"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983530"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução à entrega de conteúdos a pedido com REST
+# <a name="get-started-with-delivering-content-on-demand-using-rest-legacy"></a>Introdução à entrega de conteúdos a pedido com o REST (Legado)
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Este guia de introdução explica os passos para implementar uma aplicação de entrega de conteúdos de vídeo a pedido (VoD) utilizando as APIs REST do Azure Media Services (AMS).
@@ -268,7 +269,7 @@ Um URL de SAS tem o seguinte formato:
 São aplicáveis algumas considerações:
 
 * Não pode ter mais de cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. 
-* Se precisar de carregar os ficheiros imediatamente, deverá definir o valor de StartTime para cinco minutos antes da hora atual. Isso é porque pode haver relógio distorção entre o computador cliente e os serviços de multimédia. Além disso, o valor de StartTime tem de estar no seguinte formato de DateTime: aaaa-MM-: ssZ (por exemplo, "2014-05-23T17:53:50Z").    
+* Se precisar de carregar os ficheiros imediatamente, deverá definir o valor de StartTime para cinco minutos antes da hora atual. Isso é porque pode haver relógio distorção entre o computador cliente e os serviços de multimédia. Além disso, o valor de StartTime tem de estar no seguinte formato de DateTime: AAAA-MM-: ssZ (por exemplo, "2014-05-23T17:53:50Z").    
 * Pode haver um segundo 30-40 atrasar depois de um localizador é criado para quando estiver disponível para utilização. Este problema aplica-se a ambos [URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) e localizadores de origem.
 
 O exemplo seguinte mostra como criar um localizador de URL de SAS, conforme definido pela propriedade de tipo no corpo do pedido ("1" para um localizador SAS) e "2" para um localizador de origem a pedido. O **caminho** propriedade devolvida contém o URL que tem de utilizar para carregar o ficheiro.
@@ -458,7 +459,7 @@ O código a seguir pedidos de id do codificador.
     }
 
 ### <a name="create-a-job"></a>Criar uma tarefa
-Cada tarefa pode ter uma ou mais tarefas, dependendo do tipo de processamento que deseja realizar. Através da API REST, pode criar tarefas e suas tarefas relacionadas em uma das seguintes formas: tarefas podem ser definidos inline por meio da propriedade de navegação de tarefas em entidades de tarefa ou por meio do processamento em lote OData. O SDK dos serviços de suporte de dados utiliza o processamento em lotes. No entanto, para a legibilidade dos exemplos de código neste artigo, as tarefas são definidos inline. Para obter informações sobre o processamento em lotes, consulte [Open Data Protocol (OData) de processamento de Batch](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Cada tarefa pode ter uma ou mais tarefas, dependendo do tipo de processamento que deseja realizar. Através da API REST, pode criar tarefas e suas tarefas relacionadas em uma das seguintes formas: As tarefas podem ser definidos inline por meio da propriedade de navegação de tarefas em entidades de tarefa ou por meio do processamento em lote OData. O SDK dos serviços de suporte de dados utiliza o processamento em lotes. No entanto, para a legibilidade dos exemplos de código neste artigo, as tarefas são definidos inline. Para obter informações sobre o processamento em lotes, consulte [Open Data Protocol (OData) de processamento de Batch](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 O exemplo seguinte mostra-lhe como criar e publicar uma tarefa com uma que tarefa definida para codificar um vídeo numa resolução específico e qualidade. A seguinte secção de documentação contém a lista de todos os [suas configurações predefinidas de tarefas](https://msdn.microsoft.com/library/mt269960) suportada pelo processador do Media Encoder Standard.  
 
@@ -692,7 +693,7 @@ O código seguinte mostra como pedir o recurso de saída de ID.
 
 ## <a id="publish_get_urls"></a>Publique o elemento e obter transmissão em fluxo de transferência progressiva e URLs com a REST API
 
-Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: localizadores OnDemandOrigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou Transmissão em Fluxo Uniforme) e localizadores de Assinatura de Acesso (SAS), utilizados para transferir ficheiros de multimédia. 
+Para transmitir ou transferir um elemento, primeiro tem de o "publicar" através da criação de um localizador. Os localizadores fornecem acesso aos ficheiros contidos no elemento. Os Media Services suportam dois tipos de localizadores: Ondemandorigin, utilizados para transmitir multimédia (por exemplo, MPEG DASH, HLS ou transmissão em fluxo uniforme) e localizadores de assinatura de acesso (SAS), utilizados para transferir ficheiros de suporte de dados. 
 
 Depois de criar os localizadores, pode criar os URLs que são utilizados para transmitir ou transferir os ficheiros.
 
@@ -742,7 +743,7 @@ O exemplo seguinte mostra como especificar AccessPolicy para as permissões de l
 Se tiver êxito, um código de 201 êxito é retornado que descreve a entidade de AccessPolicy que criou. Em seguida, utilize o Id de AccessPolicy juntamente com o Id de recurso do recurso que contém o ficheiro que pretende enviar (por exemplo, um elemento de saída) para criar a entidade de localizador.
 
 > [!NOTE]
-> Este fluxo de trabalho básico é o mesmo que o carregamento de um ficheiro quando ingestão de um recurso (como foi discutido no início deste tópico). Além disso, como carregar ficheiros, se (ou seus clientes) tem de aceder aos seus ficheiros imediatamente, defina o valor de StartTime para cinco minutos antes da hora atual. Esta ação é necessária porque pode haver relógio distorção entre o cliente e os serviços de multimédia. O valor de StartTime tem de estar no seguinte formato de DateTime: aaaa-MM-: ssZ (por exemplo, "2014-05-23T17:53:50Z").
+> Este fluxo de trabalho básico é o mesmo que o carregamento de um ficheiro quando ingestão de um recurso (como foi discutido no início deste tópico). Além disso, como carregar ficheiros, se (ou seus clientes) tem de aceder aos seus ficheiros imediatamente, defina o valor de StartTime para cinco minutos antes da hora atual. Esta ação é necessária porque pode haver relógio distorção entre o cliente e os serviços de multimédia. O valor de StartTime tem de estar no seguinte formato de DateTime: AAAA-MM-: ssZ (por exemplo, "2014-05-23T17:53:50Z").
 >
 >
 
@@ -915,7 +916,7 @@ Para transmitir o seu vídeo, utilize o [Leitor dos Media Services do Azure](htt
 
 Para testar as transferências progressivas, cole um URL num browser (por exemplo, IE, Chrome e Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Passos Seguintes: percursos de aprendizagem dos Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Passos Seguintes: Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários

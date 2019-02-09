@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 1664e19f3a238b2986af4669c3853a54d7c7e328
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6825524667c473496b62cecbce54f6e249742bae
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250828"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977716"
 ---
 # <a name="azure-stack-servicing-policy"></a>O Azure Stack a política de manutenção
 
@@ -52,11 +52,10 @@ A Microsoft espera libertar os pacotes de atualização de software a uma cadên
 Encontrar documentação sobre como planear e gerir atualizações e como determinar sua versão atual na [descrição geral de atualizações de gerir](azure-stack-updates.md).
 
 Para obter informações sobre uma atualização específica, incluindo como transferi-lo, consulte as notas de versão para que atualizar:
-
+- [Atualização de 1901 de pilha do Azure](azure-stack-update-1901.md)
 - [Atualização de 1811 de pilha do Azure](azure-stack-update-1811.md)
 - [Atualização de 1809 de pilha do Azure](azure-stack-update-1809.md)
 - [Atualização de 1808 de pilha do Azure](azure-stack-update-1808.md)
-- [Atualização de 1807 de pilha do Azure](azure-stack-update-1807.md)
 
 ## <a name="hotfixes"></a>Correções
 

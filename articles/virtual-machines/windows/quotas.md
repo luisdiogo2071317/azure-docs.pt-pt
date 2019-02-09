@@ -15,24 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: c766303920913a3ed6e654b3f9b29a0b99bb012a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 92fee850b6ba013c759d3441219f1946a0faedb3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041280"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984148"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de vCPU de máquina virtual
 
 As quotas de vCPU para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais são dispostas em duas camadas para cada subscrição, em cada região. A primeira camada é o Total Regional vCPUs e a segunda camada é os vários tamanho famílias núcleos de VMS, como o vCPUs de série D. Sempre que uma nova VM é implementada a vCPUs para a VM não pode exceder a quota de vCPU para a família de tamanho VM ou a quota de total regional vCPU. Se qualquer um das quotas são excedido, a implementação da VM será não ser permitida. Também existe uma quota para o número geral de máquinas virtuais na região. Os detalhes sobre cada uma destas quotas podem ser vistos na **utilização + quotas** secção a **subscrição** página no [portal do Azure](https://portal.azure.com), ou pode consultar os valores usando PowerShell.
 
+ [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)] 
  
 ## <a name="check-usage"></a>Verificar utilização
 
-Pode utilizar o [Get-AzureRmVMUsage](/powershell/module/azurerm.compute/get-azurermvmusage) cmdlet para verificar a utilização de quota.
+Pode utilizar o [Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) cmdlet para verificar a utilização de quota.
 
 ```azurepowershell-interactive
-Get-AzureRmVMUsage -Location "East US"
+Get-AzVMUsage -Location "East US"
 ```
 
 O resultado será semelhante ao seguinte:

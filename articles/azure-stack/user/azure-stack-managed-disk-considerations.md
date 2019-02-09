@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 01/31/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 05efa7eaf6d95cbf63efd17b00d321d8c8509f28
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: acd92c711f432cf103b9309247704ff348287ff6
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246784"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964071"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Pilha Managed Disks do Azure: diferenças e considerações
 
@@ -32,13 +32,12 @@ Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas d
 > [!Note]  
 > Discos geridos no Azure Stack está disponível no 1808 update. Ele é habilitado por padrão durante a criação de máquinas virtuais através do portal do Azure Stack do 1811 update.
   
-
 ## <a name="cheat-sheet-managed-disk-differences"></a>Referência rápida: Gerido diferenças de disco
 
 | Funcionalidade | (Global) do Azure | Azure Stack |
 | --- | --- | --- |
 |Encriptação para dados Inativos |Encriptação do serviço de armazenamento do Azure (SSE), Azure Disk Encryption (ADE)     |Encriptação de AES de 128 bits do BitLocker      |
-|Imagem          | Suporte de imagem personalizada gerida |Ainda não é suportado|
+|Imagem          | Suporte de imagem personalizada gerida |Suportadas|
 |Opções de cópia de segurança |Suporta o serviço de cópia de segurança do Azure |Ainda não é suportado |
 |Opções de recuperação após desastre |Suporte do Azure Site Recovery |Ainda não é suportado|
 |Tipos de disco     |Premium SSD e Standard HDD SSD Standard (pré-visualização) |Premium SSD, HDD padrão |
@@ -66,6 +65,72 @@ Pilha de Managed Disks do Azure suporta as seguintes versões de API:
 
 - 2017-03-30
 
+## <a name="managed-images"></a>Imagens gerenciadas
+
+O Azure Stack oferece suporte ao *geridos imagens*, que permitem a criação de um objeto de imagem gerida numa VM generalizada (ambos geridos e não geridos) que só pode criar gerida disco VMs no futuro. Imagens gerenciadas ativar dois cenários a seguir:
+
+- Tem generalizada VMs não geridas e quiser utilizar discos geridos a partir de agora.
+- Tem uma VM generalizada gerida e gostaria de criar vários, semelhante de VMs geridas.
+
+### <a name="migrate-unmanaged-vms-to-managed-disks"></a>Migrar VMs não geridas para discos geridos
+
+Siga as instruções [aqui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) para criar uma imagem gerida a partir de um VHD generalizado numa conta de armazenamento. Esta imagem pode ser utilizada para criar VMs gerenciadas no futuro.
+
+### <a name="create-managed-image-from-vm"></a>Criar imagem gerida de VM
+
+Depois de criar uma imagem gerida existente de um disco de VM com o script [aqui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , o script de exemplo seguinte cria uma VM do Linux semelhante a partir de um objeto de imagem existente:
+
+```powershell
+# Variables for common values
+$resourceGroup = "myResourceGroup"
+$location = "redmond"
+$vmName = "myVM"
+$imagerg = "managedlinuxrg"
+$imagename = "simplelinuxvmm-image-2019122"
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# Create a subnet configuration
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+
+# Create a public IP address and specify a DNS name
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+
+# Create an inbound network security group rule for port 3389
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+
+# Create a network security group
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+
+# Create a virtual network card and associate with public IP address and NSG
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+$image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+# Create a virtual machine configuration
+$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
+Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
+Set-AzureRmVMSourceImage -Id $image.Id | `
+Add-AzureRmVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+
+Para obter mais informações, veja o Azure managed artigos de imagem [criar uma imagem gerida de uma VM generalizada no Azure](../../virtual-machines/windows/capture-image-resource.md) e [criar uma VM a partir de uma imagem gerida](../../virtual-machines/windows/create-vm-generalized-managed.md).
+
 ## <a name="configuration"></a>Configuração
 
 Depois de aplicar o 1808 atualizar ou posterior, tem de efetuar a seguinte configuração antes de utilizar discos geridos:
@@ -73,8 +138,7 @@ Depois de aplicar o 1808 atualizar ou posterior, tem de efetuar a seguinte confi
 - Se uma subscrição tiver sido criada antes da atualização de 1808, siga os passos para atualizar a subscrição abaixo. Caso contrário, a implementação de VMs nesta subscrição poderá falhar com uma mensagem de erro "Erro interno no Gestor de discos."
    1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
    2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
-- Se utilizar um ambiente multi-inquilino, peça ao seu operador da nuvem (poderá estar na sua organização ou do fornecedor de serviços) para reconfigurar cada um dos seus diretórios de convidado seguir estes passos no [este artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Caso contrário, a implementação de VMs numa assinatura associada esse diretório de convidado poderá falhar com uma mensagem de erro "Erro interno no Gestor de discos."
-
+- Se utilizar um ambiente multi-inquilino, peça ao seu operador da cloud (que pode ser na sua organização ou do fornecedor de serviços) para reconfigurar cada um dos seus diretórios de convidado seguindo os passos na [este artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory). Caso contrário, a implementação de VMs numa assinatura associada esse diretório de convidado poderá falhar com uma mensagem de erro "Erro interno no Gestor de discos."
 
 ## <a name="next-steps"></a>Passos Seguintes
 

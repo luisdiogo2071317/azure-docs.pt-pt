@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3ec5b9c6357f0d075ddd9b0fd5c8a88ee2846209
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192262"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985002"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -27,31 +27,31 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 Galerias de imagem partilhada está em pré-visualização, mas tem de registar a funcionalidade antes de poder utilizá-lo. Para registar a funcionalidade de galerias de imagem partilhada:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature `
+Register-AzProviderFeature `
    -FeatureName GalleryPreview `
    -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ## <a name="get-the-managed-image"></a>Obter a imagem gerida
 
-Pode ver uma lista de imagens que estão disponíveis num grupo de recursos utilizando [Get-AzureRmImage](/powershell/module/AzureRM.Compute/get-azurermimage). Depois que souber o nome da imagem e o grupo de quais recursos ele é, pode usar `Get-AzureRmImage` novamente para obter o objeto de imagem e o armazenamos numa variável para utilizar mais tarde. Neste exemplo obtém uma imagem designada *myImage* do grupo de recursos "myResourceGroup" e o atribui à variável *$managedImage*. 
+Pode ver uma lista de imagens que estão disponíveis num grupo de recursos utilizando [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Depois que souber o nome da imagem e o grupo de quais recursos ele é, pode usar `Get-AzImage` novamente para obter o objeto de imagem e o armazenamos numa variável para utilizar mais tarde. Neste exemplo obtém uma imagem designada *myImage* do grupo de recursos "myResourceGroup" e o atribui à variável *$managedImage*. 
 
 ```azurepowershell-interactive
-$managedImage = Get-AzureRmImage `
+$managedImage = Get-AzImage `
    -ImageName myImage `
    -ResourceGroupName myResourceGroup
 ```
 
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
-Uma galeria de imagens é o recurso principal utilizado para ativar a partilha de imagens. Nomes de galeria tem de ser exclusivos na sua subscrição. Crie uma galeria de imagens com [New-AzureRmGallery](/powershell/module/AzureRM.Compute/new-azurermgallery). O exemplo seguinte cria uma galeria com o nome *myGallery* no *myGalleryRG* grupo de recursos.
+Uma galeria de imagens é o recurso principal utilizado para ativar a partilha de imagens. Nomes de galeria tem de ser exclusivos na sua subscrição. Crie uma galeria de imagens com [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). O exemplo seguinte cria uma galeria com o nome *myGallery* no *myGalleryRG* grupo de recursos.
 
 ```azurepowershell-interactive
-$resourceGroup = New-AzureRMResourceGroup `
+$resourceGroup = New-AzResourceGroup `
    -Name 'myGalleryRG' `
    -Location 'West Central US'  
-$gallery = New-AzureRmGallery `
+$gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
@@ -60,10 +60,10 @@ $gallery = New-AzureRmGallery `
    
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-Criar a imagem de galeria definição com [New-AzureRmGalleryImageDefinition](/powershell/module/azurerm.compute/new-azurermgalleryimageversion). Neste exemplo, a imagem de galeria é denominada *myGalleryImage*.
+Criar a imagem de galeria definição com [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem de galeria é denominada *myGalleryImage*.
 
 ```azurepowershell-interactive
-$galleryImage = New-AzureRmGalleryImageDefinition `
+$galleryImage = New-AzGalleryImageDefinition `
    -GalleryName $gallery.Name `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $gallery.Location `
@@ -87,7 +87,7 @@ Todos os três deles têm exclusivos conjuntos de valores. Numa versão futura, 
 
 ```powershell
 # The following should set the source image as myImage1 from the table above
-$vmConfig = Set-AzureRmVMSourceImage `
+$vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
    -Offer myOffer `
@@ -98,14 +98,14 @@ Isto é semelhante à forma como pode atualmente especificá-los para [imagens d
 
 ##<a name="create-an-image-version"></a>Criar uma versão de imagem
 
-Criar uma versão de imagem a partir de uma imagem gerida utilizando [New-AzureRmGalleryImageVersion](/powershell/module/AzureRM.Compute/new-azurermgalleryimageversion) . Neste exemplo, é a versão da imagem *1.0.0* e ele é replicado para ambas *e.u.a. Centro-Oeste* e *Centro-Sul* centros de dados.
+Criar uma versão de imagem a partir de uma imagem gerida utilizando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . Neste exemplo, é a versão da imagem *1.0.0* e ele é replicado para ambas *e.u.a. Centro-Oeste* e *Centro-Sul* centros de dados.
 
 
 ```azurepowershell-interactive
 $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
-$job = $imageVersion = New-AzureRmGalleryImageVersion `
+$job = $imageVersion = New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `

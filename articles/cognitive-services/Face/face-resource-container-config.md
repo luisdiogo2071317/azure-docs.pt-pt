@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: bb5bea5fb74c48e4568898d77763d442db5b41c7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a70c200f0260d87d35eae8728ed1f908e7061f32
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870542"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979110"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar os contentores do Docker de rostos
 
@@ -45,7 +45,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de faturação
 
-O `Billing` definição especifica o URI do ponto final da _Face_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _Face_ recursos no Azure.
+O `Billing` definição especifica o URI do ponto final da _Face_ recurso no Azure utilizado para informações de faturação para o contentor do medidor. Tem de especificar um valor para esta definição de configuração e o valor tem de ser um URI de ponto de final válido para um _Face_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
 
 Esta definição pode ser encontrada no seguinte local:
 
@@ -112,7 +112,7 @@ Os exemplos de Docker seguintes são para o contentor de rostos.
 
 ### <a name="basic-example"></a>Exemplo básico 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
@@ -122,7 +122,7 @@ Os exemplos de Docker seguintes são para o contentor de rostos.
 
 ### <a name="logging-example-with-command-line-arguments"></a>Exemplo de Registro em log com argumentos da linha de comandos
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
@@ -131,7 +131,7 @@ Os exemplos de Docker seguintes são para o contentor de rostos.
 
 ### <a name="logging-example-with-environment-variable"></a>Exemplo de registo com a variável de ambiente
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \

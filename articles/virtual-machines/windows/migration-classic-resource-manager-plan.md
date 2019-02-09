@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 540abeed3587959af5ca229f59343774b824547b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566242"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982901"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager
 Enquanto o Azure Resource Manager oferece muitos recursos incríveis, é fundamental planejar seu percurso de migração para o fazer se as coisas a serem executados corretamente. Gastando tempo no planejamento irá garantir que não encontrar problemas durante a execução de atividades de migração.
@@ -131,23 +131,25 @@ A seguir foram problemas descobertos em muitas das migrações maiores. Não se 
     - Tabelas de Rota
 
     Pode verificar as suas quotas atual do Azure Resource Manager com os comandos seguintes com a versão mais recente do Azure PowerShell.
+    
+    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
     **Computação** *(núcleos, conjuntos de disponibilidade)*
 
     ```powershell
-    Get-AzureRmVMUsage -Location <azure-region>
+    Get-AzVMUsage -Location <azure-region>
     ```
 
     **Rede** *(tabelas de rotas de Interfaces, balanceadores de carga de rede de redes virtuais, IPs públicos estáticos, IPs públicos, grupos de segurança de rede)*
 
     ```powershell
-    Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
+    Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
     **Armazenamento** *(conta de armazenamento)*
 
     ```powershell
-    Get-AzureRmStorageUsage
+    Get-AzStorageUsage
     ```
 
 - **API de Gestor de recursos do Azure, limites de conjunto** – se tiver um ambiente muito grande (ex. > 400 VMs numa VNET), que pode usar a API de predefinição limitação de limites para escritas (atualmente `1200 writes/hour`) no Azure Resource Manager. Antes de iniciar a migração, deve gerar um pedido de suporte para aumentar este limite para a sua subscrição.

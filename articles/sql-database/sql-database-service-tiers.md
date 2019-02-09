@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e0455ef99016fe1029f17256a6dbf5d9bbd8aa4d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3e4e9d9fb3b7e9a66ec3522e046bdca1ecad98c9
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890574"
+ms.locfileid: "55965097"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
 
@@ -39,10 +39,20 @@ O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compra
 |**Modelo de compra**|**Descrição**|**Melhor para**|
 |---|---|---|
 |modelo baseado em DTU|Este modelo baseia-se numa medida integrados em recursos de computação, armazenamento e e/s. Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs?](sql-database-service-tiers.md#dtu-based-purchasing-model).|Ideal para clientes que desejam simples, pré-configurado opções de recursos.|
-|modelo baseado em vCore|Este modelo permite-lhe escolher independentemente a recursos de computação e armazenamento. Ele também permite-lhe utilizar o Azure Hybrid Benefit para o SQL Server para obter poupanças de custos.|Melhor para os clientes que o valor de flexibilidade, controlo e transparência.|
+|modelo baseado em vCore|Este modelo permite-lhe escolher independentemente a recursos de computação e armazenamento. O modelo de compra baseado em vCore também permite que use [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos.|Melhor para os clientes que o valor de flexibilidade, controlo e transparência.|
 ||||  
 
 ![modelo de preços](./media/sql-database-service-tiers/pricing-model.png)
+
+## <a name="compute-costs"></a>Os custos de computação
+
+O custo de computação reflete a capacidade de total de computação é aprovisionada para a aplicação. Na camada de serviço críticos de negócio, podemos atribuir automaticamente, pelo menos, 3 réplicas. Para refletir esta adicional a alocação de recursos de computação, o preço no modelo de compra baseado em vCore é aproximadamente de 2,7 x maiores na camada de serviço crítico comercial que na camada de serviço de fins gerais. Pela mesma razão, o armazenamento mais elevado de preços por GB de entrada a camada de serviço crítico de negócio reflete a e/s elevado e baixa latência de armazenamento SSD. Ao mesmo tempo, o custo de armazenamento de cópia de segurança não é diferente entre estas camadas de duas serviço porque em ambos os casos, podemos usar uma classe de armazenamento standard.
+
+## <a name="storage-costs"></a>Custos de armazenamento
+
+Diferentes tipos de armazenamento são cobrados de forma diferente. Para o armazenamento de dados, é-lhe cobrada o com base no tamanho máximo de base de dados ou um conjunto de que selecionar o armazenamento aprovisionado. O custo não altera a menos que reduzir ou aumentar esse máximo. Armazenamento de cópia de segurança está associado a cópias de segurança automáticas da sua instância e podem é alocado dinamicamente. Se aumentar o período de retenção de cópias de segurança, está a aumentar o armazenamento de cópias de segurança que a sua instância consome. O armazenamento de cópias de segurança até 100 por cento do total do armazenamento de servidor aprovisionado não implica custos adicionais. O consumo de armazenamento de cópia de segurança adicional é cobrado em GB por mês. Por exemplo, se tiver um tamanho de armazenamento de base de dados de 100 GBs, obterá 100 GBs de cópia de segurança sem custos adicionais. Mas se a cópia de segurança tiver 110 GBs, pague os 10 GB adicionais.
+
+Armazenamento de cópias de segurança de uma base de dados, é cobrado numa base rateada para o armazenamento que foi alocado para as cópias de segurança da base de dados menos o tamanho da base de dados. Armazenamento de cópias de segurança de um conjunto elástico, é cobrado numa base rateada para o armazenamento que foi alocado para as cópias de segurança da base de dados de todas as bases de dados no agrupamento de menos o tamanho máximo de dados do conjunto elástico. Qualquer aumento no tamanho da base de dados ou conjunto elástico ou aumento de velocidade de transação, necessita de mais armazenamento e, portanto, aumenta a sua fatura de armazenamento de cópia de segurança.  Quando aumenta o tamanho máximo de dados, este é o novo valor é deduzido do tamanho de armazenamento de cópias de segurança faturadas.
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
@@ -97,6 +107,22 @@ Se estiver à procura para migrar um existente no local ou o SQL Server a carga 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Cargas de trabalho que tiram partido de um conjunto elástico de recursos
 
 Os conjuntos são adequados para um grande número de bases de dados com padrões de utilização específicos. Para um determinado banco de dados, este padrão é caracterizado por uma média de utilização baixa com picos de utilização relativamente raros. A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor de Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para obter mais informações, consulte [When should an elastic pool be used? (Quando deve ser utilizado um conjunto elástico?)](sql-database-elastic-pool.md)
+
+## <a name="service-tier-frequently-asked-questions-faq"></a>Escalão de serviço perguntas mais frequentes (FAQ)
+
+### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>É necessário colocar a minha aplicação offline para converter de uma base de dados baseado em DTU para um escalão de serviço baseado em vCore
+
+Os novos escalões de serviço oferecem um método de conversão online simples, semelhante ao processo existente de atualização de bases de dados do escalão de serviço Standard para Premium e vice-versa. Esta conversão pode ser iniciado através do portal do Azure, PowerShell, CLI do Azure, T-SQL ou a API REST. Ver [gerir bases de dados individuais](sql-database-single-database-scale.md) e [gerir conjuntos elásticos](sql-database-elastic-pool.md).
+
+### <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>Posso converter a uma base de dados de um escalão de serviço baseado em vCore para um baseado em DTU
+
+Sim, pode converter facilmente sua base de dados para qualquer objetivo de desempenho suportados com o portal do Azure, PowerShell, CLI do Azure, T-SQL ou a API REST. Ver [gerir bases de dados individuais](sql-database-single-database-scale.md) e [gerir conjuntos elásticos](sql-database-elastic-pool.md).
+
+### <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>É possível atualizar ou mudar entre os escalões de serviço para fins gerais e crítico para a empresa
+
+Sim, com algumas restrições. O SKU de destino tem de cumprir a base de dados máximo ou o tamanho do conjunto elástico que configurou para a sua implementação existente. Se estiver a utilizar [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), o SKU de críticos de negócios só está disponível para os clientes com licenças do Enterprise Edition. Apenas os clientes que migradas do local para a camada de serviços de fins gerais com o benefício híbrido do Azure para o SQL Server com licenças do Enterprise Edition podem atualizar para a camada de serviços críticos de negócios. Para obter detalhes, consulte [quais são os direitos específicos do benefício híbrido do Azure, para o SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)?
+
+Essa conversão resulta num período de indisponibilidade e pode ser iniciada com o portal do Azure, PowerShell, CLI do Azure, T-SQL ou a API REST. Ver [gerir bases de dados individuais](sql-database-single-database-scale.md) e [gerir conjuntos elásticos](sql-database-elastic-pool.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

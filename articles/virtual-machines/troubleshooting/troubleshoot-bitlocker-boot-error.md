@@ -13,19 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: b5f851fe5c8aebba441903ccc004b7dbd0029ba3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413820"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984771"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque do BitLocker numa VM do Azure
 
  Este artigo descreve os erros de disco BitLocker que ocorrem quando inicia uma máquina virtual de Windows (VM) no Microsoft Azure.
 
-> [!NOTE] 
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez de usar o modelo de implementação clássica.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
  ## <a name="symptom"></a>Sintoma
 
@@ -33,7 +32,7 @@ ms.locfileid: "47413820"
 
 - Plug-in do controlador USB com a chave do BitLocker
 
-- Está bloqueada! Introduza a chave de recuperação para começar a utilizar novamente (Layout de teclado: EUA) a informações de início de sessão incorretas foi introduzida demasiadas vezes, para que o seu PC foi bloqueado para proteger a sua privacidade. Para obter a chave de recuperação, vá para http://windows.microsoft.com/recoverykeyfaq de outro PC ou dispositivo móvel. Caso precise dela, a chave de ID é XXXXXXX. Em alternativa, pode repor o seu PC.
+- Está bloqueada! Introduza a chave de recuperação para começar a utilizar novamente (Layout de teclado: Informações de início de sessão dos Estados Unidos) incorretos foi introduzida demasiadas vezes, para que o seu PC foi bloqueado para proteger a sua privacidade. Para obter a chave de recuperação, vá para http://windows.microsoft.com/recoverykeyfaq de outro PC ou dispositivo móvel. Caso precise dela, a chave de ID é XXXXXXX. Em alternativa, pode repor o seu PC.
 
 - Introduza a palavra-passe para desbloquear este [unidade] prima a tecla de inserir para ver a palavra-passe à medida que escreve.
 - Introduza a chave de recuperação carga sua chave de recuperação a partir de um dispositivo USB.
@@ -57,17 +56,17 @@ Se esse método faz não a resolver o problema, siga estes passos para restaurar
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
 
-    New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
+    New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
     $recoveryVMRG = "RecoveryVMRG" 
-    $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
+    $OSDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
-    $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
+    $vm = get-AzVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
-    Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
+    Add-AzVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
-    Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
+    Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
      Não é possível anexar um disco gerido a uma VM que foram restaurada a partir de uma imagem de Blobs.
 
@@ -76,7 +75,7 @@ Se esse método faz não a resolver o problema, siga estes passos para restaurar
 4. Abra uma sessão elevada do PowerShell do Azure (executar como administrador). Execute os seguintes comandos para iniciar sessão na subscrição do Azure:
 
     ```Powershell
-    Add-AzureRMAccount -SubscriptionID [SubscriptionID]
+    Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
 5. Execute o seguinte script para verificar o nome do ficheiro BEK:

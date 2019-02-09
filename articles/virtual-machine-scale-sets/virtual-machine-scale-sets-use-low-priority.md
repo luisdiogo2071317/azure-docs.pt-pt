@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 861c68ae8163e0ba8c2af2a3d96153ac3e84855f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811108"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978141"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>VMs de baixa prioridade em conjuntos de dimensionamento (pré-visualização)
 
@@ -69,10 +69,10 @@ az vmss create \
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
 O processo de criação de um conjunto de dimensionamento com VMs de baixa prioridade é o mesmo, conforme detalhado no [artigo de introdução](quick-create-powershell.md).
-Basta adicionar o '-prioridade "parâmetro para o [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) e defina-a *baixa* conforme mostrado no exemplo abaixo:
+Basta adicionar o '-prioridade "parâmetro para o [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) e defina-o como *baixa* conforme mostrado no exemplo abaixo:
 
 ```powershell
-$vmssConfig = New-AzureRmVmssConfig `
+$vmssConfig = New-AzVmssConfig `
     -Location "East US 2" `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `

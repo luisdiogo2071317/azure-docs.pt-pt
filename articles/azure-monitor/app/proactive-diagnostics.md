@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2016
+ms.date: 02/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: c284236af64c3981a5d15570bcd2705bb7d6a99b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121059"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962116"
 ---
 # <a name="smart-detection-in-application-insights"></a>Deteção inteligente no Application Insights
  Deteção inteligente automaticamente avisa-o de potenciais problemas de desempenho em seu aplicativo web. Ele faz uma análise de proativa de telemetria que a aplicação envia para o [Application Insights](../../azure-monitor/app/app-insights-overview.md). Se houver um aumento súbito do taxas de falhas ou padrões anormais no desempenho do cliente ou servidor, será criado um alerta. Esta funcionalidade não precisa nenhuma configuração. Ele funciona se a sua aplicação enviar telemetria suficiente.
@@ -46,6 +46,14 @@ Existem três tipos de Deteção:
 * [Deteção - problemas de serviço Cloud do Azure inteligente](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Obtenha alertas se a aplicação estiver alojada no Azure Cloud Services e uma instância de função tem falhas no arranque, reciclagem frequente ou falhas de tempo de execução.
 
 (As ligações de ajuda em cada notificação levá-lo para os artigos relevantes.)
+
+## <a name="smart-detection-email-notifications"></a>Notificações de e-mail de deteção inteligentes
+
+Todas as regras de deteção inteligente, exceto para regras marcadas como pré-visualização, são configuradas por predefinição para enviar notificações por e-mail quando são encontradas deteções.
+
+Configurar notificações por e-mail para uma regra de deteção inteligente específica pode ser feito ao abrir a deteção inteligente **configurações** painel e selecionando a regra que irá abrir o **Editar regra** painel.
+
+Em alternativa, pode alterar a configuração utilizando modelos Azure Resource Manager. [Ver as regras de deteção inteligente de gerir o Application Insights através de modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) para obter mais detalhes.
 
 ## <a name="video"></a>Vídeo
 

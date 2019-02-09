@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 750f66b0957262a62f71cb90f7035749b2128224
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: feb656fcdbb98dcab0a3ccf372a05b3f3dca91c4
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895912"
+ms.locfileid: "55961385"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Atualizar as soluções de análise de macrodados de geração 1 de armazenamento do Azure Data Lake para geração 2 de armazenamento do Azure Data Lake
 
@@ -128,7 +128,7 @@ Ao utilizar o Data Lake Storage Gen1, pode utilizar uma variedade de serviços d
 | Consumo          | [Ambiente de trabalho do Power BI  ](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-power-bi)                                                                           | *Ainda não está disponível*                                                                                                                                                          | *Ainda não está disponível*                                                                                                                             |
 |                      | [Excel ](https://techcommunity.microsoft.com/t5/Excel-Blog/Announcing-the-Azure-Data-Lake-Store-Connector-in-Excel/ba-p/91677)                                                 | *Ainda não está disponível*                                                                                                                                                          | *Ainda não está disponível*                                                                                                                             |
 |                      | [Analysis Services ](https://blogs.msdn.microsoft.com/analysisservices/2017/09/05/using-azure-analysis-services-on-top-of-azure-data-lake-storage/)                            | *Ainda não está disponível*                                                                                                                                                          | *Ainda não está disponível*                                                                                                                             |
-| Produtividade         | [Portal do Azure](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Não suportado*                                                                                                                                                              | Gerenciamento de contas *– agora disponível* <br><br>Operações de dados *–**ainda não está disponível*                                                                    |
+| Produtividade         | [Portal do Azure](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)                                                                      | *Não suportado*                                                                                                                                                              | Gerenciamento de contas *– agora disponível* <br><br>Operações de dados *–**ainda não está disponível*                                                                   |
 |                      | [Ferramentas do Data Lake para Visual Studio ](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-install)                                   | *Ainda não está disponível*                                                                                                                                                          | *Ainda não está disponível*                                                                                                                             |
 |                      | [Explorador do Armazenamento do Azure ](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)                                                          | *Já disponível*                                                                                                                                                              | *Já disponível*                                                                                                                                 |
 |                      | [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=usqlextpublisher.usql-vscode-ext)                                                                     | *Ainda não está disponível*                                                                                                                                                          | *Ainda não está disponível*                                                                                                                             |
@@ -232,7 +232,7 @@ Tenha em atenção que existem, terceiros que podem lidar com o Data Lake Storag
 
 * Se usar uma ferramenta que não copia as ACLs ou não pretende copiar sobre as ACLs, terá de definir as ACLs no destino manualmente no nível superior apropriado. Pode fazê-lo através do Explorador de armazenamento. Certifique-se de que as ACLs são as ACLs padrão para que os ficheiros e pastas que copie herdarem-los.
 
-* Gen1 de armazenamento do Data Lake, é o nível mais elevado, pode definir ACLs na raiz da conta. No Data Lake Storage Gen1, no entanto, o nível mais elevado, pode definir ACLs é na pasta raiz no sistema de ficheiros, não a conta de todo. Então, se pretender definir ACLs padrão ao nível da conta, precisará duplicar através de todos os sistemas de ficheiros na sua conta de geração 2 de armazenamento do Data Lake.
+* Gen1 de armazenamento do Data Lake, é o nível mais elevado, pode definir ACLs na raiz da conta. No ger2 de armazenamento do Data Lake, no entanto, o nível mais elevado, pode definir ACLs é na pasta raiz no sistema de ficheiros, não a conta de todo. Então, se pretender definir ACLs padrão ao nível da conta, precisará duplicar através de todos os sistemas de ficheiros na sua conta de geração 2 de armazenamento do Data Lake.
 
 * Restrições de nomenclatura de ficheiro são diferentes entre os dois sistemas de armazenamento. Essas diferenças são especialmente em relação a quando copiar de geração 2 de armazenamento do Data Lake para geração 1 de armazenamento do Data Lake, uma vez que o segundo tem mais restrita restrições.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 1ae4396c6b91f81e273e6ad171f4cac9b55445f6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864738"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982391"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -60,7 +60,7 @@ O `--cpus` e `--memory` as definições são utilizadas como parte do `docker ru
 
 Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para transferir uma imagem de contentor a `mcr.microsoft.com/azure-cognitive-services/luis` repositório:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -324,18 +324,7 @@ Se executar o contentor com uma saída [montar](luis-container-configuration.md#
 
 O envia de contentor do LUIS cobrança informações para o Azure, utilizando um _compreensão de idiomas_ recursos na sua conta do Azure. 
 
-Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (a expressão) para a Microsoft. 
-
-O `docker run` utiliza os argumentos a seguir para fins de faturação:
-
-| Opção | Descrição |
-|--------|-------------|
-| `ApiKey` | A chave de API dos _compreensão de idiomas_ recurso utilizado para controlar informações de faturação.<br/>O valor desta opção tem de ser definido para uma chave de API para o recurso do LUIS Azure aprovisionado especificado no `Billing`. |
-| `Billing` | O ponto final da _compreensão de idiomas_ recurso utilizado para controlar informações de faturação.<br/>O valor desta opção tem de ser definido para o ponto final do URI de um recurso do LUIS Azure aprovisionado.|
-| `Eula` | Indica que aceite a licença para o contentor.<br/>O valor desta opção tem de ser definido `accept`. |
-
-> [!IMPORTANT]
-> Todas as três opções tem de ser especificadas com valores válidos ou não inicia o contentor.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre estas opções, consulte [configurar contentores](luis-container-configuration.md).
 

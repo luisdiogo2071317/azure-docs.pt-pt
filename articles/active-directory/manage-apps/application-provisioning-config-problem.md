@@ -3,8 +3,8 @@ title: Problema ao configurar o aprovisionamento de utilizadores a uma aplicaç�
 description: Como resolver problemas comuns enfrentados ao configurar aprovisionamento de utilizador para uma aplicação já listados na Galeria de aplicações do Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 38075c9216eab955a023fee53aad74f3768d783c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 90f53624a05b462f517c8e2b36034326348f9899
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822277"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959379"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problema ao configurar o aprovisionamento de utilizadores a uma aplicação da galeria do Azure AD
 
@@ -55,7 +55,7 @@ Se definir o **estado de aprovisionamento** ser **no** no **Azure Active Directo
 
 ## <a name="cant-save-configuration-due-to-app-credentials-not-working"></a>Não é possível guardar a configuração devido a credenciais de aplicação não está a funcionar
 
-Por ordem para o aprovisionamento para funcionar, o Azure AD requer credenciais válidas, que lhe permitem ligar a um API fornecida por essa aplicação de gestão de utilizadores. Se estas credenciais não funcionam, ou não sabe wat são, veja o tutorial para configurar esta aplicação, descrita anteriormente.
+Por ordem para o aprovisionamento para funcionar, o Azure AD requer credenciais válidas, que lhe permitem ligar a um API fornecida por essa aplicação de gestão de utilizadores. Se estas credenciais não funcionam, ou não sabe o que são, veja o tutorial para configurar esta aplicação, descrita anteriormente.
 
 ## <a name="audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned"></a>Registos de auditoria dizer que os utilizadores são ignorados e não aprovisionados, mesmo que estão atribuídos
 

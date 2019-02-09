@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 4b9c57785b9b3176def495af6bc5956d70fa5c35
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7da765bda815e9112dac809d259fd417dc4d866e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657914"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981099"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
@@ -228,45 +228,35 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
 * Suporte todas as regiões, exceto no sul do Brasil e oeste do Japão:
 
-<html><body><table width="100%">
-<tr align="left"><th>Tipo de cluster</th><th>Hadoop</th><th>HBase&nbsp;&nbsp;</th><th>Interactive Query</th><th>Storm&nbsp;&nbsp;</th><th>Spark&nbsp;&nbsp;</th><th>Servidor de ML&nbsp;</th><th>Kafka&nbsp;</th></tr>
-
-<tr><td>Cabeça: tamanho VM predefinido</td><td>D12 v2</td><td>D12 v2</td><td>D13 v2</td><td>A3</td><td>D12 v2</td><td>D12 v2</td><td>D3v2</td></tr>
-
-<tr><td rowspan="4" valign="top">HEAD: recomendado tamanhos de VM</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>A4 v2</td><td>D12 v2</td><td>D12 v2</td><td>A2M v2</td></tr>
-<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>A8 v2</td><td>D13 v2</td><td>D13 v2</td><td>D3 v2</td></tr>
-<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>A2m v2</td><td>D14 v2</td><td>D14 v2</td><td>D4 v2</td></tr>
-<tr><td>E4 v3</td><td>E4 v3</td><td>E32 v3</td><td>E4 v3</td><td>E4 v3</td><td>E4 v3</td><td>D12 v2</td></tr>
-
-<tr><td>Função de trabalho: tamanho VM predefinido</td><td>D4 v2</td><td>D4 v2</td><td>D14 v2</td><td>D3 v2</td><td>D13 v2</td><td>D4 v2</td><td>4 D12v2 com 2 S30 discos por Mediador</td></tr>
-
-<tr><td rowspan="8" valign="top">Função de trabalho: recomendado tamanhos de VM</td><td>D3 v2</td><td>D3 v2</td><td>D13</td><td>D3 v2</td><td>D4 v2</td><td>D4 v2</td><td>D13 v2</td></tr>
-<tr><td>D4 v2</td><td>D4 v2</td><td>D14</td><td>D4 v2</td><td>D12 v2</td><td>D12 v2</td><td>DS12 v2</td></tr>
-<tr><td>D12 v2</td><td>D12 v2</td><td>E16 v3</td><td>D12 v2</td><td>D13 v2</td><td>D13 v2</td><td>DS13 v2</td></tr>
-<tr><td>E4 v3</td><td>E4 v3</td><td>E20 v3</td><td>E4 v3</td><td>D14 v2</td><td>D14 v2</td><td>E4 v3</td></tr>
-<tr><td></td><td></td><td>E32 v3</td><td></td><td>E16 v3</td><td>E16 v3</td><td>ES4 v3</td></tr>
-<tr><td></td><td></td><td>E64 v3</td><td></td><td>E20 v3</td><td>E20 v3</td><td>E8 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td>E32 v3</td><td>E32 v3</td><td>ES8 v3</td></tr>
-<tr><td></td><td></td><td></td><td></td><td>E64 v3</td><td>E64 v3</td><td></td></tr>
-
-<tr><td>ZooKeeper: tamanho da VM predefinida</td><td></td><td>A4 v2</td><td>A4 v2</td><td>A4 v2</td><td></td><td>A2 v2</td><td>D3v2</td></tr>
-
-<tr><td rowspan="3" valign="top">ZooKeeper: recomendado tamanhos de VM</td><td></td><td>A4 v2</td><td></td><td>A2 v2</td><td></td><td></td><td>A2M v2</td></tr>
-<tr><td></td><td>A8 v2</td><td></td><td>A4 v2</td><td></td><td></td><td>D3 v2</td></tr>
-<tr><td></td><td>A2m v2</td><td></td><td>A8 v2</td><td></td><td></td><td>E8 v3</td></tr>
-
-<tr align="left"><td>Edge: tamanho da VM predefinida</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
-
-<tr><td rowspan="8" valign="top">Edge: tamanho VM de recomendado</td><td></td><td></td><td></td><td></td><td></td><td>D4 v2</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D12 v2</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D13 v2</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>D14 v2</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E16 v3</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E20 v3</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E32 v3</td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td><td>E64 v3</td><td></td></tr>
-
-</table></body></html>
+|Tipo de cluster|Hadoop|HBase|Interactive Query|Storm|Spark|Servidor de ML|Kafka|
+|---|---|---|---|---|---|---|---|
+|Cabeça: tamanho VM predefinido|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
+|HEAD: recomendado tamanhos de VM|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
+||D4 v2|D4 v2|D14|A8 v2|D13 v2|D13 v2|D3 v2|
+||D12 v2|D12 v2|E16 v3|A2m v2|D14 v2|D14 v2|D4 v2|
+||E4 v3|E4 v3|E32 v3|E4 v3|E4 v3|E4 v3|D12 v2|
+|Função de trabalho: tamanho VM predefinido|D4 v2|D4 v2|D14 v2|D3 v2|D13 v2|D4 v2|4 D12v2 com 2 S30 discos por Mediador|
+|Função de trabalho: recomendado tamanhos de VM|D3 v2|D3 v2|D13|D3 v2|D4 v2|D4 v2|D13 v2|
+||D4 v2|D4 v2|D14|D4 v2|D12 v2|D12 v2|DS12 v2|
+||D12 v2|D12 v2|E16 v3|D12 v2|D13 v2|D13 v2|DS13 v2|
+||E4 v3|E4 v3|E20 v3|E4 v3|D14 v2|D14 v2|E4 v3|
+||||E32 v3||E16 v3|E16 v3|ES4 v3|
+||||E64 v3||E20 v3|E20 v3|E8 v3|
+||||||E32 v3|E32 v3|ES8 v3|
+||||||E64 v3|E64 v3||
+|ZooKeeper: tamanho da VM predefinida||A4 v2|A4 v2|A4 v2||A2 v2|D3v2|
+|ZooKeeper: recomendado tamanhos de VM||A4 v2||A2 v2|||A2M v2|
+|||A8 v2||A4 v2|||D3 v2|
+|||A2m v2||A8 v2|||E8 v3|
+|Edge: tamanho da VM predefinida||||||D4 v2||
+|Edge: tamanho VM de recomendado||||||D4 v2||
+|||||||D12 v2||
+|||||||D13 v2||
+|||||||D14 v2||
+|||||||E16 v3||
+|||||||E20 v3||
+|||||||E32 v3||
+|||||||E64 v3||
 
 * Sul do Brasil e oeste do Japão apenas (não existem tamanhos v2):
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a119e2797c4771551b6087e148d609c68ffd36db
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079975"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977532"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos da mensagem de e-mail de convite de colaboração B2B - Azure Active Directory
 
@@ -66,6 +66,14 @@ O rodapé contém a marca da empresa do Microsoft e permite ao destinatário sab
 
   ![Quando o destinatário não precisa resgatar o convite](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## <a name="how-the-language-is-determined"></a>Como o idioma é determinado
+A linguagem apresentada ao utilizador convidado no e-mail de convite é determinada pelas seguintes definições. Estas definições estão listadas na ordem de precedência. Se uma definição não estiver configurada, a definição seguinte na lista determina o idioma. 
+- O **messageLanguage** propriedade da [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) se o convite de criar API é utilizado de objeto
+-   O **preferredLanguage** propriedade especificada do convidado [objeto de utilizador](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
+-   O **idioma de notificação** definido nas propriedades de principal de inquilino do utilizador convidado (para inquilinos do Azure AD)
+-   O **idioma de notificação** definido nas propriedades do inquilino de recursos
+
+Se nenhuma destas definições está configurada, o idioma padrão é para inglês (EUA).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

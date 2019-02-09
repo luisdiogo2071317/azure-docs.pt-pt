@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: e67a5eb645350fdb582c81c0a47cdfec06be5c3e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c40736bf22f53723a69a649215cdbb79a703e515
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855718"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964105"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto com Java
 
@@ -171,6 +171,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+Quando a compilação for concluída, execute:
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>Resposta de amostra

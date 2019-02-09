@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: f61c47e6c3baf574c17a40298c3a164800b143a0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d8ddafe20ff93e7ae4d51e2180bbd40447729234
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867193"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983037"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutorial: Personalização de artigo para a tomada de decisões contextuais
 
@@ -50,7 +50,7 @@ Para obter mais informações sobre o formato do feed, veja a [Referência à AP
 
 ## <a name="register-a-new-app"></a>Registar uma nova aplicação
 
-1. Inicie sessão com a sua [conta Microsoft](https://account.microsoft.com/account). No friso, clique em **O Meu Portal**.
+1. Inicie sessão com a sua [conta Microsoft](https://portal.ds.microsoft.com/). No friso, clique em **O Meu Portal**.
 
 2. Para registar uma nova aplicação, clique no botão **Nova Aplicação**.
 

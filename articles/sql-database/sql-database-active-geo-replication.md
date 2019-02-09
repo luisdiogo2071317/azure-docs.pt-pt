@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 0c574aab722cdce91cd5a2569c14c4f1710483ed
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468279"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965227"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Criar legíveis bases de dados secundárias com georreplicação ativa
 
@@ -46,6 +46,14 @@ Pode gerir a replicação e ativação pós-falha de uma base de dados individua
 Após a ativação pós-falha, certifique-se de que os requisitos de autenticação para o seu servidor e base de dados são configurados na nova principal. Para obter detalhes, consulte [segurança de base de dados SQL após a recuperação após desastre](sql-database-geo-replication-security-config.md).
 
 Tira partido da georreplicação ativa a [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) tecnologia do SQL Server para a replicação assíncrona de transações consolidadas na base de dados primária para uma base de dados secundária, usando o isolamento de instantâneo. Os grupos de ativação pós-falha automática fornecem a semântica de grupo por cima de georreplicação ativa, mas o mesmo mecanismo de replicação assíncrona é utilizado. Embora num determinado período, a base de dados secundária pode ser um pouco por trás da base de dados primária, os dados secundários são garantidos que nunca terá transações parciais. Redundância entre regiões habilita aplicativos para recuperar rapidamente de uma perda permanente de todo o datacenter ou partes de um datacenter causado por desastres naturais, catastróficos erros humanos ou atos mal-intencionados. Os dados específicos de RPO que podem ser encontrados em [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
+
+> [!NOTE]
+> Se houver uma falha de rede entre duas regiões, podemos Repetir cada 10 segundos para voltar a estabelecer ligações.
+> [!IMPORTANT]
+> Para garantir que uma alteração fundamental na base de dados primário é replicada para uma secundária antes da ativação pós-falha é, pode forçar a sincronização para garantir que a replicação das alterações críticas (por exemplo, atualizações de palavra-passe). Sincronização forçada afeta o desempenho, porque ele bloqueia o thread de chamada até que todas as transações consolidadas são replicadas. Para obter detalhes, consulte [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Para monitorizar o desfasamento de replicação entre a base de dados primária e geo-secundária, consulte [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
+
+
+
 
 A figura seguinte mostra um exemplo de georreplicação ativa configurada com um site primário na região e.u.a. Centro-Norte e secundárias na região Centro-Sul.
 

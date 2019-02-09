@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 75a6466578808cb5c0dd8d2e32d9445a6e5a5bf8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: ca389814b35a666a48959a50de58a231df6728c5
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140541"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981133"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como Etiquetar uma máquina virtual do Windows no Azure
 Este artigo descreve as diferentes formas de etiquetar uma máquina virtual do Windows no Azure através do modelo de implementação do Resource Manager. As etiquetas são pares de chave/valor definido pelo utilizador que podem ser colocados diretamente num recurso ou grupo de recursos. Atualmente, o Azure suporta até 15 etiquetas por recurso e grupo de recursos. Etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Tenha em atenção que as etiquetas são suportadas para os recursos criados por meio de apenas o modelo de implementação do Resource Manager. Se quiser Etiquetar uma máquina virtual do Linux, veja [como Etiquetar uma máquina virtual Linux no Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -30,9 +30,11 @@ Este artigo descreve as diferentes formas de etiquetar uma máquina virtual do W
 ## <a name="tagging-with-powershell"></a>Marcação com o PowerShell
 Para criar, adicionar e eliminar etiquetas através do PowerShell, tem de primeiro para configurar a sua [ambiente do PowerShell com o Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Depois de concluir a configuração, pode colocar as etiquetas nos recursos de computação, rede e armazenamento durante a criação ou depois do recurso é criado através do PowerShell. Este artigo se concentrará em exibição/edição etiquetas colocadas em máquinas virtuais.
 
-Em primeiro lugar, navegue para uma Máquina Virtual através do `Get-AzureRmVM` cmdlet.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-        PS C:\> Get-AzureRmVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
+Em primeiro lugar, navegue para uma Máquina Virtual através do `Get-AzVM` cmdlet.
+
+        PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
 Se a sua máquina Virtual já contém etiquetas, em seguida, verá todas as etiquetas no recurso:
 
@@ -43,11 +45,11 @@ Se a sua máquina Virtual já contém etiquetas, em seguida, verá todas as etiq
                 "Environment": "Production"
                }
 
-Se gostaria de adicionar etiquetas através do PowerShell, pode utilizar o `Set-AzureRmResource` comando. Tenha em atenção ao atualizar as etiquetas através do PowerShell, as etiquetas são atualizadas como um todo. Portanto, se estiver a adicionar uma etiqueta a um recurso que já tem etiquetas, terá de incluir todas as marcas que deseja ser colocado no recurso. Segue-se um exemplo de como adicionar etiquetas adicionais a um recurso através de Cmdlets do PowerShell.
+Se gostaria de adicionar etiquetas através do PowerShell, pode utilizar o `Set-AzResource` comando. Tenha em atenção ao atualizar as etiquetas através do PowerShell, as etiquetas são atualizadas como um todo. Portanto, se estiver a adicionar uma etiqueta a um recurso que já tem etiquetas, terá de incluir todas as marcas que deseja ser colocado no recurso. Segue-se um exemplo de como adicionar etiquetas adicionais a um recurso através de Cmdlets do PowerShell.
 
-Este cmdlet primeiro define todas as etiquetas colocadas no *MyTestVM* para o *$tags* variável, utilizando o `Get-AzureRmResource` e `Tags` propriedade.
+Este cmdlet primeiro define todas as etiquetas colocadas no *MyTestVM* para o *$tags* variável, utilizando o `Get-AzResource` e `Tags` propriedade.
 
-        PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+        PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
 O segundo comando apresenta as etiquetas para a variável de determinado.
 
@@ -68,12 +70,12 @@ O terceiro comando adiciona uma etiqueta adicional para o *$tags* variável. Obs
 
 O comando a quarto define todas as etiquetas definidas no *$tags* variável ao recurso indicado. Neste caso, é MyTestVM.
 
-        PS C:\> Set-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
+        PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
 O quinto comando mostra todas as etiquetas no recurso. Como pode ver, *localização* é agora definido como uma marca com *MyLocation* como o valor.
 
 ```
-    PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+    PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
     Key           Value
     ----          -----
@@ -93,7 +95,7 @@ Para saber mais sobre marcação através do PowerShell, consulte a [Cmdlets de 
 * Para ver como as etiquetas podem ajudar a gerir a utilização de recursos do Azure, consulte [entender a sua fatura do Azure] [ Understanding your Azure Bill] e [obter informações sobre o consumo de recursos do Microsoft Azure] [Gain insights into your Microsoft Azure resource consumption].
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.resources/
+[Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 93fbcb96415aa2c800a772fdeb925b1513d7512d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2be50b7f2583f7f15b2a0783ef729b91bc158234
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863011"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983666"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contentores
 
@@ -68,7 +68,7 @@ Imagens de contentor para a API de rostos estão disponíveis.
 
 ### <a name="docker-pull-for-the-face-container"></a>Solicitação de docker para o contentor de rostos
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
 ```
 
@@ -132,18 +132,7 @@ Se executar o contentor com uma saída [montar](./face-resource-container-config
 
 O envio de contentores da Face API cobrança informações para o Azure, utilizando um _a API Face_ recursos na sua conta do Azure. 
 
-Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente para a Microsoft. 
-
-O `docker run` comando utiliza os argumentos a seguir para fins de faturação:
-
-| Opção | Descrição |
-|--------|-------------|
-| `ApiKey` | A chave de API dos _a API Face_ recurso utilizado para controlar informações de faturação. |
-| `Billing` | O ponto final da _a API Face_ recurso utilizado para controlar informações de faturação.|
-| `Eula` | Indica que aceite a licença para o contentor.<br/>O valor desta opção tem de ser definido `accept`. |
-
-> [!IMPORTANT]
-> Todas as três opções tem de ser especificadas com valores válidos ou não inicia o contentor.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre estas opções, consulte [configurar contentores](./face-resource-container-config.md).
 

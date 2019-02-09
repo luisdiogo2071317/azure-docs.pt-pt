@@ -3,8 +3,8 @@ title: Resolução de problemas a extensão do painel de acesso do Azure para o 
 description: Como utilizar a política de grupo para implementar o suplemento do Internet Explorer para o portal as minhas aplicações.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/11/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cfff06c193ea4dd77c40201a59673428e60b9fac
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c73f1bb7b669c5a4b6454e5dd1ee63447341ad6c
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188767"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962694"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>A extensão do painel de acesso de resolução de problemas do Internet Explorer
 Este artigo ajuda-o a resolver os problemas seguintes:

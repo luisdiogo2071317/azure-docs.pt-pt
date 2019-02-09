@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4bfb17a7c50e97ae71908f052f7f38110cf376df
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296892"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978966"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como ligar e iniciar sessão máquina virtual do Azure a executar o Windows
 Irá utilizar o botão **Ligar** no Portal do Azure para iniciar uma sessão de Ambiente de Trabalho Remoto (RDP) a partir de um ambiente de trabalho do Windows. Ligue primeiro à máquina virtual e, em seguida, iniciar sessão.
@@ -56,18 +56,18 @@ Para ligar a uma VM do Windows a partir de um Mac, terá de instalar como um cli
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>Ligar à máquina virtual com o PowerShell
 
-Se estiver a utilizar o PowerShell e o módulo de AzureRM instalado também podem se conectar usando o `Get-AzureRmRemoteDesktopFile` cmdlet, conforme mostrado abaixo.
+Se estiver a utilizar o PowerShell e o módulo de AzureRM instalado também podem se conectar usando o `Get-AzRemoteDesktopFile` cmdlet, conforme mostrado abaixo.
 
 Neste exemplo imediatamente inicia a ligação de RDP, apresentar a a avisos semelhantes como acima.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
 ```
 
 Também pode guardar o ficheiro RDP para utilização futura.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: O cosmos DB, abra o Service Broker, o Open Service Broker for Azure
-ms.openlocfilehash: 04b513de1d47749bb87b7aaf79839389ab4d7290
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082539"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977020"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrar aplicações existentes do MongoDB API do Azure Cosmos DB para MongoDB e Open Service Broker for Azure (OSBA)
 
@@ -208,7 +208,7 @@ Este comando gera vários artefactos, incluindo uma *gráficos /* pasta, o que �
 
 Crie um ficheiro na raiz do projeto com o nome *Dockerfile* com este conteúdo:
 
-```dockerfile
+```Dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

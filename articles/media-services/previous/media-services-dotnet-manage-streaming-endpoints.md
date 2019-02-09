@@ -1,11 +1,11 @@
 ---
-title: Gerir pontos finais de transmissão em fluxo com .NET SDK. | Microsoft Docs
+title: Gerir pontos finais de transmissão em fluxo com o SDK do .NET. | Microsoft Docs
 description: Este artigo mostra como gerir pontos finais de transmissão em fluxo com o portal do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0da34a97-f36c-48d0-8ea2-ec12584a2215
 ms.service: media-services
@@ -13,46 +13,46 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 741eb35c58fb723985a60f6ac071892c02d08412
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: caa2ef878100394fe4bb3282024958bb9dcb46aa
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788320"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977088"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerir pontos finais de transmissão em fluxo com .NET SDK
+# <a name="manage-streaming-endpoints-with-net-sdk-legacy"></a>Gerir pontos finais de transmissão em fluxo com o SDK do .NET (Legado)
 
 >[!NOTE]
->Certifique-se de que revê o [descrição geral](media-services-streaming-endpoints-overview.md) artigo. Além disso, reveja [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Lembre-se de que reveja os [descrição geral](media-services-streaming-endpoints-overview.md) artigo. Além disso, reveja [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-O código neste artigo mostra como fazer as seguintes tarefas utilizando o SDK .NET do Azure Media Services:
+O código neste artigo mostra como fazer as seguintes tarefas utilizando o SDK de .NET de serviços de multimédia do Azure:
 
-- Examine a predefinição de ponto final de transmissão em fluxo.
-- Criar/novo ponto final de transmissão em fluxo adicione.
+- Examine o padrão de ponto final de transmissão em fluxo.
+- Criar/de adicionar novo ponto final de transmissão em fluxo.
 
-    Pode querer ter vários pontos finais de transmissão em fluxo, se planear ter CDNs diferentes ou uma CDN e acesso direto.
+    Pode querer ter vários pontos finais de transmissão em fluxo, se planear ter CDNs diferentes ou de uma CDN e acesso direto.
 
     > [!NOTE]
-    > É-lhe faturado apenas quando o ponto final de transmissão em fluxo está no estado de execução.
+    > É-lhe cobrada apenas quando o ponto final de transmissão em fluxo está no estado de execução.
     
-- Atualize o ponto final de transmissão em fluxo.
+- Atualize o ponto de final de transmissão em fluxo.
     
     Certifique-se chamar a função de Update ().
 
-- Elimine o ponto final de transmissão em fluxo.
+- Elimine o ponto de final de transmissão em fluxo.
 
     >[!NOTE]
     >Não é possível eliminar o ponto final de transmissão em fluxo predefinido.
 
-Para obter informações sobre como dimensionar o ponto final de transmissão em fluxo, consulte [isto](media-services-portal-scale-streaming-endpoints.md) artigo.
+Para obter informações sobre como dimensionar o ponto final de transmissão em fluxo, consulte [isso](media-services-portal-scale-streaming-endpoints.md) artigo.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
 Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com informações da ligação, conforme descrito em [Media Services development with .NET](media-services-dotnet-how-to-use.md) (Desenvolvimento de Serviços de Multimédia com .NET). 
 
-## <a name="add-code-that-manages-streaming-endpoints"></a>Adicione o código que gere pontos finais de transmissão em fluxo
+## <a name="add-code-that-manages-streaming-endpoints"></a>Adicione código que gere pontos finais de transmissão em fluxo
     
 Substitua o código a Program.cs pelo seguinte código:
 

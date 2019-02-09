@@ -1,19 +1,19 @@
 ---
 title: Perguntas comuns - VMware para recuperação após desastre do Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo resume as perguntas mais comuns ao configurar a recuperação após desastre de VMs de VMware no local para o Azure com o Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 1/29/2019
+ms.date: 2/7/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fb4add1194f7fe6d10859f76f244f027b35ad92d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212244"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960586"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -108,6 +108,9 @@ Para a replicação, uma VM do VMware tem de executar um sistema operativo supor
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência posso replicar para o Azure?
 A replicação é contínua ao replicar VMs de VMware para Azure.
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>Pode manter o endereço IP na ativação pós-falha?
+Sim, pode manter o endereço IP na ativação pós-falha. Certifique-se de que mencionou o endereço IP de destino no painel "Computação e rede" antes da ativação pós-falha. Além disso, certifique-se para encerrar as máquinas no momento da ativação pós-falha para evitar conflitos IP no momento da reativação pós-falha.
 
 ### <a name="can-i-extend-replication"></a>Posso expandir a replicação?
 Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalidade no [fórum de comentários](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

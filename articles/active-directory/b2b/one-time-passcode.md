@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 412e114fde8f9b9017d476083f1237c922c67bc8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c6bfa9acb29820a2c9646d6302871bb6a2dd1ac6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463060"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982170"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
 
@@ -29,7 +29,7 @@ A funcionalidade de código de acesso único E-Mail autentica utilizadores convi
 Esta funcionalidade está atualmente disponível para pré-visualização (consulte [aceitar para a pré-visualização](#opting-in-to-the-preview) abaixo). Depois de pré-visualização, esta funcionalidade será ativada por predefinição para todos os inquilinos.
 
 > [!NOTE]
-> Os utilizadores de código de acesso único tem de iniciar sessão através de uma ligação que inclui o contexto do inquilino (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou no caso de um domínio verificado padrão, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Ligações diretas para aplicativos e recursos também funcionam, desde que eles incluem o contexto do inquilino. Os utilizadores convidados são não foi possível iniciar sessão com pontos finais que não têm nenhum contexto de inquilino. Por exemplo, utilizando `https://myapps.microsoft.com`, `https://portal.azure.com`, ou o ponto de extremidade comum as Equipes resultará num erro. 
+> Os utilizadores de código de acesso único tem de iniciar sessão através de uma ligação que inclui o contexto do inquilino (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Ligações diretas para aplicativos e recursos também funcionam, desde que eles incluem o contexto do inquilino. Os utilizadores convidados são não foi possível iniciar sessão com pontos finais que não têm nenhum contexto de inquilino. Por exemplo, utilizando `https://myapps.microsoft.com`, `https://portal.azure.com`, ou o ponto de extremidade comum as Equipes resultará num erro. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência de utilizador para os utilizadores convidados de código de acesso único
 Com a autenticação de código de acesso único, o utilizador convidado pode resgatar o convite ao clicar numa ligação direta ou ao utilizar o e-mail de convite. Em ambos os casos, uma mensagem no navegador indica que será enviado um código para o endereço de e-mail do utilizador convidado. O utilizador convidado seleciona **enviar código**:

@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901195"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980113"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
+
+> [!IMPORTANT]
+> Os detalhes para a criação de um alerta com um modelo do Resource Manager são de data agora que [alertas do Log Analytics tem sido expandidas para o Azure Monitor](../platform/alerts-extend.md). Para obter detalhes sobre como criar um alerta de registo com um modelo do Resource Manager, consulte [gerir alertas de registo com o modelo de recursos do Azure](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
 
 > [!NOTE]
 > Esta é a documentação preliminar para a criação de soluções de gestão que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.
@@ -180,8 +183,8 @@ As propriedades de recursos de ação do alerta são descritas nas tabelas segui
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
-| Tipo | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
-| Nome | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
+| Type | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
+| Name | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
 | Descrição | Não | Descrição opcional do alerta. |
 | Gravidade | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
 
@@ -192,7 +195,7 @@ Esta secção é necessária. Define as propriedades para o limiar de alerta.
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
 | Operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior que<br>lt = menor que** |
-| Valor | Sim | O valor a comparar os resultados. |
+| Value | Sim | O valor a comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta secção é opcional. Incluí-lo para um alerta de medida da métrica.
@@ -204,7 +207,7 @@ Esta secção é opcional. Incluí-lo para um alerta de medida da métrica.
 |:--|:--|:--|
 | TriggerCondition | Sim | Especifica se o limiar de número total de falhas ou falhas consecutivas de entre os valores seguintes:<br><br>**Total<br>consecutivos** |
 | Operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior que<br>lt = menor que** |
-| Valor | Sim | Número de vezes que os critérios têm de ser cumpridos para acionar o alerta. |
+| Value | Sim | Número de vezes que os critérios têm de ser cumpridos para acionar o alerta. |
 
 
 #### <a name="throttling"></a>Limitação

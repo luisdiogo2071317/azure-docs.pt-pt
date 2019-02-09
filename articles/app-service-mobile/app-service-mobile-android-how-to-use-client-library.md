@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158167"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965159"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como utilizar o SDK de aplicações móveis do Azure para Android
 
@@ -55,7 +55,7 @@ Altere a ambos **gradle** ficheiros:
 
 1. Adicione este código para o *Project* nível **gradle** dentro do ficheiro a *buildscript* etiqueta:
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
@@ -65,7 +65,7 @@ Altere a ambos **gradle** ficheiros:
 
 2. Adicione este código para o *aplicação de módulo* nível **gradle** dentro do ficheiro a *dependências* etiqueta:
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
@@ -496,7 +496,7 @@ O esquema é definido por vários fragmentos de código XML. Tendo em conta um l
 
 No código anterior, o *listitem* atributo especifica o id do layout para uma linha individual na lista. Esse código especifica uma caixa de verificação e o respetivo texto associado e será instanciado uma vez para cada item na lista. Este esquema não apresenta o **id** campo e um esquema mais complexo de especificar campos adicionais na exibição. Esse código está no **row_list_to_do.xml** ficheiro.
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,7 +520,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 Substituir os adaptadores **getView** método. Por exemplo:
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -959,7 +959,7 @@ Terá também de configurar o projeto para customtabs.  Primeiro, especifique um
 
 Adicionar a **redirectUriScheme** para o `build.gradle` ficheiro para a sua aplicação:
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -976,7 +976,7 @@ android {
 
 Por fim, adicione `com.android.support:customtabs:23.0.1` à lista de dependências no `build.gradle` ficheiro:
 
-```text
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
@@ -1076,7 +1076,7 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sess
 1. Configurar o seu back-end de aplicação móvel para o início de sessão do AAD ao seguir a [como configurar o serviço de aplicações para início de sessão do Active Directory] [ 22] tutorial. Certifique-se concluir o passo opcional de registar uma aplicação cliente nativa.
 2. Instale a ADAL, modificando o ficheiro de gradle para incluir as seguintes definições:
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {

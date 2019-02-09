@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: cadf4c564ab8600094bc545ae7270eb9c0642e1e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a5a4205c97e4db25d5d0a92472610364d912b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890965"
+ms.locfileid: "55963442"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões nos quais serviços de multimédia do Azure v3 existe
 
@@ -65,11 +65,39 @@ Por exemplo, para a região do Azure E.U.A. oeste 2 (apresentado abaixo), irá u
 
 ## <a name="endpoints"></a>Pontos Finais  
 
-| Ponto Final|Global Azure | Azure Government|Azure Alemanha|Azure China 21Vianet|
-| --- | --- | --- | --- | --- |
-| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
-| Audiência do token | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
+Os pontos finais seguintes são importantes para saber quando ligar a contas de serviços de multimédia a partir de diferentes clouds do Azure nacionais.
+
+### <a name="global-azure"></a>Global Azure
+
+|Pontos Finais ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| Audiência do token | `https://management.core.windows.net/` |
+
+### <a name="azure-government"></a>Azure Government
+
+|Pontos Finais||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| Audiência do token | `https://management.core.usgovcloudapi.net/` |
+
+### <a name="azure-germany"></a>Azure Alemanha
+
+| Pontos Finais ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Audiência do token | `https://management.core.cloudapi.de/`|
+
+### <a name="azure-china-21vianet"></a>Azure China 21Vianet
+
+|Pontos Finais||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Audiência do token |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

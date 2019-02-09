@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 105b4e34d307ac08b8efbb5e263825f2df28e28c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862331"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977105"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores de análise de texto
 
@@ -77,19 +77,19 @@ Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Solicitação de docker para o contentor de extração de frase chave
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### <a name="docker-pull-for-the-language-detection-container"></a>Solicitação de docker para o contentor de deteção de idioma
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### <a name="docker-pull-for-the-sentiment-container"></a>Solicitação de docker para o contentor de sentimentos
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -156,18 +156,7 @@ Se executar o contentor com uma saída [montar](../text-analytics-resource-conta
 
 O envio de contentores de análise de texto cobrança informações para o Azure, utilizando um _análise de texto_ recursos na sua conta do Azure. 
 
-Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente para a Microsoft. 
-
-O `docker run` comando utiliza os argumentos a seguir para fins de faturação:
-
-| Opção | Descrição |
-|--------|-------------|
-| `ApiKey` | A chave de API dos _análise de texto_ recurso utilizado para controlar informações de faturação. |
-| `Billing` | O ponto final da _análise de texto_ recurso utilizado para controlar informações de faturação.|
-| `Eula` | Indica que aceite a licença para o contentor.<br/>O valor desta opção tem de ser definido `accept`. |
-
-> [!IMPORTANT]
-> Todas as três opções tem de ser especificadas com valores válidos ou não inicia o contentor.
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre estas opções, consulte [configurar contentores](../text-analytics-resource-container-config.md).
 

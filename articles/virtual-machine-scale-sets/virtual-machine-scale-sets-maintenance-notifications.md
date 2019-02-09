@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546866"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981422"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais
+
 
 O Azure efetua periodicamente atualizações para melhorar a fiabilidade, desempenho e segurança da infraestrutura do anfitrião para máquinas virtuais (VMs). As atualizações podem incluir o ambiente de alojamento de aplicação de patches ou atualizar e desativar o hardware. A maioria das atualizações não afetam as VMs alojadas. No entanto, as atualizações afetam VMs nestes cenários:
 
@@ -38,10 +39,8 @@ Manutenção planeada, que requer uma reinicialização é agendada em etapas. C
 
 O objetivo de ter duas janelas é para lhe dar tempo suficiente para iniciar a manutenção e a sua VM sabendo quando o Azure irá automaticamente iniciar manutenção.
 
-
 Pode utilizar o portal do Azure, PowerShell, a API REST e a CLI do Azure para consultar as janelas de manutenção para VMs do conjunto de dimensionamento de máquinas virtuais e para iniciar a manutenção self-service.
 
-  
 ## <a name="should-you-start-maintenance-during-the-self-service-window"></a>Deve iniciar manutenção durante a janela de self-service?  
 
 As diretrizes seguintes podem ajudar a decidir se pretende iniciar a manutenção num momento que escolher.
@@ -87,7 +86,7 @@ Quando estiver agendada uma onda de manutenção planeada, pode ver a lista de c
 
 O **manutenção self-service** coluna agora aparece na lista de conjuntos de dimensionamento de máquina virtual. Cada conjunto de dimensionamento de máquina virtual pode ter um dos seguintes valores para a coluna de manutenção self-service:
 
-| Valor | Descrição |
+| Value | Descrição |
 |-------|-------------|
 | Sim | Pelo menos uma VM no conjunto de dimensionamento de máquina virtual está numa janela de self-service. Pode iniciar a manutenção em qualquer altura durante esta janela de self-service. | 
 | Não | Não existem VMs estão numa janela de self-service no dimensionamento de máquinas de virtuais afetadas definidas. | 
@@ -118,16 +117,16 @@ Depois de iniciar a manutenção, as VMs afetadas no seu conjunto de dimensionam
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Verificar o estado de manutenção com o PowerShell
 
-Pode utilizar o Azure PowerShell para ver quando as VMs nos seus conjuntos de dimensionamento de máquina virtual estão agendadas para manutenção. Informações de manutenção planeada estão disponíveis ao utilizar o [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) cmdlet quando utiliza o `-InstanceView` parâmetro.
+Pode utilizar o Azure PowerShell para ver quando as VMs nos seus conjuntos de dimensionamento de máquina virtual estão agendadas para manutenção. Informações de manutenção planeada estão disponíveis ao utilizar o [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet quando utiliza o `-InstanceView` parâmetro.
  
 Informações de manutenção são devolvidas apenas se a manutenção está prevista. Se nenhuma manutenção está agendada que afeta a instância VM, o cmdlet não devolve quaisquer informações de manutenção. 
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 As seguintes propriedades são devolvidas em **MaintenanceRedeployStatus**: 
-| Valor | Descrição   |
+| Value | Descrição   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento. ||
 | PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. ||
@@ -140,10 +139,10 @@ As seguintes propriedades são devolvidas em **MaintenanceRedeployStatus**:
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Iniciar a manutenção em sua instância de VM com o PowerShell
 
-Pode iniciar a manutenção numa VM se **IsCustomerInitiatedMaintenanceAllowed** está definida como **verdadeiro**. Utilize o [Set-AzureRmVmss](/powershell/module/azurerm.compute/set-azurermvmss) cmdlet com `-PerformMaintenance` parâmetro.
+Pode iniciar a manutenção numa VM se **IsCustomerInitiatedMaintenanceAllowed** está definida como **verdadeiro**. Utilize o [Set-AzVmss](/powershell/module/az.compute/set-azvmss) cmdlet com `-PerformMaintenance` parâmetro.
 
 ```powershell
-Set-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Verificar o estado de manutenção com a CLI
@@ -157,7 +156,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 As seguintes propriedades são devolvidas em **MaintenanceRedeployStatus** para cada instância VM: 
-| Valor | Descrição   |
+| Value | Descrição   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se pode iniciar a manutenção na VM neste momento. ||
 | PreMaintenanceWindowStartTime         | O início da janela de manutenção self-service quando pode iniciar a manutenção na sua VM. ||

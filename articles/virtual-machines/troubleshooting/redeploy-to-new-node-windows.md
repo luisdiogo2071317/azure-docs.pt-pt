@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c0bf4d1684ca5a0921173dc90f51fec9fb052efc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b10c0be91a4b12af72d48124b225dac777c4d936
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993266"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982663"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Reimplementar a máquina de virtual do Windows para o novo nó do Azure
 Se o ter sido enfrentando dificuldades resolução de problemas de ambiente de trabalho remoto (RDP) ligação ou a aplicação de acesso baseado em Windows máquinas virtuais do Azure (VM), reimplementação da VM pode ajudar. Quando voltar a implementar uma VM, Azure vai encerrar a VM, mova a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, ligue-o novamente, mantendo a todas as suas opções de configuração e os recursos associados. Este artigo mostra-lhe como voltar a implementar uma VM com o Azure PowerShell ou o portal do Azure.
@@ -34,7 +34,7 @@ Certifique-se de que tem o Azure PowerShell mais recente 1.x instalado no seu co
 O exemplo seguinte implementa a VM com o nome `myVM` no grupo de recursos com o nome `myResourceGroup`:
 
 ```powershell
-Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]

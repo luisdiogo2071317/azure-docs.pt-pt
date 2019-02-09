@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819523"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960570"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para o Azure Stack 
 
@@ -91,7 +91,7 @@ Como um operador de cloud, pode utilizar o portal de administração para ver a 
 1. Inicie sessão para o [do portal de administração](https://adminportal.local.azurestack.external).
 2. Selecione **todos os serviços** > **armazenamento** para abrir a lista de partilha de ficheiros onde pode ver as informações de utilização. 
 
-  ![Exemplo: Partilhas de ficheiros de armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Exemplo: Partilhas de ficheiros de armazenamento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **TOTAL** é o espaço total em bytes, que estão disponíveis na partilha. Este espaço é utilizado para dados e metadados que é mantido pelos serviços de armazenamento.
   - **UTILIZADO** é a quantidade de dados em bytes, que é utilizado pelas todas as extensões dos arquivos que armazenam os dados de inquilino e metadados associados.

@@ -4,7 +4,7 @@ description: Essa especificação descreve dois modos que são suportados pelos 
 services: media-services
 documentationcenter: ''
 author: johndeu
-manager: cfowler
+manager: femila
 editor: johndeu
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3c51b5fd5bf577479aaeb316d5c1b5f8704f2d19
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265895"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980436"
 ---
-# <a name="signaling-timed-metadata-in-live-streaming"></a>Assinalar metadados temporizados na transmissão em direto
+# <a name="signaling-timed-metadata-in-live-streaming-legacy"></a>Sinalização de metadados excedeu o tempo limite na transmissão em direto (Legado)
 
 
 ## <a name="1-introduction"></a>1 Introdução 
@@ -68,8 +68,8 @@ Para o modo simple de RTMP, serviços de multimédia suportam uma única mensage
 
 | Nome do Campo | Tipo de campo | Necessário? | Descrições                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| indicação        | Cadeia     | Necessário | A mensagem de evento.  Deve ser "SpliceOut" para designar um modo simple fusão.                                              |
-| ID         | Cadeia     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem                            |
+| indicação        | String     | Necessário | A mensagem de evento.  Deve ser "SpliceOut" para designar um modo simple fusão.                                              |
+| ID         | String     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem                            |
 | duração   | Number     | Necessário | Durante o processo de fusão. As unidades são segundos fracionais.                                                                |
 | elapsed    | Number     | Opcional | Quando o sinal é que está a ser repetido para oferecer suporte à Sintonize, este campo deve ser a quantidade de tempo de apresentação que tiver sido decorrido desde a fusão início. As unidades são segundos fracionais. Ao utilizar o modo simple, este valor não deve exceder o período original da fusão.                                                  |
 | hora       | Number     | Necessário | Será o momento da fusão, em tempo de apresentação. As unidades são segundos fracionais.                                     |
@@ -80,9 +80,9 @@ Para o modo simple de RTMP, serviços de multimédia suportam uma única mensage
 
 | Nome do Campo | Tipo de campo | Necessário? | Descrições                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| indicação        | Cadeia     | Necessário | A mensagem de evento.  Para mensagens de [SCTE-35], tem de ser o base64 (4648 de RFC da IETF) binário codificado splice_info_section() mensagens a serem enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].                                              |
-| tipo       | Cadeia     | Necessário | Um URN ou uma URL, identificando o esquema de mensagem. Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].  |
-| ID         | Cadeia     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem.  As mensagens com uma semântica equivalente deverá ter o mesmo valor.|
+| indicação        | String     | Necessário | A mensagem de evento.  Para mensagens de [SCTE-35], tem de ser o base64 (4648 de RFC da IETF) binário codificado splice_info_section() mensagens a serem enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].                                              |
+| tipo       | String     | Necessário | Um URN ou uma URL, identificando o esquema de mensagem. Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].  |
+| ID         | String     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem.  As mensagens com uma semântica equivalente deverá ter o mesmo valor.|
 | duração   | Number     | Necessário | A duração do evento ou ad fusão-segmento, se conhecidos. Se desconhecido, o valor deve ser 0.                                                                 |
 | elapsed    | Number     | Opcional | Quando o sinal de ad [SCTE-35] está a ser repetido para Prepare-se, este campo deve ter a quantidade de tempo de apresentação que tiver sido decorrido desde a fusão início. As unidades são segundos fracionais. No modo de [SCTE-35], este valor pode exceder a duração especificada original da fusão ou segmento.                                                  |
 | hora       | Number     | Necessário | A hora de apresentação do evento ou ad fusão.  O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. Saída HLS, de tempo e a duração devem alinhar com os limites de segmento. O tempo de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não se podem sobrepor. As unidades são segundos fracionais.
@@ -102,11 +102,11 @@ A faixa dispersa tem de ser declarada na caixa de manifesto de servidor ao vivo 
 | **Nome de atributo** | **Tipo de campo** | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                 |
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | systemBitrate      | Number         | Necessário      | TEM de ser "0", que indica uma faixa com velocidade de transmissão desconhecida, a variável.                                                                                                                                                                                                 |
-| parentTrackName    | Cadeia         | Necessário      | TEM de ser o nome da faixa principal, para que os códigos de tempo de dispersas track são escala temporal alinhado. A faixa de principal não pode ser um Roteiro disperso.                                                                                                                    |
+| parentTrackName    | String         | Necessário      | TEM de ser o nome da faixa principal, para que os códigos de tempo de dispersas track são escala temporal alinhado. A faixa de principal não pode ser um Roteiro disperso.                                                                                                                    |
 | manifestOutput     | Booleano        | Necessário      | TEM de ser "true", para indicar que a faixa dispersa será incorporada no manifesto do cliente Smooth.                                                                                                                                                               |
-| Subtipo            | Cadeia         | Necessário      | DEVE ser "Dados de" código de quatro caracteres.                                                                                                                                                                                                                         |
-| Esquema             | Cadeia         | Necessário      | TEM de ser um URN ou uma URL identificando o esquema de mensagem. Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. |
-| trackName          | Cadeia         | Necessário      | TEM de ser o nome da faixa dispersa. O trackName pode ser utilizado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo tem de ter um nome exclusivo.                                                                           |
+| Subtipo            | String         | Necessário      | DEVE ser "Dados de" código de quatro caracteres.                                                                                                                                                                                                                         |
+| Esquema             | String         | Necessário      | TEM de ser um URN ou uma URL identificando o esquema de mensagem. Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. |
+| trackName          | String         | Necessário      | TEM de ser o nome da faixa dispersa. O trackName pode ser utilizado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo tem de ter um nome exclusivo.                                                                           |
 | escala temporal          | Number         | Opcional      | TEM de ser a escala temporal da faixa principal.                                                                                                                                                                                                                      |
 
 -------------------------------------
@@ -366,7 +366,7 @@ Os campos do DASHEventMessageBox são definidos abaixo:
 | **Nome do campo**          | **Tipo de campo**          | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | scheme_id_uri           | cadeia                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto de servidor ao vivo. O valor deve ser um URN ou um URL, identificando o esquema de mensagem. Para mensagens de [SCTE-35], isso leva o valor especial "urn: scte:scte35:2013a:bin", embora [SCTE 67] recomenda outra coisa. |
-| Valor                   | cadeia                  | Necessário      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor será definido como o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir).                                                                  |
+| Value                   | cadeia                  | Necessário      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor será definido como o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir).                                                                  |
 | Escala temporal               | número inteiro sem sinal de 32 bits | Necessário      | Escala da temporal, em tiques por segundo, os tempos e campos de duração na caixa 'emsg'.                                                                                                                                                                                                                                                                        |
 | Presentation_time_delta | número inteiro sem sinal de 32 bits | Necessário      | O suporte de dados apresentação intervalo de tempo do tempo de apresentação do evento e a primeira hora de apresentação esse segmento. O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I.                                                                                            |
 | event_duration          | número inteiro sem sinal de 32 bits | Necessário      | A duração do evento ou 0xFFFFFFFF para indicar uma duração de desconhecido.                                                                                                                                                                                                                                                                                          |
