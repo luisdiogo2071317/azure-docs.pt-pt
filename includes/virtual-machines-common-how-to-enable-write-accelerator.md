@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594199"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985487"
 ---
 # <a name="enable-write-accelerator"></a>Ativar o acelerador de escrita
 
@@ -49,8 +49,8 @@ Existem limites de VHDs de armazenamento Premium do Azure por VM, que pode ser s
 | SKU DE VM | Número de discos de acelerador de escrita | Escrever Accelerator disco IOPS por VM |
 | --- | --- | --- |
 | M128ms, 128s | 16 | 8000 |
-| M64s M64ms, M64ls, | 8 | 4000 |
-| M32ms, M32s M32ls, M32ts, | 4 | 2000 |
+| M64ms, M64ls, M64s | 8 | 4000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
 | M16ms, M16s | 2 | 1000 |
 | M8ms, M8s | 1 | 500 |
 
@@ -74,36 +74,36 @@ Para ativar ou implementar discos suportados pela capacidade acelerador de escri
 
 Um novo parâmetro, **- WriteAccelerator** foi adicionado para os seguintes cmdlets:
 
-- [Set-AzureRmVMOsDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
-- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
+- [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
 Não fornecer o parâmetro define a propriedade como false e irá implementar discos com nenhum suporte por acelerador de escrita.
 
 Um novo parâmetro, **- OsDiskWriteAccelerator** foi adicionado para os seguintes cmdlets:
 
-- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
+- [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 Não especificar o parâmetro define a propriedade como false por padrão, retornando discos que não tiram partido do acelerador de escrita.
 
 Um novo booleano (nulo) parâmetro opcional, **- OsDiskWriteAccelerator** foi adicionado para os seguintes cmdlets:
 
-- [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
-- [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
+- [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
+- [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
 Especifique $true ou $false para controlar o suporte do acelerador de escrita do Azure com os discos.
 
 Exemplos de comandos podem ter o seguinte aspeto:
 
 ```PowerShell
-New-AzureRmVMConfig | Set-AzureRmVMOsDisk | Add-AzureRmVMDataDisk -Name "datadisk1" | Add-AzureRmVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVM
+New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
-Get-AzureRmVM | Update-AzureRmVM -OsDiskWriteAccelerator $true
+Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
 
-New-AzureRmVmssConfig | Set-AzureRmVmssStorageProfile -OsDiskWriteAccelerator | Add-AzureRmVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzureRmVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVmss
+New-AzVmssConfig | Set-AzVmssStorageProfile -OsDiskWriteAccelerator | Add-AzVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVmss
 
-Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
+Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 ```
 
 Dois cenários principais podem ser colocado em script conforme mostrado nas seções a seguir.
@@ -128,9 +128,9 @@ $size=1023
 #Pulls the VM info for later
 $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
+Add-AzVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 ### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>Ativar o acelerador de escrita num disco do Azure existente com o PowerShell
@@ -149,9 +149,9 @@ $newstatus = $true
 #Pulls the VM info for later
 $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Set-AzureRmVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
+Set-AzVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 > [!Note]

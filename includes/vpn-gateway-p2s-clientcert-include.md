@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7ae3886db6391836cd8d281e44c95c5253cc8dd5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323894"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985488"
 ---
 Cada computador cliente que se liga a uma VNet com uma ligação ponto a Site tem de ter um certificado de cliente instalado. Gerá-lo a partir do certificado de raiz e instalá-lo em cada computador cliente. Se não instalar um certificado de cliente válido, a autenticação irá falhar quando o cliente tenta estabelecer ligação à VNet.
 
@@ -31,4 +31,8 @@ Pode gerar certificados de cliente através dos seguintes métodos:
   * [Instruções do MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Utilize o MakeCert se não tiver acesso a um computador Windows 10 para gerar certificados. Embora o MakeCert foi preterido, ainda pode utilizá-lo para gerar certificados. Pode instalar os certificados gerados em qualquer cliente P2S suportado.
   * [Instruções para Linux](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
-  Ao gerar um certificado de cliente a partir de um certificado de raiz autoassinado, este é instalado automaticamente no computador que utilizou para gerá-lo. Se pretender instalar um certificado de cliente noutro computador cliente, exporte-o como um ficheiro. pfx, juntamente com a cadeia de certificados inteira. Se o fizer, irá criar um ficheiro. pfx que contém as informações de certificado de raiz necessárias para o cliente autenticar. Para obter os passos exportar um certificado, consulte [gerar e exportar certificados para ligações ponto a Site com o PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
+  Ao gerar um certificado de cliente a partir de um certificado de raiz autoassinado, este é instalado automaticamente no computador que utilizou para gerá-lo. Se pretender instalar um certificado de cliente noutro computador cliente, exporte-o como um ficheiro. pfx, juntamente com a cadeia de certificados inteira. Se o fizer, irá criar um ficheiro. pfx que contém as informações de certificado de raiz necessárias para o cliente autenticar. 
+
+**Para exportar o certificado**
+
+Para obter os passos exportar um certificado, consulte [gerar e exportar certificados para ligações ponto a Site com o PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).

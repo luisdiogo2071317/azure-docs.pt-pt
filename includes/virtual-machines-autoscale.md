@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 93103311e8a9f6f4998195e21cdbc7523b1d4fca
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594342"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985484"
 ---
 Pode facilmente [Dimensionar automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) seu [máquinas virtuais (VMs)](../articles/virtual-machines/windows/overview.md) quando utiliza [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [funcionalidade de dimensionamento automático do Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). As suas VMs tem de ser membros de um conjunto de dimensionamento para ser dimensionada automaticamente. Este artigo fornece informações que permitem-lhe compreender melhor como dimensionar as suas VMs verticalmente e horizontalmente usando métodos automática e manuais.
 
@@ -57,11 +57,11 @@ Pode [configurar acionadores](../articles/azure-monitor/platform/autoscale-webho
 
 Pode adicionar ou remover as VMs, alterando a capacidade do conjunto de dimensionamento. No portal do Azure, pode diminuir ou aumentar o número de VMs (mostrado como **contagem de instâncias**) no conjunto de dimensionamento em deslizante a barra de condição de substituição no ecrã de dimensionamento, esquerdo ou direito.
 
-Com o Azure PowerShell, tem de obter o conjunto de dimensionamento objeto utilizando [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Em seguida, defina o **SKU. CAPACITY** propriedade para o número de VMs que pretende e atualizar o conjunto de dimensionamento com [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Com a CLI do Azure, alterar a capacidade com o **– nova capacidade** parâmetro para o [dimensionamento do az vmss](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) comando.
+Com o Azure PowerShell, tem de obter o conjunto de dimensionamento objeto utilizando [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss). Em seguida, defina o **SKU. CAPACITY** propriedade para o número de VMs que pretende e atualizar o conjunto de dimensionamento com [atualização AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss). Com a CLI do Azure, alterar a capacidade com o **– nova capacidade** parâmetro para o [dimensionamento do az vmss](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) comando.
 
 ### <a name="vertical"></a>Vertical
 
-Pode alterar manualmente o tamanho das VMs no portal do Azure, no ecrã de tamanho para o conjunto de dimensionamento. Pode utilizar o Azure PowerShell com o Get-AzureRmVmss, definindo a propriedade de sku de referência de imagem e, em seguida, usando [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) e [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance).
+Pode alterar manualmente o tamanho das VMs no portal do Azure, no ecrã de tamanho para o conjunto de dimensionamento. Pode utilizar o Azure PowerShell com o Get-AzVmss, definindo a propriedade de sku de referência de imagem e, em seguida, usando [atualização AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) e [atualização AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
