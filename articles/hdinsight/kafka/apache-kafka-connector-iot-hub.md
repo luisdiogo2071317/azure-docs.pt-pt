@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608635"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978073"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Utilizar o Apache Kafka no HDInsight com o Hub IoT do Azure
 
@@ -84,7 +84,7 @@ Para obter mais informações sobre a API de ligar, consulte [ https://kafka.apa
 >
 >    Este comando cria um ficheiro denominado `kafka-connect-iothub-assembly_2.11-0.6.jar` no `target/scala-2.11` diretório para o projeto.
 
-## <a name="configure-apache-kafka"></a>Configurar o Apache Kafka
+## <a name="configure-apache-kafka"></a>Configure Apache Kafka
 
 A partir de uma ligação SSH ao nó de extremidade, utilize os seguintes passos para configurar o Kafka para executar o conector no modo autônomo:
 
@@ -127,7 +127,7 @@ A partir de uma ligação SSH ao nó de extremidade, utilize os seguintes passos
 
     * Alteração da `key.converter=` e `value.converter=` linhas para os seguintes valores:
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
@@ -189,7 +189,7 @@ Para obter informações do hub IoT utilizadas pelo conector do, utilize os segu
 
         Substitua `myhubname` com o nome do IoT hub. A resposta é semelhante ao seguinte texto:
 
-        ```text
+        ```json
         "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
         "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
         "Partitions": 2
@@ -349,7 +349,7 @@ Para enviar mensagens através do conector, utilize os seguintes passos:
     > [!IMPORTANT]  
     > Tem de definir o valor da `"deviceId"` entrada para o ID do seu dispositivo. No exemplo seguinte, o dispositivo tem o nome `fakepi`:
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 

@@ -1,5 +1,5 @@
 # [Documentação de Armazenamento do Data Lake Ger1](index.md)
-# [Documentação de Troca do Armazenamento do Azure Data Lake Ger2 (pré-visualização)](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Documentação de Troca do Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Descrição geral
 ## [Descrição Geral do Armazenamento do Data Lake Ger1](data-lake-store-overview.md)

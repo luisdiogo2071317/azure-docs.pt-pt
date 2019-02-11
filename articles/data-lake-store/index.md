@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 4e2fcdac282d0cca9fe993efdaf787e43c2b6e9d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433821"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869199"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentação de Armazenamento do Azure Data Lake Ger1
 
-Saiba como utilizar o Armazenamento do Azure Data Lake Ger1 (anteriormente conhecido como Azure Data Lake Store) para criar um repositório de hiperescala compatível com o Hadoop para análises em dados de qualquer tamanho, tipo e velocidade de ingestão. Tutoriais, referências de API e outra documentação mostram-lhe como configurar, gerir e aceder a um repositório do data lake para análises exploratórias e operacionais.
+O Azure Data Lake Storage Gen2 já está em disponibilidade geral. Recomendamos que comece a utilizar hoje. Para mais informações, veja a [página de produtos](https://aka.ms/adlsgen2-product).
 
-Se estiver interessado em saber mais sobre a pré-visualização do Armazenamento do Data Lake Ger2, veja a [página de produto](https://aka.ms/adlsgen2-product).
+Saiba como utilizar o Armazenamento do Azure Data Lake Ger1 (anteriormente conhecido como Azure Data Lake Store) para criar um repositório de hiperescala compatível com o Hadoop para análises em dados de qualquer tamanho, tipo e velocidade de ingestão. Tutoriais, referências de API e outra documentação mostram-lhe como configurar, gerir e aceder a um repositório do data lake para análises exploratórias e operacionais.
 
 <ul class="panelContent cardsFTitle">
     <li>
