@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ab47165118b68e91c1218be35c6f88aa55350e2
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190906"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982612"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQs sobre a configuração e gestão de aplicações Web no Azure
 
@@ -68,7 +68,7 @@ Para definir o fuso horário do servidor para a sua aplicação web:
 
 1. No portal do Azure, na sua subscrição do serviço de aplicações, vá para o **as definições da aplicação** menu.
 2. Sob **as definições da aplicação**, adicione esta definição:
-    * Chave = WEBSITE_TIME_ZONE
+    * Key = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que pretende*
 3. Selecione **Guardar**.
 
@@ -244,7 +244,7 @@ Pode criar um WebJob agendado com expressões Cron:
 
 1. Crie um ficheiro Settings.
 2. Neste ficheiro de JSON, incluem uma propriedade de agenda, utilizando uma expressão Cron: 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -270,7 +270,7 @@ Como a mensagem indica, este processo de verificação de fraude poderá demorar
 
 Se o certificado do serviço de aplicação continua a mostrar esta mensagem após 24 horas, execute o seguinte script do PowerShell. Os contactos do script da [fornecedor de certificados](https://www.godaddy.com/) diretamente para resolver o problema.
 
-```
+```powershell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
@@ -312,10 +312,10 @@ Se nenhuma dessas condições aplicam-se e o problema persistir, submeta um pedi
 
 Para ativar a compressão para tipos de conteúdos estáticos e dinâmicos, adicione o seguinte código ao ficheiro Web. config de nível de aplicativo:
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 Também pode especificar os tipos de MIME estáticos e dinâmicos específicos que pretende comprimir. Para obter mais informações, consulte a resposta a uma pergunta do fórum no [httpCompression definições num Web site do Azure simple](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).

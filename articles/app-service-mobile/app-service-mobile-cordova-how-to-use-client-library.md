@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959738"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962456"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de clientes do Apache Cordova para aplicações móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -55,7 +55,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 Adicione as seguintes linhas para `app.component.ts` para criar o objeto de cliente:
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -71,19 +71,19 @@ O plug-in do Cordova de aplicações do Azure Mobile oferece suporte a ambas as 
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Como: autenticar utilizadores
-Serviço de aplicações do Azure suporta autenticar e autorizar utilizadores da aplicação com vários fornecedores de identidade externo: Facebook, Google, Microsoft Account e Twitter. Pode definir permissões em tabelas para restringir o acesso para operações específicas para apenas os utilizadores autenticados. Também pode utilizar a identidade de usuários autenticados para implementar regras de autorização em scripts de servidor. Para obter mais informações, consulte a [introdução à autenticação] tutorial.
+## <a name="auth"></a>Como: Autenticar utilizadores
+Serviço de aplicações do Azure oferece suporte a autenticar e autorizar utilizadores da aplicação com vários fornecedores de identidade externo: Facebook, Google, conta Microsoft e Twitter. Pode definir permissões em tabelas para restringir o acesso para operações específicas para apenas os utilizadores autenticados. Também pode utilizar a identidade de usuários autenticados para implementar regras de autorização em scripts de servidor. Para obter mais informações, consulte a [introdução à autenticação] tutorial.
 
 Ao utilizar a autenticação numa aplicação Apache Cordova, os plug-ins do Cordova seguintes têm de estar disponíveis:
 
-* [dispositivo de plug-in do cordova]
-* [cordova-Plug-in-inappbrowser]
+* [cordova-plugin-device]
+* [cordova-plugin-inappbrowser]
 
 Dois fluxos de autenticação são suportados: um fluxo de servidor e um fluxo de cliente.  O fluxo de servidor fornece a experiência de autenticação mais simples, pois depende de interface de autenticação de web do fornecedor. O fluxo de cliente permite uma integração mais profunda com recursos específicos do dispositivo, tais como início de sessão único, pois depende de SDKs de dispositivo específicos de específica do fornecedor.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Como: configurar o serviço de aplicações móveis para os URLs de redirecionamento externo.
+### <a name="configure-external-redirect-urls"></a>Como: Configure o serviço de aplicações móveis para os URLs de redirecionamento externo.
 Vários tipos de aplicativos do Apache Cordova utilizam uma capacidade de loopback para lidar com fluxos de interface do Usuário do OAuth.  Fluxos de interface do Usuário de OAuth no localhost causam problemas, uma vez que o serviço de autenticação só sabe como utilizar o seu serviço por predefinição.  Exemplos de fluxos de interface do Usuário do OAuth problemáticos incluem:
 
 * O emulador Ripple.
@@ -123,10 +123,10 @@ Adicione também estes URLs de loopback para as definições de CORS para o serv
 
 Demora aproximadamente 10 a 15 segundos para as novas definições surtam efeito.
 
-## <a name="register-for-push"></a>Como: registo para notificações push
+## <a name="register-for-push"></a>Como: Registre-se para notificações push
 Instalar o [phonegap-Plug-in-push] para processar as notificações push.  Este plug-in pode ser facilmente adicionado usando o `cordova plugin add` comando na linha de comandos, ou através do instalador de plug-in do Git no Visual Studio.  O código a seguir na sua aplicação Apache Cordova regista o dispositivo para as notificações push:
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'
@@ -179,6 +179,6 @@ Pode encontrar detalhes de API detalhadas em nossa [documentação da API](https
 [sua primeira aplicação Apache Cordova]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-Plug-in-push]: https://www.npmjs.com/package/phonegap-plugin-push
-[dispositivo de plug-in do cordova]: https://www.npmjs.com/package/cordova-plugin-device
-[cordova-Plug-in-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
+[cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
+[cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

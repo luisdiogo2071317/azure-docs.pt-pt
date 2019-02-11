@@ -11,16 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3cf819ceb01e52b029e8654dddc355afd27a9b63
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631673"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983003"
 ---
-# <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
+# <a name="azure-media-services-release-notes-legacy"></a>Notas de serviços de multimédia do Azure (Legado)
+
 Estas notas de versão para serviços de multimédia do Azure resumir as alterações de versões anteriores e problemas conhecidos.
 
 > [!NOTE]
@@ -484,8 +485,8 @@ As seguintes alterações são incluídas em Junho de 2013 da versões do SDK de
 * APIs relacionadas a notificação. A partir da versão 2.2.0.0, pode ouvir para notificações de armazenamento de filas do Azure. Para obter mais informações, consulte [notificações da tarefa de lidar com os serviços de multimédia](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
-    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint
-    * Tipo de Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription
+    * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint type
+    * Microsoft.WindowsAzure.MediaServices.Client.IJobNotificationSubscription type
     * Tipo de Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointCollection
     * Tipo de Microsoft.WindowsAzure.MediaServices.Client.NotificationEndPointType
 * Dependência de cliente de armazenamento SDK 2.0 (Microsoft.WindowsAzure.StorageClient.dll)
@@ -504,7 +505,7 @@ Correções para problemas encontrados em Novembro de 2012 SDK:
 * IAssetFile.Upload(filepath): Um problema foi corrigido em que este método de carregamento síncronos estava gerando o erro seguinte quando vários ficheiros foram carregados para o elemento. O erro foi "Falha ao autenticar o pedido de servidor. Certifique-se de que o valor de cabeçalho de autorização está formado corretamente, incluindo a assinatura."
 * IAssetFile.UploadAsync: Um problema foi corrigido que limitou o simultâneo carregamento de ficheiros a cinco ficheiros.
 * IAssetFile.UploadProgressChanged: Este evento é agora fornecido pelo SDK.
-* IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): Essa sobrecarga do método agora é fornecida.
+* IAssetFile.DownloadAsync(string, BlobTransferClient, ILocator, CancellationToken): Essa sobrecarga do método agora é fornecida.
 * IAssetFile.DownloadAsync: Um problema foi corrigido que limitou o download simultâneo de ficheiros a cinco ficheiros.
 * IAssetFile.Delete(): Um problema foi corrigido onde chamada delete pode gerar uma exceção se nenhum arquivo foi carregado para o IAssetFile.
 * Tarefas: Um problema foi corrigido onde encadeamento um "MP4 a tarefa de fluxos suave" com uma "tarefa de proteção de PlayReady" ao utilizar um modelo de tarefa não tiver criado quaisquer tarefas de todo.
@@ -526,7 +527,7 @@ As alterações mencionadas nesta seção foram atualizações incluídas em Nov
     * IAssetFile substitui FileInfo e tem um comportamento diferente. Para usá-lo, instancie o objeto de IAssetFiles, seguido de um carregamento de ficheiros através da utilização do SDK de Media Services ou o SDK de armazenamento. Podem ser utilizadas as sobrecargas de IAssetFile.Upload seguintes:
   
         * IAssetFile.Upload(filePath): Este método síncrono bloqueia o thread e recomendamos apenas quando carregar um único ficheiro.
-        * IAssetFile.UploadAsync (filePath, blobTransferClient, localizador, cancellationToken): Este método assíncrono é o mecanismo de carregamento preferido. 
+        * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): Este método assíncrono é o mecanismo de carregamento preferido. 
     
             Erro conhecido: Se utilizar o token de cancelamento, o carregamento foi cancelado. As tarefas podem ter vários Estados de cancelamento. Corretamente tem de detetar e lidar com exceções.
 * Localizadores

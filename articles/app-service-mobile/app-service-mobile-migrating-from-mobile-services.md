@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118997"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960747"
 ---
 # <a name="article-top"></a>Migrar o seu serviço de móvel atual do Azure App Service do Azure
 Com o [disponibilidade geral do serviço de aplicações do Azure], sites de serviços móveis do Azure podem ser migradas facilmente no local para tirar partido de todas as funcionalidades do serviço de aplicações do Azure.  Este documento explica o que esperar ao migrar seu site de serviços móveis do Azure App Service do Azure.
@@ -321,7 +321,7 @@ Para ver os registos:
 3. Clique nas **ferramentas** botão
 4. Selecione **Log Stream** no OBSERVE menu.
 
-Os registos são apresentados na janela à medida que são gerados.  Também pode transferir os registos para análise posterior com as suas credenciais de implementação. Para obter mais informações, consulte a [Registro em log] documentação.
+Os registos são apresentados na janela à medida que são gerados.  Também pode transferir os registos para análise posterior com as suas credenciais de implementação. Para obter mais informações, consulte a [Logging] documentação.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>A eliminar um Clone de migrados de aplicações móveis faz com que uma interrupção do site
@@ -332,7 +332,7 @@ Resolução: Se deseja clonar seu site, faça-o através do portal.
 ### <a name="changing-webconfig-does-not-work"></a>A alteração de Web. config não funciona
 Se tiver um site ASP.NET, é alterado para o `Web.config` não são aplicadas ao ficheiro.  O serviço de aplicações do Azure baseia-se um adequado `Web.config` ficheiro durante o arranque para suportar o tempo de execução de serviços móveis.  É possível substituir determinadas definições (por exemplo, os cabeçalhos personalizados), utilizando um ficheiro de transformação XML.  Crie um ficheiro na chamada `applicationHost.xdt` -este ficheiro deve resultar no `D:\home\site` no serviço do Azure.  Carregar o `applicationHost.xdt` de ficheiros através de um script de implementação personalizado ou utilizar o Kudu diretamente.  O código a seguir mostra um documento de exemplo:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>
@@ -388,7 +388,7 @@ Agora que a aplicação é migrada para o serviço de aplicações, há ainda ma
 [Fiddler]: https://www.telerik.com/fiddler
 [disponibilidade geral do serviço de aplicações do Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Registro em log]: ../app-service/troubleshoot-diagnostic-logs.md
+[Logging]: ../app-service/troubleshoot-diagnostic-logs.md
 [SDK de node. js de aplicações móveis]: https://github.com/azure/azure-mobile-apps-node
 [Os serviços móveis vs. Serviço de aplicações]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Hubs de Notificação]: ../notification-hubs/notification-hubs-push-notification-overview.md
