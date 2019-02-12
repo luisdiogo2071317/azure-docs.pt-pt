@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: ba3ca363afe96c137a4a9eecdeda33e0f9129111
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868434"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997911"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utilizar o Gestor de tráfego do Microsoft Azure para gerir a quota de ponto final através de chaves
 Compreensão de idiomas (LUIS) oferece a capacidade para aumentar a quota de pedido de ponto de extremidade para além de quota de uma chave única. Isso é feito através da criação de mais chaves para LUIS e adicioná-los para a aplicação do LUIS no **Publish** página no **recursos e as chaves** secção. 
@@ -362,6 +362,9 @@ A resposta com êxito com o ponto de final do LUIS é:
 ## <a name="use-the-traffic-manager-parent-profile"></a>Utilizar o perfil de principal do Gestor de tráfego
 Para gerir o tráfego em pontos finais, terá de inserir uma chamada para o DNS do Gestor de tráfego para encontrar o ponto de final do LUIS. Esta chamada é feita para cada solicitação de ponto final do LUIS e precisa simular a localização geográfica do utilizador da aplicação de cliente do LUIS. Adicione o código de resposta DNS entre a aplicação de cliente do LUIS e o pedido para o LUIS para a predição de ponto final. 
 
+## <a name="resolving-a-degraded-state"></a>Resolução de um Estado degradado
+
+Ativar [registos de diagnóstico](../../traffic-manager/traffic-manager-diagnostic-logs.md) para o Gestor de tráfego para ver por que o estado do ponto final está degradado.
 
 ## <a name="clean-up"></a>Limpeza
 Remova as duas chaves de ponto final do LUIS, os três perfis do Gestor de tráfego e o grupo de recursos que continha estes recursos de cinco. Isso é feito a partir do portal do Azure. Eliminar os recursos de cinco na lista de recursos. Em seguida, elimine o grupo de recursos. 

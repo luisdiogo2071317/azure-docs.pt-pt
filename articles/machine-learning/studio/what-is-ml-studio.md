@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 6b6c64d82f4e4d48178b2b0a4f8f02b99d0f0b77
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6c45c7d70a1a091440d33ba76aa430c9a9252144
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982476"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997996"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -78,7 +78,7 @@ Pode criar uma experimentação de raiz, ou pode utilizar uma experimentação d
 
 Para obter um exemplo de criação de uma experimentação simples, consulte o artigo [Criar uma experimentação simples no Azure Machine Learning Studio](create-experiment.md).
 
-Para instruções mais completas sobre a criação de uma solução de análise preditiva, consulte o artigo [Desenvolver uma solução preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Para instruções mais completas sobre a criação de uma solução de análise preditiva, consulte o artigo [Desenvolver uma solução preditiva com o Azure Machine Learning](tutorial-part1-credit-risk.md).
 
 ### <a name="datasets"></a>Conjuntos de dados
 Um conjunto de dados que foi carregado no Machine Learning Studio para que possa ser utilizado no processo de modelação. Um número de conjuntos de dados de exemplo está incluído no Machine Learning Studio para experimentação e pode carregar mais conjuntos de dados conforme seja necessário. Seguem-se alguns exemplos de conjuntos de dados incluídos:

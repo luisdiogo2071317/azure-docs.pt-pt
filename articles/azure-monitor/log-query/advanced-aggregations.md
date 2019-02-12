@@ -1,6 +1,6 @@
 ---
-title: Advanced agregações em consultas do Log Analytics do Azure | Documentos da Microsoft
-description: Descreve algumas das opções mais avançadas de agregação disponíveis para consultas do Log Analytics.
+title: Advanced agregações em consultas de registo do Azure Monitor | Documentos da Microsoft
+description: Descreve algumas das opções mais avançadas de agregação disponíveis para consultas de registo do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186366"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005425"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Agregações avançadas em consultas do Log Analytics
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Advanced agregações em consultas de registo do Azure Monitor
 
 > [!NOTE]
-> Deve efetuar [agregações em consultas do Log Analytics](./aggregations.md) antes de concluir esta lição.
+> Deve efetuar [agregações em consultas do Azure Monitor](./aggregations.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve algumas das opções mais avançadas de agregação disponíveis para consultas do Log Analytics.
+Este artigo descreve algumas das opções mais avançadas de agregação disponíveis para consultas do Azure Monitor.
 
 ## <a name="generating-lists-and-sets"></a>Geração de listas e conjuntos
 Pode usar `makelist` aos dados pivot ordem dos valores numa determinada coluna. Por exemplo, pode querer explorar o local de take de eventos de ordem mais comuns nas suas máquinas. Essencialmente, pode dinamizar os dados a ordem dos EventIDs em cada máquina. 
@@ -110,9 +110,9 @@ Heartbeat
 ```
 |Soluções | list_Computer |
 |--------------|----------------------|
-| "segurança" | ["Computador1", "computador2"] |
-| "atualizações" | ["Computador1", "computador2"] |
-| "changeTracking" | ["Computador1", "computer3"] |
+| "segurança" | ["computer1", "computer2"] |
+| "atualizações" | ["computer1", "computer2"] |
+| "changeTracking" | ["computer1", "computer3"] |
 | "antiMalware" | ["computer3"] |
 | ... | ... |
 
@@ -142,7 +142,7 @@ Heartbeat
 
 | Categoria | count_ | TimeGenerated |
 |---|---|---|
-| Agente Direto | [15,60,0,55,60,57,60...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
+| Agente Direto | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
 
 O terceiro elemento do *count_* matriz é 0, conforme o esperado e não existe um carimbo de correspondência de "2017-06-06T19:00:00.0000000Z" no _TimeGenerated_ matriz. Esse formato de matriz é difícil de ler, no entanto. Uso `mvexpand` para expandir as matrizes e produzir o mesmo formato de saída gerados por `summarize`:
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte outras lições para utilizar a linguagem de consulta do Log Analytics:
+Consulte outras lições para utilizar o [linguagem de consulta do Data Explorer](/azure/kusto/query/) com o Azure Monitor registos de dados:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

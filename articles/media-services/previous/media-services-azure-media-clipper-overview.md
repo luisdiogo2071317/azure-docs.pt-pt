@@ -6,17 +6,18 @@ keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d306bc3b9e206e5f21f9c16c0cd32bc599f1b6d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237915"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003164"
 ---
-# <a name="create-clips-with-azure-media-clipper"></a>Crie clips a com o Azure Media Clipper
+# <a name="create-clips-with-azure-media-clipper"></a>Crie clips a com o Azure Media Clipper 
+
 Azure Media Clipper é uma biblioteca de JavaScript gratuita que permite que os desenvolvedores da web fornecer aos usuários uma interface para a criação de clips de suporte de dados. Essa ferramenta pode ser integrada em qualquer página da web e fornece APIs para o carregamento de recursos e submeter tarefas de recorte.
 
 Azure Media Clipper permite-lhe:
@@ -41,11 +42,11 @@ Consulte a lista a seguir para a mensagem de blogue Clipper, vários problemas c
 ## <a name="browser-support"></a>Suporte do browser
 Azure Media Clipper é criada usando tecnologias do HTML5 modernos e suporta os seguintes browsers:
 
-- Microsoft Edge 13 +
-- Internet Explorer 11 +
+- Microsoft Edge 13+
+- Internet Explorer 11+
 - Chrome 54 +
-- Safari 10 e posterior
-- Firefox mais de 50
+- Safari 10+
+- Firefox 50+
 
 > [!NOTE]
 > Apenas HTML5 reprodução de fluxos dos serviços de multimédia do Azure é atualmente suportada.

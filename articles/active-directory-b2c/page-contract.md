@@ -10,18 +10,21 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 637cdb338496764e64c18a887673808ef4e8415a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fa48d3825b5b942497b1eabd19a1eeb7e0141058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203458"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003147"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selecione um contrato de página com as políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Pode selecionar um contrato de página no Azure Active Directory (Azure AD) B2C ao configurá-lo num [políticas personalizadas](active-directory-b2c-overview-custom.md). Um contrato de página é um assocation de elementos que fornece o Azure AD B2C e o conteúdo que fornecer. Se pretende usar [Javascript](javascript-samples.md), é necessário definir uma versão de contrato de página para todas as suas definições de conteúdo na sua política personalizada.
+Pode ativar o código do lado do cliente de JavaScript nas políticas do Azure Active Directory (Azure AD) B2C, quer esteja a utilizar fluxos de utilizador ou políticas personalizadas. Este artigo discute como selecionar um contrato de página no Azure AD B2C ao configurá-lo num [política personalizada](active-directory-b2c-overview-custom.md). Um contrato de página é uma associação de elementos que fornece o Azure AD B2C e o conteúdo que fornecer. Se pretende usar [Javascript](javascript-samples.md), é necessário definir uma versão de contrato de página para todas as suas definições de conteúdo na sua política personalizada.
+
+> [!NOTE]
+> Se pretender ativar o JavaScript para fluxos de utilizador, consulte [sobre a utilização de versões de contrato de página e JavaScript num fluxo de utilizador](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>Substitua os valores de URI de dados
 

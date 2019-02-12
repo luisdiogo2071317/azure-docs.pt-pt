@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3521f910ded2e24de9cfa7b1aa1d635843527ef5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2a9b84b20ab1480c9b0222980cb36c40e8017973
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878821"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989319"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Escalões de serviço de base de dados SQL do Azure
 
@@ -30,7 +30,7 @@ Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados do
 Este artigo aborda considerações de armazenamento e cópia de segurança para os escalões de serviço para fins gerais e crítico para a empresa no modelo de compra baseado em vCore.
 
 > [!NOTE]
-> Para obter detalhes sobre a camada de serviços de Hiperescala no modelo de compra baseado em vCore, consulte [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md). Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-service-tiers.md).
+> Para obter detalhes sobre a camada de serviços de Hiperescala no modelo de compra baseado em vCore, consulte [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md). Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="data-and-log-storage"></a>Armazenamento de dados e de registo
 

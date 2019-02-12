@@ -11,15 +11,16 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: cf73708682a8434ffabaff101d6d6928671af4b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468636"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003725"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
+
 Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
 
 ## <a name="overview"></a>Descrição geral
@@ -33,11 +34,14 @@ Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encol
 - Permita a alteração de uma base de dados individual ou de um conjunto elástico para outro escalão de serviço ou escalão de desempenho com um tamanho máximo mais baixo.
 
 ### <a name="monitoring-file-space-usage"></a>Monitorizar a utilização do espaço de ficheiro
+
 A maioria das métricas de espaço de armazenamento apresentadas no portal do Azure e as seguintes APIs apenas medem o tamanho das páginas de dados utilizados:
+
 - O Azure Resource Manager com base em métricas de APIs incluindo PowerShell [get-métricas](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço alocado para bases de dados e elastic pools:
+
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -62,13 +66,14 @@ Noções básicas sobre as seguintes quantidades de espaço de armazenamento sã
 
 O diagrama seguinte ilustra a relação entre os diferentes tipos de espaço de armazenamento para uma base de dados.
 
-![tipos de espaço de armazenamento e as relações](./media/sql-database-file-space-management/storage-types.png) 
+![tipos de espaço de armazenamento e as relações](./media/sql-database-file-space-management/storage-types.png)
 
 ## <a name="query-a-database-for-storage-space-information"></a>Consultar uma base de dados para obter informações de espaço de armazenamento
 
 As seguintes consultas podem ser utilizadas para determinar as quantidades de espaço de armazenamento para uma base de dados.  
 
 ### <a name="database-data-space-used"></a>Espaço de dados de base de dados utilizado
+
 Modifique a consulta seguinte para devolver a quantidade de espaço de dados de base de dados utilizado.  As unidades do resultado da consulta são em MB.
 
 ```sql
@@ -81,6 +86,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de base de dados alocados e o espaço alocado não utilizado
+
 Utilize a seguinte consulta para devolver a quantidade de espaço de dados de base de dados alocado e a quantidade de espaço não utilizado alocado.  As unidades do resultado da consulta são em MB.
 
 ```sql
@@ -94,6 +100,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>Tamanho máximo de dados de base de dados
+
 Modifique a consulta seguinte para devolver o tamanho máximo de dados de base de dados.  As unidades do resultado da consulta são em bytes.
 
 ```sql

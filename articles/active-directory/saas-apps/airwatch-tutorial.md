@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 96a3bb1c-96c6-40dc-8ea0-060b0c2a62e5
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 366ffa560cb16f6445eca93e79068fba6cc31e6d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 11e1278451e484336c9f35935f03bbeb0a8c6414
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813122"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004507"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integração do Active Directory do Azure com AirWatch
 
@@ -78,8 +78,8 @@ Para configurar e testar o Azure AD início de sessão único com AirWatch, tem 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar AirWatch Single Sign-On](#configure-airwatch-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste da AirWatch](#create-airwatch-test-user)**  - para ter um equivalente da Eduarda Almeida na AirWatch que está ligado à representação de utilizador do Azure AD.
+4. **[Criar utilizador de teste da AirWatch](#create-airwatch-test-user)**  - para ter um equivalente da Eduarda Almeida na AirWatch que está ligado à representação de utilizador do Azure AD.
+5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -111,11 +111,40 @@ Para configurar o Azure AD início de sessão único com AirWatch, execute os se
     > [!NOTE]
     > Este valor não é a verdadeira. Atualize este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente da AirWatch](https://www.air-watch.com/company/contact-us/) para obter este valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. Aplicação da AirWatch espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+
+    ![image](common/edit-attribute.png)
+
+6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
+
+    | Name |  Atributo de origem|
+    |---------------|----------------|
+    | UID | user.userprincipalname |
+    | | |
+
+    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+
+    c. Deixe o **espaço de nomes** em branco.
+
+    d. Selecione a origem de dado **atributo**.
+
+    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+
+    f. Clique em **Ok**
+
+    g. Clique em **Guardar**.
+
+7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/metadataxml.png)
 
-6. Sobre o **configurar AirWatch** secção, copie os URLs apropriados de acordo com seus requisitos.
+8. Sobre o **configurar AirWatch** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 

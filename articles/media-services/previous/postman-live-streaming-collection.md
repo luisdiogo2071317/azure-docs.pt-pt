@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6e931e8c3696b53724d7893100bb1749856f04f9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98c687b620aea484a4ced1385d7a2301db55ce79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976357"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998455"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations-legacy"></a>Importar uma coleção do Postman com operações de transmissão em direto (Legado)
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>Importar uma coleção do Postman com operações de transmissão em direto 
 
 Este artigo contém uma definição do **Postman** coleção que contenha HTTP agrupado solicita essa chamada **transmissão em direto** APIs de REST de serviços de multimédia do Azure. Para obter informações sobre como configurar **Postman** para que possa ser utilizada para chamar as APIs de REST de serviços de multimédia, veja [chama de configurar o Postman para a API de REST dos serviços de multimédia](media-rest-apis-with-postman.md) tutorial.
 

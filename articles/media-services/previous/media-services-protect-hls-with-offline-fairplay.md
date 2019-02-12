@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251837"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991519"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Offline FairPlay Streaming para iOS 
  Serviços de multimédia do Azure fornece um conjunto de bem projetado [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/) que descrevem:
@@ -115,14 +115,14 @@ Agora a sua conta de Media Services é configurada para entregar licenças do Fa
 ## <a name="sample-ios-player"></a>Exemplo iOS Player
 O suporte de modo offline do FPS está disponível apenas no iOS 10 e posterior. O SDK de servidor FPS (versão 3.0 ou posterior) contém o documento e o exemplo para o modo offline do FPS. Especificamente, FPS Server SDK (versão 3.0 ou posterior) contém os seguintes dois itens relacionados para o modo offline:
 
-* Documentos: "reprodução Offline com FairPlay Streaming e HTTP Live Streaming." Apple, 14 de Setembro de 2016. No SDK de servidor FPS versão 4.0, este documento é intercalado com o documento FPS principal.
-* Código de exemplo: exemplo de HLSCatalog para o modo offline do FPS no \FairPlay SDK do servidor de transmissão em fluxo versão 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. No aplicativo de exemplo HLSCatalog, os arquivos de código seguintes são utilizados para implementar recursos no modo offline:
+* Documento: "Reprodução offline com FairPlay Streaming e HTTP Live Streaming." Apple, 14 de Setembro de 2016. No SDK de servidor FPS versão 4.0, este documento é intercalado com o documento FPS principal.
+* Código de exemplo: Exemplo de HLSCatalog para o modo offline do FPS no \FairPlay SDK do servidor de transmissão em fluxo versão 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. No aplicativo de exemplo HLSCatalog, os arquivos de código seguintes são utilizados para implementar recursos no modo offline:
 
     - Arquivo de código AssetPersistenceManager.swift: AssetPersistenceManager é a classe principal nesse exemplo que demonstra como:
 
         - Gerir fluxos HLS download, como as APIs utilizadas para iniciar e cancelar downloads e eliminar recursos existentes de desativar dispositivos.
         - Monitorize o progresso do download.
-    - Arquivos de código AssetListTableViewController.swift e AssetListTableViewCell.swift: AssetListTableViewController é a interface principal deste exemplo. Ele fornece uma lista de recursos que o exemplo que pode utilizar para reproduzir, transferir, eliminar ou cancelar um download. 
+    - AssetListTableViewController.swift e AssetListTableViewCell.swift arquivos de código: AssetListTableViewController é a interface principal deste exemplo. Ele fornece uma lista de recursos que o exemplo que pode utilizar para reproduzir, transferir, eliminar ou cancelar um download. 
 
 Estes passos mostram como configurar um leitor de iOS em execução. Partindo do princípio de que começar a partir do exemplo HLSCatalog no SDK de servidor FPS versão 4.0.1, efetue as seguintes alterações de código:
 

@@ -1,8 +1,8 @@
 ---
-title: Predefinições de tarefas para codificador de multimédia Standard (MES) | Microsoft Docs
-description: O tópico proporciona e predefinições de descrição geral de exemplo definidas pelo serviço de suporte de dados codificador padrão (MES).
+title: Predefinições de tarefas para o Media Encoder Standard (MES) | Documentos da Microsoft
+description: O tópico apresenta e descrição geral do exemplo definidas pelo serviço de predefinições para o Media Encoder Standard (MES).
 author: Juliako
-manager: cfow
+manager: femila
 editor: johndeu
 services: media-services
 documentationcenter: ''
@@ -12,78 +12,78 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9d32397773a5ede4ddc2a27c367f2750078e28c6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788593"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998155"
 ---
-# <a name="sample-presets-for-media-encoder-standard-mes"></a>Predefinições de exemplo para codificador de multimédia Standard (MES)
+# <a name="sample-presets-for-media-encoder-standard-mes"></a>Configurações predefinidas de exemplo para o Media Encoder Standard (MES)
 
-**Codificador de multimédia Standard** define um conjunto de predefinições, pode utilizar quando criar tarefas de codificação de codificação de sistema previamente definido. Recomenda-se para utilizar o "transmissão em fluxo adaptável" da configuração predefinida se pretende codificar um vídeo para transmissão em fluxo com os Media Services. Se especificar esta será codificador de multimédia Standard predefinida, [gerar automaticamente um ladder de velocidade de transmissão](media-services-autogen-bitrate-ladder-with-mes.md). 
+**Codificador de multimédia Standard** define um conjunto de sistema predefinido de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Recomenda-se para utilizar o "transmissão em fluxo adaptável" configuração predefinida para codificar um vídeo para transmissão em fluxo com os serviços de multimédia. Se especificar esta predefinição, irá Media Encoder Standard [gerar automaticamente uma escala de bits](media-services-autogen-bitrate-ladder-with-mes.md). 
 
-### <a name="creating-custom-presets-from-samples"></a>Criar predefinições personalizadas de amostras
-Os Media Services suportam totalmente a personalizar todos os valores nas predefinições para satisfazer as suas necessidades específicas de codificação e requisitos. Se precisar de personalizar uma predefinição de codificação, deve começar com uma do abaixo predefinições do sistema que são fornecidas nesta secção como um modelo para a sua configuração personalizada. Para explicações de que cada elemento no meio estas predefinições e os valores válidos para cada elemento, consulte o [esquema codificador de multimédia Standard](media-services-mes-schema.md) tópico.  
+### <a name="creating-custom-presets-from-samples"></a>Criar configurações predefinidas personalizadas a partir de exemplos
+Serviços de multimédia suporta totalmente a personalizar todos os valores nas predefinições para atender às suas necessidades específicas de codificação e requisitos. Se precisar de personalizar uma predefinição de codificação, deve começar com um do abaixo predefinições do sistema que são fornecidas nesta secção como um modelo para a sua configuração personalizada. Para obter explicações de que cada elemento desses meios de suas configurações predefinidas e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md) tópico.  
   
 > [!NOTE]
->  Quando utilizar uma predefinição de 4K codifica, pode ser obtido o `S3` reservados de um tipo de unidade. Para obter mais informações, consulte [como codificação de escala](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Quando utilizar uma configuração predefinida para codifica 4K, obterá o `S3` reservados de tipo de unidade. Para obter mais informações, consulte [como a codificação de escala](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
 
-#### <a name="video-rotation-default-setting-in-presets"></a>Predefinição rotação de vídeo no predefinições:
-Ao trabalhar com o codificador de multimédia Standard, rotação vídeo está ativada por predefinição. Se as vídeo tem sido registado num dispositivo móvel no modo de vertical, em seguida, estas predefinições serão rodá-los para o modo horizontal antes da codificação.
+#### <a name="video-rotation-default-setting-in-presets"></a>Configuração de padrão de rotação de vídeo em suas configurações predefinidas:
+Ao trabalhar com o Media Encoder Standard, a rotação de vídeo está ativada por predefinição. Se o seu vídeo foi registrado num dispositivo móvel no modo retrato, em seguida, essas configurações predefinidas de irão girá-los para modo paisagem antes da codificação.
  
-## <a name="available-presets"></a>Predefinições disponíveis: 
+## <a name="available-presets"></a>Configurações de predefinidas disponíveis: 
 
- [H264 de múltipla 1080p áudio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) produz um conjunto de 8 ficheiros MP4 alinhada GOP, vão de 6000 kbps 400 kbps e AAC 5.1 áudio.  
+ [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md) produz um conjunto de ficheiros MP4 de alinhado GOP de 8, desde 6000 kbps até 400 kbps e áudio AAC 5.1.  
   
- [H264 múltipla 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md) produz um conjunto de 8 ficheiros MP4 alinhada GOP, vão de 6000 kbps 400 kbps e stereo áudio AAC.  
+ [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md) produz um conjunto de ficheiros MP4 de alinhado GOP de 8, desde 6000 kbps até 400 kbps e áudio AAC estéreo.  
   
- [H264 múltipla 16 x 9 para iOS](media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md) produz um conjunto de 8 ficheiros MP4 alinhada GOP, vão de 8500 kbps 200 kbps e stereo áudio AAC.  
+ [H264 taxa de bits múltiplas 16x9 para iOS](media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md) produz um conjunto de ficheiros MP4 de alinhado GOP de 8, desde 8500 kbps até 200 kbps e áudio AAC estéreo.  
   
- [H264 múltipla 16 x 9 SD áudio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md) produz um conjunto de 5 ficheiros MP4 alinhada GOP, vão de 1900 kbps 400 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits múltiplas 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md) produz um conjunto de ficheiros MP4 de alinhado GOP de 5, desde kbps de 1900 até 400 kbps e áudio AAC 5.1.  
   
- [H264 múltipla 16 x 9 SD](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md) produz um conjunto de 5 ficheiros MP4 alinhada GOP, vão de 1900 kbps 400 kbps e stereo áudio AAC.  
+ [H264 taxa de bits múltiplas 16x9 SD](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md) produz um conjunto de ficheiros MP4 de alinhado GOP de 5, desde kbps de 1900 até 400 kbps e áudio AAC estéreo.  
   
- [Áudio H264 múltipla 4K 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md) produz um conjunto de 12 ficheiros MP4 alinhada GOP, vão de 20000 kbps a 1000 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits múltiplas 4K Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md) produz um conjunto de 12 ficheiros MP4 alinhado GOP, desde 20000 kbps até 1000 kbps e áudio AAC 5.1.  
   
- [H264 múltipla 4K](media-services-mes-preset-H264-Multiple-Bitrate-4K.md) produz um conjunto de 12 ficheiros MP4 alinhada GOP, vão de 20000 kbps a 1000 kbps e stereo áudio AAC.  
+ [H264 Multiple Bitrate 4K](media-services-mes-preset-H264-Multiple-Bitrate-4K.md) produz um conjunto de 12 ficheiros MP4 alinhado GOP, desde 20000 kbps até 1000 kbps e áudio AAC estéreo.  
   
- [H264 múltipla 4, 3 para iOS](media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md) produz um conjunto de 8 ficheiros MP4 alinhada GOP, vão de 8500 kbps 200 kbps e stereo áudio AAC.  
+ [H264 taxa de bits múltiplas 4x3 para iOS](media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md) produz um conjunto de ficheiros MP4 de alinhado GOP de 8, desde 8500 kbps até 200 kbps e áudio AAC estéreo.  
   
- [H264 múltipla 4 x 3 SD áudio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md) produz um conjunto de 5 ficheiros MP4 alinhada GOP, vão de 1600 kbps 400 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits múltiplas 4x3 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md) produz um conjunto de ficheiros MP4 de alinhado GOP de 5, desde 1600 kbps até 400 kbps e áudio AAC 5.1.  
   
- [H264 múltipla 4 x 3 SD](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md) produz um conjunto de 5 ficheiros MP4 alinhada GOP, vão de 1600 kbps 400 kbps e stereo áudio AAC.  
+ [H264 taxa de bits múltiplas 4x3 SD](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md) produz um conjunto de ficheiros MP4 de alinhado GOP de 5, desde 1600 kbps até 400 kbps e áudio AAC estéreo.  
   
- [H264 de múltipla 720p áudio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md) produz um conjunto de 6 ficheiros MP4 alinhada GOP, vão de 3400 kbps 400 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits múltiplas 720p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md) produz um conjunto de 6 ficheiros MP4 GOP alinhados, desde 3400 kbps até 400 kbps e áudio AAC 5.1.  
   
- [H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) produz um conjunto de 6 ficheiros MP4 alinhada GOP, vão de 3400 kbps 400 kbps e stereo áudio AAC.  
+ [H264 taxa de bits múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) produz um conjunto de 6 ficheiros MP4 GOP alinhados, desde 3400 kbps até 400 kbps e áudio AAC estéreo.  
   
- [Velocidade de transmissão única H264 1080p áudio 5.1](media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 6750 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits única 1080p Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 6750 kbps e áudio AAC 5.1.  
   
- [Velocidade de transmissão única do H264 1080p](media-services-mes-preset-H264-Single-Bitrate-1080p.md) produz um único ficheiro MP4 com velocidade de transmissão de 6750 kbps e stereo áudio AAC.  
+ [H264 taxa de bits única 1080p](media-services-mes-preset-H264-Single-Bitrate-1080p.md) produz um único ficheiro MP4 com velocidade de transmissão de 6750 kbps e áudio AAC estéreo.  
   
- [Velocidade de transmissão única do H264 4K áudio 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 18000 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits única 4K Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 18000 kbps e áudio AAC 5.1.  
   
- [Velocidade de transmissão única do H264 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md) produz um único ficheiro MP4 com velocidade de transmissão de 18000 kbps e stereo áudio AAC.  
+ [H264 taxa de bits única com velocidade de transmissão 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md) produz um único ficheiro MP4 com velocidade de transmissão de 18000 kbps e áudio AAC estéreo.  
   
- [Velocidade de transmissão única do H264 4 x 3 SD áudio 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 1800 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits única 4x3 SD Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 1800 kbps e áudio AAC 5.1.  
   
- [Velocidade de transmissão única do H264 4 x 3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md) produz um único ficheiro MP4 com velocidade de transmissão de 1800 kbps e stereo áudio AAC.  
+ [H264 taxa de bits única 4x3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md) produz um único ficheiro MP4 com velocidade de transmissão de 1800 kbps e áudio AAC estéreo.  
   
- [Velocidade de transmissão única do H264 16 x 9 SD áudio 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 2200 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits única 16x9 SD Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 2200 kbps e áudio AAC 5.1.  
   
- [Velocidade de transmissão única do H264 16 x 9 SD](media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md) produz um único ficheiro MP4 com velocidade de transmissão de 2200 kbps e stereo áudio AAC.  
+ [H264 taxa de bits única 16x9 SD](media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md) produz um único ficheiro MP4 com velocidade de transmissão de 2200 kbps e áudio AAC estéreo.  
   
- [Velocidade de transmissão única H264 720p áudio 5.1](media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 4500 kbps e AAC 5.1 áudio.  
+ [H264 taxa de bits única 720p Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md) produz um único ficheiro MP4 com velocidade de transmissão de 4500 kbps e áudio AAC 5.1.  
   
- [Velocidade de transmissão única do H264 720p para Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md) predefinição produz um único ficheiro MP4 com velocidade de transmissão de 2000 kbps e stereo AAC.  
+ [H264 taxa de bits única 720p para Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md) predefinição produz um único ficheiro MP4 com velocidade de transmissão de 2000 kbps e AAC estéreo.  
   
- [Velocidade de transmissão única do H264 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md) produz um único ficheiro MP4 com velocidade de transmissão de 4500 kbps e stereo áudio AAC.  
+ [H264 taxa de bits única 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md) produz um único ficheiro MP4 com velocidade de transmissão de 4500 kbps e áudio AAC estéreo.  
   
- [H264 única de velocidade de transmissão elevada qualidade SD para Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md) produz um único ficheiro MP4 com velocidade de transmissão de 500 kbps e stereo áudio AAC...  
+ [H264 taxa de bits única de velocidade de transmissão de alta qualidade SD para Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md) produz um único ficheiro MP4 com velocidade de transmissão de 500 kbps e áudio AAC estéreo....  
   
- [H264 única de velocidade de transmissão baixa qualidade SD para Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produz um único ficheiro MP4 com velocidade de transmissão de 56 kbps e stereo áudio AAC.  
+ [H264 taxa de bits única de velocidade de transmissão baixa qualidade SD para Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md) produz um único ficheiro MP4 com velocidade de transmissão de 56 kbps e áudio AAC estéreo.  
   
- Para obter mais informações relacionadas com codificadores de Media Services, consulte [codificação a pedido com Media Services do Azure](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).
+ Para obter mais informações relacionadas aos codificadores de serviços de multimédia, veja [codificação a pedido com os serviços de multimédia do Azure](https://azure.microsoft.com/documentation/articles/media-services-encode-asset/).

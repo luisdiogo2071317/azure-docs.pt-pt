@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2d910c5f031329e952f4892431877ec690c2a5a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809586"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991197"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um recurso com o Media Encoder Standard com .NET 
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um recurso com o Media Encoder Standard com .NET  
+
 As tarefas de codificação são uma das operações de processamento mais comuns nos Serviços de Multimédia. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Ao codificar, pode usar o codificador de multimédia incorporada de serviços de multimédia. Também pode usar um codificador fornecido por um parceiro de serviços de multimédia; codificadores de terceiros estão disponíveis através do Azure Marketplace. 
 
 Este artigo mostra como utilizar o .NET para codificar seus ativos com o Media Encoder Standard (MES). Codificador de multimédia Standard está configurado com um dos pré-visualizando codificadores descrito [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).

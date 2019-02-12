@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888656"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993063"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um ficheiro de zona DNS com a CLI do Azure 
 
@@ -116,7 +116,7 @@ Para verificar a zona DNS depois de importar o ficheiro, pode utilizar qualquer 
     az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
-* Pode listar os registos ao utilizar o cmdlet do PowerShell `Get-AzureRmDnsRecordSet`.
+* Pode listar os registos com o comando da CLI do Azure `az network dns record-set ns list`.
 * Pode usar `nslookup` para verificar a resolução de nomes para os registos. Uma vez que a zona não é delegada ainda, terá de especificar explicitamente os servidores de nomes DNS do Azure corretos. O exemplo a seguir mostra como recuperar os nomes dos servidores de nome atribuídos à zona. Isso mostra também como consultar o registo "www" ao utilizar `nslookup`.
 
     ```azurecli
@@ -188,6 +188,6 @@ Como com a importação de zona, primeiro precisa para iniciar sessão, escolha 
 
 Para exportar a zona DNS do Azure existente **contoso.com** no grupo de recursos **myresourcegroup** para o ficheiro **contoso.com.txt** (na pasta atual), execute `azure network dns zone export`. Esse comando chama o serviço de DNS do Azure para enumerar conjuntos de registos na zona e exportar os resultados para um ficheiro de zona compatível com o ENLACE.
 
-    ```
-    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
-    ```
+```
+az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
+```

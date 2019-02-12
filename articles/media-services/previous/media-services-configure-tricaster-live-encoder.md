@@ -4,7 +4,7 @@ description: Este tópico mostra como configurar o codificador em direto de Tric
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: e3a3a9946c3352be0409d1a773408e17302911fc
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 64c38d6e7400d49903323159f23b395a8c2c334f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304810"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998278"
 ---
-# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador de NewTek tricaster para enviar um fluxo em direto com velocidade de transmissão única
+# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador de NewTek tricaster para enviar um fluxo em direto com velocidade de transmissão única  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)

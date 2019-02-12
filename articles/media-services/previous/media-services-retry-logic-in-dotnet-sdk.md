@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: a5171484bb4377e0f9cd84dc0a517f4ea84123e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 909a68ff0fd78fbdd4870506d1ad579392036dbf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228322"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999203"
 ---
-# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de repetição no SDK de serviços de multimédia para .NET
+# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de repetição no SDK de serviços de multimédia para .NET  
+
 Ao trabalhar com os serviços do Microsoft Azure, as falhas transitórias podem ocorrer. Se ocorrer uma falha transitória, na maioria dos casos, depois de algumas tentativas a operação for concluída com êxito. O SDK de serviços de multimédia para .NET implementa a lógica de repetição para lidar com falhas transitórias associadas com exceções e erros causados por solicitações da web, execução de consultas, a guardar as alterações e operações de armazenamento.  Por predefinição, o SDK de serviços de multimédia para .NET executa quatro tentativas de repetição antes de voltar a gerar a exceção à sua aplicação. O código na sua aplicação, em seguida, tem de processar essa exceção corretamente.  
 
  Segue-se uma breve diretriz de diretivas de solicitação da Web, armazenamento, consulta e SaveChanges:  
@@ -38,13 +39,13 @@ A tabela seguinte descreve as exceções que o SDK de serviços de multimédia p
 
 | Exceção | Solicitação da Web | Armazenamento | Consulta | SaveChanges |
 | --- | --- | --- | --- | --- |
-| Exceção WebException<br/>Para obter mais informações, consulte a [códigos de estado de exceção WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) secção. |Sim |Sim |Sim |Sim |
+| WebException<br/>Para obter mais informações, consulte a [códigos de estado de exceção WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) secção. |Sim |Sim |Sim |Sim |
 | DataServiceClientException<br/> Para obter mais informações, consulte [códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
 | DataServiceQueryException<br/> Para obter mais informações, consulte [códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
 | DataServiceRequestException<br/> Para obter mais informações, consulte [códigos de estado de erro HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Não |Sim |Sim |Sim |
 | DataServiceTransportException |Não |Não |Sim |Sim |
 | TimeoutException |Sim |Sim |Sim |Não |
-| Exceção SocketException |Sim |Sim |Sim |Sim |
+| SocketException |Sim |Sim |Sim |Sim |
 | StorageException |Não |Sim |Não |Não |
 | IOException |Não |Sim |Não |Não |
 

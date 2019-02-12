@@ -1,6 +1,6 @@
 ---
-title: Consultas de pesquisa do Log Analytics | Documentos da Microsoft
-description: Este artigo fornece um tutorial para começar a trabalhar escrever consultas de pesquisa do Log Analytics.
+title: Consultas de pesquisa nos logs de Monitor do Azure | Documentos da Microsoft
+description: Este artigo fornece um tutorial de introdução à utilização de pesquisa em consultas de registo do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 1f3131585a8f6581690eda777b8ffc96768b3cc6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882834"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004456"
 ---
-# <a name="search-queries-in-log-analytics"></a>Consultas de pesquisa do Log Analytics
+# <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa nos registos do Azure Monitor
 
 > [!NOTE]
-> Deve efetuar [introdução às consultas no Log Analytics](get-started-queries.md) antes de concluir esta lição.
+> Deve efetuar [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Consultas do Log Analytics do Azure podem começar com um nome de tabela ou um comando de pesquisa. Este tutorial abrange as consultas baseadas em pesquisa. Há vantagens em cada método.
+Consultas de registo do Azure Monitor podem começar com um nome de tabela ou um comando de pesquisa. Este tutorial abrange as consultas baseadas em pesquisa. Há vantagens em cada método.
 
 As consultas baseadas em tabela comece pela consulta de âmbito e, portanto, tendem a ser mais eficiente do que as consultas de pesquisa. Consultas de pesquisa são que menos estruturado que torna a melhor escolha quando procurar por um valor específico em colunas ou tabelas. **pesquisa** pode analisar todas as colunas numa determinada tabela ou em todas as tabelas, para o valor especificado. A quantidade de dados a serem processados pode ser enorme, que é a razão pela qual estas consultas podem demorar mais tempo a concluir e podem devolver conjuntos de resultados muito grandes.
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Ver mais tutoriais sobre o [site de linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguage).
+- Ver mais tutoriais sobre o [site de linguagem de consulta do Data Explorer](/azure/kusto/query/).

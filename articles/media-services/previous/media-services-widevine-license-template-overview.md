@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 065845bb2abd02f02fe2050780bc0613cbd2f12c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4b5196a995576e5b00a988e14183eb720d5b2eae
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036007"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989876"
 ---
-# <a name="widevine-license-template-overview"></a>Descrição geral do modelo de licença do Widevine
+# <a name="widevine-license-template-overview"></a>Descrição geral do modelo de licença do Widevine 
 Pode utilizar os serviços de multimédia do Azure para configurar e solicitam licenças do Widevine da Google. Quando o jogador tenta reproduzir os conteúdos protegidos pelo Widevine, é enviado um pedido para o serviço de entrega de licença para obter uma licença. Se o serviço de licença aprovar o pedido, o serviço emite a licença. Ele é enviado para o cliente e é utilizado para desencriptar e reproduzir o conteúdo especificado.
 
 Um pedido de licença do Widevine é formatado como uma mensagem JSON.  
@@ -59,7 +59,7 @@ Um pedido de licença do Widevine é formatado como uma mensagem JSON.
     }
 
 ## <a name="json-message"></a>Mensagem JSON
-| Nome | Valor | Descrição |
+| Name | Value | Descrição |
 | --- | --- | --- |
 | payload |Cadeia de caracteres codificada em Base64 |O pedido de licença enviado por um cliente. |
 | content_id |Cadeia de caracteres codificada em Base64 |Identificador utilizado para derivar o ID de chave e o conteúdo chave para cada content_key_specs.track_type. |
@@ -77,31 +77,31 @@ Se existir uma política preexistente, é necessário especificar qualquer um do
 
 Cada valor de content_key_specs tem de ser especificado para todas as faixas, independentemente da opção de use_policy_overrides_exclusively. 
 
-| Nome | Valor | Descrição |
+| Name | Value | Descrição |
 | --- | --- | --- |
 | content_key_specs. track_type |cadeia |Um nome de tipo de controle. Se content_key_specs é especificado no pedido de licença, certifique-se de especificar que todos os tipos de controlar explicitamente. Falha ao fazer isso resulta em falha para reproduzir após 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos da robustez do cliente para a reprodução. <br/> -É necessária a criptografia de caixa branca baseada em software. <br/> -Criptografia de software e um Decodificador oculto são necessários. <br/> -As operações de criptografia e material de chave devem ser executadas dentro de um ambiente de execução de confiança de hardware de segurança. <br/> -A criptografia e a decodificação de conteúdo tem de ser efetuadas dentro de um ambiente de execução de confiança de hardware de segurança.  <br/> -A criptografia, decodificar e manipulação de todos os de suporte de dados (comprimidos e descomprimidos) deve ser tratados dentro de um ambiente de execução de confiança de hardware de segurança. |
-| content_key_specs <br/> required_output_protection.hDC |cadeia de caracteres, um dos HDCP_V2 HDCP_NONE, HDCP_V1, |Indica se a HDCP é necessária. |
+| content_key_specs <br/> required_output_protection.hdc |cadeia de caracteres, um dos HDCP_V2 HDCP_NONE, HDCP_V1, |Indica se a HDCP é necessária. |
 | content_key_specs <br/>key |Base64-<br/>cadeia de caracteres codificada |Chave de conteúdo a utilizar para este Roteiro. Se for especificado, é necessário o track_type ou key_id. O fornecedor de conteúdos pode utilizar esta opção para inserir a chave de conteúdo para este Roteiro em vez de permitir que o servidor de licenças do Widevine gerar ou pesquisar uma chave. |
 | content_key_specs.key_id |Binário de cadeia de caracteres codificada em Base64, 16 bytes |Identificador exclusivo para a chave. |
 
 ## <a name="policy-overrides"></a>Substituições de diretiva
-| Nome | Valor | Descrição |
+| Name | Value | Descrição |
 | --- | --- | --- |
 | policy_overrides. can_play |Booleano, VERDADEIRO ou FALSO |Indica que a reprodução do conteúdo é permitida. A predefinição é falso. |
 | policy_overrides. can_persist |Booleano, VERDADEIRO ou FALSO |Indica que a licença pode ser persistentes para o armazenamento não volátil para utilização offline. A predefinição é falso. |
 | policy_overrides. can_renew |Booleano, VERDADEIRO ou FALSO |Indica que a renovação desta licença é permitida. Se for VERDADEIRO, a duração da licença pode ser estendida por heartbeat. A predefinição é falso. |
-| policy_overrides. license_duration_seconds |Int64 |Indica a janela de tempo para esta licença específica. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
-| policy_overrides. rental_duration_seconds |Int64 |Indica a janela de tempo enquanto reprodução é permitida. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
-| policy_overrides. playback_duration_seconds |Int64 |A janela de visualização de tempo depois de reprodução começar dentro da duração de licença. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
+| policy_overrides. license_duration_seconds |int64 |Indica a janela de tempo para esta licença específica. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
+| policy_overrides. rental_duration_seconds |int64 |Indica a janela de tempo enquanto reprodução é permitida. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
+| policy_overrides. playback_duration_seconds |int64 |A janela de visualização de tempo depois de reprodução começar dentro da duração de licença. Um valor de 0 indica que não existe nenhum limite para a duração. A predefinição é 0. |
 | policy_overrides. renewal_server_url |cadeia |Todos os pedidos de heartbeat (renovação) para esta licença são direcionados para o URL especificado. Este campo é utilizado apenas se can_renew for verdadeira. |
-| policy_overrides. renewal_delay_seconds |Int64 |Quantos segundos após license_start_time antes de renovação em primeiro lugar é tentada. Este campo é utilizado apenas se can_renew for verdadeira. A predefinição é 0. |
-| policy_overrides. renewal_retry_interval_seconds |Int64 |Especifica o atraso em segundos entre pedidos de renovação de licença subsequentes, em caso de falha. Este campo é utilizado apenas se can_renew for verdadeira. |
-| policy_overrides. renewal_recovery_duration_seconds |Int64 |A janela de tempo no qual a reprodução pode continuar enquanto renovação é tentada, mas sem êxito devido a problemas de back-end com o servidor de licenças. Um valor de 0 indica que não existe nenhum limite para a duração. Este campo é utilizado apenas se can_renew for verdadeira. |
+| policy_overrides. renewal_delay_seconds |int64 |Quantos segundos após license_start_time antes de renovação em primeiro lugar é tentada. Este campo é utilizado apenas se can_renew for verdadeira. A predefinição é 0. |
+| policy_overrides. renewal_retry_interval_seconds |int64 |Especifica o atraso em segundos entre pedidos de renovação de licença subsequentes, em caso de falha. Este campo é utilizado apenas se can_renew for verdadeira. |
+| policy_overrides. renewal_recovery_duration_seconds |int64 |A janela de tempo no qual a reprodução pode continuar enquanto renovação é tentada, mas sem êxito devido a problemas de back-end com o servidor de licenças. Um valor de 0 indica que não existe nenhum limite para a duração. Este campo é utilizado apenas se can_renew for verdadeira. |
 | policy_overrides. renew_with_usage |Booleano, VERDADEIRO ou FALSO |Indica que a licença é enviada para a renovação quando inicia de utilização. Este campo é utilizado apenas se can_renew for verdadeira. |
 
 ## <a name="session-initialization"></a>Inicialização de sessão
-| Nome | Valor | Descrição |
+| Name | Value | Descrição |
 | --- | --- | --- |
 | provider_session_token |Cadeia de caracteres codificada em Base64 |Este token de sessão é passado de volta na licença e se existe na renovações subseqüentes. O token de sessão não persiste além sessões. |
 | provider_client_token |Cadeia de caracteres codificada em Base64 |Token de cliente para enviar novamente na resposta da licença. Se o pedido de licença contém um token de cliente, este valor é ignorado. O token de cliente persiste para além de sessões de licença. |

@@ -1,6 +1,6 @@
 ---
 title: Solução de gestão do Office 365 no Azure | Documentos da Microsoft
-description: Este artigo fornece detalhes sobre a configuração e utilização da solução do Office 365 no Azure.  Ele inclui uma descrição detalhada dos registos do Office 365 criado no Log Analytics.
+description: Este artigo fornece detalhes sobre a configuração e utilização da solução do Office 365 no Azure.  Ele inclui uma descrição detalhada dos registos do Office 365 criados no Azure Monitor.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216617"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999305"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
 ![Logótipo do Office 365](media/solution-office-365/icon.png)
 
-A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do Office 365 no Log Analytics.
+A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do Office 365 no Azure Monitor.
 
 - Monitorizar atividades de utilizadores em suas contas do Office 365 para analisar padrões de utilização, bem como para identificar tendências comportamentais. Por exemplo, pode extrair os cenários de utilização específicos, como ficheiros que são partilhados fora da sua organização ou os mais populares sites do SharePoint.
 - Monitorizar atividades de administrador para controlar as alterações de configuração ou operações de alto privilégio.
 - Detete e investigue o comportamento dos utilizadores indesejados, que pode ser personalizado para as suas necessidades organizacionais.
 - Demonstre a conformidade e auditoria. Por exemplo, pode monitorizar operações de acesso de arquivos em ficheiros confidenciais, o que podem ajudá-lo com o processo de auditoria e conformidade.
-- Resolver os problemas operacionais usando [pesquisas de registos](../log-query/log-query-overview.md) sobre dados de atividade do Office 365 da sua organização.
+- Resolver os problemas operacionais usando [registar as consultas](../log-query/log-query-overview.md) sobre dados de atividade do Office 365 da sua organização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 É necessário o seguinte antes desta solução a ser instalado e configurado.
@@ -43,7 +43,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
 Esta solução não instala os pacotes de gestão no [ligadas a grupos de gestão](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Instalar e configurar
-Comece por adicionar o [solução do Office 365 à sua subscrição](solutions.md#install-a-management-solution). Assim que for adicionado, tem de efetuar os passos de configuração nesta secção para fornecer acesso à sua subscrição do Office 365.
+Comece por adicionar o [solução do Office 365 à sua subscrição](solutions.md#install-a-monitoring-solution). Assim que for adicionado, tem de efetuar os passos de configuração nesta secção para fornecer acesso à sua subscrição do Office 365.
 
 ### <a name="required-information"></a>Informações necessárias
 Antes de iniciar este procedimento, recolha as seguintes informações.
@@ -375,7 +375,7 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Desinstalar
-Pode remover a solução de gestão do Office 365 usando o processo em [remover uma solução de gestão](solutions.md#remove-a-management-solution). Isso não interromperá os dados que está a ser recolhidos a partir do Office 365 para o Log Analytics no entanto. Siga o procedimento abaixo para anular a subscrição do Office 365 e parar a recolha de dados.
+Pode remover a solução de gestão do Office 365 usando o processo em [remover uma solução de gestão](solutions.md#remove-a-monitoring-solution). Isso não interromperá os dados que está a ser recolhidos a partir do Office 365 no Azure Monitor entanto. Siga o procedimento abaixo para anular a subscrição do Office 365 e parar a recolha de dados.
 
 1. Guarde o seguinte script como *office365_unsubscribe.ps1*.
 
@@ -479,9 +479,12 @@ Pode remover a solução de gestão do Office 365 usando o processo em [remover 
 A solução do Office 365 não obter dados a partir de qualquer um da [agentes do Log Analytics](../platform/agent-data-sources.md).  Obtém dados diretamente a partir do Office 365.
 
 ### <a name="collection-frequency"></a>Frequência da recolha
-Poderá demorar algumas horas para dados que inicialmente serão coletados. Assim que for iniciada a recolher, do Office 365, envia uma [webhook notificação](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para o Log Analytics sempre que é criado um registo. Este registo está disponível no Log Analytics dentro de alguns minutos após a ser recebidos.
+Poderá demorar algumas horas para dados que inicialmente serão coletados. Assim que for iniciada a recolher, do Office 365, envia uma [webhook notificação](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para o Azure Monitor sempre que é criado um registo. Este registo está disponível no Azure Monitor dentro de alguns minutos após a ser recebidos.
 
 ## <a name="using-the-solution"></a>Utilizar a solução
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 Quando adiciona a solução do Office 365 à área de trabalho do Log Analytics, o **Office 365** mosaico será adicionado ao seu dashboard. Este mosaico apresenta uma contagem e uma representação gráfica do número de computadores no seu ambiente e a respetiva conformidade de atualização.<br><br>
 ![Mosaico de resumo do Office 365](media/solution-office-365/tile.png)  
 
@@ -501,9 +504,9 @@ O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta os alert
 
 
 
-## <a name="log-analytics-records"></a>Registos do Log Analytics
+## <a name="azure-monitor-log-records"></a>Registros de logs de Monitor do Azure
 
-Todos os registos criados na área de trabalho do Log Analytics pela solução do Office 365 tem um **tipo** dos **OfficeActivity**.  O **OfficeWorkload** propriedade determina qual serviço do Office 365, o registo refere-se para - Exchange, o AzureActiveDirectory, o SharePoint ou o OneDrive.  O **RecordType** propriedade especifica o tipo de operação.  As propriedades irão variar para cada tipo de operação e são apresentadas nas tabelas abaixo.
+Todos os registos criados na área de trabalho do Log Analytics no Azure Monitor pela solução do Office 365 tem um **tipo** dos **OfficeActivity**.  O **OfficeWorkload** propriedade determina qual serviço do Office 365, o registo refere-se para - Exchange, o AzureActiveDirectory, o SharePoint ou o OneDrive.  O **RecordType** propriedade especifica o tipo de operação.  As propriedades irão variar para cada tipo de operação e são apresentadas nas tabelas abaixo.
 
 ### <a name="common-properties"></a>Propriedades comuns
 As seguintes propriedades são comuns a todos os registos do Office 365.
@@ -708,6 +711,6 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilizar as Pesquisas de Registos no [Log Analytics](../log-query/log-query-overview.md) para ver dados de atualizações detalhados.
+* Uso [registar as consultas no Azure Monitor](../log-query/log-query-overview.md) para ver os dados de atualizações detalhados.
 * [Criar seus próprios dashboards](../learn/tutorial-logs-dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
 * [Criar alertas](../platform/alerts-overview.md) para ser notificado proativamente das atividades do Office 365 importantes.  

@@ -4,237 +4,210 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e0c8986f-2acd-418d-a306-437abc44b640
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 01/30/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d8e061368de42d4adb1150e4ea740c3ce149661
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8195462581d2fec38028c1b1b4920a9999298525
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158762"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutorial: Integração do Active Directory do Azure com as direções em Microsoft
 
 Neste tutorial, saiba como integrar as direções em Microsoft com o Azure Active Directory (Azure AD).
-
 Integrar as direções em Microsoft no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD, quem tem acesso para as direções em Microsoft
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para as direções em Microsoft (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
+* Pode controlar no Azure AD, quem tem acesso para as direções em Microsoft.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para as direções em Microsoft (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com as direções em Microsoft, precisa do seguinte:
 
-- Uma subscrição do Azure
-- Um direções no Microsoft logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* As direções em Microsoft logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando as direções no Microsoft da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* As direções em suporte da Microsoft **SP** iniciada SSO
 
 ## <a name="adding-directions-on-microsoft-from-the-gallery"></a>Adicionando as direções no Microsoft da Galeria
+
 Para configurar a integração entre as direções em Microsoft com o Azure AD, terá de adicionar as direções no Microsoft a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar as direções no Microsoft a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **as direções em Microsoft**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_search.png)
+4. Na caixa de pesquisa, escreva **as direções em Microsoft**, selecione **as direções em Microsoft** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. No painel de resultados, selecione **as direções em Microsoft**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+     ![Direções em Microsoft na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configurar e testar o Azure AD início de sessão único com as direções em Microsoft com base num utilizador de teste chamado "Eduarda Almeida."
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte nas direções na Microsoft para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado nas direções no Microsoft deve ser estabelecido.
-
-Nas direções na Microsoft, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
+Nesta secção, configurar e testar o Azure AD início de sessão único com as direções em Microsoft com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado nas direções no Microsoft deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com as direções em Microsoft, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um direções no utilizador de teste da Microsoft](#creating-a-directions-on-microsoft-test-user)**  - para ter um equivalente da Eduarda Almeida nas direções na Microsoft, que está ligada à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar as direções no Microsoft início de sessão único](#configure-directions-on-microsoft-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar as direções no utilizador de teste da Microsoft](#create-directions-on-microsoft-test-user)**  - para ter um equivalente da Eduarda Almeida nas direções na Microsoft, que está ligada à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão único no portal do Azure e configurar o início de sessão único em seu as direções no aplicativo da Microsoft.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com as direções em Microsoft, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com as direções em Microsoft, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **as direções em Microsoft** página de integração de aplicativo, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **as direções em Microsoft** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **as direções em Microsoft Domain e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+
+    ![Direções nas Domain Microsoft informações e de URLs únicas início de sessão](common/sp-identifier.png)
+
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
     |  |
     | --- |
     | `https://www.directionsonmicrosoft.com/user/login` |
     | `https://<subdomain>.devcloud.acquia-sites.com/<companyname>` |
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
     |  |
     | --- |
     | `https://rhelmdirectionsonmicrosoftcomtest.devcloud.acquia-sites.com/simplesaml/<companyname>` |
     | `https://www.directionsonmicrosoft.com/simplesaml/<companyname>` |
 
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de direções no cliente do Microsoft](mailto:service@DirectionsOnMicrosoft.com) obter esses valores. 
- 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de direções no cliente do Microsoft](mailto:service@DirectionsOnMicrosoft.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-    ![Configurar o início de sessão único](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_certificate.png) 
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-1. Clique em **guardar** botão.
+    ![O link de download de certificado](common/metadataxml.png)
 
-    ![Configurar o início de sessão único](./media/directions-microsoft-tutorial/tutorial_general_400.png)
+6. Sobre o **configurar as direções em Microsoft** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-1. Para configurar o início de sessão único num **as direções em Microsoft** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte as direções em Microsoft](mailto:service@DirectionsOnMicrosoft.com). Para ativar as instruções na equipe de suporte da Microsoft localizar a associação do site federado, inclua informações da sua empresa no seu e-mail.
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-directions-on-microsoft-single-sign-on"></a>Configurar as direções no Microsoft Single Sign-On
+
+Para configurar o início de sessão único num **as direções em Microsoft** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte as direções em Microsoft](mailto:service@DirectionsOnMicrosoft.com). Para ativar as instruções na equipe de suporte da Microsoft localizar a associação do site federado, inclua informações da sua empresa no seu e-mail.
     
-    >[!NOTE]
-    >Início de sessão único para as direções em Microsoft precisa de ser ativada pelos [equipa de suporte de direções no cliente do Microsoft](mailto:service@DirectionsOnMicrosoft.com). Receberá uma notificação quando o início de sessão único foi ativada.
+>[!NOTE]
+>Início de sessão único para as direções em Microsoft precisa de ser ativada pelos [equipa de suporte de direções no cliente do Microsoft](mailto:service@DirectionsOnMicrosoft.com). Receberá uma notificação quando o início de sessão único foi ativada.
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar utilizador do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](./media/directions-microsoft-tutorial/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/directions-microsoft-tutorial/create_aaduser_02.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/directions-microsoft-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/directions-microsoft-tutorial/create_aaduser_04.png) 
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
-
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-directions-on-microsoft-test-user"></a>Criar um direções no utilizador de teste da Microsoft
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para as direções em Microsoft.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **as direções em Microsoft**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **as direções em Microsoft**.
+
+    ![As instruções na ligação da Microsoft na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-directions-on-microsoft-test-user"></a>Criar as direções no utilizador de teste da Microsoft
 
 Não existe nenhum item de ação para configurar o aprovisionamento de utilizador para as direções em Microsoft.  
 
 Quando um utilizador atribuído tenta iniciar sessão para as direções em Microsoft com o painel de acesso, as direções em Microsoft verifica se o usuário existe. Se nenhuma conta de utilizador disponível ainda existe, é criado automaticamente pelas direções em Microsoft.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para as direções em Microsoft.
-
-![Atribuir utilizador][200] 
-
-**Para atribuir a Eduarda Almeida para as direções em Microsoft, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **as direções em Microsoft**.
-
-    ![Configurar o início de sessão único](./media/directions-microsoft-tutorial/tutorial_directionsonmicrosoft_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
- 
-Quando clica as instruções apresentadas no mosaico da Microsoft no painel de acesso, deve obter automaticamente com sessão iniciada para sua as direções em aplicativos da Microsoft.
 
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica as instruções apresentadas no mosaico da Microsoft no painel de acesso, deve ser automaticamente conectado para as instruções na Microsoft para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/directions-microsoft-tutorial/tutorial_general_01.png
-[2]: ./media/directions-microsoft-tutorial/tutorial_general_02.png
-[3]: ./media/directions-microsoft-tutorial/tutorial_general_03.png
-[4]: ./media/directions-microsoft-tutorial/tutorial_general_04.png
-
-[100]: ./media/directions-microsoft-tutorial/tutorial_general_100.png
-
-[200]: ./media/directions-microsoft-tutorial/tutorial_general_200.png
-[201]: ./media/directions-microsoft-tutorial/tutorial_general_201.png
-[202]: ./media/directions-microsoft-tutorial/tutorial_general_202.png
-[203]: ./media/directions-microsoft-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

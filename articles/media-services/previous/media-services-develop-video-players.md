@@ -2,7 +2,7 @@
 title: Desenvolver aplicações de leitor de vídeo
 description: O tópico fornece ligações para estruturas de Player e plug-ins que pode usar para desenvolver suas próprias aplicações de cliente que podem consumir multimédia de transmissão em fluxo dos serviços de multimédia.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237048"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004847"
 ---
 # <a name="develop-video-player-applications"></a>Desenvolver aplicações de leitor de vídeo
 ## <a name="overview"></a>Descrição geral
@@ -53,7 +53,7 @@ Também pode utilizar qualquer um dos SDKs seguintes:
 * [Desenvolvimento de aplicativos de vídeo do XBOX](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>Publicidade
-Serviços de multimédia do Azure fornece suporte para inserção de publicidade através da plataforma de suporte de dados do Windows: estruturas de Player. Estruturas de Player com suporte ad estão disponíveis para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada arquitetura do leitor contém o código de exemplo que mostra como implementar uma aplicação de leitor. Existem três tipos diferentes de anúncios, que pode inserir em seu suporte de dados:
+Serviços de multimédia do Azure fornece suporte para inserção de publicidade através da plataforma de suporte de dados do Windows: Estruturas de Player. Estruturas de Player com suporte ad estão disponíveis para dispositivos Windows 8, Silverlight, Windows Phone 8 e iOS. Cada arquitetura do leitor contém o código de exemplo que mostra como implementar uma aplicação de leitor. Existem três tipos diferentes de anúncios, que pode inserir em seu suporte de dados:
 
 Linear – anúncios de quadro completo que colocar em pausa o vídeo principal
 
@@ -61,7 +61,7 @@ Não lineares – anúncios de sobreposição, que são apresentados como está 
 
 Complementar – anúncios que são apresentados fora o jogador
 
-Anúncios podem ser colocados em qualquer ponto na linha de tempo do vídeo principal. Informe o jogador quando reproduzir o ad e os anúncios para reproduzir. Isso é feito usando um conjunto de arquivos padrão baseada em XML: modelo de serviço de Ad de vídeo (VAST), Digital vídeo vários Ad lista de reprodução (VMAP), modelo de sequenciamento Abstrata suporte de dados (MAST) e Digital vídeo Player Ad Interface definição (VPAID). Os arquivos de grandes especificam quais anúncios para apresentar. Os arquivos VMAP especificam quando reproduzir vários anúncios e conter XML grande. Arquivos MAST são outra forma de anúncios de sequência que também pode conter XML grande. Ficheiros VPAID definem uma interface entre o player de vídeo e o ad ou o servidor do ad. Para obter mais informações, consulte [inserir anúncios](https://msdn.microsoft.com/library/dn387398.aspx).
+Anúncios podem ser colocados em qualquer ponto na linha de tempo do vídeo principal. Informe o jogador quando reproduzir o ad e os anúncios para reproduzir. Isso é feito usando um conjunto de arquivos padrão baseada em XML: Anúncio de vídeo de serviço de modelo (VAST), de vídeo Digital várias listas de reprodução do Ad (VMAP), suporte de dados abstraem o modelo de sequenciamento (MAST) e a definição de Interface de Ad do leitor de vídeo Digital (VPAID). Os arquivos de grandes especificam quais anúncios para apresentar. Os arquivos VMAP especificam quando reproduzir vários anúncios e conter XML grande. Arquivos MAST são outra forma de anúncios de sequência que também pode conter XML grande. Ficheiros VPAID definem uma interface entre o player de vídeo e o ad ou o servidor do ad. Para obter mais informações, consulte [inserir anúncios](https://msdn.microsoft.com/library/dn387398.aspx).
 
 Para obter informações sobre a legendagem de áudio e suporte de anúncios nos vídeos de transmissão em fluxo em direto, consulte [suportado fechadas as legendas de áudio e padrões de inserção de Ad](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 

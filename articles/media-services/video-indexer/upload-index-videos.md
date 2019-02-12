@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2af3e75e3810284d9740a3d87d681d9ee31f14d3
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052841"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998591"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -56,7 +56,7 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
 - Alteração de estado de indexação: 
     - Propriedades:    
     
-        |Nome|Descrição|
+        |Name|Descrição|
         |---|---|
         |ID|O ID do vídeo|
         |state|O estado de vídeo|  
@@ -64,12 +64,12 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
 - Pessoa identificada no vídeo:
     - Propriedades
     
-        |Nome|Descrição|
+        |Name|Descrição|
         |---|---|
         |ID| O ID do vídeo|
-        |face ID|O ID de rostos que aparece no índice de vídeos|
+        |faceId|O ID de rostos que aparece no índice de vídeos|
         |knownPersonId|O ID da pessoa que seja exclusivo dentro de um modelo de rostos|
-        |PersonName|O nome da pessoa|
+        |personName|O nome da pessoa|
         
      - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 

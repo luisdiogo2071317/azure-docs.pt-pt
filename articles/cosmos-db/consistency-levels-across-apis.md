@@ -7,26 +7,26 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807002"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002013"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
-Cinco modelos de consistência oferecidos pelo Azure Cosmos DB são suportados nativamente pelo Azure Cosmos DB SQL API. Quando utiliza o Azure Cosmos DB, a API de SQL é a predefinição. 
+Cinco modelos de consistência oferecidos pelo Azure Cosmos DB são suportados nativamente pela API do SQL. Quando utiliza o Azure Cosmos DB, a API de SQL é a predefinição. 
 
-O Azure Cosmos DB também fornece suporte nativo para conexão APIs compatíveis com o protocolo para bases de dados populares. Bases de dados incluem o armazenamento de MongoDB, Apache Cassandra, Gremlin e tabelas do Azure. Esses bancos de dados não oferecem precisamente os modelos de consistência definidos ou garantias apoiado pelo SLA para níveis de consistência. Normalmente, eles fornecem apenas um subconjunto dos modelos de cinco consistência oferecidos pelo Azure Cosmos DB. Para a API de SQL, o API do Gremlin e a API de tabela, é utilizado o nível de consistência predefinido configurado na conta do Azure Cosmos DB. 
+O Azure Cosmos DB também fornece suporte nativo para conexão APIs compatíveis com o protocolo para bases de dados populares. Bases de dados incluem o armazenamento de MongoDB, Apache Cassandra, Gremlin e tabelas do Azure. Esses bancos de dados não oferecem precisamente os modelos de consistência definidos ou garantias apoiado pelo SLA para níveis de consistência. Normalmente, eles fornecem apenas um subconjunto dos modelos de cinco consistência oferecidos pelo Azure Cosmos DB. Para a API de SQL, o API do Gremlin e a API de tabela, é utilizado o nível de consistência predefinido configurado na conta do Cosmos do Azure. 
 
-As secções seguintes mostram o mapeamento entre a consistência de dados solicitada por um controlador de cliente de sistemas operacionais para o Apache Cassandra 4.x e de invocação MongoDB 3.4. Este documento também mostra os níveis de consistência correspondentes do Azure Cosmos DB para o Apache Cassandra e MongoDB.
+As secções seguintes mostram o mapeamento entre a consistência de dados solicitada por um controlador de cliente de sistemas operacionais para Apache Cassandra, MongoDB e os níveis de consistência correspondente no Azure Cosmos DB.
 
 ## <a id="cassandra-mapping"></a>Mapeamento entre os níveis de consistência do Apache Cassandra e o Azure Cosmos DB
 
-Esta tabela mostra o mapeamento de consistência entre o Apache Cassandra e níveis de consistência no Azure Cosmos DB. Para cada uma leitura de Cassandra e níveis de consistência de escrita, a consistência nível correspondente do Cosmos DB fornece mais forte, ou seja, mais estritas garantias.
+Tabela a seguir descreve a combinação de consistência vários, é possível usar em relação a API de Cassandra e o mapeamento de nível de consistência nativo equivalente do Cosmos DB. Combinação de todos os de escrita do Apache Cassandra e modos de leitura são suportados nativamente pelo Cosmos DB. Em todas as combinações de escrita do Apache Cassandra e o modelo de consistência de leitura, o Cosmos DB irá fornecer garante a consistência igual ou superior a Apache Cassandra. Além disso, o Cosmos DB fornece uma durabilidade superior garante que o Apache Cassandra até mesmo no modo mais fraco de gravação.
 
-A tabela seguinte mostra os **escrever o mapeamento de consistência** entre o Azure Cosmos DB e Cassandra:
+A tabela seguinte mostra os **escrever mapeamento de consistência** entre o Azure Cosmos DB e Cassandra:
 
 | Cassandra | Azure Cosmos DB | Garantia |
 | - | - | - |

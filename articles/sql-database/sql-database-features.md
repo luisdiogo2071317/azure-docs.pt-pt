@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7445496154d9fc2ca59e19059a87a794a1361b14
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: f80ebbccab0ac6f227bbba149797ea46f6a23227
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747412"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004646"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Base de dados SQL do Azure e do SQL Server
 
@@ -35,7 +35,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | **Funcionalidade SQL** | **Suportado em conjuntos de bases de dados única/elástico** | **Suportado na instância de base de dados/gerida de SQL do Azure** |
 | --- | --- | --- |
 | [Georreplicação ativa](sql-database-active-geo-replication.md) | Sim - fins gerais e crítico para a empresa apenas os escalões de serviço| Não, consulte [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) |
-| [Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) | Sim - fins gerais e crítico para a empresa apenas os escalões de serviço| [Sim-pré-visualização](sql-database-auto-failover-group.md)|
+| [Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) | Sim - fins gerais e crítico para a empresa apenas os escalões de serviço| Sim, em [pré-visualização pública](sql-database-auto-failover-group.md)|
 | [Sempre encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sim - consulte [arquivo de certificados](sql-database-always-encrypted.md) e [Cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) | Sim - consulte [arquivo de certificados](sql-database-always-encrypted.md) e [Cofre de chaves](sql-database-always-encrypted-azure-key-vault.md) |
 | [Grupos de disponibilidade Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a base de dados do Azure SQL](sql-database-business-continuity.md) | [Elevada disponibilidade](sql-database-high-availability.md) está incluído com cada base de dados. Recuperação após desastre é abordada em [descrição geral da continuidade do negócio com a base de dados do Azure SQL](sql-database-business-continuity.md) |
 | [Anexar uma base de dados](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Não | Não |
@@ -52,7 +52,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Captura de dados de alteração](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Não | Sim |
 | [Registo de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sim |Sim |
 | [Agrupamento - base de dados](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Sim | Sim |
-| [Agrupamento - servidor/instância](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Não | [Sim (pré-visualização)](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| [Agrupamento - servidor/instância](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Não | Sim, em [pré-visualização pública](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Índices Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sim - [escalão Premium, o escalão Standard - S3 e superior, o escalão fins gerais e crítico para a empresa camadas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sim |
 | [Tempo de execução comum para a linguagem (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Não | Sim - veja [diferenças CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sim | Sim |
@@ -110,7 +110,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Gestão baseada em políticas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Não | Não |
 | [Predicados](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Sim | Sim |
 | [Notificações de consulta](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Não | Sim |
-| [Serviços R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Versão de pré-visualização; consulte [o que há de novo no machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Não |
+| [Serviços R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Sim, em [pré-visualização pública](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Não |
 | [Governador de recursos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Não | Sim |
 | [Instruções de RESTAURO](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Não | Sim - veja [restaurar diferenças](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Restaurar a base de dados de cópia de segurança](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Apenas - uma cópias de segurança automáticas ver [recuperação de base de dados SQL](sql-database-recovery-using-backups.md) | A partir de cópias de segurança automáticas - ver [recuperação de base de dados SQL](sql-database-recovery-using-backups.md) e a partir de cópias de segurança completas - ver [diferenças de cópia de segurança](sql-database-managed-instance-transact-sql-information.md#backup) |
@@ -131,7 +131,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não, consulte [eventos expandidos](sql-database-xevent-db-diff-from-svr.md) | Sim |
-| [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Sim (pré-visualização pública) - [replicação com a instância de gerida de base de dados do SQL](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Sim, em [pré-visualização pública](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Não - [ver o Power BI](https://docs.microsoft.com/power-bi/) | Não - [ver o Power BI](https://docs.microsoft.com/power-bi/) |
 | [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Sim | Sim |
 | [Funções armazenadas do sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

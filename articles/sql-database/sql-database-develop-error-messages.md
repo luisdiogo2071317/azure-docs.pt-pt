@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6bbb2bfa0fe3c157114d53b070d6c98e68099643
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464743"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003674"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: Erros de ligação de base de dados e outros problemas
 
@@ -99,8 +99,8 @@ Tópicos relacionados:
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
-| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para obter mais informações, consulte [limites de recursos de base de dados SQL para autónomo e bases de dados agrupadas](sql-database-resource-limits-database-server.md).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para obter mais informações, consulte [limites de recursos de base de dados SQL para autónomo e bases de dados agrupadas](sql-database-resource-limits-database-server.md). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para obter mais informações, consulte [limites de recursos de base de dados SQL para bases de dados únicos e em pool](sql-database-resource-limits-database-server.md).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para obter mais informações, consulte [limites de recursos de base de dados SQL para bases de dados únicos e em pool](sql-database-resource-limits-database-server.md). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |A base de dados atingiu a quota de tamanho. Particione ou elimine dados, remova índices ou consulte a documentação para encontrar possíveis resoluções. |
 | 40549 |16 |A sessão foi terminada porque tem uma transação de longa execução. Tente encurtar a transação. |
 | 40550 |16 |A sessão foi terminada porque obteve muito muitos bloqueios. Tente ler ou modificar algumas linhas numa única transação. |

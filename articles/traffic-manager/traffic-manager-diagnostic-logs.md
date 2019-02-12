@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d4d4420e2d38b1418a08ad1ca51dd0f75f3fe7b9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082533"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001107"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Ativar o registo de diagnóstico no Gestor de tráfego do Azure
 
@@ -26,29 +26,31 @@ Registos de diagnóstico de Gestor de tráfego do Azure podem fornecer informaç
 
 ## <a name="enable-diagnostic-logging"></a>Ativar o registo de diagnósticos
 
-Pode executar os comandos que se seguem na [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, terá do *AzureRM* módulo do PowerShell, 6.13.1 ou posterior. Pode executar `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps)(Instalar o módulo do Azure PowerShell). Se estiver executando o PowerShell localmente, terá também de executar `Login-AzureRmAccount` para iniciar sessão no Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Pode executar os comandos que se seguem na [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se executar o PowerShell a partir do seu computador, terá do módulo Azure PowerShell, 1.0.0 ou posterior. Pode executar `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-az-ps)(Instalar o módulo do Azure PowerShell). Se estiver executando o PowerShell localmente, terá também de executar `Login-AzAccount` para iniciar sessão no Azure.
 
 1. **Obter o perfil do Gestor de tráfego:**
 
-    Para ativar o registo de diagnósticos, precisa do ID de um perfil do Gestor de tráfego. Obter o perfil do Gestor de tráfego que pretende ativar o diagnóstico para o registo com [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). A saída inclui informações do ID do perfil do Gestor de tráfego.
+    Para ativar o registo de diagnósticos, precisa do ID de um perfil do Gestor de tráfego. Obter o perfil do Gestor de tráfego que pretende ativar o diagnóstico para o registo com [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile). A saída inclui informações do ID do perfil do Gestor de tráfego.
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **Ative o registo de diagnóstico para o perfil do Gestor de tráfego:**
 
-    Ativar o registo de diagnóstico para o perfil de Gestor de tráfego com o ID de obteve no passo anterior com [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). O seguinte comando armazena registos verbosos para o perfil do Gestor de tráfego para uma conta de armazenamento do Azure especificada. 
+    Ativar o registo de diagnóstico para o perfil de Gestor de tráfego com o ID de obteve no passo anterior com [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). O seguinte comando armazena registos verbosos para o perfil do Gestor de tráfego para uma conta de armazenamento do Azure especificada. 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verifique se as definições de diagnóstico:**
 
-      Verifique se as definições de diagnóstico para o perfil do Gestor de tráfego utilizando [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). O comando seguinte apresenta as categorias que são registadas para um recurso.
+      Verifique se as definições de diagnóstico para o perfil do Gestor de tráfego utilizando [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). O comando seguinte apresenta as categorias que são registadas para um recurso.
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       Certifique-se de que todas as categorias associadas a exibição de recurso de perfil do Gestor de tráfego, como ativada de registo. Além disso, certifique-se de que a conta de armazenamento está corretamente definida.
 
@@ -70,8 +72,8 @@ A tabela seguinte inclui o esquema de registos específica para o recurso de per
 |||||
 |----|----|---|---|
 |**Nome do campo**|**Tipo de campo**|**Definição**|**Exemplo**|
-|EndpointName|Cadeia|O nome do ponto final do Gestor de tráfego está a ser gravado cujo estado de funcionamento.|*myPrimaryEndpoint*|
-|Estado|Cadeia|O estado de funcionamento do ponto final do Gestor de tráfego foi investigado. O estado pode ser **cópias** ou **baixo**.|**Cópia de segurança**|
+|EndpointName|String|O nome do ponto final do Gestor de tráfego está a ser gravado cujo estado de funcionamento.|*myPrimaryEndpoint*|
+|Estado|String|O estado de funcionamento do ponto final do Gestor de tráfego foi investigado. O estado pode ser **cópias** ou **baixo**.|**Cópia de segurança**|
 |||||
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jamesbak
-ms.openlocfilehash: 977d3535ad6c06b5dacd786905585d27f6d3d996
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: cfe06720d0afa0f9f5cf22552ba7ab21d4e617c0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964276"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993151"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados com o Apache Hive no HDInsight do Azure
 
@@ -42,28 +42,33 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 * **CLI do Azure**: Se ainda não instalou a CLI do Azure, consulte [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **Um cliente SSH**: Para obter mais informações, consulte [ligar ao HDInsight (Hadoop) através de SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Um cliente Secure Shell (SSH)**: Para obter mais informações, consulte [ligar ao HDInsight (Hadoop) através de SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 > [!IMPORTANT]
 > Os passos neste artigo necessitam de um cluster do HDInsight que utiliza o Linux. Linux é o único sistema operativo que é utilizado no Azure HDInsight versão 3.4 ou posterior. Para obter mais informações, veja [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
-### <a name="download-the-flight-data"></a>Transferir os dados de voos
+## <a name="download-the-flight-data"></a>Transferir os dados de voos
 
 Este tutorial utiliza dados de voo do Bureau de estatísticas de transporte para demonstrar como realizar uma operação de ETL. Tem de transferir estes dados para concluir o tutorial.
 
 1. Aceda a [pesquisa e administração de tecnologia inovadora, Bureau de estatísticas de transportes](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-2. Selecione o **Prezipped ficheiro** caixa de verificação para selecionar todos os campos de dados.
+1. Na página, selecione os seguintes valores:
 
-3. Selecione o **transferir** botão e guardar os resultados para o seu computador. 
+   | Nome | Value |
+   | --- | --- |
+   | **Período de filtro** |Janeiro |
+   | **Campos** |FlightDate, OriginCityName, WeatherDelay |
 
-4. Descompacte o conteúdo do arquivo zipado e tome nota do nome do ficheiro e caminho do ficheiro. Precisa estas informações num passo posterior.
+1. Limpe todos os outros campos.
+
+1. Selecione **Transferir**. Obter um ficheiro. zip com os campos de dados que selecionou.
 
 ## <a name="extract-and-upload-the-data"></a>Extrair e carregar os dados
 
-Nesta secção, vai utilizar `scp` para carregar dados para o seu cluster do HDInsight.
+Nesta secção, vai carregar os dados ao seu cluster do HDInsight. 
 
-1. Abra uma linha de comandos e utilize o seguinte comando para carregar o ficheiro .zip para o nó principal do cluster do HDInsight:
+1. Abra uma linha de comandos e utilize o seguinte comando de cópia segura (Scp) para carregar o ficheiro. zip para o nó principal do cluster de HDInsight:
 
    ```bash
    scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
@@ -73,7 +78,7 @@ Nesta secção, vai utilizar `scp` para carregar dados para o seu cluster do HDI
    * Substitua o `<ssh-user-name>` espaço reservado com o início de sessão SSH para o cluster do HDInsight.
    * Substitua o `<cluster-name>` marcador de posição pelo nome do cluster do HDInsight.
 
-   Se utilizar uma palavra-passe para autenticar o início de sessão SSH, é-lhe pedida a palavra-passe. 
+   Se utilizar uma palavra-passe para autenticar o início de sessão SSH, é-lhe pedida a palavra-passe.
 
    Se utilizar uma chave pública, poderá ter de utilizar o parâmetro `-i` e especificar o caminho para a chave privada correspondente. Por exemplo, `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
@@ -96,7 +101,7 @@ Nesta secção, vai utilizar `scp` para carregar dados para o seu cluster do HDI
    ```bash
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
    ```
-   
+
    Substitua o `<file-system-name>` marcador de posição pelo nome que pretende dar o seu sistema de ficheiros.
 
    Substitua o `<storage-account-name>` marcador de posição pelo nome da sua conta de armazenamento.
@@ -132,28 +137,9 @@ Como parte do trabalho do Apache Hive, importar os dados do ficheiro. csv para u
    ```hiveql
    DROP TABLE delays_raw;
     CREATE EXTERNAL TABLE delays_raw (
-       YEAR string,
        FL_DATE string,
-       UNIQUE_CARRIER string,
-       CARRIER string,
-       FL_NUM string,
-       ORIGIN_AIRPORT_ID string,
-       ORIGIN string,
        ORIGIN_CITY_NAME string,
-       ORIGIN_CITY_NAME_TEMP string,
-       ORIGIN_STATE_ABR string,
-       DEST_AIRPORT_ID string,
-       DEST string,
-       DEST_CITY_NAME string,
-       DEST_CITY_NAME_TEMP string,
-       DEST_STATE_ABR string,
-       DEP_DELAY_NEW float,
-       ARR_DELAY_NEW float,
-       CARRIER_DELAY float,
-       WEATHER_DELAY float,
-       NAS_DELAY float,
-       SECURITY_DELAY float,
-      LATE_AIRCRAFT_DELAY float)
+       WEATHER_DELAY float)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
@@ -162,26 +148,9 @@ Como parte do trabalho do Apache Hive, importar os dados do ficheiro. csv para u
    CREATE TABLE delays
    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
    AS
-   SELECT YEAR AS Year,
-       FL_DATE AS FlightDate,
-       substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS Reporting_Airline,
-       substring(CARRIER, 2, length(CARRIER) -1) AS  IATA_CODE_Reporting_Airline,
-       substring(FL_NUM, 2, length(FL_NUM) -1) AS  Flight_Number_Reporting_Airline,
-       ORIGIN_AIRPORT_ID AS OriginAirportID,
-       substring(ORIGIN, 2, length(ORIGIN) -1) AS Origin,
+   SELECT FL_DATE AS FlightDate,
        substring(ORIGIN_CITY_NAME, 2) AS OriginCityName,
-       substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS OriginStateName,
-       DEST_AIRPORT_ID AS DestAirportID,
-       substring(DEST, 2, length(DEST) -1) AS Dest,
-       substring(DEST_CITY_NAME,2) AS DestCityName,
-       substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS DestState,
-       DEP_DELAY_NEW AS DepDelay,
-       ARR_DELAY_NEW AS ArrDelay,
-       CARRIER_DELAY AS CarrierDelay,
        WEATHER_DELAY AS WeatherDelay
-       NAS_DELAY AS NASDelay,
-       SECURITY_DELAY AS SecurityDelay,
-       LATE_AIRCRAFT_DELAY AS LateAircraftDelay
    FROM delays_raw;
    ```
 

@@ -1,6 +1,6 @@
 ---
 title: Live a transmissão em fluxo através dos serviços de multimédia do Azure para criar transmissões em fluxo | Documentos da Microsoft
-description: 'Este tópico descreve como configurar um canal que recebe um fluxo em direto com velocidade de transmissão única de um codificador no local e, em seguida, realiza a codificação em tempo real para o fluxo de velocidade de transmissão adaptável com os Media Services. O fluxo pode ser entregue para aplicativos de reprodução de cliente através de um ou mais de transmissão em fluxo pontos finais, através de um dos seguintes protocolos de transmissão em fluxo adaptáveis: HLS, Smooth Stream, MPEG DASH.'
+description: 'Este tópico descreve como configurar um canal que recebe um fluxo em direto com velocidade de transmissão única de um codificador no local e, em seguida, realiza a codificação em tempo real para o fluxo de velocidade de transmissão adaptável com os Media Services. O fluxo, em seguida, pode ser fornecido para aplicações de reprodução de cliente através de um ou mais de transmissão em fluxo pontos finais, através de um dos seguintes protocolos de transmissão em fluxo adaptáveis: HLS, Smooth Stream, MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682661"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003351"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -29,8 +29,8 @@ ms.locfileid: "52682661"
 ## <a name="overview"></a>Descrição geral
 No Azure Media Services (AMS), um **canal** representa um pipeline de processamento de conteúdo de transmissão em fluxo em direto. R **canal** recebe transmissões em direto de entrada em uma das seguintes formas:
 
-* Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o canal ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou transmissão em fluxo uniforme (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
-* Um codificador em direto no local envia uma velocidade de transmissão **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o canal que não está ativado para realizar live encoding com o AMS. As transmissões em fluxo passam-through **canal**s sem qualquer processamento adicional. Esse método é chamado **pass-through**. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: codificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o canal ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador em direto no local envia uma velocidade de transmissão **RTMP** ou **Smooth Streaming** (MP4 fragmentado) para o canal que não está ativado para realizar live encoding com o AMS. As transmissões em fluxo passam-through **canal**s sem qualquer processamento adicional. Esse método é chamado **pass-through**. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: Codificadores Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e Tricaster.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
   
   > [!NOTE]
   > Usando um método pass-through é a forma mais económica para transmissão em direto.

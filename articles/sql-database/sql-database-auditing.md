@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 26517e55685de6e1fd9174bb1892b877f0e263d6
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 26e131ef598feae099e789bc51909c4eb249bd79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895657"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002023"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -125,6 +125,7 @@ Se optar por escrever registos de auditoria para o Log Analytics:
 Se optar por escrever registos de auditoria para o Hub de eventos:
 
 - Para consumir dados de registos de auditoria do Hub de eventos, terá de configurar um fluxo para consumir eventos e escrevê-los para um destino. Para obter mais informações, consulte [documentação de Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/).
+- Registos de auditoria no Hub de eventos são capturados no corpo da [Apache Avro](http://avro.apache.org/) eventos e armazenados através de formatação do JSON com codificação UTF-8. Para ler os registos de auditoria, pode usar [Avro ferramentas](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou ferramentas similares que processam neste formato.
 
 Se optar por escrever registos de auditoria numa conta de armazenamento do Azure, existem vários métodos que pode utilizar para ver os registos:
 

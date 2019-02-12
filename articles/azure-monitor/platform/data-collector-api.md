@@ -1,6 +1,6 @@
 ---
-title: API do Recoletor de dados de HTTP de análise de registo | Documentos da Microsoft
-description: Pode utilizar a API de Recoletor de dados do Log Analytics HTTP para adicionar dados POST JSON ao repositório do Log Analytics a partir de qualquer cliente que pode chamar a API REST. Este artigo descreve como utilizar a API e tem os exemplos de como publicar dados através de linguagens de programação diferentes.
+title: API do Recoletor de dados de HTTP de Monitor do Azure | Documentos da Microsoft
+description: Pode utilizar a API de Recoletor de dados do Azure Monitor HTTP para adicionar dados POST JSON para uma área de trabalho do Log Analytics a partir de qualquer cliente que pode chamar a API REST. Este artigo descreve como utilizar a API e tem os exemplos de como publicar dados através de linguagens de programação diferentes.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,23 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: bwren
-ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 918cfb36c3afb9fc5c9a3f2c25b7c14b04354db1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211105"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002224"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização pública)
-Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados para o Log Analytics a partir de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Log Analytics.  São fornecidos exemplos do PowerShell, c# e Python.
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de registo para o Azure Monitor com a API de Recoletor de dados HTTP (pré-visualização pública)
+Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados de registo para o Azure Monitor, de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Azure Monitor.  São fornecidos exemplos do PowerShell, c# e Python.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> A API de Recoletor de dados do Log Analytics HTTP está em pré-visualização pública.
+> A API de Recoletor de dados do Azure Monitor HTTP está em pré-visualização pública.
 
 ## <a name="concepts"></a>Conceitos
-Pode utilizar a API de Recoletor de dados de HTTP para enviar dados para o Log Analytics a partir de qualquer cliente que pode chamar uma API REST.  Isso pode ser um runbook na automatização do Azure que recolhe a gestão de dados do Azure ou noutra cloud ou ele podem ser um sistema de gestão alternativo que utiliza o Log Analytics para consolidar e analisar dados.
+Pode utilizar a API de Recoletor de dados de HTTP para enviar dados de registo para uma área de trabalho do Log Analytics no Azure Monitor a partir de qualquer cliente que pode chamar uma API REST.  Isso pode ser um runbook na automatização do Azure que recolhe a gestão de dados do Azure ou noutra cloud ou ele podem ser um sistema de gestão alternativo que utiliza o Azure Monitor para consolidar e analisar dados de registo.
 
-Todos os dados no repositório do Log Analytics é armazenado como um registo com um tipo de registo específico.  Formatar os dados para enviar para a API de Recoletor de dados HTTP, como vários registos em JSON.  Quando envia os dados, é criado um registo individual no repositório para cada registo no payload de pedido.
+Todos os dados na área de trabalho do Log Analytics é armazenado como um registo com um tipo de registo específico.  Formatar os dados para enviar para a API de Recoletor de dados HTTP, como vários registos em JSON.  Quando envia os dados, é criado um registo individual no repositório para cada registo no payload de pedido.
 
 
 ![Descrição geral de Recoletores de dados HTTP](media/data-collector-api/overview.png)
@@ -62,7 +64,7 @@ Para utilizar a API de Recoletor de dados de HTTP, crie um pedido POST que inclu
 | campo Hora gerado |O nome de um campo nos dados que contém o carimbo de hora do item de dados. Se especificar um campo, em seguida, seu conteúdo é utilizado para **TimeGenerated**. Se este campo não for especificado, o padrão para **TimeGenerated** é o tempo que a mensagem é ingerida. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 aaaa-MM-: ssZ. |
 
 ## <a name="authorization"></a>Autorização
-Qualquer pedido para a API de Recoletor de dados do Log Analytics HTTP tem de incluir um cabeçalho de autorização. Para autenticar um pedido, tem de assinar o pedido com principal ou a chave secundária para a área de trabalho que está fazendo a solicitação. Em seguida, passe essa assinatura como parte do pedido.   
+Qualquer pedido para a API de Recoletor de dados do Azure Monitor HTTP tem de incluir um cabeçalho de autorização. Para autenticar um pedido, tem de assinar o pedido com principal ou a chave secundária para a área de trabalho que está fazendo a solicitação. Em seguida, passe essa assinatura como parte do pedido.   
 
 Este é o formato para o cabeçalho authorization:
 
@@ -130,24 +132,24 @@ Pode do batch vários registos num único pedido utilizando o formato seguinte. 
 ```
 
 ## <a name="record-type-and-properties"></a>Tipo de registo e as propriedades
-Definir um tipo de registo personalizado quando envia dados através da API de Recoletor de dados do Log Analytics HTTP. Atualmente, não é possível escrever dados para o registo tipos existentes que foram criados por outros tipos de dados e soluções. O log Analytics lê os dados de entrada e, em seguida, cria as propriedades que correspondem aos tipos de dados dos valores que introduzir.
+Definir um tipo de registo personalizado quando envia dados por meio da API de Recoletor de dados do Azure Monitor HTTP. Atualmente, não é possível escrever dados para o registo tipos existentes que foram criados por outros tipos de dados e soluções. O Azure Monitor lê os dados de entrada e, em seguida, cria as propriedades que correspondem aos tipos de dados dos valores que introduzir.
 
-A API de análise de registo a cada pedido tem de incluir um **tipo de registo** cabeçalho com o nome para o tipo de registo. O sufixo **_CL** automaticamente é acrescentado ao nome que introduzir para diferenciá-lo a partir de outros tipos de registo como um registo personalizado. Por exemplo, se introduzir o nome **MyNewRecordType**, do Log Analytics cria um registo com o tipo **MyNewRecordType_CL**. Isto ajuda a garantir que não existam conflitos entre nomes de tipos criados pelo utilizador e os que são fornecidas no atuais ou futuras soluções da Microsoft.
+Cada solicitação para a API de Recoletor de dados tem de incluir um **tipo de registo** cabeçalho com o nome para o tipo de registo. O sufixo **_CL** automaticamente é acrescentado ao nome que introduzir para diferenciá-lo a partir de outros tipos de registo como um registo personalizado. Por exemplo, se introduzir o nome **MyNewRecordType**, do Azure Monitor, cria um registo com o tipo **MyNewRecordType_CL**. Isto ajuda a garantir que não existam conflitos entre nomes de tipos criados pelo utilizador e os que são fornecidas no atuais ou futuras soluções da Microsoft.
 
-Para identificar o tipo de dados de uma propriedade, o Log Analytics adiciona o sufixo ao nome da propriedade. Se uma propriedade contiver um valor nulo, a propriedade não está incluída no mesmo. Esta tabela lista o tipo de dados de propriedade e o sufixo correspondente:
+Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um sufixo ao nome da propriedade. Se uma propriedade contiver um valor nulo, a propriedade não está incluída no mesmo. Esta tabela lista o tipo de dados de propriedade e o sufixo correspondente:
 
 | Tipo de dados de propriedade | Sufixo |
 |:--- |:--- |
-| Cadeia |_s |
+| String |_s |
 | Booleano |_b |
-| Valor de duplo |_d |
+| Double |_d |
 | Data/hora |_t |
 | GUID |_g |
 
-O tipo de dados que utiliza o Log Analytics para cada propriedade depende se o tipo de registo para o novo Registro já existe.
+O tipo de dados que utiliza o Azure Monitor para cada propriedade depende se o tipo de registo para o novo Registro já existe.
 
-* Se o tipo de registo não existir, o Log Analytics cria um novo. O log Analytics utiliza a inferência de tipo JSON para determinar o tipo de dados para cada propriedade no registo novo.
-* Se o tipo de registo existir, tenta criar um novo registo com base nas propriedades existentes do Log Analytics. Se o tipo de dados para uma propriedade no registo novo não corresponde ao e não é possível converter o tipo existente, ou se o registo inclui uma propriedade que não existe, o Log Analytics cria uma nova propriedade, que tem o sufixo relevante.
+* Se o tipo de registo não existir, o Azure Monitor cria uma nova com a inferência de tipo JSON para determinar o tipo de dados para cada propriedade no registo novo.
+* Se o tipo de registo existir, do Azure Monitor tenta criar um novo registo com base nas propriedades existentes. Se o tipo de dados para uma propriedade no registo novo não corresponde ao e não é possível converter o tipo existente, ou se o registo inclui uma propriedade que não existe, o Azure Monitor cria uma nova propriedade, que tem o sufixo relevante.
 
 Por exemplo, esta entrada de submissão criaria um registo com as três propriedades, **number_d**, **boolean_b**, e **string_s**:
 
@@ -157,18 +159,18 @@ Se tiver submetido, em seguida, esta entrada seguinte, com todos os valores form
 
 ![Registo de exemplo 2](media/data-collector-api/record-02.png)
 
-Mas, se, em seguida, efetuou esta submissão seguinte, o Log Analytics criaria as novas propriedades **boolean_d** e **string_d**. Não não possível converter esses valores:
+Mas, se, em seguida, efetuou esta submissão seguinte, o Azure Monitor criaria as novas propriedades **boolean_d** e **string_d**. Não não possível converter esses valores:
 
 ![Registo de exemplo 3](media/data-collector-api/record-03.png)
 
-Se, em seguida, submetido a seguinte entrada, antes do tipo de registo foi criado, o Log Analytics criaria um registo com as três propriedades, **number_s**, **boolean_s**, e **string_s**. Nesta entrada, cada um dos valores iniciais é formatada como uma cadeia de caracteres:
+Se, em seguida, submetido a seguinte entrada, antes do tipo de registo foi criado, o Azure Monitor criaria um registo com as três propriedades, **number_s**, **boolean_s**, e **string_s**. Nesta entrada, cada um dos valores iniciais é formatada como uma cadeia de caracteres:
 
 ![Registo de exemplo 4](media/data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Limites de dados
-Existem algumas restrições sobre os dados publicados para a API de recolha de dados do Log Analytics.
+Existem algumas restrições sobre os dados publicados para a API de recolha de dados do Azure Monitor.
 
-* Máximo de 30 MB por mensagem para a API de Recoletor de dados do Log Analytics. Este é um limite de tamanho para um post individual. Se os dados a partir de uma única mensagem que exceda 30 MB, deve dividir os dados até mais pequenos segmentos de tamanho e enviá-los em simultâneo.
+* Máximo de 30 MB por mensagem à API de Recoletor de dados do Azure Monitor. Este é um limite de tamanho para um post individual. Se os dados a partir de uma única mensagem que exceda 30 MB, deve dividir os dados até mais pequenos segmentos de tamanho e enviá-los em simultâneo.
 * Máximo de limite de 32 KB para os valores de campo. Se o valor do campo for superior a 32 KB, os dados serão truncados.
 * Número máximo recomendado de campos para um determinado tipo é 50. Este é um limite prático de uma perspectiva de experiência de pesquisa e a usabilidade.  
 
@@ -196,15 +198,10 @@ Esta tabela lista o conjunto completo de códigos de estado que o serviço pode 
 | 503 |Serviço Não Disponível |ServiceUnavailable |O serviço está atualmente indisponível para receber pedidos. Repita o pedido. |
 
 ## <a name="query-data"></a>Consultar dados
-Para consultar dados submetidos pelo Log Analytics API HTTP Data Collector, pesquisa de registos com **tipo** que é igual para o **LogType** valor que especificou, anexado com **_CL**. Por exemplo, se utilizou **MyCustomLog**, em seguida, retornará a todos os registos com **tipo = MyCustomLog_CL**.
-
->[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](../../azure-monitor/log-query/log-query-overview.md), em seguida, a consulta acima serão alteradas para o seguinte.
-
-> `MyCustomLog_CL`
+Para consultar dados submetidos pelo Azure Monitor API HTTP Data Collector, pesquisa de registos com **tipo** que é igual para o **LogType** valor que especificou, anexado com **_CL**. Por exemplo, se utilizou **MyCustomLog**, em seguida, retornará a todos os registos com `MyCustomLog_CL`.
 
 ## <a name="sample-requests"></a>Pedidos de exemplo
-Nas próximas seções, encontrará exemplos de como enviar dados para a API de Recoletor de dados do Log Analytics HTTP através de linguagens de programação diferentes.
+Nas próximas seções, encontrará exemplos de como enviar dados para a API de Recoletor de dados do Azure Monitor HTTP através de linguagens de programação diferentes.
 
 Para cada exemplo, efetue estes passos para definir as variáveis para o cabeçalho de autorização:
 
@@ -226,7 +223,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -321,10 +318,10 @@ namespace OIAPIExample
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Azure Monitor
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
@@ -468,6 +465,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Utilize o [API de pesquisa de registo](../../azure-monitor/log-query/log-query-overview.md) para recuperar dados do repositório do Log Analytics.
+- Utilize o [API de pesquisa de registo](../log-query/log-query-overview.md) para recuperar dados de área de trabalho do Log Analytics.
 
-- Saiba mais sobre como [criar um pipeline de dados com a API de Recoletor de dados](../../azure-monitor/platform/create-pipeline-datacollector-api.md) com fluxo de trabalho do Logic Apps para o Log Analytics.
+- Saiba mais sobre como [criar um pipeline de dados com a API de Recoletor de dados](create-pipeline-datacollector-api.md) com fluxo de trabalho do Logic Apps para o Azure Monitor.

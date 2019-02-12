@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 2abe6c11b2a6fe9a9146f5c5689597fe3e29fa82
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.openlocfilehash: 638d6c5740f999af2f1dac7cbc51e0b6aeb38c0b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41924778"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996360"
 ---
-# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: criar registos DNS num domínio personalizado para uma aplicação Web 
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Criar registos DNS num domínio personalizado para uma aplicação web 
 
 Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, pode criar uma aplicação Web do Azure e fazer com que os seus utilizadores acedam à mesma com www.contoso.com ou contoso.com como um nome de domínio completamente qualificado (FQDN).
 
@@ -45,6 +45,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - [Crie uma aplicação do Serviço de Aplicações](../app-service/app-service-web-get-started-html.md) ou utilize uma aplicação que tenha criado para outro tutorial.
 
 - Crie uma zona DNS no DNS do Azure e delegue a zona na sua entidade de registo ao DNS do Azure.
@@ -71,9 +73,9 @@ Na página **Domínios personalizados**, copie o endereço IPv4 da aplicação:
 ### <a name="create-the-a-record"></a>Criar um registo A
 
 ```powershell
-New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
+New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "<your web app IP address>")
+ -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
 ### <a name="create-the-txt-record"></a>Criar o registo TXT
@@ -81,9 +83,9 @@ New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 Os Serviços Aplicacionais utilizam este registo apenas no momento da configuração, para verificar que é o proprietário do domínio personalizado. Pode eliminar este registo TXT após a validação e configuração do domínio personalizado no Serviço de Aplicações.
 
 ```powershell
-New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name `"@" -RecordType "txt" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.azurewebsites.net")
+ -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 
 ## <a name="create-the-cname-record"></a>Criar o registo CNAME
@@ -95,9 +97,9 @@ Abra o Azure PowerShell e crie um novo registo CNAME. Este exemplo cria um tipo 
 ### <a name="create-the-record"></a>Criar o registo
 
 ```powershell
-New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
+New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
  -Name "www" -RecordType "CNAME" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -cname "contoso.azurewebsites.net")
+ -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
 ```
 
 O exemplo seguinte é a resposta:
@@ -157,7 +159,7 @@ contoso.com text =
 Agora, pode adicionar os nomes de anfitrião personalizados à sua aplicação Web:
 
 ```powershell
-set-AzureRmWebApp `
+set-AzWebApp `
  -Name contoso `
  -ResourceGroupName MyAzureResourceGroup `
  -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
@@ -178,7 +180,7 @@ Deverá ver a mesma página para ambos os URLs. Por exemplo:
 
 Quando já não precisar dos recursos criados neste tutorial, pode eliminar o grupo de recursos **myresourcegroup**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como criar zonas privadas do DNS do Azure.
 

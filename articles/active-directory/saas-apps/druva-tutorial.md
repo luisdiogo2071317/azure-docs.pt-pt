@@ -4,165 +4,169 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/23/2017
+ms.topic: tutorial
+ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 0429a7d0845b8590570dfb8ffc513ca3bb0ce998
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d0c8f41e1f7de9b2059e9be2c003c5ba44bcfe1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195958"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: Integração do Active Directory do Azure com o Druva
 
 Neste tutorial, saiba como integrar o Druva com o Azure Active Directory (Azure AD).
-
 Integrar o Druva no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Druva.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Druva (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao Druva.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Druva (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Druva, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um Druva logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Druva logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Druva da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta Druva **SP** e **IDP** iniciada SSO
 
 ## <a name="adding-druva-from-the-gallery"></a>Adicionando Druva da Galeria
+
 Para configurar a integração do Druva, para o Azure AD, terá de adicionar Druva a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Druva a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **Druva**, selecione **Druva** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Druva na lista de resultados](./media/druva-tutorial/tutorial_druva_addfromgallery.png)
+4. Na caixa de pesquisa, escreva **Druva**, selecione **Druva** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+
+     ![Druva na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Druva com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Druva a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Druva deve ser estabelecido.
-
-Druva, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com Druva com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Druva deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com o Druva, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste Druva](#create-a-druva-test-user)**  - para ter um equivalente da Eduarda Almeida na Druva que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Configurar Druva Single Sign-On](#configure-druva-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Druva](#create-druva-test-user)**  - para ter um equivalente da Eduarda Almeida na Druva que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Druva.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com o Druva, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com o Druva, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **Druva** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Druva** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/druva-tutorial/tutorial_druva_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **Druva domínio e URLs** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/druva-tutorial/tutorial_druva_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    Na **identificador** caixa de texto, digite o valor de cadeia de caracteres: `druva-cloud`
-    
-1. Verifique **Mostrar definições de URL avançadas**. Se desejar configurar a aplicação no **SP** iniciada pelo modo:
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    ![Configurar o início de sessão único](./media/druva-tutorial/tutorial_druva_url1.png)
-    
-    Na **URL de início de sessão** caixa de texto, escreva o URL: `https://cloud.druva.com/home`
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, executar o passo seguinte:
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    ![Druva domínio e URLs únicas início de sessão em informações](common/idp-identifier.png)
 
-    ![O link de download de certificado](./media/druva-tutorial/tutorial_druva_certificate.png) 
+    Na **identificador** texto, escreva um valor de cadeia de caracteres:  `druva-cloud`
 
-1. Seu aplicativo Druva espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizados para sua **atributos de Token SAML** configuração. 
+5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![Configurar o início de sessão único](./media/druva-tutorial/tutorial_druva_attribute.png)
+    ![image](common/both-preintegrated-signon.png)
 
-1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem anterior e execute os seguintes passos:
+    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://cloud.druva.com/home`
 
-    | Nome do Atributo      | Valor do Atributo      |
+6. Aplicação de Druva espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+
+    ![image](common/edit-attribute.png)
+
+7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
+
+    | Name | Atributo de origem|
     | ------------------- | -------------------- |
     | insync\_auth\_token |Introduza o valor gerado token |
-    
-    a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
-    
-    ![Configurar o início de sessão único](./media/druva-tutorial/tutorial_attribute_04.png)
-    
-    ![Configurar o início de sessão único](./media/druva-tutorial/tutorial_attribute_05.png)
-    
+
+    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Partir do **valor** lista, digite o valor de atributo apresentado para essa linha. O valor gerado token é explicado mais tarde no tutorial.
-    
-    d. Clique em **OK**.    
+    c. Deixe o **espaço de nomes** em branco.
 
-1. Clique em **guardar** botão.
+    d. Selecione a origem de dado **atributo**.
 
-    ![Configurar o início de sessão único](./media/druva-tutorial/tutorial_general_400.png)
+    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
 
-1. Sobre o **Druva configuração** secção, clique em **configurar Druva** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+    f. Clique em **Ok**
 
-    ![Configurar o início de sessão único](./media/druva-tutorial/tutorial_druva_configure.png) 
+    g. Clique em **Guardar**.
+
+8. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+
+    ![O link de download de certificado](common/certificatebase64.png)
+
+9. Sobre o **configurar Druva** secção, copie os URLs apropriados de acordo com seus requisitos.
+
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-druva-single-sign-on"></a>Configurar Druva Single Sign-On
 
 1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Druva como administrador.
 
-1. Aceda a **gerenciar \> definições**.
+2. Aceda a **gerenciar \> definições**.
 
     ![As definições](./media/druva-tutorial/ic795091.png "definições")
 
-1. Na caixa de diálogo Definições de início de sessão único, execute os seguintes passos:
+3. Na caixa de diálogo Definições de início de sessão único, execute os seguintes passos:
 
     ![Único configurações de logon](./media/druva-tutorial/ic795092.png "único configurações de logon")
     
-    a. Na **URL de início de sessão do fornecedor de ID** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
+    a. Na **URL de início de sessão do fornecedor de ID** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
         
     b. Na **URL de fim de sessão do fornecedor de ID** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure
         
@@ -170,11 +174,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
      
     d. Para abrir o **configurações** página, clique em **guardar**.
 
-1. Sobre o **configurações** página, clique em **gerar o Token de SSO**.
+4. Sobre o **configurações** página, clique em **gerar o Token de SSO**.
 
     ![As definições](./media/druva-tutorial/ic795093.png "definições")
 
-1. Sobre o **único início de sessão no Token de autenticação** caixa de diálogo, execute os seguintes passos:
+5. Sobre o **único início de sessão no Token de autenticação** caixa de diálogo, execute os seguintes passos:
 
     ![O Token de SSO](./media/druva-tutorial/ic795094.png "o Token de SSO")
     
@@ -182,43 +186,58 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     b. Clique em **Fechar**.
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
- 
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/druva-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/druva-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/druva-tutorial/create_aaduser_03.png)
-
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/druva-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-druva-test-user"></a>Criar um utilizador de teste Druva
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Druva.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Druva**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **Druva**.
+
+    ![A ligação de Druva na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-druva-test-user"></a>Criar utilizador de teste Druva
 
 Para habilitar os utilizadores do Azure AD iniciar sessão no Druva, tem de ser aprovisionados em Druva. No caso de Druva, o aprovisionamento é uma tarefa manual.
 
@@ -226,80 +245,38 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Druva, tem de ser 
 
 1. Inicie sessão no seu **Druva** site da empresa como administrador.
 
-1. Aceda a **gerenciar \> utilizadores**.
+2. Aceda a **gerenciar \> utilizadores**.
    
-   ![Gerir utilizadores](./media/druva-tutorial/ic795097.png "gerir utilizadores")
+    ![Gerir utilizadores](./media/druva-tutorial/ic795097.png "gerir utilizadores")
 
-1. Clique em **criar um novo**.
+3. Clique em **criar um novo**.
    
-   ![Gerir utilizadores](./media/druva-tutorial/ic795098.png "gerir utilizadores")
+    ![Gerir utilizadores](./media/druva-tutorial/ic795098.png "gerir utilizadores")
 
-1. Na caixa de diálogo Criar um novo utilizador, execute os seguintes passos:
+4. Na caixa de diálogo Criar um novo utilizador, execute os seguintes passos:
    
-   ![Criar NewUser](./media/druva-tutorial/ic795099.png "criar NewUser")
+    ![Criar NewUser](./media/druva-tutorial/ic795099.png "criar NewUser")
    
-   a. Na **endereço de E-Mail** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    a. Na **endereço de E-Mail** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
    
-   b. Na **Name** caixa de texto, introduza o nome de utilizador, como **BrittaSimon**.
+    b. Na **Name** caixa de texto, introduza o nome de utilizador, como **BrittaSimon**.
    
-   c. Clique em **criar utilizador**.
+    c. Clique em **criar utilizador**.
 
 >[!NOTE]
 >Pode utilizar quaisquer outras Druva utilizador conta criação ferramentas ou APIs fornecidas pelo Druva para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Druva.
-
-![Atribuir a função de utilizador][200] 
-
-**Para atribuir a Eduarda Almeida a Druva, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **Druva**.
-
-    ![A ligação de Druva na lista de aplicações](./media/druva-tutorial/tutorial_druva_app.png)  
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"][202]
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Druva no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Druva.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico Druva no painel de acesso, deve ser automaticamente sessão iniciada no Druva para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/druva-tutorial/tutorial_general_01.png
-[2]: ./media/druva-tutorial/tutorial_general_02.png
-[3]: ./media/druva-tutorial/tutorial_general_03.png
-[4]: ./media/druva-tutorial/tutorial_general_04.png
-
-[100]: ./media/druva-tutorial/tutorial_general_100.png
-
-[200]: ./media/druva-tutorial/tutorial_general_200.png
-[201]: ./media/druva-tutorial/tutorial_general_201.png
-[202]: ./media/druva-tutorial/tutorial_general_202.png
-[203]: ./media/druva-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

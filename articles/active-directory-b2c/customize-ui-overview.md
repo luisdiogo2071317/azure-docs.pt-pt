@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c81701dff8d7eebf08aa6b16c61e6915a905c729
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172719"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996104"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Sobre a personalização da interface de utilizador no Azure Active Directory B2C
 
@@ -24,17 +24,19 @@ A capacidade de sua marca e personalizar a interface de utilizador (IU) do Azure
 Dependendo das suas necessidades quando se trata estas experiências, personalizar a interface do Usuário do seu aplicativo de maneiras diferentes. Por exemplo:
 
 - Se estiver a utilizar [fluxos de utilizador](active-directory-b2c-reference-policies.md) para fornecer a palavra-passe de inscrição ou início de sessão, repor ou edição de perfil de experiências na sua aplicação, utilize o [portal do Azure para personalizar a interface do Usuário](tutorial-customize-ui.md).
+- Se estiver a utilizar um fluxo de utilizador do v2, pode utilizar um [modelo de layout de página](#page-layout-templates) para alterar a aparência das suas páginas de fluxo de utilizador sem personalização adicional. Por exemplo, pode aplicar um tema azul do Oceano ou Slate cinzento para todas as páginas no seu fluxo de utilizador.
 - Se está a dar início de sessão só, a página de reposição a respetiva palavra-passe que acompanha este artigo e a verificação envia um e-mail, utilizar os mesmos passos de personalização, que são utilizados para um [página de início de sessão no Azure AD](../active-directory/fundamentals/customize-branding.md).
 - Se os clientes tentarem editar o respetivo perfil antes de iniciar sessão, eles são redirecionados para uma página que personalizar com os mesmos passos que são utilizados para personalizar a página de início de sessão do Azure AD.
 - Se estiver a utilizar [políticas personalizadas](active-directory-b2c-overview-custom.md) fornecer a palavra-passe de inscrição ou início de sessão, reposição ou Editar perfil em seu aplicativo, usar [ficheiros de política para personalizar a interface do Usuário](active-directory-b2c-ui-customization-custom.md).
 - Se precisar de fornecer conteúdo dinâmico com base na decisão de um cliente, utilize [conteúdo de página de políticas personalizadas que podem ser alterados](active-directory-b2c-ui-customization-custom-dynamic.md) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, a imagem de fundo da página de inscrição ou início de sessão do Azure AD B2C altera, com base num parâmetro que passar de seu aplicativo web ou móvel.
+- Pode habilitar o código do JavaScript do lado do cliente no seu Azure AD B2C [fluxos de utilizador](user-flow-javascript-overview.md) ou [políticas personalizadas](page-contract.md).
 
 O Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Em tempo de execução, o conteúdo é carregado a partir de uma URL que especificou num fluxo de utilizador ou a política. Especificar URLs diferentes para diferentes páginas. Depois de conteúdo é carregado a partir do URL, é mesclado com um fragmento HTML inserido a partir do Azure AD B2C e, em seguida, é apresentada para o seu cliente.
 
-Antes de começar, reveja as seguintes orientações:
+Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do Usuário, reveja as seguintes orientações antes de começar:
 
 - O Azure AD B2C mescla o conteúdo HTML em suas páginas. Não copie e tentar alterar o conteúdo predefinido que fornece o Azure AD B2C. É melhor criar o seu conteúdo HTML do zero e utilize o conteúdo predefinido como referência.
-- Por motivos de segurança, não são permitidos para incluir o JavaScript nos seus conteúdos.
+- JavaScript agora pode ser incluído no seu conteúdo personalizado.
 - Versões de browser suportado são: 
     - Internet Explorer 11, 10 e o Microsoft Edge
     - Suporte limitado para o Internet Explorer 9 e 8
@@ -42,9 +44,23 @@ Antes de começar, reveja as seguintes orientações:
     - Mozilla Firefox 38.0 e acima
 - Certifique-se de que não incluem marcas de formulário em seu HTML porque ele interfere com as operações POST geradas pelo HTML injetado do Azure AD B2C.
 
+## <a name="page-layout-templates"></a>Modelos de layout de página
+
+Para fluxos de utilizador do v2, pode escolher um modelo previamente concebido que oferece uma visão melhor a suas páginas padrão e serve como uma boa base para seu próprio personalização.
+
+No menu à esquerda, em **personalizar**, selecione **layouts de página**. Em seguida, selecione **modelo (pré-visualização)**.
+
+![Escolha um modelo de layout de página](media/customize-ui-overview/template.png)
+
+Selecione um modelo da lista. Por exemplo, o **Oceano azul** modelo se aplica o seguinte layout às suas páginas de fluxo de utilizador:
+
+![Modelo Oceano azul](media/customize-ui-overview/ocean-blue.png)
+
+Quando escolhe um modelo, o esquema selecionado é aplicado a todas as páginas no seu fluxo de utilizador e o URI para cada página está visível no **URI da página personalizada** campo.
+
 ## <a name="where-do-i-store-ui-content"></a>Onde posso armazenar o conteúdo de interface do Usuário?
 
-Pode alojar o seu conteúdo em qualquer lugar, tal como da interface do Usuário [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md), servidores, as CDNs, AWS S3, web ou sistemas de partilha de ficheiros. O ponto importante é que alojam o conteúdo num ponto final HTTPS publicamente disponível com a CORS ativada. Tem de utilizar um URL absoluto ao especificá-lo no seu conteúdo.
+Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do Usuário, que pode alojar conteúdo em qualquer lugar, tal como em sua interface de Usuário [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md), servidores, as CDNs, AWS S3, web ou sistemas de partilha de ficheiros. O ponto importante é que alojam o conteúdo num ponto final HTTPS publicamente disponível com a CORS ativada. Tem de utilizar um URL absoluto ao especificá-lo no seu conteúdo.
 
 ## <a name="how-do-i-get-started"></a>Como posso começar?
 

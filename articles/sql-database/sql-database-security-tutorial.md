@@ -1,6 +1,6 @@
 ---
-title: Proteger um autónoma ou de bases de dados agrupadas na SQL Database do Azure | Documentos da Microsoft
-description: Saiba mais sobre técnicas e funcionalidades para proteger um autónomo ou bases de dados agrupadas na base de dados do Azure SQL.
+title: Proteger uma base de dados individual ou agrupada na SQL Database do Azure | Documentos da Microsoft
+description: Saiba mais sobre técnicas e funcionalidades para proteger uma base de dados individual ou agrupada na base de dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752522"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004602"
 ---
-# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>Tutorial: Proteger um autónoma ou de bases de dados agrupadas
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger uma base de dados individual ou agrupada
 
-Base de dados SQL do Azure protege os dados numa autónoma ou bases de dados agrupadas, permitindo-lhe:
+Base de dados SQL do Azure protege os dados numa base de dados individual ou agrupada, permitindo-lhe:
 
 - Limitar o acesso com regras de firewall
 - Utilize os mecanismos de autenticação que necessitem de identidade

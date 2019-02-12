@@ -4,7 +4,7 @@ description: Este tutorial explica-lhe os passos de dimensionar os pontos finais
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 1008b3a3-2fa1-4146-85bd-2cf43cd1e00e
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: fc281f8ca04941da88c0ff1b98ff0a044a3184f5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b7abf7601dda8680ac439b94bfd2a6b9f995f0f7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250837"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000785"
 ---
 # <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Dimensionar os pontos finais de transmissão em fluxo com o Portal do Azure
 ## <a name="overview"></a>Descrição geral

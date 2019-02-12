@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 457f64b9ae9101628df5347c921bfa057a7cb754
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475198"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991434"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
 
@@ -493,7 +493,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**Operações aritméticas**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Adição.<br /><br /> Subtração.<br /><br /> Multiplicação.<br /><br /> Divisão.<br /><br /> Modulação.|  
 |**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit a bit.<br /><br /> E bit a bit<br /><br /> XOR bit a bit.<br /><br /> Esquerda Shift.<br /><br /> Shift certo.<br /><br /> Mudança de direito de preenchimento de zero.|  
-|**logical**|**E**<br /><br /> **OR**|Conjunção lógica. Devolve **true** se ambos os argumentos forem **true**, devolve **false** caso contrário.<br /><br /> Conjunção lógica. Devolve **true** se ambos os argumentos forem **true**, devolve **false** caso contrário.|  
+|**logical**|**E**<br /><br /> **OR**|Conjunção lógica. Devolve **true** se ambos os argumentos forem **true**, devolve **false** caso contrário.<br /><br /> Disjunção lógica. Devolve **true** se quaisquer argumentos forem **true**, devolve **false** caso contrário.|  
 |**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|É igual a. Devolve **true** se argumentos forem iguais, devolve **falso** caso contrário.<br /><br /> Não é igual a. Devolve **true** se argumentos não forem iguais, devolve **falso** caso contrário.<br /><br /> Maior que. Devolve **true** se o primeiro argumento for maior que o segundo, devolver **falso** caso contrário.<br /><br /> Maior que ou igual a. Devolve **true** se o primeiro argumento for maior ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Menor que. Devolve **true** se o primeiro argumento for menor do que o segundo ponto, retorno **falso** caso contrário.<br /><br /> Menor ou igual a. Devolve **true** se o primeiro argumento for menor ou igual a segunda, devolver **falso** caso contrário.<br /><br /> Coalesce. Devolve o segundo argumento, se o primeiro argumento é um **indefinido** valor.|  
 |**Cadeia de caracteres**|**&#124;&#124;**|Concatenação. Devolve uma concatenação de ambos os argumentos.|  
   
@@ -620,7 +620,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apóstrofe (')|U+0027|  
 |\\"|aspas (")|U+0022|  
-|\\\|solidus inversa (\\)|U+0B95 + 005C|  
+|\\\ |solidus inversa (\\)|U+0B95 + 005C|  
 |\\/|solidus (/)|U+0B95 + 002F|  
 |\b|RETROCESSO|U+0008|  
 |\f|formulário de feed|U+000C|  

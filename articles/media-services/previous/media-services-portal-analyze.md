@@ -4,7 +4,7 @@ description: Este tópico descreve como processar o seu suporte de dados com pro
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666175"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004881"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Analise a sua multimédia com o portal do Azure
+# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>Analise a sua multimédia com o portal do Azure (Legado)
 > [!NOTE]
 > Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
@@ -53,7 +53,7 @@ O **indexador de multimédia do Azure** processador de multimédia permite-lhe t
 ### <a name="language"></a>Idioma
 Linguagem natural a ser reconhecida no ficheiro multimédia. Por exemplo, inglês ou espanhol. 
 
-### <a name="captions"></a>legendas
+### <a name="captions"></a>Legendagem
 Pode escolher um formato de legenda será gerado a partir de seu conteúdo. Uma tarefa de indexação pode gerar ficheiros de legendas nos seguintes formatos:  
 
 * **SAMI**
@@ -65,7 +65,7 @@ Fechado (CC) de legenda arquivos esses formatos podem ser usados para tornar os 
 ### <a name="aib-file"></a>Ficheiro AIB
 Selecione esta opção se quiser gerar um arquivo de Blob de indexação de áudio para utilização com o servidor IFilter personalizado do SQL. Para obter mais informações, consulte [isso](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) blog.
 
-### <a name="keywords"></a>palavras-chave
+### <a name="keywords"></a>Palavras-chave
 Selecione esta opção se quiser gerar um ficheiro XML de palavras-chave. Este ficheiro contém palavras-chave extraído do conteúdo de discurso, com frequência e informações de deslocamento.
 
 ### <a name="job-name"></a>Nome da tarefa

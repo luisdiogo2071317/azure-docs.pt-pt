@@ -16,16 +16,16 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b6738496a25c49a74d3156b5dfba1ba2a91f102c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081964"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002052"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detetado com o acesso condicional do Azure Active Directory  
 
-Para manter seu ambiente protegido, poderá querer impedir que os utilizadores suspeitos de atividade de início de insign de assinatura. [O Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analisa cada início de sessão e calcula a probabilidade de que um início de sessão tentar não foi efetuada pelo proprietário legítimo de uma conta de utilizador. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de início de sessão](conditions.md#sign-in-risk). Ao definir a condição de início de sessão de risco, pode configurar uma política de acesso condicional para responder aos níveis de risco de início de sessão específicos. 
+Para manter seu ambiente protegido, poderá querer impedir que os utilizadores suspeitos de início de sessão. [O Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analisa cada início de sessão e calcula a probabilidade de que um início de sessão tentar não foi efetuada pelo proprietário legítimo de uma conta de utilizador. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de início de sessão](conditions.md#sign-in-risk). Ao definir a condição de início de sessão de risco, pode configurar uma política de acesso condicional para responder aos níveis de risco de início de sessão específicos. 
 
 Este início rápido mostra como configurar uma [política de acesso condicional](../active-directory-conditional-access-azure-portal.md) que bloqueia um início de sessão quando foi detetado um nível de risco de início de sessão configurados. 
 
@@ -66,7 +66,7 @@ O cenário neste início rápido utiliza um início de sessão num browser de To
 
 Esta secção mostra como criar a política de acesso condicional necessário. Na sua política, defina:
 
-|Definição |Valor|
+|Definição |Value|
 |---     | --- |
 | Utilizadores e grupos | Alain Charon  |
 | Aplicações na cloud | Todas as aplicações na cloud |
@@ -93,11 +93,11 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
  
 4. Sobre o **acesso condicional** página, na barra de ferramentas na parte superior, clique em **Add**.
 
-    ![Nome](./media/app-sign-in-risk/108.png)
+    ![Name](./media/app-sign-in-risk/108.png)
 
 5. No **New** na página a **nome** caixa de texto, tipo **bloquear o acesso de nível de risco médio**.
 
-    ![Nome](./media/app-sign-in-risk/104.png)
+    ![Name](./media/app-sign-in-risk/104.png)
 
 6. Na **atribuição** secção, clique em **utilizadores e grupos**.
 

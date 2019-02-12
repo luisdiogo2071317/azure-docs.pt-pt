@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: f9f8d9fcdca649494088ad9c53415429c5232384
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 131b003a75849aba32fe1cce57603eb508db7c39
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978532"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003981"
 ---
-# <a name="import-a-postman-collection-with-on-demand-streaming-operations-legacy"></a>Importar uma coleção do Postman com operações sob demanda de transmissão em fluxo (Legado)
+# <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>Importar uma coleção do Postman com operações sob demanda de transmissão em fluxo 
 
 Este artigo contém uma definição do **Postman** agrupados de coleção que contém os pedidos HTTP que chamam as APIs de REST de serviços de multimédia do Azure. Para obter informações sobre como configurar **Postman** para que possa ser utilizada para chamar as APIs de REST de serviços de multimédia, veja [chama de configurar o Postman para a API de REST dos serviços de multimédia](media-rest-apis-with-postman.md) tutorial.
 

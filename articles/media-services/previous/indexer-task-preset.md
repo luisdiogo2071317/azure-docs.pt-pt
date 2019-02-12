@@ -4,23 +4,23 @@ description: Este tópico apresenta uma visão geral das tarefas de configuraç�
 services: media-services
 documentationcenter: ''
 author: Asolanki
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 02/08/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: 65b4e2da2cb019c46ee566cd14f0a576c2376db2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8790a5dd596a98409db9a3470b17461359882a38
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463093"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994358"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Tarefa de configuração predefinida para o indexador de multimédia do Azure
+# <a name="task-preset-for-azure-media-indexer"></a>Tarefa de configuração predefinida para o indexador de multimédia do Azure 
 
 O indexador de multimédia do Azure é um processador de multimédia que utilizar para efetuar as seguintes tarefas: tornar os arquivos de mídia e conteúdo pesquisável, gerar faixas de legenda codificadas fechadas e palavras-chave, indexar os arquivos de recurso que fazem parte do seu elemento.
 
@@ -30,7 +30,7 @@ Este tópico descreve a tarefa de configuração predefinida que tem de passar p
 
 A tabela seguinte explica os elementos e atributos da configuração do XML.
 
-|Nome|Requerer|Descrição|
+|Name|Requerer|Descrição|
 |---|---|---|
 |Input|true|Ficheiros de recurso que deseja indexar.<br/>O indexador de multimédia do Azure suporta os seguintes formatos de arquivo de mídia: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Pode especificar o nome de ficheiro (s) no **name** ou **lista** atributo do **entrada** elemento (conforme mostrado abaixo). Se não especificar qual arquivo de recurso para o índice, o ficheiro principal é escolhido. Não se for definido nenhum ficheiro de ativo primário, o primeiro arquivo no recurso de entrada é indexado.<br/><br/>Para especificar explicitamente o nome do arquivo de recurso, fazer:<br/>```<input name="TestFile.wmv" />```<br/><br/>Também pode indexar vários ficheiros de elemento ao mesmo tempo (até 10 ficheiros). Para efetuar este procedimento:<br/>-Criar um arquivo de texto (ficheiro de manifesto) e dê a ele uma extensão de .lst.<br/>-Adicione uma lista de todos os nomes de arquivo de recurso em seu elemento de entrada para este ficheiro de manifesto.<br/>-Adicione o ficheiro de manifesto (carregamento) ao elemento.<br/>-Especifique o nome do ficheiro de manifesto no atributo de lista da entrada.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se adicionar mais do que 10 ficheiros para o arquivo de manifesto, a tarefa de indexação irá falhar com o código de erro de 2006.|
 |do IdP|false|Metadados para o ficheiro de ativo especificado (s).<br/>```<metadata key="..." value="..." />```<br/><br/>Pode fornecer valores para chaves predefinidas. <br/><br/>Atualmente, são suportadas as seguintes chaves:<br/><br/>**título** e **Descrição** - utilizado para atualizar o modelo de idioma para melhorar a precisão de reconhecimento de voz.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**nome de utilizador** e **palavra-passe** - utilizado para autenticação quando o download de arquivos de internet através de http ou https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Os valores de nome de utilizador e palavra-passe se aplicam a todos os URLs de multimédia no manifesto de entrada.|

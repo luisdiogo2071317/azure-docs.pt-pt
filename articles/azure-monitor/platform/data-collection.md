@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: efc5fb022d117caeaec9da014252b501f2d06769
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6fc568546721511f6289600148919d28773058f4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450030"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002304"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>A monitorização dos dados recolhidos pelo Azure Monitor
 [O Azure Monitor](../overview.md) é um serviço que o ajuda a monitorizar as suas aplicações e os recursos que dependem. Central para esta função é um armazenamento de telemetria e outros dados de recursos monitorizados. Este artigo fornece uma descrição completa de como os dados são armazenados e usados pelo Azure Monitor.
@@ -81,7 +81,7 @@ Por exemplo, um determinado número de utilizadores na sua aplicação num deter
 ### <a name="sources-of-metric-data"></a>Origens de dados de métrica
 Existem três fontes fundamentais de métricas recolhidas pelo Azure Monitor. Todas estas métricas estão disponíveis no arquivo de métrico em que eles podem ser avaliados em conjunto, independentemente da respetiva origem.
 
-**Métricas de plataforma** são criados por recursos do Azure e dar-lhe visibilidade para o respetivo estado de funcionamento e desempenho. Cada tipo de recurso cria um [conjunto distinto de métricas](../../azure-monitor/platform/metrics-supported.md) sem qualquer configuração necessária.
+**Métricas de plataforma** são criados por recursos do Azure e dar-lhe visibilidade para o respetivo estado de funcionamento e desempenho. Cada tipo de recurso cria um [conjunto distinto de métricas](metrics-supported.md) sem qualquer configuração necessária. 
 
 **Métricas da aplicação** são criados pelo Application Insights para as suas aplicações monitorizadas e ajudam a detetar problemas de desempenho e controle as tendências na forma como a aplicação está a ser utilizada. Isto inclui esses valores, conforme _tempo de resposta do servidor_ e _exceções do Browser_.
 
@@ -96,32 +96,39 @@ Existem três fontes fundamentais de métricas recolhidas pelo Azure Monitor. To
 ### <a name="what-can-you-do-with-metrics"></a>O que pode fazer com a métrica?
 Tarefas que pode realizar com métricas incluem o seguinte:
 
-- Uso [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md) para analisar métricas recolhidas e desenhá-los num gráfico. Controlar o desempenho de um recurso (por exemplo, uma VM, Web site ou aplicação lógica) ao afixar gráficos para uma [dashboard do Azure](../../azure-portal/azure-portal-dashboards.md).
+- Uso [análise de métricas](metrics-charts.md) para analisar métricas recolhidas e desenhá-los num gráfico. Controlar o desempenho de um recurso (por exemplo, uma VM, Web site ou aplicação lógica) ao afixar gráficos para uma [dashboard do Azure](../../azure-portal/azure-portal-dashboards.md).
 - Configurar uma [regra de alerta de métrica](alerts-metric.md) que envia uma notificação ou demora [automatizada ação](action-groups.md) quando a métrica ultrapassa um limiar.
-- Uso [dimensionamento automático](../../azure-monitor/platform/autoscale-overview.md) para aumentar ou diminuir recursos com base numa métrica cruzar um limiar.
-- Métricas de rota para o Log Analytics para analisar dados de métricos com os dados de registo e para armazenar valores de métrica durante mais de 93 dias.
-- Stream métricas para uma [Hub de eventos](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) para encaminhar sejam [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) ou a sistemas externos.
+- Uso [dimensionamento automático](autoscale-overview.md) para aumentar ou diminuir recursos com base numa métrica cruzar um limiar.
+- Métricas de rota para registos para analisar dados de métricos com os dados de registo e para armazenar valores de métrica durante mais de 93 dias. 
+- Stream métricas para uma [Hub de eventos](stream-monitoring-data-event-hubs.md) para encaminhar sejam [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) ou a sistemas externos.
 - [Arquivo](../../azure-monitor/learn/tutorial-archive-data.md) o histórico de desempenho ou o estado de funcionamento do seu recurso de conformidade, auditoria ou criação de relatórios offline.
-- Aceda a valores de métrica de uma linha de comando ou um aplicativo personalizado usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) ou [REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
+- Aceda a valores de métrica de uma linha de comando ou um aplicativo personalizado usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) ou [REST API](rest-api-walkthrough.md).
+
+
 
 ### <a name="viewing-metrics"></a>Ver métricas
 Métricas no Azure Monitor são armazenadas numa série de tempo otimizada para os valores de métrica rápidos de obtenção e arquivos de 93 dias de base de dados. Copie as métricas para os registos de análise de longo prazo e tendências.
 
-Dados métricos são usados numa variedade de formas, conforme descrito acima. Uso [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md) diretamente analisar os dados no arquivo de métrico e os valores de várias métricas do gráfico ao longo do tempo. Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter métricas utilizando o [do Azure de monitorização de REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
+Dados métricos são usados numa variedade de formas, conforme descrito acima. Uso [análise de métricas](metrics-charts.md) diretamente analisar os dados no arquivo de métrico e os valores de várias métricas do gráfico ao longo do tempo. Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter métricas utilizando o [do Azure de monitorização de REST API](rest-api-walkthrough.md).
 
-![Explorador de Métricas](media/data-collection/metrics-explorer.png)
+![Análise de métricas](media/data-collection/metrics-explorer.png)
 
 ## <a name="logs"></a>Registos
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 Os registos contêm diferentes tipos de dados organizados em registos com diferentes conjuntos de propriedades de cada tipo. Registos de podem conter valores numéricos, como as métricas, mas normalmente contêm dados de texto com descrições detalhadas. Eles ainda mais diferem entre as métricas em que elas variam em sua estrutura e, muitas vezes não são recolhidos em intervalos regulares.
 
 Um tipo comum de entrada de log é um evento que são recolhidos esporadicamente. Eles são criados por uma aplicação ou serviço e, normalmente, incluem informações suficientes para fornecer contexto completo por conta própria. Por exemplo, um evento pode indicar que um recurso em particular foi criado ou modificado, um novo anfitrião iniciado em resposta ao aumento de tráfego, ou foi detetado um erro num aplicativo.
 
 Os registos são especialmente úteis para combinar dados de várias origens, para análises complexas e para fins de tendência ao longo do tempo. Como o formato dos dados pode variar, os aplicativos podem criar registos personalizados usando a estrutura que eles precisam. As métricas são replicadas até mesmo nos registos para combiná-los com outros dados de monitorização para fins de tendência e outras análises de dados.
 
+
+
 ### <a name="sources-of-log-data"></a>Origens de dados de registo
 O Azure Monitor pode recolher dados de registo de uma variedade de origens no Azure e de recursos no local. Origens de dados de registo incluem o seguinte:
 
-- [Registos de atividades](collect-activity-logs.md) dos recursos do Azure que incluem informações sobre a respetiva configuração e o estado de funcionamento e [registos de diagnóstico](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) que fornecem informações sobre o funcionamento deles.
+- [Registos de atividades](collect-activity-logs.md) dos recursos do Azure que incluem informações sobre a respetiva configuração e o estado de funcionamento e [registos de diagnóstico](diagnostic-logs-stream-log-store.md) que fornecem informações sobre o funcionamento deles.
 - Agentes nas [Windows](agent-windows.md) e [Linux](../learn/quick-collect-linux-computer.md) máquinas virtuais que enviar telemetria a partir do sistema operativo convidado e aplicativos para o Azure Monitor em conformidade com [origens de dados](data-sources.md) que configurar.
 - Aplicação dados recolhidos pelo [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Dados fornecem informações sobre uma determinada aplicação ou serviço a partir [soluções de monitorização](../insights/solutions.md) ou funcionalidades, como informações de contentor, informações de VM ou informações de grupo de recursos.
@@ -159,12 +166,12 @@ Pode obter orientações para recolher métricas de recursos do Azure ao [regist
 ### <a name="logs-to-metrics"></a>Registos para métricas
 Conforme descrito acima, as métricas estão mais responsivas do que os registos, para que possa criar alertas com menor latência e a um custo menor. Uma quantidade significativa de dados numéricos é armazenada como registos que seriam adequado para as métricas, mas não estão armazenados como métricas no Azure Monitor. Um exemplo comum é que os dados de desempenho coletados por agentes e soluções de gestão. Alguns destes valores podem ser copiados em métricas, onde eles estão disponíveis para alertas e análise com o Explorador de métricas.
 
-A explicação desta funcionalidade está disponível em [criar alertas de métrica para os registos no Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). A lista de valores de suporte está disponível em [suportado métricas com o Azure Monitor](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces).
+A explicação desta funcionalidade está disponível em [criar alertas de métrica para os registos no Azure Monitor](alerts-metric-logs.md). A lista de valores de suporte está disponível em [suportado métricas com o Azure Monitor](metrics-supported.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Dados de Stream a sistemas externos
 Além de usar as ferramentas no Azure para analisar dados de monitorização, pode ter um requisito reencaminhá-lo para uma ferramenta externa, como um produto de management (SIEM) de eventos e informações de segurança. Este encaminhamento é geralmente feito diretamente a partir de recursos monitorizados através de [os Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/).
 
-Pode obter orientações para os diferentes tipos de dados em [Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Pode obter orientações para os diferentes tipos de dados em [Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa](stream-monitoring-data-event-hubs.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

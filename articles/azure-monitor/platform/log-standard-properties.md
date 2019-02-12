@@ -1,6 +1,6 @@
 ---
-title: Propriedades padrão nos registos do Log Analytics do Azure Monitor | Documentos da Microsoft
-description: Descreve as propriedades que são comuns a vários tipos de dados no Log Analytics do Azure Monitor.
+title: Registos de propriedades padrão no Azure Monitor | Documentos da Microsoft
+description: Descreve as propriedades que são comuns a vários tipos de dados nos registos do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381956"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997044"
 ---
-# <a name="standard-properties-in-log-analytics-records"></a>Propriedades padrão nos registos do Log Analytics
-Dados no [do Log Analytics](../log-query/log-query-overview.md) é armazenado como um conjunto de registos, cada um com um tipo de dados específico que tenha um conjunto exclusivo de propriedades. Vários tipos de dados terá propriedades padrão que são comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como pode usá-los em consultas.
+# <a name="standard-properties-in-azure-monitor-log-records"></a>Registos de propriedades padrão no Azure Monitor
+São de dados de registo no Azure Monitor [armazenado como um conjunto de registos](../log-query/log-query-overview.md), cada um com um tipo de dados específico que tenha um conjunto exclusivo de propriedades. Vários tipos de dados terá propriedades padrão que são comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como pode usá-los em consultas.
 
 Algumas dessas propriedades são ainda estiver no processo que está a ser implementado, pelo que poderá ver em alguns tipos de dados, mas ainda não em outros.
 
@@ -39,7 +39,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 O **tipo** propriedade contém o nome da tabela que o registo foi obtido a partir da qual pode também ser considerado como o tipo de registo. Esta propriedade é útil para consultas que combinam registos de múltiplas tabelas, tais como os que utilizam o `search` operador, para distinguir entre os registros de diferentes tipos. **$table** pode ser utilizado em vez de **tipo** em alguns locais.
 
 ### <a name="examples"></a>Exemplos
@@ -151,6 +151,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre como [dados do Log Analytics são armazenados](../log-query/log-query-overview.md).
-- Obtenha uma lição sobre [escrevem consultas no Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Obtenha uma lição sobre [associar tabelas em consultas do Log Analytics](../../azure-monitor/log-query/joins.md).
+- Saiba mais sobre como [são armazenados dados de registo do Azure Monitor](../log-query/log-query-overview.md).
+- Obtenha uma lição sobre [escrever consultas de registo](../../azure-monitor/log-query/get-started-queries.md).
+- Obtenha uma lição sobre [associar tabelas nas consultas de registo](../../azure-monitor/log-query/joins.md).

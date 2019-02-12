@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com valores de hora da data em consultas do Log Analytics do Azure | Documentos da Microsoft
-description: Descreve como trabalhar com dados de data e hora em consultas do Log Analytics.
+title: Trabalhar com valores de hora da data em consultas de registo do Azure Monitor | Documentos da Microsoft
+description: Descreve como trabalhar com dados de data e hora em consultas de registo do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214699"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999254"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>Trabalhar com valores de hora da data em consultas do Log Analytics
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com valores de hora da data em consultas de registo do Azure Monitor
 
 > [!NOTE]
 > Deve efetuar [começar com o portal do Analytics](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve como trabalhar com dados de data e hora em consultas do Log Analytics.
+Este artigo descreve como trabalhar com dados de data e hora em consultas de registo do Azure Monitor.
 
 
 ## <a name="date-time-basics"></a>Noções básicas de tempo de data
-A linguagem de consulta do Log Analytics tem dois tipos de dados principal associados com datas e horas: datetime e período de tempo. Todas as datas são expressos em UTC. Embora vários formatos de datetime sejam suportados, o formato de ISO8601 é preferencial. 
+A linguagem de consulta do Explorador de dados tem dois tipos de dados principal associados com datas e horas: datetime e período de tempo. Todas as datas são expressos em UTC. Embora vários formatos de datetime sejam suportados, o formato de ISO8601 é preferencial. 
 
 Períodos de tempo são expressos como um valor decimal seguido de uma unidade de tempo:
 
@@ -43,7 +43,7 @@ Períodos de tempo são expressos como um valor decimal seguido de uma unidade d
 |s           | segundo       |
 |ms          | milissegundo  |
 |microssegundo | microssegundo  |
-|escala        | nanossegundos   |
+|escala        | nanosecond   |
 
 Datetimes podem ser criadas por lançando uma cadeia, utilizando o `todatetime` operador. Por exemplo, para rever os heartbeats VM enviados num período de tempo específico, pode fazer uso do [entre operador](/azure/kusto/query/betweenoperator) que é útil especificar um intervalo de tempo....
 
@@ -154,14 +154,14 @@ Event
 
 | Categoria | Função |
 |:---|:---|
-| Converter tipos de dados | [ToDateTime](/azure/kusto/query/todatetimefunction)[totimespan](/azure/kusto/query/totimespanfunction)  |
-| Valor arredonda para o tamanho de discretização | [Bin](/azure/kusto/query/binfunction) |
-| Obtenha uma data específica ou a hora | [há](/azure/kusto/query/agofunction) [agora](/azure/kusto/query/nowfunction)   |
+| Converter tipos de dados | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
+| Valor arredonda para o tamanho de discretização | [bin](/azure/kusto/query/binfunction) |
+| Obtenha uma data específica ou a hora | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
 | Obtenha a parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
 | Obtenha uma data em relação ao valor  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras lições para utilizar a linguagem de consulta do Log Analytics:
+Consulte outras lições para utilizar o [linguagem de consulta do Data Explorer](/azure/kusto/query/) com o Azure Monitor registos de dados:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Funções de agregação](aggregations.md)

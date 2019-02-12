@@ -6,17 +6,18 @@ keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 585cb88ca853954b23369c8e097583e7e8656355
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821452"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002144"
 ---
-# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Submeter tarefas de recorte de Azure Media Clipper
+# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Submeter tarefas de recorte de Azure Media Clipper 
+
 Azure Media Clipper requer uma **submitSubclipCallback** método a ser implementada para processar a submissão de tarefas de recorte. Esta função é para a implementação de um POST de HTTP de saída Clipper a um serviço web. Este serviço web é onde pode submeter a tarefa de codificação. O resultado a Clipper são ambos um codificador de multimédia Standard codificação configuração predefinida para tarefas compostas ou o payload de REST API para chamadas de filtro do manifesto dinâmico. Esse modelo pass-through é necessário porque as credenciais de conta de serviços de multimédia não são seguras no navegador do cliente.
 
 O diagrama de sequência seguinte ilustra o fluxo de trabalho entre o cliente de navegador, o seu serviço web e serviços de multimédia do Azure: ![Diagrama de sequência do Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)

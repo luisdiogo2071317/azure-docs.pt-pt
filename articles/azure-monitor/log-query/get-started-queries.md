@@ -1,6 +1,6 @@
 ---
-title: Introdução às consultas no Log Analytics do Azure | Documentos da Microsoft
-description: Este artigo fornece um tutorial para obter consultas de desenvolver no Log Analytics.
+title: Introdução às consultas de registo no Azure Monitor | Documentos da Microsoft
+description: Este artigo fornece um tutorial para começar a trabalhar escrever consultas de registo no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882974"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994892"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Introdução às consultas no Log Analytics
+# <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de registo do Azure Monitor
 
 
 > [!NOTE]
-> Deve efetuar [começar com o portal do Analytics](get-started-portal.md) antes de concluir este tutorial.
+> Deve efetuar [começar com o log analytics do Azure Monitor](get-started-portal.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial irá aprender a escrever consultas do Log Analytics do Azure. Ele irá ensiná-lo como para:
+Neste tutorial irá aprender a escrever consultas de registo do Azure LMonitor. Ele irá ensiná-lo como para:
 
 - Compreender a estrutura dos consultas
 - Ordenar os resultados de consulta
@@ -43,10 +43,10 @@ Neste tutorial irá aprender a escrever consultas do Log Analytics do Azure. Ele
 Consultas podem começar com o nome de uma tabela ou o *pesquisa* comando. Deve começar com um nome de tabela, uma vez que define um âmbito claro para a consulta e melhora o desempenho da consulta e relevância dos resultados.
 
 > [!NOTE]
-> A linguagem de consulta do Log Analytics do Azure diferencia maiúsculas de minúsculas. Palavras-chave idiomáticas são normalmente escritas em minúsculas. Ao utilizar nomes de tabelas ou colunas numa consulta, certifique-se utilizar as maiúsculas e minúsculas corretas, conforme mostrado no painel de esquema.
+> A linguagem de consulta do Explorador de dados utilizada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave idiomáticas são normalmente escritas em minúsculas. Ao utilizar nomes de tabelas ou colunas numa consulta, certifique-se utilizar as maiúsculas e minúsculas corretas, conforme mostrado no painel de esquema.
 
 ### <a name="table-based-queries"></a>Consultas baseadas em tabela
-O Azure Log Analytics organiza os dados em tabelas, cada uma consistindo em várias colunas. Todas as tabelas e colunas são apresentadas no painel de esquema, no portal do Analytics. Identificar uma tabela que tem interesse e, em seguida, dê uma olhada num pouco de dados:
+Monitor do Azure organiza os dados de registo em tabelas, cada uma consistindo em várias colunas. Todas as tabelas e colunas são apresentadas no painel de esquema no Log Analytics no portal do Analytics. Identificar uma tabela que tem interesse e, em seguida, dê uma olhada num pouco de dados:
 
 ```Kusto
 SecurityEvent
@@ -93,7 +93,7 @@ SecurityEvent
 
 Descendente é a predefinição de ordenação, para que, normalmente, omitimos a **desc** argumento. A saída terá o seguinte aspeto:
 
-![10 principais](media/get-started-queries/top10.png)
+![Top 10](media/get-started-queries/top10.png)
 
 
 ## <a name="where-filtering-on-a-condition"></a>Onde: filtragem numa condição
@@ -112,8 +112,8 @@ Ao escrever as condições de filtro, pode usar as expressões seguintes:
 |:---|:---|:---|
 | == | Verificação de igualdade<br>(diferencia maiúsculas de minúsculas) | `Level == 8` |
 | =~ | Verificação de igualdade<br>(maiúsculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| ! =, <> | Verificação de desigualdade<br>(ambas as expressões são idênticas) | `Level != 4` |
-| *e*, *ou* | Necessário entre as condições| `Level == 16 or CommandLine != ""` |
+| !=, <> | Verificação de desigualdade<br>(ambas as expressões são idênticas) | `Level != 4` |
+| *and*, *or* | Necessário entre as condições| `Level == 16 or CommandLine != ""` |
 
 Para filtrar por várias condições, pode utilizar **e**:
 
@@ -164,7 +164,7 @@ SecurityEvent
 
 O exemplo anterior gera esta saída:
 
-![Resultados do projeto de análise de registo](media/get-started-queries/project.png)
+![Resultados do projeto de consulta](media/get-started-queries/project.png)
 
 Também pode utilizar **projeto** para mudar o nome de colunas e definir novos. O exemplo seguinte utiliza o projeto para fazer o seguinte:
 
@@ -236,7 +236,7 @@ Perf
 
 Para fazer com que a saída mais clara, selecione para exibi-lo como um gráfico de tempo, que mostra a memória disponível ao longo do tempo:
 
-![Log Analytics memória ao longo do tempo](media/get-started-queries/chart.png)
+![Memória de consulta ao longo do tempo](media/get-started-queries/chart.png)
 
 
 

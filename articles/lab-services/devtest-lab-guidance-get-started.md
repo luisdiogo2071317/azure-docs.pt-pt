@@ -3,21 +3,23 @@ title: Introdução ao Azure DevTest Labs
 description: Este artigo fornece o scnearios primário para utilizar o Azure DevTest Labs e dois caminhos gerais para começar a utilizar o serviço na sua organização.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
 manager: femila
+editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: dfb73778a9d30ba50e69bff6414381235ad8b1d1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876541"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005238"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Introdução ao Azure DevTest Labs
 Depois de decidir explore o DevTest Labs, existem dois caminhos gerais para a frente – prova de conceito vs implementação aumentados. 
@@ -62,4 +64,4 @@ Um laboratório no Azure DevTest Labs funciona como um contêiner excelente para
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte o artigo seguinte nesta série: [aumentar verticalmente a sua implementação do DevTest Labs](devtest-lab-guidance-scale.md)
+Consulte o artigo seguinte nesta série: [Aumentar verticalmente a sua implementação do DevTest Labs](devtest-lab-guidance-scale.md)

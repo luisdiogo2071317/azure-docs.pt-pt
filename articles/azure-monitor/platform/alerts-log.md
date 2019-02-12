@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7ff4a4d64b69809c53ad70edf1455880da24d52a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892512"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990450"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor
 
@@ -106,8 +106,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas de registo 
 
     Em poucos minutos, o alerta está ativo e aciona conforme descrito anteriormente.
 
-Os utilizadores podem também finalizado sua consulta do analytics num [página de análise de registos no portal do Azure](../../azure-monitor/log-query/portals.md#log-analytics-page
-) e, em seguida, enviá-los para criar um alerta por meio de "+ nova regra de alerta" botão -, em seguida, seguir instruções da etapa 6 ou posterior no tutorial anterior.
+Os utilizadores podem também finalizado sua consulta do analytics num [do log analytics](../log-query/portals.md) e, em seguida, enviá-la para criar um alerta através do botão 'Definir alerta' -, em seguida, seguir instruções da etapa 6 ou posterior no tutorial anterior.
 
  ![O log Analytics - definir alerta](media/alerts-log/AlertsAnalyticsCreate.png)
 

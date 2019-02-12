@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/08/2018
+ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120891"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004524"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
-A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](../../azure-monitor/app/app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária. Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação ao abrir Analytics a partir da sua aplicação [painel de descrição geral](../../azure-monitor/app/app-insights-dashboards.md).
+A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária.
+Se já tiver configurado o Application Insights para uma das suas aplicações, em seguida, pode analisar os dados da sua aplicação ao abrir Analytics a partir da sua aplicação [painel de descrição geral](app-insights-dashboards.md).
 
 ![Abrir portal.azure.com, abra o recurso do Application Insights e clique em Analytics.](./media/analytics/001.png)
 
@@ -28,6 +29,12 @@ Também pode utilizar o [recreio de análise](https://go.microsoft.com/fwlink/?l
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+## <a name="relation-to-azure-monitor-logs"></a>Registos de relação para o Azure Monitor
+O Application Insights analytics baseia-se no [Explorador de dados do Azure](/azure/data-explorer) como o Azure Monitor faz e também utiliza o [linguagem de consulta do Data Explorer](/azure/kusto/query). Ele usa o mesmo [portal do log analytics](../log-query/get-started-portal.md) como registos do Azure Monitor, embora os seus dados são armazenados numa partição separada.
+
+Não é possível acessar dados numa área de trabalho do Log Analytics diretamente do analytics do Application Insights, nem pode acessar diretamente os dados da aplicação do log analytics. Para poder consultar os dois conjuntos de dados em conjunto, escrever um [consulta do log analytics](../log-query/log-query-overview.md) e o uso do [app() expressão](../log-query/app-expression.md) para aceder a dados de aplicação.
+
 
 ## <a name="query-data-in-analytics"></a>Dados de consulta do Analytics
 Uma consulta típica começa com um nome de tabela, seguido de uma série de *operadores* separados por `|`.

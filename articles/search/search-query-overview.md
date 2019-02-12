@@ -9,16 +9,29 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.custom: seodec2018
-ms.openlocfilehash: 9b682b9cd17c174363dcd04707a11075e30cc8e1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214832"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005051"
 ---
-# <a name="query-types-and-composition-in-azure-search"></a>Tipos de consulta e a composição no Azure Search
+# <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
 
-No Azure Search, uma consulta é uma especificação completa de uma operação de ida e volta. Os parâmetros fornecem os critérios de correspondência para encontrar os documentos num índice, instruções de execução para o mecanismo e as diretivas para a resposta de formatação. Mais precisamente, pode especificar os campos que estão no âmbito, como pesquisar, os campos a devolver, seja para ordenação ou filtro e assim por diante. Não especificado, é executada uma consulta em relação a todos os campos pesquisáveis como uma operação de pesquisa de texto completo, retornando um resultado sem pontuação definido na ordem arbitrária.
+No Azure Search, uma consulta é uma especificação completa de uma operação de ida e volta. Parâmetros na solicitação fornecem critérios de correspondência para encontrar os documentos num índice, instruções de execução para o mecanismo e as diretivas para a resposta de formatação. 
+
+Um pedido de consulta é uma construção avançada, especificando quais campos estão no âmbito, como pesquisar, os campos a devolver, seja para ordenação ou filtro e assim por diante. Não especificado, é executada uma consulta em relação a todos os campos pesquisáveis como uma operação de pesquisa de texto completo, retornando um resultado sem pontuação definido na ordem arbitrária.
+
+### <a name="apis-and-tools-for-testing"></a>APIs e ferramentas de teste
+
+A tabela seguinte lista as APIs e as abordagens baseadas em ferramenta para o envio de consultas.
+
+| Metodologia | Descrição |
+|-------------|-------------|
+| [Explorador de pesquisa (portal)](search-explorer.md) | Fornece uma barra de pesquisa e as opções de seleções de índice e a versão de api. Os resultados são devolvidos como documentos JSON. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
+| [Postman ou outra ferramenta de teste de HTTP](search-fiddler.md) | Explica como configurar um cabeçalho de pedido HTTP e corpo para enviar consultas para o Azure Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que pode ser usado para consultar um índice da Azure Search.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Pesquisa de documentos (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET ou métodos POST num índice, com parâmetros de consulta de entrada adicional.  |
 
 ## <a name="a-first-look-at-query-requests"></a>Uma análise inicial de pedidos de consulta
 
@@ -52,7 +65,7 @@ Para executar essa consulta, utilize [pesquise explorer e o índice de demonstra
 
 Pode colar esta cadeia de consulta na barra de pesquisa do explorer: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### <a name="how-query-operations-are-enabled-by-the-index"></a>Como as operações de consulta são habilitadas pelo índice
+## <a name="how-query-operations-are-enabled-by-the-index"></a>Como as operações de consulta são habilitadas pelo índice
 
 Estrutura de índice e consulta de design são rigidamente integrados no Azure Search. Um fato essencial saber com antecedência é que o *esquema de índice*, com atributos em cada campo, determina o tipo de consulta que pode criar. 
 
@@ -148,17 +161,6 @@ Se pretender que o Azure Search devolva os resultados ordenados por um valor dif
 
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
 No Azure Search, realce da parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitado através da **`highlight`**, **`highlightPreTag`**, e **`highlightPostTag`** parâmetros. Pode especificar os campos *pesquisáveis* que devem ter o respetivo texto com correspondência realçado, bem como especificar as etiquetas de cadeias exatas a adicionar no início e no fim do texto com correspondência devolvido pela Azure Search.
-
-## <a name="apis-and-tools-for-testing"></a>APIs e ferramentas de teste
-
-A tabela seguinte lista as APIs e as abordagens baseadas em ferramenta para o envio de consultas.
-
-| Metodologia | Descrição |
-|-------------|-------------|
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que pode ser usado para consultar um índice da Azure Search.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Pesquisa de documentos (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET ou métodos POST num índice, com parâmetros de consulta de entrada adicional.  |
-| [Outra ferramenta de teste HTTP, Postman ou fiddler](search-fiddler.md) | Explica como configurar um cabeçalho de pedido e o corpo para enviar consultas para o Azure Search.  |
-| [Explorador de pesquisa no portal do Azure](search-explorer.md) | Fornece uma barra de pesquisa e as opções de seleções de índice e a versão de api. Os resultados são devolvidos como documentos JSON. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
 
 ## <a name="see-also"></a>Consulte também
 

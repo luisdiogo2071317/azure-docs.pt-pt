@@ -6,15 +6,15 @@ keywords: codificação; codificadores; suporte de dados
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
-ms.date: 09/13/2018
+ms.date: 02/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c90d6a5784fe9d80df4fab304b6122d3fa24d0b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605169"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999016"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
 Quando em direto de transmissão em fluxo com os serviços de multimédia do Azure, pode especificar como pretende que o canal para receber o fluxo de entrada. Se optar por utilizar um codificador no local com um canal de codificação em direto, o seu codificador deve enviar um fluxo de velocidade única de alta qualidade como saída. Se optar por utilizar um codificador no local com um pass-through canal, seu codificador deve enviar um fluxo de velocidade de transmissão como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [transmissão em fluxo com codificadores no local do Live](media-services-live-streaming-with-onprem-encoders.md).
@@ -35,8 +35,8 @@ Serviços de multimédia do Azure recomenda a utilização de um dos seguintes c
 
 Serviços de multimédia do Azure recomenda a utilização de um dos seguintes codificadores em direto com velocidade de transmissão-MP4 fragmentado (Smooth Streaming) como saída:
 - Suporte de dados do Excel Hero em direto e Hero 4K (UHD/HEVC)
-- Ateme TITAN em direto
-- Codificador de multimédia Digital de Cisco 2200
+- Ateme TITAN Live
+- Cisco Digital Media Encoder 2200
 - Elemental em direto
 - Envivio 4Caster C4 fins III
 - Imagine Communications Selenio MCP3

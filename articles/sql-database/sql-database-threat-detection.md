@@ -11,17 +11,17 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 64302a04050196b4299be45d910f7136f3ecaaa6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 4e853b9edbd000d8b61b5e05f3ae65c07258d73f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734271"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002161"
 ---
-# <a name="azure-sql-database-threat-detection-for-standalone-or-pooled-databases"></a>Deteção de ameaças de base de dados SQL do Azure para autónoma ou de bases de dados agrupadas
+# <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Deteção de ameaças de base de dados SQL do Azure para as bases de dados individuais ou agrupadas
 
-[Deteção de ameaças](sql-database-threat-detection-overview.md) para autónomo e bases de dados agrupadas Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados. Deteção de ameaças pode identificar **injeção SQL potencial**, **acesso a partir do Centro de dados ou localização invulgar**, **acesso a partir de familiarizado aplicativo de principal ou potencialmente prejudicial**, e **credenciais SQL de força bruta** -veja mais detalhes no [alertas de deteção de ameaças](sql-database-threat-detection-overview.md#threat-detection-alerts).
+[Deteção de ameaças](sql-database-threat-detection-overview.md) para bases de dados individuais e em pool Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados. Deteção de ameaças pode identificar **injeção SQL potencial**, **acesso a partir do Centro de dados ou localização invulgar**, **acesso a partir de familiarizado aplicativo de principal ou potencialmente prejudicial**, e **credenciais SQL de força bruta** -veja mais detalhes no [alertas de deteção de ameaças](sql-database-threat-detection-overview.md#threat-detection-alerts).
 
 Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou [portal do Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 

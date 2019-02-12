@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: c08759f4682c6010c2338ff7aaf61cda92eb0484
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232092"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989343"
 ---
-# <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação do Azure no codificadores de multimédia a pedido
+# <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação do Azure no codificadores de multimédia a pedido  
 
 Este tópico compara as capacidades de codificação de **Media Encoder Standard** e **Media Encoder Premium Workflow**.
 
@@ -52,7 +52,7 @@ A tabela seguinte compara as funcionalidades entre o Media Encoder Standard (MES
 | Formatos de arquivo/contentor de entrada | Media Encoder Standard | Fluxo de Trabalho Premium de Codificador de Multimédia |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Sim |Sim |
-| FICHEIROS DO MXF/SMPTE 377M |Sim |Sim |
+| MXF/SMPTE 377M |Sim |Sim |
 | GXF |Sim |Sim |
 | Fluxos de transporte de MPEG-2 |Sim |Sim |
 | Fluxos do programa de MPEG-2 |Sim |Sim |
@@ -96,7 +96,7 @@ A tabela seguinte compara as funcionalidades entre o Media Encoder Standard (MES
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |Sim |
 | MPEG camada 2 |Sim |Sim |
 | MP3 (MPEG-1 camada de áudio 3) |Sim |Sim |
-| Áudio de suporte de dados do Windows |Sim |Sim |
+| Windows Media Audio |Sim |Sim |
 | WAV/PCM |Sim |Sim |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |Não |
 | [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sim |Não |
@@ -137,7 +137,7 @@ A tabela seguinte compara as funcionalidades entre o Media Encoder Standard (MES
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |Sim |
 | MPEG camada 2 |Não |Sim |
 | MP3 (MPEG-1 camada de áudio 3) |Não |Sim |
-| Áudio de suporte de dados do Windows |Não |Sim |
+| Windows Media Audio |Não |Sim |
 
 >[!NOTE]
 >Se a codificar em Dolby® Digital (AC3), a saída só pode ser escrita em ficheiros MP4 de ISO.

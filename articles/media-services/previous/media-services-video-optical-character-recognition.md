@@ -1,10 +1,10 @@
 ---
-title: Digitize texto com OCR de análise de multimédia do Azure | Microsoft Docs
-description: OCR de análise de multimédia do Azure (reconhecimento de caráter optical) permite-lhe converter o conteúdo de texto nos ficheiros de vídeos num editável, pesquisável texto digital.  Isto permite-lhe automatizar a extração dos metadados significativo do sinal de vídeo do suporte de dados.
+title: A digitalização de texto com o OCR de análise de multimédia do Azure | Documentos da Microsoft
+description: OCR de análise de multimédia do Azure (reconhecimento ótico de carateres) permite-lhe converter o conteúdo de texto em ficheiros de vídeo em texto digital editável, pesquisável.  Isto permite-lhe automatizar a extração de metadados significativos do sinal de vídeo do seu suporte de dados.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services
@@ -12,45 +12,45 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4a7a31b4e0069d2c94a4f109248d7b02c0b03faa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e0fa769c9071cac0dccaf43c312c80c7d097e345
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790399"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005136"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilize a análise de multimédia do Azure para converter o conteúdo de texto nos ficheiros de vídeos num texto digital
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilize a análise de multimédia do Azure para converter o conteúdo de texto em ficheiros de vídeo digital texto  
 ## <a name="overview"></a>Descrição geral
-Se precisar de extrair conteúdo de texto de ficheiros de vídeo e gerar um texto editável, pesquisável digital, deve utilizar OCR de análise de suporte de dados do Azure (reconhecimento de caráter optical). Este processador de multimédia do Azure Deteta o conteúdo de texto nos ficheiros de vídeos e gera ficheiros de texto para utilização. OCR permite-lhe automatizar a extração dos metadados significativo do sinal de vídeo do suporte de dados.
+Se precisar de extrair conteúdo de texto dos seus ficheiros de vídeo e gerar um texto digital editável, pesquisável, deve utilizar o Azure Media Analytics OCR (reconhecimento ótico de carateres). Este processador de multimédia do Azure Deteta o conteúdo de texto nos seus ficheiros de vídeo e gera arquivos de texto para a sua utilização. OCR permite-lhe automatizar a extração de metadados significativos do sinal de vídeo do seu suporte de dados.
 
-Quando utilizado em conjunto com um motor de busca, pode facilmente o suporte de dados de índice por texto e melhorar a capacidade de deteção do seu conteúdo. Isto é extremamente útil altamente textual vídeo, como um vídeo gravação ou a captura de ecrã de uma apresentação em slideshow. O processador de multimédia do Azure OCR está otimizado para texto digital.
+Quando utilizado em conjunto com um mecanismo de pesquisa, pode facilmente seus suportes de dados de índice pelo texto e otimizar a deteção do seu conteúdo. Isso é extremamente útil vídeo altamente textuais, como uma gravação de vídeo ou a captura de tela de uma apresentação de apresentação de slides. O processador de multimédia do Azure OCR está otimizado para texto digital.
 
 O **OCR de suporte de dados do Azure** processador de multimédia está atualmente em pré-visualização.
 
-Este artigo fornece detalhes sobre **OCR de suporte de dados do Azure** e mostra como utilizá-la com o SDK de Media Services para .NET. Para obter mais informações e exemplos, consulte [este blogue](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Este artigo fornece detalhes sobre **OCR de suporte de dados do Azure** e mostra como utilizá-lo com o SDK de Media Services para .NET. Para obter mais informações e exemplos, consulte [este blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
-## <a name="ocr-input-files"></a>Ficheiros de entrada OCR
+## <a name="ocr-input-files"></a>Ficheiros de entrada de OCR
 Ficheiros de vídeo. Atualmente, são suportados os seguintes formatos: MP4, MOV e WMV.
 
-## <a name="task-configuration"></a>Configuração da tarefa
-Configuração da tarefa (predefinição). Quando criar uma tarefa com **OCR de suporte de dados do Azure**, tem de especificar uma configuração utilizando JSON ou XML da configuração predefinida. 
+## <a name="task-configuration"></a>Configuração das tarefas
+Configuração da tarefa (predefinição). Ao criar uma tarefa com **OCR de suporte de dados do Azure**, tem de especificar uma configuração predefinida com o JSON ou XML de configuração. 
 
 >[!NOTE]
->O motor de OCR demora apenas uma região de imagem com o mínimo 40 pixels a 32000 pixels máximos como um valor válido em ambos os largura/altura.
+>O motor de OCR só aceita uma região de imagem com o mínimo de 40 pixéis para 32000 pixels máximos como uma entrada válida em ambos os largura/altura.
 >
 
 ### <a name="attribute-descriptions"></a>Descrições de atributo
-| Nome do atributo | Descrição |
+| Nome de atributo | Descrição |
 | --- | --- |
-|AdvancedOutput| Se definir AdvancedOutput como VERDADEIRO, a saída JSON irá conter dados posicionais para cada uma única palavra (além expressões e regiões). Se não pretender ver estes detalhes, defina o sinalizador como false. O valor predefinido é falso. Para obter mais informações, consulte [este blogue](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| Idioma |(opcional), descreve o idioma de texto para o qual pretende procurar. Um dos seguintes: AutoDetect (predefinição), árabe, ChineseSimplified, ChineseTraditional, checo dinamarquês, neerlandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polaco, português, romeno, russo, SerbianCyrillic SerbianLatin, eslovaco, espanhol, sueco, turco. |
-| TextOrientation |(opcional) descreve a orientação do texto para o qual pretende procurar.  "Left" significa que a parte superior de todas as letras são indicada para a esquerda.  Texto predefinido (por exemplo, que pode ser encontrado num livro) pode ser chamado "Cópia de segurança" orientado para.  Um dos seguintes: AutoDetect (predefinição), até, à direita, baixo, à esquerda. |
-| TimeInterval |(opcional) descreve a frequência de amostragem.  Predefinição é a cada segundo 1/2.<br/>Formato JSON – hh: mm:. SSS (00:00:00.500 predefinido)<br/>Formato XML – W3C XSD duração primitivo (predefinição PT0.5) |
-| DetectRegions |(opcional) Uma matriz de objetos de DetectRegion especificando regiões dentro da moldura de vídeo no qual pretende detetar texto.<br/>Um objeto de DetectRegion é constituído pelos seguintes valores de número inteiro de quatro:<br/>À esquerda – pixels da margem da esquerda<br/>Parte superior – pixels da margem da parte superior<br/>Largura – largura da região em pixéis<br/>Altura – altura da região em pixéis |
+|AdvancedOutput| Se definir AdvancedOutput como true, a saída JSON irá conter dados posicionais para cada única palavra (além de frases e regiões). Se não quiser ver estes detalhes, defina o sinalizador como false. O valor predefinido é false. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| Idioma |(opcional) descreve o idioma de texto para o qual a aparência. Um dos seguintes: Deteção automática (predefinição), árabe, ChineseSimplified, ChineseTraditional, Tcheco dinamarquês, Holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polaco, português, romeno, russo, SerbianCyrillic, SerbianLatin , Eslovaco, espanhol, sueco, turco. |
+| TextOrientation |(opcional) descreve a orientação do texto para o qual a aparência.  "Left" significa que a parte superior de todas as letras são apontado em direção à esquerda.  Texto predefinido (como o que pode ser encontrado num livro) pode ser chamado "Up" orientado.  Um dos seguintes: Deteção automática (predefinição), até, certo, para baixo, à esquerda. |
+| TimeInterval |(opcional) descreve a frequência de amostragem.  A predefinição é a cada segundo de 1/2.<br/>Formato JSON – hh: mm:. SSS (00:00:00.500 predefinido)<br/>Formato XML – primitivo de duração do W3C XSD (predefinição PT0.5) |
+| DetectRegions |(opcional) Uma matriz de objetos de DetectRegion especificando regiões no âmbito do quadro do vídeo na qual detetar texto.<br/>Um objeto de DetectRegion é constituído pelos seguintes valores de número inteiro de quatro:<br/>Esquerda – pixels a partir da margem da esquerda<br/>Parte superior – pixels a partir da margem da parte superior<br/>Largura – a largura da região em pixels<br/>Altura – a altura da região em pixels |
 
-#### <a name="json-preset-example"></a>Exemplo de configuração predefinida JSON
+#### <a name="json-preset-example"></a>Exemplo de JSON predefinido
 
 ```json
     {
@@ -73,7 +73,7 @@ Configuração da tarefa (predefinição). Quando criar uma tarefa com **OCR de 
     }
 ```
 
-#### <a name="xml-preset-example"></a>Exemplo de configuração predefinida XML
+#### <a name="xml-preset-example"></a>Exemplo XML predefinido
 
 ```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
@@ -95,34 +95,34 @@ Configuração da tarefa (predefinição). Quando criar uma tarefa com **OCR de 
     </VideoOcrPreset>
 ```
 
-## <a name="ocr-output-files"></a>Ficheiros de saída OCR
-O resultado do processador de multimédia OCR é um ficheiro JSON.
+## <a name="ocr-output-files"></a>Ficheiros de saída de OCR
+A saída do processador de multimédia OCR é um ficheiro JSON.
 
 ### <a name="elements-of-the-output-json-file"></a>Elementos do ficheiro de saída JSON
-A saída de vídeo OCR fornece dados de tempo-segmentado carateres encontrado as vídeo.  Pode utilizar atributos, tais como o idioma ou de orientação para hone-se nas exatamente as palavras que está interessado na análise. 
+A saída de vídeo OCR fornece dados de tempo-segmentado nos caracteres encontrados no seu vídeo.  Pode usar atributos, tais como o idioma ou orientação para hone-in no exatamente as palavras que está interessado na análise. 
 
 A saída contém os seguintes atributos:
 
 | Elemento | Descrição |
 | --- | --- |
-| escala temporal |"ticks" por segundo do vídeo |
-| Desvio |tempo de desfasamento para os carimbos. Na versão 1.0 do vídeo APIs, este será sempre 0. |
-| framerate |Fotogramas por segundo do vídeo |
+| Escala temporal |"ticks" por segundo do vídeo |
+| Desvio |tempo de deslocamento de carimbos. Na versão 1.0 de APIs de vídeo, ela sempre será 0. |
+| Taxa de fotogramas |Quadros por segundo do vídeo |
 | Largura |largura do vídeo em pixéis |
 | Altura |altura do vídeo em pixéis |
-| fragmentos |matriz de segmentos baseados no tempo de vídeo no qual os metadados é partes |
+| Fragmentos |matriz de segmentos baseados no tempo de vídeo para o qual os metadados é segmentado |
 | start |hora de início de um fragmento de "ticks" |
-| Duração |comprimento de um fragmento de "ticks" |
-| intervalo |intervalo de cada evento dentro de fragmento indicado |
-| eventos |matriz contendo regiões |
-| região |objeto que representa detetado palavras ou frases reconhecíveis |
-| idioma |idioma do texto detetado numa região |
-| orientação |orientação do texto detetado numa região |
-| linhas |matriz de linhas de texto detetado numa região |
-| Texto |o texto real |
+| duração |comprimento de um fragmento de "ticks" |
+| intervalo |intervalo de cada evento dentro do fragmento de determinado |
+| eventos |matriz que contém regiões |
+| Região |objeto que representa detetado palavras ou frases |
+| language |idioma do texto detetado dentro de uma região |
+| Orientação |orientação do texto detetado dentro de uma região |
+| linhas |matriz de linhas de texto detetados dentro de uma região |
+| texto |o texto real |
 
-### <a name="json-output-example"></a>Exemplo de saída JSON
-O seguinte exemplo de saída contém as informações gerais de vídeos e alguns fragmentos de vídeos. Todas as vídeo fragmento, contém cada região, o que é detetada pelo OCR pacote de gestão com o idioma e a orientação de texto. A região também contém todas as linhas de word nesta região com o texto da linha, posição da linha e cada palavra informações (conteúdo do word, posição e confiança) esta linha. Segue-se um exemplo e posso colocar alguns inline de comentários.
+### <a name="json-output-example"></a>Exemplo de saída do JSON
+O exemplo de saída seguinte contém as informações de vídeo gerais e de vários fragmentos de vídeo. Em cada fragmento de vídeo, ele contém todas as regiões, o que é detectada pelo pacote de gestão de OCR com a linguagem e sua orientação de texto. A região também contém todas as linhas word nesta região com o texto da linha, posição da linha e todas as informações de palavra (conteúdo do word, posição e confiança) nessa linha. Segue-se um exemplo e coloquei alguns inline de comentários.
 
 ```json
     {
@@ -183,8 +183,8 @@ O seguinte exemplo de saída contém as informações gerais de vídeos e alguns
 
 O seguinte programa mostra como:
 
-1. Criar um elemento e carregue um ficheiro de suporte de dados para o elemento.
-2. Crie uma tarefa com um ficheiro de configuração/predefinição OCR.
+1. Criar um elemento e carregue um ficheiro de multimédia para o elemento.
+2. Crie uma tarefa com um ficheiro de configuração/configuração predefinida de OCR.
 3. Transferir os ficheiros JSON de saída. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
@@ -369,5 +369,5 @@ namespace OCR
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Ligações relacionadas
-[Descrição geral da análise de serviços de multimédia do Azure](media-services-analytics-overview.md)
+[Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
 

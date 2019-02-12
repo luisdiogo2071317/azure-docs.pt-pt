@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885801"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002007"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitorização do Azure
 
 Nas plataformas do Azure, estamos a juntar dados de monitorização num único local com o Azure Monitor do pipeline, mas praticamente reconhece que hoje nem todos os dados de monitorização está disponível nesse pipeline ainda. Neste artigo, resumimos as várias formas de como é possível acessar programaticamente dados de monitorização dos serviços do Azure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="options-for-data-consumption"></a>Opções para consumo de dados
 
@@ -40,7 +42,7 @@ Nas plataformas do Azure, estamos a juntar dados de monitorização num único l
 | Alertas de métricas de Monitor do Azure | Notificações | [Ver lista aqui](metrics-supported.md) | <ul><li>**Webhook:** [Alertas de métricas do Azure](alerts-webhooks.md)</li></ul> |
 | Alertas de registo de atividade do Monitor do Azure | Notificações | Todos os serviços do Azure | <ul><li>**Webhook:** Alertas de registo de atividades do Azure</li></ul> |
 | Notificações de dimensionamento automático | Notificações | [Ver lista aqui](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Esquema de payload de webhook de notificação de dimensionamento automático](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Alertas de consulta de pesquisa de registo | Notificações | Log Analytics | <ul><li>**Webhook:** [Ação do Webhook para regras de alerta de registo](alerts-log-webhook.md)</li></ul> |
+| Alertas de consulta de pesquisa de registo | Notificações | Registos de Monitor do Azure | <ul><li>**Webhook:** [Ação do Webhook para regras de alerta de registo](alerts-log-webhook.md)</li></ul> |
 | Alertas de métricas do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [Alertas das informações de aplicação](../../azure-monitor/app/alerts.md)</li></ul> |
 | Testes web do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [Alertas das informações de aplicação](../../azure-monitor/app/alerts.md)</li></ul> |
 

@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496079"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001702"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Como preparar o seu modelo para a implementação no Azure Machine Learning Studio
 
@@ -22,7 +22,7 @@ O Azure Machine Learning Studio dá-lhe as ferramentas que necessárias para des
 
 Para fazer isso, utiliza o Studio para criar uma experimentação - chamada um *experimentação de preparação* - onde formar, Pontuar e editar o seu modelo. Quando estiver satisfeito, obter seu modelo pronto para implementar ao converter a sua experimentação de preparação para um *experimentação preditiva* que está configurado para dados de utilizador de pontuação.
 
-Pode ver um exemplo desse processo no [passo a passo: Desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+Pode ver um exemplo desse processo no [ Tutorial 1: Prever o risco de crédito](tutorial-part1-credit-risk.md).
 
 Este artigo analisa detalhadamente os detalhes de como uma experimentação de preparação é convertida numa experimentação preditiva e, como esse experimentação preditiva for implementada. Ao compreender estes detalhes, pode saber como configurar o seu modelo implementado para torná-lo mais eficiente.
 

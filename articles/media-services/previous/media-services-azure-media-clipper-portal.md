@@ -1,44 +1,45 @@
 ---
-title: Utilize o Recortador de Media Services do Azure no Portal do | Microsoft Docs
-description: Criar aplicações de clips utilizando Recortador de suporte de dados do Azure do Portal do Azure
+title: Utilizar o Azure Media Clipper no Portal do | Documentos da Microsoft
+description: Crie clips a utilizar o Azure Media Clipper no Portal do Azure
 services: media-services
-keywords: Clip; subclip codificação; suporte de dados
+keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 510176331a1b79a1069b42afabb63b6b326951cc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788222"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992325"
 ---
-# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Criar aplicações de clips com Recortador de suporte de dados do Azure no portal
-Pode utilizar o Recortador de suporte de dados do Azure no portal para criar aplicações de clips de recursos nas suas contas de serviços de suporte de dados. Para começar a utilizar, navegue até à sua conta de media services no portal. Em seguida, selecione o **Subclip** separador.
+# <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Crie clips com o Azure Media Clipper no portal  
 
-No **Subclip** separador, tiver a capacidade para iniciar a aplicações de clips de composição. No portal, o Recortador carrega MP4s de velocidade de transmissão única MP4s de transmissão múltipla, arquivos e em direto que são publicados com um localizador de transmissão em fluxo válido. Anular a publicação de recursos não estão carregados.
+Pode utilizar o Azure Media Clipper no portal para crie clips a partir de recursos nas suas contas de serviços de multimédia. Para começar a utilizar, navegue para a conta de serviços de multimédia no portal. Em seguida, selecione o **Subclip** separador.
 
-O Recortador está atualmente em pré-visualização pública. Para aceder a Recortador no portal do Azure, aceda a este [página pré-visualização pública](https://portal.azure.com/?feature.subclipper=true).
+Sobre o **Subclip** guia, pode começar a compor clips. No portal, o Clipper carrega MP4s de velocidade de transmissão única, MP4s de velocidade de transmissão e arquivos em direto, que são publicados com um localizador de transmissão em fluxo válido. Não são carregados ativos não publicados.
 
-A imagem seguinte ilustra a página de destino Recortador na sua conta de media services: ![Recortador de suporte de dados do Azure no portal do Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
+O Clipper está atualmente em pré-visualização pública. Para acessar o Clipper no portal do Azure, aceda à [página pré-visualização pública](https://portal.azure.com/?feature.subclipper=true).
 
-## <a name="producing-clips"></a>Aplicações de clips de produção
-Para criar um clip, arraste e largue um recurso para a interface clip. Se os tempos de marca são conhecidos, pode introduzi-las manualmente na interface do. Caso contrário, o elemento de reprodução ou arraste o playhead para localizar o marca-in pretendido e Escalamento de marca de tempo. Se não for fornecido um tempo de marca- ou marca, o clip inicia a partir do início ou continua o fim do recurso de entrada, respetivamente.
+A imagem seguinte ilustra a página de destino Clipper na sua conta dos media services: ![Azure Media Clipper no portal do Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
 
-Para navegar com moldura precisão/GOP precisão, utilize os botões de moldura direta/GOP direta ou frame-com versões anteriores/GOP-com versões anteriores. Para recorte contra vários recursos, arraste e largue a vários recursos na interface do clip a partir do painel de seleção de elemento. Pode selecionar e reordenar ativos na interface para a ordem pretendida. O painel de seleção de elemento fornece a duração de recurso, tipo e metadados de resolução para cada recurso. Quando a concatenar vários recursos em conjunto, considere a resolução de origem de cada ficheiro de entrada. Se as resoluções de origem diferirem, inferior de resolução de entrada é upscaled para satisfazer a resolução do elemento de resolução máxima. Para pré-visualizar a saída da tarefa de recorte, selecione o botão de pré-visualização e o clip reproduz a partir dos tempos de marca selecionado.
+## <a name="producing-clips"></a>Produzir clips
+Para criar um clip, arrastar e soltar um recurso para a interface de clip. Se os tempos de mark são conhecidos, possível inseri-los manualmente para a interface. Caso contrário, o recurso de reprodução ou arrastar a cabeça de leitura para localizar o mark-in desejado e fora de marca de tempo. Se não for fornecido um tempo de mark ou mark horizontalmente, o clip inicia no começo ou continua o fim do elemento de entrada, respectivamente.
 
-## <a name="producing-dynamic-manifest-filters"></a>Produzir o manifesto de filtros dinâmicos
-[Filtros de manifesto dinâmicos](https://azure.microsoft.com/blog/dynamic-manifest/) descrevem um conjunto de regras com base nos atributos de manifesto e a linha cronológica de recurso. Estas regras determinam a forma como o ponto final de transmissão em fluxo manipula listas de reprodução de saída (manifesto). O filtro pode ser utilizado para alterar os segmentos são transmissão em fluxo para reprodução. Os filtros produzidos pelo Recortador são filtros locais e que são específicos para o elemento de origem. Ao contrário das aplicações de clips compostas, os filtros não são elementos novo e não necessitam de uma tarefa de codificação para produzir. Podem ser rapidamente criadas através do [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-dynamic-manifest) ou [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest), no entanto, estão apenas GOP corretas. Normalmente, ativos codificados para transmissão em fluxo têm um tamanho de GOP de dois segundos.
+Para navegar com quadro-precisão/GOP-precisão, utilize os botões de quadro-forward/GOP-forward ou quadro-com versões anteriores/GOP-com versões anteriores. Para recorte em relação a vários recursos, arraste e largue vários recursos na interface do clip a partir do painel de seleção de elemento. Pode selecionar e reordenar ativos na interface para a ordem pretendida. O painel de seleção de elemento fornece a duração do recurso, tipo e metadados de resolução para cada recurso. Quando a concatenação de vários recursos em conjunto, considere a resolução de origem de cada ficheiro de entrada. Se as resoluções de origem forem diferentes, mais baixa de resolução de entrada é upscaled para satisfazer a resolução de ativo de resolução mais alta. Para pré-visualizar a saída da tarefa de recorte, selecione o botão de pré-visualização e o clip reproduz a partir dos tempos de mark selecionado.
 
-Para criar um filtro de manifesto dinâmico, navegue para o **ativos** separador e selecione o elemento pretendido. Selecione o **Subclip** botão para menu superior. Selecione o filtro de manifesto dinâmico pois o modo de recorte no menu de definições avançadas. Em seguida, pode seguir o mesmo processo para produzir um clip composto para criar o filtro. Filtros só podem ser produzidos a partir de um único recurso.
+## <a name="producing-dynamic-manifest-filters"></a>Produção de filtros do manifesto dinâmico
+[Filtros do manifesto dinâmico](https://azure.microsoft.com/blog/dynamic-manifest/) descrevem um conjunto de regras com base nos atributos de manifestos e a linha cronológica de recurso. Estas regras determinam como o ponto final de transmissão em fluxo manipula a lista de reprodução de saída (manifesto). O filtro pode ser utilizado para alterar que segmentos são transmitidas em fluxo para a reprodução. Os filtros produzidos pelo Clipper são filtros locais e são específicos para o elemento de origem. Ao contrário de clips renderizados, os filtros não são novos recursos e não necessitam de uma tarefa de codificação para produzir. Podem ser criadas rapidamente por meio dos [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-dynamic-manifest) ou [REST API](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest), no entanto, estão apenas GOP corretas. Normalmente, os ativos codificados para transmissão em fluxo têm um tamanho de GOP de dois segundos.
 
-A imagem seguinte ilustra o Recortador no modo de filtro de manifesto dinâmica no portal do Azure: ![Recortador de suporte de dados do Azure em modo de filtro de manifesto dinâmica no portal do Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+Para criar um filtro do manifesto dinâmico, navegue para o **ativos** separador e selecione o elemento desejado. Selecione o **Subclip** botão de menu superior. Selecione o filtro do manifesto dinâmico como o modo de recorte no menu de definições avançadas. Em seguida, pode seguir o mesmo processo para produzir um clip renderizado para criar o filtro. Filtros só podem ser produzidos de um único recurso.
+
+A imagem seguinte ilustra o Clipper no modo de filtro de manifesto dinâmico no portal do Azure: ![Azure Media Clipper no modo de filtro de manifesto dinâmico no portal do Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## <a name="submitting-clipping-jobs"></a>Submeter tarefas de recorte
-Quando tiver terminado de composição o clip, selecione o botão para submeter tarefa para iniciar a tarefa de recorte correspondente ou chamada de manifesto dinâmica.
+Quando tiver terminado de compor o clip, selecione o botão de tarefa de envio para iniciar a tarefa de recorte correspondente ou a chamada de manifesto dinâmica.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para começar a utilizar o Recortador de suporte de dados do Azure, leia o [introdução](media-services-azure-media-clipper-getting-started.md) artigo para obter detalhes sobre como implementar o widget.
+Para começar a utilizar o Azure Media Clipper, leia os [introdução ao](media-services-azure-media-clipper-getting-started.md) artigo para obter detalhes sobre como implementar o widget.

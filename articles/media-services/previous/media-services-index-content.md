@@ -4,7 +4,7 @@ description: O indexador de multimédia do Azure permite-lhe para tornar o conte
 services: media-services
 documentationcenter: ''
 author: Asolanki
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 827a56b2-58a5-4044-8d5c-3e5356488271
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: b6e0b2027dd4edbf1688a6c71efe2dde37fbbf96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4bc11e4f622943cdb72253ecd758c27a026495fa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473372"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991163"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexar os ficheiros de multimédia com o indexador de multimédia do Azure
 O indexador de multimédia do Azure permite-lhe para tornar o conteúdo dos seus ficheiros multimédia pesquisáveis e gerar uma transcrição de texto completo para as legendas de áudio e palavras-chave fechado. Pode processar um ficheiro de multimédia ou vários num lote.  
@@ -247,7 +247,7 @@ As mesmas saídas (como tarefas com êxito) são geradas. Pode consultar o fiche
 ### <a id="preset"></a> Predefinição de tarefas para o indexador de multimédia do Azure
 O processamento do indexador de multimédia do Azure pode ser personalizado, fornecendo uma configuração predefinida juntamente com a tarefa de tarefas opcionais.  A seguir descreve o formato esse XML de configuração.
 
-| Nome | Requerer | Descrição |
+| Name | Requerer | Descrição |
 | --- | --- | --- |
 | **input** |false |Ficheiros de recurso que deseja indexar.</p><p>O indexador de multimédia do Azure suporta os seguintes formatos de arquivo de mídia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Pode especificar o nome de ficheiro (s) no **name** ou **lista** atributo do **entrada** elemento (conforme mostrado abaixo). Se não especificar qual arquivo de recurso para o índice, o ficheiro principal é escolhido. Não se for definido nenhum ficheiro de ativo primário, o primeiro arquivo no recurso de entrada é indexado.</p><p>Para especificar explicitamente o nome do arquivo de recurso, fazer:<br/>`<input name="TestFile.wmv">`<br/><br/>Também pode indexar vários ficheiros de elemento ao mesmo tempo (até 10 ficheiros). Para efetuar este procedimento:<br/><br/><ol class="ordered"><li><p>Crie um ficheiro de texto (ficheiro de manifesto) e dê a ele uma extensão de .lst. </p></li><li><p>Adicione uma lista de todos os nomes de arquivo de recurso no seu recurso de entrada para este ficheiro de manifesto. </p></li><li><p>Adicione ficheiro de manifesto (carregamento) para o elemento.  </p></li><li><p>Especifique o nome do ficheiro de manifesto no atributo de lista da entrada.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: Se adicionar mais do que 10 ficheiros para o arquivo de manifesto, a tarefa de indexação irá falhar com o código de erro de 2006. |
 | **metadata** |false |Metadados para o ficheiro ou ficheiros de ativo especificado utilizados para adaptação de vocabulário.  Útil para preparar o indexador para reconhecerem as palavras de vocabulário não padrão, tais como nomes próprios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Pode fornecer **valores** para predefinidas **chaves**. Atualmente são suportadas as seguintes chaves:<br/><br/>"title" e "Descrição" - utilizado para adaptação de vocabulário para ajustar a linguagem de modelam para o seu trabalho e melhorar a precisão de reconhecimento de voz.  Os valores de efetuar o seeding pesquisas da Internet para encontrar os documentos de texto relevante contextualmente, usando o conteúdo para aumentar o dicionário interno para a duração da sua tarefa de indexação.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
@@ -256,7 +256,7 @@ O processamento do indexador de multimédia do Azure pode ser personalizado, for
 ### <a id="error_codes"></a>Códigos de erro
 No caso de um erro, o indexador de multimédia do Azure devem reportar fazer uma cópia de um dos seguintes códigos de erro:
 
-| Código | Nome | Razões possíveis |
+| Código | Name | Razões possíveis |
 | --- | --- | --- |
 | 2000 |Configuração inválida |Configuração inválida |
 | 2001 |Recursos de entrada inválidos |Recursos de entrada ou elemento vazio em falta. |

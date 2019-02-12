@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d19f75def9da82cabce8c2d553a898ae401b54eb
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 66984b42050657dcb65fb784626a37d8b8a86669
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250534"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989377"
 ---
 # <a name="h264-multiple-bitrate-720p"></a>H264 taxa de bits Múltiplas 720p
 `Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -29,7 +29,7 @@ ms.locfileid: "50250534"
  Esta predefinição produz um conjunto de 6 ficheiros MP4 GOP alinhados, desde 3400 kbps até 400 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, a velocidade de transmissão, amostragem taxa, etc. isso configuração predefinida, examinar o XML ou JSON definido abaixo. Para obter explicações de que cada elemento desses meios de suas configurações predefinidas e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md) tópico.  
   
 > [!NOTE]
->  Ao modificar os `Width` e `Height` valores em camadas, certifique-se de que a taxa de proporção permanece consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Não deve utilizar uma combinação de proporções, tais como: 1280 x 720, 720 x 480, 640 x 360.  
+>  Ao modificar os `Width` e `Height` valores em camadas, certifique-se de que a taxa de proporção permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma combinação de proporções, tais como: 1280x720, 720x480, 640x360.  
   
  XML  
   

@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 11384d1bbffb675bd322469d129464f58a48bb6b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cfe7dab907a332f1a38560c39d4f6476cee81aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311836"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004764"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -135,7 +135,7 @@ Por exemplo, tem a definição de política *policyDefA* e criar na definição 
 
 - Quando é avaliada uma atribuição de iniciativa, todas as políticas na iniciativa também são avaliadas. Se precisar de avaliar uma política individualmente, é melhor não incluí-lo numa iniciativa.
 
-## <a name="video-overview"></a>Descrição Geral em Formato de Vídeo
+## <a name="video-overview"></a>Descrição geral do vídeo
 
 A seguinte descrição geral do Azure Policy é do Build 2018. Para slides ou download de vídeo, visite [regem o seu ambiente do Azure através da política do Azure](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9.
 

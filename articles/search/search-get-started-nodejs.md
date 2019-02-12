@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 0b36ee9aa54f0d8dd3d246d6c5a96e767326d2d8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634682"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005340"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Introdução à Azure Search no Node.js
 > [!div class="op_single_selector"]
@@ -100,7 +100,7 @@ Também pode tentar qualquer um destes termos:
 ## <a name="next-steps"></a>Passos Seguintes
 Este é o primeiro tutorial da Azure Search com base em Node.js e o conjunto de dados USGS. Ao longo do tempo, iremos irá expandir este tutorial para demonstrar funcionalidades adicionais de pesquisa que pode querer utilizar nas suas soluções personalizadas.
 
-Se já tiver algumas informações básicas no Azure Search, pode utilizar este exemplo como um springboard para tentar sugestores (conclusão automática de antecipada ou consultas), filtros e navegação por facetas. Também pode melhorar a página de resultados da pesquisa ao adicionar contagens e criação de batches de documentos para que os utilizadores possam percorrer os resultados.
+Se já tiver algum conhecimento sobre a Azure Search, pode utilizar este exemplo como ponto de partida para tentar sugestores (escrita antecipada ou consultas de conclusão automática), filtros e navegação por facetas. Também pode melhorar a página de resultados da pesquisa ao adicionar contagens e criação de batches de documentos para que os utilizadores possam percorrer os resultados.
 
 Novo na Azure Search? Recomendamos que experimente outros tutoriais para desenvolver uma noção básica sobre o que pode criar. Visite a nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para obter mais recursos. 
 

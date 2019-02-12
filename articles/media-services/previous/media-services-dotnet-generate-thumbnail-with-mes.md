@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249349"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995140"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas com o Media Encoder Standard com .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas com o Media Encoder Standard com .NET 
 
 Pode utilizar o Media Encoder Standard para gerar miniaturas de um ou mais a partir do seu vídeo de entrada [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), ou [BMP](https://en.wikipedia.org/wiki/BMP_file_format) formatos de ficheiro de imagem. Pode submeter tarefas que produzem apenas imagens ou pode combinar a geração de miniaturas com codificação. Este artigo fornece algumas exemplo XML e JSON em miniatura configurações predefinidas para estes cenários. No final do artigo, há uma [código de exemplo](#code_sample) que mostra como utilizar o SDK de .NET de serviços de multimédia para realizar a tarefa de codificação.
 
@@ -551,15 +551,15 @@ As seguintes considerações aplicam-se:
 * A utilização de carimbos de data / explícita para iniciar/passo/intervalo parte do princípio de que a origem de entrada é longo, pelo menos, 1 minuto.
 * Elementos de jpg/Png/BmpImage tem início, passo e os atributos de cadeia de caracteres de intervalo – estas podem ser interpretadas como:
   
-  * Número de fotograma, se forem inteiros não negativos, por exemplo "Start": "120,"
-  * Relativamente à duração de origem, se for expresso como sufixo %, por exemplo "Start": "% de 15", ou
-  * Timestamp se for expresso no hh: mm:... formato. Por exemplo "Start": "00: 01:00"
+  * Número de quadros se forem inteiros não negativos, por exemplo, "Start": "120",
+  * Caminho relativo para a duração da origem se for expresso com o sufixo %, por exemplo "Start": "15%", OU
+  * Timestamp se for expresso no hh: mm:... formato. Por exemplo "começar:" "00:01:00"
     
     Pode combinar e misturar notações como.
     
-    Além disso, o início suporta também uma Macro especial: {melhores}, que tentará determinar o primeiro quadro "interessante" da nota conteúdo: (passo e o intervalo são ignoradas quando início está definido como {melhor})
+    Além disso, o início suporta também uma Macro especial: {melhores}, que tentará determinar o primeiro quadro "interessante" da nota conteúdo: (Passo e o intervalo são ignoradas quando início está definido como {melhor})
   * Predefinições: Iniciar: {melhor}
-* Formato de saída tem de ser explicitamente fornecido para cada formato de imagem: Png/Jpg/BmpFormat. Quando estiver presente, o MES corresponde a JpgVideo para JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específicos de codec de imagem: {Index}, que tem de estar presente (uma vez e apenas uma vez) para os formatos de saída de imagem.
+* Formato de saída tem de ser explicitamente fornecido para cada formato de imagem: Jpg/Png/BmpFormat. Quando estiver presente, o MES corresponde a JpgVideo para JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específicos de codec de imagem: {Index}, que tem de estar presente (uma vez e apenas uma vez) para os formatos de saída de imagem.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

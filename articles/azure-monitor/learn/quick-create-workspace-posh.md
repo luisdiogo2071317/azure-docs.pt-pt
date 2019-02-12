@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 1f78f0cd98a5a1960737ce37c5540889ca395bea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 073ce3075f6c14230ad76f70feb8d01d17b4e2e0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428869"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005476"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Criar uma área de trabalho do Log Analytics com o Azure PowerShell
 
-O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia de introdução mostra-lhe como utilizar o módulo Azure PowerShell para implementar uma área de trabalho do Log Analytics no Azure, o que é um ambiente exclusivo com seu próprio repositório de dados, origens de dados e soluções.  Os passos descritos neste artigo são necessários se pretende recolher dados das seguintes origens:
+O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos do PowerShell ou em scripts. Este guia de introdução mostra-lhe como utilizar o módulo Azure PowerShell para implementar uma área de trabalho do Log Analytics no Azure Monitor. Uma área de trabalho do Log Analytics é um ambiente exclusivo para dados de registo do Azure Monitor. Cada área de trabalho tem seu próprio repositório de dados e a configuração e origens de dados e as soluções são configuradas para armazenar seus dados numa área de trabalho específica. Exigir uma área de trabalho do Log Analytics se pretende recolher dados das seguintes origens:
 
 * Recursos do Azure na sua subscrição  
 * Computadores monitorizados pelo System Center Operations Manager no local  
@@ -31,8 +31,8 @@ O módulo do Azure PowerShell é utilizado para criar e gerir recursos do Azure 
  
 Para outras origens, como as VMs do Azure e o Windows ou VMs do Linux no seu ambiente, consulte os seguintes tópicos:
 
-* [Recolher dados de máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md)
-* [Recolher dados de computador com Linux híbrida](../../azure-monitor/learn/quick-collect-linux-computer.md)
+* [Recolher dados de máquinas virtuais do Azure](../learn/quick-collect-azurevm.md)
+* [Recolher dados de computador com Linux híbrida](../learn/quick-collect-linux-computer.md)
 * [Recolher dados do computador de Windows híbrida](quick-collect-windows-computer.md)
 
 Se não tiver uma subscrição do Azure, crie [uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -126,7 +126,7 @@ A implementação pode demorar alguns minutos a concluir. Quando terminar, verá
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que tem uma área de trabalho disponível, pode configurar a recolha de monitorização de telemetria, executar pesquisas de registos para analisar esses dados e adicionar uma solução de gestão para fornecer dados adicionais e informações de análise.  
 
-* Para ativar a recolha de dados dos recursos do Azure com o diagnóstico do Azure ou o armazenamento do Azure, veja [registos do serviço de recolha do Azure e as métricas de utilização do Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md).  
-* Adicione [System Center Operations Manager como origem de dados](../../azure-monitor/platform/om-agents.md) para recolher dados de agentes que reportam o grupo de gestão do Operations Manager e o armazenamos em sua área de trabalho do Log Analytics.  
-* Ligue-se [Configuration Manager](../../azure-monitor/platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
-* Reveja os [soluções de gestão](../../azure-monitor/insights/solutions.md) disponíveis e como adicionar ou remover uma solução da sua área de trabalho.
+* Para ativar a recolha de dados dos recursos do Azure com o diagnóstico do Azure ou o armazenamento do Azure, veja [registos do serviço de recolha do Azure e as métricas para utilização no Azure Monitor](../platform/collect-azure-metrics-logs.md).  
+* Adicione [System Center Operations Manager como origem de dados](../platform/om-agents.md) para recolher dados de agentes que reportam o grupo de gestão do Operations Manager e o armazenamos em sua área de trabalho do Log Analytics.  
+* Ligue-se [Configuration Manager](../platform/collect-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
+* Reveja os [soluções de monitorização](../insights/solutions.md) disponíveis e como adicionar ou remover uma solução da sua área de trabalho.

@@ -1,6 +1,6 @@
 ---
 title: Recolha de dados JSON personalizados no Azure Monitor | Documentos da Microsoft
-description: Origens de dados JSON personalizadas podem ser recolhidas para o Log Analytics com o agente do Log Analytics para Linux.  Estas origens de dados personalizados podem ser scripts simples a devolver JSON, como o curl, ou um dos 300 + plug-ins do FluentD. Este artigo descreve a configuração necessária para esta coleção de dados.
+description: Origens de dados JSON personalizadas podem ser recolhidas no Monitor do Azure com o agente do Log Analytics para Linux.  Estas origens de dados personalizados podem ser scripts simples a devolver JSON, como o curl, ou um dos 300 + plug-ins do FluentD. Este artigo descreve a configuração necessária para esta coleção de dados.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 36f914109d8d3879d23511cb37055d20db4d670c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8b03d6838e9d942da766e0c7aa4c2c2e161a6b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105224"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990126"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Recolha de origens de dados JSON personalizadas com o agente do Log Analytics para Linux no Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Origens de dados JSON personalizadas podem ser recolhidas em [do Log Analytics](data-collection.md) com o agente Log Analytics para Linux.  Estas origens de dados personalizados podem ser scripts simples, tais como a devolver JSON [curl](https://curl.haxx.se/) ou um dos [300 + plug-ins do FluentD](http://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para esta coleção de dados.
+Origens de dados JSON personalizadas podem ser recolhidas em [do Azure Monitor](data-collection.md) com o agente Log Analytics para Linux.  Estas origens de dados personalizados podem ser scripts simples, tais como a devolver JSON [curl](https://curl.haxx.se/) ou um dos [300 + plug-ins do FluentD](http://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para esta coleção de dados.
 
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Origens de dados JSON personalizadas podem ser recolhidas em [do Log Analytics](
 
 ### <a name="configure-input-plugin"></a>Configurar o plug-in de entrada
 
-Para recolher dados JSON no Log Analytics, adicionar `oms.api.` para o início de uma etiqueta de FluentD num plug-in de entrada.
+Para recolher dados JSON no Azure Monitor, adicionar `oms.api.` para o início de uma etiqueta de FluentD num plug-in de entrada.
 
 Por exemplo, segue-se um ficheiro de configuração diferente `exec-json.conf` em `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Esta opção utiliza o plug-in de FluentD `exec` para executar um comando de curl cada 30 segundos.  O resultado deste comando é recolhido pelo plug-in de saída do JSON.
 
@@ -87,9 +87,9 @@ Reinicie o agente do Log Analytics para o serviço do Linux com o seguinte coman
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Saída
-Os dados serão recolhidos no Log Analytics com um tipo de registo de `<FLUENTD_TAG>_CL`.
+Os dados serão recolhidos no Azure Monitor com um tipo de registo de `<FLUENTD_TAG>_CL`.
 
-Por exemplo, a marca personalizada `tag oms.api.tomcat` no Log Analytics com um tipo de registo de `tomcat_CL`.  Foi possível obter todos os registos desse tipo com a seguinte consulta de registo.
+Por exemplo, a marca personalizada `tag oms.api.tomcat` no Azure Monitor com um tipo de registo de `tomcat_CL`.  Foi possível obter todos os registos desse tipo com a seguinte consulta de registo.
 
     Type=tomcat_CL
 
@@ -106,4 +106,4 @@ Dados JSON aninhados origens são suportadas, mas são indexadas com base nos ca
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [registar as consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

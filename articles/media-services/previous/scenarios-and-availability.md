@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/08/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: da3c394a69bb6bc5e7ddaf57e96356dfdf441c2b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 731e8453c9735ef1e7819f1b851d0a13ceaec43a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981371"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996207"
 ---
-# <a name="scenarios-and-availability-of-media-services-features-across-datacenters-legacy"></a>Cenários e disponibilidade das funcionalidades dos serviços de multimédia em datacenters (Legado)
+# <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) permitem-lhe carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para a entrega de transmissões em fluxo, tanto a pedido, como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 

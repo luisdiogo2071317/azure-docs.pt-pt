@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com cadeias de caracteres em consultas do Log Analytics do Azure | Documentos da Microsoft
-description: Este artigo fornece um tutorial para utilizar o portal de análise para escrever consultas do Log Analytics.
+title: Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor | Documentos da Microsoft
+description: Descreve como editar, comparar, procurar e realizar uma variedade de outras operações em cadeias de caracteres em consultas de registo do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 729d98dda1ae0a1410a15ee1e40c670ca211d864
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186247"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995412"
 ---
-# <a name="working-with-strings-in-log-analytics-queries"></a>Trabalhar com cadeias de caracteres em consultas do Log Analytics
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor
 
 
 > [!NOTE]
-> Deve efetuar [começar com o portal do Analytics](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir este tutorial.
+> Deve efetuar [começar com o log analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve como editar, comparar, procurar e realizar uma variedade de outras operações em cadeias de caracteres. 
+Este artigo descreve como editar, comparar, procurar e realizar uma variedade de outras operações em cadeias de caracteres.
 
 Cada caractere numa cadeia de caracteres tem um número de índice, de acordo com a localização. O primeiro caráter é no índice 0, o caráter seguinte é 1 e então, uma. Funções de cadeia de caracteres diferentes utilizam números de índice, conforme mostrado nas seções a seguir. Muitos dos exemplos seguintes utilizam o **imprimir** de comando para demonstrar a manipulação de cadeia de caracteres sem utilizar uma origem de dados específica.
 
@@ -52,9 +52,9 @@ print @"C:\backslash\not\escaped\with @ prefix"
 Operador       |Descrição                         |Diferencia maiúsculas de minúsculas|Exemplo (produz `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
-`!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
+`!=`           |Diferente de                          |Sim           |`"abc" != "ABC"`
 `=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
-`!~`           |Não é igual a                          |Não            |`"aBc" !~ "xyz"`
+`!~`           |Diferente de                          |Não            |`"aBc" !~ "xyz"`
 `has`          |Direita lado é um termo todo no esquerdo lado |Não|`"North America" has "america"`
 `!has`         |Direita lado não é um termo completo na esquerdo lado       |Não            |`"North America" !has "amer"` 
 `has_cs`       |Direita lado é um termo todo no esquerdo lado |Sim|`"North America" has_cs "America"`

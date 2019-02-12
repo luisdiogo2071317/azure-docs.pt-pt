@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105802"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999373"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um ficheiro de solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -53,7 +53,7 @@ A estrutura básica de um ficheiro de solução de gestão é o mesmo que um [mo
 ## <a name="parameters"></a>Parâmetros
 [Parâmetros](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) são valores que exigem do usuário durante a instalação da solução de gestão.  Existem parâmetros padrão, que terão todas as soluções e pode adicionar parâmetros adicionais conforme necessário para a sua solução específica.  Como os utilizadores irão fornecer valores de parâmetros durante a instalação sua solução dependerá o parâmetro específico e como a solução está a ser instalada.
 
-Quando um usuário [instala a sua solução de gestão](solutions.md#install-a-management-solution) através de modelos do Azure Marketplace ou do início rápido do Azure, são-lhe pedido para selecionar um [área de trabalho do Log Analytics e a conta de automatização](solutions.md#log-analytics-workspace-and-automation-account).  Estes são utilizados para preencher os valores de cada um dos parâmetros padrão.  Não é pedido ao utilizador diretamente fornecer valores para os parâmetros padrão, mas são lhe for pedidos para fornecer valores para todos os parâmetros adicionais.
+Quando um usuário [instala a sua solução de gestão](solutions.md#install-a-monitoring-solution) através de modelos do Azure Marketplace ou do início rápido do Azure, são-lhe pedido para selecionar um [área de trabalho do Log Analytics e a conta de automatização](solutions.md#log-analytics-workspace-and-automation-account).  Estes são utilizados para preencher os valores de cada um dos parâmetros padrão.  Não é pedido ao utilizador diretamente fornecer valores para os parâmetros padrão, mas são lhe for pedidos para fornecer valores para todos os parâmetros adicionais.
 
 
 Um parâmetro de exemplo é mostrado abaixo.  
@@ -83,7 +83,7 @@ A tabela seguinte lista os parâmetros padrão para todas as soluções de gest�
 >
 >
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Type | Descrição |
 |:--- |:--- |:--- |
 | accountName |cadeia |Nome da conta de automatização do Azure. |
 | pricingTier |cadeia |Escalão de preço da área de trabalho do Log Analytics e a conta de automatização do Azure. |

@@ -4,57 +4,49 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 39dcbb95-c192-448c-86a1-cedede1c0972
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2018
+ms.topic: tutorial
+ms.date: 02/05/2019
 ms.author: jeedes
-ms.openlocfilehash: f7973ccb384a8e882a9ced5020a53824bf0c4e7d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38656dae62c72cbebf690a7185785ed842fc9491
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169880"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>Tutorial: Integração do Active Directory do Azure com Descompassos
 
 Neste tutorial, saiba como integrar os Descompassos com o Azure Active Directory (Azure AD).
-
 Integrar Descompassos no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Descompassos.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para desvios (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao Descompassos.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para desvios (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, consulte o artigo [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Descompassos, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um Descompassos logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Descompassos logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-1. Adicionando os desvios da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+* Suporta de inconsistências **SP** e **IDP** iniciada SSO
+
+* Suporta de inconsistências **Just In Time** aprovisionamento de utilizadores
 
 ## <a name="adding-drift-from-the-gallery"></a>Adicionando os desvios da Galeria
 
@@ -62,95 +54,113 @@ Para configurar a integração de desvios para o Azure AD, terá de adicionar De
 
 **Para adicionar Descompassos a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicativo][3]
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, escreva **Descompassos**, selecione **Descompassos** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![Na lista de resultados de inconsistências](./media/drift-tutorial/tutorial_drift_addfromgallery.png)
+     ![Na lista de resultados de inconsistências](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Descompassos com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Descompassos a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Descompassos deve ser estabelecido.
+Nesta secção, configure e teste do Azure AD início de sessão único com Descompassos com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Descompassos deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com Descompassos, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste Descompassos](#creating-a-drift-test-user)**  - para ter um equivalente da Eduarda Almeida na Descompassos que está ligado à representação de utilizador do Azure AD.
-4. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar Descompassos de início de sessão único](#configure-drift-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Descompassos](#create-drift-test-user)**  - para ter um equivalente da Eduarda Almeida na Descompassos que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Descompassos.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com Descompassos, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com Descompassos, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **Descompassos** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Descompassos** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, clique em **selecione** para **SAML** modo para ativar o início de sessão único.
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-    ![Configurar o início de sessão único](common/tutorial_general_301.png)
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
 3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    ![Configurar o início de sessão único](common/editconfigure.png)
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
 
-    ![Domínio e URLs únicas início de sessão em informações de inconsistências](./media/drift-tutorial/tutorial_drift_url.png)
+    ![Domínio e URLs únicas início de sessão em informações de inconsistências](common/both-preintegrated-advanced-urls.png)
 
     a. Clique em **definir URLs adicionais**.
+ 
+    b. Na **estado de reencaminhamento** caixa de texto, escreva um URL: `https://app.drift.com` 
 
-    b. Na **estado de reencaminhamento** caixa de texto, escreva um URL: `https://app.drift.com`
+    c. Se desejar configurar a aplicação no **SP** iniciado do modo de executar o passo seguinte:
 
-    c. Se desejar configurar a aplicação no **SP** iniciadas pelo modo, na **URL de início de sessão** caixa de texto, escreva um URL: `https://start.drift.com`
+    d. Na **URL de início de sessão** caixa de texto, escreva um URL: `https://start.drift.com`
 
-5. Aplicação de desvios espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador e afirmações** secção na página de integração de aplicações. Clique em **edite** botão para abrir **atributos de utilizador e afirmações** caixa de diálogo.
+6. Aplicação de desvios espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![image](./media/drift-tutorial/tutorial_drift_attribute.png)
+    ![image](common/edit-attribute.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador e afirmações** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
-    
-    | Nome do Atributo | Valor do Atributo |
+7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
+
+    | Name | Atributo de origem|
     | ---------------| --------------- |    
-    | Nome | user.displayname |
+    | Name | user.displayname |
 
-    a. Clique nas `name` declaração (declaração de realçada) para abrir o **Gerir afirmações de utilizador** caixa de diálogo.
+    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![image](./media/drift-tutorial/tutorial_drift_attribute1.png)
+    ![image](common/new-save-attribute.png)
 
-    ![image](./media/drift-tutorial/tutorial_drift_attribute3.png)
+    ![image](common/new-attribute-details.png)
 
-    b. Selecione a origem de dado **atributo**.
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
-    c. Tornar o **espaço de nomes** em branco.
+    c. Deixe o **espaço de nomes** em branco.
 
-    d. Partir do **atributo de origem** lista, selecione **user.displayname**.
+    d. Selecione a origem de dado **atributo**.
 
-    e. Clique em **Guardar**.
+    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
 
-7. No **certificado de assinatura SAML** página, além da **certificado de assinatura SAML** secção, clique em **transferir** para transferir **XML de metadados de Federação** e, em seguida, guarde o ficheiro de metadados no seu computador.
+    f. Clique em **Ok**
 
-    ![O link de download de certificado](./media/drift-tutorial/tutorial_drift_certificate.png) 
+    g. Clique em **Guardar**.
 
-8. Numa janela do browser web diferente, início de sessão para desvios como administrador.
+8. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-9. Do lado esquerdo da barra de menu, clique em **ícone de definições** > **definições de aplicação** > **autenticação** e execute os seguintes passos:
+    ![O link de download de certificado](common/metadataxml.png)
+
+9. Sobre o **configurar Descompassos** secção, copie os URLs apropriados de acordo com seus requisitos.
+
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-drift-single-sign-on"></a>Configurar Descompassos início de sessão único
+
+1. Numa janela do browser web diferente, início de sessão para desvios como administrador.
+
+2. Do lado esquerdo da barra de menu, clique em **ícone de definições** > **definições de aplicação** > **autenticação** e execute os seguintes passos:
 
     ![A ligação de administrador](./media/drift-tutorial/tutorial_drift_admin.png)
 
@@ -160,82 +170,75 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     c. Clique em **ativar SAML**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
 1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-    ![Criar utilizador do Azure AD][100]
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
 2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](common/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
 3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    ![Criar um utilizador de teste do Azure AD](common/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** , insira **BrittaSimon**.
+    a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
-    c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-    d. Selecione **Criar**.
+    d. Clique em **Criar**.
 
-### <a name="creating-a-drift-test-user"></a>Criar um utilizador de teste Descompassos
-
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Descompassos. Descompassos suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Descompassos se não existir ainda.
->[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de desvios](mailto:integrations@drift.com).
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para desvios.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Descompassos**.
 
-    ![Atribuir utilizador][201]
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Descompassos**.
 
-    ![Configurar o início de sessão único](./media/drift-tutorial/tutorial_drift_app.png) 
+    ![A ligação de Descompassos na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, clique em **utilizadores e grupos**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![Atribuir utilizador][202]
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![Atribuir utilizador][203]
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
 5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-6. Na **adicionar atribuição**, selecione caixa de diálogo a **atribuir** botão.
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-drift-test-user"></a>Criar utilizador de teste de desvios
+
+Nesta secção, um usuário chamado Eduarda Almeida é criado na Descompassos. Descompassos suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Descompassos, é criado um novo após a autenticação.
+
+>[!Note]
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de desvios](mailto:integrations@drift.com).
+
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Descompassos no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de desvios.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico Descompassos no painel de acesso, deve ser automaticamente sessão iniciada no desvios para a qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: common/tutorial_general_100.png
-
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png

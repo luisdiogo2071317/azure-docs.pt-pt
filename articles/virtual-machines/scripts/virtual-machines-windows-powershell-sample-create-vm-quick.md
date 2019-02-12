@@ -16,18 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 687f69e625b46b1c316ef6fbb0c1b86d350cf669
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f2008a795addb035cf3f19606170dbac5ffd1a5b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979263"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993389"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Criar uma máquina virtual com o PowerShell
 
 Este script cria uma Máquina Virtual do Azure com o Windows Server 2016. Depois de executar o script, pode aceder à máquina virtual através de RDP.
-
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

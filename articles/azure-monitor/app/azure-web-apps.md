@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4ec6e1288b34f04350a88697ca13ed044922ee50
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565960"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002247"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do serviço de aplicações do Azure
 Na [portal do Azure](https://portal.azure.com) pode configurar a monitorização de desempenho de aplicações para as suas aplicações web, móveis back-ends e aplicações API no [App Service do Azure](../../app-service/overview.md). O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrui a sua aplicação a enviar telemetria sobre as atividades para o serviço Application Insights, onde são armazenadas e analisadas. Aí, podem ser utilizados gráficos de métricas e ferramentas de pesquisa para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar a utilização.
@@ -29,7 +29,7 @@ Para configurar a monitorização, pode instrumentar a aplicação de uma de dua
 * **Tempo de compilação** - pode instalar um pacote na sua aplicação durante a programação. Esta opção é mais versátil. Para além dos mesmos pacotes padrão, pode escrever código para personalizar a telemetria ou enviar a sua própria telemetria. Pode registar atividades específicas ou eventos, de acordo com a semântica do domínio da aplicação. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Instrumentação do tempo de execução com o Application Insights
-Se já estiver a executar um serviço de aplicações no Azure, já tem alguma monitorização: taxas de pedidos e de erros. Adicione o Application Insights para beneficiar de mais monitorização, como tempos de resposta, monitorização de chamadas para dependências, deteção inteligente e a poderosa linguagem de consultas do Log Analytics. 
+Se já estiver a executar um serviço de aplicações no Azure, já tem alguma monitorização: taxas de pedidos e de erros. Adicionar o Application Insights para beneficiar de mais, como tempos de resposta, monitorização de chamadas para dependências, deteção inteligente e o Data Explorer poderosa linguagem de consultas. 
 
 1. **Selecione o Application Insights** no painel de controlo do Azure para o serviço de aplicações.
 

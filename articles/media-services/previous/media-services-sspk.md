@@ -4,7 +4,7 @@ description: Saiba mais sobre como para o Microsoft® Smooth Streaming cliente p
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: xpouyat
-ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243901"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000085"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft® Smooth Streaming cliente Kit de migração
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft® Smooth Streaming cliente Kit de migração 
 ## <a name="overview"></a>Descrição geral
 Microsoft Smooth Streaming cliente portar Kit (**SSPK** para abreviar) é uma implementação cliente Smooth Streaming, que é otimizada para o ajudar a fabricantes de dispositivos incorporados, cabo e operadoras de celular, fornecedores de serviços de conteúdo, aparelho fabricantes, fornecedores independentes de software (ISVs) e fornecedores de soluções para criar os produtos e serviços para transmissão em fluxo adaptável conteúdo no formato de transmissão em fluxo uniforme. SSPK é um dispositivo e independente de plataforma de implementação do cliente de transmissão em fluxo uniforme de mensagens em fila que pode ser portado por licenciado para qualquer plataforma e dispositivo. 
 
@@ -83,21 +83,21 @@ Até lá e Final SSPK licenciados podem enviar perguntas técnicas para [ smooth
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * Albis Technologies Ltd.
 * Alticast Corporation
-* Serviços de Digital Amazon, Inc.
-* Tecnologia de Arion, Inc.
-* AVC multimídia Software Co., Ltd.
+* Amazon Digital Services, Inc.
+* Arion Technology, Inc.
+* AVC Multimedia Software Co., Ltd.
 * Cavium, Inc.
-* EchoStar Corporation de compra
+* EchoStar Purchasing Corporation
 * Enseo, Inc.
-* Fluendo da A.S.
-* HANDAN BroadInfoCom co., Ltd.
+* Fluendo S.A.
+* HANDAN BroadInfoCom Co., Ltd.
 * Infomir GMBH
-* Inc. de EUA Irdeto
-* iWEDIA da A.S. 
+* Irdeto USA Inc.
+* iWEDIA S.A. 
 * Liberdade BV de serviços globais
 * MediaTek Inc.
-* MStar Co, Lda.
-* Nintendo co., Ltd.
+* MStar Co, Ltd
+* Nintendo Co., Ltd.
 * OpenTV, Inc.
 * Saffron Digital limitado
 * Sichuan Changhong Electric Co., Ltd
@@ -114,44 +114,44 @@ Até lá e Final SSPK licenciados podem enviar perguntas técnicas para [ smooth
 * SA de difusão Digital avançadas
 * AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
 * Albis Technologies Ltd.
-* Serviços de Digital Amazon, Inc.
-* Tecnologia de AmTRAN co., Ltd.
+* Amazon Digital Services, Inc.
+* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Tecnologia de Arion, Inc.
+* Arion Technology, Inc.
 * ATMACA ELEKTRONİK SAN. VE TİC. A.Ş
 * Colúmbia céu difusão limitado
 * CastPal Technology Inc., Shenzhen
 * Compal Electronics, Inc.
-* Dongguan Digital AV tecnologia Corp., Ltd.
-* EchoStar Corporation de compra
+* Dongguan Digital AV Technology Corp., Ltd.
+* EchoStar Purchasing Corporation
 * Enseo, Inc.
 * Filmflex filmes limitado
-* Fluendo da A.S.
+* Fluendo S.A.
 * Gibson inovações limitado
-* Informações de Haier Applicantion S.R.L
-* HANDAN BroadInfoCom co., Ltd.
-* Hisense International co., Ltd. 
-* Homecast co., Ltd
-* Está Hai precisão Industry Co., Ltd.
+* Haier Information Applicantion S.R.L
+* HANDAN BroadInfoCom Co., Ltd.
+* Hisense International Co., Ltd. 
+* Homecast Co., Ltd
+* Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
-* Kaonmedia co., Ltd.
+* Kaonmedia Co., Ltd.
 * KDDI Corporation
-* Nintendo co., Ltd.
+* Nintendo Co., Ltd.
 * Cor de laranja SA
 * Saffron Digital limitado
 * Sagemcom banda larga SAS
-* Shenzhen Coship Electronics Co., LTD
+* Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
-* Shenzhen Skyworth Digital tecnologia co., Ltd
+* Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
-* Corp. de Industrial Skardin
-* Céu Deutschland Fernsehen GmbH & co. KG
-* SmarDTV da A.S.
+* Skardin Industrial Corp.
+* Sky Deutschland Fernsehen GmbH & Co. KG
+* SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
 * Limitado de Marketing no exterior do TCL (especificamente comercial de RAE de Macau)
 * Tecnologias de entrega de Technicolor, SAS
-* Ltd. Global de Tongfang
+* Tongfang Global Ltd.
 * Parte superior Victory investimentos, Ltd.
 * Produtos de estilo de vida de Toshiba & corporação de serviços
 * Corporation de suporte de dados universal /Slovakia/ s.r.o.

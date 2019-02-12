@@ -4,17 +4,17 @@ description: Utilize o Azure Blueprints para criar, definir e implementar artefa
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566982"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989971"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -329,6 +329,12 @@ O valor para `{BlueprintVersion}` é uma cadeia de letras, números e hífenes (
 
 Depois de um esquema ser publicado com a API REST, pode ser atribuído a uma subscrição. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. Se o plano gráfico é guardado para uma subscrição, só podem ser atribuído a essa subscrição. O **Corpo do Pedido** especifica o esquema a atribuir, indica o nome e a localização de quaisquer grupos de recursos na definição do esquema, e indica todos os parâmetros que foram definidos no esquema e utilizados por um ou mais artefactos associados.
 
+Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
+
+- `{tenantId}` -Substituir pelo seu ID de inquilino
+- `{YourMG}` -Substituir com o ID do seu grupo de gestão
+- `{subscriptionId}` - substituir pelo ID da subscrição
+
 1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas o ID do principal de serviço varia de inquilino para inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 
    - URI da API REST
@@ -387,6 +393,25 @@ Depois de um esquema ser publicado com a API REST, pode ser atribuído a uma sub
          "location": "westus"
      }
      ```
+
+   - Atribuído ao utilizador a identidade gerida
+
+     Uma atribuição do esquema também pode utilizar um [atribuído ao utilizador a identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md). Neste caso, o **identidade** parte do corpo do pedido é alterado da seguinte forma.  Substitua `{yourRG}` e `{userIdentity}` com seu recurso agrupar nome e o nome da sua identidade gerida atribuído ao utilizador, respectivamente.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     O **atribuído ao utilizador a identidade gerida** podem estar em qualquer subscrição e grupo de recursos do utilizador atribuir o plano gráfico tem permissões para.
+
+     > [!IMPORTANT]
+     > Planos gráficos não gere a identidade gerida atribuído ao utilizador. Os usuários são responsáveis pela atribuição de funções suficientes e permissões ou a atribuição do esquema falhará.
 
 ## <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 

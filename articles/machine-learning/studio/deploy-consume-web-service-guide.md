@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2add42e56f939dbfeb33ac2774d404411b1fefb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497677"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997256"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio serviços da Web: Implementação e consumo
 Pode utilizar o Azure Machine Learning para implementar fluxos de trabalho do machine learning e modelos como serviços web. Esses serviços da web, em seguida, podem ser utilizados para chamar os modelos de machine learning a partir de aplicações através da Internet para fazer previsões em tempo real ou no modo de lote. Porque os serviços web RESTful, pode chamá-los a partir de várias linguagens de programação e plataformas, como o .NET e Java e de aplicativos, como o Excel.
@@ -31,10 +31,10 @@ As ligações seguintes fornecem informações gerais sobre como implementar um 
 
 * Para uma descrição geral sobre como implementar um novo serviço web baseado no Azure Resource Manager, consulte [implementar um novo serviço web](publish-a-machine-learning-web-service.md).
 * Para obter instruções sobre como implementar um serviço da web, consulte [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Para obter instruções completas sobre como criar e implementar um serviço web, consulte [instruções passo 1: Criar uma área de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md).
+* Para obter instruções completas sobre como criar e implementar um serviço web, inicie com [ Tutorial 1: Prever o risco de crédito](tutorial-part1-credit-risk.md).
 * Para obter exemplos específicos que implementa um serviço web, consulte:
 
-  * [Passo 5 das instruções: Implementar o serviço web do Azure Machine Learning](walkthrough-5-publish-web-service.md)
+  * [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
   * [Como implementar um serviço web em várias regiões](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Com o fornecedor de recursos de serviços de web APIs (APIs do Azure Resource Manager)
@@ -84,7 +84,7 @@ Pode testar o seu serviço web a partir do portal do Azure Machine Learning Web 
 
 * [Implementar um serviço Web novo](publish-a-machine-learning-web-service.md)
 * [Implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* [Passo 5 das instruções: Implementar o serviço web do Azure Machine Learning](walkthrough-5-publish-web-service.md)
+* [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>A partir do Excel
 Pode transferir um modelo do Excel que consome o serviço web:

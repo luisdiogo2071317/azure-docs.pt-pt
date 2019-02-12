@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: be52f5fbe6c7d282a50e53c4326478b937ea8081
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0275eb83feec46f21b55ca36e5d77c5b1fcd6f28
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488389"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997290"
 ---
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial: Criar a sua primeira experimentação de ciência de dados no Azure Machine Learning Studio
 
@@ -329,9 +329,9 @@ Para obter um exemplo de como comparar vários modelos numa experimentação ind
 
 [publish]: publish-a-machine-learning-web-service.md
 
-Quer saber mais? Para obter instruções mais extensas e detalhadas sobre o processo de criação, preparação, classificação e implementação de um modelo, veja [Desenvolver uma solução preditiva com o Azure Machine Learning][walkthrough].
+Quer saber mais? Para instruções mais extensas e detalhadas do processo de criação, formação, classificação e a implementar um modelo, consulte [Tutorial 1: Prever o risco de crédito ] [ walkthrough].
 
-[walkthrough]: walkthrough-develop-predictive-solution.md
+[walkthrough]: tutorial-part1-credit-risk.md
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png

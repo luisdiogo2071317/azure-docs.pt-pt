@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827453"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991332"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Monitor do Azure
+# <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas do Azure Monitor
 
-Explorador de métricas do Azure Monitor é um componente do portal do Microsoft Azure que lhe permite desenhar gráficos, visualmente correlacionar as tendências e investigar picos e quedas nos valores das métricas. Explorador de métricas é um ponto de partida essencial para vários problemas de disponibilidade com as suas aplicações e infraestrutura alojados no Azure ou monitorizado pelos serviços do Azure Monitor de desempenho e a investigar.
+Explorador de métricas do Azure Monitor é um componente do portal do Microsoft Azure que permite que o desenho de gráficos, visualmente correlacionar as tendências e investigar picos e quedas nos valores das métricas. Explorador de métricas é um ponto de partida essencial para vários problemas de disponibilidade com as suas aplicações e infraestrutura alojados no Azure ou monitorizado pelos serviços do Azure Monitor de desempenho e a investigar.
 
 ## <a name="metrics-in-azure"></a>Métricas no Azure
 
-As métricas no Microsoft Azure estão a série de valores de medida e contagens de que são recolhidas e armazenadas ao longo do tempo. Existem métricas standard (ou "plataforma") e métricas personalizadas. As métricas standard são fornecidas pela própria plataforma do Azure. Métricas padrão refletem as estatísticas de estado de funcionamento e a utilização de recursos do Azure. Ao passo que as métricas personalizadas são enviadas para o Azure pelas suas aplicações com o [API do Application Insights para eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Métricas personalizadas são armazenadas nos recursos do Application Insights, juntamente com outras métricas específicas do aplicativo.
+[Métricas no Azure Monitor](data-collection.md#metrics) são a série de valores de medida e contagens de que são recolhidas e armazenadas ao longo do tempo. Existem métricas standard (ou "plataforma") e métricas personalizadas. As métricas standard são fornecidas pela própria plataforma do Azure. Métricas padrão refletem as estatísticas de estado de funcionamento e a utilização de recursos do Azure. Ao passo que as métricas personalizadas são enviadas para o Azure pelas suas aplicações com o [API do Application Insights para eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Métricas personalizadas são armazenadas nos recursos do Application Insights, juntamente com outras métricas específicas do aplicativo.
 
 ## <a name="create-a-new-chart"></a>Crie um novo gráfico
 

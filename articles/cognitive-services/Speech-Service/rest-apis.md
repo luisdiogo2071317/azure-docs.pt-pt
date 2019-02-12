@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: c1693c5e04c33da3f21847aada0adfe1b66c4b52
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878090"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998958"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -66,7 +66,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-O corpo da resposta contém o token de acesso no formato de Java Web Token (JWT).
+O corpo da resposta contém o token de acesso no formato JSON Web Token (JWT).
 
 #### <a name="powershell-sample"></a>Exemplo do PowerShell
 

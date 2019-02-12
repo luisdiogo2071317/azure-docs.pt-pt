@@ -3,7 +3,7 @@ title: Limites de recurso baseado em vcore da base de dados SQL do Azure - base 
 description: Esta página descreve alguns limites de recursos baseados em vCore comuns para uma base de dados na base de dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 482ce5c218675e226c8ca2ba8782fc04d316876c
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/08/2019
+ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961572"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998168"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 

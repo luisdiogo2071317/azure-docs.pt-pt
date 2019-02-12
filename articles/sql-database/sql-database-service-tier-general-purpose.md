@@ -12,17 +12,17 @@ ms.author: jovanpop-msft
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d8a7ffd680ab38d78fa3675f49569dd79b91efe4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895113"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997367"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Camada de serviços de fins gerais - base de dados do Azure SQL
 
 > [!NOTE]
-> A camada de serviços de fins gerais no modelo de compra baseado em vCore denomina-se a camada de serviço standard no modelo de compra baseado em DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-service-tiers.md).
+> A camada de serviços de fins gerais no modelo de compra baseado em vCore denomina-se a camada de serviço standard no modelo de compra baseado em DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-purchase-models.md).
 
 Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados de SQL Server adaptada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três escalões de serviço que são utilizados no Azure SQL Database, cada uma com diferentes modelos de arquiteturais. Estes escalões de serviço são:
 

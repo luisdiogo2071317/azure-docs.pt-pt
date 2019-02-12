@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729511"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001890"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Deteção de ameaças de base de dados SQL do Azure
 
@@ -77,7 +77,7 @@ Clique em **alerta de deteção de ameaças** para iniciar o Centro de seguranç
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [deteção na autónoma e bases de dados agrupadas de ameaças](sql-database-threat-detection.md).
+- Saiba mais sobre [Deteção em bases de dados individuais e agrupados de ameaças](sql-database-threat-detection.md).
 - Saiba mais sobre [deteção de ameaças na instância gerida](sql-database-managed-instance-threat-detection.md).
 - Saiba mais sobre [segurança de dados avançada](sql-database-advanced-data-security.md).
 - Saiba mais sobre [auditoria de base de dados do Azure SQL](sql-database-auditing.md)

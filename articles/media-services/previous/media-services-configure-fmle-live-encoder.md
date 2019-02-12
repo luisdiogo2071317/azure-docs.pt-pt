@@ -4,7 +4,7 @@ description: Este tópico mostra como configurar o codificador de Flash Media Li
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665890"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003742"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>Utilizar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única (Legado)
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -33,7 +33,7 @@ Este artigo mostra como configurar o [Flash Media Live Encoder](http://www.adobe
 
 Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do Explorador de serviços de multimédia do Azure (AMSE). Essa ferramenta só é executado no PC do Windows. Se estiver no Mac ou Linux, utilize o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por predefinição. Teria de comprar um plug-in para AAC codificação tais como MainConcept: [AAC plugin](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Este tutorial descreve AAC a utilizar. No entanto, FMLE não suporta AAC por predefinição. Terá de comprar um plug-in para a codificação de AAC como do MainConcept: [AAC plugin](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta de Media Services do Azure](media-services-portal-create-account.md)
@@ -77,16 +77,16 @@ Neste tutorial, são utilizadas as seguintes definições de saída. O resto des
 **Vídeo**:
 
 * Codec: H.264
-* Perfil: Alta (nível 4.0)
-* Velocidade de transmissão: kbps de 5000
+* Perfil: Alto (nível 4.0)
+* Velocidade de transmissão: 5000 kbps
 * Quadro-chave: 2 segundos (60 segundos)
-* Taxa de fotograma: 30
+* Taxa de quadros: 30
 
 **Áudio**:
 
 * Codec: AAC (LC)
-* Velocidade de transmissão: kbps de 192
-* Taxa da amostragem: kHz 44.1
+* Velocidade de transmissão: 192 kbps
+* Taxa da amostragem: 44.1 kHz
 
 ### <a name="configuration-steps"></a>Passos de configuração
 1. Navegue para o Flash Media Live Encoder (FMLE) de interface na máquina que está a ser utilizada.
@@ -95,14 +95,14 @@ Neste tutorial, são utilizadas as seguintes definições de saída. O resto des
 
    * Formato: Taxa de quadros H.264: 30.00
    * Tamanho de entrada: 1280 x 720
-   * Taxa de bits: Kbps de 5000 (pode ser ajustado com base no limitações de rede)  
+   * Taxa de bits: 5000 kbps (pode ser ajustado com base no limitações de rede)  
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
      Quando utilizar entrelaçadas origens, volte a marca de verificação a opção "Deinterlace"
 2. Selecione o ícone de chave inglesa junto ao formato, estas definições adicionais deverão ser:
 
-   * Perfil: principal
+   * Perfil: Principal
    * Nível: 4.0
    * Frequência de quadro-chave: 2 segundos
 
@@ -110,8 +110,8 @@ Neste tutorial, são utilizadas as seguintes definições de saída. O resto des
 3. Defina a seguinte definição de áudio importante:
 
    * Formato: AAC
-   * Taxa da amostragem: Hz 44100
-   * Velocidade de transmissão: Kbps de 192
+   * Taxa da amostragem: 44100 Hz
+   * Velocidade de transmissão: 192 Kbps
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 4. URL de entrada do Get o canal para poder atribuí-lo para o FMLE **ponto final de RTMP**.

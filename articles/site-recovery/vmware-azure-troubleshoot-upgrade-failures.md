@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 5a328e64128503f98476deccf33a4395f99eeeb0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985170"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989326"
 ---
-# <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Microsoft Azure Site Recovery Provider
+# <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Fornecedor do Microsoft Azure Site Recovery
 
 Este artigo ajuda-o a resolver problemas que podem causar falhas durante um fornecedor do Microsoft Azure Site Recovery atualizar.
 
@@ -64,5 +64,5 @@ Para resolver o problema.
     CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
 
 5. Utilize o Gestor de tarefas para monitorizar o progresso da instalação. Quando o processo para CX_THIRDPARTY_SETUP. EXE já não está visível no Gerenciador de tarefas, avance para o passo seguinte.
-6. Certifique-se de que o que C:\thirdparty existe e que a pasta contém as bibliotecas RRD.
+6. Certifique-se de que C:\thirdparty existe e que a pasta contém as bibliotecas RRD.
 1. Voltar para a pasta para o qual transferiu a configuração unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para concluir a atualização. 

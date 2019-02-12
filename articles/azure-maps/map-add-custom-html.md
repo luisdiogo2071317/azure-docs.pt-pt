@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231739"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993747"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicionar marcadores HTML ao mapa
 
@@ -68,20 +68,11 @@ Este exemplo mostra como tornar um marcador HTML arrastável. Suportam de marcad
 
 ## <a name="add-mouse-events-to-html-markers"></a>Adicionar eventos de mouse para os marcadores HTML
 
-Estes exemplos mostram como adicionar eventos de mouse para um marcador HTML ao adicionar eventos de JavaScript padrão para o conteúdo HTML do marcador. 
-
-Se o `htmlContent` do marcador é um elemento do DOM (div,... img), pode adicionar eventos diretamente para eles. 
+Estes exemplos mostram como adicionar o mouse e arraste os eventos para um marcador HTML.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Adição de eventos de Mouse marcadores HTML' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>adição de eventos de Mouse HTML marcadores</a> através do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-Se o `htmlContent` é uma cadeia de caracteres (ou seja, similares a predefinição), pode criar um elemento DOM e adicionar a cadeia de caracteres como innerHTML a ele e depois adicionar o elemento DOM como o htmlContent. Se o `htmlContent` é uma cadeia de caracteres com modelos, tem de localizar/substituir `{text}` e `{color}` valores na cadeia de caracteres em primeiro lugar.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Adição de eventos de Mouse padrão HTML marcador' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a caneta <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>adição de eventos de Mouse para o padrão HTML marcador</a> ao Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos Seguintes

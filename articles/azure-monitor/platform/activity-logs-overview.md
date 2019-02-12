@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883777"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002120"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -83,7 +83,7 @@ No portal do Azure, pode filtrar o registo de atividades por estes campos:
 
 Depois de definir um conjunto de filtros, pode afixar uma consulta ao dashboard do Azure para sempre manter um olho nos eventos específicos.
 
-Para ainda mais potência, pode clicar a **Logs** ícone, que exibe os dados de registo de atividades no [solução Log Analytics, atividade do Log Analytics](../../azure-monitor/platform/collect-activity-logs.md). O painel de registo de atividades oferece uma experiência de pesquisa/filtro básico em registos, mas o Log Analytics permite-lhe dinamizar, consultar e visualize os seus dados de formas mais eficientes.
+Para ainda mais potência, pode clicar a **Logs** ícone, que exibe os dados de registo de atividades no [recolher e analisar a solução de registos de atividades](../../azure-monitor/platform/collect-activity-logs.md). O painel de registo de atividades oferece uma experiência de pesquisa/filtro básico em registos, mas o Azure Monitor registos funcionalidade permite dinâmico, consultar e visualize os seus dados de formas mais eficientes.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportar o registo de atividades com um perfil de registo
 R **perfil de registo** controla a forma como o registo de atividades é exportado. Utilizar um perfil de registo, pode configurar:
@@ -142,7 +142,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
-| Nome |Sim |Nome do seu perfil de registo. |
+| Name |Sim |Nome do seu perfil de registo. |
 | StorageAccountId |Não |ID de recurso da conta do Storage para o qual deverá ser guardado o registo de atividades. |
 | serviceBusRuleId |Não |ID de regra de barramento de serviço para o espaço de nomes do Service Bus que deseja que os hubs de eventos criados no. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Localização |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. |

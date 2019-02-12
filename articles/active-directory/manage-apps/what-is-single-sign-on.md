@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 7903094efc75ec54811bf565f407752f958498b7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 2e70746de4b744daf7242e91c51a3ccc1b331878
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959210"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997307"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 Início de sessão único (SSO) adiciona segurança e conveniência, quando os utilizadores início de sessão em aplicações no Azure Active Directory (Azure AD). Este artigo descreve os métodos de início de sessão únicos e ajuda a escolher o método mais apropriado de SSO quando configurar as suas aplicações.
@@ -58,7 +58,7 @@ Para obter mais informações, consulte:
 - [Guia para programadores do Active Directory Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## <a name="saml-sso"></a>SAML SSO
-Com o **SAML início de sessão único**, o Azure AD autentica para o aplicativo usando a conta de utilizador do Azure AD. O Azure AD comunica as informações de início de sessão para a aplicação através de um protocolo de ligação. Com baseado em SAML início de sessão único, pode mapear os utilizadores a funções de aplicação específica, com base nas regras que definir nas afirmações SAML
+Com o **SAML início de sessão único**, o Azure AD autentica para o aplicativo usando a conta de utilizador do Azure AD. O Azure AD comunica as informações de início de sessão para a aplicação através de um protocolo de ligação. Com baseado em SAML início de sessão único, pode mapear os utilizadores a funções de aplicação específica, com base nas regras que definir nas afirmações SAML.
 
 Escolha baseado em SAML início de sessão único quando o aplicativo oferece suporte a ele.
 
@@ -85,7 +85,7 @@ Escolher com base em palavra-passe único início de sessão quando:
 Com base em palavra-passe de início de sessão único é suportado para qualquer aplicativo baseado na nuvem que tem uma baseada em HTML início de sessão na página. O utilizador pode utilizar qualquer um dos seguintes browsers:
 
 - No Windows 7 ou posterior do Internet Explorer 11
-- Microsoft Edge no Windows 10 Anniversary Edition ou posterior 
+- Microsoft Edge no Windows 10 Anniversary Edition ou posterior
 - No Windows 7 ou posterior e no MacOS X ou posterior do Chrome
 - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 

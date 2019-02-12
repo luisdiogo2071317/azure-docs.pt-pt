@@ -12,17 +12,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: ca907e145067043b41dd6000248d44ecc1e3434f
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2f18b51a07bb58f13673427f0acadb6b80d7a1c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510447"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005323"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Camada de negócio críticos - base de dados do Azure SQL
 
 > [!NOTE]
-> Camada de negócio críticos é chamada Premium no modelo de compra DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-service-tiers.md).
+> Camada de negócio críticos é chamada Premium no modelo de compra DTU. Para obter uma comparação do modelo de compra baseado em vCore com o modelo de compra baseado em DTU, consulte [compra de modelos e recursos do Azure SQL Database](sql-database-purchase-models.md).
 
 Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados do SQL Server que é ajustada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três modelos de arquiteturais que são utilizados na base de dados do Azure SQL:
 - Geral finalidade/Standard 

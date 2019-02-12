@@ -1,6 +1,6 @@
 ---
-title: SQL para referência rápida do Azure Log Analytics query language | Documentos da Microsoft
-description: Funções comuns a utilizar para diferentes cenários em consultas do Log Analytics.
+title: SQL para referência rápida do Azure Monitor log consulta | Documentos da Microsoft
+description: Ajuda para os utilizadores familiarizados com SQL na gravação de consultas de registo no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 35438644842d5280bd789efa135805ba9943cb8b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183052"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993672"
 ---
-# <a name="sql-to-log-analytics-query-language-cheat-sheet"></a>SQL para a folha de cheat de linguagem de consulta do Log Analytics 
+# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL para referência rápida do Azure Monitor log consulta 
 
-A tabela abaixo ajuda os utilizadores que estão familiarizados com o SQL para aprender a linguagem de consulta do Log Analytics. Dê uma olhada no comando T-SQL para resolver um cenários comuns e o equivalente a utilizar o Log Analytics.
+A tabela abaixo ajuda os utilizadores que estão familiarizados com o SQL para aprender a linguagem de consulta do Data Explorer para escrever consultas de registo no Azure Monitor. Dê uma olhada no comando T-SQL para resolver um cenários comuns e o equivalente numa consulta de registo do Azure Monitor.
 
-## <a name="sql-to-log-analytics"></a>SQL para o Log Analytics
+## <a name="sql-to-azure-monitor"></a>SQL para o Azure Monitor
 
-Descrição                             |Consulta SQL                                                                                          |Consulta de análise de registos do Azure
+Descrição                             |Consulta SQL                                                                                          |Consulta de registo do Azure Monitor
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Selecione todos os dados a partir de uma tabela            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Selecionar colunas específicas de uma tabela    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -50,4 +50,4 @@ Associar                                    |`SELECT * FROM dependencies JOIN ex
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Sempre o processo de uma aula sobre o [escrevem consultas no Log Analytics](get-started-queries.md).
+- Sempre o processo de uma aula sobre o [escrever consultas de registo no Azure Monitor](get-started-queries.md).

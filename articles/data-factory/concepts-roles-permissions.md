@@ -11,12 +11,12 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: e296606d219623c29bedca4fb0906a955a394b30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ee35c7ae1b75c6fb4d656927d7e6e4384cd76836
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013422"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003946"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -78,7 +78,7 @@ Aqui estão alguns exemplos que demonstram o que pode conseguir com funções pe
   Este cenário requer duas atribuições de funções.
 
   1. Atribuir o incorporado **contribuinte** função ao nível da fábrica de dados.
-  2. Criar uma função personalizada com a permissão * Microsoft.Resources/deployments/**. Atribua esta função personalizada para o utilizador ao nível do grupo de recursos.
+  2. Criar uma função personalizada com a permissão **Microsoft.Resources/deployments/**. Atribua esta função personalizada para o utilizador ao nível do grupo de recursos.
 
 - Permitir que um utilizador Atualize uma fábrica de dados do PowerShell ou o SDK, mas não no portal do Azure.
 

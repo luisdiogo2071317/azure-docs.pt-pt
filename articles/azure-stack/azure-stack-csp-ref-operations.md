@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 5ae8297f8e189fbe9374cec826bf5e566e5403da
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241955"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002059"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerir o registo do inquilino no Azure Stack
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre o Azure Stack e perfis de API, consulte [per
 
 ### <a name="powershell"></a>PowerShell
 
-Utilize o cmdlet New-AzureRmResource para atualizar o recurso de Registro. Eis um exemplo de como adicionar um inquilino:
+Utilize o cmdlet New-AzureRmResource para adicionar um inquilino. [Ligar ao Azure Stack](/azure-stack-powershell-configure-admin.md)e, em seguida, a partir de uma linha de comandos elevada, utilize o seguinte cmdlet:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -91,7 +91,7 @@ Obter uma lista de todos os inquilinos que foram adicionados a um registo.
 
 ### <a name="powershell"></a>PowerShell
 
-Utilize o cmdlet Get-AzureRmResource para listar registados todos os inquilinos. Inicie sessão no Azure (`Add-AzureRmAccount`) usando a conta que utilizou para o registo inicial. Eis um exemplo de como adicionar um inquilino:
+Utilize o cmdlet Get-AzureRmResource para listar registados todos os inquilinos. [Ligar ao Azure Stack](/azure-stack-powershell-configure-admin.md)e, em seguida, a partir de uma linha de comandos elevada, utilize o seguinte cmdlet:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -99,7 +99,7 @@ Utilize o cmdlet Get-AzureRmResource para listar registados todos os inquilinos.
 
 ### <a name="api-call"></a>Chamada à API
 
-Pode obter uma lista de todos os mapeamentos de inquilino usando a operação GET
+Pode obter uma lista de todos os mapeamentos de inquilino usando a operação GET.
 
 **Operação**: GET  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
@@ -111,15 +111,15 @@ api-version=2017-06-01 HTTP/1.1`
 ```JSON  
 {
     "value": [{
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}",
             "name": " cspSubscriptionId 1",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId1" }
         },
         {
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}",
             "name": " cspSubscriptionId2 ",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId2" }
         }
     ],
@@ -141,6 +141,8 @@ Pode remover um inquilino que tenha sido adicionado a um registo. Se esse inquil
 | customerSubscriptionId     | O ID de subscrição de cliente.  |
 
 ### <a name="powershell"></a>PowerShell
+
+Utilize o cmdlet Remove-AzureRmResource para remover um inquilino. [Ligar ao Azure Stack](/azure-stack-powershell-configure-admin.md)e, em seguida, a partir de uma linha de comandos elevada, utilize o seguinte cmdlet:
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

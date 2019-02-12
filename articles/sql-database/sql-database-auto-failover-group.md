@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468704"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004252"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
 Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL permite-lhe gerir a replicação e ativação pós-falha de um grupo de bases de dados num servidor de base de dados SQL ou todas as bases de dados numa instância gerida para outra região (atualmente em pré-visualização pública para a instância gerida). Ele usa a mesma tecnologia subjacente [georreplicação ativa](sql-database-active-geo-replication.md). Pode iniciar a ativação pós-falha manualmente ou pode delegá-lo para o serviço de base de dados SQL com base numa política definida pelo utilizador. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
 
 > [!NOTE]
-> Ao trabalhar com autónoma ou de bases de dados agrupadas num servidor de base de dados SQL e quiser que várias bases de dados secundárias nas regiões idêntica ou diferentes, utilize [georreplicação ativa](sql-database-active-geo-replication.md).
+> Ao trabalhar com bancos de dados individuais ou agrupados num servidor de base de dados SQL e quiser que várias bases de dados secundárias nas regiões idêntica ou diferentes, utilize [georreplicação ativa](sql-database-active-geo-replication.md).
 
 Quando estiver a utilizar grupos de ativação pós-falha automática com a política de ativação pós-falha automática, qualquer falha que afeta uma ou várias das bases de dados os resultados de grupo na ativação pós-falha automática. Além disso, os grupos de ativação pós-falha automática fornecem leitura / escrita e pontos finais de serviço de escuta só de leitura que permanecem inalterados durante as ativações pós-falha. Se usa a ativação de ativação pós-falha manual ou automática, ativação pós-falha muda todas as bases de dados secundárias no grupo principal. Depois de concluída a ativação pós-falha de base de dados, o registo DNS é atualizado automaticamente para redirecionar os pontos finais para a nova região. Para os dados RPO e RTO específicos, consulte [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 
@@ -331,7 +331,7 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de ativação pós-falha|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>REST API: Gerir grupos de ativação pós-falha de base de dados SQL com o autónomo e bases de dados agrupadas
+### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Gerir grupos de ativação pós-falha de base de dados SQL com bases de dados únicos e em pool
 
 | API | Descrição |
 | --- | --- |

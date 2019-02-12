@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bbe26b19f9467034a4612ac1b40124122bee7f0c
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292338"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004558"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar momentos exatos nos vídeos
 
@@ -26,7 +26,6 @@ Este tópico mostra-lhe as opções de pesquisa que lhe permitem localizar momen
     No exemplo a seguir, vamos pesquisados todos os vídeos criados por Channel 9 com Scott Hanselman.
 
     ![Pesquisa](./media/video-indexer-search/video-indexer-search01.png)
-    
 3. Pesquise as informações resumidas do vídeo.
 
     Em seguida, pode procurar dentro de um vídeo ao clicar em **reproduzir** no vídeo. Em seguida, pode pesquisar no vídeo, selecionando o **pesquisa** separador. Por exemplo, estamos procurando todos os locais onde o texto "identity protection" é utilizado. 
@@ -34,8 +33,6 @@ Este tópico mostra-lhe as opções de pesquisa que lhe permitem localizar momen
     ![Pesquisa](./media/video-indexer-search/video-indexer-search02.png)
 
     Se clicar em um dos resultados, o jogador traz até para esse momento no vídeo. Pode obter a vista de leitor/informações e a sincronização em seu aplicativo. Para obter mais informações, consulte [widgets de incorporar o indexador de vídeos na sua aplicação](video-indexer-embed-widgets.md). 
-
-    
 4. Pesquise a divisão detalhada do vídeo.
 
     Se quiser criar seu próprio divisão com base no vídeo que encontrou, prima a **editar** botão. Esta página mostra a estrutura completa de um vídeo. Fazer uma pesquisa na divisão para mostrar apenas as linhas que está interessado. Para obter mais informações, consulte [ver e editar informações do indexador de vídeo](video-indexer-view-edit.md).

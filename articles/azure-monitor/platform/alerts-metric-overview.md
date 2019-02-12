@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 9689854d9a28debbfbcf908391806fffac6a2006
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450188"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005527"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como o trabalho de alertas de métrica no Azure Monitor
 
-Alertas de métricas no Azure Monitor trabalham no topo de métricas multidimensionais. Estas métricas podem ser métricas de plataforma, [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [populares registos do Log Analytics convertido em métricas](../../azure-monitor/platform/alerts-metric-logs.md), métricas padrão do Application Insights. Alertas de métricas avaliar em intervalos regulares para verificar se a condições de métrica de um ou mais séries de tempo são verdadeiros e notificá-lo quando são cumpridas das avaliações. Alertas de métricas com monitoração de estado, ou seja, eles apenas enviam notificações quando o estado é alterado.
+Alertas de métricas no Azure Monitor trabalham no topo de métricas multidimensionais. Estas métricas podem ser métricas de plataforma, [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [registos populares do Azure Monitor convertido em métricas](../../azure-monitor/platform/alerts-metric-logs.md), métricas padrão do Application Insights. Alertas de métricas avaliar em intervalos regulares para verificar se a condições de métrica de um ou mais séries de tempo são verdadeiros e notificá-lo quando são cumpridas das avaliações. Alertas de métricas com monitoração de estado, ou seja, eles apenas enviam notificações quando o estado é alterado.
 
 ## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas de métricas?
 

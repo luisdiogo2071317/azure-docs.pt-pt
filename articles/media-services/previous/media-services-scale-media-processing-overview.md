@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: f15ba7606136786b49eb4d6a0da097e7abf3fab4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a6549c68ec248720c81531d137d45909a4de55e9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231666"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998404"
 ---
-# <a name="scaling-media-processing-overview"></a>Descrição geral de processamento de multimédia do dimensionamento
+# <a name="scaling-media-processing-overview"></a>Descrição geral de processamento de multimédia do dimensionamento 
 Esta página fornece uma descrição geral de como e porquê dimensionar o processamento de multimédia. 
 
 ## <a name="overview"></a>Descrição geral
-As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher de entre os tipos de unidades reservadas **S1**, **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. Para obter mais informações, consulte a [tipos de unidades reservadas](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
+As contas dos Serviços de Multimédia estão associadas a um Tipo de Unidade Reservada, que determina a velocidade do processamento das suas tarefas de processamento de mulitmédia. Pode escolher de entre os seguintes tipos de unidade reservada: **S1**, **S2**, ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. Para obter mais informações, consulte a [tipos de unidades reservadas](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
 
 Além de especificar o tipo de unidade reservada, pode especificar para o aprovisionamento da sua conta com unidades reservadas. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se a sua conta tiver cinco unidades reservadas, em seguida, as tarefas de cinco multimédia serão executados em simultâneo, desde como existem tarefas a serem processados. As tarefas restantes irão aguardar na fila e irão obter escolhidas para processamento, sequencialmente, quando uma tarefa em execução for concluída. Se uma conta não tem quaisquer unidades reservadas aprovisionadas, em seguida, tarefas serão detetadas sequencialmente. Neste caso, o tempo de espera entre uma tarefa de terminar e iniciar a seguir um dependerá da disponibilidade de recursos no sistema.
 

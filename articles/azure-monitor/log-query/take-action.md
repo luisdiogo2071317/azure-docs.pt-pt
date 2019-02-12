@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 61d0f74f59b4d6f59b3fbc87556b260751d33baa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9194d5fe6553607ac5a0bb4e133da97f53790984
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809638"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005357"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Agir com um Runbook da automatização de um resultado de pesquisa de registos do Log Analytics
 
-De um resultado de pesquisa de registo no Azure Log Analytics, pode agora selecionar **agir** para executar um runbook da automatização. O runbook pode ser utilizado para corrigir o problema ou execute uma ação, tais como recolher informações de resolução de problemas, envie um e-mail ou criar um pedido de serviço. 
+> [!NOTE]
+> Iniciar um runbook a partir dos resultados de pesquisa é uma funcionalidade de pesquisa de registos do portal clássico do que vai ser preterido no dia 15 de Fevereiro de 2019. Pode configurar um grupo de ação que pode iniciar um runbook, além de outras ações de um [regra de alerta](../platform/alerts-log.md) no Azure Monitor.
+
+De um resultado de pesquisa de registo no Azure Log Analytics, pode agora selecionar **agir** para executar um runbook da automatização.  O runbook pode ser utilizado para corrigir o problema ou execute uma ação, tais como recolher informações de resolução de problemas, envie um e-mail ou criar um pedido de serviço. 
+
 
 ## <a name="components-and-features-used"></a>Componentes e funcionalidades utilizados
 * [Conta de automatização do Azure](../../automation/automation-quickstart-create-account.md)

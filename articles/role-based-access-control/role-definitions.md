@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700728"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991366"
 ---
 # <a name="understand-role-definitions"></a>Compreender as definições de função
 
@@ -147,7 +147,7 @@ Contribuinte de Dados do Armazenamento de Blobs (Pré-visualização)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Uma vez que a Alice tem um caráter universal (`*`) ação num âmbito de subscrição, suas permissões herdam para permitir-lhe efetuar todas as ações de gestão. No entanto, Alice não é possível efetuar operações de dados. Por exemplo, por predefinição, Alice não é possível ler os blobs num contentor, mas ela pode ler, escrever e eliminar contentores.
+Uma vez que a Alice tem um caráter universal (`*`) ação num âmbito de subscrição, suas permissões herdam para permitir-lhe efetuar todas as ações de gestão. Alice pode ler, escrever e eliminar contentores. No entanto, Alice não é possível efetuar operações de dados sem colocar os passos adicionais. Por exemplo, por predefinição, Alice não é possível ler os blobs num contentor. Para ler os blobs, Alice teria-se obter as chaves de acesso de armazenamento e usá-los para aceder aos blobs.
 
 Permissões de Bob estão limitadas a apenas o `Actions` e `DataActions` especificado na [contribuinte de dados de Blob de armazenamento (pré-visualização)](built-in-roles.md#storage-blob-data-contributor-preview) função. Com base na função, Bob pode executar gerenciamento e operações de dados. Por exemplo, Bob poderá ler, escrever e eliminar os contentores na conta de armazenamento especificada e também ele pode ler, escrever e eliminar os blobs.
 

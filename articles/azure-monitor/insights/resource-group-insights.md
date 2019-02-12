@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585449"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997028"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorizar grupos de recursos com o Azure Monitor (pré-visualização)
 
@@ -93,9 +93,9 @@ Diversas **editar** aparecem de caixas de perto os vários elementos da pasta de
 
 ![Captura de ecrã das caixas de edição](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Isso revela a consulta do Log Analytics subjacente que está a orientar a visualização de tabela.
+Isso revela a consulta do log subjacente que está a orientar a visualização de tabela.
 
- ![Captura de ecrã da janela de consulta do log analytics](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Captura de ecrã da janela de consulta de registo](./media/resource-group-insights/0010-failure-edit-query.png)
 
 É possível modificar a consulta diretamente. Ou pode usá-la como uma referência e emprestam ao conceber a sua própria pasta de trabalho parametrizada personalizada.
 

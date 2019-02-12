@@ -1,8 +1,8 @@
 ---
-title: Configurar a conta para transmissão em fluxo offline de conteúdo de Widevine protegido - Azure
-description: Este tópico mostra como configurar a sua conta de Media Services do Azure para a transmissão em fluxo offline de Widevine protegida conteúdo.
+title: Configurar a sua conta para a transmissão em fluxo offline do conteúdo do Widevine protegido - Azure
+description: Este tópico mostra como configurar a sua conta de Media Services do Azure para transmissão em fluxo offline do Widevine protegido conteúdo.
 services: media-services
-keywords: TRAÇO, DRM, Widevine modo Offline, ExoPlayer, Android
+keywords: Android de modo Offline, ExoPlayer, DASH, DRM, Widevine
 documentationcenter: ''
 author: willzhan
 manager: steveng
@@ -12,58 +12,58 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790504"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002108"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Widevine offline de transmissão em fluxo para Android
+# <a name="offline-widevine-streaming-for-android"></a>Offline Widevine para transmissão em fluxo para Android  
 
-Além de proteger conteúdo para a transmissão em fluxo online, o suporte de dados de conteúdo a subscrição e rental serviços oferta transferível conteúdo que funciona quando não estiver ligado à internet. Poderá ter de transferir o conteúdo no seu telemóvel ou tablet para reprodução no modo de avião quando flying desligado da rede. Cenários adicionais, em que pode querer transferir conteúdo:
+Além de proteger conteúdo para a transmissão em fluxo online, suporte de dados de conteúdo de subscrição e aluguel serviços oferta conteúdo transferível que funciona quando não estiver ligado à internet. Poderá ter de transferir o conteúdo no seu telemóvel ou tablet para reprodução em modo de avião, quando se soltando desligado da rede. Cenários adicionais, em que pode querer transferir conteúdo:
 
-- Alguns fornecedores de conteúdo poderão não permitir a entrega de licença da DRM além do limite de um país. Se um utilizador pretende ver conteúdo enquanto estiverem em deslocação abroad, é necessário transferir offline.
-- Em alguns países, está limitado a disponibilidade de Internet e/ou de largura de banda. Os utilizadores podem optar por transferir conteúdo para conseguir vê-lo na resolução suficientemente elevada, experiência de visualização satisfatório.
+- Alguns fornecedores de conteúdo pode não permitir a entrega de licenças DRM além do limite de um país. Se um usuário desejar ver o conteúdo quando estiverem viajando exterior, é necessário o offline download.
+- Em alguns países, disponibilidade de Internet e/ou de largura de banda é limitada. Os utilizadores podem optar por transferir conteúdo para conseguir vê-lo em resolução alta o suficiente para a experiência de visualização satisfatória.
 
-Este artigo descreve como implementar a reprodução de modo offline para o conteúdo DASH protegido pelo Widevine em dispositivos Android. Offline DRM permite-lhe fornecer a subscrição, rental e compra modelos para o conteúdo, permitindo que os clientes dos seus serviços colocar facilmente conteúdo com os mesmos quando desligado da internet.
+Este artigo discute como implementar a reprodução de modo offline para o conteúdo de TRAÇO protegido pelo Widevine em dispositivos Android. Offline DRM permite-lhe fornecer a subscrição, alugueres e compras modelos para o seu conteúdo, permitindo aos clientes dos seus serviços colocar facilmente conteúdo com os mesmos quando desligado da internet.
 
-Para criar aplicações Android player, iremos realçam três opções:
+Para a criação de aplicações do Android player, descrevemos as três opções:
 
 > [!div class="checklist"]
-> * Criar um leitor utilizando a API de ExoPlayer SDK de Java
-> * Criar um leitor de utilizar o enlace de Xamarin do ExoPlayer SDK
-> * Criar um leitor utilizando a extensão de suporte de dados encriptados (EME) e a extensão de origem de suporte de dados (MSE) no Chrome browser móveis v62 ou posterior
+> * Crie um leitor usando a API de ExoPlayer SDK de Java
+> * Crie um leitor usando a ligação do Xamarin do SDK de ExoPlayer
+> * Crie um leitor usando a extensão de multimédia encriptadas (EME) e a extensão de origem de mídia (MSE) no Chrome v62 de browser para dispositivos móveis ou posterior
 
-Também o artigo responde a algumas perguntas comuns relacionadas com a transmissão em fluxo offline de conteúdo de Widevine protegido.
+O artigo também responde a algumas perguntas comuns relacionadas com a transmissão em fluxo offline do conteúdo do Widevine protegido.
 
 ## <a name="requirements"></a>Requisitos 
 
 Antes de implementar offline DRM para Widevine em dispositivos Android, deve primeiro:
 
-- Se familiarize com os conceitos apresentados online para proteção de conteúdo com Widevine DRM. Isto é explicado em detalhe nos seguintes documentos/exemplos:
-    - [Utilizar Media Services do Azure para fornecer licenças DRM ou chaves AES](media-services-deliver-keys-and-licenses.md)
-    - [CENC com Controlo de Acesso e Multi-DRM: Uma Estrutura de Referência e Implementação no Azure e Serviços de Multimédia do Azure](media-services-cenc-with-multidrm-access-control.md)
-    - [Utilizar encriptação comum PlayReady e/ou Widevine dinâmico com o .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/)
-    - [Utilizar Media Services do Azure para fornecer licenças PlayReady e/ou Widevine com o .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/)
-- Se familiarize com o SDK de ExoPlayer Google para Android, um leitor de vídeo de open source SDK capaz de oferecer suporte a reprodução de Widevine DRM offline. 
-    - [ExoPlayer SDK](https://github.com/google/ExoPlayer)
-    - [Guia para programadores de ExoPlayer](https://google.github.io/ExoPlayer/guide.html)
-    - [Blogue de programador EoPlayer](https://medium.com/google-exoplayer)
+- Familiarize-se com os conceitos apresentados para proteção de conteúdo online com o Widevine DRM. Tudo isso é explicado detalhadamente nos exemplos a seguir documentos /:
+    - [Utilizar serviços de multimédia do Azure para entregar licenças DRM ou chaves AES](media-services-deliver-keys-and-licenses.md)
+    - [CENC com múltipla DRM e controlo de acesso: Uma estrutura de referência e a implementação no Azure e o Azure dos serviços de multimédia](media-services-cenc-with-multidrm-access-control.md)
+    - [Utilizar encriptação comum PlayReady e/ou Widevine dinâmico com .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-drm/)
+    - [Utilizar serviços de multimédia do Azure para entregar licenças do PlayReady e/ou Widevine com .NET](https://azure.microsoft.com/resources/samples/media-services-dotnet-deliver-playready-widevine-licenses/)
+- Se familiarizar com o SDK de ExoPlayer Google para Android, um player de vídeo do código-fonte aberto SDK capaz de suportar a reprodução do offline Widevine DRM. 
+    - [SDK de ExoPlayer](https://github.com/google/ExoPlayer)
+    - [Guia do Programador de ExoPlayer](https://google.github.io/ExoPlayer/guide.html)
+    - [Blog de desenvolvedores EoPlayer](https://medium.com/google-exoplayer)
 
-## <a name="content-protection-configuration-in-azure-media-services"></a>Configuração de proteção de conteúdos no Media Services do Azure
+## <a name="content-protection-configuration-in-azure-media-services"></a>Configuração de proteção de conteúdos nos serviços de multimédia do Azure
 
-Quando configurar a proteção de Widevine de um ativo nos Media Services, terá de criar ContentKeyAuthorizationPolicyOption que especificada seguintes três ações:
+Ao configurar a proteção do Widevine de um ativo nos serviços de multimédia, tem de criar ContentKeyAuthorizationPolicyOption que especificou as seguintes três coisas:
 
 1. Sistema DRM (Widevine)
-2. ContentKeyAuthorizationPolicyRestriction especificação de entrega de chave como conteúdo está autorizado no serviço de entrega de licença (aberto ou token de autorização)
+2. ContentKeyAuthorizationPolicyRestriction especificando a entrega de chave como conteúda está autorizado no serviço de entrega de licença (aberto ou token de autorização)
 3. Modelo de licença DRM (Widevine)
 
-Para ativar **offline** modo para licenças Widevine, terá de configurar [modelo de licença Widevine](media-services-widevine-license-template-overview.md). No **policy_overrides** objeto, defina o **can_persist** propriedade **verdadeiro** (a predefinição é false). 
+Para habilitar **offline** modo para licenças do Widevine, terá de configurar [modelo de licença do Widevine](media-services-widevine-license-template-overview.md). No **policy_overrides** de objeto, defina o **can_persist** propriedade **verdadeiro** (a predefinição é falso). 
 
-O exemplo de código seguinte utiliza o .NET para ativar **offline** modo para licenças Widevine. O código baseia-se no [ utilizando PlayReady e/ou Widevine a encriptação comum dinâmica com .NET](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) exemplo. 
+O código de exemplo seguinte utiliza o .NET para habilitar **offline** modo para licenças do Widevine. O código se baseia a [ usando o PlayReady e/ou Widevine encriptação comum dinâmica com o .NET](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) exemplo. 
 
 ```
 private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl)
@@ -98,13 +98,13 @@ private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl
 }
 ```
 
-## <a name="configuring-the-android-player-for-offline-playback"></a>Configurar o leitor de Android para reproduzir offline
+## <a name="configuring-the-android-player-for-offline-playback"></a>Configurar o Android player para reprodução offline
 
-A forma mais fácil para desenvolver uma aplicação de leitor nativo para dispositivos Android consiste em utilizar o [Google ExoPlayer SDK](https://github.com/google/ExoPlayer), um leitor de vídeo de open source SDK. ExoPlayer suporta funcionalidades que atualmente não suportadas pela nativo MediaPlayer API do Android, incluindo a protocolos de entrega de MPEG-DASH e Microsoft transmissão em fluxo uniforme.
+A maneira mais fácil desenvolver uma aplicação de leitor nativo para dispositivos Android está a utilizar o [Google ExoPlayer SDK](https://github.com/google/ExoPlayer), um player de vídeo do código-fonte aberto SDK. ExoPlayer oferece suporte a recursos não são atualmente suportados pelo API nativa do Android do MediaPlayer, incluindo MPEG-DASH e Smooth Streaming do Microsoft protocolos de entrega.
 
-ExoPlayer versão 2.6 e superior inclui muitas classes que suportam a reprodução de Widevine DRM offline. Em particular, a classe de OfflineLicenseHelper fornece funções de utilitário para facilitar a utilização do DefaultDrmSessionManager para transferir, renovar e libertar licenças offline. As classes fornecidas na pasta SDK "biblioteca/core/src/main/java/com/google/android/exoplayer2/offline /" suporta transferir conteúdo offline vídeo.
+ExoPlayer versão 2.6 e superior inclui muitas classes que oferecem suporte a reprodução do offline Widevine DRM. Em particular, a classe OfflineLicenseHelper fornece funções de utilitário para facilitar a utilização do DefaultDrmSessionManager para baixar, efetuar a renovação e libertar licenças offline. As classes fornecidas na pasta SDK "biblioteca/core/src/main/java/com/google/android/exoplayer2/offline /" baixar conteúdo offline vídeo de suporte.
 
-A lista seguinte de classes facilitar o modo offline no SDK ExoPlayer para Android:
+A seguinte lista de classes de facilitar o modo offline no SDK do ExoPlayer para Android:
 
 - library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
@@ -112,106 +112,106 @@ A lista seguinte de classes facilitar o modo offline no SDK ExoPlayer para Andro
 - library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/SegmentDownloader.Java
-- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/DownloaderConstructorHelper.Java 
-- Library/Core/src/Main/Java/com/Google/Android/exoplayer2/offline/Downloader.Java
-- Library/dash/src/Main/Java/com/Google/Android/exoplayer2/Source/dash/offline/DashDownloader.Java 
+- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
+- library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
+- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
+- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
 
-Os programadores deverá referenciar o [guia para programadores de ExoPlayer](https://google.github.io/ExoPlayer/guide.html) e correspondente [blogue para programadores](https://medium.com/google-exoplayer) durante o desenvolvimento de uma aplicação. Google não lançou um código de implementação nem de exemplo de referência totalmente documentado para a aplicação de ExoPlayer suporte Widevine offline neste momento, pelo que as informações são limitadas para a guia para programadores e o blogue. 
+Os desenvolvedores devem fazer referência a [Guia do programador ExoPlayer](https://google.github.io/ExoPlayer/guide.html) e correspondentes [blogue para programadores](https://medium.com/google-exoplayer) durante o desenvolvimento de um aplicativo. Google não lançou um referência totalmente documentada implementação ou código de exemplo para a aplicação de ExoPlayer suporte Widevine offline neste momento, pelo que as informações são limitadas para o blog e um guia para programadores. 
 
-### <a name="working-with-older-android-devices"></a>Trabalhar com dispositivos Android anteriores
+### <a name="working-with-older-android-devices"></a>Trabalhar com dispositivos Android mais antigos
 
-Para alguns dispositivos Android anteriores, tem de definir valores para o seguinte **policy_overrides** propriedades (definido no [modelo de licença Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**, e **license_duration_seconds**. Em alternativa, pode defini-los como zero, o que significa infinito ilimitados duração.  
+Para alguns dispositivos Android mais antigos, tem de definir valores para o seguinte procedimento **policy_overrides** propriedades (definidos na [modelo de licença do Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds**, e **license_duration_seconds**. Em alternativa, pode defini-los como zero, o que significa que a duração infinito/ilimitado.  
 
-Os valores tem de ser definidos para evitar erros de excesso um número inteiro. Para obter explicações mais sobre o problema, consulte https://github.com/google/ExoPlayer/issues/3150 e https://github.com/google/ExoPlayer/issues/3112. <br/>Se não definir explicitamente, os valores de valores grandes para **PlaybackDurationRemaining** e **LicenseDurationRemaining** atribuídos (por exemplo, 9223372036854775807, o que é o número máximo valor positivo para um número inteiro de 64 bits). Como resultado, a licença Widevine aparece expirada e, por conseguinte, não acontece a desencriptação. 
+Os valores tem de ser definidos para evitar um erro de capacidade excedida de número inteiro. Para mais explicações sobre o problema, consulte https://github.com/google/ExoPlayer/issues/3150 e https://github.com/google/ExoPlayer/issues/3112. <br/>Se não definir os valores explicitamente, valores muito grandes para **PlaybackDurationRemaining** e **LicenseDurationRemaining** será atribuída, (por exemplo, 9223372036854775807, o que é o máximo valor positivo para um número inteiro de 64 bits). Como resultado, a licença do Widevine aparece expirada e, por conseguinte, a desencriptação não acontecerá. 
 
-Este problema não ocorre no Android 5.0 Lollipop ou posterior, uma vez que Android 5.0 é a primeira versão Android, que tem sido concebida para suportar totalmente ARMv8 ([avançadas o RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) e as plataformas de 64 bits, enquanto estava Android 4.4 KitKat originalmente concebida para suportar ARMv7 e plataformas de 32 bits como com outras versões mais antigas do Android.
+Este problema não ocorre no Android 5.0 Lollipop ou posterior, uma vez que o Android 5.0 é a primeira versão Android, que foi concebida para suportar totalmente ARMv8 ([Advanced o RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) e plataformas de 64 bits, enquanto estava Android 4.4 KitKat projetado originalmente para suportar plataformas de 32 bits como com outras versões mais antigas do Android e ARMv7.
 
-## <a name="using-xamarin-to-build-an-android-playback-app"></a>Utilizar o Xamarin para criar uma aplicação Android de reprodução
+## <a name="using-xamarin-to-build-an-android-playback-app"></a>Com o Xamarin para criar uma aplicação Android de reprodução
 
-Pode encontrar os enlaces de Xamarin para ExoPlayer utilizar as seguintes ligações:
+Pode encontrar os enlaces Xamarin para ExoPlayer utilizando as ligações seguintes:
 
-- [Biblioteca de enlaces de Xamarin para a biblioteca de ExoPlayer do Google](https://github.com/martijn00/ExoPlayerXamarin)
-- [Enlaces de Xamarin para ExoPlayer NuGet](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
+- [Biblioteca de enlaces Xamarin para a biblioteca de ExoPlayer do Google](https://github.com/martijn00/ExoPlayerXamarin)
+- [Enlaces Xamarin do ExoPlayer NuGet](https://www.nuget.org/packages/Xam.Plugins.Android.ExoPlayer/)
 
-Além disso, consulte o thread seguinte: [Xamarin enlace](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
+Além disso, veja o thread seguinte: [Enlace de Xamarin](https://github.com/martijn00/ExoPlayerXamarin/pull/57). 
 
 ## <a name="chrome-player-apps-for-android"></a>Aplicações de leitor do Chrome para Android
 
-Começando com o lançamento do [Chrome para Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates), licença persistente na EME é suportada. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1) agora também é suportada no Chrome para Android. Isto permite-lhe criar aplicações de reprodução offline no Chrome se os utilizadores finais tiverem esta (ou superior) versão do Chrome. 
+A partir da versão de [Chrome para Android v. 62](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates), licença persistente no EME é suportada. [Widevine L1](https://developers.google.com/web/updates/2017/09/chrome-62-media-updates#widevine_l1) agora também é suportado no Chrome para Android. Isto permite-lhe criar aplicativos de reprodução offline no Chrome, se os utilizadores finais têm isto (ou superior) versão do Chrome. 
 
-Além disso, Google tem produzido um exemplo de aplicação de Web transferência progressiva (PWA) e abra-obtido-lo: 
+Além disso, o Google tem produziu um exemplo de aplicação de Web progressivo (PWA) e aberto-lo: 
 
-- [Código de origem](https://github.com/GoogleChromeLabs/sample-media-pwa)
+- [Código fonte](https://github.com/GoogleChromeLabs/sample-media-pwa)
 - [Versão do Google alojado](https://biograf-155113.appspot.com/ttt/episode-2/) (só funciona no Chrome v 62 e superior em dispositivos Android)
 
-Se atualizar o browser Chrome móvel para v62 (ou superior) um telemóvel Android e teste alojado acima, a aplicação de exemplo, poderá ver essa reprodução de transmissão em fluxo tanto online offline de trabalho.
+Se atualizar o browser do dispositivo móvel Chrome para v62 (ou superior) num telemóvel Android e o teste hospedado acima, aplicação de exemplo, verá essa reprodução de transmissão em fluxo tanto online offline de trabalho.
 
-A aplicação de PWA open source acima foi criada no Node.js. Se pretender alojar a sua própria versão num servidor Ubuntu, tenha em consideração os seguintes problemas de encontrou comuns que possam impedir a reprodução:
+A aplicação de PWA acima do código-fonte aberto foi criada no node. js. Se desejar hospedar sua própria versão num Ubuntu server, tenha em atenção os seguintes problemas de foi encontrados comuns que impedem a reprodução:
 
-1. Problema CORS: O vídeo na aplicação de exemplo de exemplo está alojado no https://storage.googleapis.com/biograf-video-files/videos/. Google tenha configurado a CORS para todos os exemplos de teste alojados no registo de armazenamento do Google na nuvem. Estes são servidos com cabeçalhos CORS, especificando explicitamente a entrada CORS: https://biograf-155113.appspot.com (o domínio no qual google aloja os seus exemplo) a impedir o acesso por quaisquer outros sites. Se tentar, verá o seguinte erro HTTP: Falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: não existe um cabeçalho de 'Acesso controlo-permitir-origem' está presente no recurso pedido. Origem 'https://13.85.80.81:8080' não, por conseguinte, é permitido o acesso. Se uma resposta opaco serve às suas necessidades, defina o modo do pedido para 'não-cors' para obter o recurso com a CORS desativada.
-2. Problema de certificado: a partir do Chrome v 58, EME para Widevine necessita de HTTPS. Por conseguinte, necessário alojar a aplicação de exemplo através de HTTPS com um X509 certificado. Um certificado de teste habitual não funciona porque os seguintes requisitos: É necessário obter um certificado que cumprem os requisitos mínimos seguintes:
-    - Chrome e Firefox requerem a definição do nome alternativo do requerente de SAN existir no certificado
-    - O certificado tem de ter fidedigno AC e um certificado autoassinado desenvolvimento não funciona
+1. Problema CORS: O exemplo de vídeo no aplicativo de exemplo está alojado no https://storage.googleapis.com/biograf-video-files/videos/. Google tem de configurar a CORS para todas as suas amostras de teste alojadas no bucket de Google Cloud Storage. Eles são enviados com cabeçalhos CORS, especificar explicitamente a entrada CORS: https://biograf-155113.appspot.com (o domínio no qual google hospeda seu exemplo) a impedir o acesso através de quaisquer outros sites. Se tentar, verá o seguinte erro HTTP: Falha ao carregar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: nenhum cabeçalho "Access-Control-Allow-Origin" está presente no recurso pedido. Origem "https://13.85.80.81:8080" não, portanto, é permitido o acesso. Se uma resposta opaca atende suas necessidades, defina o modo do pedido para "não-cors' para obter o recurso com a CORS desativada.
+2. Problema de certificado: A partir do Chrome v 58, EME para Widevine requer HTTPS. Portanto, precisa alojar a aplicação de exemplo através de HTTPS com uma X509 certificado. Um certificado de teste normal não funciona porque os seguintes requisitos: Terá de obter um certificado que cumprem os requisitos mínimos seguintes:
+    - Chrome e Firefox exijam a configuração de nome alternativo do requerente de SAN de existir no certificado
+    - O certificado AC tem de ter considerado fidedigno e um certificado de desenvolvimento autoassinado não funciona
     - O certificado tem de ter um CN correspondente ao nome DNS do servidor web ou o gateway
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="question"></a>Pergunta
 
-Como posso fornecer licenças persistentes (offline-ativado) para alguns clientes/utilizadores e licenças não persistentes (offline desativado), para que outros? É necessário duplicar o conteúdo e utilizar a chave de conteúdo separado?
+Como posso fornecer licenças persistentes (offline habilitados) para alguns clientes/utilizadores e licenças não persistentes (offline desativado) para outras pessoas? É necessário duplicar o conteúdo e utilizar a chave de conteúdo separada?
 
 ### <a name="answer"></a>Resposta
-Não é necessário duplicar o conteúdo. Pode simplesmente utilizar uma única cópia de conteúdo e um único ContentKeyAuthorizationPolicy, mas do duas separado ContentKeyAuthorizationPolicyOption:
+Não é necessário duplicar o conteúdo. Pode simplesmente usar uma única cópia do conteúdo e um único ContentKeyAuthorizationPolicy, mas do duas separado ContentKeyAuthorizationPolicyOption:
 
-1. IContentKeyAuthorizationPolicyOption 1: utiliza licença persistente e ContentKeyAuthorizationPolicyRestriction 1 que contém uma afirmação como license_type = "Persistent"
-2. IContentKeyAuthorizationPolicyOption 2: utiliza a licença não persistentes e 2 ContentKeyAuthorizationPolicyRestriction que contém uma afirmação como license_type = "Nonpersistent"
+1. IContentKeyAuthorizationPolicyOption 1: utiliza licença persistente e ContentKeyAuthorizationPolicyRestriction 1 que contém uma declaração como license_type = "Persistente"
+2. IContentKeyAuthorizationPolicyOption 2: utiliza licença não persistentes e ContentKeyAuthorizationPolicyRestriction 2 que contém uma declaração como license_type = "Nonpersistent"
 
-Desta forma, quando um pedido de licença é proveniente da aplicação de cliente, o pedido de licença há qualquer diferença. No entanto, para o dispositivo/utilizador final diferentes, o STS deve ter a lógica de negócio para emitir os tokens JWT diferentes que contêm afirmações diferentes (um do license_type dois acima). O valor de afirmações no JWT token será utilizado para decidir pelo serviço de licenciamento para emitir o tipo de licença: persistente ou não persistente.
+Dessa forma, quando chegar uma solicitação de licença da aplicação de cliente, pedido de licença não há diferença. No entanto, para outro dispositivo/utilizador final, o STS deve ter a lógica de negócios para emitir os tokens JWT diferentes que contêm afirmações diferentes (um do license_type dois acima). O valor de afirmações no JWT token será utilizado para decidir pelo serviço de licença para emitir o tipo de licença: persistentes ou não persistente.
 
-Isto significa que a proteger o Token serviço (STS) tem de ter as informações de lógica e os/dispositivo de cliente de negócio para adicionar o valor de afirmação correspondente para um token.
+Isso significa que a proteger o serviço de Token (STS) tem de ter as informações de lógica e cliente/dispositivo de negócios para adicionar o valor de afirmação correspondente a um token.
 
 ### <a name="question"></a>Pergunta
 
-Para os níveis de segurança de Widevine, da Google [documento de descrição geral de arquitetura do Widevine DRM](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentação, define três níveis de segurança diferentes. No entanto, no [documentação de Media Services do Azure no modelo de licença Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), descritos cinco níveis de segurança diferentes. O que é a relação ou o mapeamento entre os dois conjuntos diferentes de níveis de segurança?
+Para níveis de segurança do Widevine, da Google [documento de visão geral de arquitetura do Widevine DRM](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentação, ele define três níveis de segurança diferentes. No entanto, no [documentação de serviços de multimédia do Azure no modelo de licença do Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), descrito cinco níveis de segurança diferentes. O que é a relação ou o mapeamento entre os dois conjuntos diferentes de níveis de segurança?
 
 ### <a name="answer"></a>Resposta
 
 Da Google [descrição geral de arquitetura do Widevine DRM](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf), define os níveis de três segurança seguintes:
 
-1.  Nível de segurança 1: Todos os conteúdos processamento, criptografia e controlo são executados dentro do ambiente de execução fidedigna (TEE). Em alguns modelos de implementação, o processamento de segurança pode ser efetuado no chips diferentes.
-2.  Nível de segurança 2: Efetua cryptography (mas não vídeo processamento) dentro de TEE: memórias intermédias desencriptadas são devolvidas para o domínio de aplicação e processadas através de software ou hardware de vídeo em separado. Nível 2, no entanto, criptográfica informação é ainda processada apenas dentro do TEE.
-3.  Nível de segurança 3 não tem um TEE no dispositivo. As medidas adequadas podem ser direcionadas para proteger as informações de criptografia e conteúdo desencriptado no sistema operativo anfitrião. Uma implementação de nível 3 também pode incluir um motor de criptografia de hardware, mas que só melhora o desempenho, de segurança não.
+1.  Nível de segurança 1: Processamento de conteúdo, criptografia e controle de todos os são executadas dentro do ambiente de execução fidedigno (TEE). Em alguns modelos de implementação, o processamento de segurança pode ser realizado em chips diferentes.
+2.  Nível de segurança 2: Executa criptografia (mas o processamento de vídeo não) dentro do TEE: buffers desencriptados são devolvidos para o domínio do aplicativo e processados por meio de software ou hardware de vídeo separado. No nível 2, no entanto, informações de criptografia ainda estão processadas apenas dentro do TEE.
+3.  Nível de segurança 3 não tem um TEE no dispositivo. Podem ser demoradas medidas adequadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operativo anfitrião. Uma implementação de nível 3 também pode incluir um mecanismo de criptografia de hardware, mas que apenas melhora o desempenho, não a segurança.
 
-AT o mesmo tempo, em [documentação de Media Services do Azure no modelo de licença Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), a propriedade security_level content_key_specs pode ter os seguintes cinco valores diferentes (cliente robustez os requisitos para reprodução):
+AT o mesmo tempo, em [documentação de serviços de multimédia do Azure no modelo de licença do Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), a propriedade security_level de content_key_specs pode ter os seguintes cinco diferentes valores (requisitos de robustez de cliente para a reprodução):
 
 1.  É necessária a criptografia baseada em software whitebox.
-2.  Criptografia de software e um descodificador oculto é necessário.
-3.  O material de chaves e as operações de criptografia tem de ser efetuadas dentro de um hardware de segurança TEE.
-4.  A criptografia e decoding de conteúdo tem de ser efetuadas dentro de um hardware de segurança TEE.
-5.  A criptografia, decoding e todo o processamento do suporte de dados (comprimidos e descomprimidos) devem ser processadas dentro de um hardware de segurança TEE.
+2.  Criptografia de software e um Decodificador oculto é necessária.
+3.  As operações de criptografia e material de chave tem de ser efetuadas dentro de um hardware de segurança TEE.
+4.  A criptografia e decodificação de conteúdo tem de ser efetuadas dentro de um hardware de segurança TEE.
+5.  A criptografia, decodificação e tudo manipulação do suporte de dados (comprimidos e descomprimidos) devem ser tratados dentro de um hardware de segurança TEE.
 
-Ambos os níveis de segurança são definidos por Widevine da Google. É a diferença no seu nível de utilização: nível de arquitetura ou nível de API. Os níveis de cinco segurança são utilizados na Widevine API. O objeto content_key_specs que contém security_level é anular a serialização e transmitido para o serviço de entrega global Widevine pelo serviço de licença Widevine de serviços de suporte de dados do Azure. A tabela abaixo mostra o mapeamento entre os dois conjuntos de níveis de segurança.
+Ambos os níveis de segurança são definidos pelo Google Widevine. A diferença está em seu nível de utilização: nível de arquitetura ou de API. Os níveis de cinco segurança são usados na API do Widevine. O objeto de content_key_specs, que contém security_level é anular a serialização e passado para o serviço de entrega global Widevine pelo serviço de licença do Widevine de serviços de multimédia do Azure. A tabela abaixo mostra o mapeamento entre os dois conjuntos de níveis de segurança.
 
-| **Níveis de segurança definidas na arquitetura de Widevine** |**Níveis de segurança utilizados em Widevine API**|
+| **Níveis de segurança definidas na arquitetura do Widevine** |**Níveis de segurança utilizados na API do Widevine**|
 |---|---| 
-| **Nível de segurança 1**: todos os conteúdos processamento, criptografia e controlo são executados dentro do ambiente de execução fidedigna (TEE). Em alguns modelos de implementação, o processamento de segurança pode ser efetuado no chips diferentes.|**security_level = 5**: A criptografia, decoding e todo o processamento do suporte de dados (comprimidos e descomprimidos) devem ser processadas dentro de um hardware de segurança TEE.<br/><br/>**security_level = 4**: criptografia e decoding de conteúdo tem de ser efetuadas dentro de um hardware de segurança TEE.|
-**Nível de segurança 2**: efetua cryptography (mas não vídeo processamento) dentro de TEE: memórias intermédias desencriptadas são devolvidas para o domínio de aplicação e processadas através de software ou hardware de vídeo em separado. Nível 2, no entanto, criptográfica informação é ainda processada apenas dentro do TEE.| **security_level = 3**: O material de chaves e as operações de criptografia tem de ser efetuadas dentro de um hardware de segurança TEE. |
-| **Nível de segurança 3**: não tem um TEE no dispositivo. As medidas adequadas podem ser direcionadas para proteger as informações de criptografia e conteúdo desencriptado no sistema operativo anfitrião. Uma implementação de nível 3 também pode incluir um motor de criptografia de hardware, mas que só melhora o desempenho, de segurança não. | **security_level = 2**: criptografia de Software e um descodificador oculto é necessária.<br/><br/>**security_level = 1**: é necessária a criptografia baseada em Software whitebox.|
+| **Nível de segurança 1**: Processamento de conteúdo, criptografia e controle de todos os são executadas dentro do ambiente de execução fidedigno (TEE). Em alguns modelos de implementação, o processamento de segurança pode ser realizado em chips diferentes.|**security_level=5**: A criptografia, decodificação e tudo manipulação do suporte de dados (comprimidos e descomprimidos) devem ser tratados dentro de um hardware de segurança TEE.<br/><br/>**security_level=4**: A criptografia e decodificação de conteúdo tem de ser efetuadas dentro de um hardware de segurança TEE.|
+**Nível de segurança 2**: Executa criptografia (mas o processamento de vídeo não) dentro do TEE: buffers desencriptados são devolvidos para o domínio do aplicativo e processados por meio de software ou hardware de vídeo separado. No nível 2, no entanto, informações de criptografia ainda estão processadas apenas dentro do TEE.| **security_level=3**: As operações de criptografia e material de chave tem de ser efetuadas dentro de um hardware de segurança TEE. |
+| **Nível de segurança 3**: Não tem um TEE no dispositivo. Podem ser demoradas medidas adequadas para proteger as informações de criptografia e o conteúdo descriptografado no sistema operativo anfitrião. Uma implementação de nível 3 também pode incluir um mecanismo de criptografia de hardware, mas que apenas melhora o desempenho, não a segurança. | **security_level=2**: Criptografia de software e um Decodificador oculto é necessária.<br/><br/>**security_level=1**: É necessária a criptografia baseada em software whitebox.|
 
 ### <a name="question"></a>Pergunta
 
-Por que motivo transferir conteúdo necessário tempo?
+Por que motivo transferência de conteúdo demora tanto tempo?
 
 ### <a name="answer"></a>Resposta
 
 Existem duas formas de melhorar a velocidade de transferência:
 
-1.  Ative a CDN para que os utilizadores finais estejam mais predispostos a atingiu o CDN em vez de ponto final de transmissão em fluxo de origem/para transferência do conteúdo. Se o utilizador pedidos com êxito o ponto final de transmissão em fluxo, cada segmento HLS ou fragmento DASH é dinamicamente embalado e encriptado. Apesar desta latência for na escala de milissegundos para cada segmento/fragmento, quando tiver uma longa vídeo de hora, a latência acumulada pode ser transferências mais a causar grande.
-2.  Fornece aos utilizadores finais a opção para transferir seletivamente camadas de qualidade do vídeo e controla áudio em vez de todo o conteúdo. Para o modo offline, não há nenhum ponto para transferir todas as camadas de qualidade. Existem duas formas de alcançar isto:
-    1.  Cliente controlada: seleciona automática da aplicação de leitor ou o utilizador seleciona camada de qualidade do vídeo e controla áudio para transferir;
-    2.  Serviço controlado: um pode utilizar manifesto dinâmica funcionalidade Media Services do Azure para criar um filtro (global), o que limita HLS listas de reprodução ou MPD TRAÇO a uma camada de qualidade do vídeo único e selecionado controla áudio. Em seguida, o URL de transferência apresentado aos utilizadores finais irão incluir este filtro.
+1.  Ative a CDN, para que os utilizadores finais têm maior probabilidade de atingir o CDN em vez de ponto final de transmissão em fluxo origem/para transferência de conteúdo. Se o usuário acessa o ponto final de transmissão, cada segmento HLS ou fragmento de TRAÇO é dinamicamente empacotado e encriptado. Apesar desta latência é na escala de milissegundos para cada segmento/fragmento, quando tem uma hora longa vídeo, a latência acumulada pode ser grande, fazendo com que o download mais tempo.
+2.  Fornece aos utilizadores finais a opção para transferir seletivamente as camadas de qualidade de vídeo e faixas de áudio em vez de todo o conteúdo. Para o modo offline, não faz sentido para transferir todas as camadas de qualidade. Existem duas formas de fazer isso:
+    1.  Cliente controlado: o seleciona automática da aplicação de leitor ou o utilizador seleciona a camada de qualidade de vídeo e faixas de áudio para transferir;
+    2.  Serviço controlado: é possível usar o recurso de manifesto dinâmico nos serviços de multimédia do Azure para criar um filtro (global), o que limita a lista de reprodução HLS ou travessão MPD para uma camada de qualidade de vídeo único e selecionado faixas de áudio. Em seguida, o URL de transferência apresentado aos utilizadores finais irão incluir este filtro.
 
 ## <a name="summary"></a>Resumo
 
-Este artigo abordados como implementar a reprodução de modo offline para o conteúdo DASH protegido pelo Widevine em dispositivos Android.  Também respondeu às algumas perguntas comuns relacionadas com a transmissão em fluxo offline de conteúdo de Widevine protegido.
+Este artigo abordou a forma de implementar a reprodução de modo offline para o conteúdo de TRAÇO protegido pelo Widevine em dispositivos Android.  Também respostas para algumas perguntas comuns relacionadas com a transmissão em fluxo offline do conteúdo do Widevine protegido.

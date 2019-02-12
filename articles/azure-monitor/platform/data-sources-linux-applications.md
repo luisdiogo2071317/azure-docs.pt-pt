@@ -1,5 +1,5 @@
 ---
-title: Recolher o desempenho de aplicações do Linux no Log Analytics | Documentos da Microsoft
+title: Recolher o desempenho de aplicações do Linux no Azure Monitor | Documentos da Microsoft
 description: Este artigo fornece detalhes para configurar o agente do Log Analytics para Linux recolher contadores de desempenho para o MySQL e Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: bf14e06f52f1b5a32ea3922083cc1f9bdbfb2aae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 453e66934b93ab4368c4d3816d3db1a4588ae660
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104850"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001339"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux no Log Analytics 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recolher contadores de desempenho de aplicações do Linux no Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Este artigo fornece detalhes para configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para recolher contadores de desempenho de aplicações específicas no Log Analytics.  Os aplicativos incluídos neste artigo são:  
+Este artigo fornece detalhes para configurar o [agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) recolher contadores de desempenho de aplicações específicas para o Azure Monitor.  Os aplicativos incluídos neste artigo são:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
@@ -100,8 +100,8 @@ O utilizador MySQL necessita de acesso para as consultas seguintes para recolher
 
 O utilizador MySQL também requer acesso SELECT para as seguintes tabelas de predefinição.
 
-- INFORMATION_SCHEMA
-- MySQL. 
+- information_schema
+- mysql. 
 
 Esses privilégios podem ser concedidos ao executar os seguintes comandos de concessão.
 
@@ -114,7 +114,7 @@ Esses privilégios podem ser concedidos ao executar os seguintes comandos de con
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois de configurar o agente do Log Analytics para Linux enviar dados para o Log Analytics, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho do Log Analytics](data-sources-performance-counters.md) com os contadores na tabela seguinte.
+Depois de configurar o agente do Log Analytics para Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
 
 | Nome do Objeto | Nome do Contador |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definir contadores de desempenho
 
-Depois de configurar o agente do Log Analytics para Linux enviar dados para o Log Analytics, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho do Log Analytics](data-sources-performance-counters.md) com os contadores na tabela seguinte.
+Depois de configurar o agente do Log Analytics para Linux enviar dados para o Azure Monitor, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho no Azure Monitor](data-sources-performance-counters.md) com os contadores na tabela seguinte.
 
 | Nome do Objeto | Nome do Contador |
 |:--|:--|
@@ -158,14 +158,14 @@ Depois de configurar o agente do Log Analytics para Linux enviar dados para o Lo
 | Apache HTTP Server | Funções de trabalho ociosas |
 | Apache HTTP Server | Operadores de ocupado PCT |
 | Apache HTTP Server | Pct total da CPU |
-| Anfitrião Virtual do Apache | Erros por minuto - cliente |
-| Anfitrião Virtual do Apache | Erros por minuto - servidor |
-| Anfitrião Virtual do Apache | KB por solicitação |
-| Anfitrião Virtual do Apache | Pedidos KB por segundo |
-| Anfitrião Virtual do Apache | Pedidos por segundo |
+| Apache Virtual Host | Erros por minuto - cliente |
+| Apache Virtual Host | Erros por minuto - servidor |
+| Apache Virtual Host | KB por solicitação |
+| Apache Virtual Host | Pedidos KB por segundo |
+| Apache Virtual Host | Pedidos por segundo |
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Recolher contadores de desempenho](data-sources-performance-counters.md) agentes de Linux.
-* Saiba mais sobre [registar as consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

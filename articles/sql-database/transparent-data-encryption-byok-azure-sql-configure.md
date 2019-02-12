@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell e CLI: Ativar o SQL TDE - a sua chave - Azure SQL Database | Documentos da Microsoft'
+title: 'PowerShell e CLI: Ativar a TDE SQL - com o Azure Key Vault – traga a sua própria chave - base de dados SQL do Azure | Documentos da Microsoft'
 description: Saiba como configurar uma base de dados do Azure SQL e o armazém de dados para começar a utilizar a encriptação de dados transparente (TDE) para encriptação em repouso com o PowerShell ou CLI.
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: be73f5cb7db232538f301b2eb56bf61267fce5d5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b6abfa24d790554de239171ffef1899cdc135d26
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566725"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996258"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar a encriptação de dados transparente com a sua própria chave de Cofre de chaves do Azure
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente do Azure Key Vault
 
-Este artigo explica como utilizar uma chave de Cofre de chaves do Azure para dados de encriptação transparente (TDE) numa base de dados SQL ou armazém de dados. Para saber mais sobre o TDE com suporte de Bring Your Own Key (BYOK), visite [TDE traga a sua própria chave para o Azure SQL](transparent-data-encryption-byok-azure-sql.md). 
+Este artigo explica como utilizar uma chave de Cofre de chaves do Azure para dados de encriptação transparente (TDE) numa base de dados SQL ou armazém de dados. Para saber mais sobre o TDE com a integração do Azure Key Vault - suporte de Bring Your Own Key (BYOK), visite [TDE com chaves geridas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
 
 ## <a name="prerequisites-for-powershell"></a>Pré-requisitos para o PowerShell
 

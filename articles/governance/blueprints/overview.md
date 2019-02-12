@@ -4,17 +4,17 @@ description: O Azure Blueprints é um serviço no Azure que serve para criar, de
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 29670b94450e9f145a96b737ef96970db40aeed8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563376"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998557"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -112,6 +112,12 @@ Todas as permissões acima estão incluídas no **proprietário** função. O **
 
 > [!NOTE]
 > O principal de serviço do Azure Blueprint requer a função **Proprietário** na subscrição atribuída para ativar a implementação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação.
+
+## <a name="video-overview"></a>Descrição geral do vídeo
+
+A seguinte descrição geral dos planos gráficos do Azure é a partir do Azure Fridays. Para o download de vídeo, visite [Azure Fridays - uma visão geral dos planos gráficos de Azure](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) no Channel 9.
+
+> [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

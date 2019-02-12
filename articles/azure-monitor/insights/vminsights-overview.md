@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856388"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005000"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>O que é o Azure Monitor para VMs (pré-visualização)?
 
@@ -41,7 +41,7 @@ As funcionalidades estão organizadas nas três perspectivas:
 >[!NOTE]
 >Atualmente, a funcionalidade de estado de funcionamento é oferecida apenas para máquinas virtuais do Azure e o dimensionamento de máquinas virtuais conjuntos. Os recursos de desempenho e mapa suportam VMs do Azure e máquinas virtuais que estão alojadas no seu ambiente ou de outro fornecedor de cloud.
 
-Integração com o Log Analytics oferece poderosas agregação e a filtragem e ele pode analisar as tendências de dados ao longo do tempo. Essa carga de trabalho abrangente de monitorização não pode ser obtido com o Azure Monitor, o mapa de serviço ou o Log Analytics sozinho.  
+Integração com os registos do Azure Monitor oferece poderosas agregação e a filtragem e ele pode analisar as tendências de dados ao longo do tempo. Essa carga de trabalho abrangente de monitorização não pode ser obtido com o Azure Monitor ou o mapa de serviço autónomo.  
 
 Pode ver estes dados numa única VM da máquina virtual diretamente ou pode utilizar o Azure Monitor para fornecer uma exibição agregada das suas VMs. Esta vista é baseada no ponto de vista de cada funcionalidade:
 

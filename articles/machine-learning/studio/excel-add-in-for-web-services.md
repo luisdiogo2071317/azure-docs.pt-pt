@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486899"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997085"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Suplemento do Excel para serviços da web do Azure Machine Learning Studio
 Excel torna mais fácil chamar serviços web diretamente sem a necessidade de escrever qualquer código.
@@ -24,8 +24,8 @@ Excel torna mais fácil chamar serviços web diretamente sem a necessidade de es
 
 1. Abra o [ficheiro do Excel de exemplo](https://aka.ms/amlexcel-sample-2), que contém o suplemento do Excel e os dados sobre passageiros ao Titanic. 
  
-> [!NOTE]
-> Verá que a lista dos serviços Web para o ficheiro e relacionados na parte inferior uma caixa de verificação para "Prever automático". Se ativar auto-prever as previsões de **todos os** seus serviços serão atualizados sempre que houver uma alteração nas entradas. Se a opção estiver desmarcada terá de clicar em "Prever All" para a atualização. Para ativar a auto-prever num ir do nível de serviço para o passo 6.
+    > [!NOTE]
+    > Verá que a lista dos serviços Web para o ficheiro e relacionados na parte inferior uma caixa de verificação para "Prever automático". Se ativar auto-prever as previsões de **todos os** seus serviços serão atualizados sempre que houver uma alteração nas entradas. Se a opção estiver desmarcada terá de clicar em "Prever All" para a atualização. Para ativar a auto-prever num ir do nível de serviço para o passo 6.
 
 2. Escolha o serviço web ao clicar no mesmo-"Titanic Survivor previsão (suplemento do Excel do exemplo) [pontuação]" neste exemplo.
    
@@ -37,7 +37,7 @@ Excel torna mais fácil chamar serviços web diretamente sem a necessidade de es
    
     ![Prever a secção][02]
 
-Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [instruções passo 5: Implementar o serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md).
+Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 
 Obtenha a chave de API do web Service. Quando efetuar esta ação depende se publicou um serviço da web clássico Machine Learning de um serviço web do Machine Learning de novo.
 
@@ -65,7 +65,7 @@ Obtenha a chave de API do web Service. Quando efetuar esta ação depende se pub
 
 ## <a name="steps-to-add-a-new-web-service"></a>Passos para adicionar um novo serviço web
 
-1. Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [instruções passo 5: Implementar o serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md).
+1. Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 2. Clique em **consumir**.
 3. Procure o **informações básicas do consumo** secção. Copie e guarde o **chave primária** e o **solicitação-resposta** URL.
 4. No Excel, vá para o **serviços Web** secção (se estiver na **Predict** secção, clique na seta voltar para ir para a lista de serviços da web).

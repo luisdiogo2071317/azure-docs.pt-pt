@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: feb74b923a1f15105a2d80f8fefb09184162cb9b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810708"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990467"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do indexador de vídeo produzida pela v2 API
 
@@ -35,7 +35,7 @@ Este artigo examina o conteúdo JSON devolvido pelos **índice de vídeo de intr
 
 ## <a name="root-elements"></a>Elementos de raiz
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |accountId|VI a lista de reprodução conta ID.|
 |ID|ID de. a lista de reprodução|
@@ -95,7 +95,7 @@ Esta secção mostra o resumo das informações.
 
 ## <a name="videos"></a>vídeos
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |accountId|VI o vídeo conta ID.|
 |ID|ID do vídeo|
@@ -200,7 +200,7 @@ instâncias|Uma lista de intervalos de tempo deste bloco.|
 
 #### <a name="transcript"></a>transcrição
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de linha.|
 |texto|A transcrição em si.|
@@ -238,7 +238,7 @@ Exemplo:
 
 #### <a name="ocr"></a>OCR
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de linha de OCR.|
 |texto|O texto de OCR.|
@@ -281,7 +281,7 @@ Exemplo:
 
 #### <a name="keywords"></a>palavras-chave
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de palavra-chave.|
 |texto|O texto de palavra-chave.|
@@ -328,7 +328,7 @@ Exemplo:
 
 #### <a name="faces"></a>faces
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID do rosto.|
 |nome|O nome do mostrador da. Pode ser ' desconhecido n º 0, uma celebridade identificada ou uma pessoa de preparação do cliente.|
@@ -373,7 +373,7 @@ Exemplo:
 
 #### <a name="labels"></a>etiquetas
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID da etiqueta.|
 |nome|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
@@ -432,7 +432,7 @@ Exemplo:
 
 #### <a name="shots"></a>capturas de
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de captura.|
 |keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Instâncias de quadros-chave têm um campo de thumbnailId com miniatura do quadro-chave ID.|
@@ -491,7 +491,7 @@ Exemplo:
 
 Negócios e produto nomes de marca detetados na conversão de voz a transcrição de texto e/ou OCR de vídeo. Não inclui reconhecimento visual de marcas ou deteção de logótipo.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID da marca.|
 |nome|O nome de marcas.|
@@ -550,7 +550,7 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 
 #### <a name="statistics"></a>Estatísticas
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |SpeakerWordCount|O número de palavras por orador.|
@@ -560,7 +560,7 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 
 #### <a name="audioeffects"></a>audioEffects
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID do efeito de áudio.|
 |tipo|O tipo de efeito de áudio (por exemplo, Clapping, conversão de voz, silêncio).|
@@ -589,7 +589,7 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 
 Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/negativo). Por exemplo, 0-0.1, 0,1 0,2.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de sentimentos.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - positivo/neutra/negativo|
@@ -628,7 +628,7 @@ O bloco de visualContentModeration contém intervalos de tempo que o indexador d
 
 Vídeos que encontram-se para conter o conteúdo de adultos poderão estar disponíveis para ver privada apenas. Os utilizadores têm a opção para submeter um pedido para uma revisão de segurança do conteúdo, em que, caso o atributo IsAdult irá conter o resultado da revisão humana.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de moderação de conteúdos visual.|
 |adultScore|Como sendo para adultos (a partir do moderador de conteúdo).|
@@ -664,7 +664,7 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de moderação de conteúdo textual.|
 |bannedWordsCount |O número de palavras excluídas.|
@@ -674,7 +674,7 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 
 O Video Indexer identifica emoções com base nas ajudas de voz e áudio. As emoções identificadas poderiam ser: alegria, tristeza, raiva ou medo.
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de emoções.|
 |tipo|O momento de emoções que foi identificado com base em conversão de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.|
@@ -764,7 +764,7 @@ O Video Indexer identifica emoções com base nas ajudas de voz e áudio. As emo
 
 O Video Indexer torna a inferência de tipos de tópicos principais de transcrições. Sempre que possível, o nível de dia 1 [IPTC](https://iptc.org/standards/media-topics/) taxonomia está incluída. 
 
-|Nome|Descrição|
+|Name|Descrição|
 |---|---|
 |ID|O ID de tópico.|
 |nome|O nome do tópico, por exemplo: "Farmacêutica".|

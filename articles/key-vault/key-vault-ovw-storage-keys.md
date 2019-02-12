@@ -1,7 +1,7 @@
 ---
 ms.assetid: ''
 title: O Azure Key Vault geridos a conta de armazenamento - CLI
-description: Chaves de conta de armazenamento fornecem uma integração de seemless entre o Azure Key Vault e chave de acesso baseado em à conta de armazenamento do Azure.
+description: Chaves de conta de armazenamento fornecem uma integração perfeita entre o Azure Key Vault e chave de acesso baseado em à conta de armazenamento do Azure.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 9bff93fbec73eb73dca01660d46e35e194edb626
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 06054859fb4ffcbfc09704e62821c6184fc9e252
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963493"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993185"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 
@@ -170,19 +170,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### <a name="relevant-azure-cli-commands"></a>Comandos da CLI do Azure relevantes
 
-### <a name="relavant-azure-cli-cmdlets"></a>Cmdlets da CLI do Azure de Relavant
-[Cmdlets de armazenamento da CLI do Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### <a name="relevant-powershell-cmdlets"></a>Cmdlets do Powershell relevantes
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Comandos da CLI de armazenamento do Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## <a name="see-also"></a>Consulte também
 

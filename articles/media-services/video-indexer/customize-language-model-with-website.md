@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 9bf48a994c3efeb433bcb99342f7a477d87858eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285271"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998192"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalizar um modelo de idioma com o site do Video Indexer
 
@@ -75,11 +75,11 @@ Para utilizar o seu modelo de linguagem reindexar um vídeo em sua coleção, ac
 
 Vê as opções para editar o seu vídeo, eliminar, vídeo e reindexar o seu vídeo. Clique na opção reindexar o seu vídeo.
 
-![Reindexar](./media/customize-language-model/reindex1.png)
+![Reindex](./media/customize-language-model/reindex1.png)
 
 Isso lhe dá a opção de selecionar o **idioma de origem do vídeo** reindexar o seu vídeo. Clique no menu pendente e selecione um modelo de idioma que criou na lista. Ele deverá indicar o idioma do seu modelo de idioma e o nome que deu a parênteses.
 
-![Reindexar](./media/customize-language-model/reindex.png)
+![Reindex](./media/customize-language-model/reindex.png)
 
 Clique nas **novamente de índice** botão e o seu vídeo irão ser reindexados com o modelo de idioma.
 

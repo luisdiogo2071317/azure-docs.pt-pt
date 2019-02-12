@@ -1,5 +1,5 @@
 ---
-title: Otimizar seu ambiente do Active Directory com o Azure Log Analytics | Documentos da Microsoft
+title: Otimizar seu ambiente do Active Directory com o Azure Monitor | Documentos da Microsoft
 description: Pode utilizar a solução de verificação de estado de funcionamento do Active Directory para avaliar o risco e estado de funcionamento dos seus ambientes num intervalo regular.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193013"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999033"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de verificação de estado de funcionamento do Active Directory no Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente do Active Directory com a solução de verificação de estado de funcionamento do Active Directory no Azure Monitor
 
 ![Símbolo de verificar o estado de funcionamento do AD](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Pode utilizar a solução de verificação de estado de funcionamento do Active Directory para avaliar o risco e estado de funcionamento dos seus ambientes de servidor num intervalo regular. Este artigo ajuda-o a instalar e utilizar a solução para que pode tomar medidas corretivas para potenciais problemas.
 
@@ -40,22 +42,22 @@ Depois de adicionar a solução e é uma verificação de conclusão, resumo inf
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução de verificação de estado de funcionamento do Active Directory requer uma versão suportada do .NET Framework 4.5.2 ou superior instalado em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2 e o serviço Log Analytics.
+* A solução de verificação de estado de funcionamento do Active Directory requer uma versão suportada do .NET Framework 4.5.2 ou superior instalado em cada computador que tenha o Microsoft Monitoring Agent (MMA) instalado.  O agente MMA é utilizado pelo System Center 2016 - Operations Manager e o Operations Manager 2012 R2 e o Azure Monitor.
 * A solução suporta controladores de domínio que executam o Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
 * Uma área de trabalho do Log Analytics para adicionar a solução de verificação de estado de funcionamento do Active Directory no Azure marketplace no portal do Azure.  Não há nenhuma configuração adicional.
 
   > [!NOTE]
-  > Depois de adicionar a solução, o ficheiro de AdvisorAssessment.exe é adicionado aos servidores com os agentes. Leia e, em seguida, enviados para o serviço de Log Analytics na cloud para processamento de dados de configuração. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados.
+  > Depois de adicionar a solução, o ficheiro de AdvisorAssessment.exe é adicionado aos servidores com os agentes. Leia e, em seguida, enviados para o Azure Monitor na cloud para processamento de dados de configuração. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados.
   >
   >
 
-Para efetuar a verificação de estado de funcionamento contra os controladores de domínio que são membros do domínio a ser avaliada, necessitam de um agente e a conectividade para o Log Analytics através de um dos seguintes métodos suportados:
+Para efetuar a verificação de estado de funcionamento contra os controladores de domínio que são membros do domínio a ser avaliada, necessitam de um agente e a conectividade para o Azure Monitor utilizando um dos seguintes métodos suportados:
 
 1. Instalar o [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) se o controlador de domínio já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
-2. Se está a ser monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não estiver integrado com o serviço Log Analytics, o controlador de domínio pode ser alojada em vários com o Log Analytics para recolher dados e reencaminhar para o serviço e ainda ser monitorizados pelo Operations Manager.  
+2. Se está a ser monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não está integrado com o Azure Monitor, o controlador de domínio pode ser alojada em vários com o Azure Monitor para recolher dados e reencaminhar para o serviço e ainda monitorizados pelo Operations Manager.  
 3. Caso contrário, se o grupo de gestão do Operations Manager está integrado com o serviço, terá de adicionar os controladores de domínio para a recolha de dados pelo serviço de seguir os passos em [adicionar computadores geridos por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) depois de ativar a solução na sua área de trabalho.  
 
-O agente no seu controlador de domínio, os relatórios a um grupo de gestão do Operations Manager, recolhe os dados, por sua vez encaminha para o respetivo servidor de gestão atribuído e, em seguida, é enviado diretamente a partir de um servidor de gestão para o serviço Log Analytics.  Os dados não são gravados para as bases de dados do Operations Manager.  
+O agente no seu controlador de domínio, os relatórios a um grupo de gestão do Operations Manager, recolhe os dados, por sua vez encaminha para o respetivo servidor de gestão atribuído e, em seguida, é enviado diretamente a partir de um servidor de gestão para o Azure Monitor.  Os dados não são gravados para as bases de dados do Operations Manager.  
 
 ## <a name="active-directory-health-check-data-collection-details"></a>Active Directory detalhes de recolha dados a verificação do Estado de funcionamento
 
@@ -73,7 +75,7 @@ Verificação de estado de funcionamento do Active Directory recolhe dados das s
 - API de serviço (NTFRS) de replicação de ficheiros
 - Código personalizado em C#
 
-Dados são recolhidos no controlador de domínio e reencaminhados para o Log Analytics a cada sete dias.  
+Dados são recolhidos no controlador de domínio e reencaminhados para o Azure Monitor, a cada sete dias.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Compreender a forma como as recomendações são priorizadas
 Cada recomendação feita é fornecida um valor de peso que identifica a importância relativa da recomendação. As 10 recomendações mais importantes são apresentadas.
@@ -107,30 +109,33 @@ Depois de ser instalado, pode ver o resumo de recomendações utilizando o mosai
 Ver as avaliações de conformidade resumidos para sua infraestrutura e, em seguida, no teste de recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para ver as recomendações para uma área de foco e tomar medidas corretivas
-3. Clique nas **descrição geral** mosaico sua área de trabalho do Log Analytics no portal do Azure.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 4. Sobre o **descrição geral** página, clique no **verificação de estado de funcionamento do Active Directory** mosaico.
 5. Sobre o **verificar o estado de funcionamento** página, reveja as informações de resumo em um dos painéis de área de foco e, em seguida, clique num para ver as recomendações para essa área de foco.
 6. Em qualquer uma das páginas de área de foco, pode ver as fez para o seu ambiente de recomendações ordenadas por prioridade. Clique numa recomendação em **Objetos afetados** para ver detalhes sobre por que motivo a recomendação é feita.<br><br> ![imagem de recomendações de verificar o estado de funcionamento](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 7. Pode efetuar ações corretivas sugeridas na **ações sugeridas**. Quando o item tiver sido resolvido, registos de avaliações posteriores que as ações recomendadas foram executados e irão aumentar a sua pontuação de conformidade. Itens corrigidos aparecem como **objetos transmitidos**.
 
 ## <a name="ignore-recommendations"></a>Ignorar recomendações
-Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que o Log Analytics irá utilizar para impedir que as recomendações de aparecer no seu os resultados da avaliação.
+Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que o Azure Monitor irá utilizar para impedir que as recomendações de aparecer no seu os resultados da avaliação.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que irá ignorar
-1. No portal do Azure na página de área de trabalho do Log Analytics para a sua área de trabalho selecionada, clique nas **pesquisa de registos** mosaico.
-2. Utilize a seguinte consulta para recomendações de lista que tenham falhado para computadores no seu ambiente.
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    Eis uma captura de ecrã que mostra a consulta de pesquisa de registos:<br><br> ![recomendações com falhas](./media/ad-assessment/ad-failed-recommendations.png)
+Utilize a seguinte consulta para recomendações de lista que tenham falhado para computadores no seu ambiente.
 
-3. Escolha as recomendações que pretende ignorar. Vai utilizar os valores para RecommendationId no próximo procedimento.
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+Eis uma captura de ecrã que mostra a consulta de registo:<br><br> ![recomendações com falhas](media/ad-assessment/ad-failed-recommendations.png)
+
+Escolha as recomendações que pretende ignorar. Vai utilizar os valores para RecommendationId no próximo procedimento.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Para criar e utilizar um ficheiro de texto IgnoreRecommendations.txt
 1. Crie um ficheiro denominado IgnoreRecommendations.txt.
-2. Cole ou introduza cada RecommendationId para cada recomendação que pretende que o Log Analytics para ignorar numa linha separada e, em seguida, guarde e feche o ficheiro.
-3. Coloca o ficheiro na pasta em cada computador onde pretende que o Log Analytics para ignorar recomendações.
+2. Cole ou introduza cada RecommendationId para cada recomendação que pretende que o Azure Monitor para ignorar numa linha separada e, em seguida, guarde e feche o ficheiro.
+3. Coloca o ficheiro na pasta em cada computador onde pretende que o Azure Monitor para ignorar recomendações.
    * Em computadores com o Microsoft Monitoring Agent (conectado diretamente ou através do Operations Manager) - *SystemDrive*: \Programas\Microsoft Agent\Agent de monitorização
    * No servidor de gestão do Operations Manager 2012 R2 - *SystemDrive*: \Programas\Microsoft System Center 2012 R2\Operations Manager\Server
    * No servidor de gestão do Operations Manager 2016 - *SystemDrive*: \Programas\Microsoft System Center 2016\Operations Manager\Server
@@ -138,7 +143,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar que as recomendações são ignoradas
 Após a próxima agendada execuções de verificação de estado de funcionamento, por predefinição a cada sete dias, as recomendações especificadas são marcadas *ignorada* e não serão apresentados no dashboard.
 
-1. Pode utilizar as seguintes consultas de pesquisa de registos para listar todas as recomendações ignoradas.
+1. Pode utilizar as seguintes consultas de registo para listar todas as recomendações ignoradas.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -177,11 +182,11 @@ Após a próxima agendada execuções de verificação de estado de funcionament
 
 *Por que motivo exibir apenas as recomendações de 10 principais?*
 
-* Em vez de apresentar uma lista exaustiva esmagadora de tarefas, recomendamos que se concentre em endereçamento de recomendações ordenadas por prioridade em primeiro lugar. Depois de corrigi-los, recomendações adicionais estarão disponíveis. Se preferir ver a lista detalhada, pode ver todas as recomendações com pesquisa de registos.
+* Em vez de apresentar uma lista exaustiva esmagadora de tarefas, recomendamos que se concentre em endereçamento de recomendações ordenadas por prioridade em primeiro lugar. Depois de corrigi-los, recomendações adicionais estarão disponíveis. Se preferir ver a lista detalhada, pode ver todas as recomendações usando uma consulta de registo.
 
 *Existe uma forma de ignorar uma recomendação?*
 
 * Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para saber como analisar dados de verificação de estado de funcionamento do AD e recomendações detalhadas.
+* Uso [consultas de registo do Azure Monitor](../log-query/log-query-overview.md) para saber como analisar dados de verificação de estado de funcionamento do AD e recomendações detalhadas.

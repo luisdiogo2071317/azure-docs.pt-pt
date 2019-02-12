@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 8d2cac7635b9d97561b3cebf517c95855407cbe3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 27a8e160fc33729c5b5266dffeb346f0296276fd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462788"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005289"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 
@@ -71,7 +71,7 @@ Não é uma funcionalidade incorporada em massa de restauro. O [base de dados SQ
 
 ## <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
-Pode restaurar uma autónoma, agrupada, ou instância de base de dados para um ponto anterior no tempo como uma nova base de dados no mesmo servidor com o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases). Uma base de dados pode ser restaurada a qualquer camada de serviço ou tamanho de computação. Certifique-se de que tem recursos suficientes no servidor ao qual está a restaurar a base de dados. Depois de concluído, a base de dados restaurada é uma base de dados online, normal e totalmente acessível. A base de dados restaurada é cobrada às tarifas normais com base no respetivo escalão de serviço e o tamanho de computação. Que não incorra em custos até que o restauro de base de dados esteja concluído.
+Pode restaurar uma única, agrupada ou de instância da base de dados para um ponto anterior no tempo como uma nova base de dados no mesmo servidor com o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases). Uma base de dados pode ser restaurada a qualquer camada de serviço ou tamanho de computação. Certifique-se de que tem recursos suficientes no servidor ao qual está a restaurar a base de dados. Depois de concluído, a base de dados restaurada é uma base de dados online, normal e totalmente acessível. A base de dados restaurada é cobrada às tarifas normais com base no respetivo escalão de serviço e o tamanho de computação. Que não incorra em custos até que o restauro de base de dados esteja concluído.
 
 Geralmente, restaurar uma base de dados para um ponto anterior para fins de recuperação. Ao fazê-lo, pode tratar a base de dados restaurada como um substituto para a base de dados original ou utilizá-lo a obter dados a partir e, em seguida, atualizar a base de dados original.
 
@@ -83,7 +83,7 @@ Geralmente, restaurar uma base de dados para um ponto anterior para fins de recu
 
   Se pretender recuperar dados de base de dados restaurada para recuperar a partir de um erro de utilizador ou aplicação, terá de escrever e executar os scripts de recuperação de dados necessários para extrair dados do banco de dados restaurado para a base de dados original. Embora a operação de restauro pode demorar muito tempo a concluir, a base de dados de restauro está visível na lista de base de dados em todo o processo de restauro. Se eliminar a base de dados durante o restauro, a operação de restauro foi cancelada e não lhe são cobradas da base de dados que não foi possível concluir o restauro.
 
-Para recuperar uma autónoma, agrupada, ou instância da base de dados para um ponto no tempo, com o portal do Azure, abra a página da base de dados e clique em **restaurar** na barra de ferramentas.
+Para recuperar uma única, agrupada, ou de instância da base de dados para um ponto no tempo, com o portal do Azure, abra a página da base de dados e clique em **restaurar** na barra de ferramentas.
 
 ![ponto de restauro anterior no tempo](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -139,7 +139,7 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
 
 ### <a name="powershell"></a>PowerShell
 
-- Para restaurar um autónoma ou de bases de dados agrupadas, consulte [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
+- Para restaurar uma base de dados individual ou agrupada, consulte [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
 
   | Cmdlet | Descrição |
   | --- | --- |
@@ -155,7 +155,7 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
 
 ### <a name="rest-api"></a>API REST
 
-Para restaurar um autónoma ou de bases de dados agrupadas com a API REST:
+Para restaurar uma base de dados individual ou agrupada através da API REST:
 
 | API | Descrição |
 | --- | --- |
@@ -164,7 +164,7 @@ Para restaurar um autónoma ou de bases de dados agrupadas com a API REST:
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para restaurar um autónoma ou de bases de dados agrupadas com a CLI do Azure, consulte [restauro do az sql db](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+Para restaurar uma base de dados individual ou agrupada com a CLI do Azure, consulte [restauro do az sql db](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
 
 ## <a name="summary"></a>Resumo
 

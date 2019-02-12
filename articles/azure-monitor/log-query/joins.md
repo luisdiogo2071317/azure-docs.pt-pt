@@ -1,6 +1,6 @@
 ---
-title: Ingressa em consultas do Log Analytics do Azure | Documentos da Microsoft
-description: Este artigo inclui uma lição sobre a utilização de junções em linguagem de consulta do Log Analytics.
+title: É associado a nas consultas de registo do Azure Monitor | Documentos da Microsoft
+description: Este artigo inclui uma lição sobre a utilização de junções em consultas de registo do Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882930"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004660"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Ingressa em consultas do Log Analytics
+# <a name="joins-in-azure-monitor-log-queries"></a>É associado a nas consultas de registo do Azure Monitor
 
 > [!NOTE]
-> Deve efetuar [começar com o portal do Analytics](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Deve efetuar [começar com o log analytics do Azure Monitor](get-started-portal.md) e [consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -105,7 +105,7 @@ Considere os seguintes pontos para um desempenho ideal:
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras lições para utilizar a linguagem de consulta do Log Analytics:
+Consulte outras lições para a utilização de consultas de registo do Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Funções de agregação](aggregations.md)

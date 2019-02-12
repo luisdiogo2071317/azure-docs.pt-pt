@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc78dce667bf00dd6e923b86b9859e29e4a5fde6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 20fa58215db226b1825f2922331e0d380612c4e5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035004"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991383"
 ---
 # <a name="how-to-check-job-progress"></a>Como: verificar o progresso da tarefa
 > [!div class="op_single_selector"]
@@ -35,7 +35,6 @@ Quando executa tarefas, muitas vezes, necessitam de uma maneira de controlar o p
 
 Para obter informações sobre como ligar à AMS API, consulte [aceder a API de serviços de multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-
 ## <a name="check-job-progress"></a>Verificar progresso da tarefa
 
 Pedido:
@@ -48,8 +47,6 @@ Pedido:
     Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     Host: media.windows.net
-
-
 
 Resposta:
 

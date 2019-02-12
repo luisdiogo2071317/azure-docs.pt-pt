@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729273"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000818"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemplos de JavaScript para utilização no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Pode adicionar o seu próprio código do lado do cliente JavaScript às suas aplicações do Azure Active Directory (Azure AD) B2C. Este artigo descreve como pode alterar sua [política personalizada](active-directory-b2c-overview-custom.md) para permitir a execução do script.
+Pode adicionar o seu próprio código do lado do cliente JavaScript às suas aplicações do Azure Active Directory (Azure AD) B2C. Este artigo descreve como pode alterar sua [fluxo de utilizador](user-flow-javascript-overview.md) ou [política personalizada](active-directory-b2c-overview-custom.md) para permitir a execução do script.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Selecione um [contrato de página](page-contract.md) para os elementos de interface de utilizador da sua aplicação. Se pretende usar o JavaScript, terá de definir uma versão de contrato de página para todas as suas definições de conteúdo na sua política personalizada.
+Selecione um [contrato de página](page-contract.md) para os elementos de interface de utilizador da sua aplicação. Se pretende usar o JavaScript, terá de definir uma versão de contrato de página para todas as suas definições de conteúdo no seu fluxo de utilizador ou a política personalizada.
 
 ## <a name="add-the-scriptexecution-element"></a>Adicione o elemento de ScriptExecution
 

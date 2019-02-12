@@ -1,5 +1,5 @@
 ---
-title: Procurar todos os recursos com o Azure Log Analytics | Documentos da Microsoft
+title: Consulta todos os recursos com o Azure Monitor | Documentos da Microsoft
 description: Este artigo descreve como pode consultar relativamente aos recursos a partir de várias áreas de trabalho e aplicações do App Insights na sua subscrição.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 42191b21faec7bb1929a12e6bc1a724d269acb1d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298879"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998954"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Efetuar pesquisas de registos de entre recursos do Log Analytics  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de registo entre recursos no Azure Monitor  
 
-Anteriormente com o Azure Log Analytics, conseguia apenas analisar dados de dentro do espaço de trabalho atual e limitada a capacidade de consulta em várias áreas de trabalho definidas na sua subscrição.  Além disso, pode pesquisar apenas os itens de telemetria recolhidos a partir da sua aplicação baseada na web com o Application Insights diretamente no Application Insights ou a partir do Visual Studio.  Isso também tornou um desafio para nativamente analisar operacional e os dados das aplicações em conjunto.   
+Anteriormente com o Azure Monitor, conseguia apenas analisar os dados a partir de área de trabalho atual e limitada a capacidade de consulta em várias áreas de trabalho definidas na sua subscrição.  Além disso, pode pesquisar apenas os itens de telemetria recolhidos a partir da sua aplicação baseada na web com o Application Insights diretamente no Application Insights ou a partir do Visual Studio.  Isso também tornou um desafio para nativamente analisar operacional e os dados das aplicações em conjunto.   
 
-Agora, pode consultar não apenas em várias áreas de trabalho do Log Analytics, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isso fornece uma vista de todo o sistema dos seus dados.  Só pode realizar estes tipos de consultas [do Log Analytics](portals.md#log-analytics-page). O número de recursos (áreas de trabalho do Log Analytics e Application Insights aplicação) que podem ser incluídos numa única consulta está limitado a 100. 
+Agora, pode consultar não apenas em várias áreas de trabalho do Log Analytics, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isso fornece uma vista de todo o sistema dos seus dados.  Só pode realizar estes tipos de consultas [do Log Analytics](portals.md). O número de recursos (áreas de trabalho do Log Analytics e Application Insights aplicação) que podem ser incluídos numa única consulta está limitado a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em áreas de trabalho do Log Analytics e o Application insights
 Para fazer referência a outra área de trabalho na sua consulta, utilize o [ *área de trabalho* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) identificador e para uma aplicação do Application Insights, utilize o [ *aplicação* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)identificador.  
@@ -101,9 +101,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Usando a consulta de entre recursos de vários recursos
-Ao usar consultas entre recursos para correlacionar dados a partir de várias do Log Analytics e recursos do Application Insights, a consulta pode tornar-se complexa e difícil de manter. Deve aproveitar [funções do Log Analytics](../../azure-monitor/log-query/functions.md) para separar a lógica de consulta de âmbito dos recursos de consulta, que simplifica a estrutura de consulta. O exemplo seguinte demonstra como pode monitorizar vários recursos do Application Insights e visualizar a contagem de pedidos falhados por nome de aplicação. 
+Ao usar consultas entre recursos para correlacionar dados a partir de várias áreas de trabalho do Log Analytics e recursos do Application Insights, a consulta pode tornar-se complexa e difícil de manter. Deve aproveitar [consultas de registo de funções no Azure Monitor](functions.md) para separar a lógica de consulta de âmbito dos recursos de consulta, que simplifica a estrutura de consulta. O exemplo seguinte demonstra como pode monitorizar vários recursos do Application Insights e visualizar a contagem de pedidos falhados por nome de aplicação. 
 
-Crie uma consulta semelhante ao seguinte que referencia o âmbito de recursos do Application Insights. O `withsource= SourceApp` comando adiciona uma coluna que designa o nome da aplicação que enviou o registo. [Guardar consulta como função](../../azure-monitor/log-query/functions.md#create-a-function) com o alias _applicationsScoping_.
+Crie uma consulta semelhante ao seguinte que referencia o âmbito de recursos do Application Insights. O `withsource= SourceApp` comando adiciona uma coluna que designa o nome da aplicação que enviou o registo. [Guardar consulta como função](functions.md#create-a-function) com o alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -131,4 +131,5 @@ applicationsScoping
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Reveja os [referência de pesquisa de registos do Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) para ver todas as opções de sintaxe de consulta disponíveis no Log Analytics.    
+- Revisão [analisar dados de registo no Azure Monitor](log-query-overview.md) para uma descrição geral de consultas de registo e como os dados de registo do Azure Monitor são estruturados.
+- Revisão [consultas de registo do Azure Monitor](query-language.md) para ver todos os recursos para consultas de registo do Azure Monitor.

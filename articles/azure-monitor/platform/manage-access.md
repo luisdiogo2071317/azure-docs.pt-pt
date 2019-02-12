@@ -1,6 +1,6 @@
 ---
-title: Gerir áreas de trabalho no Log Analytics do Azure e no portal do OMS | Microsoft Docs
-description: Pode gerir áreas de trabalho no Log Analytics do Azure e no Portal do OMS com uma variedade de tarefas administrativas em utilizadores, contas, áreas de trabalho e contas do Azure.
+title: Gerir áreas de trabalho do Log Analytics no Azure Monitor | Documentos da Microsoft
+description: Pode gerir áreas de trabalho do Log Analytics no Azure Monitor com uma variedade de tarefas administrativas em utilizadores, contas, áreas de trabalho e contas do Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,18 +11,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 32a31a87bacbb13cd3b2cb4561ac04e54d51ba46
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656758"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005375"
 ---
-# <a name="manage-workspaces"></a>Gerir áreas de trabalho
-
-Para gerir o acesso ao Log Analytics, tem de realizar diversas tarefas administrativas relacionadas com áreas de trabalho. Este artigo fornece conselhos e procedimentos para gerir áreas de trabalho. Uma área de trabalho é essencialmente um contentor que inclui informações da conta e informações de configuração simples para a conta. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
+# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Gerir áreas de trabalho do Log Analytics no Azure Monitor
+Arquivos de Monitor do Azure registos de dados numa área de trabalho do Log Analytics, que é essencialmente um contentor que inclui informações de configuração e dados. Para gerir o acesso aos registos de dados, realizar diversas tarefas administrativas relacionadas com a áreas de trabalho. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
 
 Para criar uma área de trabalho, terá de:
 
@@ -32,11 +31,11 @@ Para criar uma área de trabalho, terá de:
 4. Escolher uma localização geográfica.
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de áreas de trabalho necessárias
-Uma área de trabalho é um recurso do Azure e é um contentor onde os dados são recolhidos, agregados, analisados e apresentados no portal do Azure.
+Uma área de trabalho do Log Analytics é um recurso do Azure e é um contentor onde os dados é recolhidos, agregados, analisados e apresentados no Azure Monitor.
 
-Pode ter múltiplas áreas de trabalho por subscrição do Azure e ter acesso a mais de uma área de trabalho, com capacidade para consultá-las facilmente. Esta secção descreve quando pode ser útil criar mais do que uma área de trabalho.
+Pode ter várias áreas de trabalho por subscrição do Azure e pode ter acesso a mais do que uma área de trabalho, com a capacidade de facilmente consultas em-los. Esta secção descreve quando pode ser útil criar mais do que uma área de trabalho.
 
-Atualmente, uma área de trabalho fornece:
+Uma área de trabalho do Log Analytics fornece:
 
 * Uma localização geográfica para armazenamento de dados
 * Isolamento de dados para definir os direitos de acesso de utilizador diferente
@@ -44,7 +43,7 @@ Atualmente, uma área de trabalho fornece:
 
 Do ponto de vista para consumo, é recomendável que criar áreas de trabalho mínimo possível. Faz administração e a experiência de consulta mais fácil e rápido. Mas, com base nas características anteriores, talvez queira criar várias áreas de trabalho se:
 
-* For uma empresa global e precisar de dados armazenados em regiões específicas por motivos de soberania ou conformidade dos dados.
+* For uma empresa global e precisar de dados armazenados em regiões específicas por motivos de soberania ou conformidade dos dados de log.
 * Estiver a utilizar o Azure e pretender evitar custos de transferência de dados de saída ao ter uma área de trabalho na mesma região dos recursos do Azure que gere.
 * Pretender atribuir custos a diferentes departamentos ou grupos empresariais com base na respetiva utilização através da criação de uma área de trabalho para cada departamento ou grupo empresarial na sua própria subscrição do Azure.
 * É um fornecedor de serviços geridos e necessita de manter os dados do Log Analytics de cada cliente gerido isolado em relação aos de outros clientes.
@@ -55,16 +54,14 @@ Quando utilizar agentes do Windows para recolher dados, pode [configurar cada ag
 Se estiver a utilizar o System Center Operations Manager, cada grupo de gestão do Operations Manager só pode ser ligado a uma área de trabalho. Pode instalar o Microsoft Monitoring Agent em computadores geridos pelo Operations Manager e fazer com que o agente reporte ao Operations Manager e a uma área de trabalho do Log Analytics diferente.
 
 ## <a name="workspace-information"></a>Informações da área de trabalho
+Enquanto analisa os dados na área de trabalho do Log Analytics no **do Azure Monitor** menu no portal do Azure, criar e gerir áreas de trabalho a **áreas de trabalho do Log Analytics** menu.
+ 
 
-Pode ver detalhes sobre a sua área de trabalho no portal do Azure. 
-
-1. Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com).
-
-2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.  
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e clique em **todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **do Log Analytics** áreas de trabalho.  
 
     ![Portal do Azure](media/manage-access/azure-portal-01.png)  
 
-3. No painel de subscrições do Log Analytics, selecione uma área de trabalho.
+3. Selecione a área de trabalho da lista.
 
 4. A página de área de trabalho apresenta detalhes sobre a introdução, configuração e ligações para informações adicionais.  
 
@@ -84,10 +81,10 @@ As atividades seguintes também necessitam de permissões do Azure:
 | Criar um espaço de trabalho no portal do Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gerir o acesso ao Log Analytics com permissões do Azure
+### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Gerir o acesso à área de trabalho do Log Analytics com permissões do Azure
 Para conceder acesso à área de trabalho do Log Analytics com permissões do Azure, siga os passos em [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
 
-O Azure tem duas funções de utilizador incorporadas para o Log Analytics:
+O Azure tem duas funções de utilizador incorporadas para áreas de trabalho do Log Analytics:
 - Leitor do Log Analytics
 - Contribuidor do Log Analytics
 
@@ -149,5 +146,4 @@ Recomendamos que realiza as atribuições ao nível do recurso (área de trabalh
 ## <a name="next-steps"></a>Passos Seguintes
 * Ver [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recolher dados de computadores no seu datacenter ou outro ambiente de cloud.
 * Consulte [Recolher dados sobre Máquinas Virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md) para configurar a recolha de dados a partir de VMs do Azure.  
-* [Adicionar soluções do Log Analytics a partir da Galeria de Soluções](../../azure-monitor/insights/solutions.md) para adicionar funcionalidade e recolher dados.
 

@@ -1,6 +1,6 @@
 ---
-title: expressão de Workspace() na consulta do Log Analytics do Azure | Documentos da Microsoft
-description: A expressão de área de trabalho é utilizada numa consulta do Log Analytics para recuperar dados de uma área de trabalho específica no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição.
+title: expressão de Workspace() na consulta de registo do Azure Monitor | Documentos da Microsoft
+description: A expressão de área de trabalho é utilizada numa consulta de registo do Azure Monitor para recuperar dados de uma área de trabalho específica no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 2909f586ce102b319ca9dfeea191c7812e3f6b06
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883124"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993000"
 ---
-# <a name="workspace-expression-in-log-analytics-query"></a>expressão de Workspace() na consulta do Log Analytics
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>expressão de Workspace() na consulta de registo do Azure Monitor
 
-O `workspace` expressão é utilizada numa consulta do Log Analytics para recuperar dados de uma área de trabalho específica no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isto é útil para incluir dados de registo numa consulta do Application Insights e para consultar dados em várias áreas de trabalho numa consulta de registo.
+O `workspace` expressão é usada numa consulta do Azure Monitor para recuperar dados de uma área de trabalho específica no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isto é útil para incluir dados de registo numa consulta do Application Insights e para consultar dados em várias áreas de trabalho numa consulta de registo.
 
 
 ## <a name="syntax"></a>Sintaxe
@@ -32,14 +31,14 @@ O `workspace` expressão é utilizada numa consulta do Log Analytics para recupe
 
 ## <a name="arguments"></a>Argumentos
 
-- *Identificador*: identifica a área de trabalho utilizando um dos formatos na tabela abaixo.
+- *Identificador*: Identifica a área de trabalho utilizando um dos formatos na tabela abaixo.
 
 | Identificador | Descrição | Exemplo
 |:---|:---|:---|
-| Nome do Recurso | Nome legível por humano da área de trabalho (também conhecidas como "nome do componente") | Workspace("contosoretail") |
+| Nome do Recurso | Nome legível por humano da área de trabalho (também conhecidas como "nome do componente") | workspace("contosoretail") |
 | Nome qualificado | Nome completo da área de trabalho no formato: "subscriptionName/resourceGroup/componentName" | Workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| ID | GUID da área de trabalho | Workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
-| ID de recurso do Azure | Identificador para o recurso do Azure | Workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/Providers/Microsoft.OperationalInsights/Workspaces/contosoretail") |
+| ID | GUID da área de trabalho | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| ID de recurso do Azure | Identificador para o recurso do Azure | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 
 ## <a name="notes"></a>Notas
@@ -72,5 +71,6 @@ union
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte a [expressão de aplicação](workspace-expression.md) referir-se a aplicação Application Insights.
-- Saiba mais sobre como [dados do Log Analytics](../../azure-monitor/log-query/log-query-overview.md) são armazenados.
+- Consulte a [expressão de aplicação](app-expression.md) para fazer referência a uma aplicação do Application Insights.
+- Saiba mais sobre como [dados do Azure Monitor](log-query-overview.md) são armazenados.
+- Aceder a documentação completa para o [linguagem de consulta do Data Explorer](/azure/kusto/query/).

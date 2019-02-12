@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com cadeias de caracteres em consultas do Log Analytics do Azure | Documentos da Microsoft
-description: Este artigo fornece um tutorial para utilizar o portal de análise para escrever consultas do Log Analytics.
+title: Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor | Documentos da Microsoft
+description: Este artigo fornece um tutorial para utilizar o Monitor do Azure log analytics no portal do Azure para consultar e analisar dados de registo no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263888"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993729"
 ---
-# <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Trabalhar com dados e de JSON estruturas em consultas do Log Analytics
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com dados e de JSON estruturas em consultas de registo do Azure Monitor
 
 > [!NOTE]
-> Deve efetuar [começar com o portal do Analytics](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Deve efetuar [começar com o log analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -131,7 +131,7 @@ print hosts_object
 ![Criar esquema](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras lições para utilizar a linguagem de consulta do Log Analytics:
+Consulte outras lições para utilizar consultas de registo no Azure Monitor:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

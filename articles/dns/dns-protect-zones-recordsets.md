@@ -7,14 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: 137d8e1c1477d5b9c88cecc39316d62a79a4cab8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873932"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997384"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger zonas e registos DNS
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Zonas e registos DNS são recursos críticos. A eliminar uma zona DNS ou até mesmo um único registo DNS pode resultar numa indisponibilidade do serviço total.  Portanto, é importante que críticos zonas e registos DNS estão protegidos contra alterações não autorizadas ou acidentais.
 
@@ -38,7 +40,7 @@ As permissões podem também ser [concedido com o Azure PowerShell](../role-base
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
 
 Também é o comando equivalente [disponível através da CLI do Azure](../role-based-access-control/role-assignments-cli.md):
@@ -62,7 +64,7 @@ As permissões podem também ser [concedido com o Azure PowerShell](../role-base
 
 ```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
 
 Também é o comando equivalente [disponível através da CLI do Azure](../role-based-access-control/role-assignments-cli.md):
@@ -84,7 +86,7 @@ Também podem ser permissões RBAC ao nível do conjunto de registos [concedido 
 
 ```azurepowershell
 # Grant permissions to a specific record set
-New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
+New-AzRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
 
 Também é o comando equivalente [disponível através da CLI do Azure](../role-based-access-control/role-assignments-cli.md):
@@ -140,7 +142,7 @@ Atualmente não não possível definir definições de funções personalizadas 
 
 ```azurepowershell
 # Create new role definition based on input file
-New-AzureRmRoleDefinition -InputFile <file path>
+New-AzRoleDefinition -InputFile <file path>
 ```
 
 Também pode ser criado através da CLI do Azure:
@@ -158,7 +160,7 @@ Para obter mais informações sobre como criar, gerir e atribuir funções perso
 
 Para além do RBAC, o Azure Resource Manager suporta outro tipo de controlo de segurança, ou seja, a capacidade de bloquear recursos. Em que as regras RBAC permitem controlar as ações de utilizadores e grupos específicos, bloqueios de recursos são aplicados ao recurso e entram em vigor em todos os utilizadores e funções. Para obter mais informações, consulte [Bloquear recursos com o Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
 
-Existem dois tipos de bloqueio de recursos: **CanNotDelete** e **só de leitura**. Estes podem ser aplicadas a uma zona DNS ou para um conjunto de registos individual.  As secções seguintes descrevem os vários cenários comuns e como oferecer suporte a eles usando bloqueios de recursos.
+Existem dois tipos de bloqueio do recurso: **CanNotDelete** e **só de leitura**. Estes podem ser aplicadas a uma zona DNS ou para um conjunto de registos individual.  As secções seguintes descrevem os vários cenários comuns e como oferecer suporte a eles usando bloqueios de recursos.
 
 ### <a name="protecting-against-all-changes"></a>Proteção contra todas as alterações
 
@@ -172,7 +174,7 @@ Nível de zona de recursos bloqueios também podem ser criados através do Azure
 
 ```azurepowershell
 # Lock a DNS zone
-New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
+New-AzResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
 ```
 
 Configuração de bloqueios de recursos do Azure não é atualmente suportada através da CLI do Azure.
@@ -188,7 +190,7 @@ Bloqueios de recursos de nível de conjunto de registos podem atualmente apenas 
 
 ```azurepowershell
 # Lock a DNS record set
-New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
 ```
 
 ### <a name="protecting-against-zone-deletion"></a>Proteger contra a eliminação de zona
@@ -203,7 +205,7 @@ O seguinte comando do PowerShell cria um bloqueio de CanNotDelete contra o regis
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Outra forma de impedir a eliminação acidental de uma zona é através de uma função personalizada para garantir que o operador e contas de serviço utilizadas para gerir as suas zonas não tem zona a eliminar as permissões. Quando tiver de eliminar uma zona, pode impor uma exclusão de dois passos, primeiro concederem eliminar as permissões da zona (no âmbito da zona, para impedir a eliminar a zona errada) e segundo para eliminar a zona.

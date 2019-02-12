@@ -1,8 +1,8 @@
 ---
-title: Publicar conteúdo de Media Services do Azure através do .NET | Microsoft Docs
-description: Saiba como criar um localizador que é utilizado para compilar um URL de transmissão em fluxo. Exemplos de código são escritos em c# e utilizam o SDK de Media Services para .NET.
+title: Publicar conteúdo de serviços de multimédia do Azure com .NET | Documentos da Microsoft
+description: Saiba como criar um localizador de que é utilizado para compilar um URL de transmissão em fluxo. Exemplos de código são escritos em C# e utilizar o SDK de Media Services para .NET.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 224c9cf5ef9925645de1d94dc5bc03c15ba91432
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8e34d8cfbcd655dbb49279a0cefd63818963652a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788516"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999186"
 ---
-# <a name="publish-azure-media-services-content-using-net"></a>Publicar conteúdo de Media Services do Azure através do .NET
+# <a name="publish-media-services-content-using-net"></a>Publicar conteúdo de serviços de multimédia com .NET  
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -30,32 +30,32 @@ ms.locfileid: "33788516"
 > 
 
 ## <a name="overview"></a>Descrição geral
-Pode transmitir uma velocidade de transmissão adaptável definido MP4 criando um localizador de transmissão em fluxo OnDemand e criação de um URL de transmissão em fluxo. O [um elemento de codificação](media-services-encode-asset.md) tópico mostra como codificar para uma conjunto de MP4 de velocidade de transmissão adaptável. 
+Pode transmitir em fluxo uma MP4 definido através da criação de um localizador de transmissão em fluxo OnDemand e criação de um URL de transmissão em fluxo de velocidade de transmissão adaptável. O [codificação de um recurso de](media-services-encode-asset.md) tópico mostra como a codificar numa conjunto de MP4 de velocidade de transmissão adaptável. 
 
 > [!NOTE]
-> Se o conteúdo é encriptado, configure a política de entrega de elementos (conforme descrito em [isto](media-services-dotnet-configure-asset-delivery-policy.md) tópico) antes de criar um localizador. 
+> Se o seu conteúdo é encriptado, configure a política de entrega de elementos (conforme descrito em [isso](media-services-dotnet-configure-asset-delivery-policy.md) tópico) antes de criar um localizador. 
 > 
 > 
 
-Também pode utilizar um OnDemand localizador de transmissão em fluxo para criar URLs que apontem para ficheiros MP4 que transferir progressivamente.  
+Também pode utilizar um OnDemand localizador de transmissão em fluxo para criar URLs que apontam para os ficheiros MP4 que podem ser transferidos progressivamente.  
 
-Este tópico mostra como criar um localizador para publicar o elemento e compilar um uniforme, MPEG DASH e URLs de transmissão em fluxo HLS, transmissão em fluxo de OnDemand. Também mostra frequente para criar URLs de transferência progressiva. 
+Este tópico mostra como criar um localizador para publicar o elemento e criar um uniforme, MPEG DASH e URLs de transmissão em fluxo HLS de transmissão em fluxo de OnDemand. Ela também mostra frequente para criar URLs de transferência progressiva. 
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Criar um OnDemand localizador de transmissão em fluxo
-Para criar o localizador de transmissão em fluxo OnDemand e obter os URLs, terá de efetuar as seguintes ações:
+Para criar o localizador de transmissão em fluxo OnDemand e obter os URLs, terá de efetue os seguintes procedimentos:
 
 1. Se o conteúdo é encriptado, defina uma política de acesso.
 2. Crie um localizador de transmissão em fluxo de OnDemand.
-3. Se planear transmitir, obter o ficheiro de manifesto transmissão em fluxo (ISM) no elemento. 
+3. Se planeja transmitir em fluxo, obtenha o ficheiro de manifesto transmissão em fluxo (. ISM) no recurso. 
    
    Se planeia transferir progressivamente, obter os nomes de ficheiros MP4 no elemento.  
 4. Crie URLs para o ficheiro de manifesto ou ficheiros MP4. 
 
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Se estiver a utilizar sempre os mesmos dias / permissões de acesso, utilize o mesmo ID de política. Por exemplo, políticas para os localizadores destinadas a permanecem no local durante muito tempo (políticas de carregamento não). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver a utilizar sempre os mesmos dias / permissões de acesso. Por exemplo, políticas para localizadores que pretendam permanecem em vigor durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
-### <a name="use-media-services-net-sdk"></a>Utilizar os Media Services .NET SDK
+### <a name="use-media-services-net-sdk"></a>Utilizar o .NET SDK dos serviços de multimédia
 Criar URLs de transmissão em fluxo 
 
 ```csharp
@@ -108,11 +108,11 @@ As saídas:
 
 
 > [!NOTE]
-> Também pode transmitir o seu conteúdo através de uma ligação SSL. Para fazer esta abordagem, certifique-se o início de URLs de transmissão em fluxo com HTTPS. Atualmente, AMS não suporta SSL com domínios personalizados.
+> Também pode transmitir o seu conteúdo numa conexão SSL. Para fazer essa abordagem, certifique-se de que o início de URLs de transmissão em fluxo com HTTPS. Atualmente, o AMS não suporta SSL com domínios personalizados.
 > 
 > 
 
-Criar URLs de transferência progressiva 
+Criar os URLs de transferência progressiva 
 
 ```csharp
     private static void BuildProgressiveDownloadURLs(IAsset asset)
@@ -152,8 +152,8 @@ As saídas:
 
     . . . 
 
-### <a name="use-media-services-net-sdk-extensions"></a>Utilizar suportes de dados serviços extensões do SDK do .NET
-O seguinte código chama os métodos de extensões do SDK do .NET que criar um localizador e geram a transmissão em fluxo uniforme, HLS e MPEG-DASH URLs para transmissão em fluxo adaptável.
+### <a name="use-media-services-net-sdk-extensions"></a>Utilizar extensões do SDK de .NET de serviços de multimédia
+O código a seguir chama os métodos de extensões do SDK do .NET que criar um localizador e geram a transmissão em fluxo uniforme, HLS e MPEG-DASH URLs para transmissão em fluxo adaptável.
 ```csharp
     // Create a loctor.
     _context.Locators.Create(
@@ -179,6 +179,6 @@ O seguinte código chama os métodos de extensões do SDK do .NET que criar um l
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Transferir ativos](media-services-deliver-asset-download.md)
+* [Baixar ativos](media-services-deliver-asset-download.md)
 * [Configurar a política de entrega de elemento](media-services-dotnet-configure-asset-delivery-policy.md)
 

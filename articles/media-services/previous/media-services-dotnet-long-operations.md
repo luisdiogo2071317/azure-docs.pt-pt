@@ -1,10 +1,10 @@
 ---
-title: Operações de longa execução de consulta | Microsoft Docs
-description: Este tópico mostra como consultar operações de execução longa.
+title: Operações de longa execução de consulta | Documentos da Microsoft
+description: Este tópico mostra como consultar as operações de longa execução.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
@@ -12,29 +12,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: fa456a2d0bb427af80d67a0b971fe8bd41bb7868
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f5098b2691f7c73be5df6b44479082bf25effde7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788425"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998047"
 ---
-# <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de transmissão em fluxo em direto com Media Services do Azure
+# <a name="delivering-live-streaming-with-azure-media-services"></a>Fornecimento de transmissão em fluxo em direto com os serviços de multimédia do Azure
 
 ## <a name="overview"></a>Descrição geral
 
-Serviços de suporte de dados do Microsoft Azure oferece APIs que enviar pedidos para serviços de suporte de dados para iniciar as operações (por exemplo: criar, iniciar, parar ou eliminar um canal). Estas operações são de execução longa.
+Serviços de multimédia do Microsoft Azure oferece APIs que enviam pedidos para serviços de multimédia para iniciar operações (por exemplo: criar, iniciar, parar ou eliminar um canal). Essas operações são de execução longa.
 
-O SDK de Media Services .NET fornece APIs que enviar o pedido e aguarde pela conclusão da operação (internamente, as APIs são a consultar progresso da operação em alguns intervalos). Por exemplo, quando chamar o canal. Start (), o método devolve após o canal foi iniciado. Também pode utilizar a versão assíncrona: await canal. StartAsync() (para obter informações sobre o padrão assíncrono baseado em tarefas, consulte [TOQUE](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). APIs que enviam um pedido de operação e, em seguida, consultam o estado até que a operação foi concluída são denominadas "métodos de consulta". Estes métodos (especialmente a versão assíncrona) são recomendados para aplicações de cliente avançado e/ou serviços com monitorização de estado.
+O SDK .NET dos Media Services fornece APIs que enviar a solicitação e aguarde pela conclusão da operação (internamente, as APIs são de consulta para o progresso da operação em alguns intervalos). Por exemplo, quando chama o canal. Start(), o método retorna depois do canal está iniciado. Também pode utilizar a versão assíncrona: await canal. StartAsync() (para obter informações sobre o padrão assíncrono baseado em tarefas, consulte [TOQUE](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). "Métodos de consulta" são chamadas de APIs que enviar um pedido de operação e, em seguida, consultar o estado até que a operação esteja concluída. Esses métodos (especialmente a versão de Async) são recomendados para aplicativos cliente sofisticados e/ou serviços com estado.
 
-Existem cenários onde uma aplicação não pode aguardar por um pedido de http de execução longa e pretende consultar o progresso da operação manualmente. Um exemplo típico seria um browser a interagir com um serviço web sem monitorização de estado: quando o browser pede para criar um canal, o serviço web inicia uma operação demorada que e devolve o ID de operação para o browser. O browser, em seguida, pedir ao serviço web para obter o estado da operação baseiam o ID. O SDK de Media Services .NET fornece APIs que são úteis para este cenário. Estas APIs são denominados "métodos de consulta não".
-Os métodos"não consulta" tem o padrão de nomenclatura seguinte: enviar*OperationName*operação (por exemplo, SendCreateOperation). Enviar*OperationName*métodos operação devolvem o **IOperation** objeto; o devolvido objeto contém informações que podem ser utilizadas para controlar a operação. Enviar*OperationName*OperationAsync métodos devolvem **tarefas<IOperation>**.
+Existem cenários onde um aplicativo não é possível aguardar por um pedido de http de longa execução e quer consultar o progresso da operação manualmente. Um exemplo típico seria um navegador da interagir com um serviço web sem monitorização de estado: quando o browser pede para criar um canal, o serviço web inicia uma operação de longa execução e retorna a ID de operação para o navegador. O browser, em seguida, pode pedir o web service para obter o estado da operação com base no ID do. O SDK .NET dos Media Services fornece APIs que são úteis para este cenário. Essas APIs são chamadas de "métodos de consulta não".
+"Métodos de consulta não" tem o seguinte padrão de nomenclatura: Envie*OperationName*operação (por exemplo, SendCreateOperation). Envie*OperationName*métodos de operação retornar a **IOperation** objeto; retornado objeto contém informações que podem ser utilizadas para controlar a operação. O envio*OperationName*OperationAsync métodos retornam **tarefa<IOperation>**.
 
-Atualmente, as seguintes classes de suportam métodos de consulta não: **canal**, **StreamingEndpoint**, e **programa**.
+Atualmente, as seguintes classes de suportam a métodos de consulta não:  **Canal**, **StreamingEndpoint**, e **programa**.
 
-Para consultar o estado da operação, utilize o **GetOperation** método no **OperationBaseCollection** classe. Utilize os seguintes intervalos para verificar o estado da operação: para **canal** e **StreamingEndpoint** operações, utilize 30 segundos; para **programa** operações, utilize a 10 segundos.
+Para consultar o estado da operação, utilize o **GetOperation** método no **OperationBaseCollection** classe. Utilize os seguintes intervalos para verificar o estado da operação: para **canal** e **StreamingEndpoint** operações, utilize a 30 segundos; para **programa** operações, utilize a 10 segundos.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -42,9 +42,9 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 
 ## <a name="example"></a>Exemplo
 
-O exemplo seguinte define uma classe denominada **ChannelOperations**. Esta definição de classe pode ser um ponto de partida para a sua definição de classe de serviço web. Para simplicidade, os exemplos seguintes utilizam as versões não async dos métodos.
+O exemplo seguinte define uma classe chamada **ChannelOperations**. Esta definição de classe pode ser um ponto de partida para a sua definição de classe de serviço web. Para simplificar, os exemplos seguintes utilizam as versões não assíncronas dos métodos.
 
-O exemplo mostra também como o cliente poderá utilizar esta classe.
+O exemplo também mostra como o cliente poderá utilizar esta classe.
 
 ### <a name="channeloperations-class-definition"></a>Definição de classe ChannelOperations
 

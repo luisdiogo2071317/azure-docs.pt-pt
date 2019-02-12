@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230629"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994106"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acesso à API de serviços de multimédia do Azure com a autenticação do Azure AD
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acesso à API de serviços de multimédia do Azure com a autenticação do Azure AD  
  
 API de serviços de multimédia do Azure é uma API RESTful. Pode usá-lo para realizar operações nos recursos de suporte de dados com uma API REST ou através de SDKs de cliente disponíveis. Serviços de multimédia do Azure oferece um SDK do cliente de serviços de multimédia para o Microsoft .NET. Para ficar autorizada a aceder a recursos de serviços de multimédia e a API de serviços de suporte de dados, tem primeiro de ser autenticado. 
 
@@ -138,9 +138,9 @@ Se não estiver a utilizar o SDK de cliente .NET de serviços de suporte de dado
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Exceção: "o servidor remoto devolveu um erro: (401) não autorizado."
+Exceção: "O servidor remoto devolveu um erro: Não autorizada (401)."
 
-Solução: Para o pedido de REST de serviços de suporte de dados tenha êxito, o utilizador chamador tem de ser uma função de proprietário ou contribuinte na conta de Media Services está a tentar aceder. Para obter mais informações, consulte a [controlo de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control) secção.
+Solução: Para a solicitação de REST de serviços de suporte de dados tenha êxito, o utilizador chamador tem de ser uma função de proprietário ou contribuinte na conta de Media Services está a tentar aceder. Para obter mais informações, consulte a [controlo de acesso](media-services-use-aad-auth-to-access-ams-api.md#access-control) secção.
 
 ## <a name="resources"></a>Recursos
 

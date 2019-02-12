@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1e2511ed22cfc6e81844bfdc4672d5fc67ea744f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893226"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998523"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -28,7 +28,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Criar um laboratório de sala de aula
-> * Configurar o laboratório de sala de aula
+> * Adicionar utilizadores ao laboratório
 > * Enviar a ligação de registo para os alunos
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -76,7 +76,7 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
     5. Introduzir uma **descrição** do modelo
 9. Selecione **Seguinte** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as ações seguintes. 
-    1. Para publicar o modelo imediatamente, selecione a caixa de verificação *Compreendo que não é possível modificar o modelo após a publicação. Este processo pode ser feito apenas uma vez e pode demorar até uma hora*e selecione **Publicar**.  
+    1. Para publicar o modelo imediatamente e selecione **publicar**.  
 
         > [!WARNING]
         > Depois de publicar, não é possível anular a publicação. 

@@ -4,23 +4,23 @@ description: Este tópico demonstra como edite rostos com análise de multimédi
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 910cc246aa19e19b109fc660682c6b2dc239cbb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "33789384"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004898"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Edite rostos com análise de multimédia do Azure
+# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Edite rostos com análise de multimédia do Azure (Legado)
 ## <a name="overview"></a>Descrição geral
 **O Azure Media Redactor** é um [análise de multimédia do Azure](media-services-analytics-overview.md) processador de multimédia (MP) que oferece a redação de rostos escalável na cloud. A redação de rostos permite-lhe modificar o vídeo para Desfoca rostos de indivíduos selecionados. Pode querer utilizar o serviço de redação de rostos em cenários de segurança e multimédia para notícias pública. Alguns minutos de imagens que contém vários rostos de podem demorar horas a edite manualmente, mas com este serviço, o processo de redação de rostos exigirá apenas alguns passos simples. Para obter mais informações, consulte [isso](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
@@ -34,10 +34,10 @@ Além de um modo totalmente automático, há um fluxo de trabalho de dois, que p
 ### <a name="combined-mode"></a>Modo combinado
 Isso produz um mp4 eliminadas automaticamente sem qualquer manual de entrada.
 
-| Fase | Nome de Ficheiro | Notas |
+| Fase | Nome do Ficheiro | Notas |
 | --- | --- | --- |
 | Elemento de entrada |foo.bar |Vídeo em formato WMV, MOV ou MP4 |
-| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'versão':'1.0 ', 'options': {"mode": "combinados"}} |
+| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'version':'1.0', 'options': {'mode':'combined'}} |
 | Elemento de saída |foo_redacted.mp4 |Vídeo com desfocar aplicada |
 
 #### <a name="input-example"></a>Exemplo de entrada:
@@ -49,10 +49,10 @@ Isso produz um mp4 eliminadas automaticamente sem qualquer manual de entrada.
 ### <a name="analyze-mode"></a>Analisar o modo
 O **analisar** pass do fluxo de trabalho dois precisar de uma entrada de vídeo e produz um ficheiro JSON de localizações de rostos e jpg imagens de cada detetado face.
 
-| Fase | Nome de Ficheiro | Notas |
+| Fase | Nome do Ficheiro | Notas |
 | --- | --- | --- |
 | Elemento de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4 |
-| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'versão':'1.0 ', 'options': {"mode": "analisar"}} |
+| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'version':'1.0', 'options': {'mode':'analyze'}} |
 | Elemento de saída |foo_annotations.json |Dados de anotação de localizações de face no formato JSON. Isso pode ser editado pelo utilizador para modificar o desfocar delimitação de caixas. Veja o exemplo abaixo. |
 | Elemento de saída |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Um jpg cropped de cada detetado face, em que o número indica o labelId do mostrador da |
 
@@ -114,12 +114,12 @@ Isto inclui uma lista de IDs de Desfoca, o vídeo original e as anotações JSON
 
 O resultado da passagem de análise não inclui o vídeo original. O vídeo tem de ser carregados para o elemento de entrada para a tarefa de modo Redact e selecionada como ficheiro principal.
 
-| Fase | Nome de Ficheiro | Notas |
+| Fase | Nome do Ficheiro | Notas |
 | --- | --- | --- |
 | Elemento de entrada |foo.bar |Vídeo em formato MP4, MPV ou WMV. Mesmo vídeo como no passo 1. |
 | Elemento de entrada |foo_annotations.json |ficheiro de metadados de anotações da primeira fase, com modificações opcionais. |
 | Elemento de entrada |foo_IDList.txt (opcional) |Lista de rosto IDs para edite separados por opcional nova linha. Se deixado em branco, isso torna obscura todos os rostos. |
-| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'versão':'1.0 ', 'options': {"mode": "edite"}} |
+| Entrada de configuração |Configuração predefinida de configuração da tarefa |{'version':'1.0', 'options': {'mode':'redact'}} |
 | Elemento de saída |foo_redacted.mp4 |Vídeo com desfocar aplicadas com base em anotações |
 
 #### <a name="example-output"></a>Exemplo de saída
@@ -135,7 +135,7 @@ Foo_IDList.txt de exemplo
 
 ## <a name="blur-types"></a>Desfoca tipos
 
-Na **combinado** ou **Redact** modo, existem 5 obscurecimento diferentes modos, pode escolher de entre através da configuração de entrada de JSON: **baixo**, **Med**, **Alta**, **caixa**, e **preto**. Por predefinição **Med** é utilizado.
+Na **combinado** ou **Redact** modo, existem 5 obscurecimento diferentes modos, pode escolher de entre através da configuração de entrada de JSON: **Baixa**, **Med**, **elevada**, **caixa**, e **preto**. Por predefinição **Med** é utilizado.
 
 Pode encontrar exemplos dos tipos de obscurecimento abaixo.
 

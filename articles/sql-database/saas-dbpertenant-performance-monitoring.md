@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459490"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004652"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e conjuntos numa aplicação SaaS multi-inquilino
 
 Neste tutorial, serão explorados vários cenários de gerenciamento de chave de desempenho utilizados nas aplicações SaaS. Utilizar um gerador de carga para simular atividade em todas as bases de dados do inquilino, a monitorização incorporada e funcionalidades de base de dados SQL e conjuntos elásticos de alerta são demonstrados.
 
-A aplicação Wingtip Tickets SaaS da base de dados por inquilino utiliza um modelo de dados de inquilino único, onde cada local (inquilino) tem sua própria base de dados. Como em muitas aplicações SaaS, o padrão de carga de trabalho do inquilino antecipado é imprevisível e esporádico. Por outras palavras, as vendas de bilhetes podem ocorrer em qualquer altura. Para tirar partido deste padrão de utilização típica da base de dados, bases de dados de inquilinos são implementadas em conjuntos elásticos. Os conjuntos elásticos otimizam o custo de uma solução ao partilhar recursos em muitas bases de dados. Com este tipo de padrão, é importante monitorizar a utilização das bases de dados e dos recursos dos conjuntos para confirmar que as cargas estão razoavelmente equilibradas entre os conjuntos. Também tem de garantir que as bases de dados individuais têm os recursos adequados e que os conjuntos não estão a atingir os seus limites [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Este tutorial analisa formas de monitorizar e gerir bases de dados e conjuntos e como tomar uma medida corretiva em resposta a variações na carga de trabalho.
+A aplicação Wingtip Tickets SaaS da base de dados por inquilino utiliza um modelo de dados de inquilino único, onde cada local (inquilino) tem sua própria base de dados. Como em muitas aplicações SaaS, o padrão de carga de trabalho do inquilino antecipado é imprevisível e esporádico. Por outras palavras, as vendas de bilhetes podem ocorrer em qualquer altura. Para tirar partido deste padrão de utilização típica da base de dados, bases de dados de inquilinos são implementadas em conjuntos elásticos. Os conjuntos elásticos otimizam o custo de uma solução ao partilhar recursos em muitas bases de dados. Com este tipo de padrão, é importante monitorizar a utilização das bases de dados e dos recursos dos conjuntos para confirmar que as cargas estão razoavelmente equilibradas entre os conjuntos. Também tem de garantir que as bases de dados individuais têm os recursos adequados e que os conjuntos não estão a atingir os seus limites [eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model). Este tutorial analisa formas de monitorizar e gerir bases de dados e conjuntos e como tomar uma medida corretiva em resposta a variações na carga de trabalho.
 
 Neste tutorial, ficará a saber como:
 

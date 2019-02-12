@@ -1,6 +1,6 @@
 ---
-title: Escalões de serviço de base de dados SQL do Azure - DTU | Documentos da Microsoft
-description: Saiba mais sobre escalões de serviço para bases de dados individuais e em pool fornecer os tamanhos de computação e tamanhos de armazenamento.
+title: Escalões de serviço de base de dados SQL do Azure - modelo de compra baseado em DTU | Documentos da Microsoft
+description: Saiba mais sobre escalões de serviço no modelo de compra baseado em DTU para bases de dados individuais e em pool fornecer os tamanhos de computação e armazenamento.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507659"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993610"
 ---
-# <a name="dtu-based-service-tiers"></a>Escalões de serviço baseado em DTU
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 
-Escalões de serviço baseado em DTU são diferenciadas por uma variedade de tamanhos de computação com uma quantidade fixa de armazenamento incluído, foi corrigido o período de retenção para cópias de segurança e o preço fixo. Os escalões de serviço oferecem a flexibilidade de alterar os tamanhos de computação sem tempo de inatividade. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
+Escalões de serviço no modelo de compra baseado em DTU são diferenciadas por uma variedade de tamanhos de computação com uma quantidade fixa de armazenamento incluído, foi corrigido o período de retenção para cópias de segurança e o preço fixo. Todos os escalões de serviço no modelo de compra baseado em DTU oferecem a flexibilidade de alterar os tamanhos de computação sem tempo de inatividade. Conjuntos elásticos e bases de dados individuais são faturados por hora com base no escalão de serviço e o tamanho de computação.
 
 > [!IMPORTANT]
-> Instância de gerida de base de dados de SQL, atualmente em pré-visualização pública não suporta um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
+> Instância gerida da base de dados SQL não suporta um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
 > [!NOTE]
-> Para obter informações sobre escalões de serviço baseado em vCore, consulte [escalões de serviço baseado em vCore](sql-database-service-tiers-vcore.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-service-tiers.md).
+> Para obter informações sobre escalões de serviço baseado em vCore, consulte [escalões de serviço baseado em vCore](sql-database-service-tiers-vcore.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>Compare os escalões de serviço baseado em DTU
 
@@ -34,8 +34,8 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 
 ||Básica|Standard|Premium|
 | :-- | --: |--:| --:| --:|
-|Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção||
-|SLA de Tempo de Atividade|99,99%|99,99%|99,99%|N/d enquanto está em pré-visualização|
+|Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
+|SLA de Tempo de Atividade|99,99%|99,99%|99,99%|
 |Retenção da cópia de segurança|7 dias|35 dias|35 dias|
 |CPU|Baixa|Baixa, média, alta|Médio, alto|
 |Débito de e/s (aproximado) |2,5 IOPS de por DTU| 2,5 IOPS de por DTU | 48 IOPS por DTU|
@@ -49,12 +49,12 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Base de dados DTUS e limites de armazenamento
 
-Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [modelo de compra baseado em DTU](sql-database-service-tiers.md#dtu-based-purchasing-model)?
+Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [modelo de compra baseado em DTU](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Básica|Standard|Premium|
 | :-- | --: | --: | --: | --: |
 | Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
-| Limite máximo de DTUs | 5 | 3000 | 4000 | |
+| Limite máximo de DTUs | 5 | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ Computação tamanhos são expressos em termos de unidades de transação de bas
 ||||||
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto o seguinte: EUA Centro-Oeste, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, USGov Iowa, Alemanha Nordeste, Norte da China. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento no escalão premium está atualmente disponível em todas as regiões, exceto o seguinte: EUA Centro-Oeste, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, USGov Iowa, Alemanha Nordeste, Norte da China. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
@@ -88,7 +88,7 @@ O parâmetro de comparação e a sua metodologia são descritas em mais detalhes
 
 ### <a name="benchmark-summary"></a>Resumo de benchmark
 
-ASDB mede o desempenho de uma combinação de operações de base de dados básica que ocorrem mais frequentemente em cargas de trabalho (OLTP) de processamento de transações online. Embora o benchmark destina-se com computação de nuvem em mente, o esquema de base de dados, a população de dados e transações foram concebidas para ser amplamente representa os elementos básicos, geralmente utilizados em cargas de trabalho OLTP.
+O parâmetro de comparação mede o desempenho de uma combinação de operações de base de dados básica que ocorrem mais frequentemente em cargas de trabalho (OLTP) de processamento de transações online. Embora o benchmark destina-se com computação de nuvem em mente, o esquema de base de dados, a população de dados e transações foram concebidas para ser amplamente representa os elementos básicos, geralmente utilizados em cargas de trabalho OLTP.
 
 ### <a name="schema"></a>Esquema
 
