@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754987"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099331"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é uma base de dados na base de dados do Azure SQL
 
-A opção de implementação de base de dados cria uma base de dados autónomo na base de dados do Azure SQL com o seu próprio conjunto de recursos e é gerenciada através de um servidor de base de dados SQL. Com um único banco de dados, bases de dados estão isoladas umas das outras e portáteis, tendo cada um com sua própria camada de serviços dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e um garantida tamanho de computação.
+A opção de implementação de base de dados cria uma base de dados na base de dados do Azure SQL com o seu próprio conjunto de recursos e é gerenciada através de um servidor de base de dados SQL. Com um único banco de dados, bases de dados estão isoladas umas das outras e portáteis, tendo cada um com sua própria camada de serviços dentro do [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e um garantida tamanho de computação.
 
 > [!IMPORTANT]
 > Base de dados é uma das três opções de implementação para a base de dados do Azure SQL. As outras duas estão [conjuntos elásticos](sql-database-elastic-pool.md) e [instância gerida](sql-database-managed-instance.md).
@@ -58,5 +58,5 @@ Base de dados SQL oferece uma gama de [segurança incorporadas e compatibilidade
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para começar rapidamente com uma base de dados, comece com o [único guide.md de início rápido de base de dados](sql-database-single-database-quickstart-guide.md).
-- Para saber mais sobre como migrar uma base de dados do SQL Server para o Azure, veja [migre para o Azure SQL Database](sql-database-cloud-migrate.md).
+- Para saber mais sobre como migrar uma base de dados do SQL Server para o Azure, veja [migre para o Azure SQL Database](sql-database-single-database-migrate.md).
 - Para obter informações sobre as funcionalidades suportadas, veja [Funcionalidades](sql-database-features.md).

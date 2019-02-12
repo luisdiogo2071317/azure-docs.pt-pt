@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: af2a2c84f9eb420a7ca9a8bd5909cbf856d29a5e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b54331e644d55497a7c7d33344cf29a82404847e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309200"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56096917"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>O que é o acelerador de solução de IoT de fábrica ligada?
 
@@ -27,19 +27,19 @@ Fábrica ligada inclui as seguintes funcionalidades:
 
 ## <a name="industrial-device-interoperability"></a>Interoperabilidade de dispositivos industriais
 
-- Ligar a recursos de industriais com uma interface de OPC UA.
+- Ligue a recursos industriais através de uma interface OPC UA.
 - Utilize as linhas de produção simuladas (em execução OPC UA servidores em contentores do Docker) para ver a telemetria em direto dos mesmos.
 - Procure o modelo de informações de OPC UA dos servidores OPC UA partir de um dashboard da cloud.
 
 ## <a name="remote-management"></a>Gestão remota
 
-- Configure os seus ativos de OPC UA a partir do dashboard da cloud (chamada de métodos, ler e gravar dados).
-- Publicar e anular a publicação de dados de telemetria dos seus recursos de OPC UA a partir de um dashboard da cloud.
+- Configure os recursos OPC UA a partir do dashboard na cloud (métodos de chamada, leitura e escrita de dados).
+- Publique e anule a publicação de dados telemétricos dos recursos OPC UA a partir de um dashboard na cloud.
 
-## <a name="cloud-dashboard"></a>Dashboard da cloud
+## <a name="cloud-dashboard"></a>Dashboard na cloud
 
 - Ver as pré-visualizações de telemetria diretamente no dashboard da cloud.
-- Ver as tendências em dados de telemetria e criar correlações usando o painel do Explorador do Time Series Insights.
+- Veja as tendências nos dados telemétricos e crie correlações com o dashboard do Explorador do Time Series Insights.
 - Ver calculada eficiência geral de equipamentos (OEE) e indicadores chave de desempenho (KPIs) a partir de um dashboard do cloud.
 - Hierarquias de ativos industriais do modo de exibição numa topologia de árvore, bem como num mapa interativo.
 - Ver, reconhecer e fechar alertas a partir de um dashboard da cloud.
@@ -53,9 +53,9 @@ Fábrica ligada inclui as seguintes funcionalidades:
 
 [Configurar regras baseadas em limiares para alertas](iot-accelerators-connected-factory-configure.md).
 
-## <a name="end-to-end-security"></a>Segurança de ponta a ponta
+## <a name="end-to-end-security"></a>Segurança ponto a ponto
 
-- Configure permissões de segurança para os utilizadores que utilizam o controlo de acesso baseado em funções (RBAC).
+- Configure permissões de segurança para utilizadores através do Controlo de Acesso Baseado em Funções (RBAC).
 - Encriptação de ponto-a-ponto é implementada utilizando a autenticação de OPC UA (usando certificados X.509), bem como os tokens de segurança.
 
 ## <a name="customizability"></a>Capacidade de personalização

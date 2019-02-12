@@ -7,17 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d00d9b4a945b139ed7b930609fdab24e4a211551
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 050da5e71fd804055d0a2ece1150b79b3922170f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891102"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100589"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportar uma base de dados SQL do Azure para um ficheiro BACPAC
 
@@ -100,5 +100,5 @@ $exportStatus
 - Para saber mais sobre como importar um BACPAC para uma base de dados do SQL Server, veja [importar um BACPAC para uma base de dados do SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
 - Para saber mais sobre como exportar um BACPAC de uma base de dados do SQL Server, consulte o artigo [exportar uma aplicação de camada de dados](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Para saber mais sobre como utilizar o serviço de migração de dados para migrar uma base de dados, veja [migrar o SQL Server para a base de dados do Azure SQL offline com o DMS](../dms/tutorial-sql-server-to-azure-sql.md).
-- Se estiver a exportar do SQL Server como um prelúdio para migração para a base de dados do Azure SQL, veja [migrar uma base de dados do SQL Server para a base de dados do Azure SQL](sql-database-cloud-migrate.md).
+- Se estiver a exportar do SQL Server como um prelúdio para migração para a base de dados do Azure SQL, veja [migrar uma base de dados do SQL Server para a base de dados do Azure SQL](sql-database-single-database-migrate.md).
 - Para saber como gerir e partilhar as chaves de armazenamento e acesso partilhado assinaturas de forma segura, consulte [guia de segurança de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

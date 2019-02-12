@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 01/17/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: b2d69f6ee24ced392da09585c9e934f647efbf14
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: de4896ac1022cbd2bc19af102c96cfbfa89c0041
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286882"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099025"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "51286882"
 
 Os Aceleradores de solução de IoT suportam os seguintes conjuntos de cifras, nessa ordem.
 
-| Conjunto de cifras | Comprimento |
+| Cipher Suite | Comprimento |
 | --- | --- |
 | TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. FS 7680 bits RSA) |256 |
 | TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. FS de 3072 bits RSA) |128 |

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 55c1aa4a478031ebc49ec5ab7ea5744d9d980470
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2089f600d89d1b072829976e2b3257bbf086bafa
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825760"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Tutorial: Integração do Active Directory do Azure com a nuvem da Atlassian
 
@@ -39,6 +39,7 @@ Para configurar a integração do Azure AD com a nuvem da Atlassian, terá dos s
 
 * Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
 * Atlassian Cloud logon único habilitado subscrição
+* Para ativar a Security Assertion Markup Language (SAML) início de sessão único para produtos da Atlassian Cloud, terá de configurar o acesso da Atlassian. Saiba mais sobre [Atlassian acesso]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -124,29 +125,15 @@ Para configurar o Azure AD início de sessão único com a nuvem da Atlassian, e
     > [!NOTE]
     > O início de sessão anterior valor de URL não é real. Atualize o valor com o início de sessão real no URL. Contacte [equipa de suporte de cliente de Cloud da Atlassian](https://support.atlassian.com/) para obter este valor.
 
-6. Seu aplicativo em nuvem da Atlassian espera encontrar as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de Token SAML.
-
-    Por predefinição, o **identificador de utilizador** valor é mapeado para user.userprincipalname. Altere este valor a mapear para user.mail. Também pode escolher qualquer outro valor apropriado, de acordo com a configuração da sua organização, mas, na maioria dos casos, o e-mail deve funcionar. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+6. Seu aplicativo em nuvem da Atlassian espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Espera que a aplicação na Cloud da Atlassian **nameidentifier** seja mapeado com **user.mail**, por isso, precisa editar o mapeamento do atributo, clicando em **editar** ícone e alterar o mapeamento do atributo.
 
     ![image](common/edit-attribute.png)
 
-7. Na **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos:
-
-    a. Clique em **ícone de edição** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
-
-    ![image](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-    ![image](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-    b. Partir do **atributo de origem** lista, selecione **user.mail**.
-
-    c. Clique em **Guardar**.
-
-8. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-9. Sobre o **configurar Atlassian Cloud** secção, copie os URLs apropriados de acordo com seus requisitos.
+8. Sobre o **configurar Atlassian Cloud** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 

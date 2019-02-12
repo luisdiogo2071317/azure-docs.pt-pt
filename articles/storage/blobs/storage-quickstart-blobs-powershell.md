@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: 3bf6fae2b539ee3a21b4a96071fed67dd8bd1597
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4a8c3a1291faad6b952b5fddacde1ded1f4be7ca
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983615"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098073"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Início rápido: Carregar, transferir e listar os blobs com o Azure PowerShell
 
@@ -74,7 +74,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Transferir blobs
 
-Transfira os blobs para o disco local. Para cada blob que deseja baixar, defina o nome e a chamada [Get-AzStorageBlobConten](/powershell/module/az.storage/get-AzStorageblobcontent) para transferir o blob.
+Transfira os blobs para o disco local. Para cada blob que deseja baixar, defina o nome e a chamada [Get-AzStorageBlobContent](/powershell/module/az.storage/get-AzStorageblobcontent) para transferir o blob.
 
 Este exemplo transfere os blobs para *D:\\_TestImages\Downloads* no disco local. 
 

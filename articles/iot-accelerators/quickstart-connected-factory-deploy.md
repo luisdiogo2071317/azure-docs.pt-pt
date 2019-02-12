@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602652"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098890"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início rápido: Tente uma solução baseada na nuvem para gerir os meus dispositivos de IoT industriais
 
@@ -42,7 +42,7 @@ Na página **Criar solução de Fábrica Ligada**, introduza um **Nome da soluç
 
 Selecione a **Subscrição** e a **Região** que quer utilizar para implementar o acelerador de soluções. Normalmente, pode escolher a região mais próxima para si. Neste início rápido, estamos a utilizar **Visual Studio Enterprise** e **E.U.A. Leste**. Tem de ser um [administrador global ou de utilizador](iot-accelerators-permissions.md) na subscrição.
 
-Clique em **Criar Solução** para iniciar a implementação. Este processo demora, pelo menos, cinco minutos a ser executado:
+Clique em **criar** para iniciar a implementação. Este processo demora, pelo menos, cinco minutos a ser executado:
 
 ![Detalhes da solução de Fábrica Ligada](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ Na página **Soluções aprovisionadas**, clique no novo acelerador de soluçõe
 
 ![Escolher a nova solução](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-Pode ver informações sobre o acelerador de soluções de Fábrica Ligada no painel apresentado. Selecione **Dashboard de soluções** para ver o acelerador de soluções de Fábrica Ligada:
+Pode ver informações sobre seu acelerador de solução de fábrica ligada na página que aparece. Escolher **ir do Solution accelerator** para ver o seu acelerador de solução de fábrica ligada:
 
 ![Painel de soluções](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 

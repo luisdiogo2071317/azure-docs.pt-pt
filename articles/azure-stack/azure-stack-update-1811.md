@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766100"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099144"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização de 1811 de pilha do Azure
 
@@ -118,6 +118,18 @@ Esta atualização inclui as seguintes novas funcionalidades e melhorias para o 
 - Discos geridos está agora ativado por predefinição, ao criar máquinas virtuais com o portal do Azure Stack. Consulte a [problemas conhecidos](#known-issues-post-installation) secção para obter os passos adicionais necessários para os Managed Disks evitar falhas na criação de VM.
 
 - Essa versão apresenta o alerta **reparação** ações para o operador do Azure Stack. Alguns alertas no 1811 fornecem uma **reparação** botão no alerta que pode selecionar para resolver o problema. Para obter mais informações, consulte [monitorizar o estado de funcionamento e alertas no Azure Stack](azure-stack-monitor-health.md).
+
+- Atualizações para a experiência de atualização no Azure Stack. As atualização as melhorias incluem: 
+    - Guias que dividir as atualizações do histórico de atualização para um melhor controlo atualizações em curso e concluídas atualizações.
+    - Visualizações de estado melhorada na secção essentials com novos ícones e layout para as versões atual e do OEM, bem como a última atualizadas data.
+    - **Vista** ligar para a coluna de notas de versão leva o usuário diretamente para a documentação específica para essa atualização em vez da página atualizar genérico.
+    - O **atualizar o histórico de** separador utilizado para determinar os tempos de execução para cada uma das atualizações, bem como capacidades de filtragem melhoradas.  
+    - Unidades de escala de pilha do Azure que estão ligadas ainda automaticamente receberá **atualização disponível** à medida que ficam disponíveis.
+    - Unidades de escala de pilha do Azure que estão ligadas não podem importar as atualizações de tal como antes. 
+    - Não há nenhuma alteração no processo para transferir os registos JSON a partir do portal. Operadores do Azure Stack irão ver passos expressar progresso a expandir.
+
+    Para obter mais informações, consulte [aplicar atualizações no Azure Stack](azure-stack-apply-updates.md).
+
 
 ## <a name="fixed-issues"></a>Problemas corrigidos
 

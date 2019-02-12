@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751944"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099739"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -310,7 +310,7 @@ Base de dados SQL utiliza algumas técnicas inteligentes que lhe permitem lidar 
 Tem várias formas de fazer isso:
 
 - **[Sincronização de dados](sql-database-sync-data.md)**  – esta funcionalidade ajuda-o a sincronizar dados bidirecional entre várias bases de dados no local do SQL Server e base de dados SQL. Para sincronizar com bases de dados do SQL Server no local, terá de instalar e configurar o agente de sincronização num computador local, abra a porta de saída de TCP 1433.
-- **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – com a replicação de transações pode sincronizar os dados no local para a BD SQL do Azure com no local que está a ser Editor e BD SQL do Azure que está a ser subscritor. Por enquanto, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os seus dados no local para o Azure SQL com o tempo de inatividade mínimo, consulte: [Utilizar a replicação de transações](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**  – com a replicação de transações pode sincronizar os dados no local para a BD SQL do Azure com no local que está a ser Editor e BD SQL do Azure que está a ser subscritor. Por enquanto, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os seus dados no local para o Azure SQL com o tempo de inatividade mínimo, consulte: [Utilizar a replicação de transações](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

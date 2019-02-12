@@ -15,14 +15,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 72efe156920bb78631ea71a0f47f7f5fe19c7e23
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 639bc4ff9c69bca3d5f8bca6967bfc3e8e6a13d4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133660"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100555"
 ---
-# <a name="event-hubs-capture-walkthrough-python"></a>Instruções de captura dos Hubs de eventos: Python
+# <a name="event-hubs-capture-walkthrough-python"></a>Instruções da captura dos Hubs de eventos: Python
 
 Captura é uma funcionalidade dos Hubs de eventos do Azure. Pode usá-lo para fornecer automaticamente os dados de transmissão em fluxo no seu hub de eventos para uma conta de armazenamento de Blobs do Azure à sua escolha. Esta capacidade torna mais fácil realizar o processamento em lotes nas dados de transmissão em fluxo em tempo real. Este artigo descreve como utilizar a captura de Hubs de eventos com o Python. Para obter mais informações sobre a captura de Hubs de eventos, consulte a [artigo de descrição geral](event-hubs-capture-overview.md).
 
@@ -41,7 +41,7 @@ Este exemplo utiliza a [Azure Python SDK](https://azure.microsoft.com/develop/py
 - Python 2.7.x
 - Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Um ativo [hub de eventos e de espaço de nomes de Hubs de eventos](event-hubs-create.md). 
-- Ativar **capturar** funcionalidade para o hub de eventos ao seguir as instruções de: [ativar os Hubs de captura de eventos com o portal do Azure](event-hubs-capture-enable-through-portal.md)
+- Ativar **capturar** funcionalidade para o hub de eventos ao seguir as instruções de: [Ativar a captura de Hubs de eventos com o portal do Azure](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento de Blobs do Azure
 1. Inicie sessão no [Portal do Azure][Azure portal].
@@ -62,7 +62,7 @@ Este exemplo utiliza a [Azure Python SDK](https://azure.microsoft.com/develop/py
    import datetime
    import random
    import json
-   from azure.servicebus import ServiceBusService
+   from azure.servicebus.control_client import ServiceBusService
    
    sbs = ServiceBusService(service_namespace='INSERT YOUR NAMESPACE NAME', shared_access_key_name='RootManageSharedAccessKey', shared_access_key_value='INSERT YOUR KEY')
    devices = []

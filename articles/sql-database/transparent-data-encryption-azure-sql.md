@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/22/2019
-ms.openlocfilehash: 7b1d58b82f2ccc99ecacb6099f6063fba5899421
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: c5d74c707c34cdcfba7bb0556c6e91a356123296
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478462"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099699"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Encriptação de dados transparente para a base de dados SQL e o armazém de dados
 
@@ -40,15 +40,14 @@ A Microsoft diretamente move e gerencia as chaves conforme necessário para geor
 > [!IMPORTANT]
 > Todas as recém-criadas bases de dados do SQL são criptografadas por padrão, usando a criptografia de dados transparente gerida pelo serviço. Bases de dados de instância gerida SQL do Azure, bases de dados do SQL existentes criadas antes de Maio de 2017 e bases de dados SQL criadas através do restauro, georreplicação e cópia de base de dados não são criptografadas por padrão.
 
-## <a name="bring-your-own-key"></a>Traga a sua própria chave
+## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Encriptação de dados transparente gerida pelo cliente – traga a sua própria chave
 
-Com o suporte de traga a sua própria chave, pode tirar o controle sobre as chaves de encriptação de dados transparente e controlar quem pode aceder aos mesmos e quando. Cofre de chaves, que é o sistema de gestão do Azure com base na cloud externo principais, é o primeiro serviço de gestão de chaves se a encriptação de dados transparente está integrado para o suporte de traga a sua própria chave. Com o suporte de traga a sua própria chave, a chave de encriptação da base de dados está protegida por uma chave assimétrica armazenada no Key Vault. A chave assimétrica nunca deixa o Key Vault. Depois do servidor tem permissões para um cofre de chaves, o servidor envia pedidos de operação básica de chave ao mesmo através do Key Vault. Definir a chave assimétrica no nível do servidor e todos os *encriptados* bases de dados nesse servidor herdá-la.
+[TDE com chaves geridas pelo cliente no Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) permite criptografar a chave de encriptação da base de dados (DEK) com uma chave assimétrica gerida pelo cliente chamada Protetor de TDE.  O Protetor de TDE é armazenado numa propriedade de cliente e geridos [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), sistema de gestão chave externa baseada na nuvem do Azure. O DEK TDE, que é armazenado na página de arranque de uma base de dados, é encriptado e é desencriptado pelo Protetor TDE, que é armazenada no Azure Key Vault e nunca sai do Cofre de chaves.  Base de dados SQL tem de ser concedidas permissões para o Cofre de chaves pertencentes ao cliente para desencriptar e encriptar o DEK. Se as permissões do servidor SQL lógico para o Cofre de chaves são revogadas, uma base de dados ficarão inacessível e todos os dados são encriptados. Para a base de dados SQL do Azure, o protetor de TDE está definido ao nível do servidor lógico da SQL e é herdado por todas as bases de dados associados a esse servidor. Para SQL instância gerida do Azure, o protetor de TDE está definido ao nível da instância e esta é herdada por todos os *encriptados* bases de dados nessa instância. O termo *servidor* refere-se tanto ao servidor e a instância em todo este documento, a menos que indicado de forma diferente.
 
-Com o suporte de traga a sua própria chave, controlar tarefas de gestão de chaves, como rotações de chave e permissões do Cofre de chaves. Também pode eliminar chaves e ativar a auditoria/relatórios sobre todas as chaves de encriptação. Key Vault fornece gestão de chaves central e utiliza os módulos de segurança de hardware rigidamente monitorizados. Key Vault promove a separação da gestão de chaves e os dados para ajudar a cumprir a conformidade a normas. Para saber mais sobre o Key Vault, consulte a [página de documentação do Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+Com TDE com a integração do Azure Key Vault, os utilizadores podem controlar as tarefas de gestão de chaves, incluindo rotações de chave, as permissões do Cofre de chaves, as cópias de segurança de chaves e ativar a auditoria/relatórios sobre todos os protetores de TDE com a funcionalidade do Azure Key Vault. Key Vault fornece gestão de chaves central, tira partido de módulos de segurança de rigidamente monitorizados de hardware (HSMs) e permite a separação de funções entre a gestão de chaves e dados para o ajudar a cumprir a conformidade com as políticas de segurança.
+Para saber mais sobre a encriptação de dados transparente com a integração do Azure Key Vault (suporte de traga a sua própria chave) para a base de dados do Azure SQL, instância gerida SQL e armazém de dados, veja [encriptação de dados transparente com a integração do Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
 
-Para saber mais sobre a encriptação de dados transparente com suporte de traga a sua própria chave para a base de dados do Azure SQL, a instância gerida SQL e o armazém de dados, veja [encriptação de dados transparente com suporte de traga a sua própria chave](transparent-data-encryption-byok-azure-sql.md).
-
-Para começar a utilizar a encriptação de dados transparente com suporte de traga a sua própria chave, consulte o guia de procedimentos [ativar a criptografia transparente de dados utilizando a sua própria chave do Key Vault com o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
+Para começar a utilizar a encriptação de dados transparente com a integração do Azure Key Vault (suporte de traga a sua própria chave), consulte o guia de procedimentos [ativar a criptografia transparente de dados utilizando a sua própria chave do Key Vault com o PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 
 ## <a name="move-a-transparent-data-encryption-protected-database"></a>Mover uma base de protegido por encriptação de dados transparente
 

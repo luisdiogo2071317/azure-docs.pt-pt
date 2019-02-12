@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177037"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098226"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicação do Azure
 
@@ -46,7 +46,6 @@ A tabela seguinte apresenta uma lista e descreve cada etapa de publicação e fo
 | Em direto                           | < 1 dia | Oferta é lançada, replicada para as regiões especificadas e disponibilizada ao público. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
 
- 
 Pode monitorizar o processo de publicação na **estado** separador para a sua oferta no Portal de parceiros de nuvem.
 
 ![Separador de estado para uma oferta de aplicação do Azure](./media/offer-status-tab.png)
@@ -54,38 +53,13 @@ Pode monitorizar o processo de publicação na **estado** separador para a sua o
 Depois de concluir o processo de publicação, a sua oferta será listada na [categoria de aplicação do Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 
-
 ## <a name="errors-and-review-feedback"></a>Erros e os comentários da revisão
 
-Além de exibir o estado de publicação da sua oferta, o **estado** guia também exibe mensagens de erro e comentários a partir do **revisão do Microsoft** passo.  Normalmente, os problemas de revisão são referenciados como pedido pull (PR).  Cada pedido Pull está ligada a um Visual online de Studio Team Services (VSTS, o nome mudado para [do Azure DevOps](https://azure.microsoft.com/services/devops/)) item, que contém detalhes sobre o problema.  A imagem seguinte mostra um exemplo de uma referência de PR de revisão.  Para situações mais complexas, as equipes de suporte e de revisão podem enviar um e-mail. 
-
-![Comentários de revisão de apresentação de separador de status](./media/status-tab-ms-review.png)
-
-Deve resolver cada problema comunicado antes da oferta continua durante o processo de publicação.  O diagrama seguinte ilustra como esse processo de comentários se relaciona com o processo de publicação.
-
-![Publicação passos com comentários do VSTS](./media/pub-flow-vsts-access.png)
-
-
-### <a name="vsts-access"></a>Acesso do VSTS
-
-Para ver os itens VSTS referenciados em comentários da revisão, os publicadores têm de ser concedidos autorização adequada.  Caso contrário, os novos editores recebem um `401 - Not Authorized` página de resposta.  Para pedir acesso ao sistema VSTS de revisão de oferta, execute os seguintes passos:
-
-1. Recolha as seguintes informações:
-    - O nome do publicador e o ID
-    - (Aplicação do Azure) do tipo de oferta, nome e ID de SKU de oferta
-    - O pedido pull ligar, por exemplo: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  Este URL pode ser obtido a partir da mensagem de notificação ou o endereço da página de 401 resposta.
-    - Os endereços de e-mail das pessoas da sua organização de publicação que pretende conceder acesso a.  Estas devem incluir os endereços de proprietário fornecidos ao registrar como um publicador no Portal de parceiros de nuvem.
-2. Crie um incidente de suporte.  Na barra de título do Cloud Partner Portal, selecione o **ajudar** botão, em seguida, escolha **suporte** no menu.  Default web browser deve iniciar e navegue para a Microsoft novo incidente página de suporte.  (Poderá ter de entrar primeiro).
-3. Especifique a **tipo de problema** como **inclusão de marketplace** e **categoria** como **problemas de acesso ao**, em seguida, selecione **iniciar pedido**.
-
-    ![Categoria de pedido de suporte](./media/support-incident1.png)
-
-4. Na **passo 1 de 2** página, forneça as informações de contacto e selecione **continuar**.
-5. Na **passo 2 de 2** , especifique um título do incidente (por exemplo `Request VSTS access`) e forneça as informações recolhidas no primeiro passo (acima).  Leia e aceite o contrato, em seguida, selecione **submeter**.
-
-Se a criação de incidentes foi concluída com êxito, é apresentada uma página de confirmação.  Guarde as informações de confirmação de referência.  Suporte da Microsoft deve responder ao seu pedido de acesso em poucos dias de negócios.
+Além de exibir o estado de publicação da sua oferta, o **estado** guia também exibe mensagens de erro e comentários a partir de quaisquer passos de publicação em que for encontrado um problema.  Se o problema é essencial, em seguida, publicando é cancelada.  Em seguida, tem de corrigir os problemas reportados e voltar a publicar a oferta.  Uma vez que o **revisão Microsoft** passo representa uma revisão extensiva da sua oferta e os seus ativos técnicos associados (especialmente o modelo Azure Resource Manager), problemas, normalmente, são apresentados como ligações de pedido (PR) de solicitação.  Obter uma explicação de como visualizar e responder a estes pedidos pull, consulte [comentários da revisão de manipulação de](./cpp-handling-review-feedback.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que for publicada uma aplicação do Azure, pode [atualizar oferta existente](./cpp-update-existing-offer.md) para refletir a alteração de requisitos comerciais ou técnicos. 
+Se encontrou erros em uma ou mais dos passos de publicação, tem de corrigi-los e voltar a publicar a oferta.  Se a problemas críticos são encontrados no **revisão do Microsoft** passo, deve [lidar com os comentários da revisão](./cpp-handling-review-feedback.md) acessando o Microsoft rever o repositório de Azure DevOps da equipa.
+
+Depois de uma aplicação do Azure é publicada com êxito, pode [atualizar a oferta existente](./cpp-update-existing-offer.md) para refletir a alteração de requisitos comerciais ou técnicos. 

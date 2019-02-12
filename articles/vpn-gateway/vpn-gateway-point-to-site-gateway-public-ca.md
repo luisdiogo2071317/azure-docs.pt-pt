@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: c6d696f8bf5f649321ee0be93ae13571a7ba3019
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a5634054746d7e60aff154165f651f7c815c39a3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896739"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100827"
 ---
 # <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Transição de auto-assinado para certificados de AC públicos para gateways de P2S
 
@@ -23,14 +23,14 @@ Anteriormente, o certificado autoassinado para o gateway necessário para ser at
 Apenas os gateways mais antigos são afetados por esta alteração. Se o certificado de gateway tem de ser transferido, receberá comunicação ou alerta no portal do Azure. Pode verificar se o gateway é afetado, utilizando os passos neste artigo.
 
 >[!IMPORTANT]
->A transição está agendada para Março 09,2019 começando 18:00 UTC. Pode criar um incidente de suporte, se preferir uma janela de tempo diferentes. Pode pedir uma das janelas do seguintes:
+>A transição está agendada para Março 12,2019 começando 18:00 UTC. Pode criar um incidente de suporte, se preferir uma janela de tempo diferentes. Pode pedir uma das janelas do seguintes:
 >
 >* UTC GMT+06:00 em 25 de Fevereiro
 >* UTC 18:00 em 25 de Fevereiro
 >* UTC 06:00 no 1 Mar
 >* UTC 18:00 em 1 de Março
 >
->**Todos os gateways restantes farão a transição 09 de Março de 2019 começando 18:00 UTC**.
+>**Todos os gateways restantes farão a transição 12 de Março de 2019 começando 18:00 UTC**.
 >
 
 ## <a name="1-verify-your-certificate"></a>1. Verifique se o seu certificado

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: d0176cde824346c80fff097b87c107b7052e822f
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3588496a2f41af0af273497ea3952d138385f0af
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959566"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100868"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e resoluções com SCIM 2.0 compatibilidade de protocolo do serviço aprovisionamento de utilizador do Azure AD
 
@@ -59,7 +59,7 @@ Sim. Se já estiver a utilizar esta instância da aplicação para início de se
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
 2. Na **do Azure Active Directory > aplicações empresariais** seção do portal do Azure, localize e selecione a sua aplicação SCIM existente.
 3.  No **propriedades** secção da sua aplicação SCIM existente, copie a **ID de objeto**.
-4.  Na nova janela do browser web, aceda a https://developer.microsoft.com/en-us/graph/graph-explorer e inicie sessão como administrador de inquilino do Azure AD em que a sua aplicação é adicionada.
+4.  Na nova janela do browser web, aceda a https://developer.microsoft.com/graph/graph-explorer e inicie sessão como administrador de inquilino do Azure AD em que a sua aplicação é adicionada.
 5. No Explorador do gráfico, execute o comando abaixo para localizar o ID da tarefa de aprovisionamento. Substitua o ID de principal (ID de objeto) copiado da terceira etapa de serviço "[object-id]".
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +99,7 @@ Sim. Se tivesse codificou uma aplicação ao comportamento antigo que existia an
 1.  Inicie sessão no portal do Azure em https://portal.azure.com.
 2. na **do Azure Active Directory > aplicações empresariais > Criar aplicação** secção do portal do Azure, crie uma nova **Galeria não** aplicação.
 3.  No **propriedades** secção da sua nova aplicação personalizada, copie a **ID de objeto**.
-4.  Na nova janela do browser web, aceda a https://developer.microsoft.com/en-us/graph/graph-explorer e inicie sessão como administrador de inquilino do Azure AD em que a sua aplicação é adicionada.
+4.  Na nova janela do browser web, aceda a https://developer.microsoft.com/graph/graph-explorer e inicie sessão como administrador de inquilino do Azure AD em que a sua aplicação é adicionada.
 5. No Explorador do gráfico, execute o comando abaixo para inicializar a configuração de aprovisionamento para a sua aplicação.
 Substitua o ID de principal (ID de objeto) copiado da terceira etapa de serviço "[object-id]".
 

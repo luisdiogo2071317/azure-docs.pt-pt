@@ -4,17 +4,17 @@ description: Descreve como a definição de política de recurso do Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 14c5a9a5d9e3bd71ca1fdaf3545af3e74b3973c2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698297"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100654"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -90,8 +90,20 @@ Parâmetros funcionam da mesma forma, na criação de políticas. Ao incluir par
 > [!NOTE]
 > Parâmetros podem ser adicionados a uma definição existente e atribuída. O novo parâmetro tem de incluir o **defaultValue** propriedade. Isto impede que existente atribuições da política ou iniciativa indiretamente que estão sendo feitas inválido.
 
-Por exemplo, pode definir uma política para limitar as localizações onde os recursos podem ser implementados.
-Poderia declarar os seguintes parâmetros ao criar a política:
+### <a name="parameter-properties"></a>Propriedades do parâmetro
+
+Um parâmetro tem as seguintes propriedades que são utilizadas na definição de política:
+
+- **name**: O nome do seu parâmetro. Utilizado pelo `parameters` função de implementação dentro da regra de política. Para obter mais informações, consulte [usando um valor de parâmetro](#using-a-parameter-value).
+- `type`: Determina se o parâmetro é um **cadeia de caracteres** ou uma **matriz**.
+- `metadata`: Define subproperties principalmente utilizados pelo portal do Azure para apresentar informações amigáveis:
+  - `description`: A explicação sobre o que o parâmetro é utilizado para. Pode ser utilizado para fornecer exemplos de valores aceitáveis.
+  - `displayName`: O nome amigável apresentado no portal para o parâmetro.
+  - `strongType`: (Opcional) Utilizadas quando atribui a definição de política através do portal. Fornece uma lista com reconhecimento de contexto. Para obter mais informações, consulte [strongType](#strongtype).
+- `defaultValue`: (Opcional) Define o valor do parâmetro de uma atribuição, se nenhum valor é atribuído. É necessário quando atualizar uma definição de política existente que está atribuída.
+- `allowedValues`: (Opcional) Fornece a lista de valores que o parâmetro aceita durante a atribuição.
+
+Por exemplo, pode definir uma definição de política para limitar as localizações onde os recursos podem ser implementados. Um parâmetro para essa definição de política pode ser **allowedLocations**. Este parâmetro seria usado por cada atribuição da definição de política para limitar os valores aceites. A utilização de **strongType** fornece uma experiência aprimorada ao concluir a atribuição através do portal:
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ Poderia declarar os seguintes parâmetros ao criar a política:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-O tipo de um parâmetro pode ser a cadeia ou matriz. A propriedade de metadados é utilizada para ferramentas como o portal do Azure para apresentar informações amigável de utilizador.
-
-A propriedade de metadados, pode utilizar **strongType** para fornecer uma lista de seleção múltipla de opções no portal do Azure. Valores para permitidos **strongType** atualmente incluem:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>Usando um valor de parâmetro
 
 A regra de política, fazer referência a parâmetros com o seguinte `parameters` sintaxe de função de valor de implementação:
 
@@ -126,6 +134,19 @@ A regra de política, fazer referência a parâmetros com o seguinte `parameters
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+Este exemplo faz referência a **allowedLocations** parâmetro que foi demonstrado [propriedades do parâmetro](#parameter-properties).
+
+### <a name="strongtype"></a>strongType
+
+Dentro de `metadata` propriedade, pode usar **strongType** para fornecer uma lista de seleção múltipla de opções no portal do Azure. Valores para permitidos **strongType** atualmente incluem:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>Localização da definição
 

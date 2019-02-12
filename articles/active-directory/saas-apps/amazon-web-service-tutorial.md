@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 963814125147f80ad68930479eeaf4474afe621d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751094"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100317"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Active Directory do Azure com o Amazon Web Services (AWS)
 
@@ -447,7 +447,7 @@ Quando clica no mosaico do Amazon Web Services (AWS) no painel de acesso, deve s
 
  * Na **aprovisionamento** secção, o **mapeamentos** subsecção mostrará uma mensagem "A carregar..." e nunca apresentar os mapeamentos de atributos. O fluxo de trabalho de aprovisionamento apenas suportado atualmente é a importação das funções do AWS para o Azure AD para seleção durante a atribuição de utilizador/grupo. Os mapeamentos de atributos para isso são predeterminado e não é configurável.
  
- * O **aprovisionamento** secção suporta apenas a introdução de um conjunto de credenciais para um inquilino do AWS ao mesmo tempo. Todas as funções importadas são escritas para a propriedade appRoles do Azure AD [objeto servicePrincipal](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) para o AWS de inquilino. Vários inquilinos AWS (representados por servicePrincipals) podem ser adicionados para o Azure AD a partir da Galeria para o aprovisionamento, no entanto, é um problema conhecido com a não ser possível escrever todas as funções importadas automaticamente da vários servicePrincipals AWS utilizado para o aprovisionamento no serviceprincipal tem um único utilizado para início de sessão único. Como solução, o [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal) pode ser utilizado para extrair todos appRoles importados para cada servicePrincipal AWS em que o aprovisionamento está configurado. Essas cadeias de caracteres de função podem ser adicionadas posteriormente para o servicePrincipal AWS em que o início de sessão único está configurado.
+ * O **aprovisionamento** secção suporta apenas a introdução de um conjunto de credenciais para um inquilino do AWS ao mesmo tempo. Todas as funções importadas são escritas para a propriedade appRoles do Azure AD [objeto servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) para o AWS de inquilino. Vários inquilinos AWS (representados por servicePrincipals) podem ser adicionados para o Azure AD a partir da Galeria para o aprovisionamento, no entanto, é um problema conhecido com a não ser possível escrever todas as funções importadas automaticamente da vários servicePrincipals AWS utilizado para o aprovisionamento no serviceprincipal tem um único utilizado para início de sessão único. Como solução, o [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) pode ser utilizado para extrair todos appRoles importados para cada servicePrincipal AWS em que o aprovisionamento está configurado. Essas cadeias de caracteres de função podem ser adicionadas posteriormente para o servicePrincipal AWS em que o início de sessão único está configurado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

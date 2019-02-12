@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769326"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098107"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Utilizar o SSL para proteger serviços da web com o serviço Azure Machine Learning
 
@@ -82,6 +82,16 @@ Para implementar (ou voltar a implementar) o serviço com SSL ativado, defina o 
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Implementar nas matrizes de porta programável por campo (FPGA)**
+
+  Ao implantar FPGA, forneça valores para os parâmetros relacionados com SSL, conforme mostrado no fragmento de código:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## <a name="update-your-dns"></a>Atualizar o seu DNS
 
 Em seguida, tem de atualizar o DNS para apontar para o serviço web.
@@ -97,10 +107,6 @@ Em seguida, tem de atualizar o DNS para apontar para o serviço web.
   Atualize o DNS no separador "Configuração" das "Endereço IP público" do cluster AKS conforme mostrado na imagem. Pode encontrar o endereço IP público como um dos tipos de recursos criados no grupo de recursos que contém os nós de agente do AKS e outros recursos de rede.
 
   ![Azure Machine Learning service: Protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **Para FPGA**:
-
-Atualmente, o através de SSL com serviços implementados em FPGA não é suportada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Aprenda a:

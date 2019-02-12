@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 90c8af9b09a5050cc090725665501d60091c9ae5
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b6d821f8c4f2fa66e24e6a2409f58406820ef6d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509172"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100792"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolver diferenças do Transact-SQL durante a migração para a base de dados SQL
 
-Quando [migrar a sua base de dados](sql-database-cloud-migrate.md) do SQL Server para o Azure SQL Server, pode descobrir que a sua base de dados requer alguma reengenharia antes do SQL Server podem ser migrado. Este artigo fornece orientações para ajudá-lo a realizar este reengenharia tanto Noções básicas sobre os motivos subjacentes por que motivo é necessário o reengenharia. Para detetar incompatibilidades, utilize o [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+Quando [migrar a sua base de dados](sql-database-single-database-migrate.md) do SQL Server para o Azure SQL Server, pode descobrir que a sua base de dados requer alguma reengenharia antes do SQL Server podem ser migrado. Este artigo fornece orientações para ajudá-lo a realizar este reengenharia tanto Noções básicas sobre os motivos subjacentes por que motivo é necessário o reengenharia. Para detetar incompatibilidades, utilize o [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
 ## <a name="overview"></a>Descrição geral
 

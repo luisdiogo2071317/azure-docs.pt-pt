@@ -16,19 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2c95e19fe47e23cda6d14fc047fbe6c30100d78e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075861"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097769"
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API do Azure Active Directory
 
 > [!IMPORTANT]
 > Recomendamos vivamente que utilize o [Microsoft Graph](https://developer.microsoft.com/graph/) em vez da Graph API do Azure AD para aceder aos recursos do Azure Active Directory. Os nossos esforços de desenvolvimento concentram-se agora no Microsoft Graph e não estão previstos mais melhoramentos para a Graph API do Azure AD. Existe um número muito limitado de cenários nos quais a Graph API do Azure AD ainda poderá ser adequada. Para obter mais informações, veja a mensagem do blogue [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) (Microsoft Graph ou Graph do Azure AD), no Office Dev Center.
 
-Este artigo aplica-se para o Azure AD Graph API. Para informações semelhantes relacionados com o Microsoft Graph API, veja [utilizar a Graph API do Microsoft](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api). 
+Este artigo aplica-se para o Azure AD Graph API. Para informações semelhantes relacionados com o Microsoft Graph API, veja [utilizar a Graph API do Microsoft](https://docs.microsoft.com/graph/use-the-api). 
 
 A API do Azure Active Directory Graph fornece acesso programático para o Azure AD através de pontos finais de REST API. Aplicações podem utilizar o Azure AD Graph API para efetuar a criar, ler, atualizar e eliminar operações de (CRUD) em objetos e dados do diretório. Por exemplo, o Azure AD Graph API suporta as seguintes operações comuns para um objeto de utilizador:
 

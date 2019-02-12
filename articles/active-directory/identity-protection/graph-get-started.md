@@ -17,20 +17,20 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 4ee2f0387ee3c56dda7cd1a89f5c808f55699856
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 47786ac687272cc2a88c3fa885fece9c858a3c2b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658628"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099076"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e Microsoft Graph
 
 Microsoft Graph é o Microsoft unified ponto final de API e a casa dos [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. Existem três APIs que expõem as informações sobre utilizadores de risco e inícios de sessão. A primeira API **identityRiskEvents**, permite-lhe consultar o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações de associados. A segunda API, **riskyUsers**, permite-lhe para consultar o Microsoft Graph para obter informações sobre os utilizadores detetados como o risco de proteção de identidade. A API de terceiro **signIn**, permite-lhe consultar o Microsoft Graph para obter informações sobre inícios de sessão do Azure AD com as propriedades específicas relacionadas com o estado de risco, de detalhe e de nível. Este artigo permite-lhe começar com [ligar para o Microsoft Graph](#Connect-to-Microsoft-Graph) e [consultar essas APIs](#Query-the-APIs). Para uma introdução aprofundada, a documentação completa e acesso para a API do Graph, consulte a [site do Microsoft Graph](https://graph.microsoft.io/) ou a documentação de referência específicas para essas APIs:
 
-* [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
-* [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
-* [início de sessão da API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
+* [início de sessão da API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
 
 
 ## <a name="connect-to-microsoft-graph"></a>Ligar para o Microsoft graph
@@ -217,7 +217,7 @@ Basta adicione o seu ID de cliente, a chave secreta e o domínio de inquilino.
 
 ## <a name="query-the-apis"></a>As APIs de consulta
 
-Essas três APIs proporcionam diversas oportunidades para obter informações sobre utilizadores de risco e inícios de sessão na sua organização. Seguem-se alguns casos de utilização comuns para essas APIs e os pedidos de exemplo associado. Pode executar essas consultas usando o código de exemplo acima, ou utilizando [API do Graph](https://developer.microsoft.com/en-us/graph/graph-explorer).
+Essas três APIs proporcionam diversas oportunidades para obter informações sobre utilizadores de risco e inícios de sessão na sua organização. Seguem-se alguns casos de utilização comuns para essas APIs e os pedidos de exemplo associado. Pode executar essas consultas usando o código de exemplo acima, ou utilizando [API do Graph](https://developer.microsoft.com/graph/graph-explorer).
 
 ### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Obter os eventos de alto risco e de médio risco (identityRiskEvents API)
 
@@ -251,7 +251,7 @@ Parabéns, acabou de criar a primeira chamada para o Microsoft Graph!
 Agora pode consultar os eventos de risco de identidade e utilizar os dados, no entanto, o que considere adequado.
 
 
-Para saber mais sobre o Microsoft Graph e como criar aplicações com a Graph API, consulte a [documentação](https://docs.microsoft.com/graph/overview) e muito mais sobre o [site do Microsoft Graph](https://developer.microsoft.com/en-us/graph). 
+Para saber mais sobre o Microsoft Graph e como criar aplicações com a Graph API, consulte a [documentação](https://docs.microsoft.com/graph/overview) e muito mais sobre o [site do Microsoft Graph](https://developer.microsoft.com/graph). 
 
 
 Para obter informações relacionadas, consulte:

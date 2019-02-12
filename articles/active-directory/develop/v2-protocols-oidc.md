@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e763c1512e52111e1294c5cad8b4bea46ff0406
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3ae46578132cb128b249b72f344cd788a69a49a0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100622"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099120"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>O Azure Active Directory v 2.0 e o protocolo OpenID Connect
 
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 O `{tenant}` pode efetuar uma das quatro valores:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | --- |
 | `common` |Os utilizadores com uma conta Microsoft pessoal e uma conta escolar ou profissional do Azure Active Directory (Azure AD) podem iniciar sessão para a aplicação. |
 | `organizations` |Ou profissional de apenas os utilizadores com contas escolares do Azure AD podem iniciar sessão na aplicação. |
@@ -228,14 +228,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 &response_mode=form_post                              // 'form_post' or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
 offline_access%20                                         
-https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
 ```
 
 > [!TIP]
-> Clique na ligação seguinte para executar este pedido. Depois de iniciar sessão, o seu navegador é redirecionado para https://localhost/myapp/, com um token de ID e um código na barra de endereço. Tenha em atenção que esse pedido usa `response_mode=fragment` (para apenas a fins de demonstração). Recomendamos que utilize `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Clique na ligação seguinte para executar este pedido. Depois de iniciar sessão, o seu navegador é redirecionado para https://localhost/myapp/, com um token de ID e um código na barra de endereço. Tenha em atenção que esse pedido usa `response_mode=fragment` fins apenas demonstrativos. Recomendamos que utilize `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

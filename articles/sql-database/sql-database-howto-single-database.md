@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 195afabc0f512f1202904ab7ebf1471b34e2377f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c85a7106e9567859c34345528c6549bcd752f1c6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989275"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100470"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Como utilizar uma base de dados na base de dados do Azure SQL
 
@@ -25,7 +25,7 @@ Nesta seção encontrará várias guias, scripts e explicações que podem ajuda
 
 ## <a name="migrate"></a>Migrar
 
-- [Migrar para a base de dados SQL](sql-database-cloud-migrate.md) – Saiba mais sobre o processo de migração recomendado e ferramentas para a migração para uma instância gerida.
+- [Migrar para a base de dados SQL](sql-database-single-database-migrate.md) – Saiba mais sobre o processo de migração recomendado e ferramentas para a migração para uma instância gerida.
 - Saiba como [gerir a base de dados SQL após a migração](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Configurar funcionalidades

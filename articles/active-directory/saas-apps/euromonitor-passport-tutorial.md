@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bdc3b88109a8d8c46f0a6a09297b0ca197165
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 95d61ac5fc1f7bcafb09107034c7b1588003f8cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479215"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Tutorial: Integração do Active Directory do Azure com o Euromonitor Passport
 
@@ -66,7 +66,7 @@ Para configurar a integração do Euromonitor Passport para o Azure AD, terá de
 
 4. Na caixa de pesquisa, escreva **Euromonitor Passport**, selecione **Euromonitor Passport** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![Euromonitor Passport na lista de resultados](common/search-new-app.png)
+    ![Euromonitor Passport na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -104,17 +104,17 @@ Para configurar o Azure AD início de sessão único com o Euromonitor Passport,
 
     ![Euromonitor Passport domínio e URLs únicas início de sessão em informações](common/preintegrated.png)
 
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+5. Se desejar configurar a aplicação no **SP** iniciadas pelo modo, tem de obter o formato de URL de início de sessão a [equipa de suporte do Euromonitor Passport](mailto:passport.support@euromonitor.com). Depois de obter o URL de início de sessão da equipa de suporte do Euromonitor Passport, clique em **definir URLs adicionais** e executar o passo seguinte:
 
     ![Euromonitor Passport domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://portal.euromonitor.com`
+    Cole o valor de URL de início de sessão obtido da equipa de suporte do Euromonitor Passport a caixa de texto do URL de início de sessão.
 
 6. Aplicação de Euromonitor Passport espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
     ![image](./media/euromonitor-passport-tutorial/attribute1.png)
 
-7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
+7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
     | Name | Atributo de origem|
     | ---------------| --------- |

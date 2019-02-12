@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 8127abf19c31b8a50079f416e73c98efebfd0983
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999424"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098363"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Instância gerida de migração de instância do SQL Server para a base de dados do Azure SQL
 
-Neste artigo, ficará a conhecer os métodos para migrar um SQL Server 2005 ou uma instância de versão posterior [instância gerida de base de dados do Azure SQL](sql-database-managed-instance.md).
+Neste artigo, ficará a conhecer os métodos para migrar um SQL Server 2005 ou uma instância de versão posterior [instância gerida de base de dados do Azure SQL](sql-database-managed-instance.md). Para obter informações sobre a migração para um único banco de dados ou conjunto elástico, consulte [migrar para uma base de dados individual ou agrupada](sql-database-cloud-migrate.md). Para informações de migração sobre a migração de outras plataformas, consulte [guia de migração de base de dados do Azure](https://datamigration.microsoft.com/).
 
 Num alto nível, o processo de migração de base de dados é semelhante a:
 
@@ -34,7 +34,7 @@ Num alto nível, o processo de migração de base de dados é semelhante a:
 - [Monitorizar aplicações](#monitor-applications)
 
 > [!NOTE]
-> Para migrar uma base de dados individual num único banco de dados ou conjunto elástico, consulte [migrar uma base de dados do SQL Server para a base de dados do Azure SQL](sql-database-cloud-migrate.md).
+> Para migrar uma base de dados individual num único banco de dados ou conjunto elástico, consulte [migrar uma base de dados do SQL Server para a base de dados do Azure SQL](sql-database-single-database-migrate.md).
 
 ## <a name="assess-managed-instance-compatibility"></a>Avaliar a compatibilidade da instância gerida
 

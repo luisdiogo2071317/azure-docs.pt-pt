@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 84b232b175d45a12bb6e0f8b462849282144c19b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601598"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097581"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Início rápido: Implementar e executar uma simulação de dispositivo do IoT no Azure
 
@@ -44,7 +44,7 @@ Selecione a **Subscrição** e a **Região** que quer utilizar para implementar 
 
 Selecione a caixa para implementar um hub IoT para utilizar com a sua solução de simulação de dispositivo. Pode sempre alterar o hub IoT que a simulação utilizará mais tarde.
 
-Clique em **Criar Solução** para começar a aprovisionar a solução. Este processo demora, pelo menos, cinco minutos a ser executado:
+Clique em **criar** para começar a aprovisionar a solução. Este processo demora, pelo menos, cinco minutos a ser executado:
 
 ![Detalhes da solução de Simulação de Dispositivos](./media/quickstart-device-simulation-deploy/createform.png)
 
@@ -64,7 +64,7 @@ Quando aberto pela primeira vez, verá o dashboard Simulação de Dispositivo co
 
 Não pode ser editada enquanto simulação de exemplo. A simulação é configurada com as seguintes definições:
 
-| Definição             | Valor                       |
+| Definição             | Value                       |
 | ------------------- | --------------------------- |
 | Hub IoT de destino      | Utilizar Hub IoT pré-aprovisionado |
 | Modelo do dispositivo        | Camião                       |

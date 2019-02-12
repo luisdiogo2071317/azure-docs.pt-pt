@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 478b03c979f5f2b588d51306ffa7b3c84ef25887
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 4cac603b0d575a4cf70cf4c5df6924be19bdfa2e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902487"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100283"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Submeter um pedido para pagar a subscrição do Azure por fatura
 
@@ -44,7 +44,7 @@ Pode alterar o método de pagamento para a sua subscrição do Azure criar uma f
 
     * Nome da empresa
     * Endereço para faturação
-    * [Endereço de e-mail do administrador de conta](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+    * [Endereço de e-mail do administrador de conta](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
 
 1. Verifique as informações de contacto e o método de contacto preferencial e, em seguida, clique em **Criar**.
 

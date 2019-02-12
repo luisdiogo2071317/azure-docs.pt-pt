@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a901072875d6810711cb0b23d17555d9492c240a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157980"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100130"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Descrição geral das contas de utilizador no Azure Active Directory B2C
 
@@ -47,21 +47,21 @@ Quando adiciona uma nova conta de trabalho, precisa considerar as seguintes defi
 Pode utilizar as seguintes informações para criar uma nova conta de trabalho:
 
 - [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Atualizar um perfil de utilizador
 
 Pode utilizar as seguintes informações para atualizar o perfil de um utilizador:
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Repor uma palavra-passe para um utilizador
 
 Pode utilizar as seguintes informações para repor a palavra-passe de um utilizador: 
 
 - [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update)
+- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Utilizador convidado
 
@@ -69,7 +69,7 @@ Pode convidar utilizadores externos ao seu inquilino como um utilizador convidad
 
 Ao convidar um utilizador convidado ao seu inquilino, fornecer o endereço de e-mail do destinatário e uma mensagem que descreve o convite. A ligação de convite leva o usuário para a página de consentimento em que o **começar** botão está selecionado e a revisão de permissões é aceite. Se uma caixa de entrada não está anexada para o endereço de e-mail, o usuário pode navegar para a página de consentimento ao aceder a uma página da Microsoft com as credenciais de convidado. Para resgatar o convite da mesma forma que clicar na ligação no e-mail, em seguida, forçar o utilizador. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Também pode utilizar o [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/invitation_post) convidar um utilizador convidado.
+Também pode utilizar o [Microsoft Graph API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta) convidar um utilizador convidado.
 
 ## <a name="consumer-user"></a>Utilizador de consumidor
 

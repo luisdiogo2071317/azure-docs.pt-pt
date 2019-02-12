@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: wesmc
-ms.openlocfilehash: 68c533235480ec49e3c561d99095d5722f6f69a4
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 30288c338785c45b860b4b2b29a646662572e179
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106329"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100636"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Como utilizar a ferramenta de linha de comandos da Redis cache do Azure para Redis
 
@@ -30,10 +30,12 @@ Se quiser executar a ferramenta da linha de comandos em outra plataforma, Baixe 
 
 ## <a name="gather-cache-access-information"></a>Recolher informações de acesso da cache
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Pode recolher as informações necessárias para aceder à cache usando três métodos:
 
 1. CLI do Azure com [az redis lista as chaves](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell com [Get AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
+2. Azure PowerShell com [Get AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. No portal do Azure.
 
 Nesta secção, irá obter as chaves do portal do Azure.

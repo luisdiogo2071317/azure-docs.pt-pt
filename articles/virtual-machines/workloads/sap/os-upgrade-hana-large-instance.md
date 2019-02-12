@@ -1,6 +1,6 @@
 ---
-title: Atualização do sistema operativo para o SAP HANA no Azure (instâncias de grande) | Microsoft Docs
-description: Efetuar a atualização do sistema operativo de SAP HANA no Azure (instâncias de grandes)
+title: Atualização do sistema operativo para o SAP HANA no Azure (instâncias grandes) | Documentos da Microsoft
+description: Efetuar a atualização do sistema operativo para o SAP HANA no Azure (instâncias grandes)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,33 +14,42 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114597"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100759"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do sistema operativo
-Este documento descreve os detalhes na atualização do sistema operativo nas instâncias grande HANA.
+Este documento descreve os detalhes sobre as atualizações de sistema operativo nas instâncias grandes do HANA.
 
 >[!NOTE]
->A atualização do SO é responsabilidade de clientes, o suporte do Microsoft operations pode ajudá-lo para as principais áreas a observar a durante a atualização. Deve consultar o fornecedor do sistema operativo, bem antes de a planear uma atualização.
+>A atualização de SO é da responsabilidade de clientes, o suporte de operações da Microsoft pode orientá-lo para as principais áreas a serem observadas durante a atualização. Deve procurar também o seu fornecedor de sistema operativo antes de planejar para uma atualização.
 
-No momento da unidade HLI aprovisionamento, a equipa de operações do Microsoft instalar o sistema operativo. Ao longo do tempo, é necessário para manter o sistema operativo (exemplo: a aplicação de patches, otimização, atualizar etc.) na unidade HLI.
+No momento da unidade HLI aprovisionamento, a equipe de operações do Microsoft instalar o sistema operativo. Ao longo do tempo, tem de manter o sistema operacional (exemplo: Aplicação de patches, otimização, atualizar etc.) na unidade HLI.
 
-Antes de lhe principais alterações para o sistema operativo (por exemplo, atualizar SP1 ou SP2), tem de contactar a equipa do Microsoft Operations ao abrir um pedido de suporte consultar.
+Principais alterações no sistema operativo (por exemplo, atualizar o SP1 ou SP2), tem de contactar a equipe do Microsoft Operations ao abrir um pedido de suporte consultar.
+
+Inclua no seu pedido de suporte:
+
+* O ID de subscrição de HLI.
+* O nome do servidor.
+* O nível de correção que pretende aplicar.
+* A data em que estiver a planear esta alteração. 
+
+Recomendamos que que abra este pedido de suporte, pelo menos, uma semana antes da data de atualização desejável devido a ter a equipe de operações a verificar se uma atualização de firmware será necessária no seu painel de servidor.
 
 
-Para a matriz de suporte de diferentes versões de SAP HANA com as diferentes versões de Linux, consulte [SAP nota #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+Para a matriz de suporte de diferentes versões do SAP HANA com diferentes versões do Linux, consulte [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
 Seguem-se alguns problemas conhecidos comuns durante a atualização:
-- Na classe de SKU tipo II SKU, o software foundation (SFS) é removido após a atualização de SO. Tem de reinstalar o SFS compatíveis após a atualização de SO.
-- Controladores de placa de Ethernet (ENIC e FNIC) revertido para a versão mais antiga. Tem de reinstalar a versão compatível dos controladores após a atualização.
+- Na classe de tipo II do SKU SKU, o software de base de software (SFS) é removido depois de atualizar o sistema operacional. Tem de reinstalar o SFS compatíveis depois de atualizar o sistema operacional.
+- Os controladores de smart de Ethernet (ENIC e FNIC) revertida para a versão mais antiga. Tem de reinstalar a versão compatível dos controladores após a atualização.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Consulte [cópia de segurança e restauro](hana-overview-high-availability-disaster-recovery.md) para o SO classe de tipo I SKU de cópia de segurança.
-- Consulte [cópia de segurança de SO para tipo II SKUs](os-backup-type-ii-skus.md) para a classe de tipo II SKU.
+- Consultar [Backup e restauração](hana-overview-high-availability-disaster-recovery.md) de SO de classe de tipo I SKU de cópia de segurança.
+- Consultar [cópia de segurança do SO para SKUs do tipo II](os-backup-type-ii-skus.md) para a classe de tipo II SKU.

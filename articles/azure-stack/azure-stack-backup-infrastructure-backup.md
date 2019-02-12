@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251304"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097390"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Cópia de segurança e recuperação de dados para o Azure Stack com o serviço de cópia de segurança da infraestrutura
 
@@ -52,12 +52,16 @@ Os serviços de contenham as seguintes funcionalidades.
   Precisa de uma partilha de ficheiros acessível a partir do Azure Stack que pode conter sete cópias de segurança. Cada cópia de segurança é cerca de 10 GB. A partilha deve ser capaz de armazenar 140 GB de cópias de segurança. Para obter mais informações sobre como selecionar uma localização de armazenamento para o serviço de cópia de segurança de infraestrutura do Azure Stack, veja [requisitos do controlador de cópia de segurança](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Credenciais**  
   Precisa de uma conta de utilizador de domínio e as credenciais, por exemplo, pode usar as credenciais de administrador do Azure Stack.
-- **Chave de encriptação**  
-  Ficheiros de cópia de segurança são encriptados com esta chave. Certifique-se armazenar esta chave numa localização segura. Depois de definir esta chave pela primeira vez ou rotação da chave no futuro, não pode ver esta chave a partir dessa interface. Para obter mais instruções gerar uma chave pré-partilhada, siga os scripts na [ativar cópia de segurança para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
+- **Certificado de encriptação**  
+  Ficheiros de cópia de segurança são encriptados utilizando a chave pública no certificado. Certifique-se armazenar este certificado numa localização segura. 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [ativar cópia de segurança para o Azure Stack a partir do portal de administração](azure-stack-backup-enable-backup-console.md).
-- Saiba como [ativar a cópia de segurança para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
-- Saiba como [cópia de segurança do Azure Stack](azure-stack-backup-back-up-azure-stack.md )
-- Saiba como [recuperar da perda catastrófica de dados](azure-stack-backup-recover-data.md)
+Saiba como [ativar cópia de segurança para o Azure Stack a partir do portal de administração](azure-stack-backup-enable-backup-console.md).
+
+Saiba como [ativar a cópia de segurança para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
+
+Saiba como [cópia de segurança do Azure Stack](azure-stack-backup-back-up-azure-stack.md )
+
+Saiba como [recuperar da perda catastrófica de dados](azure-stack-backup-recover-data.md)

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 49aa4751ce5e9b5addfc1b1d131d5287cce77154
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819098"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098617"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Início rápido: Atualizar uma aplicação no Azure Active Directory
 
@@ -144,7 +144,7 @@ Para obter mais informações sobre os conceitos do manifesto de aplicação em 
 
 Tal como foi dito anteriormente, para além de expor/aceder às APIs para as suas próprias aplicações, pode registar a aplicação cliente para aceder às APIs que são expostas pelos recursos da Microsoft. A Microsoft Graph API, referida como “Microsoft Graph” na lista de recursos/API do portal, está disponível para todas as aplicações registadas no Azure AD. Se estiver a registar a sua aplicação cliente num inquilino que tenha contas inscritas numa subscrição do Office 365, também pode aceder aos âmbitos expostos pelos vários recursos do Office 365.
 
-Para ver uma descrição completa dos âmbitos que a Microsoft Graph API expõe, veja o artigo [Microsoft Graph permissions reference](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) (Referência às permissões do Microsoft Graph).
+Para ver uma descrição completa dos âmbitos que a Microsoft Graph API expõe, veja o artigo [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference) (Referência às permissões do Microsoft Graph).
 
 > [!NOTE]
 > Devido a uma limitação atual, as aplicações cliente nativas só podem chamar a Azure AD Graph API se utilizarem a permissão “Aceder ao diretório da sua organização”. Esta restrição não se aplica às aplicações Web.

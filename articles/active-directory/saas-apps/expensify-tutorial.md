@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c31711b5b8972187449807fd2cc6ea750208e5d2
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453898"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integração do Active Directory do Azure com Expensify
 
@@ -104,9 +104,12 @@ Para configurar o Azure AD início de sessão único com Expensify, execute os s
 
     ![Expensify domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL: `https://www.expensify.com/authentication/saml/login`
+    a. Na **iniciar sessão no URL** caixa de texto, digite a URL usando o seguinte padrão: `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL: `https://www.expensify.com`
+
+    > [!NOTE]
+    > O valor do URL de início de sessão não é real. Atualize este valor com o início de sessão real no URL. Contacte [equipa de suporte de cliente Expensify](mailto:help@expensify.com) para obter este valor.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
@@ -125,18 +128,18 @@ Para configurar o Azure AD início de sessão único com Expensify, execute os s
 ### <a name="configure-expensify-single-sign-on"></a>Configurar Expensify início de sessão único
 
 Para ativar o SSO no Expensify, primeiro tem de ativar **controlo de domínio** no aplicativo. Pode ativar o controlo de domínio do aplicativo os passos listados [aqui](https://help.expensify.com/domain-control). Para obter suporte adicional, trabalhar com [equipa de suporte de cliente Expensify](mailto:help@expensify.com). Assim que tiver o controlo de domínio, siga estes passos:
-   
+
 ![Configurar o início de sessão único](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. Inicie sessão seu aplicativo Expensify.
-    
+
 2. No painel esquerdo, clique em **configurações** e navegue até à **SAML**.
-    
+
 3. Ativar/desativar a **início de sessão de SAML** opção como **ativado**.
-    
+
 4. Abrir os metadados de Federação transferido a partir do Azure AD no bloco de notas, copie o conteúdo e, em seguida, cole-o para o **metadados de fornecedor de identidade** caixa de texto.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
@@ -191,7 +194,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Expensify. Trabalhar com [equipa de suporte de cliente Expensify](mailto:help@expensify.com) para adicionar os utilizadores na plataforma Expensify.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -204,4 +207,3 @@ Quando clica no mosaico Expensify no painel de acesso, deve ser automaticamente 
 - [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
