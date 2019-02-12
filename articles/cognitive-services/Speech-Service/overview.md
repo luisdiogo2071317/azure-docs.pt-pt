@@ -98,7 +98,7 @@ Para obter mais informações sobre este cenário, leia mais sobre a [transcriç
 
 ### <a name="voice-bots"></a>Bots de voz
 
-Os [bots](https://dev.botframework.com/) são uma forma popular de ligar os utilizadores às informações que pretendem e os clientes às empresas favoritas. Ao adicionar uma interface de utilizador de conversação ao seu site ou aplicação facilita a localização da suas funcionalidades e torna o acesso às mesmas mais rápido. Com o serviço de Voz, esta conversação assume uma nova dimensão em termos de fluência ao responder a consultas faladas.
+Os [bots](https://dev.botframework.com/) são uma forma popular de ligar os utilizadores às informações que pretendem e os clientes às empresas favoritas. Ao adicionar uma interface de utilizador de conversação ao seu site ou aplicação facilita a localização da suas funcionalidades e torna o acesso às mesmas mais rápido. Com o serviço de Voz, esta conversa assume uma nova dimensão em termos de fluência ao responder a consultas faladas.
 
 Para adicionar uma personalidade única ao seu bot preparado para voz, pode dar-lhe uma voz própria. A criação de uma voz personalizada é um processo de dois passos. Em primeiro lugar, [faça gravações](record-custom-voice-samples.md) da voz que pretende utilizar. Em seguida, [submeta essas gravações](how-to-customize-voice-font.md) (juntamente com uma transcrição de texto) para o [portal de personalização de voz](https://cris.ai/Home/CustomVoice) do serviço de Voz, que fará o resto. Depois de criar a sua voz personalizada, os passos para utilizá-la na sua aplicação são simples.
 

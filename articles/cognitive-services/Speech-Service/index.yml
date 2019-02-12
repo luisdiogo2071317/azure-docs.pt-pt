@@ -10,7 +10,7 @@ title: Documentação dos Serviços de Voz
 metadata:
   title: Documentação dos Serviços de Voz - Tutoriais, inícios rápidos, referência da API
   titleSuffix: Azure Cognitive Services
-  description: Os Serviços de Voz permitem aos programadores adicionar com facilidade poderosas funcionalidades compatíveis com voz às aplicações. Os exemplos incluem o controlo e diálogo por comando de voz, conversações de discurso natural, transcrição e ditado de voz e tradução de voz.
+  description: Os Serviços de Voz permitem aos programadores adicionar com facilidade poderosas funcionalidades compatíveis com voz às aplicações. Os exemplos incluem o controlo e diálogo por comando de voz, conversa de discurso natural, transcrição e ditado de voz e tradução de voz.
   services: cognitive-services
   author: nitinme
   manager: cgronlun

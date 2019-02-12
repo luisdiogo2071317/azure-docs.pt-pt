@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55220268"
 ---
-# <a name="how-to-teach-with-conversation-learner"></a>Como ensinar com o Aprendiz de Conversação 
+# <a name="how-to-teach-with-conversation-learner"></a>Como ensinar com o Conversation Learner 
 
 Este documento explica o que sinaliza Aprendiz de conversação está ciente e descreve como aprende.  
 

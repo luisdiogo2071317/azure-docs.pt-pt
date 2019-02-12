@@ -1,8 +1,8 @@
 items:
-- name: Documentação do Aprendiz de Conversação
+- name: Documentação do Conversation Learner
 - name: Descrição geral
   items:
-  - name: O que é o Aprendiz de Conversação?
+  - name: O que é o Conversation Learner?
     href: overview.md
   - name: Linguagens suportadas
     href: languages-supported.md
@@ -15,7 +15,7 @@ items:
     href: cl-values-and-boundaries.md
 - name: Guias de procedimentos
   items:
-  - name: Introdução ao Aprendiz de Conversação
+  - name: Introdução ao Conversation Learner
     href: quickstart.md
   - name: Hello world
     href: tutorials/01-hello-world.md
@@ -57,15 +57,15 @@ items:
     href: tutorials/demo-password-reset.md
   - name: Demonstração - encomenda de piza
     href: tutorials/demo-pizza-order.md
-  - name: Implementar um bot do Aprendiz de Conversação
+  - name: Implementar um bot do Conversation Learner
     href: deploy-to-bf.md
-  - name: Como ensinar com o Aprendiz de Conversação
+  - name: Como ensinar com o Conversation Learner
     href: how-to-teach-cl.md
   - name: Como gerir dados de utilizadores
     href: managing-data.md
 - name: Recursos
   items:
-  - name: Bot de exemplo do Aprendiz de Conversação
+  - name: Bot de exemplo do Conversation Learner
     href: https://github.com/Microsoft/ConversationLearner-Samples
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/

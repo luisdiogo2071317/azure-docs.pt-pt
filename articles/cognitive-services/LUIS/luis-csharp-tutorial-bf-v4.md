@@ -177,7 +177,7 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
     }
     ```
 
-    O bot envia a expressão do utilizador ao LUIS e obtém os resultados. A intenção principal determina o fluxo de conversação. 
+    O bot envia a expressão do utilizador ao LUIS e obtém os resultados. A intenção principal determina o fluxo de conversa. 
 
 
 ## <a name="start-the-bot"></a>Iniciar o bot

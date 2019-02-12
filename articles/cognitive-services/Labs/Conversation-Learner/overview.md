@@ -1,5 +1,5 @@
 ---
-title: O que é o Aprendiz de Conversação? -Serviços cognitivos da Microsoft | Documentos da Microsoft
+title: O que é o Conversation Learner? -Serviços cognitivos da Microsoft | Documentos da Microsoft
 titleSuffix: Azure
 description: Saiba mais sobre o aprendiz de conversação e como ela funciona.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55221289"
 ---
-# <a name="what-is-conversation-learner"></a>O que é o Aprendiz de Conversação?
+# <a name="what-is-conversation-learner"></a>O que é o Conversation Learner?
 
 Aprendiz de conversação permite-lhe criar e ensinar interfaces conversacionais que aprender com as interações de exemplo. 
 

@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822634"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100803"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces do Microsoft Graph para as funções do Azure
 
@@ -670,7 +670,7 @@ Este enlace requer as seguintes permissões do Azure AD:
 
 O enlace expõe os seguintes tipos de funções de .NET:
 - byte[]
-- Transmissão
+- Transmitir em fluxo
 - cadeia
 - Microsoft.Graph.DriveItem
 
@@ -817,7 +817,7 @@ Este enlace requer as seguintes permissões do Azure AD:
 
 O enlace expõe os seguintes tipos de funções de .NET:
 - byte[]
-- Transmissão
+- Transmitir em fluxo
 - cadeia
 - Microsoft.Graph.DriveItem
 
@@ -982,7 +982,7 @@ Os Webhooks permitem-lhe reagir a eventos no Microsoft Graph. Para suportar webh
 - R [enlace de entrada de subscrição de webhook do Microsoft Graph](#webhook-input) permite-lhe listar as assinaturas existentes e, opcionalmente, atualizá-los.
 - R [enlace de saída de subscrição de webhook do Microsoft Graph](#webhook-output) permite-lhe criar ou eliminar subscrições de webhook.
 
-As associações propriamente ditas não exigem qualquer permissões do Azure AD, mas precisa solicitar permissões relevantes para o tipo de recurso que pretende reagir a. Para obter uma lista dos quais são necessárias permissões para cada tipo de recurso, consulte [permissões de subscrição](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
+As associações propriamente ditas não exigem qualquer permissões do Azure AD, mas precisa solicitar permissões relevantes para o tipo de recurso que pretende reagir a. Para obter uma lista dos quais são necessárias permissões para cada tipo de recurso, consulte [permissões de subscrição](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 Para obter mais informações sobre os webhooks, consulte [Trabalhar com webhooks no Microsoft Graph].
 

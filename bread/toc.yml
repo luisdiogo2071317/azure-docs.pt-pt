@@ -237,7 +237,7 @@ items:
     - name: Explorador de Anomalias
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
       topicHref: /azure/cognitive-services/labs/anomaly-finder/overview
-    - name: Aprendiz de Conversação
+    - name: Conversation Learner
       tocHref: /azure/cognitive-services/labs/conversation-learner/
       topicHref: /azure/cognitive-services/labs/conversation-learner/overview
     - name: Pré-visualização do URL

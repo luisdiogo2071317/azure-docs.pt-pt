@@ -950,7 +950,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/conversation-learner/overview">
                                                 <img src="media/index/API_Conversation_Learner.svg" alt="" />
-                                                <p>Aprendiz de Conversação</p>
+                                                <p>Conversation Learner</p>
                                             </a>
                                         </li>
                                         <li>

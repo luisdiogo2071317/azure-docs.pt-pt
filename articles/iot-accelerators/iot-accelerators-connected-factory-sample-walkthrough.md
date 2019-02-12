@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140405"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098311"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Instruções do acelerador de soluções de Fábrica Ligada
 
@@ -46,7 +46,7 @@ O diagrama que se segue descreve os componentes lógicos do acelerador de soluç
 
 A solução utiliza a [Especificação OPC UA Pub/Sub](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/) para enviar dados de telemetria de OPC UA para o Hub IoT no formato JSON. A solução utiliza o módulo do IoT Edge do [Publicador OPC](https://github.com/Azure/iot-edge-opc-publisher) para esta finalidade.
 
-A solução também tem um cliente de OPC UA integrado numa aplicação Web que pode estabelecer ligações com servidores OPC UA no local. O cliente utiliza um [proxy inverso](https://wikipedia.org/wiki/Reverse_proxy) e recebe ajuda a partir do Hub IoT para fazer a ligação sem necessidade de abrir portas na firewall no local. Este padrão de comunicação é denominado [comunicação auxiliada](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/). A solução utiliza o módulo de IoT Edge do [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) para esta finalidade.
+A solução também tem um cliente de OPC UA integrado numa aplicação Web que pode estabelecer ligações com servidores OPC UA no local. O cliente utiliza um [proxy inverso](https://wikipedia.org/wiki/Reverse_proxy) e recebe ajuda a partir do Hub IoT para fazer a ligação sem necessidade de abrir portas na firewall no local. Este padrão de comunicação é chamado de comunicação auxiliada. A solução utiliza o módulo de IoT Edge do [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy/) para esta finalidade.
 
 
 ## <a name="simulation"></a>Simulação
@@ -101,7 +101,7 @@ Atualmente, o TSI não permite aos clientes personalizar o quanto quiser manter 
 
 O TSI executa consultas em relação a dados do nó usando um baseados no tempo **SearchSpan** e agrega por **OPC UA ApplicationUri** ou **OPC UA NodeId** ou **DisplayName de OPC UA**.
 
-Para obter os dados para os medidores OEE e KPI e os gráficos de séries de tempo, a solução agrega dados pela contagem de eventos, **soma**, **média**, **Min**, e  **Máx**.
+Para obter os dados para os medidores OEE e KPI e os gráficos de séries de tempo, a solução agrega dados pela contagem de eventos, **soma**, **média**, **Min**, e  **Máx.**.
 
 As séries temporais são criadas com outro processo. A solução calcula os valores OEE e KPI dos dados de base de estação e são exibidos os valores para as linhas de produção, fábricas e enterprise.
 
