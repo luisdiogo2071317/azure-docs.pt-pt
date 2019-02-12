@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32f3f4fd3f4f299c9b084ab8604b56ea70e639a4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49b763cba505a3423b47e5a2601db53b8e47a5fe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368233"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993980"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteger o seu HLS conteúdo com o Apple FairPlay ou o Microsoft PlayReady
 Serviços de multimédia do Azure permite-lhe encriptar dinamicamente o seu conteúdo de HTTP Live Streaming (HLS), utilizando os seguintes formatos:  
@@ -54,7 +54,7 @@ Este artigo demonstra como utilizar os serviços de multimédia para encriptar d
 
 Os seguintes procedimentos tem de ser definidos no lado de entrega de chave de serviços de multimédia:
 
-  * **Certificado da aplicação (CA)**: Este é um ficheiro. pfx que contém a chave privada. Pode criar este ficheiro e criptografá-la com uma palavra-passe.
+  * **Certificado de aplicação (CA)**: Este é um ficheiro. pfx que contém a chave privada. Pode criar este ficheiro e criptografá-la com uma palavra-passe.
 
        Ao configurar uma política de entrega de chave, tem de fornecer essa palavra-passe e o ficheiro. pfx no formato Base64.
 
@@ -70,14 +70,14 @@ Os seguintes procedimentos tem de ser definidos no lado de entrega de chave de s
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **Palavra-passe do certificado de aplicação**: A palavra-passe para criar o ficheiro. pfx.
-  * **ID de palavra-passe do certificado de aplicação**: tem de carregar a palavra-passe, semelhante a como eles carregam outras chaves de serviços de multimédia. Utilize o **ContentKeyType.FairPlayPfxPassword** valor de enumeração para obter o ID de serviços de suporte de dados Este é o que precisam de utilizar dentro da opção de política de entrega de chave.
-  * **IV**: Este é um valor aleatório de 16 bytes. Tem de corresponder o iv na política de entrega de elementos. Gerar o iv e colocá-lo em ambos os locais: a política de entrega de elementos e a opção de política de entrega de chave.
-  * **PEDIR**: esta chave é recebida quando gera a certificação com o portal de programador da Apple. Cada equipe de desenvolvimento recebe um ASK exclusivo. Guardar uma cópia do ASK e armazene-o num local seguro. Tem de configurar ASK como FairPlayAsk para serviços de multimédia mais tarde.
-  * **PEDIR ID**: este ID é obtido ao carregar ASK para os serviços multimédia. Tem de carregar ASK utilizando o **ContentKeyType.FairPlayAsk** valor de enumeração. Como resultado, o ID de serviços de multimédia é devolvido e, este é o que deve ser utilizado ao definir a opção de política de entrega de chave.
+  * **ID de palavra-passe do certificado de aplicação**: Tem de carregar a palavra-passe, semelhante a como eles carregam outras chaves de serviços de multimédia. Utilize o **ContentKeyType.FairPlayPfxPassword** valor de enumeração para obter o ID de serviços de suporte de dados Este é o que precisam de utilizar dentro da opção de política de entrega de chave.
+  * **iv**: Este é um valor aleatório de 16 bytes. Tem de corresponder o iv na política de entrega de elementos. Gerar o iv e colocá-lo em ambos os locais: a política de entrega de elementos e a opção de política de entrega de chave.
+  * **ASK**: Esta chave é recebida quando gera a certificação com o portal de programador da Apple. Cada equipe de desenvolvimento recebe um ASK exclusivo. Guardar uma cópia do ASK e armazene-o num local seguro. Tem de configurar ASK como FairPlayAsk para serviços de multimédia mais tarde.
+  * **PEDIR ID**: Este ID é obtido ao carregar ASK para os serviços multimédia. Tem de carregar ASK utilizando o **ContentKeyType.FairPlayAsk** valor de enumeração. Como resultado, o ID de serviços de multimédia é devolvido e, este é o que deve ser utilizado ao definir a opção de política de entrega de chave.
 
 Os seguintes procedimentos tem de ser definidos pelo lado do cliente FPS:
 
-  * **Certificado da aplicação (CA)**: Este é um ficheiro de.cer/.der que contém a chave pública, o que o sistema operativo utiliza para criptografar alguns payload. Serviços de multimédia precisa saber sobre isso, porque é necessário pelo jogador. O serviço de entrega de chave descriptografa-lo com a chave privada correspondente.
+  * **Certificado de aplicação (CA)**: Este é um ficheiro de.cer/.der que contém a chave pública, o que o sistema operativo utiliza para criptografar alguns payload. Serviços de multimédia precisa saber sobre isso, porque é necessário pelo jogador. O serviço de entrega de chave descriptografa-lo com a chave privada correspondente.
 
 Para reproduzir um fluxo encriptado de FairPlay, obtenha respostas fazem real primeiro e, em seguida, gerar um certificado real. Esse processo cria todas as três partes:
 
@@ -138,9 +138,9 @@ As seguintes considerações aplicam-se:
 * O tipo de encriptação não tem de ser especificado no URL, se apenas uma encriptação foi aplicada ao elemento.
 * O tipo de encriptação diferencia maiúsculas de minúsculas.
 * Os seguintes tipos de encriptação podem ser especificados:  
-  * **cenc**: encriptação comum (PlayReady ou Widevine)
+  * **cenc**:  Encriptação comum (PlayReady ou Widevine)
   * **cbcs-aapl**: FairPlay
-  * **CBC**: encriptação de envelope AES
+  * **cbc**: Encriptação AES de envelope
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
 
@@ -550,7 +550,7 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
-## <a name="next-steps-media-services-learning-paths"></a>Passos seguintes: percursos de aprendizagem dos Media Services
+## <a name="next-steps-media-services-learning-paths"></a>Passos seguintes: Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários

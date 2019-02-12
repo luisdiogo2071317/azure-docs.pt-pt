@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd680f24eafe61bc73fa6eb91df4b4dfa5f5399b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 24f725f7b83c4f043ec2b977917d5bb09665c96d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073434"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990330"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Conceder acesso de aplicações de vários para um cofre de chaves
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Política de controlo de acesso pode ser utilizada para conceder acesso de aplicações de vários para um cofre de chaves. Uma política de controlo de acesso pode suportar até aplicativos de 1024 e está configurada da seguinte forma:
 
@@ -28,12 +30,16 @@ Política de controlo de acesso pode ser utilizada para conceder acesso de aplic
 2. Adicione que todos dos aplicativos associados principais de serviço para o grupo de segurança.
 3. Conceda o acesso de grupo de segurança ao Cofre de chaves.
 
-Seguem-se a pré-requisitos:
-* [Instalar o módulo do Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureAD).
-* [Instalar o Azure PowerShell](/powershell/azure/overview).
-* Para executar os seguintes comandos, precisa de permissões para criar/editar grupos no inquilino do Azure Active Directory. Se não tiver permissões, poderá ter de contactar o administrador do Azure Active Directory. Ver [sobre o Azure Key Vault chaves, segredos e certificados](about-keys-secrets-and-certificates.md) para obter detalhes sobre o Key Vault permissões de política de acesso.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Agora, execute os seguintes comandos do PowerShell:
+Seguem-se os pré-requisitos:
+* [Instalar o Azure PowerShell](/powershell/azure/overview).
+* [Instalar o módulo Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureAD).
+* Permissões para criar/editar grupos no inquilino do Azure Active Directory. Se não tiver permissões, poderá ter de contactar o administrador do Azure Active Directory. Ver [sobre o Azure Key Vault chaves, segredos e certificados](about-keys-secrets-and-certificates.md) para obter detalhes sobre o Key Vault permissões de política de acesso.
+
+## <a name="granting-key-vault-access-to-applications"></a>Conceder acesso do Cofre de chaves para aplicações
+
+Execute os seguintes comandos do PowerShell:
 
 ```powershell
 # Connect to Azure AD 
@@ -49,7 +55,7 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
+Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
 -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
 –PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
 –PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `

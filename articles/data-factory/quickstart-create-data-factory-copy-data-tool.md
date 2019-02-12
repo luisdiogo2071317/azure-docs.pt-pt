@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
-ms.translationtype: HT
+ms.openlocfilehash: 6ff264c079ef5ee18258c3cd136cf441dc33e299
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017812"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992760"
 ---
-# <a name="use-the-copy-data-tool-to-copy-data"></a>Utilizar a ferramenta Copiar Dados para copiar dados 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Utilizar a ferramenta Copiar Dados para copiar dados
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-copy-data-tool.md)
 
@@ -132,5 +133,5 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
 1. Mude para o separador **Criar** acima do **Monitor** no painel esquerdo, para que possa editar os serviços ligados, conjuntos de dados e pipelines. Para saber mais sobre a edição dos mesmos na IU do Data Factory, consulte [Criar uma fábrica de dados através do portal do Azure](quickstart-create-data-factory-portal.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de Blobs do Azure. Para saber como utilizar o Data Factory em mais cenários, aceda aos [tutoriais](tutorial-copy-data-portal.md). 

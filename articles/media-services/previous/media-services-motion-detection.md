@@ -4,21 +4,21 @@ description: O processador de multimédia detetor de movimento de suporte de dad
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820976"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995617"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detetar movimentos com análise de multimédia do Azure
 ## <a name="overview"></a>Descrição geral
@@ -39,7 +39,7 @@ Ao criar uma tarefa com **detetor de movimento de suporte de dados do Azure**, t
 ### <a name="parameters"></a>Parâmetros
 Pode utilizar os seguintes parâmetros:
 
-| Nome | Opções | Descrição | Predefinição |
+| Name | Opções | Descrição | Predefinição |
 | --- | --- | --- | --- |
 | sensitivityLevel |String:'low', 'medium', 'high' |Define a sensibilidade de nível no qual propostas são comunicadas. Ajuste esta opção para ajustar o número de falsos positivos. |'medium' |
 | frameSamplingValue |número inteiro positivo |Define a frequência no qual o algoritmo é executado. cada quadro de igual a 1, 2 significa que cada quadro segunda e assim por diante. |1 |
@@ -103,7 +103,7 @@ A tabela seguinte descreve os elementos do ficheiro de saída JSON.
 | Duração |O comprimento do evento, em "ticks". |
 | Intervalo |O intervalo de cada entrada no evento, em "ticks". |
 | Eventos |Cada fragmento de evento contém o motion detetado dentro desse período de tempo. |
-| Tipo |Na versão atual, isso é sempre "2" para o movimento genérico. Isto dá a etiqueta as APIs de vídeo a flexibilidade para categorizar o motion em futuras versões. |
+| Type |Na versão atual, isso é sempre "2" para o movimento genérico. Isto dá a etiqueta as APIs de vídeo a flexibilidade para categorizar o motion em futuras versões. |
 | RegionID |Tal como explicado anteriormente, isso será sempre 0 nesta versão. Esta etiqueta proporciona a flexibilidade para localizar o movimento em várias regiões em futuras versões de API de vídeo. |
 | Regiões |Refere-se para a área no seu vídeo em que se preocupa motion. <br/><br/>-o "id" representa a área de região – nesta versão existe apenas um, ID de 0. <br/>-"tipo" representa a forma da região que mais lhe interessa para movimento. Atualmente, são suportados "retângulo" e "polígono".<br/> Se tiver especificado "retângulo", a região tem dimensões no X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY esquerdas superiores da região numa escala normalizada de 0,0 a 1,0. A largura e altura representam o tamanho da região numa escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixa em 0, 0 e 1, 1. <br/>Se tiver especificado "polígono", a região tem dimensões em pontos. <br/> |
 | Fragmentos |Os metadados é segmentado cópias em diferentes segmentos chamados fragmentos. Cada fragmento contém um início, duração, número de intervalos e evento(s). Um fragmento com nenhum evento significa que não foi detetado o movimento de durante essa hora de início e a duração. |

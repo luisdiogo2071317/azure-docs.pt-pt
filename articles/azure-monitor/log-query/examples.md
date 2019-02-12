@@ -1,6 +1,6 @@
 ---
-title: Exemplos de consulta do Log Analytics do Azure Monitor | Documentos da Microsoft
-description: Exemplos de consultas no Log Analytics com o idioma de Kusto.
+title: Exemplos de consulta do log de Monitor do Azure Monitor do Azure | Documentos da Microsoft
+description: Exemplos de consultas de registo no Azure Monitor utilizando a linguagem de consulta do Data Explorer.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883106"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993202"
 ---
-# <a name="log-analytics-query-examples"></a>Exemplos de consulta de análise de registo
-Este artigo inclui vários exemplos de [consultas](../../azure-monitor/log-query/log-query-overview.md) utilizando o [linguagem de Kusto](https://docs.microsoft.com/azure/kusto/query/) para recuperar os diferentes tipos de dados do Log Analytics. Métodos diferentes são utilizados para consolidar e analisar os dados, pelo que pode utilizar estes exemplos para identificar estratégias diferentes que poderia usar em seus próprios requisitos.  
+# <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de registo do Azure Monitor
+Este artigo inclui vários exemplos de [consultas](log-query-overview.md) utilizando o [linguagem de consulta do Data Explorer](https://docs.microsoft.com/azure/kusto/query/) para recuperar os diferentes tipos de dados de registo do Azure Monitor. Métodos diferentes são utilizados para consolidar e analisar os dados, pelo que pode utilizar estes exemplos para identificar estratégias diferentes que poderia usar em seus próprios requisitos.  
 
-Consulte a [referência de linguagem de Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Aceda através de um [lição sobre a criação de consultas](get-started-queries.md) se estiver familiarizado com o Log Analytics.
+Consulte a [referência de linguagem de Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Aceda através de um [lição sobre a criação de consultas](get-started-queries.md) se estiver familiarizado com o Azure Monitor.
 
 ## <a name="events"></a>Eventos
 
@@ -440,4 +440,4 @@ Update
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte a [referência de linguagem de Kusto](/azure/kusto/query) para obter detalhes sobre a linguagem.
-- Percorrer um [lição sobre como escrever consultas do Log Analytics](get-started-queries.md).
+- Percorrer um [lição sobre como escrever consultas de registo no Azure Monitor](get-started-queries.md).

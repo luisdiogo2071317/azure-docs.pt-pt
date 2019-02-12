@@ -3,21 +3,23 @@ title: Governação da infraestrutura do Azure DevTest Labs
 description: Este artigo fornece orientações de governação da infraestrutura do Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
 manager: femila
+editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: e0813fd1c543f883dfb4deee630be54bd7e383b9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498204"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994511"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governação da infraestrutura do Azure DevTest Labs - integração e migração de aplicativos
 Assim que o seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecida, precisa pensar sobre as seguintes perguntas:

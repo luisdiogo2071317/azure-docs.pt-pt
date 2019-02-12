@@ -4,7 +4,7 @@ description: Este artigo descreve como pode utilizar o Azure Media Services (AMS
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 02/08/2019
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: d269818e82261c51b63379bb41f69efdc21de18a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ae9a8873be3fbd3cead23e27e80931f78ea57eb4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191263"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992543"
 ---
-# <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure
+# <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilização do Axinom para entregar licenças de Widevine para Serviços de Multimédia do Azure 
 > [!div class="op_single_selector"]
 > * [castLabs](media-services-castlabs-integration.md)
 > * [Axinom](media-services-axinom-integration.md)
@@ -179,7 +179,7 @@ Obviamente, existem várias formas de obter espera da chave de ID. Por exemplo, 
 Com mais recente adição de suporte do Widevine na proteção de conteúdo do serviços de multimédia do Azure e o leitor de multimédia do Azure, somos capazes de implementar a transmissão em fluxo DASH + várias-native multi-DRM (PlayReady + Widevine), com ambos os serviços de licença PlayReady na licença do AMS e o Widevine servidor do Axinom para os seguintes browsers modernos:
 
 * Chrome
-* Microsoft Edge no Windows 10
+* Microsoft Edge on Windows 10
 * IE 11 no Windows 8.1 e Windows 10
 * (Ambiente de trabalho) do Firefox e Safari no Mac (não iOS) também são suportados através do Silverlight e o mesmo URL com o leitor de multimédia do Azure
 

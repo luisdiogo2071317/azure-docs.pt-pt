@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c02d3483a98c358e53964d3932944b5d2dad9c53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240278"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998218"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Descrição geral e comparação do Azure no codificadores de multimédia a pedido
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Descrição geral e comparação do Azure no codificadores de multimédia a pedido (Legado)
+
 ## <a name="encoding-overview"></a>Descrição geral da codificação
 Serviços de multimédia do Azure fornece várias opções para a codificação de multimédia na cloud.
 

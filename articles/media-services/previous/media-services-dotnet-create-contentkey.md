@@ -1,10 +1,10 @@
 ---
 title: Criar ContentKeys com .NET
-description: Saiba como criar chaves conteúdas que fornecem acesso seguro a recursos.
+description: Saiba como criar chaves de conteúdo que fornecem acesso seguro aos recursos.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
@@ -12,32 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 53df4c4cef19f6eef99aa15bb265317aa0cd1d58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: af8c2b547e1ce1b15410ee20eb59934559ac41ac
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788187"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992165"
 ---
-# <a name="create-contentkeys-with-net"></a>Criar ContentKeys com .NET
+# <a name="create-contentkeys-with-net-legacy"></a>Criar ContentKeys com .NET (Legado)
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
 
-Os Media Services permite-lhe criar e fornecer recursos encriptados. A **ContentKey** proporciona acesso seguro ao seu **Asset**s. 
+Serviços de multimédia permite-lhe criar e fornecer recursos encriptados. R **ContentKey** proporciona acesso seguro ao seu **Asset**s. 
 
-Quando cria um novo elemento (por exemplo, antes de [carregar ficheiros](media-services-dotnet-upload-files.md)), pode especificar as seguintes opções de encriptação: **StorageEncrypted**, **CommonEncryptionProtected**, ou **EnvelopeEncryptionProtected**. 
+Quando cria um novo recurso (por exemplo, antes de [carregar ficheiros](media-services-dotnet-upload-files.md)), pode especificar as seguintes opções de encriptação: **StorageEncrypted**, **CommonEncryptionProtected**, ou **EnvelopeEncryptionProtected**. 
 
-Quando fornecer recursos aos seus clientes, pode [configurar para ativos seja encriptado dinamicamente](media-services-dotnet-configure-asset-delivery-policy.md) com um da encriptação duas das seguintes: **DynamicEnvelopeEncryption** ou  **DynamicCommonEncryption**.
+Quando fornecer recursos aos seus clientes, pode [configurar para ativos seja encriptado dinamicamente](media-services-dotnet-configure-asset-delivery-policy.md) com um das duas encriptações seguintes: **DynamicEnvelopeEncryption** ou **DynamicCommonEncryption**.
 
-Ativos encriptados têm de ser associado **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
+Ativos encriptados têm de ser associados **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 
 > [!NOTE]
-> Quando criar um novo **StorageEncrypted** elemento utilizando o SDK .NET de Media Services, o **ContentKey** é automaticamente criado e ligado com o elemento.
+> Ao criar um novo **StorageEncrypted** asset utilizando o SDK de .NET de serviços de suporte de dados, o **ContentKey** é automaticamente criado e está associado ao recurso.
 > 
 > 
 
@@ -70,8 +70,8 @@ Um dos valores que tem de definir quando criar um conteúdo chave é o tipo de c
     }
 ```
 
-## <a id="envelope_contentkey"></a>Criar o tipo de envelope ContentKey
-O fragmento de código seguinte cria uma chave de conteúdo do tipo de encriptação envelope. Em seguida, associa a chave com o elemento especificado.
+## <a id="envelope_contentkey"></a>Criar tipo de envelope ContentKey
+O fragmento de código seguinte cria uma chave de conteúdo do tipo de encriptação de envelope. Em seguida, associa a chave com o elemento especificado.
 
 ```csharp
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)

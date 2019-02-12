@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7b944d387d26f7cee769d765077b8d90e1f6e5b5
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 5e7fa81330c0f1f0e44a423f3e2fa42b1a91c119
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981167"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990092"
 ---
-# <a name="create-an-azure-media-services-account-using-the-azure-portal-legacy"></a>Criar uma conta de Media Services do Azure com o portal do Azure (Legado)
+# <a name="create-a-media-services-account-using-the-azure-portal"></a>Criar uma conta de serviços de multimédia com o portal do Azure
 
 O portal do Azure proporciona uma forma para criar rapidamente uma conta dos Serviços de Multimédia do Azure (AMS). Pode utilizar a sua conta para aceder aos Media Services que permitem armazenar, encriptar, codificar, gerir e transmitir conteúdo no Azure. No momento em que cria uma conta de Media Services, também criar uma conta do storage associada (ou utilize um já existente). Se eliminar uma conta de Media Services, os blobs na sua conta do Storage relacionada não são eliminados.
 

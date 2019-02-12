@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 48180d4a9dcf7219815b5bc397647d7d97467cf7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961793"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992131"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>escalões de serviço de vCore, o benefício híbrido do Azure e migração
 
@@ -29,7 +29,7 @@ O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computa�
 Hardware de Gen4 oferece substancialmente mais memória por vCore. No entanto, o Gen5 hardware permite-lhe aumentar verticalmente os recursos de computação muito superiores.
 
 > [!NOTE]
-> Para obter informações sobre escalões de serviço baseado em DTU, consulte [escalões de serviço baseado em DTU](sql-database-service-tiers-dtu.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-service-tiers.md).
+> Para obter informações sobre escalões de serviço baseado em DTU, consulte [escalões de serviço baseado em DTU](sql-database-service-tiers-dtu.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Características de camada de serviço
 

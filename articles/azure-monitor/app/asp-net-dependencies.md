@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d86df171de807c23aad6dd2cb8e2128098dede81
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 880b4e4ce09fec3caf70586c2cfb54236d13b668
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812473"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996309"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configure o Application Insights: Rastreamento de dependências
 R *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado através de HTTP, ou uma base de dados ou um sistema de ficheiros. [O Application Insights](../../azure-monitor/app/app-insights-overview.md) mede o tempo que o aplicativo aguardará dependências e a frequência com que uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
@@ -133,7 +133,7 @@ Clicar para uma ocorrência de um pedido falhado e examinar seus eventos associa
 ![Clique num tipo de pedido, clique na instância para obter uma exibição diferente da instância do mesmo, clique nele para obter detalhes da exceção.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Análise
-Pode controlar as dependências no [linguagem de consulta do Log Analytics](https://aka.ms/LogAnalyticsLanguage). Eis alguns exemplos.
+Pode controlar as dependências no [linguagem de consulta do Data Explorer](https://aka.ms/LogAnalyticsLanguage). Eis alguns exemplos.
 
 * Encontre quaisquer chamadas de dependência falhadas:
 

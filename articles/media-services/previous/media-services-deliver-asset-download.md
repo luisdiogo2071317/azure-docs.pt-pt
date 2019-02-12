@@ -1,10 +1,10 @@
 ---
-title: Transferir ativos de Media Services para o seu computador - Azure | Microsoft Docs
-description: Saiba mais sobre a transferir recursos para o seu computador. Exemplos de código são escritos em c# e utilizam o SDK de Media Services para .NET.
+title: Transfira recursos dos serviços de suporte de dados para o computador - Azure | Documentos da Microsoft
+description: Saiba mais sobre download ativos para o seu computador. Exemplos de código são escritos em C# e utilizar o SDK de Media Services para .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed53fe191dcf740f949b2d9cdcc3c97e30d85544
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788229"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993117"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>Como: fornecer um recurso por transferência
-Este artigo aborda as opções de entrega de recursos de suporte de dados carregados nos serviços de suporte de dados. Pode fornecer conteúdo de serviços de suporte de dados em vários cenários de aplicação. Depois da codificação, transferir os recursos de suporte de dados gerado ou aceder às mesmas através da utilização de um localizador de transmissão em fluxo. Para um melhor desempenho e escalabilidade, pode também de fornecer conteúdo utilizando uma rede de entrega de conteúdos (CDN).
+# <a name="how-to-deliver-an-asset-by-download"></a>Como: Entregar um recurso por transferência  
+Este artigo discute as opções para fornecer recursos de suporte de dados carregados nos serviços de multimédia. Pode entregar conteúdo de serviços de multimédia em vários cenários de aplicativos. Depois de codificação, baixe os ativos de mídia gerado ou aceder-lhes com um localizador de transmissão em fluxo. Para melhor desempenho e escalabilidade, também pode publicar conteúdo através de uma rede de entrega de conteúdos (CDN).
 
-Este exemplo mostra como transferir os recursos de suporte de dados dos serviços de suporte de dados para o seu computador local. O código de consulta de tarefas associadas à conta de Media Services ao ID da tarefa e acede a **OutputMediaAssets** coleção (que é o conjunto de um ou mais recursos de suporte de dados de saída que resulta da executar uma tarefa). Este exemplo mostra como transferir a recursos de suporte de dados de saída de uma tarefa, mas pode aplicar a mesma abordagem para transferir os outros recursos.
+Este exemplo mostra como transferir os ativos de mídia dos serviços de multimédia para o computador local. O código consulta as tarefas associadas à conta dos serviços de multimédia pelo ID da tarefa e de acessos ao seu **OutputMediaAssets** coleção (que é o conjunto de um ou mais recursos de suporte de dados de saída que resulta da execução de uma tarefa). Este exemplo mostra como transferir os recursos de suporte de dados de saída de uma tarefa, mas pode aplicar a mesma abordagem para transferir os outros ativos.
 
 >[!NOTE]
->Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Se estiver a utilizar sempre os mesmos dias / as permissões de acesso, por exemplo, políticas para os localizadores destinadas a permanecem no local durante muito tempo (carregamento não políticas), utilize o mesmo ID de política. Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
+>Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Utilize o mesmo ID de política se estiver a utilizar sempre os mesmos dias / permissões, por exemplo, políticas para localizadores que pretendam permanecem em vigor durante muito tempo (políticas de não carregamento) de acesso. Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 ```csharp
     // Download the output asset of the specified job to a local folder.
@@ -88,5 +88,5 @@ Este exemplo mostra como transferir os recursos de suporte de dados dos serviço
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consultar Também
-[Distribuir os conteúdos de transmissão em fluxo](media-services-deliver-streaming-content.md)
+[Fornecer conteúdo de transmissão em fluxo](media-services-deliver-streaming-content.md)
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018718"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998625"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Descrição geral do Application Gateway health monitorização
 
@@ -27,7 +27,7 @@ Além de utilizar a monitorização de sonda de estado de funcionamento do prede
 
 Um gateway de aplicação configura automaticamente uma sonda de estado de funcionamento predefinida quando não configurada qualquer configuração de sonda personalizada. O comportamento de monitorização funciona fazendo uma solicitação HTTP para os endereços IP configurados para o conjunto de back-end. Para sondas padrão se as definições de http de back-end estão configuradas para HTTPS, a sonda utiliza HTTPS também para testar o estado de funcionamento dos back-ends.
 
-Por exemplo: configurar o gateway de aplicação para utilizar servidores de back-end A, B e C para receber o tráfego de rede HTTP na porta 80. A monitorização de estado de funcionamento de predefinição testa os três servidores a cada 30 segundos para uma resposta HTTP em bom estado. Uma bom estado de funcionamento resposta HTTP tem um [código de estado](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
+Por exemplo: Configurar o gateway de aplicação para utilizar servidores de back-end A, B e C para receber o tráfego de rede HTTP na porta 80. A monitorização de estado de funcionamento de predefinição testa os três servidores a cada 30 segundos para uma resposta HTTP em bom estado. Uma bom estado de funcionamento resposta HTTP tem um [código de estado](https://msdn.microsoft.com/library/aa287675.aspx) entre 200 e 399.
 
 Se falhar a verificação de sonda de padrão para o servidor A, o gateway de aplicação remove-o do seu conjunto de back-end e deixa de tráfego de rede que fluem para este servidor. A sonda predefinida ainda continua a verificar a existência de servidor um cada 30 segundos. Quando o servidor A responde com êxito a uma solicitação de uma sonda de estado de funcionamento predefinida, é adicionado novamente como bom estado de funcionamento para o conjunto de back-end e o tráfego começar a fluir para o servidor novamente.
 
@@ -44,7 +44,7 @@ Critérios de correspondência podem ser especificados utilizando o `New-AzureRm
 
 Por exemplo:
 
-```
+```powershell
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
@@ -52,7 +52,7 @@ Assim que os critérios de correspondência for especificado, pode ser anexado a
 
 ### <a name="default-health-probe-settings"></a>Predefinições de sonda de estado de funcionamento
 
-| Propriedade de pesquisa | Valor | Descrição |
+| Propriedade de pesquisa | Value | Descrição |
 | --- | --- | --- |
 | URL de Pesquisa |http://127.0.0.1:\<port\>/ |Caminho do URL |
 | Intervalo |30 |A quantidade de tempo em segundos a aguardar antes da próxima sonda de estado de funcionamento é enviada.|
@@ -80,7 +80,7 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de esta
 
 | Propriedade de pesquisa | Descrição |
 | --- | --- |
-| Nome |Nome da sonda. Este nome é utilizado para fazer referência a sonda nas definições de HTTP de back-end. |
+| Name |Nome da sonda. Este nome é utilizado para fazer referência a sonda nas definições de HTTP de back-end. |
 | Protocolo |Protocolo utilizado para enviar a sonda. A sonda utiliza o protocolo definido nas definições de HTTP de back-end |
 | Anfitrião |Nome de anfitrião para enviar a sonda. Aplicável apenas quando vários sites está configurada no Gateway de aplicação, caso contrário, utilize "127.0.0.1". Este valor é diferente do nome de anfitrião VM. |
 | Caminho |Caminho relativo da sonda. O caminho válido começa com "/". |

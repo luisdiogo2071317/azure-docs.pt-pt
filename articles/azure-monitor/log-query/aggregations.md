@@ -1,6 +1,6 @@
 ---
-title: As agregações em consultas do Log Analytics do Azure | Documentos da Microsoft
-description: Descreve as funções de agregação em consultas do Log Analytics que oferecem formas úteis de analisar os seus dados.
+title: Consultas de registo de agregações no Azure Monitor | Documentos da Microsoft
+description: Descreve as funções de agregação em consultas de registo do Azure Monitor que oferecem formas úteis de analisar os seus dados.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185754"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000852"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Agregações em consultas do Log Analytics
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações em consultas de registo do Azure Monitor
 
 > [!NOTE]
 > Deve efetuar [começar com o portal do Analytics](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve as funções de agregação em consultas do Log Analytics que oferecem formas úteis de analisar os seus dados. Estas funções todos os funcionam com o `summarize` operador que produz uma tabela com os resultados agregados da tabela de entrada.
+Este artigo descreve as funções de agregação em consultas de registo do Azure Monitor que oferecem formas úteis de analisar os seus dados. Estas funções todos os funcionam com o `summarize` operador que produz uma tabela com os resultados agregados da tabela de entrada.
 
 ## <a name="counts"></a>Contagens
 
@@ -61,7 +61,7 @@ O resultado deste exemplo mostra o trendline de contagem de registos de desempen
 ![Tendência de contagem](media/aggregations/count-trend.png)
 
 
-### <a name="dcount-dcountif"></a>DCount, dcountif
+### <a name="dcount-dcountif"></a>dcount, dcountif
 Uso `dcount` e `dcountif` para contar valores distintos numa coluna específica. A consulta seguinte avalia como quantos computadores distintos enviam heartbeats na última hora:
 
 ```Kusto
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Consulte outras lições para utilizar a linguagem de consulta do Log Analytics:
+Consulte outras lições para utilizar o [linguagem de consulta do Data Explorer](/azure/kusto/query/) com o Azure Monitor registos de dados:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

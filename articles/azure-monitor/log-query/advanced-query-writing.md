@@ -1,6 +1,6 @@
 ---
-title: Avançadas consultas no Log Analytics do Azure | Documentos da Microsoft
-description: Este artigo fornece um tutorial para utilizar o portal de análise para escrever consultas do Log Analytics.
+title: Avançadas consultas no Azure Monitor do Azure | Documentos da Microsoft
+description: Este artigo fornece um tutorial para utilizar o portal de análise para escrever consultas no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191551"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993219"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Escrever avançadas consultas do Log Analytics
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever avançadas consultas no Azure Monitor
 
 > [!NOTE]
-> Deve efetuar [começar com o portal do Analytics](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
+> Deve efetuar [começar com o log analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras lições para utilizar a linguagem de consulta do Log Analytics:
+Consulte outras lições para utilizar o [linguagem de consulta do Data Explorer](/azure/kusto/query/) com o Azure Monitor registos de dados:
 
 - [Operações de cadeia de caracteres](string-operations.md)
 - [Operações de data e hora](datetime-operations.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883403"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990433"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics
 O log Analytics utilizado inicialmente o seu próprio portal chamado no portal do OMS para gerir a sua configuração e analisar os dados recolhidos.  Toda a funcionalidade deste portal foi movida para o portal do Azure onde irá continuar a ser desenvolvidas.
@@ -105,7 +105,7 @@ Gerir a maioria das definições de dados na **definições avançadas** menu pa
 Gerir soluções na **soluções** menu para a área de trabalho. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Como instalar e remover soluções de gestão?
-No portal do OMS, instalar soluções de gestão a partir da Galeria de soluções e removido-los a partir **definições**. No portal do Azure, [instalar soluções de gestão](../insights/solutions.md#install-a-management-solution) no Azure Marketplace. [Remover soluções](../insights/solutions.md#remove-a-management-solution) na lista de soluções instaladas.
+No portal do OMS, instalar soluções de gestão a partir da Galeria de soluções e removido-los a partir **definições**. No portal do Azure, [instalar soluções de gestão](../insights/solutions.md#install-a-monitoring-solution) no Azure Marketplace. [Remover soluções](../insights/solutions.md#remove-a-monitoring-solution) na lista de soluções instaladas.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Como criar e gerir alertas
 Regras de alerta com base em consultas do Log Analytics são agora geridas na [unified a experiência de alertas](../../azure-monitor/platform/alerts-metric.md). Ver [como expandir alertas do Log Analytics para alertas do Azure](../../azure-monitor/platform/alerts-extend-tool.md) para obter detalhes sobre como configurar e utilizar alertas no portal do Azure.

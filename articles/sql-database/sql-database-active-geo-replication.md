@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 0c574aab722cdce91cd5a2569c14c4f1710483ed
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/08/2019
+ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965227"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995070"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Criar legíveis bases de dados secundárias com georreplicação ativa
 
@@ -102,7 +102,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Tamanho de computação configuráveis do banco de dados secundário**
 
-  Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que essa base de dados secundária é criada com o mesmo tamanho de computação (DTUs ou vCores) como principal. Uma secundária com tamanho inferior de computação está em risco de um atraso de replicação maior, indisponibilidade potencial de secundário e, consequentemente, um risco de perda de dados substancial após uma ativação pós-falha. Como resultado, o RPO publicado = 5 s não pode ser garantida. O risco de outro é que após a ativação pós-falha do desempenho do aplicativo será afetado devido à falta de capacidade de computação da nova principal até que ele é atualizado para um tamanho de computação mais elevado. A hora da atualização depende do tamanho de base de dados. Além disso, atualmente essa atualização requer que as bases de dados primárias e secundárias estão online e, portanto, não podem ser concluídas até que a falha é atenuada. Se optar por criar o secundário com o menor tamanho de computação, o gráfico de percentagem de e/s de registo no portal do Azure fornece uma boa forma de estimar o tamanho mínimo de computação da secundária que é necessário para sustentar a carga de replicação. Por exemplo, se a sua base de dados primária é P6 (1000 DTUS) e o respetivo registo de % de e/s é de 50% secundário tem de ser, pelo menos, P4 (500 DTU). Também pode obter os dados de e/s de registo usando [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vistas de base de dados.  Para obter mais informações sobre os tamanhos de computação de base de dados SQL, consulte [quais são os escalões de serviço de base de dados SQL](sql-database-service-tiers.md).
+  Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que essa base de dados secundária é criada com o mesmo tamanho de computação (DTUs ou vCores) como principal. Uma secundária com tamanho inferior de computação está em risco de um atraso de replicação maior, indisponibilidade potencial de secundário e, consequentemente, um risco de perda de dados substancial após uma ativação pós-falha. Como resultado, o RPO publicado = 5 s não pode ser garantida. O risco de outro é que após a ativação pós-falha do desempenho do aplicativo será afetado devido à falta de capacidade de computação da nova principal até que ele é atualizado para um tamanho de computação mais elevado. A hora da atualização depende do tamanho de base de dados. Além disso, atualmente essa atualização requer que as bases de dados primárias e secundárias estão online e, portanto, não podem ser concluídas até que a falha é atenuada. Se optar por criar o secundário com o menor tamanho de computação, o gráfico de percentagem de e/s de registo no portal do Azure fornece uma boa forma de estimar o tamanho mínimo de computação da secundária que é necessário para sustentar a carga de replicação. Por exemplo, se a sua base de dados primária é P6 (1000 DTUS) e o respetivo registo de % de e/s é de 50% secundário tem de ser, pelo menos, P4 (500 DTU). Também pode obter os dados de e/s de registo usando [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vistas de base de dados.  Para obter mais informações sobre os tamanhos de computação de base de dados SQL, consulte [quais são os escalões de serviço de base de dados SQL](sql-database-purchase-models.md).
 
 - **Ativação pós-falha controlada pelo utilizador e a reativação pós-falha**
 
@@ -130,7 +130,7 @@ Devido a alta latência das redes de longa distância, a cópia contínua utiliz
 
 Como discutido anteriormente, georreplicação ativa também pode ser gerida através de programação com o Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. Replicação geográfica activa inclui um conjunto de APIs do Azure Resource Manager para a gestão, incluindo o [API REST da base de dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/) e [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Essas APIs requerem a utilização de grupos de recursos e suportam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [controlo de acesso](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: Gerir a ativação pós-falha de autónomo e bases de dados agrupadas
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: Gerir a ativação pós-falha de bases de dados individuais e em pool
 
 > [!IMPORTANT]
 > Estes comandos Transact-SQL só se aplicam a georreplicação ativa e não se aplicam a grupos de ativação pós-falha. Como tal, eles também não se aplicam às instâncias de geridas, porque só suportam grupos de ativação pós-falha.
@@ -146,7 +146,7 @@ Como discutido anteriormente, georreplicação ativa também pode ser gerida atr
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |faz com que o aplicativo esperar até que todas as transações consolidadas são replicadas e confirmadas pela base de dados secundário Active Directory. |
 |  | |
 
-### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: Gerir a ativação pós-falha de autónomo e bases de dados agrupadas
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Gerir a ativação pós-falha de bases de dados individuais e em pool
 
 | Cmdlet | Descrição |
 | --- | --- |
@@ -160,7 +160,7 @@ Como discutido anteriormente, georreplicação ativa também pode ser gerida atr
 > [!IMPORTANT]
 > Para scripts de exemplo, consulte [configurar e ativação pós-falha de uma base de dados com georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) e [configurar e ativação pós-falha de uma base de dados agrupada com a georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST API: Gerir a ativação pós-falha de autónomo e bases de dados agrupadas
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: Gerir a ativação pós-falha de bases de dados individuais e em pool
 
 | API | Descrição |
 | --- | --- |

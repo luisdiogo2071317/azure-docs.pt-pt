@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 25a1913fba3e66e65b3c785eb6ce1738c5f00a26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9846422405df491124a101a7898f356a1d9fb1d8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247930"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998676"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Criar uma fábrica de dados e um pipeline com o SDK .NET
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Início rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-dot-net.md)
 
-Este início rápido descreve como utilizar o .NET SDK para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para ter acesso a um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md). 
+Este início rápido descreve como utilizar o .NET SDK para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para obter um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Este artigo não disponibiliza uma introdução detalhada do serviço Data Factory. Para obter uma introdução ao serviço Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -67,7 +68,6 @@ Com o Visual Studio 2013/2015/2017, crie uma aplicação de consola de C# .NET.
     Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
     Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
     ```
 
 ## <a name="create-a-data-factory-client"></a>Criar um cliente de fábrica de dados
@@ -85,7 +85,7 @@ Com o Visual Studio 2013/2015/2017, crie uma aplicação de consola de C# .NET.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Adicione o código seguinte ao método **Principal** que define as variáveis. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+2. Adicione o código seguinte ao método **Principal** que define as variáveis. Substitua os marcadores de posição pelos seus próprios valores. Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
     ```csharp
     // Set variables
@@ -299,7 +299,8 @@ Crie e inicie a aplicação e, em seguida, verifique a execução de pipeline.
 
 A consola imprime o progresso da criação da fábrica de dados, o serviço ligado, os conjuntos de dados, o pipeline e a execução de pipeline. Em seguida, verifica o estado de execução do pipeline. Aguarde até ver os detalhes da execução da atividade de cópia com o tamanho dos dados lidos/escritos. Em seguida, utilize ferramentas como o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para verificar se os blobs são copiados para "outputBlobPath" a partir de "inputBlobPath", conforme especificou nas variáveis.
 
-### <a name="sample-output"></a>Resultado do exemplo: 
+### <a name="sample-output"></a>Resultado da amostra
+
 ```json
 Creating data factory SPv2Factory0907...
 {
@@ -425,5 +426,5 @@ Para eliminar a fábrica de dados programaticamente, adicione as seguintes linha
             client.Factories.Delete(resourceGroup, dataFactoryName);
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Leia os [tutoriais](tutorial-copy-data-dot-net.md) para saber como utilizar o Data Factory em mais cenários. 

@@ -1,10 +1,10 @@
 ---
-title: Configurar a telemetria de Media Services do Azure com o resto | Microsoft Docs
-description: Este artigo mostra como utilizar a telemetria de Media Services do Azure utilizando a REST API...
+title: Configurar a telemetria de serviços de multimédia do Azure com REST | Documentos da Microsoft
+description: Este artigo mostra-lhe como utilizar a telemetria de serviços de multimédia do Azure com a REST API....
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
@@ -12,39 +12,39 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: ceb2eafdb3df0d24a98d0d3b4afc7d1d9424b4de
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b2028b16c395b770e935fdba47dc0e965284fc2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790357"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993678"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurar a telemetria de Media Services do Azure com o resto
+# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurar a telemetria de serviços de multimédia do Azure com REST
 
-Este tópico descreve os passos gerais que podem consumir quando configurar a telemetria de serviços de suporte de dados do Azure (AMS) utilizando a REST API. 
+Este tópico descreve os passos gerais que pode dar ao configurar a telemetria de serviços de multimédia do Azure (AMS) com a REST API. 
 
 >[!NOTE]
->A explicação detalhada das quais é telemetria do AMS e como consumir os-lo, consulte o [descrição geral](media-services-telemetry-overview.md) tópico.
+>Para a explicação detalhada do que é a telemetria de AMS e como consumi-lo, consulte a [descrição geral](media-services-telemetry-overview.md) tópico.
 
 Os passos descritos neste tópico são:
 
-- Obter a conta de armazenamento associada a uma conta de Media Services
+- Obter a conta de armazenamento associada uma conta de Media Services
 - Obter os pontos finais de notificação
-- Criar um ponto final da notificação para monitorização. 
+- A criar um ponto de final de notificação para monitorização. 
 
-    Para criar um ponto final da notificação, como o EndPointType AzureTable (2) e endPontAddress definido para a tabela de armazenamento (por exemplo, https://telemetryvalidationstore.table.core.windows.net/).
+    Para criar um ponto de final de notificação, defina o EndPointType Azuretable{0}Name (2) e endPontAddress definido para a tabela de armazenamento (por exemplo, https://telemetryvalidationstore.table.core.windows.net/).
   
 - Obter as configurações de monitorização
 
-    Definições de criação de uma configuração de monitorização para os serviços que pretende monitorizar. Mais do que um definições de configuração de monitorização é permitida. 
+    Crie uma configuração de monitorização definições para os serviços que pretende monitorizar. Mais do que um definições de configuração de monitorização é permitida. 
 
 - Adicionar uma configuração de monitorização
 
 
  
-## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obter a conta de armazenamento associada a uma conta de Media Services
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obter a conta de armazenamento associada uma conta de Media Services
 
 ### <a name="request"></a>Pedir
 
@@ -105,7 +105,7 @@ Os passos descritos neste tópico são:
         }
     }
  
-## <a name="create-a-notification-endpoint-for-monitoring"></a>Criar um ponto final da notificação para a monitorização
+## <a name="create-a-notification-endpoint-for-monitoring"></a>Criar um ponto de final de notificação para a monitorização
 
 ### <a name="request"></a>Pedir
 
@@ -233,9 +233,9 @@ Os passos descritos neste tópico são:
     Content-Type: application/json; charset=utf-8
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-## <a name="consuming-telemetry-information"></a>Consumir informações de telemetria
+## <a name="consuming-telemetry-information"></a>Consumo de informações de telemetria
 
-Para informações sobre consumo de telemetria de informações, consulte [isto](media-services-telemetry-overview.md) tópico.
+Para informações sobre consumo de telemetria de informações, consulte [isso](media-services-telemetry-overview.md) tópico.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

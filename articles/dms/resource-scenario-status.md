@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
-ms.openlocfilehash: edc6e651c3ec352115e360e50f98a3e36cd287c0
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/11/2019
+ms.openlocfilehash: 39a7f7ce6660016f00e36c5f6619eba2fa461023
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904085"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993168"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de cenários de migração suportados pelo serviço de migração de base de dados do Azure
 O Azure Database Migration Service foi concebido para suportar uma variedade de cenários de migração (pares origem/destino) para ambos offline (única) e migrações de online (sincronização contínua). A cobertura de cenário fornecida pelo serviço de migração de base de dados do Azure está a ser expandida ao longo do tempo. Novos cenários estão sendo adicionados regularmente. Este artigo identifica os cenários de migração atualmente suportados pelo serviço de migração de base de dados do Azure e o estado (privada [ou limitado] pré-visualização, pré-visualização pública ou em disponibilidade geral) ou a cada cenário.
@@ -25,7 +25,7 @@ O Azure Database Migration Service foi concebido para suportar uma variedade de 
 Quando migrar bases de dados para o Azure ao utilizar o serviço de migração de base de dados do Azure, pode efetuar uma migração online ou uma offline. Com o *offline* migrações, tempo de inatividade do aplicativo começa ao mesmo tempo que começa a migração. Para *online* migrações, o período de indisponibilidade é limitado ao tempo necessário para transitar para o novo ambiente quando a migração estiver concluída. É recomendado para testar uma migração offline para determinar se o tempo de inatividade é aceitável; caso contrário, efetuar uma migração online.
 
 ## <a name="migration-scenario-status"></a>Estado de cenário de migração
-O estado de cada cenário de migração suportado pelo serviço de migração de base de dados do Azure varia de acordo com o tempo. Em geral, os cenários são pela primeira vez no **pré-visualização privada**, e tirar partido da funcionalidade requer que um cliente submeter uma nomeação por meio do [site de pré-visualização do DMS](https://aka.ms/dms-preview). Quando a pré-visualização privada é concluída, o estado de cenário é alterado para **pré-visualização pública**. Todos os utilizadores do Azure Database Migration Service podem tirar partido de cenários de migração, disponíveis em pré-visualização pública. No entanto, o cenário de migração pode não estar disponível em todas as regiões e a funcionalidade pode sofrer alterações adicionais antes do lançamento final. Quando se tornar um cenário de migração **em disponibilidade geral**, o estado final, lançado, a funcionalidade é completa e acessível a todos os utilizadores do Azure Database Migration Service. 
+O estado de cada cenário de migração suportado pelo serviço de migração de base de dados do Azure varia de acordo com o tempo. Em geral, os cenários são pela primeira vez no **pré-visualização privada**, e tirar partido da funcionalidade requer um cliente submeter uma nomeação por meio do [site de pré-visualização do DMS](https://aka.ms/dms-preview). Quando a pré-visualização privada é concluída, o estado de cenário é alterado para **pré-visualização pública**. Todos os utilizadores do Azure Database Migration Service podem tirar partido de cenários de migração, disponíveis em pré-visualização pública. No entanto, o cenário de migração pode não estar disponível em todas as regiões e a funcionalidade pode sofrer alterações adicionais antes do lançamento final. Quando se tornar um cenário de migração **em disponibilidade geral**, o último Estado de lançamento, a funcionalidade está concluída e acessível a todos os utilizadores do Azure Database Migration Service. 
 
 ## <a name="migration-scenario-support"></a>Suporte de cenário de migração
 
@@ -50,7 +50,7 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 | **BD do Cosmos para o Azure**  | MongoDB | ✔ |
 | **BD do Azure para MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
-| **BD do Azure para PostgresSQL**  | PostgreSQL |  |
+| **BD do Azure para PostgreSQL**  | PostgreSQL |  |
 |  | RDS PostgreSQL  |  |
 
 ### <a name="online-continuous-sync-migration-support"></a>Suporte de migração online (sincronização contínua)
@@ -69,7 +69,7 @@ A tabela seguinte mostra o suporte de serviço de migração de base de dados do
 | **BD do Cosmos para o Azure**  | MongoDB  | ✔ |
 | **BD do Azure para MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
-| **BD do Azure para PostgresSQL**  | PostgreSQL | ✔ |
+| **BD do Azure para PostgreSQL**  | PostgreSQL | ✔ |
 |  | RDS PostgreSQL  | ✔ |
 
 ## <a name="next-steps"></a>Passos Seguintes

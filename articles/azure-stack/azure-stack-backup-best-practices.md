@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241157"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993882"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Práticas recomendadas de serviço de cópia de segurança de infra-estrutura
 
@@ -43,9 +43,18 @@ A cadeia de caracteres de convenção de Nomenclatura Universal (UNC) para o cam
 
 ### <a name="encryption"></a>Encriptação
 
+#### <a name="version-1901-and-newer"></a>Versão mais recente e 1901
+
+O certificado de encriptação é utilizado para encriptar os dados de cópia de segurança que são exportados para armazenamento externo. O certificado pode ser um certificado autoassinado, uma vez que o certificado é utilizado apenas para transportar as chaves. Consulte New-SelfSignedCertificate para obter mais informações sobre como criar um certificado.  
+A chave deve ser armazenada numa localização segura (por exemplo, certificado global do Azure Key Vault). O formato CER do certificado é utilizado para encriptar os dados. O formato PFX deve ser usado durante a implementação de recuperação na cloud do Azure Stack para desencriptar os dados de cópia de segurança.
+
+![Armazenado o certificado numa localização segura.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 e mais antigos
+
 A chave de encriptação é utilizada para encriptar os dados de cópia de segurança que são exportados para armazenamento externo. A chave é gerada como parte da [ativar a cópia de segurança para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
-A chave deve ser armazenada numa localização segura (por exemplo, segredo pública do Azure Key Vault). Esta chave tem de ser utilizada durante a nova implementação do Azure Stack. 
+A chave deve ser armazenada numa localização segura (por exemplo, segredo global do Azure Key Vault). Esta chave tem de ser utilizada durante a nova implementação do Azure Stack. 
 
 ![Armazenada a chave de uma localização segura.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -74,7 +83,7 @@ Região: nyc
 
 Pasta de MASBackup é onde o Azure Stack armazena os respetivos dados de cópia de segurança. Não deve utilizar esta pasta para armazenar os seus dados. OEM não deve utilizar esta pasta para armazenar quaisquer dados de cópia de segurança seja. 
 
-OEMs são encorajados a armazenar os dados de cópia de segurança de seus componentes sob a pasta de região. Cada comutadores de rede, o anfitrião de ciclo de vida de hardware (HLH) e assim por diante, podem ser armazenados na sua própria subpasta. Por exemplo:
+OEMs são encorajados a armazenar os dados de cópia de segurança de seus componentes sob a pasta de região. Comutadores de rede, cada anfitrião de ciclo de vida do hardware (HLH) etc., podem ser armazenados na sua própria subpasta. Por exemplo:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -95,6 +104,6 @@ O sistema suporta os seguintes alertas:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Reveja o material de referência para o [serviço de cópia de segurança de infra-estrutura](azure-stack-backup-reference.md).
+Reveja o material de referência para o [serviço de cópia de segurança da infraestrutura](azure-stack-backup-reference.md)
 
-Ativar a [serviço de cópia de segurança de infra-estrutura](azure-stack-backup-enable-backup-console.md).
+Ativar o [serviço de cópia de segurança de infra-estrutura](azure-stack-backup-enable-backup-console.md)

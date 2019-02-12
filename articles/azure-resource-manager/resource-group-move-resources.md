@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 59322e303824d3a0db89e9e1252476d52106ba56
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810291"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991349"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -310,7 +310,7 @@ A operação pode ser executada durante vários minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitações de serviços de recuperação
 
- Para mover um cofre dos serviços de recuperação, tem de se inscrever numa pré-visualização privada. Para experimentá-lo, escrever para AskAzureBackupTeam@microsoft.com.
+ Para mover um cofre dos serviços de recuperação, tem de se inscrever num [pré-visualização pública limitada](../backup/backup-azure-move-recovery-services-vault.md).
 
 Atualmente, pode mover um cofre de serviços de recuperação por região, ao mesmo tempo. Não é possível mover a cofres de cópias de segurança de ficheiros do Azure, o Azure File Sync ou o SQL em máquinas virtuais IaaS.
 

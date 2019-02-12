@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 3d6010df64c4e3c75bd05e2eb9828c07cf3fb342
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 68bcddeee2cec1a77f20f8f470669f170fa50743
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471390"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992488"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store cópias de segurança da base de dados do Azure SQL para até 10 anos
 
-Muitos aplicativos têm regulamentação, conformidade ou de outras empresas fins a que tem de manter cópias de segurança da base de dados além dos dias de 7-35 fornecidas pela base de dados do Azure SQL [cópias de segurança automáticas](sql-database-automated-backups.md). Ao utilizar a funcionalidade de retenção (LTR) de longo prazo, pode armazenar especificadas SQL da base de dados cópias de segurança completas na [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) armazenamento de BLOBs para até 10 anos. Em seguida, pode restaurar qualquer cópia de segurança como uma nova base de dados.
+Muitos aplicativos têm regulamentação, conformidade ou de outras empresas fins a que tem de manter cópias de segurança da base de dados além dos dias de 7-35 fornecidas pela base de dados do Azure SQL [cópias de segurança automáticas](sql-database-automated-backups.md). Ao utilizar a funcionalidade de retenção (LTR) de longo prazo, pode armazenar especificadas SQL da base de dados cópias de segurança completas na [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) armazenamento de BLOBs para até 10 anos. Pode, posteriormente, restaurar qualquer cópia de segurança como uma nova base de dados.
 
 > [!NOTE]
-> Pode ser ativada para autónomo e em pool LTR bases de dados. É ainda não disponível por exemplo as bases de dados em instâncias geridas. Pode usar trabalhos do SQL Agent para agendar [cópias de segurança da base de dados apenas de cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como uma alternativa ao LTR para além de 35 dias.
+> LTR pode ser ativada para bases de dados únicos e em pool. É ainda não disponível por exemplo as bases de dados em instâncias geridas. Pode usar trabalhos do SQL Agent para agendar [cópias de segurança da base de dados apenas de cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como uma alternativa ao LTR para além de 35 dias.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção de longa duração de base de dados SQL

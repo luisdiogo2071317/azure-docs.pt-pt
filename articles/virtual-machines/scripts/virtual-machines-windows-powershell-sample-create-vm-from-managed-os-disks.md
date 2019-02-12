@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 1e23015906aff4d18394007fa2978115e7430ea9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 92a4560f35abe0a6da0ffd6f0536413f22d7289e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982048"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989583"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Criar uma máquina virtual através de um disco de SO gerido existente com o PowerShell
 
@@ -29,8 +29,6 @@ Este script cria uma máquina virtual ao anexar um disco gerido existente como d
 * Criar uma VM a partir de um disco de SO gerido existente copiado de um disco gerido numa subscrição diferente
 * Criar uma VM a partir de um disco gerido existente criado de um ficheiro VHD especializado 
 * Criar uma VM a partir de um disco de SO gerido existente criado de um instantâneo 
-
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

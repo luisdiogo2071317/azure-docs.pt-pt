@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 97c852bc2b2bc046fa6942a8d4853231ab3b14bd
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 393583196d15ec0e1cfd132dc28aedb88d03891d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246591"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996483"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 Multiple Bitrate 4K
 `Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -32,7 +32,7 @@ ms.locfileid: "50246591"
 >  Deve obter a unidade reservada Premium codifica de tipo com 4K. Para obter mais informações, consulte [como a codificação de escala](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
 > [!NOTE]
->  Ao modificar os `Width` e `Height` valores em camadas, certifique-se de que a taxa de proporção permanece consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Não deve utilizar uma combinação de proporções, tais como: 1280 x 720, 720 x 480, 640 x 360.  
+>  Ao modificar os `Width` e `Height` valores em camadas, certifique-se de que a taxa de proporção permanece consistente. Por exemplo: 1920x1080, 1280x720, 1080x576, 640x360. Não deve utilizar uma combinação de proporções, tais como: 1280x720, 720x480, 640x360.  
   
  XML  
   

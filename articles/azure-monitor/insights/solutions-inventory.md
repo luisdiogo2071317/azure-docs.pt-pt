@@ -13,34 +13,36 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 48f1789d4909a1c3af9e9ca01d0b9d0a8e6e09f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: aac58cc0887c566c7377edf08f5a86e2d12cdf28
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299645"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993246"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes de recolha de dados para soluções de gestão no Azure
-Este artigo inclui uma lista dos [soluções de gestão](solutions.md) disponíveis da Microsoft com links para sua documentação detalhada.  Também fornece informações no seu método e a frequência de recolha de dados para o Log Analytics.  Pode utilizar as informações neste artigo, para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo e a ligação de dados para soluções de gestão diferentes. 
+Este artigo inclui uma lista dos [soluções de gestão](solutions.md) disponíveis da Microsoft com links para sua documentação detalhada.  Também fornece informações no seu método e a frequência de recolha de dados no Azure Monitor.  Pode utilizar as informações neste artigo, para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo e a ligação de dados para soluções de gestão diferentes. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="list-of-management-solutions"></a>Lista de soluções de gestão
 
-A tabela seguinte lista os [soluções de gestão](solutions.md) no Azure fornecido pela Microsoft. Uma entrada na coluna significa que a solução recolhe dados para o Log Analytics usando esse método.  Se uma solução não tem colunas selecionadas, em seguida, escreve diretamente ao Log Analytics de outro serviço do Azure. Siga a ligação para cada um para essa documentação detalhada para obter mais informações.
+A tabela seguinte lista os [soluções de gestão](solutions.md) no Azure fornecido pela Microsoft. Uma entrada na coluna significa que a solução recolhe dados para o Azure Monitor usando esse método.  Se uma solução não tem colunas selecionadas, em seguida, escreve diretamente para o Azure Monitor de outro serviço do Azure. Siga a ligação para cada um para essa documentação detalhada para obter mais informações.
 
 Explicações das colunas são os seguintes:
 
-- **Agente de monitorização Microsoft** -agente usado no Windows e Linux para executar o pacote de gestão do SCOM e o gerenciamento de soluções do Azure. Nesta configuração, o agente está ligado diretamente ao Log Analytics sem a ser ligado a um grupo de gestão do Operations Manager. 
-- **Do Operations Manager** -agente idêntica, como o Microsoft monitoring agent. Nesta configuração, tem [ligado a um grupo de gestão do Operations Manager](../../azure-monitor/platform/om-agents.md) que esteja ligada ao Log Analytics. 
+- **Agente de monitorização Microsoft** -agente usado no Windows e Linux para executar o pacote de gestão do SCOM e o gerenciamento de soluções do Azure. Nesta configuração, o agente está ligado diretamente para o Azure Monitor sem a ser ligado a um grupo de gestão do Operations Manager. 
+- **Do Operations Manager** -agente idêntica, como o Microsoft monitoring agent. Nesta configuração, tem [ligado a um grupo de gestão do Operations Manager](../../azure-monitor/platform/om-agents.md) que está ligada ao Azure Monitor. 
 -  **O armazenamento do Azure** -solução recolhe dados de uma conta de armazenamento do Azure. 
 - **Gestor de operações necessárias?** -Um grupo de gestão do Operations Manager ligado é obrigatório para a recolha de dados da solução de gestão. 
-- **Dados de agente do Operations Manager enviados por grupo de gestão** – se o agente está [ligadas a um grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md), em seguida, os dados são enviados para o Log Analytics do servidor de gestão. Neste caso, o agente não precisa se conectar diretamente ao Log Analytics. Se esta caixa não está selecionada, em seguida, dados são enviados do agente diretamente ao Log Analytics, mesmo que o agente está ligado a um grupo de gestão do SCOM. Terá de conseguir comunicar com o Log Analytics através do [gateway do Log Analytics](../../azure-monitor/platform/gateway.md).
+- **Dados de agente do Operations Manager enviados por grupo de gestão** – se o agente está [ligadas a um grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md), em seguida, os dados são enviados para o Azure Monitor do servidor de gestão. Neste caso, o agente não precisa se conectar diretamente para o Azure Monitor. Se esta caixa não está selecionada, em seguida, dados são enviados do agente diretamente para o Azure Monitor, mesmo que o agente está ligado a um grupo de gestão do SCOM. Terá de conseguir comunicar com o Azure Monitor através da [gateway do Log Analytics](../../azure-monitor/platform/gateway.md).
 - **Frequência de recolha** -Especifica a frequência que os dados são recolhidos pela solução de gestão. 
 
 
 
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **Gestor de operações necessárias?** | **Dados de agente do Operations Manager enviados por grupo de gestão** | **Frequência de recolha** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Log Analytics da Atividade](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | na notificação |
+| [Log analytics da atividade](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | na notificação |
 | [Avaliação do AD](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
 | [Estado de Replicação do AD](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dias |
 | [Agente de Funcionamento de Agente](solution-agenthealth.md) | Windows e Linux | &#8226; | &#8226; | | | &#8226; | 1 minuto |

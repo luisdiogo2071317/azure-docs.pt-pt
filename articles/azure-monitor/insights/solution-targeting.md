@@ -1,6 +1,6 @@
 ---
-title: Filtragem de soluções de gestão do Azure | Documentos da Microsoft
-description: Soluções de gestão de destino permite limitar as soluções de gestão para um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de âmbito e aplicá-la para uma solução.
+title: Direcionamento de monitorização de soluções no Azure Monitor | Documentos da Microsoft
+description: Direcionamento de soluções de monitorização permite limitar as soluções de monitorização a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de âmbito e aplicá-la para uma solução.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192758"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989190"
 ---
-# <a name="targeting-management-solutions-in-azure-preview"></a>Soluções de gestão de direcionamento no Azure (pré-visualização)
-Quando adiciona uma solução de gestão à sua subscrição, será automaticamente implantado por predefinição para todos os agentes Windows e Linux ligados à sua área de trabalho do Log Analytics.  Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução ao limitá-la para um determinado conjunto de agentes.  Este artigo descreve como utilizar **filtragem da solução** que é uma funcionalidade que lhe permite aplicar um âmbito às suas soluções.
+# <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Filtragem de soluções de monitorização no Azure Monitor (pré-visualização)
+Quando adiciona uma solução de monitorização para a sua subscrição, será automaticamente implantado por predefinição para todos os agentes Windows e Linux ligados à sua área de trabalho do Log Analytics.  Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução ao limitá-la para um determinado conjunto de agentes.  Este artigo descreve como utilizar **filtragem da solução** que é uma funcionalidade que lhe permite aplicar um âmbito às suas soluções.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="how-to-target-a-solution"></a>Como uma solução de destino
 Existem três passos necessários para direcionar uma solução, conforme descrito nas seções a seguir. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Criar um grupo de computadores
-Especificar os computadores que pretende incluir num âmbito através da criação de um [grupo de computadores](../../azure-monitor/platform/computer-groups.md) no Log Analytics.  O grupo de computadores pode ser com base numa pesquisa de registos ou importado a partir de outras origens, como grupos do Active Directory ou o WSUS. Como [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), apenas os computadores que estão ligados diretamente ao Log Analytics serão incluídos no escopo.
+Especificar os computadores que pretende incluir num âmbito através da criação de um [grupo de computadores](../platform/computer-groups.md) no Azure Monitor.  O grupo de computadores pode ser com base numa consulta de registo ou importado a partir de outras origens, como grupos do Active Directory ou o WSUS. Como [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), apenas os computadores que estão ligados diretamente para o Azure Monitor serão incluídos no escopo.
 
 Assim que tiver criado na sua área de trabalho, o grupo de computadores, em seguida, irá incluir numa configuração de âmbito que pode ser aplicada a uma ou mais soluções.
  
@@ -38,7 +40,7 @@ Assim que tiver criado na sua área de trabalho, o grupo de computadores, em seg
  
  Crie uma configuração de âmbito utilizando o seguinte processo.  
 
- 1. No portal do Azure, navegue até **do Log Analytics** e selecione a sua área de trabalho.
+ 1. No portal do Azure, navegue até **áreas de trabalho do Log Analytics** e selecione a sua área de trabalho.
  2. Nas propriedades para a área de trabalho sob **origens de dados de área de trabalho** selecionar **configurações de âmbito**.
  3. Clique em **adicionar** para criar uma nova configuração de âmbito.
  4. Introduza um **nome** para a configuração de âmbito.
@@ -52,7 +54,7 @@ Depois de ter uma configuração de âmbito, pode aplicá-la para uma ou mais so
 
 Aplica uma configuração de âmbito, com o processo seguinte.  
 
- 1. No portal do Azure, navegue até **do Log Analytics** e selecione a sua área de trabalho.
+ 1. No portal do Azure, navegue até **áreas de trabalho do Log Analytics** e selecione a sua área de trabalho.
  2. Nas propriedades para a área de trabalho, selecione **soluções**.
  3. Clique na solução que pretende âmbito.
  4. Nas propriedades para a solução sob **origens de dados de área de trabalho** selecionar **filtragem da solução**.  Se a opção não estiver disponível, em seguida, [esta solução não pode ser segmentada](#solutions-and-agents-that-cant-be-targeted).
@@ -65,7 +67,7 @@ Seguem-se os critérios para agentes e soluções que não podem ser utilizadas 
 
 - Filtragem da solução só se aplica a soluções que implementar agentes.
 - Filtragem da solução só se aplica a soluções fornecidas pela Microsoft.  Não é aplicável às soluções [criado por si próprio ou parceiros](solutions-creating.md).
-- Só pode filtrar os agentes que se ligam diretamente ao Log Analytics.  Soluções irão implementar automaticamente a quaisquer agentes que fazem parte de um grupo de gestão do Operations Manager ligado, independentemente de qual estão incluídos numa configuração de âmbito.
+- Só pode filtrar os agentes que se ligam diretamente para o Azure Monitor.  Soluções irão implementar automaticamente a quaisquer agentes que fazem parte de um grupo de gestão do Operations Manager ligado, independentemente de qual estão incluídos numa configuração de âmbito.
 
 ### <a name="exceptions"></a>Exceções
 Não é possível utilizar a filtragem da solução com as seguintes soluções, mesmo que eles se ajustam os critérios declarados.
@@ -73,5 +75,5 @@ Não é possível utilizar a filtragem da solução com as seguintes soluções,
 - Avaliação de estado de funcionamento do agente
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre as soluções de gestão, incluindo as soluções que estão disponíveis para instalação no seu ambiente no [soluções de gestão de adicionar o Azure Log Analytics para a área de trabalho](solutions.md).
-- Saiba mais sobre a criação de grupos de computadores em [pesquisas de registos de grupos de computadores no Log Analytics](../../azure-monitor/platform/computer-groups.md).
+- Saiba mais sobre a monitorização de soluções, incluindo as soluções que estão disponíveis para instalação no seu ambiente no [adicionar Azure Log Analytics soluções à sua área de trabalho de monitorização](solutions.md).
+- Saiba mais sobre a criação de grupos de computadores em [consultas de registo de grupos de computadores no Azure Monitor](../platform/computer-groups.md).

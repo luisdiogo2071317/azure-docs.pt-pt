@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: a2e7c45615c1f9d07ef3392ee10579a1b5e3588f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477986"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992299"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo de Machine Learning Studio evolui de uma experimentação para um serviço Web operacionalizado
 O Azure Machine Learning Studio dispõe numa tela interativa que permite que desenvolver, executar, testar e iterar um ***experimentar*** que representa um modelo de Análise Preditiva. Há uma grande variedade de módulos disponíveis que pode:
@@ -46,7 +46,7 @@ Aqui estão as fases que se segue uma solução típica à medida que desenvolve
 *Figura 1 – fases de um modelo de Análise Preditiva típico*
 
 ### <a name="the-training-experiment"></a>A experimentação de preparação
-O ***experimentação de preparação*** é a fase inicial de desenvolvimento de seu serviço Web no Machine Learning Studio. O objetivo a experimentação de preparação é fornecer a um local para desenvolver, testar, iterar e, eventualmente, preparar um modelo de machine learning. Pode até mesmo preparar os vários modelos de simultaneamente como procurar a melhor solução, mas quando tiver terminado a experimentar selecionará um único preparado modelar e eliminar o resto da experimentação. Para obter um exemplo de desenvolvimento de uma experimentação de Análise Preditiva, veja [desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+O ***experimentação de preparação*** é a fase inicial de desenvolvimento de seu serviço Web no Machine Learning Studio. O objetivo a experimentação de preparação é fornecer a um local para desenvolver, testar, iterar e, eventualmente, preparar um modelo de machine learning. Pode até mesmo preparar os vários modelos de simultaneamente como procurar a melhor solução, mas quando tiver terminado a experimentar selecionará um único preparado modelar e eliminar o resto da experimentação. Para obter um exemplo de desenvolvimento de uma experimentação de Análise Preditiva, veja [desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>A experimentação preditiva
 Depois de ter um modelo preparado na experimentação de preparação, clique em **no serviço Web** e selecione **serviço de Web preditiva** no Machine Learning Studio para iniciar o processo de conversão de seu treinamento fazer uma experiência para uma ***experimentação preditiva***. O objetivo da experimentação preditiva é usar o modelo preparado para classificar dados novos, com o objetivo de tornar-se, eventualmente, operacionalizados como um serviço Web do Azure.
@@ -104,7 +104,7 @@ Se pretender manter o seu modelo de machine learning, mas gostaria de voltar a p
 
 Se pretender efetuar alterações à sua experimentação preditiva original, como a seleção de um outro algoritmo de machine learning, um método diferente de treinamento, etc. a tentar, então tem de seguir o segundo procedimento descrito acima para a reparametrização do modelo: Abra o treinamento de experimentação, clique em **guardar como** para fazer uma cópia e, em seguida, inicie o novo caminho de desenvolver o seu modelo, a experimentação preditiva a criar e implementar o serviço web. Esta ação irá criar um novo Web service não relacionados das original - pode decidir qual deles, ou ambos, continue a ser executada.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais detalhes sobre o processo de desenvolvimento e experimentação, consulte os artigos seguintes:
 
 * converter a experimentação - [como preparar o seu modelo para a implementação no Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md)
@@ -114,5 +114,5 @@ Para obter mais detalhes sobre o processo de desenvolvimento e experimentação,
 Para obter exemplos de todo o processo, consulte:
 
 * [Tutorial do Machine learning: Criar a sua primeira experiência no Azure Machine Learning Studio](create-experiment.md)
-* [Passo a passo: Desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Passo a passo: Desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](tutorial-part1-credit-risk.md)
 

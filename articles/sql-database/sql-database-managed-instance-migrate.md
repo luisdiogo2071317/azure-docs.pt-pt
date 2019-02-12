@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: 8127abf19c31b8a50079f416e73c98efebfd0983
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732758"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999424"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Instância gerida de migração de instância do SQL Server para a base de dados do Azure SQL
 
@@ -47,7 +47,7 @@ Se existirem relataram alguns problemas de bloqueio que não são removidos com 
 - Se necessitar de acesso direto para o sistema operativo ou o sistema de ficheiros, por exemplo, a instalação de terceiros ou agentes personalizados na mesma máquina virtual com o SQL Server.
 - Se tiver dependência rígida nas funcionalidades que ainda não são suportadas, por exemplo, o FileStream / FileTable, o PolyBase e instância para várias transações.
 - Se absolutamente necessárias para permanecer numa versão específica do SQL Server (2012, por exemplo).
-- Se os requisitos de computação são muito mais baixos do que a instância gerida oferece em pré-visualização pública (um vCore, por exemplo) e consolidação de base de dados não é a opção aceitável.
+- Se os requisitos de computação são muito mais baixos do que a instância gerida oferece (um vCore, por exemplo) e consolidação de base de dados não é a opção aceitável.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementar uma instância gerida dimensionada de forma otimizada
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492889"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989428"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Consumir um serviço de Web do Azure Machine Learning Studio a partir do Excel
 
@@ -26,7 +26,7 @@ Se estiver a utilizar o Excel 2013 (ou posterior) ou o Excel Online, recomendamo
 
 
 ## <a name="steps"></a>Passos
-Publica um serviço web. [Esta página](walkthrough-5-publish-web-service.md) explica como fazer isso. Atualmente, a funcionalidade de livro do Excel só é suportada para os serviços de solicitação/resposta com uma única saída (ou seja, uma etiqueta classificação única). 
+Publica um serviço web. [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md) explica como fazer isso. Atualmente, a funcionalidade de livro do Excel só é suportada para os serviços de solicitação/resposta com uma única saída (ou seja, uma etiqueta classificação única). 
 
 Depois de ter um serviço da web, clique nas **serviços da WEB** secção à esquerda do studio e, em seguida, selecione o serviço web para consumir a partir do Excel.
 

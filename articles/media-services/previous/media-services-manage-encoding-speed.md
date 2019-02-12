@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3f358be630d9a50d0f048d66c9f79e168c8adcdf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2d36b10adbe277331eafdf1b68d0f5711508cc05
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230204"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992217"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gerir a velocidade e simultaneidade da codificação
+#  <a name="manage-speed-and-concurrency-of-your-encoding-legacy"></a>Gerir a velocidade e simultaneidade da codificação (Legado)
 
 Este artigo fornece uma breve descrição geral de como pode gerir a velocidade e simultaneidade de seus trabalhos/tarefas de codificação.
 
 ## <a name="overview"></a>Descrição geral
 
-Nos Media Services, um **tipo de unidade reservada** determina a velocidade com que o suporte de dados de tarefas de processamento é processados. Pode escolher de entre os tipos de unidades reservadas **S1**, **S2** ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. O [dimensionamento de unidades de codificação](media-services-scale-media-processing-overview.md) tópico mostra uma tabela que o ajuda a tomar a decisão ao escolher entre diferentes velocidades de codificação.
+Nos Media Services, um **tipo de unidade reservada** determina a velocidade com que o suporte de dados de tarefas de processamento é processados. Pode escolher de entre os seguintes tipos de unidade reservada: **S1**, **S2**, ou **S3**. Por exemplo, a mesma tarefa de trabalho de codificação é executada mais depressa se utilizar o tipo de unidade reservada **S2** em comparação com o tipo **S1**. O [dimensionamento de unidades de codificação](media-services-scale-media-processing-overview.md) tópico mostra uma tabela que o ajuda a tomar a decisão ao escolher entre diferentes velocidades de codificação.
 
 Além de especificar o tipo de unidade reservada, pode especificar para aprovisionar a sua conta com **unidades reservadas**. O número de unidades reservadas aprovisionadas determina o número de tarefas de multimédia que podem ser processadas em simultâneo numa determinada conta. Por exemplo, se a sua conta tiver cinco unidades reservadas, em seguida, as tarefas de cinco multimédia serão executados em simultâneo, desde como existem tarefas a serem processados. As tarefas restantes irão aguardar na fila e irão obter escolhidas para processamento, sequencialmente, quando uma tarefa em execução for concluída. Se uma conta não tem quaisquer unidades reservadas aprovisionadas, em seguida, tarefas serão detetadas sequencialmente. Neste caso, o tempo de espera entre uma tarefa de terminar e iniciar a seguir um dependerá da disponibilidade de recursos no sistema.
 

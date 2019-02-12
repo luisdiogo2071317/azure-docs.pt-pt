@@ -1,6 +1,6 @@
 ---
-title: Linguagem de consulta do Log Analytics do Azure Monitor | Documentos da Microsoft
-description: Referências a recursos para aprender a escrever consultas do Log Analytics.
+title: Consultas de registo do Azure Monitor | Documentos da Microsoft
+description: Referências a recursos para aprender a escrever consultas de registo no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,55 +11,57 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: 32e64ce7772d562ea34a0d74afbd737be27d247d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968873"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989258"
 ---
-# <a name="log-analytics-query-language"></a>Linguagem de consulta de análise de registo
-Do log Analytics fornece análise e recolha de registos para o Azure Monitor. Ele se baseia no Explorador de dados do Azure e utiliza uma versão da mesma linguagem de consulta. O [documentação de linguagem de consulta do Explorador de dados do Azure](/azure/kusto/query) tem todos os detalhes para o idioma e deve ser o principal recurso para escrever consultas do Log Analytics. Esta página fornece links para outros recursos para aprender a escrever consultas e nas diferenças com a implementação do Log Analytics da linguagem.
+# <a name="azure-monitor-log-queries"></a>Consultas de registo do Azure Monitor
+Registos de Monitor do Azure são criados no Explorador de dados do Azure e consultas de registo do Azure Monitor utiliza uma versão da mesma linguagem de consulta. O [documentação de linguagem de consulta do Explorador de dados do Azure](/azure/kusto/query) tem todos os detalhes para o idioma e deve ser o principal recurso para escrever consultas de registo do Azure Monitor. Esta página fornece links para outros recursos para aprender a escrever consultas e nas diferenças com a implementação do Azure Monitor da linguagem.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="getting-started"></a>Introdução
 
-- [Introdução ao Log Analytics no portal do Azure](get-started-portal.md) é uma lição para escrever consultas e trabalhar com os resultados no portal do Azure.
--  [Introdução às consultas no Log Analytics](get-started-queries.md) é algo para escrever consultas usando os dados do Log Analytics.
+- [Introdução ao log Analytics do Azure Monitor](get-started-portal.md) é uma lição para escrever consultas e trabalhar com os resultados no portal do Azure.
+- [Introdução às consultas de registo do Azure Monitor](get-started-queries.md) é algo para escrever consultas usando os dados de registo do Azure Monitor.
 
 ## <a name="concepts"></a>Conceitos
-- [Analisar dados do Log Analytics no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) fornece uma breve descrição geral do registo de consulta e descreve a forma como os dados do Log Analytics estão estruturados.
-- [Visualizando e analisando os dados no Log Analytics](../../azure-monitor/log-query/portals.md) explica os portais onde criar e executar consultas do Log Analytics.
+- [Analisar dados de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) fornece uma breve descrição geral do registo de consulta e descreve como os dados de registo do Azure Monitor são estruturados.
+- [Visualizando e analisando dados de registo no Azure Monitor](../../azure-monitor/log-query/portals.md) explica os portais onde criar e executar consultas de registo.
 
 ## <a name="reference"></a>Referência
 
 - [Referência de linguagem de consulta](/azure/kusto/query) é a referência de linguagem completa para a linguagem de consulta do Data Explorer.
-- [Diferenças de linguagem de consulta de análise de registo](data-explorer-difference.md) descreve as diferenças entre as versões da linguagem de consulta Data Explorer.
-- [Propriedades padrão nos registos do Log Analytics](../../azure-monitor/platform/log-standard-properties.md) Descreve propriedades padrão para todos os dados do Log Analytics.
-- [Efetuar pesquisas de registos de entre recursos do Log Analytics](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas que usam dados de várias áreas de trabalho do Log Analytics e aplicações do Application Insights.
+- [Azure diferenças de linguagem de consulta do Monitor log](data-explorer-difference.md) descreve as diferenças entre as versões da linguagem de consulta Data Explorer.
+- [Registos de propriedades padrão no Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) Descreve propriedades padrão para todos os dados de registo do Azure Monitor.
+- [Executar consultas de registo entre recursos no Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas de registo que utilizam dados de várias áreas de trabalho do Log Analytics e aplicações do Application Insights.
 
 
 ## <a name="examples"></a>Exemplos
 
-- [Exemplos de consulta de análise de registo](examples.md) fornece consultas de exemplo com dados do Log Analytics.
+- [Exemplos de consulta de registo do Azure Monitor](examples.md) fornece consultas de exemplo com dados de registo do Azure Monitor.
 
 
 
 ## <a name="lessons"></a>Lições
 
-- [Trabalhar com cadeias de caracteres em consultas do Log Analytics](string-operations.md) descreve como trabalhar com dados de cadeia de caracteres.
-- [Trabalhar com valores de hora da data em consultas do Log Analytics](datetime-operations.md) descreve como trabalhar com dados de data e hora. 
-- [As agregações em consultas do Log Analytics](aggregations.md) e [Advanced agregações em consultas do Log Analytics](advanced-aggregations.md) descrevem como agregam e resumem os dados.
-- [Ingressa em consultas do Log Analytics](joins.md) descreve como associar dados de várias tabelas.
-- [Trabalhar com dados e de JSON estruturas em consultas do Log Analytics](json-data-structures.md) descreve como analisar dados json.
-- [Escrever consultas do Log Analytics de advanced](advanced-query-writing.md) descreve estratégias para criar consultas complexas e reutilização de código.
-- [Criação de gráficos e diagramas de consultas do Log Analytics](charts.md) descreve como visualizar dados de uma consulta.
+- [Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor](string-operations.md) descreve como trabalhar com dados de cadeia de caracteres.
+- [Trabalhar com valores de hora da data em consultas de registo do Azure Monitor](datetime-operations.md) descreve como trabalhar com dados de data e hora. 
+- [Consultas de registo de agregações no Azure Monitor](aggregations.md) e [Advanced agregações em consultas de registo do Azure Monitor](advanced-aggregations.md) descrevem como agregam e resumem os dados.
+- [É associado a nas consultas de registo do Azure Monitor](joins.md) descreve como associar dados de várias tabelas.
+- [Trabalhar com dados e de JSON estruturas em consultas de registo do Azure Monitor](json-data-structures.md) descreve como analisar dados json.
+- [Escrever avançadas registar as consultas no Azure Monitor](advanced-query-writing.md) descreve estratégias para criar consultas complexas e reutilização de código.
+- [Criação de gráficos e diagramas de consultas de registo do Azure Monitor](charts.md) descreve como visualizar dados de uma consulta de registo.
 
 ## <a name="cheatsheets"></a>Truques e dicas
 
--  [SQL para referência rápida do Log Analytics query language](sql-cheatsheet.md) auxilia os usuários que já estejam familiarizados com o SQL.
--  [Splunk para referência rápida do Log Analytics query language](sql-cheatsheet.md) auxilia os usuários que já estão familiarizados com Splunk.
+-  [SQL para consultar de registo do Azure Monitor](sql-cheatsheet.md) auxilia os usuários que já estejam familiarizados com o SQL.
+-  [Splunk à consulta de registo do Azure Monitor](sql-cheatsheet.md) auxilia os usuários que já estão familiarizados com Splunk.
  
 ## <a name="next-steps"></a>Passos Seguintes
 

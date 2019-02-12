@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cca3c69997865f22d22fc5b86565ae9f206b9aee
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104459"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990143"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes de configuração de rede para o ambiente de serviço de aplicações do PowerApps com o Azure ExpressRoute
 
@@ -59,9 +59,9 @@ Ambiente de serviço de aplicações requer as seguintes definições de conecti
 
 * Acesso de rede de entrada para as portas necessárias para o ambiente de serviço de aplicações têm de ser permitido. Para obter detalhes, consulte [como controlar o tráfego de entrada para o ambiente de serviço de aplicações][requiredports].
 
-Para cumprir os requisitos de DNS, certifique-se de uma infraestrutura de DNS válida é configurada e mantida para a rede virtual. Se a configuração de DNS for alterada após a criação do ambiente de serviço de aplicações, os desenvolvedores podem forçar o ambiente de serviço de aplicações de retirada a nova configuração de DNS. Pode acionar um reinício sem interrupção do ambiente utilizando o **reiniciar** ícone sob gestão do ambiente de serviço de aplicações no [portal do Azure] [NewPortal]. O reinício faz com que o ambiente de retirada a nova configuração de DNS.
+Para cumprir os requisitos de DNS, certifique-se de uma infraestrutura de DNS válida é configurada e mantida para a rede virtual. Se a configuração de DNS for alterada após a criação do ambiente de serviço de aplicações, os desenvolvedores podem forçar o ambiente de serviço de aplicações de retirada a nova configuração de DNS. Pode acionar um reinício sem interrupção do ambiente utilizando o **reinicie** ícone sob gestão do ambiente de serviço de aplicações no [portal do Azure][NewPortal]. O reinício faz com que o ambiente de retirada a nova configuração de DNS.
 
-Para cumprir os requisitos de acesso de rede de entrada, configure uma [grupo de segurança de rede (NSG)][NetworkSecurityGroups] na sub-rede do ambiente de serviço de aplicações. O NSG permite o acesso necessário [para controlar o tráfego de entrada para o ambiente de serviço de aplicações][requiredports].
+Para cumprir os requisitos de acesso de rede de entrada, configure uma [grupo de segurança de rede (NSG)] [ NetworkSecurityGroups] na sub-rede do ambiente de serviço de aplicações. O NSG permite o acesso necessário [para controlar o tráfego de entrada para o ambiente de serviço de aplicações][requiredports].
 
 ## <a name="outbound-network-connectivity"></a>Conectividade de rede de saída
 
@@ -87,7 +87,7 @@ O efeito combinado desta configuração é que o UDR de nível de sub-rede terã
 
 Para obter informações sobre as rotas definidas pelo utilizador, consulte [encaminhamento de tráfego de rede Virtual][UDROverview].  
 
-Para saber como criar e configurar rotas definidas pelo utilizador, veja [encaminhar tráfego de rede com uma tabela de rotas com o PowerShell] [UDRHowTo].
+Para saber como criar e configurar rotas definidas pelo utilizador, veja [encaminhar o tráfego de rede com uma tabela de rotas com o PowerShell][UDRHowTo].
 
 ## <a name="udr-configuration"></a>Configuração UDR
 
@@ -95,7 +95,7 @@ Esta secção mostra um exemplo de configuração de UDR para o ambiente de serv
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Instalar o Azure PowerShell na [página de Downloads do Azure] [AzureDownloads]. Escolha um download com uma data de Junho de 2015 ou posterior. Sob **ferramentas de linha de comandos** > **Windows PowerShell**, selecione **instalar** para instalar os cmdlets do PowerShell mais recente.
+* Instalar o Azure PowerShell a partir da [página de transferências do Azure][AzureDownloads]. Escolha um download com uma data de Junho de 2015 ou posterior. Sob **ferramentas de linha de comandos** > **Windows PowerShell**, selecione **instalar** para instalar os cmdlets do PowerShell mais recente.
 
 * Crie uma sub-rede exclusiva para uso exclusivo pelo ambiente de serviço de aplicações. A sub-rede exclusiva garante que as UDRs aplicadas para o tráfego de saída abertas de sub-rede para o ambiente de serviço de aplicações apenas.
 
@@ -118,7 +118,7 @@ Configure o acesso de saída à internet. Defina uma rota para 0.0.0.0/0, confor
 
 0.0.0.0/0 é um intervalo de endereços abrangente. O intervalo é substituído por intervalos de endereços divulgados pelo ExpressRoute, que são mais específicos. Um UDR com uma rota de 0.0.0.0/0 deve ser utilizado em conjunto com uma configuração de ExpressRoute que anuncia apenas 0.0.0.0/0. 
 
-Como alternativa, transfira uma lista atual e abrangente de intervalos CIDR em utilização pelo Azure. O arquivo XML para todos os intervalos de endereços IP do Azure está disponível a partir de [Microsoft Download Center] [DownloadCenterAddressRanges].  
+Como alternativa, transfira uma lista atual e abrangente de intervalos CIDR em utilização pelo Azure. O arquivo XML para todos os intervalos de endereços IP do Azure está disponível a partir da [Microsoft Download Center][DownloadCenterAddressRanges].  
 
 > [!NOTE]
 >
@@ -148,16 +148,23 @@ Agora, está pronto para implementar o ambiente de serviço de aplicações!
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para começar a utilizar com o ambiente de serviço de aplicações do PowerApps, veja [introdução ao ambiente de serviço de aplicações] [IntroToAppServiceEnvironment].
+Para começar a utilizar com o ambiente de serviço de aplicações do PowerApps, veja [introdução ao ambiente de serviço de aplicações][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
 [ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[networkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]: app-service-app-service-environment-intro.md [NewPortal]:  https://portal.azure.com
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+
+[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell
+[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
+[NewPortal]:  https://portal.azure.com
 
 
 <!-- IMAGES -->

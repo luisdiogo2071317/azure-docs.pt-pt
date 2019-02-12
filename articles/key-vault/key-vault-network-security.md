@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: d95ede3b6e99d6791a2642c6059281dedca3fcf2
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: caf649c51346f63aa05d8f2d460e2870493b1587
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423165"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991621"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar o Azure Key Vault firewalls e redes virtuais
 
@@ -38,11 +38,11 @@ Eis como configurar o Cofre de chaves firewalls e redes virtuais com o portal do
 
 Pode também adicionar novas redes virtuais e sub-redes e, em seguida, ativar pontos finais de serviço para o acabada de criar redes virtuais e sub-redes, selecionando **+ Adicionar nova rede virtual**. Em seguida, siga as instruções.
 
-## <a name="use-the-azure-cli-20"></a>Utilizar CLI 2.0 do Azure
+## <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure 
 
-Eis como configurar o Cofre de chaves firewalls e redes virtuais, utilizando a CLI 2.0 do Azure:
+Eis como configurar o Cofre de chaves firewalls e redes virtuais com a CLI do Azure
 
-1. [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [iniciar sessão](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+1. [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [iniciar sessão](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
 2. Listar regras de rede virtual disponível. Se ainda não definir quaisquer regras para este Cofre de chaves, a lista estará vazia.
    ```azurecli
@@ -77,45 +77,47 @@ Eis como configurar o Cofre de chaves firewalls e redes virtuais, utilizando a C
 
 ## <a name="use-azure-powershell"></a>Utilizar o Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Eis como configurar o Cofre de chaves firewalls e redes virtuais com o PowerShell:
 
-1. Instalar a versão mais recente [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps), e [iniciar sessão](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Instalar a versão mais recente [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), e [iniciar sessão](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. Listar regras de rede virtual disponível. Se não tiver definido a quaisquer regras para este Cofre de chaves, a lista estará vazia.
    ```PowerShell
-   (Get-AzureRmKeyVault -VaultName "mykeyvault").NetworkAcls
+   (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. Ative o ponto final de serviço para o Key Vault numa rede virtual existente e a sub-rede.
    ```PowerShell
-   Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzureRmVirtualNetwork
+   Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. Adicione uma regra de rede para uma rede virtual e uma sub-rede.
    ```PowerShell
-   $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-   Add-AzureRmKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
+   $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. Adicione um intervalo de endereços IP do qual permitir o tráfego.
    ```PowerShell
-   Add-AzureRmKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. Se este Cofre de chaves deve ser acessível a todos os serviços confiáveis, defina `bypass` para `AzureServices`.
    ```PowerShell
-   Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. Ativar as regras de rede, definindo a ação predefinida `Deny`.
    ```PowerShell
-   Update-AzureRmKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
 ## <a name="references"></a>Referências
 
-* Os comandos da CLI 2.0 do Azure: [az keyvault-regra de rede](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Cmdlets do Azure PowerShell: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [Add-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [Update-AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
+* Os comandos da CLI do Azure: [az keyvault-regra de rede](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Cmdlets do Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

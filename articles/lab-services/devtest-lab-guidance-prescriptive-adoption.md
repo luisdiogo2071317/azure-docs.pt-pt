@@ -3,21 +3,23 @@ title: Adotar o Azure DevTest Labs para a sua empresa
 description: Este artigo fornece orientações prescritivas para a adoção do Azure DevTest Labs na sua empresa.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: spelluru
+author: christianreddington
+editor: spelluru
 manager: femila
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
-ms.author: spelluru
-ms.openlocfilehash: 5b4a52327227ecd650ee38d60f6bdfcc6bf20056
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 02/11/2019
+ms.author: chredd
+ms.reviewer: anthdela,juselph
+ms.openlocfilehash: b237162e2371888ed38ffbf5bd8b9e987cf60ed5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251081"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993321"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Configurar a infraestrutura do Azure DevTest Labs na sua empresa
 As empresas estão a adotar a cloud rapidamente devido a seus benefícios de uma agilidade, a flexibilidade e a perspetiva de economia. Habitual primeiro passo para a cloud está a migrar cargas de trabalho de desenvolvimento e teste. Existe um conjunto comum de preocupações ao migrar estas cargas de trabalho, como os seguintes: 

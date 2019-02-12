@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 086816bdb93873a39575564496cf043797f3a530
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078105"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993270"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>O que é a condição de localização no acesso condicional do Azure Active Directory? 
 
@@ -34,9 +34,9 @@ Este artigo fornece as informações necessárias configurar a condição de loc
 
 Azure AD permite início de sessão único em dispositivos e aplicações e serviços a partir de qualquer lugar na internet pública. Com a condição de localização, pode controlar o acesso às suas aplicações na cloud com base na localização de rede de um utilizador. Casos de utilização comuns para a condição de localização são:
 
-- Exigir autenticação multifator para os utilizadores que acedem um serviço, quando estiverem desconectados da rede corporativa  
+- Exigir autenticação multifator para os utilizadores que acedem um serviço, quando estiverem desconectados da rede corporativa.
 
-- Bloquear o acesso de utilizadores que acedem um serviço de países ou regiões específicos. 
+- Bloquear o acesso de utilizadores que acedem um serviço de países ou regiões específicos.
 
 Uma localização é uma etiqueta, para uma localização de rede que qualquer um representa uma localização com o nome ou a autenticação multifator de IPs fidedignos.
 
@@ -62,9 +62,9 @@ Um local nomeado tem os seguintes componentes:
 
 - **Marcar como localização fidedigna** -um sinalizador pode ser definido para um local nomeado indicar a localização fidedigna. Normalmente, os locais confiáveis são áreas de rede que são controladas pelo seu departamento de TI. Além do acesso condicional, localizações com nome confiáveis também são utilizadas pelos relatórios de segurança do Azure Identity Protection e o Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
-- **País / regiões** -esta opção permite-lhe selecionar um ou mais país ou região para definir um local nomeado. 
+- **Países/regiões** -esta opção permite-lhe selecionar um ou mais país ou região para definir um local nomeado. 
 
-- **Incluir áreas desconhecidas** -endereços IP alguns não são mapeados para um país específico. Esta opção permite-lhe escolher se estes endereços IP devem ser incluídos na localização com nome. Podem ser verificação quando a política a utilizar a localização com o nome deve ser aplicada para localizações desconhecidas.
+- **Incluir áreas desconhecidas** -endereços IP alguns não são mapeados para um país específico. Esta opção permite-lhe escolher se estes endereços IP devem ser incluídos na localização com nome. Utilize esta definição se a política a utilizar a localização com o nome deve aplicar a localizações desconhecidas.
 
 O número de localizações com nome, que pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Pode configurar:
 
@@ -87,7 +87,7 @@ Na página de definições do serviço de autenticação multifator, pode identi
 
 Depois de verificar esta opção, incluindo o local nomeado **IPS fidedignos de MFA** será aplicada a todas as políticas com esta opção selecionada.
 
-Para aplicativos móveis e de Desktops, o que há muito tempo tem vivido durações de sessão, acesso condicional é periodicamente reavaliado. A predefinição é, uma vez, uma hora. Quando o interior é de afirmação da rede empresarial e apenas emitido no momento da autenticação inicial, o Azure AD não pode ter uma lista de intervalos de IP fidedignos. Neste caso, é mais difícil determinar se o utilizador é ainda na rede empresarial:
+Para aplicativos móveis e de Desktops, o que há muito tempo tem vivido durações de sessão, acesso condicional é periodicamente reavaliado. A predefinição é, uma vez, uma hora. Quando o interior afirmação da rede empresarial apenas é emitida no momento da autenticação inicial, do Azure AD pode não ter uma lista de intervalos de IP fidedignos. Neste caso, é mais difícil determinar se o utilizador é ainda na rede empresarial:
 
 1. Verifique se o endereço IP do usuário está em um dos intervalos de IP fidedignos.
 
@@ -150,7 +150,7 @@ Quando criar ou atualizar com o nome localizações, para atualizações em mass
 
 ### <a name="cloud-proxies-and-vpns"></a>Proxies de nuvem e de VPNs 
 
-Quando utiliza uma solução VPN ou um proxy de nuvem alojada, o endereço IP do Azure AD utiliza enquanto avaliar uma política é o endereço IP do proxy. O cabeçalho de X-Forwarded-For (XFF) que contém os utilizadores não é utilizado o endereço IP público porque não existe nenhuma validação que se trata de uma origem fidedigna, por isso, fornece um método para simular um endereço IP. 
+Quando utiliza uma solução VPN ou um proxy de nuvem alojada, o endereço IP do Azure AD utiliza enquanto avaliar uma política é o endereço IP do proxy. O cabeçalho de X-Forwarded-For (XFF) que contém o endereço IP público do utilizador não é utilizado porque não existe nenhuma validação que se trata de uma origem fidedigna, para que fornece um método para simular um endereço IP. 
 
 Quando um proxy de nuvem está no local, uma política que é utilizada para exigir um dispositivo associado ao domínio pode ser utilizado ou o interior corpnet afirmações do AD FS.
 

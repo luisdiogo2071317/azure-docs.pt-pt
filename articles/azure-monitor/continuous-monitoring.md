@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452824"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994028"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitorização contínua com o Azure Monitor
 
@@ -64,7 +64,7 @@ Integração contínua / implementação contínua permite-lhe automaticamente i
 
 - Uso [Pipelines do Azure](/azure/devops/pipelines) para a implementação contínua de implementar e automatizar o processo inteiro da consolidação de código para produção com base em seus testes de CI/CD.
 - Uso [limites de qualidade](/azure/devops/pipelines/release/approvals/gates) para integrar a monitorização em seu pré-implantação ou pós-implementação. Isto garante que está a cumprir as métricas chave de estado de funcionamento/desempenho (KPIs) à medida que seus aplicativos movem de desenvolvimento para a produção e as diferenças no ambiente de infraestrutura ou de escala é não afetar negativamente os KPIs.
-- [Manter a monitorização de instâncias separadas](../azure-monitor/app/separate-resources.md) entre seus ambientes de implementação diferentes, como o desenvolvimento, teste, Canárias e Prod. Isto garante que os dados recolhidos são relevantes em toda a infra-estrutura e os aplicativos associados. Se precisar de correlacionar dados em ambientes, pode utilizar [vários recursos gráficos no Explorador de métricas](../azure-monitor/platform/metrics-charts.md) ou crie [entre recursos consultas do Log Analytics](log-query/cross-workspace-query.md).
+- [Manter a monitorização de instâncias separadas](../azure-monitor/app/separate-resources.md) entre seus ambientes de implementação diferentes, como o desenvolvimento, teste, Canárias e Prod. Isto garante que os dados recolhidos são relevantes em toda a infra-estrutura e os aplicativos associados. Se precisar de correlacionar dados em ambientes, pode utilizar [vários recursos gráficos no Explorador de métricas](../azure-monitor/platform/metrics-charts.md) ou crie [consultas entre recursos no Azure Monitor](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Criar alertas acionáveis com as ações

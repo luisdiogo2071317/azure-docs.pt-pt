@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0903756ba7df34e7dba20301d45cbd4b6cc4d5ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471322"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992522"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -63,6 +63,20 @@ Falhas regionais não são invulgares e Azure Cosmos DB torna-se de que a sua ba
 - Para contas do Cosmos de várias regiões que estão configuradas com uma região de escrita única [ativar a ativação pós-falha automática utilizando a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#automatic-failover). Depois de ativar a ativação pós-falha automática, sempre que houver um desastre regional, Cosmos DB será automaticamente ativação pós-falha sua conta.  
 
 - Mesmo que a sua conta do Cosmos está altamente disponível, seu aplicativo pode não ser criado corretamente para continuar altamente disponível. Para testar a disponibilidade elevada de ponto-a-ponto para a sua aplicação, invocar periodicamente o [ativação pós-falha manual ao utilizar a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#manual-failover), como parte do seu teste de aplicativos ou a recuperação após desastre (DR) explorações.
+
+
+Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após um evento problemático. O tempo necessário para uma aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes, a aplicação pode tolerar perder ao recuperar após um evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO).
+
+A tabela seguinte mostra o RTO e RPO para os cenários mais comuns.
+
+|Número de regiões |Configuração |Nível de Consistência|RPO: |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < A 240 minutos | < 1 semana |
+|>1     | Replicação de mestre único | Sessão, prefixo consistente, Eventual | < a 15 minutos | < a 15 minutos |
+|>1     | Replicação de mestre único | Estagnação Limitada | K E T | < a 15 minutos |
+|>1     | Replicação de vários mestre | Sessão, prefixo consistente, Eventual | < a 15 minutos | 0 |
+|>1     | Replicação de vários mestre | Estagnação Limitada | K E T | 0 |
+|>1     | * | Forte | 0 | < a 15 minutos |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

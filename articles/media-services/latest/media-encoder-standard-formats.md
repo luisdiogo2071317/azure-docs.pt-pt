@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 22603de40e2ebafb1354377898f5a0432e4f6129
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3bc42bf5b83f9ff983c3d8d88a9a496cc395096c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389016"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992590"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e codecs Media Encoder Standard
 
@@ -29,13 +29,13 @@ Este artigo contém uma lista do importar mais comuns e formatos de ficheiro de 
 | Formatos de ficheiro (extensões de ficheiro) | Suportadas |
 | --- | --- | --- | --- |
 | FLV (com codecs H.264 e AAC) (. flv) |Sim |
-| Ficheiros do MXF (.mxf) |Sim |
-| GXF (.gxf) |Sim |
-| 3GP MPEG2-PS, MPEG2-TS (. TS, .ps, .3gp, .3gpp, .mpg) |Sim |
-| Windows Media Video (WMV) / ASF (. wmv,. asf) |Sim |
+| MXF    (.mxf) |Sim |
+| GXF    (.gxf) |Sim |
+| MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sim |
+| Windows Media Video (WMV)/ASF (.wmv, .asf) |Sim |
 | AVI (descomprimido 8 bits/10 bits) (. avi) |Sim |
-| MP4 (. mp4, .m4a, .m4v) / ISMV (.isma, .ismv) |Sim |
-| [Recording(DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984) (. dvr-ms) |Sim |
+| MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Sim |
+| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim |
 | Matroska/WebM (.mkv) |Sim |
 | WAVE/WAV (. wav) |Sim |
 | QuickTime (.mov) |Sim |
@@ -83,7 +83,7 @@ ou
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG camada 2 |Sim |
 | MP3 (MPEG-1 camada de áudio 3) |Sim |
-| Áudio de suporte de dados do Windows |Sim |
+| Windows Media Audio |Sim |
 | WAV/PCM |Sim |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
@@ -99,8 +99,8 @@ A tabela seguinte lista os codecs e formatos de arquivo que são suportados para
 
 | Formato do Ficheiro | Codec de vídeo | Codec de áudio |
 | --- | --- | --- |
-| MP4 <br/><br/>(incluindo contentores de MP4 de velocidade de transmissão) |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, v2 HE-AAC |
-| MPEG2-TS |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, v2 HE-AAC |
+| MP4 <br/><br/>(incluindo contentores de MP4 de velocidade de transmissão) |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MPEG2-TS |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

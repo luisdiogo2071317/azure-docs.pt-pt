@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3ac07b06e1cf7b5b24956c10e202f9baeab60b2b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249936"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992251"
 ---
-# <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
- Pode utilizar os serviços de multimédia do Azure para proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Com os serviços de multimédia, pode fornecer seu conteúdo ao vivo e sob demanda dinamicamente encriptado com o Advanced Encryption Standard (AES-128) ou qualquer um dos sistemas de gestão (DRM) três direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados. 
+# <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo 
+
+ Pode utilizar os serviços de multimédia do Azure para proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Com os serviços de multimédia, pode fornecer seu conteúdo ao vivo e sob demanda dinamicamente encriptado com o Advanced Encryption Standard (AES-128) ou qualquer um dos três sistemas de gestão (DRM) de direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados. 
 
 A imagem seguinte ilustra o fluxo de trabalho de proteção de conteúdo de serviços de multimédia: 
 
@@ -80,9 +81,9 @@ As seguintes considerações aplicam-se:
 * Tipo de encriptação não tem de ser especificado no URL, se apenas uma encriptação foi aplicada ao elemento.
 * Tipo de encriptação diferencia maiúsculas de minúsculas.
 * Os seguintes tipos de encriptação podem ser especificados:
-  * **cenc**: para PlayReady ou Widevine (encriptação comum)
-  * **cbcs-aapl**: para FairPlay (encriptação AES CBC)
-  * **CBC**: encriptação de envelope AES para
+  * **cenc**: Para PlayReady ou Widevine (encriptação comum)
+  * **cbcs-aapl**: Para o FairPlay (encriptação AES CBC)
+  * **cbc**: Para a encriptação de envelope AES
 
 ## <a name="next-steps"></a>Passos Seguintes
 Os seguintes artigos descrevem os passos seguintes para ajudar a começar com a proteção de conteúdo:

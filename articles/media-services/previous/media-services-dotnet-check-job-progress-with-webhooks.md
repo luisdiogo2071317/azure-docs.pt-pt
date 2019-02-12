@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238663"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989166"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilizar Webhooks de Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilizar Webhooks de Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET 
+
 Quando executa tarefas, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. Pode monitorizar as notificações de trabalho de serviços de multimédia, através de Webhooks do Azure ou [armazenamento de filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
 
 Este artigo mostra como
@@ -57,7 +58,7 @@ Ao desenvolver funções de serviços de multimédia, é útil para adicionar va
 
 O [as definições da aplicação](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) secção define os parâmetros que são utilizados no webhook definido neste artigo. Adicione também os seguintes parâmetros às definições da aplicação. 
 
-|Nome|Definição|Exemplo| 
+|Name|Definição|Exemplo| 
 |---|---|---|
 |SigningKey |Uma chave de assinatura.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | Um endereço de ponto final do webhook. Assim que a função de webhook for criada, pode copiar o URL a partir da **obter URL de função** ligação. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|

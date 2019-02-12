@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/30/2018
+ms.date: 02/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 75ed9a3c2a9f2c5418af5d024cfcf979e3552035
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9f5ccccaffbd11b482ed04875563fc33fb054d03
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812051"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995158"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline de transmissão em fluxo para o Windows 10
+# <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline de transmissão em fluxo para o Windows 10  
 
 Serviços de multimédia do Azure suportam offline download/reprodução com proteção DRM. Este artigo aborda o suporte offline de clientes de 10/PlayReady de serviços de multimédia do Azure para Windows. Pode ler sobre o suporte de modo offline para iOS/FairPlay e dispositivos Android/Widevine nos seguintes artigos:
 

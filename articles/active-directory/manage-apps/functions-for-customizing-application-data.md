@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: c97fd915e9022171125c7c0f687413e433f82871
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d601425ee5641c1bb07c47dcc0f9a1d94ff3dc87
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983847"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990382"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -37,7 +37,7 @@ A sintaxe para expressões para mapeamentos de atributos é que sobrou do Visual
 * Para constantes de cadeia de caracteres, se precisar de uma barra invertida (\) ou aspas (") na cadeia de caracteres, ele deve ser escrito com o símbolo de barra invertida (\). Por exemplo: "Nome da empresa: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lista de funções
-[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Comutador](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
+[Acrescentar](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [associar](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [não](#not) &nbsp; &nbsp; &nbsp; &nbsp; [substituir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Split](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [comutador](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Acrescentar
@@ -128,7 +128,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 * Quando **oldValue** e **replacementValue** são fornecidos:
   
-  * Substitui todas as ocorrências de **oldValue** no **origem** com *replacementValue**
+  * Substitui todas as ocorrências de oldValue na origem com replacementValue
 * Quando **oldValue** e **modelo** são fornecidos:
   
   * Substitui todas as ocorrências do **oldValue** no **modelo** com o **origem** valor
@@ -183,6 +183,19 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 | **[appRoleAssignments]** |Necessário |Cadeia |**[appRoleAssignments]**  objeto. |
 
 - - -
+### <a name="split"></a>Dividir
+**Função:**<br> Split (origem, delimitador)
+
+**Descrição:**<br> Divide uma cadeia de caracteres numa matriz com valor de mulit, utilizando o caráter delimitador especificado.
+
+**Parâmetros:**<br> 
+
+| Nome | Obrigatório / repetidos | Tipo | Notas |
+| --- | --- | --- | --- |
+| **Origem** |Necessário |Cadeia |**origem** valor para atualizar. |
+| **delimiter** |Necessário |String |Especifica os carateres que serão utilizado para dividir a cadeia de caracteres (exemplo: ",") |
+
+- - -
 ### <a name="stripspaces"></a>StripSpaces
 **Função:**<br> StripSpaces(source)
 
@@ -219,7 +232,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
+| **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem |
 | **culture** |Opcional |String |É o formato para o nome da cultura com base na RFC 4646 *languagecode2-país/regioncode2*, onde *languagecode2* é o código de idioma de duas letras e *país/regioncode2*é o código de subcultura de duas letras. Os exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Em casos em que um código de idioma de duas letras não está disponível, é utilizado um código de três letras derivado da ISO 639-2.|
 
 - - -
@@ -282,8 +295,18 @@ NormalizeDiacritics([givenName])
 * **INPUT** (givenName): "Zoë"
 * **SAÍDA**:  "Zoe"
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia de caracteres num determinado formato
+### <a name="split-a-string-into-a-multi-valued-array"></a>Dividir uma cadeia de caracteres numa matriz com múltiplos valor
+Terá de utilizar uma lista delimitada por vírgulas de cadeias de caracteres e dividi-las numa matriz que pode ser conectada a um atributo com múltiplos valor, como o atributo de PermissionSets do Salesforce. Neste exemplo, uma lista de conjuntos de permissões tiverem sido povoada na extensionAttribute5 no Azure AD.
 
+**Expressão:** <br>
+Split([extensionAttribute5], ",")
+
+**Exemplo de entrada/saída:** <br>
+
+* **ENTRADA** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>Data de saída como uma cadeia de caracteres num determinado formato
 Pretende enviar as datas para uma aplicação SaaS num determinado formato. <br>
 Por exemplo, que pretende formatar datas do ServiceNow.
 
@@ -302,7 +325,6 @@ Tem de definir o fuso horário do utilizador com base no código de estado armaz
 Se o código de estado não corresponder a qualquer uma das opções predefinidas, utilize o valor predefinido de "Austrália/Sydney".
 
 **Expressão:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Exemplo de entrada/saída:**
@@ -310,8 +332,19 @@ Se o código de estado não corresponder a qualquer uma das opções predefinida
 * **ENTRADA** (estado): "QLD"
 * **SAÍDA**: "Austrália/Brisbane"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor de userPrincipalName (UPN) do gerado em minúsculas
+### <a name="replace-characters-using-a-regular-expression"></a>Substitua os caracteres usando uma expressão regular
+Precisa localizar caracteres que correspondam a um valor de expressão regular e removê-los.
 
+**Expressão:** <br>
+
+Substituir ([mailNickname,], "[a-zA-Z_] *", "",)
+
+**Exemplo de entrada/saída:**
+
+* **INPUT** (mailNickname: "john_doe72"
+* **SAÍDA**: "72"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Converter o valor de userPrincipalName (UPN) do gerado em minúsculas
 No exemplo abaixo, o valor do UPN é gerado pela concatenação os campos de origem PreferredFirstName e PreferredLastName e a função de ToLower funciona sobre a cadeia de caracteres gerada para converter todos os carateres em minúsculas. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -323,7 +356,6 @@ No exemplo abaixo, o valor do UPN é gerado pela concatenação os campos de ori
 * **SAÍDA**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Gerar um valor exclusivo para o atributo userPrincipalName (UPN)
-
 Com base do usuário nome próprio, segundo nome e sobrenome, terá de gerar um valor para o atributo UPN e verificar seu exclusividade no diretório de destino AD antes de atribuir o valor para o atributo UPN.
 
 **Expressão:** <br>
@@ -349,4 +381,3 @@ Com base do usuário nome próprio, segundo nome e sobrenome, terá de gerar um 
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
 * [Notificações do aprovisionamento de contas](user-provisioning.md)
 * [Lista de tutoriais sobre como integrar aplicações SaaS](../saas-apps/tutorial-list.md)
-

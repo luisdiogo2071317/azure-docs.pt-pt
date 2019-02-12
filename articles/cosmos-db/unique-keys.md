@@ -1,26 +1,30 @@
 ---
 title: Utilizar chaves exclusivas no Azure Cosmos DB
-description: Saiba como utilizar chaves exclusivas na sua base de dados do Azure Cosmos DB
+description: Saiba como utilizar chaves exclusivas na sua base de dados do Cosmos do Azure
 author: aliuy
 ms.author: andrl
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3a7133d9c092ab8ad8a4bc585e3b0df2b8ca1234
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475878"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999271"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chave exclusivas no Azure Cosmos DB
 
-Chaves exclusivas oferecem a capacidade de adicionar uma camada de integridade dos dados para um contentor do Cosmos. Criar uma política de chaves exclusivas durante a criação de um contentor do Cosmos. Com as chaves exclusivas, garantir a exclusividade de um ou mais valores dentro de uma partição lógica (pode garantir a exclusividade por [chave de partição](partition-data.md)). Depois de criar um contentor com uma política de chaves exclusivas, ele impede a criação de quaisquer itens duplicados novos (ou atualizados) dentro de uma partição lógica, como especificado pela restrição de chave exclusiva. A chave de partição combinada com a exclusividade de garantias de chave exclusivos de um item no âmbito do contentor.
+Chaves exclusivas adicionarem uma camada de integridade dos dados para um contentor do Cosmos do Azure. Criar uma política de chaves exclusivas quando criar um contentor do Cosmos do Azure. Com as chaves exclusivas, certificar-se de que um ou mais valores dentro de uma partição lógica é exclusivo. Também pode garantir a exclusividade por [chave de partição](partition-data.md). 
 
-Por exemplo, considere um contentor do Cosmos com endereço de e-mail como restrição de chave exclusiva e `CompanyID` como a chave de partição. Ao configurar uma chave exclusiva de endereços de correio eletrónico do utilizador, garantir que cada item tem um endereço de e-mail exclusivo dentro de um determinado `CompanyID`. Não não possível criar dois itens com endereços de e-mail duplicados e com o mesmo valor de chave de partição.  
+Depois de criar um contentor com uma política de chaves exclusivas, a criação de itens duplicados novas ou atualizadas dentro de uma partição lógica é evitada, conforme especificado pela restrição de chave exclusiva. A chave de partição combinada com a chave exclusiva garante a exclusividade de um item no âmbito do contentor.
 
-Se quiser fornecer aos utilizadores a capacidade de criar vários itens com o mesmo endereço de e-mail, mas não o mesmo nome, o último nome e endereço de e-mail, poderia adicionar caminhos adicionais para a política de chaves exclusivas. Em vez de criar uma chave exclusiva com base no endereço de e-mail, também pode criar uma chave exclusiva com uma combinação do nome próprio, apelido e endereço (uma chave composta exclusivo) de e-mail. Neste caso, cada combinação exclusiva dos três valores dentro de um determinado `CompanyID` é permitido. Por exemplo, o contentor pode conter itens com os seguintes valores em que cada item é respeitar a restrição de chave exclusiva.
+Por exemplo, considere um contentor do Cosmos do Azure com o endereço de e-mail como a restrição de chave exclusivo e `CompanyID` como a chave de partição. Quando configurar o endereço de e-mail do utilizador com uma chave exclusiva, cada item tem um endereço de e-mail exclusivo dentro de um determinado `CompanyID`. Não não possível criar dois itens com endereços de e-mail duplicados e com o mesmo valor de chave de partição. 
+
+Para criar itens com a mensagem de e-mail mesmo endereço, mas não o mesmo nome, sobrenome e endereço de e-mail, adicionar mais caminhos para a política de chaves exclusivas. Em vez de criar uma chave exclusiva com base no endereço de e-mail, também pode criar uma chave exclusiva com uma combinação do nome próprio, apelido e endereço de e-mail. Esta chave é conhecida como uma chave exclusiva composta. Neste caso, cada combinação exclusiva dos três valores dentro de um determinado `CompanyID` é permitido. 
+
+Por exemplo, o contentor pode conter itens com os seguintes valores, onde cada item honra a restrição de chave exclusiva.
 
 |CompanyID|Nome próprio|Apelido|Endereço de e-mail|
 |---|---|---|---|
@@ -31,24 +35,24 @@ Se quiser fornecer aos utilizadores a capacidade de criar vários itens com o me
 |Fabrkam|   |Duperre|gaby@fabraikam.com|
 |Fabrkam|   |   |gaby@fabraikam.com|
 
-Se tentar inserir outro item com as combinações listadas na tabela acima, receberá um erro que indica que a restrição de chave exclusiva não foi cumprida. Receberá a qualquer um dos "recursos com o ID especificado ou o nome já existe" ou "Recurso com o ID especificado, o nome ou índice exclusivo já existe" como uma mensagem de retorna.  
+Se tentar inserir outro item com as combinações listadas na tabela anterior, receberá um erro. O erro indica que a restrição de chave exclusiva não cumprida. Receber qualquer um dos "recursos com o ID especificado ou o nome já existe" ou "Recurso com o ID especificado, o nome ou índice exclusivo já existe" como uma mensagem de retorna. 
 
-## <a name="defining-a-unique-key"></a>Definir uma chave exclusiva
+## <a name="define-a-unique-key"></a>Definir uma chave exclusiva
 
-Pode definir chaves exclusivas durante a criação de um contentor do Cosmos. Uma chave exclusiva é confinada a uma partição lógica. No exemplo anterior, se dividir o contentor com base em zipcode, acabará tendo duplicados itens em cada partição lógica. Durante a criação de chaves exclusivas, considere as seguintes propriedades:
+Pode definir chaves exclusivas apenas quando é criar um contentor do Cosmos do Azure. Uma chave exclusiva é confinada a uma partição lógica. No exemplo anterior, se dividir o contentor com base no CEP, acaba com itens duplicados em cada partição lógica. Quando criar chaves exclusivas, considere as seguintes propriedades:
 
-* Não é possível atualizar um contentor existente para utilizar uma chave exclusiva diferente. Em outras palavras, uma vez que é criado um contentor com uma política de chave exclusiva, não é possível alterar a política.
+* Não é possível atualizar um contentor existente para utilizar uma chave exclusiva diferente. Em outras palavras, é criado um contentor com uma política de chaves exclusivas, a política não pode ser alterada.
 
-* Se pretender definir chave exclusiva para um contentor existente, terá de criar um novo contentor com a restrição de chave exclusiva e utilizar a ferramenta de migração de dados apropriados para mover os dados de contentor existente para o novo contentor. Para contentores SQL, utilize o [ferramenta de migração de dados](import-data.md) para mover dados. Para contentores do MongoDB, utilize [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) para mover dados.
+* Para definir uma chave exclusiva para um contentor existente, crie um novo contentor com a restrição de chave exclusiva. Utilize a ferramenta de migração de dados apropriados para mover os dados do contêiner existente para o novo contentor. Para contentores SQL, utilize o [ferramenta de migração de dados](import-data.md) para mover dados. Para contentores do MongoDB, utilize [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) para mover dados.
 
-* Uma política de chaves exclusivas pode ter um máximo de 16 valores de caminho (por exemplo: /firstName, /lastName, / morada/CódigoPostal). Cada política de chaves exclusivas pode ter um máximo de 10 restrições de chave exclusivos ou combinações e os caminhos de combinado para cada restrição de índice exclusivo não devem exceder 60 bytes. No exemplo anterior, nome próprio, apelido e endereço de e-mail em conjunto são apenas uma restrição e, utiliza três de 16 caminhos possíveis.
+* Uma política de chaves exclusivas pode ter um máximo de 16 valores de caminho. Por exemplo, os valores podem ser /firstName /lastName e /address/zipCode. Cada política de chaves exclusivas pode ter um máximo de 10 restrições de chave exclusivas ou combinações. Os caminhos de combinado para cada restrição de índice exclusivo não pode exceder 60 bytes. No exemplo anterior, nome próprio, apelido e endereço de e-mail em conjunto são uma restrição. Esta restrição utiliza 3 fora os 16 caminhos possíveis.
 
-* Quando um contentor tem uma política de chaves exclusivas (UR) de unidades de cobrança de pedido para criar, atualizar e eliminar um item são um pouco mais alta.
+* Quando um contentor tem uma política de chave exclusiva, taxas de unidade de pedido (RU) para criar, atualizar e eliminar um item são um pouco mais alta.
 
-* Chaves exclusivas dispersas não são suportadas. Se faltam alguns valores de caminho exclusivo, são tratadas como valores nulos, o que faça parte da restrição de exclusividade. Por conseguinte, só pode existir um único item com valor nulo para satisfazer esta restrição.
+* Chaves exclusivas dispersas não são suportadas. Se faltam alguns valores de caminho exclusivo, eles são tratados como valores nulos, o que faça parte da restrição de exclusividade. Por esse motivo, pode haver apenas um único item com um valor nulo para satisfazer esta restrição.
 
-* Nomes de chave exclusivos diferenciam maiúsculas de minúsculas. Por exemplo, considere um contentor com a restrição de chave exclusiva definida como /address/zipcode. Se os dados tiverem um campo chamado ZipCode, do Cosmos DB insere "null" como uma chave exclusiva porque "zipcode" não é igual a "ZipCode". Devido a este maiúsculas e minúsculas, todos os outros registos com ZipCode não não possível inserir uma vez que o duplicado "null" será violam a restrição de chave exclusiva.
+* Nomes de chave exclusivos diferenciam maiúsculas de minúsculas. Por exemplo, considere um contentor com a restrição de chave exclusiva definida como /address/zipcode. Se os dados tiverem um campo chamado ZipCode, do Azure Cosmos DB insere "null" como uma chave exclusiva porque "zipcode" não é igual a "ZipCode." Devido a este maiúsculas e minúsculas, todos os outros registos com ZipCode não não possível inserir uma vez que o duplicado "null" viola a restrição de chave exclusiva.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [partições lógicas](partition-data.md)
+* Saiba mais sobre [partições lógicas](partition-data.md).

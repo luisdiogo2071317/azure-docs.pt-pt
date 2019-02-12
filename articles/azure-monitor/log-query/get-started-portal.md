@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Log Analytics no portal do Azure | Documentos da Microsoft
+title: Introdução ao log Analytics do Azure Monitor | Documentos da Microsoft
 description: Este artigo fornece um tutorial para utilizar o Log Analytics no portal do Azure para escrever consultas.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 6ed8906066d66b6e16ec482a53137f9ca70ae9c7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b9a5c78ff9d6c1e2c7194f5b92511e94dfafb058
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000038"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990501"
 ---
-# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Introdução ao Log Analytics no portal do Azure
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução ao log Analytics do Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial irá aprender como utilizar a página do Log Analytics no portal do Azure (atualmente em pré-visualização) para escrever consultas do Log Analytics. Ele irá ensiná-lo como para:
+Neste tutorial irá aprender a utilizar o Monitor do Azure log analytics no portal do Azure para escrever consultas de registo do Azure Monitor. Ele irá ensiná-lo como para:
 
 - Escrever consultas simples
 - Compreender o esquema dos seus dados
@@ -35,8 +35,8 @@ Neste tutorial irá aprender como utilizar a página do Log Analytics no portal 
 - Exportar e partilhar consultas
 
 
-## <a name="meet-the-log-analytics-page"></a>Conheça a página do Log Analytics 
-A página do Log Analytics é uma ferramenta de web utilizada para criar e executar consultas do Log Analytics do Azure. Abri-lo selecionando **registos (pré-visualização)** no menu do Log Analytics. Ele começa com uma nova consulta em branco.
+## <a name="meet-log-analytics"></a>Conheça o log analytics
+O log analytics é uma ferramenta de web utilizada para criar e executar consultas de registo do Azure Monitor. Abri-lo selecionando **registos** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
 
 ![Página de boas-vindas](media/get-started-portal/homepage.png)
 
@@ -64,7 +64,7 @@ Neste exemplo, **pesquisa** tem como escopo o _eventos_ tabela e todos os regist
 ## <a name="running-a-query"></a>Execução de uma consulta
 Executar uma consulta ao clicar o **execute** botão ou prima **Shift + Enter**. Considere os seguintes detalhes que determinam o código que será executado e os dados que são devolvidos:
 
-- Quebras de linha: uma quebra de única torna sua consulta mais clara. Quebras de linha de vários dividi-la em consultas separadas.
+- Quebras de linha: Uma única quebra torna sua consulta mais clara. Quebras de linha de vários dividi-la em consultas separadas.
 - Cursor: Coloque o cursor em algum lugar dentro da consulta para executá-lo. A consulta atual é considerada o código até que uma linha em branco é encontrada.
 - Intervalo - um intervalo de hora de tempo _últimas 24 horas_ é definido por padrão. Para utilizar um intervalo diferente, utilize o Seletor de tempo ou adicionar um período de tempo explícito filtro de intervalo para a sua consulta.
 
@@ -83,10 +83,10 @@ Comece por obter tudo _evento_ tabela.
 Event
 ```
 
-A página do Log Analytics examina automaticamente os resultados por:
+Automaticamente do log analytics âmbitos resultados por:
 
-- Intervalo de tempo: por predefinição, consultas estão limitadas para as últimas 24 horas.
-- Número de resultados: os resultados estão limitados a máxima de 10 000 registos.
+- Intervalo de tempo:  Por predefinição, consultas estão limitadas para as últimas 24 horas.
+- Número de resultados: Os resultados estão limitados ao máximo de 10 000 registos.
 
 Esta consulta é muito geral e retorna demasiados resultados para ser útil. Pode filtrar os resultados por meio dos elementos de tabela ou adicionando explicitamente um filtro à consulta. Filtragem de resultados por meio dos elementos de tabela aplica-se para o conjunto de resultados existente, enquanto um filtro para a própria consulta irá devolver um resultado filtrado novo definido e, portanto, conseguiu produzir resultados mais precisos.
 
@@ -121,7 +121,7 @@ A tabela de resultados, muitas vezes, inclui muitas colunas. Pode achar que algu
 
 
 ## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
-Por predefinição, a página do Log Analytics é aplicável a _últimas 24 horas_ intervalo de tempo. Para utilizar um intervalo diferente, selecione outro valor através do Seletor de hora e clique em **executar**. Além dos valores predefinidos, pode utilizar o _intervalo de tempo personalizado_ opção de selecionar um intervalo de absoluto para sua consulta.
+Por predefinição, o log analytics aplica-se a _últimas 24 horas_ intervalo de tempo. Para utilizar um intervalo diferente, selecione outro valor através do Seletor de hora e clique em **executar**. Além dos valores predefinidos, pode utilizar o _intervalo de tempo personalizado_ opção de selecionar um intervalo de absoluto para sua consulta.
 
 ![Selecionador de hora](media/get-started-portal/time-picker.png)
 
@@ -164,9 +164,9 @@ Para afixar um diagrama ou tabela para um dos dashboards partilhados do Azure, c
 
 Algumas simplificações aplicadas a um gráfico quando afixá-la a um dashboard:
 
-- Colunas e linhas de tabela: para afixar uma tabela ao dashboard, tem de ter quatro ou menos colunas. São apresentadas apenas as sete linhas superiores.
-- Restrição de tempo: as consultas são automaticamente limitadas a dos últimos 14 dias.
-- Restrição de contagem de discretização: se exibir um gráfico que tem muitas das discretizações discretas, menos discretizações preenchidas automaticamente são agrupadas num único _outros_ bin.
+- Colunas de tabelas e linhas: Para poder afixar uma tabela ao dashboard, tem de ter quatro ou menos colunas. São apresentadas apenas as sete linhas superiores.
+- Restrição de tempo: As consultas são automaticamente limitadas a dos últimos 14 dias.
+- Restrição de contagem de bin: Se exibir um gráfico que tem muitas das discretizações discretas, menos discretizações preenchidas automaticamente são agrupadas num único _outros_ bin.
 
 ## <a name="save-queries"></a>Guardar consultas
 Depois de criar uma consulta útil, pode querer guardá-lo ou partilhar com outras pessoas. O **guardar** é de ícone na barra superior.
@@ -183,12 +183,12 @@ O ícone do Explorador de consultas está na área superior direito. Lista todas
 ![Explorador de consultas](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>A exportação e partilha de ligação
-A página do Log Analytics oferece suporte a vários métodos de exportação:
+O log analytics suporta vários métodos de exportação:
 
 - Excel: Guarde os resultados como um ficheiro CSV.
-- Power BI: Exporte os resultados para o power BI. Ver [dados de importação do Azure Log Analytics para o Power BI](../../azure-monitor/platform/powerbi.md) para obter detalhes.
-- Partilhar uma ligação: A consulta em si pode ser compartilhada como um link que, em seguida, pode ser enviado e executado por outros utilizadores que têm acesso à mesma área de trabalho.
+- Power BI: Exporte os resultados para o power BI. Ver [dados de registo de importação do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md) para obter detalhes.
+- Partilhe uma ligação: A consulta em si pode ser compartilhada como um link que, em seguida, pode ser enviado e executado por outros utilizadores que têm acesso à mesma área de trabalho.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [escrever consultas do Log Analytics](get-started-queries.md).
+- Saiba mais sobre [escrever consultas de registo do Azure Monitor](get-started-queries.md).

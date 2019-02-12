@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 5ddee0ca94535688a0634ef8575f3aedad649a43
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037503"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994958"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilize o armazenamento de filas do Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Utilize o armazenamento de filas do Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET (Legado)
+
 Ao executar tarefas de codificação, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. Pode configurar a entrega de notificações para os serviços de multimédia [armazenamento de filas do Azure](../../storage/storage-dotnet-how-to-use-queues.md). Pode monitorizar o progresso da tarefa, obter notificações do armazenamento de filas. 
 
 Entregue ao armazenamento de filas de mensagens podem ser acedidas em qualquer local no mundo. A arquitetura de mensagens de armazenamento de fila é fiável e altamente escalável. Armazenamento de filas de mensagens de consulta recomenda-se com o uso de outros métodos.
@@ -338,7 +339,7 @@ namespace JobNotification
 }
 ```
 
-O exemplo anterior produziu a saída seguinte: os valores irão variar.
+O exemplo anterior produziu a saída seguinte: Os valores irão variar.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

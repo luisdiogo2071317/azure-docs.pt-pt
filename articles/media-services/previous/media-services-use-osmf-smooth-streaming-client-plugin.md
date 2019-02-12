@@ -4,7 +4,7 @@ description: Saiba como utilizar o plug-in Azure Media Services Smooth Streaming
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cfabc068e801c610c9e393eea50213a3c5ad26ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229633"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000102"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Smooth Streaming Plug-in para o Adobe Open Source Media Framework da Microsoft
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Como utilizar o Smooth Streaming Plug-in para o Adobe Open Source Media Framework da Microsoft  
 ## <a name="overview"></a>Descrição geral
 O plug-in Microsoft Smooth Streaming para abrir origem Media Framework 2.0 (SS para OSMF) expande as capacidades de padrão de OSMF e adiciona a reprodução de conteúdo Microsoft Smooth Streaming para jogadores OSMF novos e existentes. O plug-in também adiciona capacidades de transmissão em fluxo uniforme de reprodução para Strobe Media Playback (SMP).
 
@@ -52,8 +52,8 @@ Para obter uma lista completa das funcionalidades suportadas, funcionalidades n�
 ## <a name="loading-the-plugin"></a>A carregar o plug-in
 Plug-ins OSMF podem ser carregados estaticamente (no momento da compilação) ou dinamicamente (em tempo de execução). O plug-in Smooth Streaming para OSMF download inclui versões estáticas e dinâmicas.
 
-* A carregar estática: para carregar estaticamente, é necessário um ficheiro de biblioteca estática (SWC). Plug-ins estáticos são adicionados como uma referência a projetos e intercalação dentro do arquivo de saída final em tempo de compilação.
-* Carregamento dinâmico: para carregar dinamicamente, é necessário um ficheiro de (SWF) pré-compilados. Plug-ins dinâmicos são carregados no tempo de execução e não incluídos na saída do projeto. (Saída compilada) Plug-ins dinâmicos podem ser carregados usando protocolos HTTP e o ficheiro.
+* Carregamento estático: Para carregar estaticamente, é necessário um ficheiro de biblioteca estática (SWC). Plug-ins estáticos são adicionados como uma referência a projetos e intercalação dentro do arquivo de saída final em tempo de compilação.
+* Carregamento dinâmico: Para carregar dinamicamente, é necessário um ficheiro de (SWF) pré-compilados. Plug-ins dinâmicos são carregados no tempo de execução e não incluídos na saída do projeto. (Saída compilada) Plug-ins dinâmicos podem ser carregados usando protocolos HTTP e o ficheiro.
 
 Para obter mais informações sobre carregamento estática e dinâmica, consulte oficial [página de plug-in OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 

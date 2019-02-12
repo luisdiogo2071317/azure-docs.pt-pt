@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.date: 02/08/2019
+ms.openlocfilehash: d08deda0483516180b9923838104cfb6596e7495
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756653"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003300"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Servidores de base de dados SQL do Azure e a gestão
 
 ## <a name="what-is-an-azure-sql-database-server"></a>O que é um servidor de base de dados do Azure SQL
 
-Um servidor de base de dados SQL é uma construção lógica que age como um ponto administrativo central para vários autónoma ou [agrupados](sql-database-elastic-pool.md) bases de dados, [inícios de sessão](sql-database-manage-logins.md), [regras de firewall](sql-database-firewall-configure.md), [auditoria regras](sql-database-auditing.md), [políticas de deteção de ameaças](sql-database-threat-detection.md), e [grupos de ativação pós-falha](sql-database-auto-failover-group.md) server de uma base de dados SQL pode ser numa região diferente do que o seu grupo de recursos. O servidor de base de dados SQL tem de existir antes de poder criar a base de dados SQL do Azure. Todas as bases de dados geridos por um servidor de base de dados SQL são criadas dentro da mesma região que o servidor de base de dados SQL.
+Um servidor de base de dados SQL é uma construção lógica que age como um ponto administrativo central para vários único ou [agrupados](sql-database-elastic-pool.md) bases de dados, [inícios de sessão](sql-database-manage-logins.md), [regras de firewall](sql-database-firewall-configure.md), [auditoria regras](sql-database-auditing.md), [políticas de deteção de ameaças](sql-database-threat-detection.md), e [grupos de ativação pós-falha](sql-database-auto-failover-group.md) server de uma base de dados SQL pode ser numa região diferente do que o seu grupo de recursos. O servidor de base de dados SQL tem de existir antes de poder criar a base de dados SQL do Azure. Todas as bases de dados geridos por um servidor de base de dados SQL são criadas dentro da mesma região que o servidor de base de dados SQL.
 
 Um servidor de base de dados SQL é diferente de uma instância do SQL Server que talvez esteja familiarizado com o mundo no local. Especificamente, o serviço de base de dados SQL não dá qualquer garantia relativamente à localização das bases de dados em relação ao servidor de base de dados SQL que gere e não expõe nenhum acesso de nível de instância ou funcionalidades. Por outro lado, as bases de dados de instância numa instância gerida são todos colocados-da mesma forma que esteja familiarizado com o SQL Server no mundo no local.
 

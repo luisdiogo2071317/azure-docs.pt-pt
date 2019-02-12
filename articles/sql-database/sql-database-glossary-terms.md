@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d773d270b3b352bcaef189d201d824695b42bcef
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980147"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990075"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de base de dados SQL do Azure dos termos
 
@@ -27,10 +27,10 @@ ms.locfileid: "55980147"
 |Opções de implementação |Base de dados individual|[Bases de dados individuais](sql-database-single-database.md)|
 ||Conjunto elástico|[Conjunto elástico](sql-database-elastic-pool.md)|
 ||Instância gerida|[Instância gerida](sql-database-managed-instance.md)|
-|Objetos do servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de base de dados](sql-database-servers.md)|
+|Objetos de servidor|Servidor de base de dados SQL ou servidor de base de dados|[Servidor de base de dados](sql-database-servers.md)|
 ||Servidor de instância gerida da base de dados SQL, o servidor de instância gerida ou o servidor de instância|[Instância gerida](sql-database-managed-instance.md)|
-Objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na base de dados do Azure SQL|
-||Base de dados individual|Uma base de dados criado como uma base de dados autónomo utilizando a opção de implementação de base de dados|
+objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na base de dados do Azure SQL|
+||Base de dados individual|Uma base de dados criado com a opção de implementação de base de dados|
 ||Bases de dados agrupadas|Uma base de dados criada dentro ou movido para um conjunto elástico|
 ||Base de dados de instância|Uma base de dados criada dentro de uma instância gerida|
 ||Base de dados básica|Criada dentro de uma base de dados ou movido para o escalão de serviço básico de modelo de compra baseado em DTU|
@@ -39,7 +39,7 @@ Objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na ba
 ||Base de dados de fins gerais|Criada dentro de uma base de dados ou movido para a camada de serviços de fins gerais do modelo de compra baseado em vCore|
 ||Base de dados de grande escala|Criada dentro de uma base de dados ou movido para a camada de serviços de hiperescala do modelo de compra baseado em vCore|
 ||Bases de dados fundamentais do negócio|Criada dentro de uma base de dados ou movido para a camada de serviços críticos de negócios do modelo de compra baseado em vCore|
-|[Modelos de compra e de recursos](sql-database-service-tiers.md)|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
+|[Modelos de compra e de recursos](sql-database-purchase-models.md)|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
 ||Modelo de compras baseado em vCore|[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Um núcleo fornecido para o SO convidado pelo hipervisor.|
 ||Camada de serviços|Um nível de serviço dentro de um modelo de compra|

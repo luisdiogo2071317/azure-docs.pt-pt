@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 90a94612248dead5b57ebff67562dda083d8669f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247287"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996139"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificar um recurso com o Media Encoder Standard no portal do Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "50247287"
 > 
 > 
 
-Um dos cenários mais comuns ao trabalhar com os serviços de multimédia do Azure é a entrega de velocidade de transmissão adaptável, transmissão em fluxo para os seus clientes. Os Media Services suportam a velocidade de transmissão adaptável seguinte tecnologias de transmissão em fluxo: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e Dynamic Adaptive Streaming over HTTP (DASH, também chamado de MPEG-DASH). Para preparar os seus vídeos para transmissão em fluxo de velocidade de transmissão adaptável, primeiro a codificar o seu vídeo de origem como arquivos de velocidade de transmissão. Pode utilizar o Azure Media Encoder Standard para codificar seus vídeos.  
+Um dos cenários mais comuns ao trabalhar com os serviços de multimédia do Azure é a entrega de velocidade de transmissão adaptável, transmissão em fluxo para os seus clientes. Os Media Services suportam a velocidade de transmissão adaptável seguinte tecnologias de transmissão em fluxo: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e Dynamic Adaptive Streaming através de HTTP (DASH, também chamado de MPEG-DASH). Para preparar os seus vídeos para transmissão em fluxo de velocidade de transmissão adaptável, primeiro a codificar o seu vídeo de origem como arquivos de velocidade de transmissão. Pode utilizar o Azure Media Encoder Standard para codificar seus vídeos.  
 
 Os Serviços de Multimédia proporcionam-lhe empacotamento dinâmico. Com o empacotamento dinâmico, pode fornecer dos seus MP4s de velocidade de transmissão em HLS, Smooth Streaming e MPEG-DASH, sem reempacotamento estes formatos de transmissão em fluxo. Quando utiliza o empacotamento dinâmico, pode armazenar e pagar pelos ficheiros num formato de armazenamento única. Serviços de multimédia criam e entregam a resposta adequada com base na solicitação de um cliente.
 

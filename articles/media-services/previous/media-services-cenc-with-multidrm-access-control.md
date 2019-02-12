@@ -4,23 +4,23 @@ description: Saiba mais sobre como licenciar o Microsoft Smooth Streaming client
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 02/08/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: c19b43f652b490ceb86606633f543f4e455b6116
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 94baa1235388ce99d013f8267f8410dcc206a51d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189308"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998353"
 ---
-# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com o controlo de acesso através dos serviços de multimédia do Azure
+# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com o controlo de acesso através dos serviços de multimédia do Azure 
 
 ## <a name="overview"></a>Descrição geral
 

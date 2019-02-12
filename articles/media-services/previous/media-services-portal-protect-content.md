@@ -4,7 +4,7 @@ description: Este artigo demonstra como utilizar o portal do Azure para configur
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423556"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996966"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo com o portal do Azure
  Com os serviços de multimédia do Azure, pode proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Pode utilizar os serviços de multimédia para distribuir os seus conteúdos encriptados dinamicamente com a encriptação AES (Advanced Standard) utilizando as chaves de encriptação de 128 bits. Também pode utilizá-lo com a encriptação comum (CENC) com o PlayReady e/ou Widevine gestão de direitos digitais (DRM) e o Apple FairPlay. 
@@ -93,7 +93,7 @@ Para ver todos os seus ativos, selecione **configurações** > **ativos**.
 Quando seleciona **Encrypt** para um recurso, verá duas opções: **AES** ou **DRM**. 
 
 #### <a name="aes"></a>AES
-Encriptação de chave está ativada em todos os protocolos de transmissão em fluxo não encriptada AES: transmissão em fluxo uniforme, HLS e MPEG-DASH.
+Não encriptada AES encriptação de chave está ativada em todos os protocolos de transmissão em fluxo: Transmissão em fluxo uniforme, HLS e MPEG-DASH.
 
 ![Configuração da encriptação](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 

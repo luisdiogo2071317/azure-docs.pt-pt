@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 04ab94d8b0b8f012707bb88a52c44b91063cbe39
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: ce425278bfc0f9b95285c33e9863b508246d5e79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402188"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992317"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -73,47 +73,47 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
 2. Adicione os seguintes componentes HTML ao ficheiro:
 
    ```HTML
-   <!DOCTYPE html>
-   <html>
-   <head>
-      <title>Map Search</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-      <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-      <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
-
-      <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-      <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
-
-      <script>      
-         var map, datasource, client, popup;
-
-         function GetMap(){
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Map Search</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        
+        <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+        
+        <script>        
+        var map, datasource, client, popup;
+        
+        function GetMap(){
             //Add Map Control JavaScript code here.
-         }
-      </script>
-      <style>
-      html,
-      body {
-         width: 100%;
-         height: 100%;
-         padding: 0;
-         margin: 0;
-      }
-
-      #myMap {
-         width: 100%;
-         height: 100%;
-      }
-      </style>
-   </head>
-   <body onload="GetMap()">
-      <div id="myMap"></div>
-   </body>
-   </html>
-   ```
+        }
+        </script>
+        <style>
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            
+            #map {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body onload="GetMap()">
+        <div id="myMap"></div>
+    </body>
+    </html>
+    ```
 
    Repare que o cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript alojados pela biblioteca de Controlo de Mapas do Azure. Observe o evento `onload` no corpo da página, que irá chamar a função `GetMap` quando o corpo da página for carregada. Esta função irá conter o código JavaScript inline para aceder às APIs do Azure Maps.
 
@@ -228,8 +228,9 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
 2. Na etiqueta do *script*, após a função `GetMap`, adicione o seguinte código para mostrar as informações do resultado com o rato parado sobre a pop-up. 
 
    ```JavaScript
-   function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occurred on.
+    function showPopup(e) {
+        //Get the properties and coordinates of the first shape that the event occured on.
+
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();
 
@@ -246,7 +247,7 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
 
         //Open the popup.
         popup.open(map);
-   }
+    }
    ```
 
 2. Guarde o ficheiro e atualize o browser. Agora, o mapa no browser mostra pop-ups de informação quando paira o rato sobre qualquer um dos marcadores de pesquisa.

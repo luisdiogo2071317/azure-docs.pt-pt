@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121554"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991315"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início rápido: Utilizar ferramentas do portal internas para importação de Azure Search, indexação e consultas
 
@@ -83,7 +83,7 @@ Vamos ignorar este passo por agora e avançar diretamente para **personalizar o 
 
 ### <a name="step-3---configure-index"></a>Passo 3 - configurar o índice
 
-Normalmente, a criação de índices é um exercício baseada em código, concluído antes de carregar os dados. No entanto, como indica que este tutorial, o assistente pode gerar um índice básico para qualquer origem de dados que consiga pesquisar. No mínimo, os índices precisam de um nome e de uma coleção de campos; um dos campos deve ser marcado como a chave do documento para identificar exclusivamente cada documento. Além disso, pode especificar sugestores ou analisadores de idioma se desejar que a conclusão automática ou sugestões de consultas.
+Normalmente, a criação de índices é um exercício baseada em código, concluído antes de carregar os dados. No entanto, como indica que este tutorial, o assistente pode gerar um índice básico para qualquer origem de dados que consiga pesquisar. No mínimo, os índices precisam de um nome e de uma coleção de campos; um dos campos deve ser marcado como a chave do documento para identificar exclusivamente cada documento. Além disso, pode especificar sugestores ou analisadores de idioma se desejar preenchimento automático ou consultas sugeridas.
 
 Os campos têm tipos de dados e atributos. As caixas de verificação na parte superior são *atributos de índice* que controlam a forma como o campo é utilizado.
 

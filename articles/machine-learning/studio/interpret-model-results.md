@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488548"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997010"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar os resultados de modelo no Azure Machine Learning Studio
 Este tópico explica como visualizar e interpretar os resultados de predição no Azure Machine Learning Studio. Depois de ter um modelo de preparação e fazer predições com base no mesmo ("classificada o modelo de"), tem de compreender e interpretar o resultado de predição.
@@ -74,7 +74,7 @@ Existem seis colunas na tabela de resultados. As colunas de quatro esquerdas sã
 
 **Publicação de serviços da Web**
 
-Depois dos resultados da predição foram compreendidos e considerados som, a experimentação pode ser publicada como um serviço web para que pode implementá-la em vários aplicativos e chamá-lo para obter previsões de classe de qualquer novo flor de íris. Para saber como alterar uma experimentação de preparação para uma experimentação de classificação e publicá-lo como um serviço web, veja [publicar o serviço web do Azure Machine Learning](walkthrough-5-publish-web-service.md). Este procedimento fornece uma experiência de classificação conforme mostrado na figura 3.
+Depois dos resultados da predição foram compreendidos e considerados som, a experimentação pode ser publicada como um serviço web para que pode implementá-la em vários aplicativos e chamá-lo para obter previsões de classe de qualquer novo flor de íris. Para saber como alterar uma experimentação de preparação para uma experimentação de classificação e publicá-lo como um serviço web, consulte [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md). Este procedimento fornece uma experiência de classificação conforme mostrado na figura 3.
 
 ![Captura de tela de experimentação de classificação](./media/interpret-model-results/3.png)
 

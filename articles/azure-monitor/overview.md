@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098035"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001999"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -28,6 +28,7 @@ O Azure Monitor maximiza a disponibilidade e desempenho das suas aplicações, f
 ## <a name="overview"></a>Descrição geral
 O diagrama seguinte fornece uma visão geral do Azure Monitor. No centro do diagrama são arquivos de dados de métricas e registos, os quais são os dois tipos fundamentais de utilização de dados pelo Azure Monitor. No lado esquerdo são os [origens de dados de monitorização](platform/data-sources.md) que preencher estes [arquivos de dados](platform/data-collection.md). À direita são as diferentes funções do Azure Monitor executa com estes dados recolhidos, tais como análise, alertas e transmissão em fluxo a sistemas externos.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Descrição geral do Azure Monitor](media/overview/overview.png)
 
@@ -39,7 +40,7 @@ Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor
 
 ![Métricas](media/overview/metrics.png)
 
-Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](log-query/portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](platform/alerts-overview.md).
+Dados de registo recolhidos pelo Monitor do Azure podem ser analisados com [consultas](log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através de [do log analytics](log-query/portals.md) no portal do Azure e, em seguida, em qualquer um analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [alerta regras](platform/alerts-overview.md).
 
 Monitor do Azure utiliza uma versão dos [linguagem de consulta do Data Explorer](/azure/kusto/query/) que é adequado para registo simples consulta, mas também inclui funcionalidades avançadas, como agregações, associações e análises inteligentes. Pode aprender rapidamente a linguagem de consulta através de [várias lições](log-query/get-started-queries.md).  É fornecida orientação específica para os utilizadores que já estejam familiarizados com [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -54,7 +55,7 @@ O Azure Monitor pode recolher dados de várias origens. Pode considerar os dados
 - **Subscrição do Azure, os dados de monitorização**: Dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. 
 - **Inquilino do Azure, os dados de monitorização**: Dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory.
 
-Assim que criar uma subscrição do Azure e comece a adicionar recursos, tais como máquinas virtuais e aplicações web, o Azure Monitor inicia a recolha de dados.  [Registos de atividades](platform/activity-logs-overview.md) gravar quando os recursos são criados ou modificados. [Métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) informá-lo como o recurso está sendo executada e os recursos que ele está a consumir. 
+Assim que criar uma subscrição do Azure e comece a adicionar recursos, tais como máquinas virtuais e aplicações web, o Azure Monitor inicia a recolha de dados.  [Registos de atividades](platform/activity-logs-overview.md) gravar quando os recursos são criados ou modificados. [Métricas](platform/data-collection.md) informá-lo como o recurso está sendo executada e os recursos que ele está a consumir. 
 
 Expandir os dados que está a recolher sobre o funcionamento real dos recursos por [ativar os diagnósticos](platform/diagnostic-logs-overview.md) e [adicionando um agente](platform/agent-windows.md) para recursos de computação. Esta ação irá recolher telemetria para o funcionamento interno de recurso e permitem-lhe configurar diferente [origens de dados](platform/agent-data-sources.md) para recolher registos e métricas de sistema de operativo de convidado do Windows e Linux. 
 
