@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 928ed383c08dd87cb003d1f729bc3fecce0c6935
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693889"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999237"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Chaves de como gerar e transferir protegida por HSM para o Azure Key Vault
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para mais segurança, quando utiliza o Azure Key Vault, pode importar ou gerar chaves nos módulos de segurança de hardware (HSMs) que nunca deixam o limite do HSM. Este cenário é frequentemente referido como *traga a sua própria chave*, ou BYOK. Os HSMs têm a certificação FIPS 140-2 de nível 2 validada. O Azure Key Vault utiliza família de nShield da Thales de HSMs para proteger as suas chaves.
 
@@ -78,21 +80,19 @@ Neste primeiro passo, efetue os seguintes procedimentos na estação de trabalho
 
 ### <a name="step-11-install-azure-powershell"></a>Passo 1.1: Instalar o Azure PowerShell
 
-Da estação de trabalho ligada à Internet, transfira e instale o módulo Azure PowerShell que inclui cmdlets para gerir o Azure Key Vault. Isto requer a versão mínima do 0.8.13.
-
-Para obter instruções de instalação, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Da estação de trabalho ligada à Internet, transfira e instale o módulo Azure PowerShell que inclui cmdlets para gerir o Azure Key Vault. Para obter instruções de instalação, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Passo 1.2: Obter o seu ID de subscrição do Azure
 
 Inicie uma sessão do Azure PowerShell e inicie sessão na sua conta do Azure utilizando o seguinte comando:
 
 ```Powershell
-   Add-AzureRMAccount
+   Connect-AzAccount
 ```
-Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. Em seguida, utilize o [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) comando:
+Na janela pop-up do browser, introduza o seu nome de utilizador da conta do Azure e a palavra-passe. Em seguida, utilize o [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) comando:
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 A partir da saída, localize o ID da subscrição que irá utilizar para o Azure Key Vault. Irá precisar posteriormente este ID de subscrição.
 
@@ -493,10 +493,10 @@ Utilize uma unidade USB ou outro armazenamento portátil para copiar o ficheiro 
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Passo 5: Transferir a chave para o Azure Key Vault
 
-Para este passo final, na estação de trabalho ligada à Internet, utilize o [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet para carregar o pacote de transferência da chave que copiou da estação de trabalho desligada para o HSM do Azure Key Vault:
+Para este passo final, na estação de trabalho ligada à Internet, utilize o [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet para carregar o pacote de transferência da chave que copiou da estação de trabalho desligada para o HSM do Azure Key Vault:
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 Se o carregamento for bem-sucedido, verá apresentadas as propriedades da chave que acabou de adicionar.
