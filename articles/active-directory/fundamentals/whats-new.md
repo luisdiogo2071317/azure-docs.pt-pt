@@ -15,12 +15,13 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 0cd3515c9df8cc5588523c51a82e16ee8ecf5e45
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8b7616eed4a17f33ad3b490c625c69cebb32a3f8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747633"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164546"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -317,7 +318,7 @@ Para obter mais informações sobre o licenciamento baseado em grupo, consulte [
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Novembro de 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Novas Aplicações Federadas disponíveis na galeria de aplicações do Azure AD - novembro de 2018
 
 **Tipo:** Nova funcionalidade  
 **Categoria de serviço:** Aplicações Empresariais  
