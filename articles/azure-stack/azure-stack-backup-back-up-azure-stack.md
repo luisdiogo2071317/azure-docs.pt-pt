@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250049"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210310"
 ---
 # <a name="back-up-azure-stack"></a>Criar cópias de segurança do Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Efetue uma cópia de segurança a pedido no Azure Stack com cópia de segurança no local. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para o Azure Stack ](azure-stack-powershell-install.md). Para iniciar sessão no Azure Stack, veja [com o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
+Efetue uma cópia de segurança a pedido no Azure Stack. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para o Azure Stack ](azure-stack-powershell-install.md). Para iniciar sessão no Azure Stack, veja [com o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Iniciar cópia de segurança do Azure Stack
 
@@ -121,4 +121,4 @@ Utilize o portal de administração do Azure Stack para verificar que essa cópi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o fluxo de trabalho para recuperar a partir de um evento de perda de dados. Ver [recuperar da perda catastrófica de dados](azure-stack-backup-recover-data.md).
+Saiba mais sobre o fluxo de trabalho para [recuperar a partir de um evento de perda de dados](azure-stack-backup-recover-data.md).

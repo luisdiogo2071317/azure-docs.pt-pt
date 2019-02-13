@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com a forma como fazemos | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com a forma como fazemos | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a forma como fazemos.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: bc415ec7c577e221a1ab5af585dff5b4fc9ab7dc
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5dc6d8e2cf7ac4786f30484325406a1fe696dff3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259976"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165132"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Tutorial: Integração do Azure Active Directory com a forma como fazemos
+# <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>Tutorial: Integração do Active Directory do Azure com a forma como fazemos
 
 Neste tutorial, saiba como integrar a forma como fazemos com o Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com a forma como fazemos, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Ativado de forma A que início de sessão único subscrição
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Para configurar a integração de forma podemos fazer com o Azure AD, terá de a
 
 **Para adicionar a forma como fazemos a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -198,7 +199,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na forma como fazemos. Forma fazemos suporta o aprovisionamento just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder de forma podemos fazer se não existir ainda.
 
 > [!Note]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de forma podemos fazer cliente](mailto:support@waywedo.com).
+> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de forma podemos fazer cliente](mailto:support@waywedo.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -230,7 +231,7 @@ Nesta secção, vai ativar Eduarda Almeida a utilizar do Azure-início de sessã
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

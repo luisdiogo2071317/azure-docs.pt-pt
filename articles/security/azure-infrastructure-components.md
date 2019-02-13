@@ -4,7 +4,7 @@ description: Este artigo fornece uma descrição geral da arquitetura do Microso
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: b2e8ef232e1b25c7d000f4683830ff2e188047fb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b390dc9bd2b690837a85a5bab361a534b9c9d5a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186481"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118144"
 ---
 # <a name="azure-information-system-components-and-boundaries"></a>Componentes de sistema de informações do Azure e limites
 Este artigo fornece uma descrição geral da arquitetura do Azure e gestão. O ambiente do sistema do Azure é constituído pelas redes seguintes:
@@ -54,7 +54,7 @@ A equipe de sistema operativo fornece imagens, na forma de discos rígidos virtu
 
 Existem três tipos de imagens do sistema de operativo recursos de infraestrutura geridos:
 
-- : Um personalizado sistema operativo anfitrião Que é executado no anfitrião de VMs.
+- Host: Um sistema de operativo personalizado que é executado no anfitrião de VMs.
 - Nativo: Um sistema operacional nativo que é executado em inquilinos (por exemplo, armazenamento do Azure). Este sistema operativo não tem qualquer hipervisor.
 - Convidado: Um sistema operativo convidado que é executada em VMs de convidado.
 
@@ -79,9 +79,9 @@ As equipes de serviço são:
 - Plataforma de Aplicações
 - Azure Active Directory
 - Computação do Azure
-- Net do Azure
+- Azure Net
 - Serviços de engenharia de cloud
-- ISSD: segurança
+- ISSD: Segurança
 - Autenticação Multifator
 - SQL Database
 - Armazenamento

@@ -17,12 +17,13 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: dd9bdc4638d1c055706026798acba08d6add08c7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a46bc954d137ad610310d83d3ad7f54370b9177b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098756"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184045"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início de sessão único
 
@@ -96,7 +97,7 @@ O `Scoping` elemento, que inclui uma lista de fornecedores de identidade, é opc
 
 Se for fornecido, não incluem o `ProxyCount` atributo, `IDPListOption` ou `RequesterID` elemento, à medida que eles não são suportados.
 
-### <a name="signature"></a>assinatura
+### <a name="signature"></a>Assinatura
 Não inclua uma `Signature` elemento no `AuthnRequest` elementos, como o Azure AD suporta assinados pedidos de autenticação.
 
 ### <a name="subject"></a>Requerente
@@ -198,7 +199,7 @@ Ele é definido como `https://sts.windows.net/<TenantIDGUID>/`onde <TenantIDGUID
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-#### <a name="signature"></a>assinatura
+#### <a name="signature"></a>Assinatura
 
 O Azure AD assina a asserção em resposta a um início de sessão-com êxito. O `Signature` elemento contém uma assinatura digital que o serviço em nuvem pode utilizar para autenticar a origem para verificar a integridade da asserção.
 

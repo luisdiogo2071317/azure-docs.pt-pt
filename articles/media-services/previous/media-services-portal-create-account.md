@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 5e7fa81330c0f1f0e44a423f3e2fa42b1a91c119
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d5b3af2b950dd33c797af874d56806de8049b358
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990092"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210684"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Criar uma conta de serviços de multimédia com o portal do Azure
 
@@ -27,7 +27,7 @@ O portal do Azure proporciona uma forma para criar rapidamente uma conta dos Ser
 
 Pode ter Fins Gerais v1 ou Fins Gerais v2 como a sua conta de armazenamento primária. Atualmente, o portal do Azure permite escolher apenas o v1, mas pode adicionar o v2, ao criar a conta com a API ou o Powershell. Para obter mais informações sobre as contas de armazenamento, veja [Acerca das contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-A conta de Media Services e todas as contas de armazenamento associado tem de ser na mesma subscrição do Azure. Recomenda-se para utilizar contas de armazenamento na mesma localização que a conta de Media Services.
+A conta de Media Services e todas as contas de armazenamento associado tem de ser na mesma subscrição do Azure. É vivamente recomendado para utilizar contas de armazenamento na mesma localização que a conta de serviços de multimédia para evitar custos de saída de latência e dados adicionais.
 
 Este artigo mostra como criar uma conta de serviços de multimédia no portal do Azure.
 

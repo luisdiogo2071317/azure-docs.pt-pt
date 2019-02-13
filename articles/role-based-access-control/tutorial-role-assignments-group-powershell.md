@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: ba37be1f0d7224b7e607955ab350e756b6fec350
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ad6884067a756412efe27ce275387ff5ceb1b298
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697556"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105676"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Tutorial: Conceder acesso para um grupo através do RBAC e o Azure PowerShell
 
@@ -124,7 +124,7 @@ Para conceder acesso para o grupo, utilize o [New-AzRoleAssignment](/powershell/
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Obter o ID da sua subscrição com o [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) comando.
+1. Obter o ID da sua subscrição com o [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) comando.
 
     ```azurepowershell
     Get-AzSubscription

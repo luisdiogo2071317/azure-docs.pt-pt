@@ -1,7 +1,7 @@
 ---
 title: Utilizar um modelo para criar uma área de trabalho
 titleSuffix: Azure Machine Learning service
-description: Saiba como utilizar um modelo do Azure resource manager para criar uma área de trabalho de serviço do Azure Machine Learning nova.
+description: Saiba como utilizar um modelo Azure Resource Manager para criar uma área de trabalho de serviço do Azure Machine Learning nova.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: haining
 author: hning86
 ms.date: 02/11/2019
-ms.openlocfilehash: 71513c91d83f54359e43a41e178d91fe97a4ce82
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: b9d05e8de01178fd8731e492d2aeefd28f3ef4cf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101182"
+ms.locfileid: "56105710"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Criar uma área de trabalho do serviço do Azure Machine Learning utilizando um modelo
 

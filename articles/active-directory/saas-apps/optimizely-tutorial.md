@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 19be60a7a2767b8ea2185e1336b3155143260fb6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 534a373024556db86d0553b68ce3f847ff085486
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180769"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Active Directory do Azure com Optimizely
 
@@ -129,7 +130,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
 5. Clique em **ver e editar todos os outros atributos de utilizador** caixa de seleção o **atributos de utilizador** secção para expandir os atributos. Execute os seguintes passos em cada um dos atributos apresentados-
 
-    | Nome de atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |
     | e-mail | user.mail |
 

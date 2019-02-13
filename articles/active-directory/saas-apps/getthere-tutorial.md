@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com GetThere | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com GetThere | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e GetThere.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: bcefa3966a6c854f02ce7b3a75306b3d1c888ecd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b132da4a763490fa6c7a73c80f8e2e3a11b42e9b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431317"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173135"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: Integração do Azure Active Directory com GetThere
+# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: Integração do Active Directory do Azure com GetThere
 
 Neste tutorial, saiba como integrar GetThere com o Azure Active Directory (Azure AD).
 
@@ -131,10 +132,10 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome |  Atributo de origem |  Espaço de Nomes |
+    | Name |  Atributo de origem |  Espaço de nomes |
     | ---------------| --------------- | --------------- |
-    | SiteName | "O valor de acordo com a sua organização fornecer" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
-    | Nome de utilizador |  User.Mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
+    | Sitename | "O valor de acordo com a sua organização fornecer" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
+    | Nome de utilizador |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
     
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -162,7 +163,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -197,7 +198,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-getthere-test-user"></a>Criar um utilizador de teste GetThere
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no GetThere. Trabalhar com [equipa de suporte de cliente GetThere](mailto:dataintegration@sabre.com) para adicionar os utilizadores na plataforma GetThere. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no GetThere. Trabalhar com [equipa de suporte de cliente GetThere](mailto:dataintegration@sabre.com) para adicionar os utilizadores na plataforma GetThere. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

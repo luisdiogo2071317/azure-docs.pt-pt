@@ -4,7 +4,7 @@ description: Este artigo fornece um conjunto de práticas recomendadas para segu
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281630"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117974"
 ---
 # <a name="azure-database-security-best-practices"></a>Práticas recomendadas de segurança da base de dados do Azure
 A segurança é uma grande preocupação para a gestão de bases de dados e, sempre foi uma prioridade para o [base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/). As bases de dados podem ser fortemente protegidos para ajudar a satisfazer mais normas ou requisitos de segurança, incluindo a HIPAA, ISO 27001/27002 e PCI DSS nível 1. A lista atual de certificações de conformidade de segurança está disponível na [site do Microsoft Trust Center](https://azure.microsoft.com/support/trust-center/services/). Também pode optar por colocar as bases de dados nos datacenters do Azure específicos com base nos requisitos de regulamentação.
@@ -77,7 +77,7 @@ Se utilizar a autenticação do SQL Server, tem de:
 
 - As credenciais fortes gerida por si.
 - Protege as credenciais na cadeia de ligação.
-- Protege (potencialmente) as credenciais transmitidas através da rede do servidor web para a base de dados. Para obter mais informações, consulte [como: ligar ao SQL Server a utilizar autenticação do SQL no ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
+- Protege (potencialmente) as credenciais transmitidas através da rede do servidor web para a base de dados. Para obter mais informações, consulte [como: Ligar ao SQL Server utilizando a autenticação SQL no ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticação do Azure Active Directory (AD)*
 Autenticação do Azure AD é um mecanismo de ligação a base de dados do Azure SQL e [o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD. Com a autenticação do Azure AD, pode gerir as identidades dos utilizadores de base de dados e outros serviços da Microsoft num local central. Gerenciamento de ID central fornece um único local para gerir utilizadores de base de dados e simplifica a gestão de permissões.
@@ -150,18 +150,18 @@ Proteção contra ameaças vai além da deteção. Inclui a proteção de ameaç
 - Implementando as configurações seguras na base de dados para que possa proteger sua base de dados.
 - Detetar e responder a potenciais ameaças à medida que ocorrem, para que possa responder e remediar rapidamente.
 
-**Melhor prática**: detetar, classificar e etiquetar os dados confidenciais em seus bancos de dados.   
-**Detalhe**: classificar os dados na base de dados SQL, permitindo [dados de deteção e classificação](../sql-database/sql-database-data-discovery-and-classification.md) na base de dados do Azure SQL. Pode monitorizar o acesso aos seus dados confidenciais no dashboard do Azure ou baixar relatórios.
+**Melhor prática**: Detetar, classificar e etiquetar os dados confidenciais em seus bancos de dados.   
+**Detalhe**: Classificar os dados na base de dados SQL, permitindo [dados de deteção e classificação](../sql-database/sql-database-data-discovery-and-classification.md) na base de dados do Azure SQL. Pode monitorizar o acesso aos seus dados confidenciais no dashboard do Azure ou baixar relatórios.
 
-**Melhor prática**: monitorizar vulnerabilidades de base de dados, de modo proativo pode melhorar a segurança da base de dados.   
-**Detalhe**: Utilize o Azure SQL Database [avaliação de vulnerabilidade](../sql-database/sql-vulnerability-assessment.md) service, que verifica a existência de possíveis vulnerabilidades de base de dados. O serviço emprega uma base de dados de conhecimento de regras que sinalize vulnerabilidades de segurança e Mostrar desvios das melhores práticas, tais como configurações incorretas, permissões excessivas e dados confidenciais não protegidos.
+**Melhor prática**: Controlar as vulnerabilidades de base de dados, de modo proativo pode melhorar a segurança da base de dados.   
+**Detalhe**: Utilizar a base de dados do SQL do Azure [avaliação de vulnerabilidade](../sql-database/sql-vulnerability-assessment.md) service, que verifica a existência de possíveis vulnerabilidades de base de dados. O serviço emprega uma base de dados de conhecimento de regras que sinalize vulnerabilidades de segurança e Mostrar desvios das melhores práticas, tais como configurações incorretas, permissões excessivas e dados confidenciais não protegidos.
 
 As regras são baseadas em melhores práticas da Microsoft e concentrar-se os problemas de segurança que apresentam os maiores riscos para a base de dados e os respetivos dados valiosos. Eles abrangem os problemas de nível de base de dados e questões de segurança ao nível do servidor, como definições de firewall do servidor e permissões ao nível do servidor. Estas regras também representam muitos dos requisitos de órgãos normativos para atender aos seus padrões de conformidade.
 
-**Melhor prática**: Ativar a deteção de ameaças.  
-**Detalhe**: Ativar o Azure SQL Database [deteção de ameaças](../sql-database/sql-database-threat-detection.md) obter alertas de segurança e recomendações sobre como investigar e mitigar ameaças. Obtenha alertas sobre atividades suspeitas da base de dados, potenciais vulnerabilidades e ataques de injeção de SQL, bem como base de dados anómala padrões de acesso e a consulta.
+**Melhor prática**: Ative deteção de ameaças.  
+**Detalhe**:  Ativar o Azure SQL Database [deteção de ameaças](../sql-database/sql-database-threat-detection.md) obter alertas de segurança e recomendações sobre como investigar e mitigar ameaças. Obtenha alertas sobre atividades suspeitas da base de dados, potenciais vulnerabilidades e ataques de injeção de SQL, bem como base de dados anómala padrões de acesso e a consulta.
 
-[Proteção avançada contra ameaças](../sql-database/sql-advanced-threat-protection.md) é um pacote unificado para funções de segurança avançadas do SQL. Ele inclui os serviços mencionados anteriormente: dados de deteção e classificação, avaliação de vulnerabilidade e a deteção de ameaças. Ele fornece um único local para ativar e gerir esses recursos.
+[Proteção avançada contra ameaças](../sql-database/sql-advanced-threat-protection.md) é um pacote unificado para funções de segurança avançadas do SQL. Ele inclui os serviços mencionados anteriormente: Dados de deteção e classificação, avaliação de vulnerabilidade e a deteção de ameaças. Ele fornece um único local para ativar e gerir esses recursos.
 
 Ativar estas capacidades ajuda-o:
 

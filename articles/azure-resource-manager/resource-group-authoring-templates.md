@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: cdc48cf278fdd68bacf74c2d6d762c8d731949e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745594"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111576"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
@@ -217,7 +217,7 @@ No seu modelo, pode criar suas próprias funções. Estas funções estão dispo
 Ao definir uma função de utilizador, existem algumas restrições:
 
 * A função não é possível aceder a variáveis.
-* A função não é possível aceder aos parâmetros do modelo. Ou seja, o [função de parâmetros](resource-group-template-functions-deployment.md#parameters) restringe-se aos parâmetros da função.
+* A função só pode utilizar os parâmetros definidos na função. Quando utiliza a [função de parâmetros](resource-group-template-functions-deployment.md#parameters) dentro de uma função definida pelo utilizador, é restritos para os parâmetros para essa função.
 * A função não é possível chamar outras funções definidas pelo utilizador.
 * A função não é possível utilizar o [fazem referência função](resource-group-template-functions-resource.md#reference).
 * Parâmetros para a função não podem ter valores predefinidos.
@@ -298,9 +298,23 @@ Na secção de saídas, especifique os valores que são devolvidos da implementa
 
 Para obter mais informações, consulte [produz a seção de modelos Azure Resource Manager](resource-manager-templates-outputs.md).
 
-## <a name="comments"></a>Comentários
+<a id="comments" />
 
-Tem algumas opções para adicionar comentários ao seu modelo.
+## <a name="comments-and-metadata"></a>Comentários e metadados
+
+Tem algumas opções para adicionar comentários e os metadados ao seu modelo.
+
+Pode adicionar um `metadata` objeto praticamente qualquer lugar no seu modelo. Gestor de recursos ignora o objeto, mas o seu editor de JSON pode avisá-lo que a propriedade não é válida. O objeto, defina as propriedades que precisa.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 Para **parâmetros**, adicione um `metadata` objeto com um `description` propriedade.
 
@@ -342,18 +356,6 @@ Para **recursos**, adicione um `comments` elemento ou um objeto de metadados. O 
     "properties": {}
   }
 ]
-```
-
-Pode adicionar um `metadata` objeto praticamente qualquer lugar no seu modelo. Gestor de recursos ignora o objeto, mas o seu editor de JSON pode avisá-lo que a propriedade não é válida. O objeto, defina as propriedades que precisa.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 Para **produz**, adicionar um objeto de metadados para o valor de saída.

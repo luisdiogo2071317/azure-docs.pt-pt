@@ -3,7 +3,7 @@ title: Tutorial para criar uma aplicação Web com Cache do Azure para Redis que
 description: Saiba como criar uma aplicação Web com Cache do Azure para Redis que utiliza o padrão Cache-Aside
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: wesmc
-ms.openlocfilehash: da99d446da1451c2b05f6ecab8ba19eaa1e2bfa3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 72a986202376aa9a8105eef73352e8f576738dff
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104952"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118552"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação de cache-aside no ASP.NET
 

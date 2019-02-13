@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com nuvem JDA | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com a nuvem JDA | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e JDA Cloud.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 371ff15121e3da0bec5be6159fea9c6764b0aeda
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f2dfaf281130115ff04ff84b413e224f54cfcf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703763"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168345"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integração do Azure Active Directory com nuvem JDA
+# <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integração do Active Directory do Azure com a nuvem JDA
 
 Neste tutorial, saiba como integrar JDA Cloud no Azure Active Directory (Azure AD).
 
@@ -170,7 +171,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="create-a-jda-cloud-test-user"></a>Criar um utilizador de teste JDA Cloud
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida na JDA Cloud. Trabalhar com [equipa de suporte de JDA Cloud](https://support.jda.com/) para adicionar os utilizadores na plataforma da JDA Cloud. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida na JDA Cloud. Trabalhar com [equipa de suporte de JDA Cloud](https://support.jda.com/) para adicionar os utilizadores na plataforma da JDA Cloud. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

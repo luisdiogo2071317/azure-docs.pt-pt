@@ -1,6 +1,6 @@
 ---
-title: Gestão de espaço de ficheiro de base de dados SQL do Azure | Documentos da Microsoft
-description: Esta página descreve como gerir o espaço de ficheiro com a base de dados do Azure SQL e fornece exemplos de código para saber como determinar se necessita de reduzir uma base de dados, bem como a forma como para executar uma base de dados reduzir a operação.
+title: Gestão de espaços de ficheiros do Azure SQL Database única/em pool bases de dados | Documentos da Microsoft
+description: Esta página descreve como gerir o espaço de ficheiro com bases de dados únicos e agrupados na base de dados do Azure SQL e fornece exemplos de código para saber como determinar se necessita de reduzir um único ou uma base de dados agrupado, bem como a forma como para executar uma base de dados reduzir a operação.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,21 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: cf73708682a8434ffabaff101d6d6928671af4b6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003725"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110154"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>Gerir o espaço de ficheiro na base de dados do Azure SQL
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerir o espaço de ficheiro para bases de dados individuais e agrupados na base de dados do Azure SQL
 
-Este artigo descreve os diferentes tipos de espaço de armazenamento na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro alocado para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
+Este artigo descreve os diferentes tipos de espaço de armazenamento para bases de dados individuais e agrupados na base de dados do Azure SQL e os passos que podem ser realizados quando o espaço de ficheiro atribuídos para bases de dados e precisa ser gerenciado explicitamente de conjuntos elásticos.
+
+> [!NOTE]
+> Este artigo não se aplica à opção de implementação de instância gerida na base de dados do Azure SQL.
 
 ## <a name="overview"></a>Descrição geral
 
-Na base de dados SQL do Azure, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Esta condição pode ocorrer se o espaço utilizado aumentar e se os dados forem eliminados subsequentemente. O motivo é que o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
+Com o únicos e em pool bases de dados na base de dados do Azure SQL, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Esta condição pode ocorrer se o espaço utilizado aumentar e se os dados forem eliminados subsequentemente. O motivo é que o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
 
 Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encolher os ficheiros de dados poderá ser necessário:
 
@@ -47,7 +50,7 @@ No entanto, as seguintes APIs também medem o tamanho do espaço alocado para ba
 
 ### <a name="shrinking-data-files"></a>Reduzindo ficheiros de dados
 
-O serviço de BD SQL não reduzir automaticamente os ficheiros de dados para recuperar espaço alocado não utilizado devido ao impacto potencial para desempenho da base de dados.  No entanto, os clientes podem reduzir os ficheiros de dados por meio de Self-Service num momento à sua escolha, seguindo os passos descritos em [recuperar não utilizada de espaço em atribuído](#reclaim-unused-allocated-space). 
+O serviço de base de dados SQL não reduzir automaticamente os ficheiros de dados para recuperar espaço alocado não utilizado devido ao impacto potencial para desempenho da base de dados.  No entanto, os clientes podem reduzir os ficheiros de dados por meio de Self-Service num momento à sua escolha, seguindo os passos descritos em [recuperar não utilizados alocado espaço](#reclaim-unused-allocated-space).
 
 > [!NOTE]
 > Ao contrário dos arquivos de dados, o serviço de base de dados SQL diminui automaticamente ficheiros de registo, uma vez que essa operação não afeta o desempenho de base de dados. 
@@ -68,7 +71,7 @@ O diagrama seguinte ilustra a relação entre os diferentes tipos de espaço de 
 
 ![tipos de espaço de armazenamento e as relações](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>Consultar uma base de dados para obter informações de espaço de armazenamento
+## <a name="query-a-single-database-for-storage-space-information"></a>Consultar uma base de dados para obter informações de espaço de armazenamento
 
 As seguintes consultas podem ser utilizadas para determinar as quantidades de espaço de armazenamento para uma base de dados.  
 
@@ -144,7 +147,7 @@ Modifique o seguinte script do PowerShell para devolver uma tabela que lista o e
 
 Os resultados da consulta para determinar o espaço alocado para cada base de dados no agrupamento pode ser adicionado em conjunto para determinar o total de espaço alocado para o conjunto elástico. O espaço do conjunto elástico alocado não deve exceder o tamanho máximo do conjunto elástico.  
 
-O script do PowerShell requer o módulo do PowerShell do SQL Server – ver [módulo do PowerShell transferir](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) para instalar.
+O script do PowerShell requer o módulo do PowerShell do SQL Server – ver [módulo do PowerShell transferir](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module) para instalar.
 
 ```powershell
 # Resource group name
@@ -225,7 +228,7 @@ Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](http
 
 ### <a name="auto-shrink"></a>Redução automática
 
-Em alternativa, a redução automática pode ser ativada para uma base de dados.  Redução automática reduz a complexidade da gestão de ficheiros e menos causa um impacto no desempenho da base de dados que SHRINKDATABASE ou SHRINKFILE.  Redução automática pode ser particularmente útil para gerir conjuntos elásticos com muitas bases de dados.  No entanto, a redução automática pode ser menos eficiente reclamação de espaço de ficheiro que SHRINKDATABASE e SHRINKFILE.
+Em alternativa, a redução automática pode ser ativada para uma base de dados.  Redução automática reduz a complexidade da gestão de ficheiros e menos causa um impacto no desempenho do banco de dados que `SHRINKDATABASE` ou `SHRINKFILE`.  Redução automática pode ser particularmente útil para gerir conjuntos elásticos com muitas bases de dados.  No entanto, a redução automática pode ser menos eficiente reclamação de espaço de ficheiro que `SHRINKDATABASE` e `SHRINKFILE`.
 Para ativar a redução automática, modifique o nome da base de dados no comando seguinte.
 
 

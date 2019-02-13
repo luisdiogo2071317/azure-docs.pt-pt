@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620545"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106142"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no Azure com o portal do Azure
 > [!div class="op_single_selector"]
@@ -46,8 +46,8 @@ Se esta for a primeira vez que está a criar um cluster do service fabric ou est
 #### <a name="cluster-and-server-certificate-required"></a>Certificado de cluster e servidor (obrigatório)
 Este certificado é necessário para proteger um cluster e evitar o acesso não autorizado ao mesmo. Ele fornece a segurança do cluster de duas formas:
 
-* **Autenticação do cluster:** autentica a comunicação de nó para nó para a Federação de cluster. Apenas nós que podem provar a sua identidade com este certificado podem associar o cluster.
-* **Autenticação de servidor:** autentica os pontos finais de gestão de cluster para um cliente de gestão, para que o cliente de gestão saiba que ele está falando ao real cluster. Este certificado fornece também SSL para a API de gestão HTTPS e para o Service Fabric Explorer através de HTTPS.
+* **Autenticação do cluster:** Efetua a autenticação de comunicação de nó para nó para a Federação de cluster. Apenas nós que podem provar a sua identidade com este certificado podem associar o cluster.
+* **Autenticação de servidor:** Efetua a autenticação de pontos finais de gestão de cluster para um cliente de gestão, para que o cliente de gestão saiba que ele está falando ao real cluster. Este certificado fornece também SSL para a API de gestão HTTPS e para o Service Fabric Explorer através de HTTPS.
 
 Para os seguintes objetivos, o certificado tem de cumprir os seguintes requisitos:
 
@@ -216,7 +216,7 @@ Neste ponto, tem um cluster seguro utilizar certificados para autenticação de 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
+[key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

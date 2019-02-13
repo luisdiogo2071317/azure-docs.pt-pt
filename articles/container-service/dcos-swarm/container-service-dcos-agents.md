@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 03cacda1aa405cb2d0ded579c8ddb5f6011ce3bb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994943"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113792"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(PRETERIDO) Conjuntos de agentes do DC/OS para o Azure Container Service
 
@@ -23,11 +23,11 @@ ms.locfileid: "52994943"
 Clusters de DC/OS no Azure Container Service contém nós de agente em dois conjuntos, um conjunto público e um pool privado. Um aplicativo pode ser implementado para o conjunto, que afetam a acessibilidade entre as máquinas no seu serviço de contentor. As máquinas podem ser expostas à internet (público) ou mantidas interno (privado). Este artigo fornece uma breve descrição geral de por que há agrupamentos públicos e privados.
 
 
-* **Agentes privados**: os nós de agente privado executados através de uma rede não encaminháveis internos. Esta rede só é acessível da zona de administrador ou através de router de limite de zona pública. Por predefinição, o DC/OS inicia aplicações em nós de agente privado. 
+* **Agentes privados**: Nós de agente privado executar através de uma rede não encaminháveis internos. Esta rede só é acessível da zona de administrador ou através de router de limite de zona pública. Por predefinição, o DC/OS inicia aplicações em nós de agente privado. 
 
-* **Agentes públicos**: nós de agente público executar aplicações de DC/OS e serviços através de uma rede acessível ao público. 
+* **Agentes públicos**: Nós de agente público executar aplicações de DC/OS e serviços através de uma rede acessível ao público. 
 
-Para obter mais informações sobre a segurança de rede do DC/OS, consulte a [documentação de DC/OS](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
+Para obter mais informações sobre a segurança de rede do DC/OS, consulte a [documentação de DC/OS](https://docs.mesosphere.com/).
 
 ## <a name="deploy-agent-pools"></a>Implementar conjuntos de agentes
 

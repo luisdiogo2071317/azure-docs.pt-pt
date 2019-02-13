@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 731d99c84c9d34328ba7cc624610714c58ed00e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 39fc807e54e92a504c0bac730cd59c0223fde4b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825404"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164197"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integração do Active Directory do Azure com a versão Beta do Zscaler
 
@@ -116,7 +117,7 @@ Para configurar o Azure AD início de sessão único com o Zscaler Beta, execute
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome | Atributo de origem | 
+    | Name | Atributo de origem | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 

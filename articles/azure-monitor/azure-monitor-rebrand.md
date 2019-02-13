@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: fb33f6006a1456669facd8baf80161ab115f2689
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 77a806d328a6dbac0e57c9d99e06debbb25e88b8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995090"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108386"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Alterações do Azure de nomenclatura e terminologia de Monitor
 Alterações significativas feitas para o Azure Monitor recentemente, com diferentes serviços que estão sendo consolidados para simplificar a monitorização para os clientes do Azure. Este artigo descreve o nome recente e as alterações de terminologia na documentação do Azure Monitor.
@@ -26,18 +26,15 @@ Alterações significativas feitas para o Azure Monitor recentemente, com difere
 Após a consolidação dos diferentes serviços em Azure Monitor, estamos a redirecioná-a próxima etapa, modificando a terminologia na nossa documentação para descrever melhor o serviço do Azure Monitor e os respetivos componentes diferentes. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Azure monitorizar registo de dados ainda são armazenado numa área de trabalho do Log Analytics e de que é ainda recolhido e analisado pelo serviço Log Analytics do mesmo, mas estamos a alterar o termo _do Log Analytics_ em vários lugares para _registos do Azure Monitor_ . Isto reflete a sua função no Azure Monitor e fornece consistência melhor melhor [métricas no Azure Monitor](platform/data-collection.md).
+Azure monitorizar registo de dados ainda são armazenado numa área de trabalho do Log Analytics e de que é ainda recolhido e analisado pelo serviço Log Analytics do mesmo, mas estamos a alterar o termo _do Log Analytics_ em vários lugares para _registos do Azure Monitor_ . Esse termo melhor reflete a sua função no Azure Monitor e fornece consistência melhor [métricas no Azure Monitor](platform/data-collection.md).
 
-O termo _do log analytics_ agora aplica-se sobretudo para a página no portal do Azure utilizada para escrever e executar consultas e analisar dados de registo. É o equivalente funcional [Explorador de métricas](platform/metrics-charts.md) que é a página no portal do Azure utilizado para analisar dados de métrica.
+O termo _do log analytics_ agora aplica-se sobretudo para a página no portal do Azure utilizada para escrever e executar consultas e analisar dados de registo. É o equivalente funcional [Explorador de métricas](platform/metrics-charts.md), que é a página no portal do Azure utilizado para analisar dados de métrica.
 
 ### <a name="log-analytics-workspaces"></a>Áreas de trabalho do Log Analytics
 [Áreas de trabalho](platform/manage-access.md) que contêm dados de registo no Azure Monitor ainda são referidos como áreas de trabalho do Log Analytics. O **do Log Analytics** página no portal do Azure foi renomeada para **áreas de trabalho do Log Analytics** e é onde [criar novas áreas de trabalho](learn/quick-create-workspace.md) e configurar origens de dados. Analisar os registos e outros dados de monitorização no **do Azure Monitor** e configure a sua área de trabalho **áreas de trabalho do Log Analytics**.
 
-### <a name="log-query-language"></a>Linguagem de consulta de registo
-O Azure Monitor utiliza linguagem de consulta do Data Explorer para consultas de registo. Antes do Explorador de dados do Azure foi lançado, essa linguagem foi chamada de Kusto ou a linguagem de consulta do Azure Monitor. Estamos agora nos referindo a ele com o mesmo nome que o Data Explorer para reforçar que utilizam o mesmo idioma. Existem pequenas diferenças com o sabor de Azure Monitor da linguagem conforme detalhado no [diferenças de linguagem de consulta de registo do Azure Monitor](log-query/data-explorer-difference.md).
-
 ### <a name="management-solutions"></a>Soluções de gestão
-[Soluções de gestão](insights/solutions.md) foram renomeadas para _soluções de monitorização_ que melhor descreve sua funcionalidade.
+[Soluções de gestão](insights/solutions.md) foram renomeadas para _soluções de monitorização_, que melhor descreve sua funcionalidade.
 
 
 ## <a name="august-2018---consolidation-of-monitoring-services-into-azure-monitor"></a>Agosto de 2018 - consolidação dos serviços de monitorização no Azure Monitor

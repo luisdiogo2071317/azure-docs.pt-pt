@@ -4,7 +4,7 @@ description: " Saiba como gerir os dados de utilizador no Centro de segurança d
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 35868545c46acb65ba487c546b66d8834bcb81a7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8cbe391f756dab35abda411c3a6c943a51eae302
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543194"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115985"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gerir os dados de utilizador no Centro de segurança do Azure
 Este artigo fornece informações sobre como pode gerir os dados de utilizador no Centro de segurança do Azure. Gestão de dados de utilizador inclui a capacidade de aceder, eliminar ou exportar dados.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d3102a269d41fded112b0704c28ca2cf5df71a6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101203"
+ms.locfileid: "56106972"
 ---
 # <a name="handling-review-feedback"></a>Manipulação de comentários da revisão
 
@@ -71,7 +71,7 @@ Utilize o procedimento seguinte para rever problemas documentados no pedido pull
 4. Clique em cada nó de comentário na árvore à esquerda para navegar para o comentário no contexto do código ao redor.  Corrija o seu código-fonte no projeto de sua equipe para corrigir o problema descrito pelo comentário.
 
 > [!Note]
-> Não é possível editar ativos técnicos da sua oferta dentro do ambiente de DevOps do Azure da equipa de revisão.  Os publicadores, este é um ambiente de só de leitura para o código-fonte contido.  No entanto, pode deixar respostas para os comentários para o benefício da equipa de revisão da Microsoft.
+> Não é possível editar ativos técnicos da sua oferta no ambiente de Azure DevOps da equipa de revisão.  Os publicadores, este é um ambiente de só de leitura para o código-fonte contido.  No entanto, pode deixar respostas para os comentários para o benefício da equipa de revisão da Microsoft.
 
    No exemplo a seguir, o publicador tem revisto, corrigido e respondeu ao primeiro problema.
 

@@ -4,7 +4,7 @@ description: Tutorial que mostra como implementar um HSM dedicados, com a CLI nu
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c8713c4d3f6bd7835fed8e668407ea9ee55cc712
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080321"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111837"
 ---
-# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implementação de HSMs numa rede virtual existente com a CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implementar HSMs numa rede virtual existente com a CLI
 
 HSM dedicada do Azure fornece um dispositivo físico para a utilização de cliente único, com o controle administrativo completo e a responsabilidade de gestão completa. A utilização de dispositivos físicos cria a necessidade de Microsoft controlar a alocação de dispositivo para garantir a capacidade é gerenciada com eficiência. Como resultado, uma subscrição do Azure, o serviço HSM dedicado não normalmente serão visível para o aprovisionamento de recursos. Todos os clientes do Azure que necessitam de acesso para o serviço de HSM dedicados, primeiro tem de contactar o executivo da conta Microsoft para o registo de pedido para o serviço de HSM dedicados. Apenas uma vez que este processo seja concluído com êxito o aprovisionamento será possível. 
 
@@ -38,7 +38,7 @@ Este tutorial concentra-se num par de HSMs e Gateway do ExpressRoute necessária
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-HSM dedicada do Azure não está atualmente disponível no portal do Azure. Toda a interação com o serviço será através do PowerShell da linha de comandos ou utilizando. Neste tutorial, irá utilizar a interface (CLI) da linha de comandos no Azure Cloud Shell. Se estiver familiarizado com a CLI do Azure, siga instruções de introdução aqui: [do Azure CLI 2.0 começar](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+HSM dedicada do Azure não está atualmente disponível no portal do Azure. Toda a interação com o serviço será através do PowerShell da linha de comandos ou utilizando. Neste tutorial, irá utilizar a interface (CLI) da linha de comandos no Azure Cloud Shell. Se estiver familiarizado com a CLI do Azure, siga instruções de introdução aqui: [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Pressupostos:
 

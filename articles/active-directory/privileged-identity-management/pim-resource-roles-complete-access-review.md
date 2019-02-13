@@ -14,12 +14,13 @@ ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 1e2bdeeb8f2b59d69e761303176c36b26f47d4c8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3d81dc65274600359c3d886203b067b3a90b60cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165494"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160797"
 ---
 # <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Concluir uma revisão de acesso para funções de recursos do Azure no PIM
 Os administradores de função com privilégios, podem rever acesso privilegiado após uma [revisão de acesso foi iniciada](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) para recursos do Azure envia automaticamente um e-mail que solicita aos usuários para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-resource-roles-perform-access-review.md).

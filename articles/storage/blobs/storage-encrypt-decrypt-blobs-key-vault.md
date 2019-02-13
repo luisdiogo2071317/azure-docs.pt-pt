@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 09bb74ead0ff52cc7a70170357ddc54a91bf00d9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239412"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116104"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Encriptar e desencriptar blobs no armazenamento do Microsoft Azure com o Azure Key Vault
 ## <a name="introduction"></a>Introdução
@@ -43,7 +43,7 @@ Eis uma breve descrição de como funciona a encriptação do lado do cliente:
 4. Os dados encriptados, em seguida, são carregados para o serviço de armazenamento do Azure.
 
 ## <a name="set-up-your-azure-key-vault"></a>Configurar o seu Cofre de chaves do Azure
-Para continuar com este tutorial, terá de efetuar os passos seguintes, que são descritos no tutorial [introdução ao Azure Key Vault](../../key-vault/key-vault-get-started.md):
+Para continuar com este tutorial, terá de efetuar os passos seguintes, que são descritos no tutorial [o que é o Azure Key Vault?](../../key-vault/key-vault-overview.md):
 
 * Criar um cofre de chaves.
 * Adicione uma chave ou segredo ao Cofre de chaves.

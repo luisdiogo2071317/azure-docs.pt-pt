@@ -1,10 +1,10 @@
 ---
-title: Internet das coisas segurança melhores práticas | Microsoft Docs
-description: O artigo fornece uma lista organizada de Microsoft Internet das coisas segurança melhores práticas e recomendações gerais.
+title: Internet das coisas de segurança recomendados | Documentos da Microsoft
+description: O artigo fornece uma lista organizada do Microsoft Internet das coisas segurança melhores práticas e recomendações gerais.
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7
 ms.service: security
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 804dd6828931ca2801360ab18be938c8bacf2bfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9413c0503c1b78550776d1c2f6ab8239205a788b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185345"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117872"
 ---
-# <a name="internet-of-things-security-best-practices"></a>Internet das coisas segurança melhores práticas
+# <a name="internet-of-things-security-best-practices"></a>Internet das coisas de segurança recomendados
 
-Proteger a infraestrutura de Internet das coisas (IoT) é um undertaking crítico para todas as pessoas envolvidas com soluções de IoT. Devido ao número de dispositivos envolvidos e a natureza distribuída destes dispositivos, o impacto relacionados com um evento de segurança ao comprometimento de milhões de dispositivos de IoT não trivial e pode ter impacto ampla.
+Protegendo a infra-estrutura de Internet das coisas (IoT) é uma tarefa essencial para todos os envolvidos com soluções de IoT. Por causa o número de dispositivos envolvidos e a natureza distribuída desses dispositivos, o impacto de um evento de segurança relacionados para comprometer de milhões de dispositivos IoT não é simples e pode ter impacto amplo.
 
-Por este motivo, a segurança de IoT tem uma abordagem de segurança em profundidade. Dados tem de ser segura na nuvem e são transmitidos através de redes públicas e privadas. Métodos tem de estar implementados para aprovisionar segura de dispositivos de IoT. Cada camada à rede, para a nuvem de back-end do dispositivo, tem de oferece garantias ao rendimento de segurança forte.
+Por esse motivo, a segurança de IoT precisa uma abordagem de segurança em profundidade. Dados tem de ser seguras na cloud e quando são transmitidos através de redes privadas e públicas. Métodos tem de estar implementada para aprovisionar em segurança os próprios dispositivos IoT. Cada camada, de dispositivo, a rede, para a cloud de back-end precisa de garantias de segurança forte.
 
-Melhores práticas de IoT podem ser classificadas da seguinte forma:
+Melhores práticas de IoT podem ser categorizadas da seguinte forma:
 
-* Fabricante de hardware de IoT ou integrador
-* Para programadores de solução IoT
-* Implementador de solução IoT
-* Operador de solução IoT
+* Fabricante de hardware de IoT ou integrador de
+* Desenvolvedor de soluções de IoT
+* Implementador de solução de IoT
+* Operador de solução de IoT
 
-Este artigo resume [Internet das coisas melhores práticas de segurança](../iot-suite/iot-security-best-practices.md). Consulte a esse artigo para obter informações mais detalhadas.
+Este artigo resume [Internet das coisas melhores práticas de segurança](../iot-suite/iot-security-best-practices.md). Veja esse artigo para obter informações mais detalhadas.
 
-## <a name="iot-hardware-manufacturer-or-integrator"></a>Fabricante de hardware de IoT ou integrador
+## <a name="iot-hardware-manufacturer-or-integrator"></a>Fabricante de hardware de IoT ou integrador de
 
-Se for um fabrico de hardware de IoT ou integrador de hardware, siga as melhores práticas abaixo:
+Se for um fabricante de hardware de IoT ou um integrador de hardware, siga as melhores práticas abaixo:
 
-* **Definir o âmbito de hardware para os requisitos mínimos**: a estrutura de hardware deve incluir funcionalidades mínimas necessárias para a operação de hardware e nada mais. 
-* **Efetuar uma prova de adulteração de hardware**: criar no mecanismos para detetar a adulteração física do hardware, tais como abrir abrange o dispositivo, removendo a parte do dispositivo, etc. 
-* **Criar em torno de hardware seguro**: se [COGS](https://en.wikipedia.org/wiki/Cost_of_goods_sold) permitir, crie as funcionalidades de segurança, tais como a funcionalidade de arranque baseada no Trusted Platform Module TPM e de armazenamento seguro e encriptado.
-* **Efetuar atualizações segura**: atualizar o firmware durante a duração do dispositivo é inevitável.
+* **Definir o âmbito de requisitos mínimos de hardware**: o design de hardware deve incluir recursos mínimos necessários para a operação de hardware e nada mais. 
+* **Torna o hardware à prova**: criar em mecanismos para detetar a adulteração física de hardware, como abrir a tampa de dispositivo, removendo a parte do dispositivo, etc. 
+* **Criar em todo o hardware de segurança**: se [COGS](https://en.wikipedia.org/wiki/Cost_of_goods_sold) permitir, criar recursos de segurança, como o armazenamento seguro e criptografado e a funcionalidade de arranque baseadas no Trusted Platform Module TPM.
+* **Fazer com que as atualizações seguras**: a atualização de firmware durante o ciclo de vida do dispositivo é inevitável.
 
-## <a name="iot-solution-developer"></a>Para programadores de solução IoT
+## <a name="iot-solution-developer"></a>Desenvolvedor de soluções de IoT
 
-Siga as melhores práticas abaixo se for um programador de solução IoT:
+Se for um desenvolvedor de soluções de IoT, siga as melhores práticas abaixo:
 
-* **Siga a metodologia de desenvolvimento de software segura**: desenvolver software segura requer zero pensar sobre a segurança de inception do projeto para a implementação, teste e a implementação.
-* **Escolha o software de código aberto com cuidado**: software open source para fornece uma oportunidade para rapidamente desenvolver soluções.
-* **Integrar com cuidado**: muitas das falhas de segurança de software existem em limites de bibliotecas e APIs. 
+* **Siga a metodologia de desenvolvimento de software seguro**: desenvolvimento de software seguro requer início pensar em segurança desde o início do projeto até à sua implementação, teste e implantação.
+* **Escolha o software de código-fonte aberto com cuidado**: software de código aberto fornece uma oportunidade para desenvolver soluções rapidamente.
+* **Integrar com cuidado**: muitas das falhas de segurança de software existem no limite do bibliotecas e APIs. 
 
-## <a name="iot-solution-deployer"></a>Implementador de solução IoT
+## <a name="iot-solution-deployer"></a>Implementador de solução de IoT
 
-Siga as melhores práticas abaixo se for um implementador de solução IoT:
+Se for um implementador de solução de IoT, siga as melhores práticas abaixo:
 
-* **Implementar hardware de forma segura**: implementações de IoT podem necessitar de hardware para ser implementados em localizações não seguros, tais como espaços públicos ou regiões supervisionados.
-* **Manter as chaves de autenticação seguros**: durante a implementação, cada dispositivo requer IDs de dispositivo e chaves de autenticação geradas pelo serviço de nuvem associadas. Manter estas chaves fisicamente seguro, mesmo após a implementação. Qualquer tecla comprometida pode ser utilizada por um dispositivo malicioso para representação como um dispositivo existente.
+* **Implementar hardware de forma segura**: Implementações de IoT podem exigir hardware para ser implantado em localizações não seguras, como espaços públicos ou localidades não supervisionadas.
+* **Manter as chaves de autenticação seguro**: durante a implementação, cada dispositivo requer identificações de dispositivo e associados a chaves de autenticação geradas pelo serviço em nuvem. Manter essas chaves fisicamente protegidos, mesmo após a implementação. Qualquer chave comprometida pode ser utilizado por um dispositivo de mal-intencionado se disfarçasse como um dispositivo existente.
 
-## <a name="iot-solution-operator"></a>Operador de solução IoT
+## <a name="iot-solution-operator"></a>Operador de solução de IoT
 
-Siga as melhores práticas abaixo se for um operador de solução IoT:
+Se for um operador de solução de IoT, siga as melhores práticas abaixo:
 
-* **Manter sistemas atualizados**: Certifique-se de que sistemas operativos de dispositivos e todos os controladores de dispositivo são atualizados para as versões mais recentes. 
-* **Proteger contra atividade maliciosa**: se permite que o sistema operativo, coloque as capacidades de antivírus e antimalware mais recentes em cada sistema operativo do dispositivo. 
-* **Auditoria frequentemente**: auditoria de segurança relacionadas com problemas é chave quando a responder a incidentes de segurança de IoT infraestrutura.
-* **Fisicamente proteger a infraestrutura de IoT**: os pior ataques de segurança em relação a infraestrutura de IoT são iniciados utilizando o acesso físico aos dispositivos.
-* **Proteger credenciais na nuvem**: credenciais de autenticação em nuvem utilizadas para configurar e utilizar uma implementação de IoT possivelmente são a forma mais fácil de obter acesso e comprometer um sistema de IoT. 
+* **Manter os sistemas atualizados**: Certifique-se de que todos os drivers de dispositivo e de sistemas operativos de dispositivos são atualizados para as versões mais recentes. 
+* **Proteger contra atividades maliciosas**: se permite que o sistema operativo, de colocar as capacidades mais recentes de antivírus e antimalware em cada sistema operativo do dispositivo. 
+* **Auditoria com frequência**: auditoria infraestrutura IoT para segurança relacionados com problemas é a chave em resposta a incidentes de segurança.
+* **Proteger fisicamente a infraestrutura de IoT**: os pior ataques de segurança em relação a infraestrutura IoT são iniciados com acesso físico aos dispositivos.
+* **Proteger credenciais de cloud**: credenciais de autenticação em nuvem utilizadas para configurar e operar uma implementação de IoT são possivelmente a maneira mais fácil de obter acesso e comprometer um sistema de IoT. 
 

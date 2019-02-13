@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279861"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213167"
 ---
 >[!NOTE]
 >Para recursos que não está corrigidos, pode abrir um pedido de suporte para pedir o aumento das quotas. **Não** crie contas dos Serviços de Multimédia do Azure adicionais numa tentativa de obter limites superiores.
@@ -27,7 +27,7 @@ ms.locfileid: "52279861"
 | Canais em direto por conta do AMS |5|
 | Programas no estado de paragem por canal |50|
 | Programas no estado parado por canal |3|
-| Pontos finais de transmissão em fluxo no estado em execução por conta do AMS|2|
+| Pontos finais de transmissão em fluxo (parada ou em execução) por conta dos Media Services|2|
 | Unidades de transmissão em fluxo por ponto final de transmissão em fluxo |10 |
 | Contas de armazenamento | 1000<sup>(5)</sup> (fixo) |
 | Políticas | 1,000,000<sup>(6)</sup> |

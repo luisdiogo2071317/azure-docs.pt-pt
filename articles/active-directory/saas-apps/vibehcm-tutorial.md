@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Vibe HCM | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Vibe HCM | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Vibe HCM.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 395f99c986e0a51e8dd2c440d258724e862f275c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 79787045f0379e6b672350206740297000f298c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019806"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185575"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Tutorial: Integração do Azure Active Directory com Vibe HCM
+# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Tutorial: Integração do Active Directory do Azure com Vibe HCM
 
 Neste tutorial, saiba como integrar Vibe HCM com o Azure Active Directory (Azure AD).
 
@@ -160,7 +161,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-vibe-hcm-test-user"></a>Criar um utilizador de teste de Vibe HCM
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Vibe HCM. Trabalhar com [equipa de suporte de Vibe HCM](mailto:support@vibehcm.com) para adicionar os utilizadores na plataforma Vibe HCM. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Vibe HCM. Trabalhar com [equipa de suporte de Vibe HCM](mailto:support@vibehcm.com) para adicionar os utilizadores na plataforma Vibe HCM. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

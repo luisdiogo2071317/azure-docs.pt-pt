@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 783f8006ba19622761beef0ff931bcbb80edde46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822481"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115900"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Fazer a ativação pós-falha e a reativação pós-falha de VMs do VMware e de servidores físicos replicados no Azure
 
@@ -98,7 +98,7 @@ Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md)
 > [!IMPORTANT]
 > Se tiver uma ligação VPN entre o ambiente no local e o Azure, tem de configurar uma VM do Azure como um servidor de processos de reproteção e reativação pós-falha. Para configurar um servidor de processos no Azure, siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md).
 
-Para obter mais informações sobre os pré-requisitos de reproteção e reativação pós-falha, veja esta [secção]](vmware-azure-reprotect.md##before-you-begin). 
+Para obter mais informações sobre os pré-requisitos de reproteção e reativação pós-falha Consulte este [secção](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre
 

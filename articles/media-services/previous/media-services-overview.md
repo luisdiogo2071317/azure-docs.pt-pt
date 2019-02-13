@@ -13,22 +13,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: aaf2f400d9c620e8087015a9fa1529c3c1b4e633
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8a839d33d66ed434fe04b2c0df742606c11dff2c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003700"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217943"
 ---
-# <a name="azure-media-services-overview-legacy"></a>Descrição geral dos serviços de multimédia do Azure (Legado)
+# <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure 
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Versão 2](media-services-overview.md)
 > * [Versão 3](../latest/media-services-overview.md)
+> * [Versão 2](media-services-overview.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) são uma plataforma baseado na nuvem extensível que permite aos programadores compilar uma gestão de multimédia dimensionável e aplicações de entrega. Os Serviços de Multimédia são baseados nas APIs REST, que permitem carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para o envio de transmissão em fluxo, tanto a pedido como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 
 Pode compilar fluxos de trabalho ponto-a-ponto utilizando inteiramente os Media Services. Pode também optar por utilizar componentes de terceiros para algumas partes do seu fluxo de trabalho. Por exemplo, codificar utilizando um codificador de terceiros. Em seguida, carregue, proteja, empacote e entregue através dos Media Services. Pode também optar por transmitir os seus conteúdos em direto ou enviar conteúdos a pedido. 
+
+> [!NOTE]
+> Não existem novos recursos ou funcionalidades estão a ser adicionados para serviços de multimédia v2. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

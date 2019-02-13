@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714343"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113367"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
 
@@ -195,7 +195,7 @@ Para mapear um registo A para uma aplicação, o Serviço de Aplicações requer
 
 No exemplo do domínio `contoso.com`, crie os registos A e TXT de acordo com a tabela seguinte (`@` representa, normalmente, o domínio de raiz). 
 
-| Tipo de registo | Anfitrião | Valor |
+| Tipo de registo | Anfitrião | Value |
 | - | - | - |
 | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
@@ -338,10 +338,12 @@ Para obter mais informações, veja [Map a custom domain to a web app](scripts/c
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 O comando seguinte adiciona um nome DNS personalizado configurado a uma aplicação do Serviço de Aplicações. 
 
 ```PowerShell  
-Set-AzureRmWebApp `
+Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
@@ -363,4 +365,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para aprender a vincular um certificado SSL personalizado a uma aplicação Web.
 
 > [!div class="nextstepaction"]
-> [Vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md) (Vincular um certificado SSL personalizado já existente ao Serviço de Aplicações do Azure)

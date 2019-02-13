@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bcbb249c6cb3c886b94f8ad68dd668cb8858ac77
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354594"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162650"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos
 
@@ -183,7 +183,7 @@ Para obter uma lista de todas as quotas de Hubs de eventos, consulte [quotas](ev
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que motivo não consigo criar um espaço de nomes depois excluí-lo a partir de outra subscrição? 
-Quando elimina um espaço de nomes de uma subscrição, aguarde até quatro horas antes de recriá-lo com o mesmo nome noutra subscrição. 
+Quando elimina um espaço de nomes de uma subscrição, aguarde até quatro horas antes de recriá-lo com o mesmo nome noutra subscrição. Caso contrário, poderá receber a seguinte mensagem de erro: `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelo Hubs de eventos e respetivas ações sugeridas?
 

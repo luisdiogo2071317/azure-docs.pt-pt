@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755667"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110171"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre encriptados: Proteger dados confidenciais e armazenar chaves de encriptação no Azure Key Vault
 
@@ -53,7 +53,7 @@ Para obter o *ID da aplicação* e *chave*, siga os passos [criar um Azure Activ
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Criar um cofre de chaves para armazenar as suas chaves
 Agora que a aplicação de cliente está configurada e se tiver o ID da sua aplicação, é hora de criar um cofre de chaves e configurar a sua política de acesso para e a sua aplicação podem aceder aos segredos do cofre (as chaves Always Encrypted). O *crie*, *obter*, *lista*, *início de sessão*, *verificar*, *wrapKey*, e *unwrapKey* permissões são necessárias para criar uma nova chave mestra de coluna e para configurar a encriptação com o SQL Server Management Studio.
 
-Pode criar rapidamente um cofre de chaves executando o seguinte script. Para obter uma explicação detalhada destes cmdlets e obter mais informações sobre como criar e configurar um cofre de chaves, consulte [introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md).
+Pode criar rapidamente um cofre de chaves executando o seguinte script. Para obter uma explicação detalhada destes cmdlets e obter mais informações sobre como criar e configurar um cofre de chaves, consulte [o que é o Azure Key Vault?](../key-vault/key-vault-overview.md).
 
 ```powershell
     $subscriptionName = '<your Azure subscription name>'

@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: eee58708d6aec717d0f79f5c79a0c879b52d56a5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176374"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177874"
 ---
 # <a name="what-is-the-myapps-portal"></a>O que é o portal MyApps?
 
@@ -49,7 +50,7 @@ Pode utilizar qualquer nome de domínio do Active Directory ou verificado que te
 
 Distribua o URL para todos os utilizadores que iniciar sessão nas aplicações que são integradas no Azure AD.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Para aceder ao portal MyApps, tem de ser autenticado através de uma conta profissional ou escolar no Azure AD. Pode ser autenticado para o Azure AD diretamente. Em alternativa, se uma organização tiver configurado a Federação com os serviços de Federação do Active Directory (AD FS) ou outras tecnologias, pode ser autenticada pelo Windows Server Active Directory.
 

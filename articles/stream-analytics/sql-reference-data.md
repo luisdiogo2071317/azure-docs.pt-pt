@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d79e423dd617a498aee09cff6b774bbe90eeaa83
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701832"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118025"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Utilizar dados de referência de uma base de dados SQL para uma tarefa do Azure Stream Analytics (pré-visualização)
 
@@ -154,7 +154,7 @@ Ao utilizar a consulta de delta [tabelas temporais na base de dados do Azure SQL
 
 **Irá implicar custos adicionais ao utilizar a entrada de dados de referência do SQL no Azure Stream Analytics?**
 
-Existem não adicionais [custo por unidade de transmissão em fluxo](https://azure.microsoft.com/pricing/details/stream-analytics/) da tarefa do Stream Analytics. No entanto, a tarefa do Stream Analytics tem de ter uma conta de armazenamento do Azure associado. A tarefa do Stream Analytics consulta o banco de dados do SQL (durante a tarefa de início e o intervalo de atualização) para obter o conjunto de dados de referência e arquivos de que a conta de armazenamento de instantâneos. Armazenar estes instantâneos incorrerá em encargos adicionais detalhados na [página de preços](https://azure.microsoft.compricing/details/storage/) para a conta de armazenamento do Azure.
+Existem não adicionais [custo por unidade de transmissão em fluxo](https://azure.microsoft.com/pricing/details/stream-analytics/) da tarefa do Stream Analytics. No entanto, a tarefa do Stream Analytics tem de ter uma conta de armazenamento do Azure associado. A tarefa do Stream Analytics consulta o banco de dados do SQL (durante a tarefa de início e o intervalo de atualização) para obter o conjunto de dados de referência e arquivos de que a conta de armazenamento de instantâneos. Armazenar estes instantâneos incorrerá em encargos adicionais detalhados na [página de preços](https://azure.microsoft.com/pricing/details/storage/) para a conta de armazenamento do Azure.
 
 **Como posso saber instantâneo de dados de referência está a ser consultadas a partir de BD SQL e utilizados na tarefa do Azure Stream Analytics?**
 

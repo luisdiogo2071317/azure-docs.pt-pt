@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0695a705d436430edda0c6bf88e18b0a4b36ee4f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b30f23dd22f3045a985e031fbfb0e1f8913874b0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496776"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116598"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Condição de utilização em modelos do Azure Resource Manager
 
@@ -128,6 +128,8 @@ Este é o procedimento para fazer as alterações:
 7. Guarde as alterações.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Siga as instruções em [Implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para implementar o modelo.
 

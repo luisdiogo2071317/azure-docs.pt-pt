@@ -4,7 +4,7 @@ description: Neste guia de introdução, saiba como utilizar o Azure PowerShell 
 services: security
 documentationcenter: na
 author: mestew
-manager: MBaldwin
+manager: barbkess
 ms.assetid: c8abd340-5ed4-42ec-b83f-4d679b61494d
 ms.service: security
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: mstewart
 ms.custom: seodec18
-ms.openlocfilehash: 6f94ec1a64108cde6ff69a572559960a988a1b7c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c1b6d8be66323c94837adea90723d0842d168ddc
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261286"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109134"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Início rápido: Encriptar uma VM de IaaS do Windows com o Azure PowerShell
 

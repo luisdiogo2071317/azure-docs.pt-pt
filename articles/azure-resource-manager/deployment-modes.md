@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: c0875861a90080c649596880804fe6538c04bc51
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ba7ac806a74cd0b378c39eb3873e7d64435bcf4f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497625"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105659"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
@@ -62,6 +62,8 @@ Quando implementado num **concluída** modo, C de recurso é eliminado. O grupo 
 * Recurso D
 
 ## <a name="set-deployment-mode"></a>Definir o modo de implementação
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para definir o modo de implementação ao implementar com o PowerShell, utilize o `Mode` parâmetro.
 

@@ -4,7 +4,7 @@ description: Este artigo fornece uma descrição geral da rede de produção do 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 710792c890c3e48fc54507f93eeaee529ca839f8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: afae7cc6390ea4cd8c18c687e9d99400c8da9da4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114033"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116937"
 ---
 # <a name="the-azure-production-network"></a>A rede de produção do Azure
 Os utilizadores da rede de produção do Azure incluem ambos os clientes externos que acedem aos seus próprios aplicações do Azure e a equipe de suporte do Azure interno que gerem a rede de produção. Este artigo aborda os métodos de acesso de segurança e mecanismos de proteção para o estabelecimento de ligações à rede de produção do Azure.
@@ -54,18 +54,18 @@ O Azure implementa recursos de firewall em vários níveis para impor a recursos
 ### <a name="azure-security-features"></a>Recursos de segurança do Azure
 O Azure implementa firewalls de software baseados em host dentro da rede de produção. Vários núcleos de segurança e recursos de firewall residem no núcleo do ambiente do Azure. Estas funcionalidades de segurança refletem uma estratégia de defesa em profundidade dentro do ambiente do Azure. Dados do cliente no Azure estão protegidos pelos firewalls seguintes:
 
-**Firewall de hipervisor (filtro de pacotes)**: esta firewall é implementada no hipervisor e configurada pelo agente de controlador (FC) de recursos de infraestrutura. Esta firewall protege o inquilino que é executado dentro da VM contra acesso não autorizado. Por predefinição, quando é criada uma VM, todo o tráfego é bloqueado e, em seguida, o agente FC adiciona regras e exceções no filtro para permitir tráfego autorizado.
+**Firewall de hipervisor (filtro de pacotes)**: Esta firewall é implementada no hipervisor e configurada pelo agente de controlador (FC) de recursos de infraestrutura. Esta firewall protege o inquilino que é executado dentro da VM contra acesso não autorizado. Por predefinição, quando é criada uma VM, todo o tráfego é bloqueado e, em seguida, o agente FC adiciona regras e exceções no filtro para permitir tráfego autorizado.
 
 Duas categorias de regras são programadas aqui:
 
-- **Regras de configuração ou a infraestrutura do computador**: por predefinição, todas as comunicações é bloqueada. Exceções existem que permitem que uma VM enviar e receber comunicações de anfitrião configuração protocolo DHCP (Dynamic) e informações de DNS e enviar tráfego de saída para outras VMs dentro do cluster FC e o servidor de ativação de sistema operacional para a internet "pública". Uma vez que as VMs permitido a lista de saída destinos não inclui sub-redes de router do Azure e outras propriedades da Microsoft, as regras de atuam como uma camada de defesa para eles.
-- **Regras de ficheiro de configuração de função**: define as ACLs de entrada com base no modelo de serviço dos inquilinos. Por exemplo, se um inquilino tiver um front-end da web na porta 80 de uma determinada VM, a porta 80 está aberta para todos os endereços IP. Se a VM tem uma função de trabalho em execução, é aberta a função de trabalho apenas para a VM no mesmo inquilino.
+- **Regras de configuração ou a infraestrutura do computador**: Por predefinição, todas as comunicações é bloqueada. Exceções existem que permitem que uma VM enviar e receber comunicações de anfitrião configuração protocolo DHCP (Dynamic) e informações de DNS e enviar tráfego de saída para outras VMs dentro do cluster FC e o servidor de ativação de sistema operacional para a internet "pública". Uma vez que as VMs permitido a lista de saída destinos não inclui sub-redes de router do Azure e outras propriedades da Microsoft, as regras de atuam como uma camada de defesa para eles.
+- **Regras de ficheiro de configuração de função**: Define as ACLs de entrada com base no modelo de serviço dos inquilinos. Por exemplo, se um inquilino tiver um front-end da web na porta 80 de uma determinada VM, a porta 80 está aberta para todos os endereços IP. Se a VM tem uma função de trabalho em execução, é aberta a função de trabalho apenas para a VM no mesmo inquilino.
 
-**Firewall de host nativo**: Azure Service Fabric e armazenamento do Azure, que são executados num SO nativo sem hipervisor e, portanto, o Firewall do Windows está configurado com os anteriores dois conjuntos de regras.
+**Firewall de host nativo**: O Azure Service Fabric e o armazenamento do Azure, que são executados num SO nativo sem hipervisor e, portanto, o Firewall do Windows está configurado com os anteriores dois conjuntos de regras.
 
-**Firewall de Host**: A firewall do anfitrião protege a partição de anfitrião, que executa o hipervisor. As regras são programadas para permitir apenas o FC e as caixas para comunicar com a partição de anfitrião numa porta específica de ligação. As restantes exceções encontram-se permitir que a resposta DHCP e respostas DNS. O Azure utiliza um ficheiro de configuração de máquina, que contém um modelo de regras de firewall para a partição do anfitrião. Uma exceção de firewall do anfitrião existe que permite às VMs comunicarem para alojar componentes do servidor durante a transmissão e servidor de metadados como, por meio de protocolo/portas específicas.
+**Firewall do anfitrião**: A firewall do anfitrião protege a partição de anfitrião, que executa o hipervisor. As regras são programadas para permitir apenas o FC e as caixas para comunicar com a partição de anfitrião numa porta específica de ligação. As restantes exceções encontram-se permitir que a resposta DHCP e respostas DNS. O Azure utiliza um ficheiro de configuração de máquina, que contém um modelo de regras de firewall para a partição do anfitrião. Uma exceção de firewall do anfitrião existe que permite às VMs comunicarem para alojar componentes do servidor durante a transmissão e servidor de metadados como, por meio de protocolo/portas específicas.
 
-**Firewall de convidado**: O Firewall do Windows informação o SO convidado, que é configurável por parte dos clientes em VMs de cliente e de armazenamento.
+**Firewall de convidado**: Parte de Firewall do Windows do que o SO convidado, que é configurável por parte dos clientes em VMs de cliente e de armazenamento.
 
 Recursos de segurança adicionais que são criados para as capacidades do Azure incluem:
 

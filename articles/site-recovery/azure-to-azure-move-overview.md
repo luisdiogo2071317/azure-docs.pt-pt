@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 55ab80dc0d914810ad430f59acc304620a7054d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882986"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112551"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -97,7 +97,7 @@ Com base em acima mencionado [arquiteturas](#typical-architectures-for-a-multi-t
 
 2. **VMs em cada camada implementadas em conjunto de disponibilidade** -pode optar por configurar para colocar as VMs num conjunto em zonas de disponibilidade separadas, quando opta por ativar a replicação para a sua VM com o Azure Site Recovery de disponibilidade. Depois de concluir a operação de movimentação, o SLA de disponibilidade será 99,9%.
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

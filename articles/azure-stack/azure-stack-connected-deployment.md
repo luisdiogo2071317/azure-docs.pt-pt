@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243186"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175392"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>A implementação do Azure ligada decisões para o Azure Stack de planeamento de sistemas integrados
-Depois de decidir [como irá integrar o Azure Stack para seu ambiente de cloud híbrida](azure-stack-connection-models.md), em seguida, pode finalizar suas decisões de implementação do Azure Stack.
+Depois de decidir [como irá integrar o Azure Stack para seu ambiente de cloud híbrida](azure-stack-connection-models.md), poderão finalizar suas decisões de implementação do Azure Stack.
 
 Implementação do Azure Stack, ligado ao Azure significa que pode ter o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) para seu armazenamento de identidade. Também pode escolher entre o modelo de faturação: pay-as que use ou baseada em capacidade. Uma implementação ligada é a opção predefinida, uma vez que permite aos clientes obter o máximo valor fora do Azure Stack, particularmente para cenários de cloud híbrida que envolvem o Azure e o Azure Stack. 
 

@@ -4,7 +4,7 @@ description: Utilize este tutorial para ajudá-lo a começar com o registo do Co
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: d1b270a5b572707ba94be8584c0e6a80ef4a5f09
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 95c7e5b58bcd79cbe4893561ec8f2a0ed1f9bf77
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002340"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110239"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Cofre de Chaves do Azure
 
@@ -38,7 +38,7 @@ Pode aceder às suas informações de registo, no máximo, 10 minutos depois da 
 Utilize este tutorial para o ajudar a começar com o registo do Cofre de Chaves do Azure, para criar a sua conta de armazenamento, ativar o registo e interpretar as informações de registo recolhidas.  
 
 > [!NOTE]
-> Este tutorial não inclui instruções sobre a criação dos cofres de chaves, chaves ou segredos. Para obter estas informações, consulte o artigo [Introdução ao Cofre de Chaves do Azure](key-vault-get-started.md). Ou, para obter instruções sobre a Interface de Linha de Comandos de várias plataformas, veja o [tutorial equivalente](key-vault-manage-with-cli2.md).
+> Este tutorial não inclui instruções sobre a criação dos cofres de chaves, chaves ou segredos. Para obter estas informações, consulte [o que é o Azure Key Vault?](key-vault-overview.md). Ou, para obter instruções sobre a Interface de Linha de Comandos de várias plataformas, veja o [tutorial equivalente](key-vault-manage-with-cli2.md).
 >
 > Este artigo fornece instruções de Azure PowerShell para atualizar o registo de diagnósticos. No entanto, o mesmo pode ser ativado ao utilizar o Azure Monitor no portal do Azure no **registos de diagnóstico** secção. 
 >
@@ -87,7 +87,7 @@ Para mais informações sobre como configurar o PowerShell, consulte [Como insta
 
 Apesar de poder utilizar uma conta de armazenamento existente para os seus registos, iremos criar uma nova conta de armazenamento dedicada aos registos do seu Cofre de Chaves. Para sua comodidade, e já que poderemos ter de especificar estas informações mais tarde, iremos guardar os detalhes numa variável designada **sa**.
 
-Para facilitar ainda mais a gestão, também iremos utilizar o mesmo grupo de recursos que contém o nosso cofre de chaves. A partir do [tutorial de introdução](key-vault-get-started.md), este grupo de recursos será designado **ContosoResourceGroup** e continuaremos a utilizar a Ásia Oriental como localização. Substitua estes valores pelos seus próprios valores, conforme aplicável:
+Para facilitar ainda mais a gestão, também iremos utilizar o mesmo grupo de recursos que contém o nosso cofre de chaves. A partir do [tutorial de introdução](key-vault-overview.md), este grupo de recursos será designado **ContosoResourceGroup** e continuaremos a utilizar a Ásia Oriental como localização. Substitua estes valores pelos seus próprios valores, conforme aplicável:
 
 ```PowerShell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
@@ -316,10 +316,10 @@ Pode utilizar a solução do Azure Key Vault no Log Analytics para rever os regi
 
 ## <a id="next"></a>Passos seguintes
 
-Para um tutorial que utiliza o Cofre de Chaves do Azure numa aplicação Web, consulte o artigo [Utilizar o Cofre de Chaves do Azure a partir de uma Aplicação Web](key-vault-use-from-web-application.md).
+Para obter um tutorial que utiliza o Azure Key Vault num aplicativo web do .NET, consulte [utilização do Azure Key Vault a partir de uma aplicação Web](tutorial-net-create-vault-azure-web-app.md).
 
 Para as referências de programação, consulte o [Guia para programadores do Cofre de Chaves do Azure](key-vault-developers-guide.md).
 
-Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre de Chaves do Azure, consulte o artigo [Cmdlets do Cofre de Chaves do Azure](/powershell/module/azurerm.keyvault/#key_vault).
+Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre de Chaves do Azure, consulte o artigo [Cmdlets do Cofre de Chaves do Azure](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
 
 Para um tutorial de rotação da chave e auditoria do registo com o Cofre de Chaves do Azure, veja [How to setup Key Vault with end to end key rotation and auditing (Como configurar o Cofre de Chaves com auditoria e rotação de chave ponto a ponto)](key-vault-key-rotation-log-monitoring.md).

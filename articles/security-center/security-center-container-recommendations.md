@@ -4,7 +4,7 @@ description: Este documento explica as recomendações do Centro de segurança d
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 2e76c7f7-a3dd-4d9f-add9-7e0e10e9324d
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: b5cb1fe623062816955278da7b0a9e63cbc19254
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 782c769bc7825dc9b6bd3ba3b8e36885bf150eaa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258480"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112585"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Compreender as recomendações do Centro de segurança do Azure container
 
@@ -45,7 +45,7 @@ Utilize as tabelas abaixo como referência para ajudar a compreender os contento
 
 | Recomendação | Descrição | Remediação |
 | --- | --- | --- |
-|Remediar vulnerabilidades em configurações de segurança do contentor |Remediar vulnerabilidades em configurações de segurança do contentor com base nas melhores práticas de configuração.| Remediar vulnerabilidades nas configurações de segurança do contentor:<br>1. Reveja a lista de regras com falhas.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
+|Remediar vulnerabilidades nas configurações de segurança do contentor |Remediar vulnerabilidades em configurações de segurança do contentor com base nas melhores práticas de configuração.| Remediar vulnerabilidades nas configurações de segurança do contentor:<br>1. Reveja a lista de regras com falhas.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
 
 
 ## <a name="next-steps"></a>Passos Seguintes

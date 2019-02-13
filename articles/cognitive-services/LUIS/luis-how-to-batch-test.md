@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: fddd54e7c4e88b85f6e6fa8f7319661db96e9524
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877546"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116903"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Lote de teste com um conjunto de expressões de exemplo
 
- Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. Os conjuntos de dados usados para teste de lote não deve incluir expressões com os objetivos ou expressões com receberam do ponto final de tempo de execução de predição de exemplo. 
+ Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. Os conjuntos de dados usados para teste de lote não deve incluir expressões de exemplo na intenções ou expressões com recebido a partir do ponto final de tempo de execução de predição. 
 
 <a name="batch-testing"></a>
 

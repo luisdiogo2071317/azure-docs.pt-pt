@@ -4,7 +4,7 @@ description: Saiba mais sobre as várias opções de encriptação no Azure
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035101"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114659"
 ---
 # <a name="azure-encryption-overview"></a>Descrição geral da encriptação do Azure
 
@@ -50,11 +50,11 @@ Com a encriptação do lado do cliente, o fornecedor de serviços cloud não tem
 
 Os três modelos de encriptação do lado do servidor de características de gestão de chaves diferentes, o que pode escolher de acordo com os requisitos da oferta:
 
-- **Chaves geridas pelo serviço**: fornece uma combinação de controle e a conveniência com baixa sobrecarga.
+- **Chaves geridas pelo serviço**: Fornece uma combinação de controle e a conveniência baixa sobrecarga.
 
-- **Chaves geridas pelo cliente**: dá controle sobre as chaves, incluindo o suporte de Bring Your Own chaves (BYOK), ou permite-lhe gerar novas etiquetas.
+- **Chaves geridas pelo cliente**: Dá-lhe controlo sobre as chaves, incluindo o suporte de Bring Your Own chaves (BYOK), ou permite-lhe gerar novos.
 
-- **Chaves geridas pelo serviço no hardware controlado pelo cliente**: permite-lhe gerir as chaves no seu repositório proprietária, fora do controlo de Microsoft. Essa característica é chamada de Host Your Own Key (HYOK). No entanto, a configuração é complexa e serviços mais do Azure não suportam este modelo.
+- **Chaves geridas pelo serviço no hardware controlado pelo cliente**: Permite-lhe gerir as chaves no seu repositório proprietária, fora do controlo de Microsoft. Essa característica é chamada de Host Your Own Key (HYOK). No entanto, a configuração é complexa e serviços mais do Azure não suportam este modelo.
 
 ### <a name="azure-disk-encryption"></a>Encriptação de disco do Azure
 
@@ -78,7 +78,7 @@ Para saber mais sobre e transferir a biblioteca de cliente de armazenamento do A
 
 Quando utiliza a encriptação do lado do cliente com o Key Vault, os dados são encriptados com uma única simétrica conteúdo encriptação de chave (CEK) que é gerado pelo SDK de cliente de armazenamento do Azure. O CEK é encriptado com uma chave de encriptação de chaves (KEK), que pode ser uma chave simétrica ou um par de chaves assimétricas. Pode gerenciá-lo localmente ou armazená-lo no Key Vault. Os dados encriptados, em seguida, são carregados para o armazenamento do Azure.
 
-Para saber mais sobre a encriptação do lado do cliente com o Key Vault e começar a utilizar com instruções sobre como proceder, veja [Tutorial: encriptar e desencriptar blobs no armazenamento do Azure com o Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
+Para saber mais sobre a encriptação do lado do cliente com o Key Vault e começar a utilizar com instruções sobre como proceder, veja [Tutorial: Encriptar e desencriptar blobs no armazenamento do Azure com o Key Vault](../storage/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Por fim, também pode utilizar a biblioteca de cliente de armazenamento do Azure para Java para efetuar a encriptação do lado do cliente antes de carregar dados para o armazenamento do Azure e para descriptografar os dados ao transferi-lo ao cliente. Esta biblioteca também suporta a integração com [Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
 
@@ -170,9 +170,9 @@ Pode configurar uma ligação de VPN ponto a site a uma rede virtual com o porta
 
 Para saber mais sobre ligações de VPN de ponto a site para redes virtuais do Azure, veja:
 
-[Configurar uma ligação de ponto a site a uma rede virtual, utilizando a autenticação de certificação: portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
+[Configure uma ligação de ponto a site a uma rede virtual, utilizando a autenticação de certificação: Portal do Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) 
 
-[Configurar uma ligação de ponto a site a uma rede virtual, utilizando a autenticação de certificado: PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+[Configure uma ligação de ponto a site a uma rede virtual, utilizando a autenticação de certificado: PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### <a name="site-to-site-vpns"></a>VPNs site a site 
 

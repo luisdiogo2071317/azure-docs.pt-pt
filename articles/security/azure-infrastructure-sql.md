@@ -4,7 +4,7 @@ description: Este artigo fornece uma descrição geral de como o SQL Database do
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: cce1ff1102c42bd1627caeba7b2c86432b228607
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: cd2ad16f910f5d2b3b801c8d54e9df7660751462
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170859"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103953"
 ---
 # <a name="azure-sql-database-security-features"></a>Funcionalidades de segurança da base de dados SQL do Azure    
 Base de dados SQL do Azure fornece um serviço de base de dados relacionais no Azure. Para proteger os dados dos clientes e fornecer funcionalidades de segurança forte que clientes esperar de um serviço de base de dados relacional, a base de dados SQL tem seus próprios conjuntos de recursos de segurança. Esses recursos são criados após os controlos que são herdados do Azure.
 
-## <a name="security-capabilities"></a>Capacidades de segurança
+## <a name="security-capabilities"></a>Funcionalidades de segurança
 
 ### <a name="usage-of-the-tds-protocol"></a>Utilização do protocolo TDS
 Base de dados SQL do Azure suporta apenas o tabular data stream (TDS) protocolo, que requer a base de dados estar acessíveis através de apenas a predefinição porta de TCP/1433.
@@ -61,9 +61,9 @@ Uma vez que o controlador de malha (FC) é orquestradores centrais de recursos d
 ### <a name="vlan-isolation"></a>Isolamento de VLAN
 A rede de produção do Azure logicamente é segregada para três VLANs primários:
 
-- A principal VLAN: interconexões de nós de cliente não fidedigno.
+- A VLAN principal: Interconexões nós não fidedignos do cliente.
 - A VLAN de FC: Contém fidedigna FCs e sistemas de suporte.
-- O dispositivo VLAN: contém a redes fidedignas e outros dispositivos de infraestrutura.
+- O dispositivo VLAN: Contém rede fidedigna e outros dispositivos de infraestrutura.
 
 ### <a name="packet-filtering"></a>Filtragem de pacotes
 O IPFilter e as firewalls de software que são implementadas no sistema operacional raiz e sistema operacional convidado de nós de impor restrições de conectividade e impedir que o tráfego entre VMs não autorizado.

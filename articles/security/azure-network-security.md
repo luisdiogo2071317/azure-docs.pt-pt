@@ -4,7 +4,7 @@ description: Saiba mais sobre serviços informáticos com base na cloud que incl
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405978"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111293"
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -88,11 +88,11 @@ Redes virtuais do Azure são como virtual redes utilizam no local com suas próp
 
 Pode ligar VNets entre si, permitindo que os recursos ligados a das Vnets para comunicar entre si em VNets. Pode utilizar uma ou ambas das seguintes opções para ligar VNets entre si:
 
-- **Peering:** permite que os recursos ligados a VNets do Azure diferente na mesma localização do Azure para comunicar entre si. A largura de banda e a latência entre a VNet é o mesmo como se os recursos foram ligados à mesma VNet. Para saber mais sobre o peering, leia [peering de rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** Permite que os recursos ligados a VNets do Azure diferente na mesma localização do Azure para comunicar entre si. A largura de banda e a latência entre a VNet é o mesmo como se os recursos foram ligados à mesma VNet. Para saber mais sobre o peering, leia [peering de rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
-- **Ligação de VNet a VNet:** permite que os recursos ligados à VNet do Azure diferente dentro das mesmo ou em diferentes localizações do Azure. Ao contrário de peering, largura de banda é limitada entre VNets, porque o tráfego tem de fluir através de um Gateway de VPN do Azure.
+- **Ligação de VNet a VNet:** Permite que os recursos ligados à VNet do Azure diferente dentro das mesmo ou em diferentes localizações do Azure. Ao contrário de peering, largura de banda é limitada entre VNets, porque o tráfego tem de fluir através de um Gateway de VPN do Azure.
 
 ![Ligação de VNet a VNet](media/azure-network-security/azure-network-security-fig-4.png)
 
@@ -151,9 +151,9 @@ Pode ligar a vários recursos do Azure a uma VNet, como máquinas virtuais (VM),
 
 Pode ligar VNets entre si, permitindo que os recursos ligados a das Vnets para comunicar entre si em VNets. Pode utilizar uma ou ambas das seguintes opções para ligar VNets entre si:
 
-- **Peering:** permite que os recursos ligados a VNets do Azure diferente na mesma localização do Azure para comunicar entre si. A largura de banda e a latência entre as VNets é o mesmo como se os recursos foram ligados para o mesmo VNet.To Saiba mais sobre o peering, leia os [peering de rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering:** Permite que os recursos ligados a VNets do Azure diferente na mesma localização do Azure para comunicar entre si. A largura de banda e a latência entre as VNets é o mesmo como se os recursos foram ligados para o mesmo VNet.To Saiba mais sobre o peering, leia os [peering de rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
-- **Ligação de VNet a VNet:** permite que os recursos ligados à VNet do Azure diferente dentro das mesmo ou em diferentes localizações do Azure. Ao contrário de peering, largura de banda é limitada entre VNets, porque o tráfego tem de fluir através de um Gateway de VPN do Azure. Para obter mais informações sobre como ligar VNets com uma ligação VNet a VNet. Para saber mais, leia os [configurar uma ligação VNet a VNet](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+- **Ligação de VNet a VNet:** Permite que os recursos ligados à VNet do Azure diferente dentro das mesmo ou em diferentes localizações do Azure. Ao contrário de peering, largura de banda é limitada entre VNets, porque o tráfego tem de fluir através de um Gateway de VPN do Azure. Para obter mais informações sobre como ligar VNets com uma ligação VNet a VNet. Para saber mais, leia os [configurar uma ligação VNet a VNet](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 **Conectividade no local**
 
@@ -161,11 +161,11 @@ As VNets podem ser ligadas para [locais](https://docs.microsoft.com/azure/virtua
 
 Pode ligar a sua rede no local a uma VNet com qualquer combinação das seguintes opções:
 
-- **Rede privada virtual (VPN) ponto a site:** estabelecida entre um único PC ligado à sua rede e a VNet. Este tipo de ligação é excelente se estiver a começar a utilizar o Azure ou para os programadores, uma vez que necessita de pouca ou nenhumas alterações à sua rede existente. A ligação utiliza o protocolo SSTP para fornecer comunicações encriptadas através da Internet entre o PC e a VNet. A latência de uma VPN ponto a site é imprevisível, uma vez que o tráfego atravessa a Internet.
+- **Ponto a site rede privada virtual (VPN):** Estabelecido entre um único PC ligado à sua rede e a VNet. Este tipo de ligação é excelente se estiver a começar a utilizar o Azure ou para os programadores, uma vez que necessita de pouca ou nenhumas alterações à sua rede existente. A ligação utiliza o protocolo SSTP para fornecer comunicações encriptadas através da Internet entre o PC e a VNet. A latência de uma VPN ponto a site é imprevisível, uma vez que o tráfego atravessa a Internet.
 
-- **VPN de site a site:** estabelecida entre o dispositivo VPN e um Gateway de VPN do Azure. Este tipo de ligação permite que qualquer recurso no local que está a autorizar para aceder a uma VNet. A ligação é uma VPN IPsec/IKE que fornece comunicações encriptadas através da Internet entre o dispositivo no local e o gateway de VPN do Azure. A latência de uma ligação site a site é imprevisível, uma vez que o tráfego atravessa a Internet.
+- **VPN de site a site:** Estabelecida entre o dispositivo VPN e um Gateway de VPN do Azure. Este tipo de ligação permite que qualquer recurso no local que está a autorizar para aceder a uma VNet. A ligação é uma VPN IPsec/IKE que fornece comunicações encriptadas através da Internet entre o dispositivo no local e o gateway de VPN do Azure. A latência de uma ligação site a site é imprevisível, uma vez que o tráfego atravessa a Internet.
 
-- **Azure ExpressRoute:** estabelecida entre a rede e o Azure, através de um parceiro do ExpressRoute. Esta ligação é privada. Tráfego atravessa a Internet. A latência de uma ligação do ExpressRoute é previsível, uma vez que o tráfego não atravessa a Internet. Para saber mais sobre todas as opções de ligação anterior, leia os [diagramas de topologia de ligação](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **O Azure ExpressRoute:** Estabelecida entre a rede e o Azure, através de um parceiro do ExpressRoute. Esta ligação é privada. Tráfego atravessa a Internet. A latência de uma ligação do ExpressRoute é previsível, uma vez que o tráfego não atravessa a Internet. Para saber mais sobre todas as opções de ligação anterior, leia os [diagramas de topologia de ligação](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Filtragem do tráfego**
 
@@ -173,9 +173,9 @@ Instâncias de função VM e serviços em nuvem [tráfego de rede](https://docs.
 
 Pode filtrar o tráfego de rede entre as sub-redes com uma ou ambas das seguintes opções:
 
-- **Grupos de segurança (NSG) de rede:** cada NSG pode conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego por endereço IP de origem e de destino, porta e protocolo. Pode aplicar um NSG a cada NIC numa VM. Também pode aplicar um NSG à sub-rede de uma NIC ou outros recursos do Azure, está ligado. Para saber mais sobre NSGs, leia os [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- **Grupos de segurança de rede (NSG):** Cada NSG pode conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego por origem e endereço IP de destino, porta e protocolo. Pode aplicar um NSG a cada NIC numa VM. Também pode aplicar um NSG à sub-rede de uma NIC ou outros recursos do Azure, está ligado. Para saber mais sobre NSGs, leia os [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 
-- **Aplicações virtuais de rede:** uma aplicação de rede virtual é uma VM a executar o software que executa uma função de rede, como uma firewall. Ver uma lista das NVAs disponíveis no Azure Marketplace. NVAs estão também disponíveis, que fornecem a otimização de WAN e a outra rede funções de tráfego. NVAs são normalmente utilizadas com definidas pelo utilizador ou rotas BGP. Também pode utilizar uma NVA para filtrar o tráfego entre VNets.
+- **Aplicações de rede virtual:** Uma aplicação de rede virtual é uma VM a executar o software que executa uma função de rede, como uma firewall. Ver uma lista das NVAs disponíveis no Azure Marketplace. NVAs estão também disponíveis, que fornecem a otimização de WAN e a outra rede funções de tráfego. NVAs são normalmente utilizadas com definidas pelo utilizador ou rotas BGP. Também pode utilizar uma NVA para filtrar o tráfego entre VNets.
 
 **Encaminhamento**
 
@@ -183,11 +183,11 @@ Opcionalmente, pode substituir predefinição do Azure encaminhamento através d
 
 O Azure cria as tabelas de rotas que permitem recursos ligados a qualquer sub-rede na VNet em qualquer para comunicar entre si, por predefinição. Pode implementar uma ou ambas das seguintes opções para substituir as rotas predefinidas que o Azure cria:
 
-- **Rotas definidas pelo utilizador:** pode criar tabelas de rotas personalizadas com rotas que controlam onde o tráfego é encaminhado para cada sub-rede. Para saber mais sobre as rotas definidas pelo utilizador, leia os [rotas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **Rotas definidas pelo utilizador:** Pode criar tabelas de rotas personalizadas com rotas que controlam onde o tráfego é encaminhado para cada sub-rede. Para saber mais sobre as rotas definidas pelo utilizador, leia os [rotas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
-- **As rotas BGP:** se ligar a VNet à sua rede no local através de uma ligação de Gateway de VPN do Azure ou do ExpressRoute, pode propagar rotas BGP para as suas VNets.
+- **Rotas BGP:** Se ligar a VNet à sua rede no local através de um Gateway de VPN do Azure ou a ligação do ExpressRoute, pode propagar rotas BGP para as suas VNets.
 
-### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Conectividade de internet híbrida: ligar a uma rede no local
+### <a name="hybrid-internet-connectivity-connect-to-an-on-premises-network"></a>Conectividade híbrida com a internet: Ligar a uma rede no local
 Pode ligar a sua rede no local a uma VNet com qualquer combinação das seguintes opções:
 
 -   Conectividade Internet
@@ -276,19 +276,19 @@ NSGs utilizam uma 5 cadeias de identificação para avaliar o tráfego (e são u
 
 -   [Porta de origem e destino](https://technet.microsoft.com/library/dd197515)
 
--   Protocolo: [protocolo de controlo de transmissão (TCP)](https://technet.microsoft.com/library/cc940037.aspx) ou [o protocolo de datagrama de utilizador (UDP)](https://technet.microsoft.com/library/cc940034.aspx)
+-   Protocolo: [O protocolo de controlo de transmissão (TCP)](https://technet.microsoft.com/library/cc940037.aspx) ou [o protocolo de datagrama de utilizador (UDP)](https://technet.microsoft.com/library/cc940034.aspx)
 
 Isso significa que pode controlar o acesso entre uma VM única e um grupo de VMs ou uma única VM para outra VM única ou entre sub-redes inteiras. Novamente, tenha em atenção que este é o pacote com monitoração de estado simple, filtragem, inspeção de pacotes não completa. Não existe validação do protocolo ou IDS de nível de rede ou capacidade IPS num grupo de segurança de rede.
 
 Um NSG é fornecido com algumas regras incorporadas que deve estar atento. Nomeadamente:
 
--   **Permitir todo o tráfego dentro de uma rede virtual específico:** todas as VMs na mesma rede Virtual do Azure podem comunicar entre si.
+-   **Permitir todo o tráfego dentro de uma rede virtual específico:** Todas as VMs na mesma rede Virtual do Azure podem comunicar entre si.
 
 -   **Permitir a entrada de balanceamento de carga do Azure:** esta regra permite o tráfego de qualquer endereço de origem para qualquer endereço de destino para o Balanceador de carga do Azure.
 
 -   **Negar toda a entrada:** esta regra bloqueia todo o tráfego da Internet que tem a permissão explicitamente de fornecimento.
 
--   **Permitir todo o tráfego de saída à Internet:** esta regra permite que as VMs iniciar as ligações à Internet. Se não pretender que estas ligações iniciadas, terá de criar uma regra para bloquear essas ligações ou impor o túnel forçado.
+-   **Permitir todo o tráfego de saída à Internet:** Esta regra permite que as VMs iniciar as ligações à Internet. Se não pretender que estas ligações iniciadas, terá de criar uma regra para bloquear essas ligações ou impor o túnel forçado.
 
 #### <a name="system-routes-and-user-defined-routes"></a>Rotas de sistema e as rotas definidas pelo utilizador
 
@@ -320,11 +320,11 @@ A secção seguinte mostra a limitação atual da tabela de encaminhamento e rot
 
 -   Cada sub-rede da rede virtual tem uma tabela de roteamento interno, do sistema. A tabela de encaminhamento do sistema tem os seguintes três grupos de rotas:
 
- -  **As rotas locais de VNet:** diretamente para o destino de VMs na mesma rede virtual
+ -  **Rotas de VNet locais:** Diretamente para o destino de VMs na mesma rede virtual
 
- - **Sobre rotas no local:** para o VPN gateway do Azure
+ - **Sobre rotas no local:** Para o gateway de VPN do Azure
 
- -  **Rota predefinida:** diretamente à Internet. Pacotes destinados aos endereços IP privados, não abrangidos pelas anteriores duas rotas são ignorados.
+ -  **Rota predefinida:** Diretamente à Internet. Pacotes destinados aos endereços IP privados, não abrangidos pelas anteriores duas rotas são ignorados.
 
 -   Com o lançamento das rotas definidas pelo utilizador, pode criar uma tabela de encaminhamento para adicionar uma rota predefinida e, em seguida, associar a tabela de encaminhamento para a sub-rede de VNet para ativar o protocolo de túnel forçado nessas sub-redes.
 
@@ -645,9 +645,9 @@ As métricas seguintes são suportadas para Gateways de aplicação:
 
 Os seguintes registos são suportados para [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
-- **NetworkSecurityGroupEvent:** contém entradas para o qual NSG regras são aplicadas a VMs e funções com base no endereço MAC de instância. O estado para estas regras é recolhido a cada 60 segundos.
+- **NetworkSecurityGroupEvent:** Contém entradas para o qual NSG as regras são aplicadas a VMs e funções de instância com base no endereço MAC. O estado para estas regras é recolhido a cada 60 segundos.
 
-- **NetworkSecurityGroupRuleCounter:** contém entradas para o número de vezes que cada NSG de regra é aplicada para negar ou permitir o tráfego.
+- **NetworkSecurityGroupRuleCounter:** Contém entradas para quantas vezes cada regra NSG é aplicada a negar ou permitir tráfego.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Obter mais informações sobre segurança lendo alguns dos nossos tópicos de segurança detalhados:
@@ -656,7 +656,7 @@ Obter mais informações sobre segurança lendo alguns dos nossos tópicos de se
 
 -   [Inovações do sistema de rede que orientam a interrupção da cloud](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 
--   [SONiC: O funcionamento em rede mudar software que fornece o Cloud Global da Microsoft](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
+-   [SONiC: O sistema de rede de mudar de software que fornece o Cloud Global da Microsoft](https://azure.microsoft.com/blog/sonic-the-networking-switch-software-that-powers-the-microsoft-global-cloud/)
 
 -   [Como Microsoft baseia-se a rede global de rápida e fiável](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 

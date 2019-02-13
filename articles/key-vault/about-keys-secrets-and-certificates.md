@@ -4,7 +4,7 @@ description: Descrição geral dos detalhes de interface e desenvolvedor de REST
 services: key-vault
 documentationcenter: ''
 author: BryanLa
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 0dcfd1bd75fa54a1bbea93497a0cc872ad6d5184
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 49879d36937a0f0d7ccf1a82cf8b6ca09453894d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078376"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106986"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -96,9 +96,9 @@ As chaves criptográficas no Cofre de chaves são representadas como objetos de 
 Key Vault suporta chaves RSA e criptografia de curva elíptica. 
 
 -   **EC**: "Soft" chave de criptografia de curva elíptica.
--   **EC HSM**: "Fixas" chave de criptografia de curva elíptica.
+-   **EC-HSM**: "Fixas" chave de criptografia de curva elíptica.
 -   **RSA**: Chave RSA "Soft".
--   **RSA HSM**: Chave RSA "Fixas".
+-   **RSA-HSM**: Chave RSA "Fixas".
 
 Key Vault suporta chaves RSA de 2048, 3072 e 4096 de tamanhos. Key Vault oferece suporte a criptografia de curva elíptica chave tipos p-256, p-384, p-521 e P-256_K (SECP256K1).
 
@@ -145,10 +145,10 @@ Key Vault suporta as seguintes operações nos objetos da chave:
 -   **Criar**: Permite que um cliente criar uma chave no Cofre de chaves. O valor da chave é gerado pelo Cofre de chaves e armazenado e não é liberada para o cliente. As chaves assimétricas podem ser criadas no Cofre de chaves.  
 -   **Importar**: Permite que um cliente importar uma chave existente para o Cofre de chaves. As chaves assimétricas podem ser importadas para o Key Vault com uma série de métodos de empacotamento diferentes dentro de uma construção JWK. 
 -   **Atualização**: Permite que um cliente com permissões suficientes para modificar os metadados (atributos de chaves) associados uma chave anteriormente armazenada no Key Vault.  
--   **Eliminar**: Permite que um cliente com permissões suficientes para eliminar uma chave do Key Vault.  
+-   **Delete**: Permite que um cliente com permissões suficientes para eliminar uma chave do Key Vault.  
 -   **Lista**: Permite que um cliente listar todas as chaves num cofre fornecido.  
 -   **Lista de versões**: Permite que um cliente listar todas as versões de uma determinada chave num determinado Key Vault.  
--   **Obter**: Permite que um cliente obter as partes públicas de uma determinada chave no Cofre de chaves.  
+-   **Get**: Permite que um cliente obter as partes públicas de uma determinada chave no Cofre de chaves.  
 -   **Cópia de segurança**: Exporta uma chave num formato protegido.  
 -   **Restaurar**: Importa uma chave anteriormente cópia de segurança.  
 
@@ -173,13 +173,13 @@ Para obter mais informações sobre objetos JWK, consulte [chave de Web JSON (JW
 Para além do material de chave, podem ser especificados os seguintes atributos. Num pedido do JSON, a palavra-chave de atributos e chavetas, ' {' '}', são necessários, mesmo se não houver nenhum atributo especificado.  
 
 - *ativada*: booleana, opcional, a predefinição é **true**. Especifica se a chave é ativado e pode ser utilizada para operações criptográficas. O *habilitado* atributo é utilizado em conjunto com *nbf* e *exp*. Quando uma operação ocorre entre *nbf* e *exp*, apenas irá ser permitida se *ativada* está definido como **verdadeiro**. Operações de fora a *nbf* / *exp* janela não são automaticamente permitidas, exceto para determinados tipos de operação em [condições particulares](#date-time-controlled-operations).
-- *NBF*: Padrão de IntDate, opcional, é agora. O *nbf* (não antes) atributo identifica o tempo antes do qual a chave não pode ser utilizada para operações de criptografia, exceto para determinados tipos de operação sob [condições particulares](#date-time-controlled-operations). O processamento do *nbf* atributo requer que a data/hora atual tem de ser posterior ou igual a não-antes de data/hora listada na *nbf* atributo. Cofre de chaves pode fornecer para alguns pequenos leeway, normalmente não mais do que alguns minutos, para levar em conta relógio skew. O valor tem de ser um número que contém um valor de IntDate.  
-- *EXP*: Padrão de IntDate, opcional, é "sempre". O *exp* atributo (hora de expiração) identifica a hora de expiração em ou depois que a chave não deve ser utilizado para operação criptográfica, exceto para determinados tipos de operação em [particulares condições](#date-time-controlled-operations). O processamento do *exp* atributo requer que a data/hora atual tem de ser antes da data/hora de expiração listados na *exp* atributo. Key Vault pode fornecer para alguns pequenos leeway, normalmente, não mais do que alguns minutos, para levar em conta relógio skew. O valor tem de ser um número que contém um valor de IntDate.  
+- *nbf*: Padrão de IntDate, opcional, é agora. O *nbf* (não antes) atributo identifica o tempo antes do qual a chave não pode ser utilizada para operações de criptografia, exceto para determinados tipos de operação sob [condições particulares](#date-time-controlled-operations). O processamento do *nbf* atributo requer que a data/hora atual tem de ser posterior ou igual a não-antes de data/hora listada na *nbf* atributo. Cofre de chaves pode fornecer para alguns pequenos leeway, normalmente não mais do que alguns minutos, para levar em conta relógio skew. O valor tem de ser um número que contém um valor de IntDate.  
+- *exp*: Padrão de IntDate, opcional, é "sempre". O *exp* atributo (hora de expiração) identifica a hora de expiração em ou depois que a chave não deve ser utilizado para operação criptográfica, exceto para determinados tipos de operação em [particulares condições](#date-time-controlled-operations). O processamento do *exp* atributo requer que a data/hora atual tem de ser antes da data/hora de expiração listados na *exp* atributo. Key Vault pode fornecer para alguns pequenos leeway, normalmente, não mais do que alguns minutos, para levar em conta relógio skew. O valor tem de ser um número que contém um valor de IntDate.  
 
 Existem atributos adicionais de só de leitura que estão incluídos em qualquer resposta que inclui os principais atributos:  
 
-- *criado*: IntDate, opcional. O *criado* atributo indica que esta versão da chave foi criada. O valor é nulo para chaves criadas antes da adição deste atributo. O valor tem de ser um número que contém um valor de IntDate.  
-- *atualizado*: IntDate, opcional. O *atualizado* atributo indica que a esta versão da chave foi atualizada. O valor é nulo para as chaves que foram atualizadas pela última vez antes da adição deste atributo. O valor tem de ser um número que contém um valor de IntDate.  
+- *created*: IntDate, opcional. O *criado* atributo indica que esta versão da chave foi criada. O valor é nulo para chaves criadas antes da adição deste atributo. O valor tem de ser um número que contém um valor de IntDate.  
+- *updated*: IntDate, opcional. O *atualizado* atributo indica que a esta versão da chave foi atualizada. O valor é nulo para as chaves que foram atualizadas pela última vez antes da adição deste atributo. O valor tem de ser um número que contém um valor de IntDate.  
 
 Para obter mais informações sobre IntDate e outros tipos de dados, consulte [tipos de dados](#data-types)  
 
@@ -205,23 +205,23 @@ Controlo de acesso para as chaves geridas pelo Cofre de chaves é fornecido no n
 As seguintes permissões podem ser concedidas, num por utilizador / serviço principal base, em que a entrada de controle de acesso de chaves no cofre. Estas permissões espelham de perto as operações permitidas num objeto de chave:  
 
 - Permissões para operações de gestão de chaves
-  - *Obter*: Ler a parte pública de uma chave, juntamente com seus atributos
-  - *Lista*: Listar as chaves ou versões de uma chave armazenada num cofre de chaves
-  - *Atualização*: Atualize os atributos de uma chave
+  - *get*: Ler a parte pública de uma chave, juntamente com seus atributos
+  - *list*: Listar as chaves ou versões de uma chave armazenada num cofre de chaves
+  - *update*: Atualize os atributos de uma chave
   - *Criar*: Criar chaves novas
-  - *Importar*: Importar uma chave para um cofre de chaves
-  - *Eliminar*: Eliminar o objeto de chave
-  - *recuperar*: Recuperar uma chave eliminada
-  - *Cópia de segurança*: Fazer cópias de segurança de uma chave no Cofre de chaves
-  - *Restaurar*: Restaurar uma cópia de segurança da chave para um cofre de chaves
+  - *import*: Importar uma chave para um cofre de chaves
+  - *delete*: Eliminar o objeto de chave
+  - *recover*: Recuperar uma chave eliminada
+  - *backup*: Fazer cópias de segurança de uma chave no Cofre de chaves
+  - *restore*: Restaurar uma cópia de segurança da chave para um cofre de chaves
 
 - Permissões para operações de criptografia
-  - *desencriptar*: Utilizar a chave para desproteger uma seqüência de bytes
-  - *encriptar*: Utilizar a chave para proteger uma seqüência arbitrária de bytes
+  - *decrypt*: Utilizar a chave para desproteger uma seqüência de bytes
+  - *encrypt*: Utilizar a chave para proteger uma seqüência arbitrária de bytes
   - *unwrapKey*: Utilizar a chave para desproteger chaves simétricas encapsuladas
   - *wrapKey*: Utilizar a chave para proteger uma chave simétrica
-  - *Certifique-se de*: Utilizar a chave para verificar os resumos de  
-  - *início de sessão*: Utilize a tecla para iniciar sessão resumos de
+  - *verify*: Utilizar a chave para verificar os resumos de  
+  - *sign*: Utilize a tecla para iniciar sessão resumos de
     
 - Permissões para operações privilegiadas
   - *remover*: Remover (eliminar definitivamente) uma chave eliminada
@@ -242,14 +242,14 @@ Key Vault também oferece suporte a um campo contentType para segredos. Os clien
 
 Além dos dados secretos, podem ser especificados os seguintes atributos:  
 
-- *EXP*: A predefinição de IntDate, opcional, é **Eternamente**. O *exp* atributo (hora de expiração) identifica a hora de expiração em ou depois que os dados secretos devem não ser recuperados, exceto nas [situações específicas](#date-time-controlled-operations). Este campo é para **informativa** fins apenas que ela informa aos usuários do serviço do Cofre de chaves que não pode ser utilizado um segredo específico. O valor tem de ser um número que contém um valor de IntDate.   
-- *NBF*: A predefinição de IntDate, opcional, é **agora**. O *nbf* (não antes) atributo identifica o tempo antes do qual os dados secretos não devem ser obtidos, exceto nas [situações específicas](#date-time-controlled-operations). Este campo é para **informativa** apenas a fins. O valor tem de ser um número que contém um valor de IntDate. 
+- *exp*: A predefinição de IntDate, opcional, é **Eternamente**. O *exp* atributo (hora de expiração) identifica a hora de expiração em ou depois que os dados secretos devem não ser recuperados, exceto nas [situações específicas](#date-time-controlled-operations). Este campo é para **informativa** fins apenas que ela informa aos usuários do serviço do Cofre de chaves que não pode ser utilizado um segredo específico. O valor tem de ser um número que contém um valor de IntDate.   
+- *nbf*: A predefinição de IntDate, opcional, é **agora**. O *nbf* (não antes) atributo identifica o tempo antes do qual os dados secretos não devem ser obtidos, exceto nas [situações específicas](#date-time-controlled-operations). Este campo é para **informativa** apenas a fins. O valor tem de ser um número que contém um valor de IntDate. 
 - *ativada*: booleana, opcional, a predefinição é **true**. Esse atributo Especifica se é possível obter os dados secretos. O atributo habilitado é utilizado em conjunto com *nbf* e *exp* quando uma operação ocorre entre *nbf* e *exp*, ele só será permitido se ativada é definido como **true**. Operações de fora a *nbf* e *exp* janela são automaticamente não permitido, exceto na [situações específicas](#date-time-controlled-operations).  
 
 Existem atributos adicionais de só de leitura que estão incluídos em qualquer resposta que inclui atributos secretos:  
 
-- *criado*: IntDate, opcional. O atributo criado indica que esta versão do segredo do foi criada. Este valor é nulo para segredos criados antes da adição deste atributo. O valor tem de ser um número que contém um valor de IntDate.  
-- *atualizado*: IntDate, opcional. O atributo atualizado indica que a esta versão do segredo do foi atualizada. Este valor é nulo para segredos que foram atualizados pela última vez antes da adição deste atributo. O valor tem de ser um número que contém um valor de IntDate.
+- *created*: IntDate, opcional. O atributo criado indica que esta versão do segredo do foi criada. Este valor é nulo para segredos criados antes da adição deste atributo. O valor tem de ser um número que contém um valor de IntDate.  
+- *updated*: IntDate, opcional. O atributo atualizado indica que a esta versão do segredo do foi atualizada. Este valor é nulo para segredos que foram atualizados pela última vez antes da adição deste atributo. O valor tem de ser um número que contém um valor de IntDate.
 
 #### <a name="date-time-controlled-operations"></a>Operações de controlado de data e hora
 
@@ -264,13 +264,13 @@ Controlo de acesso para segredos geridos no Cofre de chaves, é fornecido no ní
 As seguintes permissões podem ser utilizadas, numa base por principal, na entrada de controle de acesso a segredos no cofre e espelham de perto as operações permitidas num objeto secreto:  
 
 - Permissões para operações de gestão de segredos
-  - *Obter*: Ler um segredo  
-  - *Lista*: Listar os segredos ou versões de um segredo armazenados num cofre de chave  
-  - *definir*: Criar um segredo  
-  - *Eliminar*: Eliminar um segredo  
-  - *recuperar*: Recuperar um segredo eliminado
-  - *Cópia de segurança*: Criar cópias de segurança um segredo no Cofre de chaves
-  - *Restaurar*: Restaurar uma cópia de segurança segredo para um cofre de chaves
+  - *get*: Ler um segredo  
+  - *list*: Listar os segredos ou versões de um segredo armazenados num cofre de chave  
+  - *set*: Criar um segredo  
+  - *delete*: Eliminar um segredo  
+  - *recover*: Recuperar um segredo eliminado
+  - *backup*: Criar cópias de segurança um segredo no Cofre de chaves
+  - *restore*: Restaurar uma cópia de segurança segredo para um cofre de chaves
 
 - Permissões para operações privilegiadas
   - *remover*: Remover (eliminar definitivamente) um segredo eliminado
@@ -326,10 +326,10 @@ Um certificado do Key Vault tem os seguintes atributos:
 
 Existem atributos adicionais de só de leitura que estão incluídos na resposta:
 
--   *criado*: IntDate: indica que esta versão do certificado foi criada.  
--   *atualizado*: IntDate: indica que a esta versão do certificado foi atualizada.  
--   *EXP*: IntDate: contém o valor da data de expiração de x509 certificado.  
--   *NBF*: IntDate: contém o valor da data de x509 certificado.  
+-   *created*: IntDate: indica que esta versão do certificado foi criada.  
+-   *updated*: IntDate: indica que a esta versão do certificado foi atualizada.  
+-   *exp*: IntDate: contém o valor da data de expiração de x509 certificado.  
+-   *nbf*: IntDate: contém o valor da data de x509 certificado.  
 
 > [!Note] 
 > Se um certificado do Key Vault expira, seja endereçável chave e segredo tornar-se inoperáveis.  
@@ -373,7 +373,7 @@ A tabela seguinte representa o mapeamento do x509 de política de utilização d
 |EncipherOnly|encrypt| N/A |
 |KeyCertSign|iniciar sessão, certifique-se|N/A|
 |KeyEncipherment|wrapKey, unwrapKey| Padrão de Cofre de chaves sem uma especificação de utilização no momento de criação do certificado | 
-|Não-repúdio|iniciar sessão, certifique-se| N/A |
+|NonRepudiation|iniciar sessão, certifique-se| N/A |
 |crlsign|iniciar sessão, certifique-se| N/A |
 
 ### <a name="certificate-issuer"></a>Emissor do certificado
@@ -421,15 +421,15 @@ Se a política de um certificado estiver definida para renovação automática, 
  As seguintes permissões podem ser utilizadas numa base por principal, na entrada de controle de acesso a segredos num cofre de chaves e estreitamente espelhos as operações permitidas num objeto secreto:  
 
 - Permissões para operações de gestão de certificado
-  - *Obter*: Obter a versão atual do certificado ou qualquer versão de um certificado 
-  - *Lista*: Listar os certificados atuais ou versões de um certificado  
-  - *Atualização*: Atualizar um certificado
+  - *get*: Obter a versão atual do certificado ou qualquer versão de um certificado 
+  - *list*: Listar os certificados atuais ou versões de um certificado  
+  - *update*: Atualizar um certificado
   - *Criar*: Criar um certificado do Key Vault
-  - *Importar*: Importar o material de certificado para um certificado do Key Vault
-  - *Eliminar*: Eliminar um certificado, a política e todas as suas versões  
-  - *recuperar*: Recuperar um certificado eliminado
-  - *Cópia de segurança*: Fazer cópias de segurança de um certificado num cofre de chaves
-  - *Restaurar*: Restaurar um certificado de uma cópia de segurança para um cofre de chaves
+  - *import*: Importar o material de certificado para um certificado do Key Vault
+  - *delete*: Eliminar um certificado, a política e todas as suas versões  
+  - *recover*: Recuperar um certificado eliminado
+  - *backup*: Fazer cópias de segurança de um certificado num cofre de chaves
+  - *restore*: Restaurar um certificado de uma cópia de segurança para um cofre de chaves
   - *managecontacts*: Gerir contactos de certificado do Key Vault  
   - *manageissuers*: Gerir o Cofre de chaves autoridades/emissores de certificados
   - *getissuers*: Obter autoridades/emissores um certificado
@@ -458,14 +458,14 @@ Para obter mais informações, consulte [chaves de conta de armazenamento do Azu
 As seguintes permissões podem ser utilizadas ao autorizar um utilizador ou aplicação principal para efetuar operações numa conta de armazenamento gerido:  
 
 - Permissões para a conta de armazenamento gerida e operações de definição de SaS
-  - *Obter*: Obtém informações sobre uma conta de armazenamento 
-  - *Lista*: Contas de armazenamento de lista geridas por um Key Vault
-  - *Atualização*: Atualizar uma conta de armazenamento
-  - *Eliminar*: Eliminar uma conta do Storage  
-  - *recuperar*: Recuperar uma conta de armazenamento eliminada
-  - *Cópia de segurança*: Criar uma conta de armazenamento de cópias de segurança
-  - *Restaurar*: Restaurar uma conta de armazenamento de cópia de segurança para um cofre de chaves
-  - *definir*: Criar ou atualizar uma conta de armazenamento
+  - *get*: Obtém informações sobre uma conta de armazenamento 
+  - *list*: Contas de armazenamento de lista geridas por um Key Vault
+  - *update*: Atualizar uma conta de armazenamento
+  - *delete*: Eliminar uma conta do Storage  
+  - *recover*: Recuperar uma conta de armazenamento eliminada
+  - *backup*: Criar uma conta de armazenamento de cópias de segurança
+  - *restore*: Restaurar uma conta de armazenamento de cópia de segurança para um cofre de chaves
+  - *set*: Criar ou atualizar uma conta de armazenamento
   - *regeneratekey*: Voltar a gerar um valor de chave especificado para uma conta de armazenamento
   - *getsas*: Obter informações sobre uma definição de SAS para uma conta de armazenamento
   - *listsas*: Definições de SAS de armazenamento de lista para uma conta de armazenamento
@@ -481,4 +481,4 @@ Para obter mais informações, consulte a [operações de conta de armazenamento
 
 - [Autenticação, os pedidos e respostas](authentication-requests-and-responses.md)
 - [Versões do Key Vault](key-vault-versions.md)
-- [Guia do programador do Cofre de chaves](/azure/key-vault/key-vault-developers-guide)
+- [Guia do Programador do Key Vault](/azure/key-vault/key-vault-developers-guide)

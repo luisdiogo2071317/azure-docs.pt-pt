@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: geetha
-ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 004d35290d7bfa365d2e1d0ea605c14b03ffb4a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810002"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114761"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Criar cópias de segurança e restaurar máquinas virtuais encriptadas com o Azure Backup
 Este artigo fala sobre os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Azure Backup. Também fornece detalhes sobre os cenários suportados, pré-requisitos e passos de resolução de problemas para casos de erro.
@@ -138,6 +138,6 @@ Para restaurar uma VM encriptada, restaurar discos ao seguir os passos na secç�
 | Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
 |Cópia de segurança | Código do erro: UserErrorKeyVaultPermissionsNotConfigured<br><br>Mensagem de erro: O serviço de cópia de segurança do Azure não tem permissões suficientes para o Key Vault para cópia de segurança das máquinas virtuais encriptadas. | Cópia de segurança deve ser fornecida estas permissões ao seguir a [os passos na secção anterior](#provide-permissions-to-azure-backup). Ou pode seguir os passos de PowerShell na secção "Ativar a proteção" do artigo, [utilize o PowerShell para criar cópias de segurança e restaurar máquinas virtuais](backup-azure-vms-automation.md#enable-protection). |  
-| Restauro | Não é possível restaurar esta VM encriptada porque não existe o Cofre de chaves associado a esta VM. |Criar um cofre de chaves utilizando [introdução ao Azure Key Vault](../key-vault/key-vault-get-started.md). Ver [restaurar uma chave de Cofre de chaves e um segredo com o Azure Backup](backup-azure-restore-key-secret.md) para restaurar uma chave e um segredo, se eles não estão presentes. |
+| Restauro | Não é possível restaurar esta VM encriptada porque não existe o Cofre de chaves associado a esta VM. |Criar um cofre de chaves utilizando [o que é o Azure Key Vault?](../key-vault/key-vault-overview.md). Ver [restaurar uma chave de Cofre de chaves e um segredo com o Azure Backup](backup-azure-restore-key-secret.md) para restaurar uma chave e um segredo, se eles não estão presentes. |
 | Restauro | Código do erro: UserErrorKeyVaultKeyDoesNotExist<br><br> Mensagem de erro: Não é possível restaurar esta VM encriptada, uma vez que a chave associada esta VM não existe. |Ver [restaurar uma chave de Cofre de chaves e um segredo com o Azure Backup](backup-azure-restore-key-secret.md) para restaurar uma chave e um segredo, se eles não estão presentes. |
 | Restauro | Código do erro: ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>Mensagem de erro: O Serviço de Cópia de Segurança não tem autorização para aceder a recursos na sua subscrição. |Restaurar, conforme mencionado anteriormente, discos primeiro ao seguir os passos na secção "Restaurar discos de cópia de segurança" na [escolha uma configuração de restauro de VM](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, utilize o PowerShell para [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). |

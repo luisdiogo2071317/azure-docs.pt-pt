@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 81df0a776cd22490342230567deacb23097cd12e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094194"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113231"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos de sistema de Gateway de caixa de dados do Azure (pré-visualização)
 
@@ -42,22 +42,11 @@ O sistema anfitrião subjacente para o Gateway de caixa de dados é capaz de ded
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>SO suportado para os clientes ligados ao dispositivo
 
-Aqui está uma lista de sistemas operativos suportados para os clientes ou hosts ligadas ao Gateway de caixa de dados.
-
-| **Sistema operativo/plataforma** | **Versões** |
-| --- | --- |
-| Windows Server |2012 R2 <br> 2016 <br> 2019 |
-| Windows |8, 10 |
-| SUSE Linux |Enterprise Server 12 (x86_64)|
-| Ubuntu |16.04.3 LTS|
-| CentOS | 7.0 |
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
 ## <a name="supported-protocols-for-clients-accessing-device"></a>Protocolos suportados para os clientes a aceder ao dispositivo
 
-|**Protocolo** |**Versões**   |**Notas**  |
-|---------|---------|---------|
-|SMB    | 2.X, 3.X      | 1 de SMB não é suportada.|
-|NFS     | V3 e V4        |         |
+[!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Plataformas de Virtualização suportado para o dispositivo
 
@@ -69,49 +58,22 @@ Aqui está uma lista de sistemas operativos suportados para os clientes ou hosts
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
 
-Aqui está uma lista das contas de armazenamento suportadas para o Gateway de caixa de dados.
-
-| **Conta de armazenamento** | **Notas** |
-| --- | --- |
-| Clássica | Standard |
-| Fins Gerais  |Standard; ambos o V1 e V2 são suportadas. São suportadas camadas frequentes e esporádica. |
+[!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento suportadas
 
-Aqui está uma lista dos tipos de armazenamento suportadas para o Gateway de caixa de dados.
-
-| **Formato de ficheiro** | **Notas** |
-| --- | --- |
-| Blob de blocos do Azure | |
-| BLOBs de páginas do Azure  | |
-| Ficheiros do Azure | |
+[!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
 ## <a name="supported-browsers-for-local-web-ui"></a>Browsers suportados para a IU web local
 
-Aqui está uma lista dos browsers suportados para a web local da interface do Usuário para o dispositivo virtual.
+[!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-|Browser  |Versões  |Notas/requisitos adicionais  |
-|---------|---------|---------|
-|Google Chrome   |Versão mais recente         |         |
-|Microsoft Edge    | Versão mais recente        |         |
-|Internet Explorer     | Versão mais recente        |         |
-|FireFox    |Versão mais recente         |         |
-
-
-## <a name="networking-requirements"></a>Requisitos de rede
+## <a name="networking-port-requirements"></a>Requisitos de porta de rede
 
 A tabela seguinte lista as portas que têm de ser aberta na firewall para permitir o tráfego de gestão, na cloud ou SMB. Nesta tabela, *no* ou *entrada* refere-se para a direção do que acesso de pedidos de cliente recebidos para o seu dispositivo. *Out* ou *saída* refere-se para a direção em que o seu dispositivo de Gateway de caixa de dados envia dados externamente, além da implementação: por exemplo, a saída à Internet.
 
-| Porta não.| Dentro ou para fora | Âmbito de porta| Necessário|   Notas                                                             |                                                                                     |
-|--------|---------|----------|--------------|----------------------|---------------|
-| TCP 80 (HTTP)|Saída|WAN |Não|Porta de saída é utilizada para acesso à Internet para obter atualizações. <br>O proxy da web de saída é configurável de utilizador. |                          
-| TCP 443 (HTTPS)|Saída|WAN|Sim|Porta de saída é utilizada para aceder aos dados na cloud.<br>O proxy da web de saída é configurável de utilizador.|   
-| UDP 53 (DNS)|Saída|WAN|Em alguns casos<br>Consulte as notas|Esta porta é necessária apenas se estiver a utilizar um servidor DNS baseado na Internet.<br>Recomendamos que utilize o servidor DNS local. |
-| UDP 123 (NTP)|Saída|WAN|Em alguns casos<br>Consulte as notas|Esta porta é necessária apenas se estiver a utilizar um servidor NTP baseado na Internet.  |
-| UDP 67 (DHCP)|Saída|WAN|Em alguns casos<br>Consulte as notas|Esta porta é necessária apenas se estiver a utilizar um servidor DHCP.  |
-| TCP 80 (HTTP)|Em|LAN|Sim|Esta é a porta de entrada para a interface do Usuário local no dispositivo para gestão local. <br>Acessar a interface do Usuário local através de HTTP será automaticamente redirecionada para HTTPS.  | 
-| TCP 443 (HTTPS)|Em|LAN|Sim|Esta é a porta de entrada para a interface do Usuário local no dispositivo para gestão local. | 
+[!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
 ## <a name="url-patterns-for-firewall-rules"></a>Padrões de URL para regras de firewall
 
@@ -123,26 +85,11 @@ Recomendamos que defina as regras de firewall para tráfego de saída, com base 
 > - O dispositivo (origem) IPs deve ser sempre definido para todas as interfaces de rede com capacidade de nuvem.
 > - O destino IPs deve ser definido como [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
-|     Padrão de URL                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Componente/funcionalidade                                                                             |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Serviço de Gateway de caixa de dados do Azure<br>Service Bus do Azure<br>Serviço de Autenticação    |
-|    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Ativação do dispositivo                                                                                    |
-|    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Revogação de certificados                                                                               |
-|    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Contas de armazenamento do Azure e monitorização                                                                |
-|    http://windowsupdate.microsoft.com<br>http://*.windowsupdate.microsoft.com<br>https://*.windowsupdate.microsoft.com<br>http://*.update.microsoft.com<br>https://*.update.microsoft.com<br>http://*.windowsupdate.com<br>http://download.microsoft.com<br>http://*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://*.ws.microsoft.com<br>https://*.ws.microsoft.com<br>http://*.mp.microsoft.com        |    Servidores do Microsoft Update                                                                             |
-|    http://*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                             |    Akamai CDN                                                                                           |
-|    https://*.partners.extranet.microsoft.com/*                                                                                                                                                                                                                                                                                                                                                                                                        |    Pacote de suporte                                                                                      |
-|    http://*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                        |    O serviço de telemetria no Windows, consulte a atualização para a experiência do cliente e a telemetria de diagnóstico      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                         |
-
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ## <a name="internet-bandwidth"></a>Largura de banda de Internet
 
-Os seguintes requisitos aplicam-se para a Internet largura de banda mínima disponível para os seus dispositivos de Gateway de caixa de dados.
-
-- O Data Box Gateway tem uma largura de banda de Internet de 20 Mbps (ou mais) disponível sempre. Esta largura de banda não deve ser partilhada com outras aplicações. 
-- O Gateway de caixa de dados tem uma largura de banda Mbps Internet dedicado 32 (ou mais) ao utilizar a limitação de rede.
+[!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Passo seguinte
 

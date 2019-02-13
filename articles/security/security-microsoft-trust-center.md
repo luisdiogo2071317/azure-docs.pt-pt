@@ -1,10 +1,10 @@
 ---
-title: As informações de segurança da Microsoft Trust Center e do Azure | Microsoft Docs
-description: O centro do Microsoft Trust fornece as informações necessárias ter a certeza de que a plataforma do Azure em que executa os serviços é segura.
+title: Informações de segurança da Microsoft Trust Center e do Azure | Documentos da Microsoft
+description: Microsoft Trust center fornece-lhe as informações necessárias ter a certeza de que a plataforma do Azure no qual executa seus serviços é segura.
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 183496dec7826843046af5f130f9c65f31253b0b
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 794c78e6e31c58563b68a58774db90af98a44d95
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25541575"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111039"
 ---
 # <a name="microsoft-trust-center"></a>Centro de Fidedignidade da Microsoft
-O site de informações de segurança do Azure no Azure.com dá-lhe as informações que necessita para planear, estrutura, implementar, configurar e gerir as suas soluções de nuvem de forma segura. Com o centro do Microsoft Trust, também tem as informações necessárias ter a certeza de que a plataforma do Azure em que executa os serviços é segura.
+O site de informações de segurança do Azure no Azure.com dá-lhe as informações que precisa para planejar, design, implementar, configurar e gerir soluções na cloud de forma segura. Com o Microsoft Trust center, também tem as informações necessárias ter a certeza de que a plataforma do Azure no qual executa seus serviços é segura.
 
-Sabemos que quando entrust as suas aplicações e dados para o Azure, que vai ter perguntas. É onde? Quem pode aceder ao mesmo? Que está a Microsoft a fazer para protegê-lo? Como verificar que a Microsoft está efetuar que diz?
+Sabemos que quando as entrega suas aplicações e dados para o Azure, vai ter perguntas. Onde posso encontrar isso? Quem pode acessá-lo? O que está a Microsoft a fazer para protegê-lo? Como verificar que a Microsoft está fazendo o que ele diz que?
 
-E temos de respostas. Porque os dados se encontra, decidir quem tem acesso e colaborar connosco para decidir onde está localizado. Para salvaguardar os seus dados, podemos utilizar tecnologia de segurança do Estado da última e a criptografia de trabalho. A nossa conformidade independentemente é auditada e estamos transparentes em muitos níveis — da forma como podemos processar exigências legais para os seus dados de cliente para a segurança do nosso código.
+E temos respostas. Uma vez que são os seus dados, decida quem tem acesso e trabalhar connosco para decidir onde está localizado. Para proteger seus dados, podemos utilizar tecnologia de segurança de topo de gama e criptografia de nível mundial. Nossa conformidade independentemente é auditada e estamos transparentes em vários níveis — de como lidamos com as exigências legais para os seus dados de cliente para a segurança do nosso código.
 
-Segue-se encontrar no Microsoft Trust Center:
+Eis o que encontre no Microsoft Trust Center:
 
-* [Segurança](https://aka.ms/tcsecurity) – Saiba como todos os serviços de Cloud da Microsoft são protegidos.
-* [Privacidade](https://aka.ms/tcprivacy) – compreender a forma como a Microsoft garante a privacidade dos seus dados na nuvem da Microsoft.
-* [Conformidade](https://aka.ms/tccompliance) – detetar como Microsoft ajuda as organizações a cumprir os requisitos da national, regionais e específicos da indústria que rege a recolha e utilização de dados dos utilizadores.
-* [Transparência](https://aka.ms/tctransparency) – ver como Microsoft Deteta que controla os dados na nuvem e como Microsoft ajuda-o a saber quanto possível sobre como que dados são processados.
-* [Os produtos e serviços](https://aka.ms/tcproductsservices) – ver todos os produtos do Microsoft Cloud e serviços num único local
-* [Portal de confiança do serviço](https://aka.ms/tcservicetrportal) – obtenha cópias dos relatórios de auditoria independente dos cloud services da Microsoft, as avaliações de riscos, segurança melhores práticas e relacionadas com os materiais.
-* [Novidades](https://aka.ms/tcwhatsnew) – saber quais são as novidades na confiança do Microsoft Cloud
-* [Recursos](https://aka.ms/tcresources) – investigar documentos técnicos, vídeos e casos práticos de nuvem da Microsoft fidedigno
+* [Segurança](https://aka.ms/tcsecurity) – Saiba como todos os serviços Cloud da Microsoft são protegidos.
+* [Privacidade](https://aka.ms/tcprivacy) – compreender como o Microsoft garante a privacidade dos seus dados na cloud da Microsoft.
+* [Conformidade](https://aka.ms/tccompliance) – detetar como a Microsoft ajuda as organizações a cumprir os requisitos da nacionais, regionais e específicos da indústria que regem a recolha e utilização de dados dos indivíduos.
+* [Transparência](https://aka.ms/tctransparency) – ver como a Microsoft acredita que controle os seus dados na cloud e como a Microsoft ajuda-o a saber tanto quanto possível sobre como os dados são processados.
+* [Produtos e serviços](https://aka.ms/tcproductsservices) – veja todos os produtos da Microsoft Cloud e serviços num único local
+* [Portal de confiança do serviço](https://aka.ms/tcservicetrportal) – obter cópias dos relatórios de auditoria independente de serviços cloud da Microsoft, avaliações de riscos, segurança melhores práticas e relacionadas com os materiais.
+* [O que há de novo](https://aka.ms/tcwhatsnew) – Descubra o que há de novo no Microsoft Cloud de confiança
+* [Recursos](https://aka.ms/tcresources) – investigar os documentos técnicos, vídeos e estudos de caso do Microsoft cloud fidedigna
 
-O [Microsoft Trust Center](https://www.microsoft.com/trustcenter) tem o que precisa compreender o que podemos fazer para proteger o Microsoft Cloud.
+O [Microsoft Trust Center](https://www.microsoft.com/trustcenter) tem o que precisa entender o que podemos fazer para proteger a Cloud da Microsoft.

@@ -1,6 +1,6 @@
 ---
-title: Gerir a sua conta do Azure Maps e as chaves | Documentos da Microsoft
-description: Pode utilizar o portal do Azure para gerir a sua conta do Azure Maps e gerir as chaves de acesso.
+title: Gerir a sua conta do Azure Maps | Documentos da Microsoft
+description: Pode utilizar o portal do Azure para gerir a sua conta do Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/12/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 488167b4893c314af99b354a2422204ebbf34c5e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103049"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113701"
 ---
-# <a name="manage-your-azure-maps-account-and-keys"></a>Gerir a sua conta do Azure Maps e chaves
+# <a name="manage-your-azure-maps-account"></a>Gerir a sua conta do Azure Maps
 
-Pode gerir a sua conta do Azure Maps e as chaves através do portal do Azure. Depois de ter uma conta e uma chave, pode implementar as APIs no seu site ou aplicação móvel.
+Pode gerir a sua conta do Azure Maps através do portal do Azure. Depois de ter uma conta, pode implementar as APIs no seu site ou aplicação móvel.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,16 +32,6 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 4. Introduza as informações da sua conta nova.
 
 ![Introduza as informações da conta no portal](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## <a name="manage-keys-on-the-account-page"></a>Gerir chaves na página da conta
-
-Depois de criar uma conta, tem duas chaves geradas aleatoriamente. Para obter dados de mapa ou criar uma nova instância de mapa do JavaScript, utilize as chaves para autenticar as APIs de mapas do Azure.
-
-Pode encontrar as suas chaves no portal do Azure. Navegue até à sua conta. Em seguida, selecione **chaves** no menu.
-
-![Gerir chaves de conta no portal](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-Nesta página, pode copiar as suas chaves ou gerar novos.
 
 ## <a name="delete-an-account"></a>Eliminar uma conta
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: c7a73472696b0315f0ef11722ca98de79562258e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: bf3061509e08648aa63b843a4b1d7b8968f3e88e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895317"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114642"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicação com o redirecionamento externo com a CLI do Azure
 
@@ -93,7 +93,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicionar a configuração de redirecionamento que envia o tráfego do gateway de aplicação para *bing.com* usando [redirecionamento de gateway de aplicação de rede de az-config criar](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
+Adicionar a configuração de redirecionamento que envia o tráfego do gateway de aplicação para *bing.com* usando [redirecionamento de gateway de aplicação de rede de az-config criar](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

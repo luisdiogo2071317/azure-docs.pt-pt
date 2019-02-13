@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o controlo de Workspot | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o controlo de Workspot | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o controle Workspot.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312982"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211160"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Azure Active Directory com o controlo de Workspot
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Active Directory do Azure com o controlo de Workspot
 
 Neste tutorial, saiba como integrar o controle de Workspot com o Azure Active Directory (Azure AD).
 
@@ -134,7 +135,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -142,7 +143,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 7. Numa janela do browser web diferente, início de sessão de controlo de Workspot como um administrador de segurança.
 
-8. Na barra de ferramentas na parte superior da página, clique em **programa de configuração**, em seguida, navegue até à **SAML**.
+8. Na barra de ferramentas na parte superior da página, clique em **programa de configuração**, em seguida, navegue até à **SAML**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
  
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. Na **ID de entidade** caixa de texto, cole o valor de **do Azure Ad identificador** que copiou do portal do Azure.   
+    a. Na **ID de entidade** caixa de texto, cole o valor de **do Azure Ad identificador** que copiou do portal do Azure.   
 
     b.In a **URL do serviço de início de sessão** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
 
@@ -193,7 +194,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no controle de Workspot, 
 
 1. Inicie sessão no controle de Workspot como um administrador de segurança.
 
-2. Na barra de ferramentas na parte superior da página, clique em **usuários**, em seguida, navegue até à **adicionar utilizador**.
+2. Na barra de ferramentas na parte superior da página, clique em **usuários**, em seguida, navegue até à **adicionar utilizador**.
 
     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 

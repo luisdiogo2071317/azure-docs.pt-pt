@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: a5e3fbc3369f19af8d93e23d669a4449ab3d414c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 48aa634ad28236564223c1a78a2e190cd2a0e668
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980589"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107469"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerida de uma VM generalizada no Azure
 
@@ -87,7 +87,7 @@ Para generalizar a VM do Windows, siga estes passos:
 Criar uma imagem diretamente a partir da VM garante que a imagem inclui todos os discos associados a VM, incluindo o disco do SO e de quaisquer discos de dados. Este exemplo mostra como criar uma imagem gerida a partir de uma VM que utiliza discos geridos.
 
 
-Antes de começar, certifique-se de que tem a versão mais recente do módulo Azurerm PowerShell, que deve ser a versão 5.7.0 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM.Compute` no PowerShell. Se precisar de atualizar, veja [instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/azurerm/install-az-ps). Se estiver a executar PowerShell localmente, execute `Connect-AzAccount` para criar uma ligação com o Azure.
+Antes de começar, certifique-se de que tem a versão mais recente do módulo Azurerm PowerShell, que deve ser a versão 5.7.0 ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM.Compute` no PowerShell. Se precisar de atualizar, veja [instalar o Azure PowerShell no Windows com o PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar PowerShell localmente, execute `Connect-AzAccount` para criar uma ligação com o Azure.
 
 
 > [!NOTE]

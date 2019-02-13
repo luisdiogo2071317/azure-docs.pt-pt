@@ -4,7 +4,7 @@ description: Este documento trata recomendações no Centro de segurança do Azu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: f6267bd2d97dabd71c007bcb8112936093124f74
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d6121a0255b809deccb3c70d56585bab76935900
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267033"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110358"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteger o serviço SQL do Azure e os dados no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários.  Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs), redes, SQL e dados e aplicações.
@@ -61,7 +61,7 @@ Para ativar a auditoria, selecione **ATIVAR**, na opção **Auditoria**.
 |O Data lake analytics|15|Ativar a encriptação em repouso do Data Lake Analytics|Ative a encriptação de dados transparente proteger os dados Inativos no seu Data Lake Analytics. Encriptação inativa é transparente, o que significa que o Data Lake Analytics encripta automaticamente os dados antes de persistir e desencripta-os antes da obtenção. Não foram efetuadas alterações necessárias nos aplicativos em e serviços que interagem com o Data Lake Analytics devido à encriptação. Encriptação em repouso minimiza o risco de perda de dados contra roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
 |Arquivo do Data lake|15|Ativar a encriptação em repouso para o Store de Lake de dados|Ative a encriptação de dados transparente proteger os dados Inativos no Store de Lake seus dados. Encriptação inativa é transparente, o que significa que o Store de Lake dados encripta automaticamente os dados antes de persistir e desencripta-os antes da obtenção. Não precisa de fazer qualquer alteração nas aplicações e serviços que interagem com o Data Lake Store para acomodar a encriptação. Encriptação em repouso minimiza o risco de perda de dados contra roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
 |O Data lake analytics|5|Ativar registos de diagnóstico no Data Lake Analytics|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
-|Arquivo do Data lake|5|Ativar registos de diagnóstico no Azure Data Lake Store|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|Arquivo do Data lake|5|Ativar os registos de diagnóstico no Data Lake Store do Azure|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
 |SQL|30|Remediar vulnerabilidades nas bases de dados SQL|Avaliação de vulnerabilidades do SQL analisa a sua base de dados para vulnerabilidades de segurança e expõe qualquer desvios das melhores práticas, como configurações incorretas, permissões excessivas e dados confidenciais não protegidos. Resolver as vulnerabilidades encontradas pode melhorar muito o escritor de segurança da base de dados.|
 |SQL|20|Aprovisionar um administrador do Azure AD para o SQL server|Aprovisione um administrador do Azure AD para o servidor SQL para ativar a autenticação do Azure AD. Autenticação do Azure AD permite a gestão de permissões simplificado e o gerenciamento centralizado de identidades de utilizadores de base de dados e outros serviços Microsoft.|
 |Conta de armazenamento|15|Desativar o acesso irrestrito à rede para a conta de armazenamento|Auditar o acesso de rede sem restrições nas definições de firewall da conta de armazenamento. Em vez disso, configure regras de rede para que apenas aplicativos de redes permitidas podem acessar a conta de armazenamento. Para permitir ligações a partir da Internet específico ou os clientes locais, o acesso pode ser concedido para tráfego a partir de redes virtuais do Azure específicos ou para intervalos de endereços IP de Internet públicos.|

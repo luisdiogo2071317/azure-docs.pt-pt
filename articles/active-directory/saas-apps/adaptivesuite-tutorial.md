@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Insights adaptável | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Insights adaptável | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Insights adaptável.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430294"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166526"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: Integração do Azure Active Directory com o Insights adaptável
+# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: Integração do Active Directory do Azure com o Insights adaptável
 
 Neste tutorial, saiba como integrar o Insights adaptáveis com o Azure Active Directory (Azure AD).
 
@@ -128,7 +129,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. URL de início de sessão
 
-    b. Identificador do Azure Ad
+    b. Azure Ad Identifier
 
     c. URL de fim de sessão
 
@@ -220,7 +221,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Insights adaptável, t
 
    b. Selecione um **função**.
 
-   c. Clique em **submeter**.
+   c. Clique em **Submit** (Submeter).
 
 >[!NOTE]
 >Pode utilizar quaisquer outras informações adaptável utilizador conta criação ferramentas ou APIs fornecidas pelo Insights adaptável para aprovisionar contas de utilizador do AAD.

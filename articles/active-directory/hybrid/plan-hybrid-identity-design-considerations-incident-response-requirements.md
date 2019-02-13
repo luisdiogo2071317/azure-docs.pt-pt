@@ -16,12 +16,13 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 2b10dc9fd96a1e4c06fbd153a2f1dc4e92e58906
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491864"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161497"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de resposta a incidentes para a sua solução de identidade híbrida
 Grandes e médias organizações provavelmente terá um [resposta a incidentes de segurança](https://technet.microsoft.com/library/cc700825.aspx) para ajudar a IT agir em conformidade para o nível de incidente. O sistema de gestão de identidade é um componente importante do processo de resposta a incidentes, porque este pode ser utilizado para o ajudar a identificar quem realizou uma ação específica contra o destino. A solução de identidade híbrida tem de ser capaz de fornecer capacidades de monitorização e relatórios que podem ser usadas pelo departamento de TI tomar medidas para identificar e mitigar uma ameaça potencial. Um plano de resposta a incidentes típico terão as seguintes fases como parte do plano:

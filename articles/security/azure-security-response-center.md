@@ -1,10 +1,10 @@
 ---
-title: Microsoft Security Response Center | Microsoft Docs
-description: O artigo fornece uma lista organizada de recursos do Microsoft Security Response Center (MSRC) que pode ser utilizado para obter mais informações sobre MSRC práticas e recomendações.
+title: Microsoft Security Response Center | Documentos da Microsoft
+description: O artigo fornece uma lista organizada dos recursos do Microsoft Security Response Center (MSRC) que pode ser utilizado para obter mais informações sobre o MSRC práticas e recomendações.
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 6293b13f-55d0-4d85-a993-4f1cd3c103c0
 ms.service: security
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 08bc037817be92ea19cf126a9f4db4adea136cad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bacfbae3e4c9750798b8df739706d9c9b9850d45
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182447"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113957"
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft Security Response Center
 
-O Microsoft Security Response Center (MSRC) é guiado por alguns dos especialistas de segurança mais experiente o mundo. Estes identificam, monitorizarem, respondem e resolver incidentes de segurança e no local e na nuvem vulnerabilidades à volta o relógio, cada dia do ano.
+O Microsoft Security Response Center (MSRC) é organizada por alguns dos especialistas em segurança mais experientes do mundo. Eles identificarem, monitorizarem, respondem e resolver incidentes de segurança e no local e na cloud vulnerabilidades em todo o relógio, cada dia do ano.
 
-Para além do respetivo trabalho contínuo, a equipa MSRC tem um número de recursos disponíveis para si, para que possa compreender como proteger os seus recursos do Azure e implementações de forma mais eficaz.
+Além de seu trabalho contínuo, a equipe MSRC tem uma série de recursos disponíveis para si, para que possa compreender como proteger os seus recursos do Azure e implementações com mais eficiência.
 
-## <a name="the-msrc-blog"></a>Blogue do MSRC
+## <a name="the-msrc-blog"></a>O Blog do MSRC
 
-O [MSRC blogue](https://blogs.technet.microsoft.com/msrc/) é o local para aceder ao obter as notícias mais recentes que a MSRC fazer para ajudar a proteger contra ameaças de nuvem.
+O [blog do MSRC](https://blogs.technet.microsoft.com/msrc/) é o lugar onde para obter as notícias mais recentes sobre o que o MSRC está fazendo para ajudar a proteger contra ameaças na cloud.
 
 ## <a name="white-papers"></a>Documentos Técnicos
 
-O MSRC publicou um número de [técnicos](https://technet.microsoft.com/library/bb969102.aspx) que o ajudam a compreende o que fazer e como são. Alguns fornecem informações sobre como proteger, a nuvem da Microsoft e incluem informações úteis sobre como pode utilizar as mesmas configurações de segurança.
+O MSRC publicou vários [white papers](https://technet.microsoft.com/library/bb969102.aspx) que o ajudam a compreender o que fazer e como eles fazem. Alguns fornecem informações sobre como protegemos a nuvem da Microsoft e incluem informações úteis sobre como pode empregar as mesmas configurações de segurança.
 
-## <a name="security-researcher-engagement-and-bounty-programs"></a>Segurança Researcher Engagement e Bounty programas
+## <a name="security-researcher-engagement-and-bounty-programs"></a>Envolvimento de pesquisador de segurança e a grande variedade programas
 
-O MSRC suporta a colaboração e relações com os investigadores de segurança global ao produzir a segurança de produto da Microsoft.
+O MSRC oferece suporte a colaboração e relações com os pesquisadores de segurança global para fazer avançar a segurança de produto da Microsoft.
 
-Programas da Microsoft bounty pagar os investigadores para:
+Programas de grande variedade de Microsoft prestar pesquisadores para:
 
-- Técnicas de exploração Novel
-- Ideias defesas que mitigar novel exploits
-- Identificação de vulnerabilidades críticas no Microsoft no local e na nuvem de software.
+- Técnicas de exploração de novo
+- Defesa ideias que mitigar as explorações de novas
+- Identificação de vulnerabilidades críticas no Microsoft no local e na cloud de software.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre estes programas no [MSRC erros Bounty](https://technet.microsoft.com/security/dn425036) página e o [MSRC blogue](https://blogs.technet.microsoft.com/msrc/).
+Saiba mais sobre estes programas à [grande variedade de Bug do MSRC](https://technet.microsoft.com/security/dn425036) página e o [blog do MSRC](https://blogs.technet.microsoft.com/msrc/).
 
 Para saber mais sobre o MSRC, visite o [home page do MSRC](https://technet.microsoft.com/library/dn440717.aspx).

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 153c6517560614b8a1eb9c0241aefc121b391d19
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1f76882869b74a4336ae641971217f7d092cdf0c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823594"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171507"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Active Directory do Azure com o administrador de acesso de Internet do Zscaler
 
@@ -132,7 +133,7 @@ Para configurar o Azure AD início de sessão único com o administrador de aces
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome  | Atributo de origem  |
+    | Name  | Atributo de origem  |
     | ---------| ------------ |
     | Função     | user.assignedroles |
 

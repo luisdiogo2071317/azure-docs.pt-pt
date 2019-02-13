@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240601"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109322"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança de cluster do Service Fabric
 Um cluster do Azure Service Fabric é um recurso que é proprietário. É da responsabilidade do cliente para proteger os seus clusters para ajudar a impedir que os utilizadores não autorizados a ligar aos mesmos. Um cluster seguro é especialmente importante quando estiver a executar cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se o cluster expõe os pontos finais de gestão para a internet pública, usuários anônimos podem ligar à mesma. Sem segurança de clusters não é suportado para cargas de trabalho de produção. 
@@ -78,14 +78,14 @@ Para os clusters do Azure, para segurança de nó para nó, recomendamos que uti
 Para clusters do Windows Server de autónomos, se tiver o Windows Server 2012 R2 e do Active Directory do Windows, recomendamos que utilize a segurança do Windows com contas de serviço geridas de grupo. Caso contrário, utilize a segurança do Windows com contas do Windows.
 
 ## <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
-Pode usar o controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de utilizadores. Isto ajuda a tornar o cluster mais segura. Dois tipos de controle de acesso são suportados para clientes que se ligam a um cluster: função de administrador e a função de utilizador.
+Pode usar o controle de acesso para limitar o acesso a determinadas operações de cluster para diferentes grupos de utilizadores. Isto ajuda a tornar o cluster mais segura. Dois tipos de controle de acesso são suportados para clientes que se ligam a um cluster: Função de administrador e a função de utilizador.
 
 Os utilizadores que são atribuídos a função de administrador tem acesso total às capacidades de gestão, incluindo ler e escrever capacidades. Os utilizadores que estão atribuídos a função de utilizador, por predefinição, têm acesso de leitura às capacidades de gestão (por exemplo, capacidades de consulta). Eles também podem resolver aplicações e serviços.
 
 Defina o cliente de administrador e usuário funções quando criar o cluster. Atribua funções, fornecendo identidades separadas (por exemplo, ao utilizar certificados ou o Azure AD) para cada tipo de função. Para obter mais informações sobre as definições de controlo de acesso predefinido e como alterar as predefinições, veja [controlo de acesso baseado em funções para clientes do Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 e o Service Fabric
-Certificados digitais de X.509 normalmente são utilizados para autenticar clientes e servidores. Também são utilizados para encriptar e assinar digitalmente mensagens. O Service Fabric utiliza certificados X.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais de X.509, consulte [trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Utilizar [Key Vault](../key-vault/key-vault-get-started.md) para gerir os certificados para clusters do Service Fabric no Azure.
+Certificados digitais de X.509 normalmente são utilizados para autenticar clientes e servidores. Também são utilizados para encriptar e assinar digitalmente mensagens. O Service Fabric utiliza certificados X.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais de X.509, consulte [trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Utilizar [Key Vault](../key-vault/key-vault-overview.md) para gerir os certificados para clusters do Service Fabric no Azure.
 
 Alguns aspetos importantes a considerar:
 

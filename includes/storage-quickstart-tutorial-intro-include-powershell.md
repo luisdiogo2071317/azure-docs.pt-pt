@@ -4,43 +4,43 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: aeefb63a283c473a98639ead1aa6640d88409125
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1f8f8d314a8bb37a08b3696f597b395a8a4beb8e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318135"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213165"
 ---
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o comando `Connect-AzAccount` e siga as instruções no ecrã.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Se não souber qual a localização que quer utilizar, pode listar as localizações disponíveis. Apresente a lista de localizações com o seguinte exemplo de código e encontre o que pretende utilizar. Este exemplo utiliza **eastus**. Armazene a localização numa variável e utilize-a de forma a poder alterá-la num único local.
 
 ```powershell
-Get-AzureRmLocation | select Location
+Get-AzLocation | select Location
 $location = "eastus"
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos do Azure com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
 ```powershell
 $resourceGroup = "myResourceGroup"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma conta de armazenamento para fins gerais padrão com replicação LRS através do cmdlet [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Em seguida, obtenha o contexto da conta de armazenamento que define a conta de armazenamento que pretende utilizar. Ao realizar ações em contas de armazenamento, referencia o contexto em vez de transmitir repetidamente as credenciais. Utilize o exemplo a seguir para criar uma conta de armazenamento denominada *mystorageaccount* com armazenamento localmente redundante (LRS) e encriptação de blobs (ativada por predefinição).
+Criar uma conta de armazenamento para fins gerais padrão com replicação LRS através de [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Em seguida, obtenha o contexto da conta de armazenamento que define a conta de armazenamento que pretende utilizar. Ao realizar ações em contas de armazenamento, referencia o contexto em vez de transmitir repetidamente as credenciais. Utilize o exemplo a seguir para criar uma conta de armazenamento denominada *mystorageaccount* com armazenamento localmente redundante (LRS) e encriptação de blobs (ativada por predefinição).
 
 ```powershell
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "mystorageaccount" `
   -SkuName Standard_LRS `
   -Location $location `

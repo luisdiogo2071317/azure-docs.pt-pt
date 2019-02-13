@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699130"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175460"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade de rede e segurança no Azure Kubernetes Service (AKS)
 
@@ -120,6 +120,34 @@ Uma firewall de aplicações web (WAF) fornece uma camada adicional de seguranç
 
 Recursos de entrada ou de Balanceador de carga continuam a executar no cluster do AKS para refinar ainda mais a distribuição de tráfego. Gateway de aplicação podem ser gerido centralmente como um controlador de entrada com uma definição do recurso. Para começar, [criar um controlador de entradas de Gateway de aplicação][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>Fluxo de tráfego do controlo com as políticas de rede
+
+**Melhores diretrizes de práticas** -utilizar políticas de rede para permitir ou negar o tráfego para os pods. Por predefinição, todo o tráfego é permitido entre pods dentro de um cluster. Para obter mais segurança, defina regras que limitam a comunicação de pod.
+
+Política de rede é uma funcionalidade de Kubernetes, que permite-lhe controlar o fluxo de tráfego entre os pods. Pode optar por permitir ou negar o tráfego com base em etiquetas de definições de atribuídas como, espaço de nomes ou porta de tráfego. O uso de diretivas de rede fornece uma forma de nativas da cloud para controlar o fluxo de tráfego. À medida pods são criados dinamicamente num cluster do AKS, as políticas de rede necessária podem ser aplicadas automaticamente. Não utilize grupos de segurança de rede do Azure para controlar o tráfego de pod de pod, utilize políticas de rede.
+
+Para utilizar a política de rede, a funcionalidade tem de estar ativada ao criar um cluster do AKS. Não é possível ativar a política de rede num cluster do AKS existente. Planeie com antecedência para se certificar de que ativar política de rede em clusters e pode utilizá-las conforme necessário.
+
+É criada uma política de rede como um recurso de Kubernetes com um manifesto YAML. As políticas são aplicadas para pods definidos e, em seguida, as regras de entrada ou saída definem a forma como o tráfego pode fluir. O exemplo seguinte aplica-se uma política de rede a pods com o *aplicação: back-end* etiqueta aplicada aos mesmos. A regra de entrada, em seguida, permite apenas tráfego de pods com o *aplicação: front-end* etiqueta:
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+Para começar a utilizar com políticas, consulte o artigo [proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)][use-network-policies].
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>Ligar de forma segura para nós através de um anfitrião de bastião
 
 **Melhores diretrizes de práticas** -não expõem a conectividade remota para os nós do AKS. Criar um anfitrião de bastião ou saltar caixa, numa rede virtual de gestão. Utilize o anfitrião de bastião para encaminhar o tráfego de forma segura no seu cluster do AKS para tarefas de gestão remota.
@@ -155,5 +183,6 @@ Este artigo concentra-se em segurança e conectividade de rede. Para obter mais 
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

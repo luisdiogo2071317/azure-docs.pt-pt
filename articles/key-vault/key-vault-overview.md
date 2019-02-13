@@ -3,7 +3,7 @@ title: Descrição geral do Cofre de chaves do Azure - Cofre de chaves do Azure 
 description: O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro.
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c96899fc46cd9cf6377894de773785dac14f3345
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 474148289bb03088bbf92eeadc4049ce19625e3e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121571"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115951"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
@@ -82,5 +82,5 @@ O próprio Key Vault pode ser integrado em contas de armazenamento, em hubs de e
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Início rápido: Criar um Azure Key Vault com a CLI](quick-create-cli.md)
+- [Quickstart: Criar um Azure Key Vault com a CLI](quick-create-cli.md)
 - [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md) (Configurar uma aplicação Web do Azure para ler segredos em cofres de segurança)

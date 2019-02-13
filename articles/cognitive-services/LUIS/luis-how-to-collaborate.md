@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 4ccf703ffde0d4a5a0961135e81259519b0a0e41
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878974"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167596"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Como gerir os autores e colaboradores 
 
@@ -44,14 +44,13 @@ Enquanto o LUIS atualmente não suporta a transferência de propriedade, pode ex
 
 ## <a name="azure-active-directory-resources"></a>Recursos do Azure Active Directory
 
-Se utilizar o Azure Active Directory (Azure AD) na sua organização, LUIS necessita da permissão para aceder às informações, sobre os utilizadores quando pretendem utilizar o LUIS. Os recursos de que necessita de LUIS são mínimos. 
+Se usar [do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD) na sua organização, compreensão de idiomas (LUIS) necessita da permissão para as informações sobre o acesso dos seus utilizadores quando pretendem utilizar o LUIS. Os recursos de que necessita de LUIS são mínimos. 
 
 Veja a descrição detalhada quando tentar inscrever-se com uma conta que tem o consentimento de administrador ou não necessita de consentimento de administrador, como o consentimento de administrador:
 
-* Permite-lhe iniciar sessão na aplicação com a sua conta organizacional e permitir que a aplicação leia o seu perfil. Também permite que a aplicação Leia informações básicas da empresa.
-* Permite que a aplicação ver e atualizar os seus dados, mesmo quando não está a utilizar a aplicação.
+* Permite-lhe iniciar sessão na aplicação com a sua conta organizacional e permitir que a aplicação leia o seu perfil. Também permite que a aplicação Leia informações básicas da empresa. Isso dá a permissão de LUIS para ler dados de perfil básicas, como ID de utilizador, e-mail, nome
+* Permite que a aplicação ver e atualizar os seus dados, mesmo quando não está a utilizar a aplicação. É necessária a permissão para atualizar o token de acesso do utilizador.
 
-A primeira permissão dá permissão de LUIS para ler dados de perfil básicas, como ID de utilizador, e-mail, nome. A segunda permissão é necessária para atualizar o token de acesso do utilizador.
 
 ## <a name="azure-active-directory-tenant-user"></a>Utilizador de inquilino do Azure Active Directory
 
@@ -59,11 +58,8 @@ LUIS usa o fluxo de consentimento do padrão do Azure Active Directory (Azure AD
 
 O administrador de inquilinos deve trabalhar diretamente com o utilizador que precisa de acesso concedido a utilizar o LUIS no Azure AD. 
 
-Em primeiro lugar, o utilizador inicia sessão LUIS e vê a caixa de diálogo pop-up que precisam de aprovação de administrador. O usuário entra em contacto com o administrador de inquilino antes de continuar. 
-
-Em segundo lugar, o administrador de inquilino iniciar sessão numa LUIS e vê um diálogo de pop-up de fluxo de consentimento. Esta é a caixa de diálogo que o administrador tem de conceder permissão para o utilizador. Assim que o administrador de aceita a permissão, o utilizador é continuar com os LUIS.
-
-Se o administrador de inquilino não irá iniciar sessão no LUIS, o administrador pode aceder [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS. 
+* Em primeiro lugar, o utilizador inicia sessão LUIS e vê a caixa de diálogo pop-up que precisam de aprovação de administrador. O usuário entra em contacto com o administrador de inquilino antes de continuar. 
+* Em segundo lugar, o administrador de inquilino iniciar sessão numa LUIS e vê um diálogo de pop-up de fluxo de consentimento. Esta é a caixa de diálogo que o administrador tem de conceder permissão para o utilizador. Assim que o administrador de aceita a permissão, o utilizador é continuar com os LUIS. Se o administrador de inquilino não irá iniciar sessão no LUIS, o administrador pode aceder [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS, mostrado na captura de ecrã seguinte. Tenha em atenção a lista está filtrada para itens que incluem o nome `LUIS`.
 
 ![Permissão do Azure active directory ao Web site da aplicação](./media/luis-how-to-collaborate/tenant-permissions.png)
 

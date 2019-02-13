@@ -3,7 +3,7 @@ title: Introdução à Cache do Azure para o escalão Premium de Redis | Documen
 description: Saiba como criar e gerir a persistência de Redis, clustering de Redis e suporte VNET para o escalão Premium Cache do Azure para instâncias de Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: wesmc
-ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 35ecb5156a8b81fa9e10123f7700cf91af91aa0a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107519"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115851"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introdução à Cache do Azure para o escalão Premium da Redis
 A Cache de Redis do Azure é uma cache distribuída e gerida que ajuda a criar aplicações altamente escaláveis e reativas ao fornecer um acesso extremamente rápido aos seus dados. 

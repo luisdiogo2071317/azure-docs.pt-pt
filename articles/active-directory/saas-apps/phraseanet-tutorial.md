@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Phraseanet | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Phraseanet | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Phraseanet.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: cfeadbf1d46d9e36f8619cafe29d9dd69aad6eec
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49118657"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175545"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutorial: Integração do Azure Active Directory com Phraseanet
+# <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Tutorial: Integração do Active Directory do Azure com Phraseanet
 
 Neste tutorial, saiba como integrar Phraseanet com o Azure Active Directory (Azure AD).
 
@@ -149,7 +150,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-phraseanet-test-user"></a>Criar um utilizador de teste Phraseanet
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Phraseanet. Trabalhar com [equipa de suporte de Phraseanet](mailto:support@alchemy.fr) para adicionar os utilizadores na plataforma Phraseanet. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Phraseanet. Trabalhar com [equipa de suporte de Phraseanet](mailto:support@alchemy.fr) para adicionar os utilizadores na plataforma Phraseanet. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

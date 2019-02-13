@@ -4,16 +4,16 @@ description: Crie uma definição de política personalizada do Azure Policy par
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bb9ead3dc10c7f3b5e561196624c4798775d5c3d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962983"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112095"
 ---
 # <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 
@@ -149,7 +149,7 @@ O [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstar
 #### <a name="resource-reference-docs"></a>Documentos de referência do recurso
 
 Para validar **supportsHttpsTrafficOnly** é a propriedade de corrigir, verifique a referência de modelo do Resource Manager para o [recurso de conta de armazenamento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) no fornecedor de armazenamento.
-O objecto de propriedades tem uma lista de parâmetros válidos. Selecionar o [StorageAccountPropertiesCreateParameters objeto](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters) ligação mostra uma tabela de propriedades aceitáveis. **supportsHttpsTrafficOnly** está presente e a descrição corresponde ao precisa para cumprir os requisitos de negócios.
+O objecto de propriedades tem uma lista de parâmetros válidos. Selecionar o [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) ligação mostra uma tabela de propriedades aceitáveis. **supportsHttpsTrafficOnly** está presente e a descrição corresponde ao precisa para cumprir os requisitos de negócios.
 
 ### <a name="azure-resource-explorer"></a>Explorador de Recursos do Azure
 

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249885"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108760"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: transferir dados com o Azure Data Box Gateway (Pré-visualização)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Gateway de caixa de dados do Azure (pré-visualização)
 
 
 ## <a name="introduction"></a>Introdução
@@ -121,20 +121,20 @@ Execute estes passos no seu cliente Linux ligado ao Data Box Edge.
 
 2. Depois de o cliente NFS estar instalado, utilize o comando seguinte para montar a partilha NFS que criou no seu dispositivo Data Box Gateway:
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     Antes de configurar as montagens, certifique-se de que os diretórios que irão funcionar como pontos de montagem no computador local já foram criados e que já não contêm quaisquer ficheiros ou subpastas.
 
     O exemplo seguinte mostra como ligar através de NFS a uma partilha no dispositivo de Gateway. O IP do dispositivo virtual é `10.10.10.60`, a partilha `mylinuxshare2` está montada no ubuntuVM, sendo que o ponto de montagem é `/home/databoxubuntuhost/gateway`.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
 > Os seguintes avisos aplicam-se à versão de pré-visualização:
 > - Depois de um ficheiro ser criado nas partilhas, mudar o nome do ficheiro não é suportado. 
 > - A eliminação de um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 

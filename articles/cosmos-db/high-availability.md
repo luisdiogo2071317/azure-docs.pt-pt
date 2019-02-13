@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0903756ba7df34e7dba20301d45cbd4b6cc4d5ea
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992522"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109763"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Falhas regionais não são invulgares e Azure Cosmos DB torna-se de que a sua ba
 
 ## <a name="building-highly-available-applications"></a>Criar aplicações de elevada disponibilidade
 
-- Certifique-se de escrita elevada e disponibilidade de leitura, configure a conta do Cosmos para abranger, pelo menos, duas regiões com a escrita de várias regiões. Esta configuração irá fornecer a disponibilidade, latência mais baixa e leituras e escritas isto suportado por SLAs de escalabilidade para ambos. Para obter mais informações, consulte como [configure a conta do Cosmos com várias regiões de escrita](tutorial-global-distribution-sql-api.md).
+- Certifique-se de escrita elevada e disponibilidade de leitura, configure a conta do Cosmos para abranger, pelo menos, duas regiões com a escrita de várias regiões. Esta configuração irá fornecer a disponibilidade, latência mais baixa e leituras e escritas isto suportado por SLAs de escalabilidade para ambos. Para obter mais informações, consulte como [configure a conta do Cosmos com várias regiões de escrita](tutorial-global-distribution-sql-api.md). Para configurar com vários mestres em seus aplicativos, consulte [como configurar múltiplos principais](how-to-multi-master.md).
 
 - Para contas do Cosmos de várias regiões que estão configuradas com uma região de escrita única [ativar a ativação pós-falha automática utilizando a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#automatic-failover). Depois de ativar a ativação pós-falha automática, sempre que houver um desastre regional, Cosmos DB será automaticamente ativação pós-falha sua conta.  
 
@@ -86,3 +86,4 @@ Em seguida pode aprender sobre dimensionar o débito no seguinte artigo:
 * [Globalmente dimensionar o débito aprovisionado](scaling-throughput.md)
 * [Distribuição global - sob definições avançadas](global-dist-under-the-hood.md)
 * [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
+* [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)

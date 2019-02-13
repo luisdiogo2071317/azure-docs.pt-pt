@@ -3,17 +3,17 @@ title: Suporte a estilos de mapa no Azure Maps | Documentos da Microsoft
 description: Estilos de mapa suportados pelo Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/02/2018
+ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923b9fef75fa610ee817a86ce0b4d6b322153f01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888465"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113436"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa de suporte do Azure Maps
 Mapas do Azure suporta vários estilos de mapa incorporados diferentes, conforme descrito abaixo.
@@ -56,7 +56,16 @@ Esse estilo de mapa é uma mistura de estradas e as etiquetas sobrepostas sobre 
 ## <a name="night"></a>noite
 **noite** é uma versão escura do estilo de mapa da estrada com estradas coloridas e símbolos.
 
-![noite](./media/supported-map-styles/night.PNG)
+![noite](./media/supported-map-styles/night.png)
 
 **APIs aplicável:**
-* Controlo de mapas JS 
+* Controlo de mapas JS
+
+## <a name="roadshadedrelief"></a>road_shaded_relief
+**estrada sombreados alívio** é um estilo de principal do Azure Maps foi concluído com contours da terra.
+
+![alívio sombreado](./media/supported-map-styles/shaded-relief.png)
+
+**APIs aplicável:**
+* Controlo de mapas JS
+* [Mosaico do mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

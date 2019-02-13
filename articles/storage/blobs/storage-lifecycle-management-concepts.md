@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247804"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211449"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerir o ciclo de vida (pré-visualização) de armazenamento de Blobs do Azure
 
@@ -37,7 +37,7 @@ A política de gestão do ciclo de vida está disponível com ambos os fins gera
 A funcionalidade de gestão do ciclo de vida de é gratuita em pré-visualização. Os clientes são cobrados os custos de operação normais para o [listar os Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) chamadas de API. Para obter mais informações sobre preços, consulte [preços do Blob de blocos](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Registar-se na pré-visualização 
-Para se inscrever na pré-visualização pública, terá de submeter um pedido para registar esta funcionalidade para a sua subscrição. Normalmente, os pedidos são aprovados em duas semanas. Após a aprovação, todas as novas e existentes BLOBs ou GPv2 contas de armazenamento nas seguintes regiões incluem a funcionalidade: E.U.A. oeste 2, EUA Centro-Oeste, E.U.A. Leste 2 e Europa Ocidental. Pré-visualização só suporta blob de blocos. Tal como acontece com a maior parte das visualizações, não deve utilizar esta funcionalidade para cargas de trabalho de produção até atingir GA.
+Para se inscrever na pré-visualização pública, terá de submeter um pedido para registar esta funcionalidade para a sua subscrição. Normalmente, os pedidos são aprovados dentro de 72 horas. Após a aprovação, todas as novas e existentes BLOBs ou GPv2 contas de armazenamento nas seguintes regiões incluem a funcionalidade: E.U.A. oeste 2, EUA Centro-Oeste, E.U.A. Leste 2 e Europa Ocidental. Pré-visualização só suporta blob de blocos. Tal como acontece com a maior parte das visualizações, não deve utilizar esta funcionalidade para cargas de trabalho de produção até atingir GA.
 
 Para submeter um pedido, execute os seguintes comandos do PowerShell ou a CLI.
 
@@ -136,7 +136,7 @@ Cada regra na política requer três parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Notas |
 |----------------|----------------|-------|
-| Name           | Cadeia | Um nome de regra pode incluir qualquer combinação de carateres alfanuméricos. Nome da regra diferencia maiúsculas de minúsculas. Tem de ser exclusivo dentro de uma política. |
+| Name           | String | Um nome de regra pode incluir qualquer combinação de carateres alfanuméricos. Nome da regra diferencia maiúsculas de minúsculas. Tem de ser exclusivo dentro de uma política. |
 | tipo           | Um valor de enumeração | O valor válido para a pré-visualização é `Lifecycle`. |
 | definição     | Um objeto que define a regra de ciclo de vida | Cada definição é constituída por um conjunto de filtros e um conjunto de ação. |
 

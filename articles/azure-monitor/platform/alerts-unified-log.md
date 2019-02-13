@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 70f53ed06daad8adf10ef5a88f0672f86d6a8b48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004133"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106415"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](../platform/alerts-overview.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
@@ -99,14 +99,28 @@ Considere um cenário em que queria um alerta se a qualquer computador excedeu a
 - **Consulta:** Desempenho | onde ObjectName = = "Processador" e CounterName = = "% tempo do processador" | resumir AggregatedValue = avg(CounterValue) por bin (TimeGenerated, 5m), computador<br>
 - **Período de tempo:** 30 minutos<br>
 - **Frequência do alerta:** cinco minutos<br>
-- **Valor agregado:** Superior a 90<br>
+- **Alert Logic - limiar de & condição:** Superior a 90<br>
+- **Campo de grupo (agregado ativado):** Computador
 - **Acionar alerta com base em:** Total de casos de violações de maior que 2<br>
 
-A consulta deverá criar um valor médio para cada computador em intervalos de 5 minutos.  Esta consulta seria executada a cada 5 minutos para os dados recolhidos durante os 30 minutos anteriores.  Dados de exemplo são mostrados abaixo para três computadores.
+A consulta deverá criar um valor médio para cada computador em intervalos de 5 minutos.  Esta consulta seria executada a cada 5 minutos para os dados recolhidos durante os 30 minutos anteriores. Uma vez que o campo de grupo (agregado-on) escolhido é em colunas "computador" - o AggregatedValue é dividido para vários valores de "Computador" e a utilização média do processador para cada computador é determinada para um contentor de tempo de 5 minutos.  Resultado da consulta de exemplo para (Digamos) três computadores, seria conforme mostrado abaixo.
+
+
+|TimeGenerated [UTC] |Computador  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+Se o resultado da consulta ser desenhados, ela apareceria como.
 
 ![Resultados da consulta de exemplo](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-Neste exemplo, seriam possível criar alertas separadas para srv02 e srv03, uma vez que eles infringido o limiar de 90% três vezes ao longo do período de tempo.  Se o **acionar alerta com base em:** foram alterados para **Consecutive** , em seguida, seria possível criar um alerta apenas para srv03, uma vez que ele infringido o limiar para três amostras consecutivas.
+Neste exemplo, podemos ver nas caixas de 5 minutos para cada um dos três computadores - utilização do processador médio como calculada para 5 minutos. Limiar de 90, que está a ser infringido, através da srv01 apenas uma vez em 1:25 bin. Em comparação, o srv02 excede o limiar de 90 1: dez anos, 1:15 e 1:25 discretizações; Embora srv03 excede o limiar de 90 em 1:10, 1:15, 1:20 e 1:30. Uma vez que o alerta está configurado para acionador com base no total de falhas são mais do que dois, podemos ver que o srv02 e srv03 apenas cumprem os critérios. Por conseguinte, seriam possível criar alertas separadas para srv02 e srv03, uma vez que eles infringido o limiar de 90% duas vezes em várias caixas de tempo.  Se o *acionar alerta com base em:* parâmetro em vez disso, foram configurados para *violações contínuas* opção, em seguida, poderia ser acionado um alerta **apenas** para srv03, uma vez que ele infringido o limiar para três caixas de tempo consecutivos de 1:10 a 1:20. E **não** para srv02, como ele infringido o limiar de duas caixas de tempo consecutivos de 1:10 a 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Log search regra de alerta - acionadas e Estado
 

@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691172"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210786"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados do Azure decisões para o Azure Stack de planejamento da implantação desligada
-Depois de decidir [como irá integrar o Azure Stack para seu ambiente de cloud híbrida](azure-stack-connection-models.md), em seguida, pode finalizar suas decisões de implementação do Azure Stack.
+Depois de decidir [como irá integrar o Azure Stack para seu ambiente de cloud híbrida](azure-stack-connection-models.md), poderão finalizar suas decisões de implementação do Azure Stack.
 
-Pode implementar e utilizar o Azure Stack sem uma ligação à internet. No entanto, com uma implementação de desligado, está limitado a um repositório de identidades do AD FS e o modelo de faturação com base na capacidade. Como a arquitetura "multitenancy" requer a utilização do Azure AD, arquitetura "multitenancy" não é suportada para implementações desligadas. 
+Pode implementar e utilizar o Azure Stack sem uma ligação à internet. No entanto, com uma implementação de desligado, está limitado a um repositório de identidades do AD FS e o modelo de faturação com base na capacidade. Como a arquitetura "multitenancy" requer a utilização do Azure Active Directory (Azure AD), arquitetura "multitenancy" não é suportada para implementações desligadas. 
 
 Escolha esta opção se:
 - Ter segurança ou outras restrições que requerem a implementação do Azure Stack num ambiente que não está ligado à Internet.
@@ -34,9 +34,9 @@ Escolha esta opção se:
 - Pretende utilizar o Azure Stack puramente como uma solução de nuvem privada que é implementada a sua Intranet empresarial e não está interessado em cenários híbridos.
 
 > [!TIP]
-> Às vezes, esse tipo de ambiente também é referido como um "cenário submarino".
+> Às vezes, esse tipo de ambiente é também referido como um *cenário submarino*.
 
-Uma implementação desligada não significa estritamente que não é possível ligar mais tarde a sua instância do Azure Stack para o Azure para cenários VM do inquilino híbrido. Isso significa que não tem ligação para o Azure durante a implementação ou não pretender utilizar o Azure Active Directory como o armazenamento de identidade.
+Uma implementação desligada não o restringe de mais tarde se ligar a instância do Azure Stack para o Azure para cenários VM do inquilino híbrido. Isso significa que não tem ligação para o Azure durante a implementação ou não quiser utilizar o Azure AD como o armazenamento de identidade.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>Funcionalidades que são reduzidas ou não está disponíveis em implementações desligadas 
 O Azure Stack foi concebido para funcionam melhor quando ligado ao Azure, pelo que é importante observar que existem alguns recursos e funcionalidades que são totalmente indisponível no modo desligado ou reduzida. 

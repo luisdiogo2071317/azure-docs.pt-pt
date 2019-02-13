@@ -17,12 +17,13 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: df45ec1478314e0d60f2c66a42a48801f1ce0643
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093092"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170199"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>O Azure Active Directory v 2.0 e o fluxo de código de dispositivo do OAuth 2.0
 
@@ -72,13 +73,13 @@ Uma resposta com êxito será um objeto JSON que contém as informações necess
 
 | Parâmetro | Formato | Descrição |
 | ---              | --- | --- |
-|`device_code`     |Cadeia| Uma cadeia longa utilizada para verificar a sessão entre o cliente e o servidor de autorização.  Isso é utilizado pelo cliente para pedir o token de acesso do servidor de autorização. |
-|`user_code`       |Cadeia| Uma cadeia de caracteres curta mostrada ao usuário, utilizado para identificar a sessão num dispositivo secundário.|
+|`device_code`     |String| Uma cadeia longa utilizada para verificar a sessão entre o cliente e o servidor de autorização.  Isso é utilizado pelo cliente para pedir o token de acesso do servidor de autorização. |
+|`user_code`       |String| Uma cadeia de caracteres curta mostrada ao usuário, utilizado para identificar a sessão num dispositivo secundário.|
 |`verification_uri`|URI| O URI que o utilizador deve ir para com o `user_code` para iniciar sessão. |
 |`verification_uri_complete`|URI| Combinar um URI de `user_code` e o `verification_uri`, utilizado para transmissão não textual ao usuário (por exemplo, via Bluetooth para um dispositivo ou por meio de um código QR).  |
 |`expires_in`      |int| O número de segundos antes do `device_code` e `user_code` expirar. |
 |`interval`        |int| O número de segundos que o cliente deve aguardar entre as solicitações de sondagem. |
-| `message`        |Cadeia| Uma cadeia de caracteres legível por humanos com instruções para o utilizador.  Este texto pode ser localizado, incluindo uma **parâmetro de consulta** no pedido do formulário `?mkt=xx-XX`, preenchendo o código de cultura do idioma apropriado. |
+| `message`        |String| Uma cadeia de caracteres legível por humanos com instruções para o utilizador.  Este texto pode ser localizado, incluindo uma **parâmetro de consulta** no pedido do formulário `?mkt=xx-XX`, preenchendo o código de cultura do idioma apropriado. |
 
 ## <a name="authenticating-the-user"></a>Autenticar o utilizador
 
@@ -130,7 +131,7 @@ Uma resposta com êxito de token terá o seguinte aspeto:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-|`token_type` | Cadeia| Sempre "Bearer. |
+|`token_type` | String| Sempre "Bearer. |
 |`scope` | Cadeias de caracteres de espaço separado | Se foi devolvido um token de acesso, lista os âmbitos que o token de acesso é válido para. |
 |`expires_in`| int | É válido para o número de segundos antes do token de acesso incluído. |
 |`access_token`| Cadeia opaca | Emitido para o [âmbitos](v2-permissions-and-consent.md) que foram solicitados.  |

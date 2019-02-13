@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 2e986e26f22e41e1cbf7b8d1c1af694522a01d06
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821580"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169977"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -253,11 +253,11 @@ O túnel forçado é uma configuração de encaminhamento definido pelo utilizad
 >
 > Se não utilizar rotas definidas pelo utilizador ou grupos de segurança de rede para controlar o tráfego, pode ignorar esta secção.
 
-Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador, tem de permitir o tráfego dos serviços do Azure de estado de funcionamento e gestão para alcançar o HDInsight. Também tem de permitir tráfego entre VMs dentro da sub-rede. Utilize os seguintes passos para encontrar os endereços IP que têm de ser permitidos:
+Se utilizar grupos de segurança de rede, tem de permitir o tráfego dos serviços do Azure de estado de funcionamento e gestão para chegar a clusters do HDInsight na porta 443. Também tem de permitir tráfego entre VMs dentro da sub-rede. Utilize os seguintes passos para encontrar os endereços IP que têm de ser permitidos:
 
 1. Sempre têm de permitir tráfego a partir os seguintes endereços IP:
 
-    | Endereço IP | Porta permitida | Direção |
+    | Endereço IP de origem | Porta de destino | Direção |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Entrada |
     | 23.99.5.239 | 443 | Entrada |
@@ -269,7 +269,7 @@ Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador, tem
     > [!IMPORTANT]  
     > Se a região do Azure que está a utilizar não estiver listada, em seguida, apenas use os quatro endereços IP do passo 1.
 
-    | País | Região | Endereços IP permitidos | Porta permitida | Direção |
+    | País | Região | Endereços IP de origem permitidos | Permissão de porta de destino | Direção |
     | ---- | ---- | ---- | ---- | ----- |
     | Ásia | Ásia Oriental | 23.102.235.122</br>52.175.38.134 | 443 | Entrada |
     | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | 443 | Entrada |
@@ -306,15 +306,13 @@ Se utilizar grupos de segurança de rede ou rotas definidas pelo utilizador, tem
 
 Para obter mais informações, consulte a [controlar o tráfego da rede](#networktraffic) secção.
 
+Para regras de NSG de saída, permitir o tráfego de qualquer origem dentro da VNET para alcançar os endereços acima como "Endereços de IP de Desitnation".
+
+Se estiver a utilizar routes(UDRs) definidas pelo utilizador, deve especificar uma rota e permitir o tráfego de saída da VNET para os IPs acima com o próximo salto definido como "Internet".
+    
 ## <a id="hdinsight-ports"></a> Portas necessárias
 
-Se pretender utilizar um **firewall** para proteger a rede virtual e aceder ao cluster em determinadas portas, deve permitir tráfego nas portas necessárias para o seu cenário. Por predefinição, não terá de lista de permissões destas portas:
-
-* 53
-* 443
-* 1433
-* 11000-11999
-* 14000-14999
+Se pretender utilizar um **firewall** e aceder ao cluster a partir de fora em determinadas portas, poderá ser necessário permitir o tráfego dessas portas necessárias para o seu cenário. Por predefinição, nenhuma lista de permissões especial de portas é necessárias, desde que o tráfego de gestão do azure explicado na seção anterior recebe autorização para acessar o cluster na porta 443.
 
 Para obter uma lista de portas para serviços específicos, consulte a [portas utilizadas pelos serviços do Apache Hadoop no HDInsight](hdinsight-hadoop-port-settings-for-services.md) documento.
 

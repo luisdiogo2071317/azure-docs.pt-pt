@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: bb9277a9e8f5e8bacb6b7aab7b9a5b411c86edbd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3d7fd9b3e7ab8e5f193fd3b34a804b9ed0780d66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967629"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105693"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Transformar dados com o Databricks no Azure Data Factory
 
@@ -89,13 +89,13 @@ Para simplificar este modelo, o modelo não cria um acionador agendado. Pode adi
 
     1.  **Sink** – para copiar dados em.
 
-        Selecionar o armazenamento que criou no [pré-requisito 1](#prerequisite), no coletor de serviço ligado.
+        Selecione um armazenamento criado no pré-requisito 1, no serviço ligado de sink.
 
         ![7](media/solution-template-Databricks-notebook/Databricks-tutorial-image07.png)
 
     1.  **Databricks** – para ligar ao cluster do Databricks
 
-        Criar um serviço ligado com chave de acesso gerado de Databricks [2.c pré-requisitos](#prerequisite). Se tiver uma *cluster interativo*, pode selecionar que. (Este exemplo utiliza a *novo cluster de trabalhos* opção.)
+        Crie um serviço ligado do Databricks utilizando a chave de acesso gerada no 2.c pré-requisitos. Se tiver uma *cluster interativo*, pode selecionar que. (Este exemplo utiliza a *novo cluster de trabalhos* opção.)
 
         ![8](media/solution-template-Databricks-notebook/Databricks-tutorial-image08.png)
 

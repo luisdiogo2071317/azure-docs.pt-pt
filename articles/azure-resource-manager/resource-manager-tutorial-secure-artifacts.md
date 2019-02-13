@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c83865835dfff4013072757c8f40a8d8fc83deaa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0ae111387bbdfdbb2596b1be80210dd42ed57b1a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493251"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108407"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Artefactos seguros em implementações de modelo do Azure Resource Manager
 
@@ -194,6 +194,8 @@ Atualize o valor dos dois seguintes elementos:
 ```
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Veja a secção [Implementar o modelo](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) para obter o procedimento de implementação. Em alternativa, utilize o seguinte script de implementação do PowerShell:
 

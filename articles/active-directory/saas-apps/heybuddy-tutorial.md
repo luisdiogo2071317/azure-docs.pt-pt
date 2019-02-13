@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 123b74298ebb01e8ebcfd70d023b4e71a879e7f9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 67c3bf168ae056b1205d6eeaa8e5676c880eab97
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197896"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Tutorial: Integração do Active Directory do Azure com HeyBuddy
 
@@ -130,7 +131,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador e afirmações** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome  | Atributo de origem  |
+    | Name  | Atributo de origem  |
     | --------------- | --------------- |
     | Funções               | user.assignedroles |
 

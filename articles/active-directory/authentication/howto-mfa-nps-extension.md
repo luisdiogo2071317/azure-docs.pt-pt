@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc18a523ff7c275b249704fb3928f2ebde6c81a9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 108b188b0bbb63a4c9faea936360cf2fa3edc806
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074894"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211619"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 
@@ -105,7 +106,7 @@ Este passo pode já estar concluído no seu inquilino, mas é bom verificar que 
 2. Selecione **do Azure Active Directory** > **do Azure AD Connect**
 3. Verifique se o estado de sincronização **ativado** e que foi de sua última sincronização há menos de uma hora.
 
-Se precisar de iniciar uma nova rodada de sincronização,-nas instruções no [do Azure AD Connect: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+Se precisar de iniciar uma nova rodada de sincronização,-nas instruções no [do Azure AD Connect: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) (Sincronização do Azure AD Connect: Scheduler).
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>Determinar quais métodos de autenticação, podem utilizar os seus utilizadores
 
@@ -192,7 +193,7 @@ Depois de ativar a MFA para um cliente RADIUS utilizando a extensão de NPS, tod
 
 Se tiver utilizadores que não estejam inscritos para a MFA, pode determinar o que acontece quando o utilizador tentar autenticar. Utilize a definição de registo *REQUIRE_USER_MATCH* no caminho do registo *HKLM\Software\Microsoft\AzureMFA* para controlar o comportamento de funcionalidade. Esta definição não tem uma opção de configuração única:
 
-| Chave | Valor | Predefinição |
+| Chave | Value | Predefinição |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERDADEIRO/FALSO | Não definido (equivalente ao verdadeiro) |
 
@@ -247,7 +248,7 @@ Este erro pode ser devido a um dos vários motivos. Utilize estes passos para aj
 1. Reinicie o servidor NPS.
 2. Certifique-se de que esse certificado de cliente está instalado corretamente.
 3. Certifique-se de que o certificado é associado ao seu inquilino no Azure AD.
-4. Certifique-se de que https://login.microsoftonline.com/ é acessível a partir do servidor que executa a extensão.
+4. Certifique-se de que https://login.microsoftonline.com/ está acessível a partir do servidor que executa a extensão.
 
 -------------------------------------------------------------
 
@@ -259,7 +260,7 @@ Certifique-se de que o AD Connect está em execução e que o utilizador esteja 
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Por que vejo HTTP os erros nos registos de ligação com todas as minhas autenticações falhar?
 
-Certifique-se de que https://adnotifications.windowsazure.com é acessível a partir do servidor que executa a extensão NPS.
+Certifique-se de que https://adnotifications.windowsazure.com está acessível a partir do servidor que executa a extensão NPS.
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gerir os Protocolos TLS/SSL e Conjuntos de Cifras
 

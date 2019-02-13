@@ -4,7 +4,7 @@ description: Saiba mais sobre segurança de armazenamento do Azure melhores prá
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451872"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108930"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger o PaaS web e móveis com o armazenamento do Azure
 Neste artigo, discutimos a uma coleção de segurança de armazenamento do Azure melhores práticas para proteger a sua plataforma-como-serviço (PaaS) aplicações web e móveis. Essas práticas recomendadas são derivadas da nossa experiência com o Azure e as experiências dos clientes, como.
 
 O Azure torna possível implementar e utilizar o armazenamento de formas não facilmente realizáveis no local. Com o armazenamento do Azure, pode entrar altos níveis de escalabilidade e disponibilidade com relativamente pouco esforço. Não só é a base de armazenamento do Azure para Windows e máquinas virtuais do Linux do Azure, também pode suportar grandes aplicativos distribuídos.
 
-Armazenamento do Azure fornece os seguintes quatro serviços: BLOBs de armazenamento, o armazenamento de tabelas, armazenamento de filas e armazenamento de ficheiros. Para obter mais informações, consulte [introdução ao armazenamento do Microsoft Azure](../storage/storage-introduction.md).
+Armazenamento do Azure fornece os seguintes quatro serviços: Armazenamento de BLOBs, armazenamento de tabelas, armazenamento de filas e armazenamento de ficheiros. Para obter mais informações, consulte [introdução ao armazenamento do Microsoft Azure](../storage/storage-introduction.md).
 
 O [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md) é uma ótima fonte para obter informações detalhadas sobre o armazenamento do Azure e segurança. Este artigo de melhores práticas de endereços num alto nível alguns dos conceitos encontrados na guia de segurança e ligações para o guia de segurança, bem como outras origens, para obter mais informações.
 
@@ -64,7 +64,7 @@ As organizações que não é impor o controlo de acesso de dados ao utilizar as
 Para saber mais sobre o RBAC, veja:
 
 - [Gerir o acesso através do RBAC e do portal do Azure](../role-based-access-control/role-assignments-portal.md)
-- [Funções incorporadas para recursos do Azure](../role-based-access-control/built-in-roles.md)
+- [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md) (Funções incorporadas para recursos do Azure)
 - [Guia de segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Utilizar a encriptação do lado do cliente para os dados de valor elevado

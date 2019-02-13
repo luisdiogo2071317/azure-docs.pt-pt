@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d16214bf08b0e0b5a95acae380f8d644fc4461ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55757591"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213155"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: Conceber o Elevado Desempenho
 
@@ -63,7 +63,7 @@ Portanto, é importante determinar os valores IOPS e débito ideal que seu aplic
 
 ## <a name="latency"></a>Latência
 
-A latência é o tempo que demora um aplicativo para receber um único pedido e enviá-lo para os discos de armazenamento e enviar a resposta ao cliente. Esta é uma medida crítica de desempenho de um aplicativo, além de IOPS e débito. A latência de um disco de armazenamento premium é o tempo que demora a recuperar as informações de um pedido e comunicá-la para a sua aplicação. O armazenamento Premium fornece baixas latências consistentes. Se ativar a colocação em cache em discos de armazenamento premium de anfitrião de só de leitura, pode obter muito menor latência de leitura. Abordaremos colocação em cache do disco mais detalhadamente na seção posterior sobre *Otimizando o desempenho da aplicação*.
+A latência é o tempo que demora um aplicativo para receber um único pedido e enviá-lo para os discos de armazenamento e enviar a resposta ao cliente. Esta é uma medida crítica de desempenho de um aplicativo, além de IOPS e débito. A latência de um disco de armazenamento premium é o tempo que demora a recuperar as informações de um pedido e comunicá-la para a sua aplicação. O armazenamento Premium fornece baixas latências consistentes. Os discos Premium foram concebidos para fornecer latências de milissegundo de dígito na maioria das operações de e/s. Se ativar a colocação em cache em discos de armazenamento premium de anfitrião de só de leitura, pode obter muito menor latência de leitura. Abordaremos colocação em cache do disco mais detalhadamente na seção posterior sobre *Otimizando o desempenho da aplicação*.
 
 Quando pretender otimizar seu aplicativo para obter uma maior IOPS e débito, afetará a latência da sua aplicação. Depois de ajuste do desempenho do aplicativo, avalie sempre a latência do aplicativo para evitar o comportamento inesperado de alta latência.
 

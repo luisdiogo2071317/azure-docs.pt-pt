@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: f5aa04da40c6681385f0debc3999b94a1f507f05
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bc83a2cde841e7d1e90cb46304c879fcc6cedb72
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978991"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105778"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurar o Cofre de chaves para máquinas virtuais no Azure Resource Manager
 
@@ -35,7 +35,7 @@ Na pilha do Azure Resource Manager, os segredos/certificados são modelados como
 >
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>Utilize o PowerShell para configurar o Cofre de chaves
-Para criar um cofre de chaves com o PowerShell, veja [introdução ao Azure Key Vault](../../key-vault/key-vault-get-started.md#vault).
+Para criar um cofre de chaves com o PowerShell, veja [conjunto e obter um segredo no Azure Key Vault com o PowerShell](../../key-vault/quick-create-powershell.md).
 
 Para obter cofres de chaves novo, pode utilizar este cmdlet do PowerShell:
 

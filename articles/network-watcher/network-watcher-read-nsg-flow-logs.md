@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 3d97f84ba7809ba54fe7a5670fc1602f1ed6e180
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100890"
+ms.locfileid: "56112704"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
 
@@ -185,6 +185,6 @@ Este cenário é um exemplo de como ler entradas nos registos de fluxo NSG sem t
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Visite [utilizar o Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [utilização Grafana](network-watcher-nsg-grafana.md), e [o Graylog de utilização](network-watcher-nsg-graylog.md) para saber mais sobre formas de ver os registos de fluxo do NSG. Uma abordagem de função do Azure de origem aberto para consumir os blobs diretamente e emitindo para vários consumidores de análise de registo pode ser encontrada aqui: [Conector de registos de fluxo NSG de observador de rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Visite [utilizar o Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [utilização Grafana](network-watcher-nsg-grafana.md), e [o Graylog de utilização](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre formas de ver os registos de fluxo do NSG. Uma abordagem de função do Azure de origem aberto para consumir os blobs diretamente e emitindo para vários consumidores de análise de registo pode ser encontrada aqui: [Conector de registos de fluxo NSG de observador de rede do Azure](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
 Para saber mais sobre os blobs de armazenamento, visite: [Enlaces de armazenamento de BLOBs de funções do Azure](../azure-functions/functions-bindings-storage-blob.md)

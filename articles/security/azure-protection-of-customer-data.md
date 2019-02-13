@@ -4,7 +4,7 @@ description: Este artigo aborda como o Azure protege os dados dos clientes.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 0b702cec6113e6b31e34750872479dce162e4cb6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173072"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104502"
 ---
 # <a name="azure-customer-data-protection"></a>Proteção de dados do cliente do Azure   
 O acesso a dados do cliente por parte de funcionários operacionais e de suporte da Microsoft é negado por defeito. Quando o acesso aos dados dos clientes é concedido, é necessária aprovação de liderança e, em seguida, acesso é cuidadosamente gerido e registado. Os requisitos de controlo de acesso são estabelecidos pela política de segurança do Azure seguintes:
@@ -35,16 +35,16 @@ Todas as tentativas de acesso são monitorizadas e podem ser exibidas por meio d
 ## <a name="data-protection"></a>Proteção de dados
 Azure fornece aos clientes com a segurança dos dados forte, por predefinição e como opções de cliente.
 
-**Segregação de dados**: Azure é um serviço de multi-inquilino, o que significa que o cliente várias implementações e as VMs são armazenadas no mesmo hardware físico. O Azure utiliza isolação lógica para separar os dados de cada um dos clientes dos dados de outras pessoas. Segregação fornece o dimensionamento e os benefícios económicos dos serviços de multi-inquilinos, enquanto impede rigorosamente os clientes de aceder aos dados do outro.
+**Segregação de dados**: O Azure é um serviço de multi-inquilino, o que significa que o cliente várias implementações e as VMs são armazenadas no mesmo hardware físico. O Azure utiliza isolação lógica para separar os dados de cada um dos clientes dos dados de outras pessoas. Segregação fornece o dimensionamento e os benefícios económicos dos serviços de multi-inquilinos, enquanto impede rigorosamente os clientes de aceder aos dados do outro.
 
-**Proteção de dados em repouso**: os clientes são responsáveis por assegurar que os dados armazenados no Azure são encriptados de acordo com seus padrões. O Azure oferece uma vasta gama de capacidades de encriptação, dando aos clientes a flexibilidade de escolher a solução mais adequada às suas necessidades. O Azure Key Vault ajuda os clientes facilmente manter o controlo das chaves que são utilizados por aplicações e serviços cloud para encriptar os dados. O Azure Disk Encryption permite aos clientes encriptar VMs. Encriptação do serviço de armazenamento do Azure torna possível encriptar todos os dados que são colocados numa conta de armazenamento de um cliente.
+**Proteção de dados em repouso**: Os clientes são responsáveis por assegurar que os dados armazenados no Azure são encriptados de acordo com seus padrões. O Azure oferece uma vasta gama de capacidades de encriptação, dando aos clientes a flexibilidade de escolher a solução mais adequada às suas necessidades. O Azure Key Vault ajuda os clientes facilmente manter o controlo das chaves que são utilizados por aplicações e serviços cloud para encriptar os dados. O Azure Disk Encryption permite aos clientes encriptar VMs. Encriptação do serviço de armazenamento do Azure torna possível encriptar todos os dados que são colocados numa conta de armazenamento de um cliente.
 
-**Proteção de dados em trânsito**: os clientes podem ativar a encriptação para o tráfego entre as suas próprias VMs e os utilizadores finais. Azure protege os dados em trânsito de ou para componentes externos e dados em trânsito internamente, tal como entre duas redes virtuais. O Azure utiliza o protocolo Transport Layer Security (TLS) padrão da indústria 1.2 ou posterior com chaves de encriptação RSA/SHA256 2.048 bits, tal como recomendado pela CESG/NCSC, para encriptar comunicações entre:
+**Proteção de dados em trânsito**: Os clientes podem ativar a encriptação para o tráfego entre as suas próprias VMs e os utilizadores finais. Azure protege os dados em trânsito de ou para componentes externos e dados em trânsito internamente, tal como entre duas redes virtuais. O Azure utiliza o protocolo Transport Layer Security (TLS) padrão da indústria 1.2 ou posterior com chaves de encriptação RSA/SHA256 2.048 bits, tal como recomendado pela CESG/NCSC, para encriptar comunicações entre:
 
 - O cliente e a cloud.
 - Internamente, entre centros de dados e de sistemas do Azure.
 
-**Encriptação**: encriptação de dados no armazenamento e em trânsito pode ser implementada por parte dos clientes, como melhor prática para garantir a confidencialidade e integridade dos dados. É simples para os clientes configurar os seus serviços cloud do Azure para utilizar SSL para proteger as comunicações da internet e até mesmo entre suas VMs alojadas no Azure.
+**Encriptação**: Encriptação de dados no armazenamento e em trânsito pode ser implementada por parte dos clientes, como melhor prática para garantir a confidencialidade e integridade dos dados. É simples para os clientes configurar os seus serviços cloud do Azure para utilizar SSL para proteger as comunicações da internet e até mesmo entre suas VMs alojadas no Azure.
 
 **Redundância de dados**: Microsoft ajuda a garantir que os dados estão protegidos se existir um cyberattack ou danos físicos para um datacenter. Os clientes podem optar por:
 
@@ -55,11 +55,11 @@ Os dados podem ser replicados dentro de uma área geográfica selecionada para r
 
 Quando criar a sua conta de armazenamento, selecione uma das seguintes opções de replicação:
 
-- **Armazenamento localmente redundante (LRS)**: armazenamento localmente redundante mantém três cópias dos seus dados. LRS é replicado três vezes num único local e numa única região. O LRS protege os dados de falhas de normal hardware, mas não a partir de uma falha de um único local.
-- **Armazenamento com redundância de zona (ZRS)**: armazenamento com redundância de zona mantém três cópias dos seus dados. O ZRS é replicado três vezes em duas ou três instalações para fornecer uma durabilidade superior ao LRS. A replicação ocorre numa única região ou em duas regiões. O ZRS ajuda a garantir que seus dados são duráveis numa única região.
-- **Armazenamento georredundante (GRS)**: armazenamento georredundante está ativado para a sua conta de armazenamento por predefinição aquando da respetiva criação. O GRS mantém seis cópias dos seus dados. Com a GRS, os dados são replicados três vezes dentro da região primária. Os dados também são replicados três vezes numa região secundária a centenas de quilómetros de distância da região primária, fornecendo o nível mais elevado de durabilidade. Se ocorrer uma falha na região primária, armazenamento do Azure efetua a ativação pós-falha para a região secundária. GRS ajuda a garantir que os seus dados são duráveis em duas regiões separadas.
+- **Armazenamento localmente redundante (LRS)**: O Armazenamento localmente redundante mantém três cópias dos seus dados. LRS é replicado três vezes num único local e numa única região. O LRS protege os dados de falhas de normal hardware, mas não a partir de uma falha de um único local.
+- **Armazenamento com redundância de zona (ZRS)**: O Armazenamento com redundância entre zonas mantém três cópias dos seus dados. O ZRS é replicado três vezes em duas ou três instalações para fornecer uma durabilidade superior ao LRS. A replicação ocorre numa única região ou em duas regiões. O ZRS ajuda a garantir que seus dados são duráveis numa única região.
+- **Armazenamento georredundante (GRS)**: O Armazenamento georredundante está ativado para a sua conta do Storage por predefinição aquando da sua criação. O GRS mantém seis cópias dos seus dados. Com a GRS, os dados são replicados três vezes dentro da região primária. Os dados também são replicados três vezes numa região secundária a centenas de quilómetros de distância da região primária, fornecendo o nível mais elevado de durabilidade. Se ocorrer uma falha na região primária, armazenamento do Azure efetua a ativação pós-falha para a região secundária. GRS ajuda a garantir que os seus dados são duráveis em duas regiões separadas.
 
-**A destruição de dados**: quando os clientes eliminar dados, ou desistir do Azure, Microsoft segue normas rigorosas para substituição de recursos de armazenamento antes de sua reutilização, bem como a destruição física do hardware desativado. Microsoft executa uma eliminação completa de dados no pedido de cliente e no término do contrato.
+**A destruição de dados**: Quando os clientes eliminar dados, ou desistir do Azure, Microsoft segue normas rigorosas para substituição de recursos de armazenamento antes de sua reutilização, bem como a destruição física do hardware desativado. Microsoft executa uma eliminação completa de dados no pedido de cliente e no término do contrato.
 
 ## <a name="customer-data-ownership"></a>Propriedade de dados do cliente
 Não inspeciona as Microsoft, aprovar ou monitorizar aplicações que os clientes implementar no Azure. Além disso, a Microsoft não sabe o que tipo de clientes de dados se optar por armazenar no Azure. Microsoft não reivindica a propriedade de dados sobre as informações do cliente que são inseridas no Azure.

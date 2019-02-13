@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 56d637fd1aec05089e4f20c9205f648934594cc6
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4875464d7e7a7f49c1532871a69f4d2224b271a6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981252"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108250"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Encriptar discos virtuais numa VM do Windows
 Para segurança aprimorada de máquina virtual (VM) e de conformidade, os discos virtuais no Azure podem ser encriptados. Os discos são encriptados utilizando chaves criptográficas que são protegidas num Azure Key Vault. Pode controlar estas chaves criptográficas e pode auditar o seu uso. Este artigo descreve como encriptar discos virtuais numa VM do Windows com o Azure PowerShell. Também pode [encriptar uma VM do Linux ao utilizar a CLI do Azure](../linux/encrypt-disks.md).
@@ -87,7 +87,7 @@ New-AzKeyVault -Location $location `
 
 Pode armazenar chaves de criptografia com o software ou proteção de modelo de segurança de Hardware (HSM).  Um cofre de chave padrão apenas armazena chaves protegidas por software. Utilizar um HSM requer um cofre de chaves de premium a um custo adicional. Para criar um cofre de chaves de premium, no passo anterior adicione a *- Sku "Premium"* parâmetro. O exemplo seguinte utiliza as chaves protegidas por software, uma vez que criámos um cofre de chave padrão. 
 
-Para ambos os modelos de proteção, a plataforma do Azure tem de ter acesso para solicitar as chaves criptográficas quando a VM arranca para desencriptar os discos virtuais. Criar uma chave criptográfica no seu Cofre de chaves com [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey). O exemplo seguinte cria uma chave denominada *myKey*:
+Para ambos os modelos de proteção, a plataforma do Azure tem de ter acesso para solicitar as chaves criptográficas quando a VM arranca para desencriptar os discos virtuais. Criar uma chave criptográfica no seu Cofre de chaves com [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey). O exemplo seguinte cria uma chave denominada *myKey*:
 
 ```azurepowershell-interactive
 Add-AzureKeyVaultKey -VaultName $keyVaultName `

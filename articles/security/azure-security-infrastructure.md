@@ -4,7 +4,7 @@ description: O artigo descreve como a Microsoft trabalha para proteger os nossos
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 9385c6ea8d2a04e9a8595a22e6e2ff7638394b41
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172977"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104778"
 ---
 # <a name="azure-infrastructure-security"></a>Segurança da infraestrutura do Azure
 Microsoft Azure é executado em datacenters gerenciado e operado pela Microsoft. Estes datacenters dispersos geograficamente está em conformidade com padrões da indústria de chave, como a ISO/IEC 27001:2013 e SP de NIST 800-53, segurança e confiabilidade. Centros de dados são geridos, monitorizados e administrados pela equipe de operações do Microsoft. A equipa de operações tem anos de experiência no fornecimento de maiores serviços online do mundo com 24x7 continuidade.

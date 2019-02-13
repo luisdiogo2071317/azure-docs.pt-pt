@@ -4,7 +4,7 @@ description: O artigo fornece uma descrição geral da área de contribuição d
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 34f4bdf0-7332-4c4a-b186-05263da700cf
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 5329dcaeb20087412a693d3ebef935fafd6a2b7d
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d6da4dbe9322ab38591a84ff5b075992d9495f1b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246046"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111259"
 ---
 # <a name="azure-security-mvp-program"></a>Programa de MVP de segurança do Azure
 
@@ -27,7 +27,7 @@ Microsoft Most Valuable Professionals (MVPs) são líderes da Comunidade que dem
 
 Agora, o Microsoft Azure reconhece os especialistas da Comunidade com conhecimento especial na segurança do Azure. MVPs da Microsoft podem ser concedidos MVP no Microsoft Azure na área de contribuição de segurança do Azure.
 
-![MVP da Microsoft](./media/azure-security-mvp/azure-security-mvp-fig1.png)
+![Microsoft MVP](./media/azure-security-mvp/azure-security-mvp-fig1.png)
 
 Não existe nenhum parâmetro de comparação para tornar-se um MVP. Isso ocorre em parte porque varia por tecnologia e seu ciclo de vida. Alguns dos critérios inclui:
 

@@ -4,7 +4,7 @@ description: Este artigo fornece um conjunto de lista de verificação para segu
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7895093eeb97857764530b52486c99b451dfc303
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403990"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105914"
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de verificação de segurança operacionais do Azure
 Implementar uma aplicação no Azure é rápida, fácil e económica. Antes de implementar a aplicação na cloud em produção útil ter uma lista de verificação para ajudar a avaliar o seu aplicativo numa lista de ações de essenciais e recomendados de segurança operacional a ser considerada.

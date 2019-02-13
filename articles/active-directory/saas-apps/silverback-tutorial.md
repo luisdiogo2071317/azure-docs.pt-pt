@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Silverback | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Silverback | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Silverback.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123861"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172721"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Active Directory com Silverback
+# <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Active Directory do Azure com Silverback
 
 Neste tutorial, saiba como integrar Silverback com o Azure Active Directory (Azure AD).
 

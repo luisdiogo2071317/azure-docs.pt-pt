@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 84a495274ffadfe816ced21cd095f7a5e18d7f89
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0b044b15b41e2d74f08c4bc989e22b6a19949445
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199549"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170929"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução ao Reliable Services
 > [!div class="op_single_selector"]
@@ -28,9 +28,7 @@ ms.locfileid: "54199549"
 >
 >
 
-Este artigo explica as noções básicas do Azure Service Fabric Reliable Services e explica como criar e implementar uma aplicação de Reliable Service simple escrita em Java. Este vídeo do Microsoft Virtual Academy também mostra como criar um serviço fiável sem monitoração de estado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start-java/ReliableServicesJavaVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Este artigo explica as noções básicas do Azure Service Fabric Reliable Services e explica como criar e implementar uma aplicação de Reliable Service simple escrita em Java. 
 
 ## <a name="installation-and-setup"></a>Instalação e configuração
 Antes de começar, certifique-se de que tem o ambiente de desenvolvimento do Service Fabric configurar no seu computador.

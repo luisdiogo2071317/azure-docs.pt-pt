@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0c7e0e539ca884739f5bf633946a4704d29b132b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448233"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112602"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
 Este artigo mostra como pode utilizar um [modelo Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métricas mais recente](../../azure-monitor/platform/alerts-metric-near-real-time.md) no Azure Monitor. Modelos do Resource Manager permitem-lhe por meio de programação posso configurar alertas de uma forma consistente e reproduzível em seus ambientes. Alertas de métricas mais recentes estão atualmente disponíveis na [este conjunto de tipos de recurso](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Modelo do Resource Manager especificado para o alerta de métrica não irá funcionar para o tipo de recurso: Microsoft.OperationalInsights/workspaces; suporte para as métricas do Log Analytics está em pré-visualização. Os utilizadores interessados em utilizar a funcionalidade de pré-visualização com o modelo de recursos, pode contactar [comentários de alertas do Azure](mailto:azurealertsfeedback@microsoft.com)
+> Modelo de recursos para a criação de alertas de métricas para o tipo de recurso: A área de trabalho do Azure Log Analytics (ou seja,) `Microsoft.OperationalInsights/workspaces`, são necessários passos adicionais. Para obter detalhes, consulte o artigo sobre [alerta de métrica para os registos - modelo do Resource](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 Os passos básicos são os seguintes:
 

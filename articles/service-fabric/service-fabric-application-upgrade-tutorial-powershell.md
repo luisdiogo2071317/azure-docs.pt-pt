@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515323"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185862"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização da aplicação de Service Fabric com o PowerShell
 > [!div class="op_single_selector"]
@@ -34,9 +34,7 @@ O mais frequentemente utilizadas e abordagem de atualização recomendada é a a
 
 Uma atualização de aplicação monitorizada pode ser efetuada utilizando o gerenciadas ou nativas APIs, PowerShell, CLI do Azure, Java ou REST. Para obter instruções sobre como executar uma atualização com o Visual Studio, consulte [atualizar a sua aplicação com o Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-Com atualizações sem interrupção do Service Fabric monitorizado, o administrador do aplicativo pode configurar a política de avaliação do Estado de funcionamento que o Service Fabric utiliza para determinar se a aplicação está em bom estada. Além disso, o administrador pode configurar a ação a tomar quando a avaliação de estado de funcionamento falha (por exemplo, fazer uma reversão automática.) Esta secção descreve uma atualização monitorizada para uma das amostras do SDK que utiliza o PowerShell. Os seguintes Microsoft Virtual Academy vídeo também o orienta através de uma atualização de aplicação: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+Com atualizações sem interrupção do Service Fabric monitorizado, o administrador do aplicativo pode configurar a política de avaliação do Estado de funcionamento que o Service Fabric utiliza para determinar se a aplicação está em bom estada. Além disso, o administrador pode configurar a ação a tomar quando a avaliação de estado de funcionamento falha (por exemplo, fazer uma reversão automática.) Esta secção descreve uma atualização monitorizada para uma das amostras do SDK que utiliza o PowerShell. 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Passo 1: Criar e implementar o exemplo de objetos visuais
 Criar e publicar a aplicação ao clicar com o botão direito no projeto de aplicação, **VisualObjectsApplication,** e selecionando a **Publish** comando.  Para obter mais informações, consulte [tutorial de atualização de aplicação do Service Fabric](service-fabric-application-upgrade-tutorial.md).  Em alternativa, pode utilizar o PowerShell para implementar a sua aplicação.
@@ -76,7 +74,7 @@ Agora o *Applicationmanifest* ficheiro (encontra-se no **VisualObjects** projeto
 
 Agora, crie o projeto ao selecionar apenas o **ActorService** projeto e, em seguida, clicar com botão direito e selecionando a **criar** opção no Visual Studio. Se selecionou **recriar todas**, deve atualizar as versões para todos os projetos, uma vez que o código seria foram alterados. Em seguida, vamos empacotar a aplicação atualizada, clicando na ***VisualObjectsApplication***, selecionar o Menu de recursos de infraestrutura do serviço e escolher **pacote**. Esta ação cria um pacote de aplicação que pode ser implementado.  A aplicação atualizada está pronta para ser implementada.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Passo 3: Opte por utilizar as políticas de estado de funcionamento e parâmetros de atualização
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Passo 3:  Opte por utilizar as políticas de estado de funcionamento e parâmetros de atualização
 Familiarize-se com o [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e o [processo de atualização](service-fabric-application-upgrade.md) para obter uma boa compreensão dos vários parâmetros de atualização, tempos limite e critério de estado de funcionamento aplicada. Nestas instruções, o critério de avaliação de estado de funcionamento do serviço é definido como a predefinição (e recomendado) valores, o que significa que todas as instâncias e serviços devem ser *bom estado de funcionamento* após a atualização.  
 
 No entanto, vamos aumentar a *HealthCheckStableDuration* para 180 segundos (para que os serviços estão em bom Estados de, pelo menos, 120 segundos, antes que a atualização prossiga para o domínio de atualização seguinte).  Vamos também definir o *UpgradeDomainTimeout* ser 1200 segundos e o *UpgradeTimeout* seja 3000 segundos.
@@ -91,7 +89,7 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## <a name="step-4-prepare-application-for-upgrade"></a>Passo 4: Preparar aplicação para atualização
+## <a name="step-4-prepare-application-for-upgrade"></a>Passo 4: Preparar a aplicação para atualização
 Agora o aplicativo é criado e pronto a ser atualizado. Se abrir uma janela do PowerShell como um administrador e escreva [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), ele deve informá-lo de que é o tipo de aplicação 1.0.0.0 da **VisualObjects** foi implementado.  
 
 O pacote de aplicação é armazenado no seguinte caminho relativo em que o SDK do Service Fabric - descompactou *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Deve encontrar uma pasta de "Pacote" nesse diretório, onde o pacote de aplicação é armazenado. Verifique os carimbos de data / para se certificar de que é a compilação mais recente (poderá ter de modificar os caminhos adequadamente também).

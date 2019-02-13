@@ -10,20 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: fe7825922d9333d058d9a33d5643850c368d3457
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 474355088a339741b8dd1917fb354d55df4990f6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511399"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189196"
 ---
 # <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Reparametrizar modelos do Azure Machine Learning Studio por meio de programação
 Nestas instruções, irá aprender a reenviar programaticamente um através do serviço do Azure Machine Learning Studio web C# e o serviço de Machine Learning Batch Execution.
 
-Depois de ter de reestruturar o modelo, os guias seguintes mostram como atualizar o modelo no seu serviço web preditivo:
-
-* Se tiver de implementar um serviço da web clássico no portal de serviços Web Machine Learning, veja [reenviar um serviço web clássico](retrain-a-classic-web-service.md). 
-* Se tiver implementado um novo serviço web, consulte [reenviar um serviço web novo utilizando os cmdlets de gestão de Machine Learning](retrain-new-web-service-using-powershell.md).
+Depois de ter de reestruturar o modelo, consulte [reenviar um serviço web novo utilizando os cmdlets de gestão de Machine Learning](retrain-new-web-service-using-powershell.md) para saber como pode atualizar o modelo no seu serviço web preditivo:
 
 Para uma descrição geral do processo de reparametrização, consulte [voltar a preparar um modelo de aprendizagem automática](retrain-machine-learning-model.md).
 
@@ -165,9 +162,8 @@ Examine os resultados para determinar se o modelo treinado recentemente executa 
 Copiar o *BaseLocation*, *RelativeLocation*, e *SasBlobToken* nos resultados da saída, irá usá-los durante o processo de reparametrização.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se tiver implementado o serviço web preditivo clicando **implementar o serviço Web [clássica]**, consulte [voltar a preparar um serviço web clássico](retrain-a-classic-web-service.md).
 
-Se tiver implementado o serviço web preditivo clicando **implementar o Web Service [novo]**, consulte [voltar a preparar um novo serviço web utilizando os cmdlets de gestão de Machine Learning](retrain-new-web-service-using-powershell.md).
+ [Voltar a preparar um novo serviço web utilizando os cmdlets de gestão de Machine Learning](retrain-new-web-service-using-powershell.md).
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 

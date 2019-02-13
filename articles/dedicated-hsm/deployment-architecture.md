@@ -3,7 +3,7 @@ title: Arquitetura de implementação - HSM dedicada do Azure | Documentos da Mi
 description: Considerações de design básico ao utilizar o HSM do Azure dedicada como parte de uma arquitetura de aplicativos
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078298"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113350"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Arquitetura de implementação de HSM dedicados do Azure
 

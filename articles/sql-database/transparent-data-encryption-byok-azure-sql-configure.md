@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b6abfa24d790554de239171ffef1899cdc135d26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f1cb99799e3aa5c0b37643112f8644d1aabfd666
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996258"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108097"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente do Azure Key Vault
 
@@ -29,8 +29,8 @@ Este artigo explica como utilizar uma chave de Cofre de chaves do Azure para dad
 - [Recomendável, mas opcional] Ter um módulo de segurança de hardware (HSM) ou chave local armazenar para a criação de uma cópia local do material de chave de Protetor de TDE.
 - Tem de ter o Azure PowerShell versão 4.2.0 ou mais recente instalado e em execução. 
 - Crie um cofre de chaves do Azure e a chave a utilizar para TDE.
-   - [Instruções do PowerShell do Key Vault](../key-vault/key-vault-get-started.md)
-   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-get-started.md#HSM)
+   - [Instruções do PowerShell do Key Vault](../key-vault/key-vault-overview.md)
+   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
  - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
    - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
@@ -196,7 +196,7 @@ Verifique o seguinte se ocorrer um problema:
 - Interface de linha de comandos versão 2.0 ou posterior. Para instalar a versão mais recente e ligar à sua subscrição do Azure, veja [instalar e configurar a Interface de linha de comandos de várias plataformas do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 - Crie um cofre de chaves do Azure e a chave a utilizar para TDE.
    - [Gerir o Cofre de chaves com a CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
-   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-get-started.md#HSM)
+   - [Instruções para utilizar um módulo de segurança de hardware (HSM) e o Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
  - O Cofre de chaves tem de ter a seguinte propriedade a ser utilizado para TDE:
    - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [Como utilizar a eliminação de forma recuperável do Key Vault com a CLI](../key-vault/key-vault-soft-delete-cli.md) 

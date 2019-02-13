@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 517288f257dcd4e397db5cc432d0168b136fe265
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 59cd52dbdf6c13900cde592aeb52d8bf9abf850f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488681"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56174032"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação pass-through do Azure Active Directory: Análise técnica aprofundada
 Este artigo é uma visão geral de como funciona a autenticação pass-through do Azure Active directory (Azure AD). Para técnica e informações de segurança, consulte a [detalhada da segurança](how-to-connect-pta-security-deep-dive.md) artigo.

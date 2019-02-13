@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977752"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117280"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integração no datacenter - publicar pontos de extremidade
 
@@ -66,7 +66,7 @@ Infra-estrutura interna que vips não estão listados como não são necessário
 O Azure Stack suporta apenas os servidores de proxy transparente. Numa implementação em que um uplinks de proxy transparente para um servidor proxy tradicional, tem de permitir os seguintes portas e URLs para comunicações de saída:
 
 > [!Note]  
-> O Azure Stack não suporta a utilização de Express Route para alcançar os serviços do Azure listados na tabela seguinte.
+> O Azure Stack não suporta a utilizar o ExpressRoute para alcançar os serviços do Azure listados na tabela seguinte.
 
 |Objetivo|Destination URL|Protocolo|Portas|Rede de Origem|
 |---------|---------|---------|---------|---------|
@@ -75,7 +75,7 @@ O Azure Stack suporta apenas os servidores de proxy transparente. Numa implement
 |& Atualizações de patch|https://&#42;.azureedge.net|HTTPS|443|VIP - /27 públicos|
 |Registo|https://management.azure.com|HTTPS|443|VIP - /27 públicos|
 |Utilização|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|VIP - /27 públicos|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|VIP - /27 públicos<br>Infraestrutura de rede pública|
 |NTP|(Servidor de IP do NTP fornecido para a implementação)|UDP|123|VIP - /27 públicos|
 |DNS|(Servidor de IP de DNS fornecido para a implementação)|TCP<br>UDP|53|VIP - /27 públicos|
 |CRL|(URL em pontos de distribuição de CRL no seu certificado)|HTTP|80|VIP - /27 públicos|

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 877fb6807cb8a2aafe634b53630eaa30c6d7697a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 78b37c467e40a9386c7501f1abedbf0460900668
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495535"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118348"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutorial: Importar ficheiros BACPAC do SQL com modelos Azure Resource Manager
 
@@ -136,6 +136,8 @@ Adicione dois recursos adicionais para o modelo.
     * **administratorLoginPassword**: A palavra-passe de administrador do SQL. Utilize uma palavra-passe gerada. Veja [Pré-requisitos](#prerequisites).
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Veja a secção [Implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para obter o procedimento de implementação. Em alternativa, utilize o seguinte script de implementação do PowerShell:
 

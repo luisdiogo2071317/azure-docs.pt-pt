@@ -4,7 +4,7 @@ description: Este guia de introdução mostra-lhe como aprovisionar o MMA (Micro
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 57560a035f4d0468625e4c8f3ad6b7a7e516590f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850684"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115866"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início rápido: Integrar computadores do Windows ao centro de segurança do Azure
 Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
 
 Este início rápido mostra-lhe como instalar o MMA num computador Windows.
@@ -100,7 +100,7 @@ Para remover o agente:
 Neste início rápido, aprovisionou o MMA num computador Windows. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: definir e avaliar as políticas de segurança](tutorial-security-policy.md)
+> [Tutorial: Definir e avaliar políticas de segurança](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png

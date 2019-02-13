@@ -1,5 +1,5 @@
 ---
-title: PowerShell para pontos finais de serviço de rede Virtual e regras no SQL do Azure | Documentos da Microsoft
+title: PowerShell para pontos finais de VNet e regras para únicos e em pool bases de dados SQL do Azure | Documentos da Microsoft
 description: Fornece os scripts do PowerShell para criar e gerir pontos finais de serviço Virtual para a sua base de dados do Azure SQL e SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: ae29fcfe39b5844ab948eb55ca314ae51dcae174
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/11/2019
+ms.openlocfilehash: b30240620e3a8d3dea1849e895ec021c96fc11c6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566300"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117617"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Criar um ponto final de serviço Virtual e uma regra de VNet para o SQL
 
-Do Azure [base de dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suporta pontos finais de serviço Virtual.
+*Regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de base de dados para as suas bases de dados individuais e o conjunto elástico no Azure [base de dados SQL](sql-database-technical-overview.md) ou nas bases de dados no [dados do SQL Armazém](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações que são enviadas as sub-redes específicas nas redes virtuais.
 
-> [!NOTE]
-> Este artigo aplica-se ao servidor SQL do Azure e a base de dados SQL e SQL Data Warehouse bases de dados que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo faz *não* aplicam-se ao **instância gerida da base de dados SQL do Azure** como não tem um ponto de extremidade de serviço associado a uma sub-rede de instância gerida.
+> [!IMPORTANT]
+> Este artigo aplica-se ao servidor SQL do Azure e a base de dados SQL e SQL Data Warehouse bases de dados que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo faz *não* aplicam-se a um **instância gerida** implementação na base de dados do Azure SQL porque não tem um ponto de extremidade de serviço associado ao mesmo.
 
 Este artigo fornece e explica um script do PowerShell que executa as ações seguintes:
 

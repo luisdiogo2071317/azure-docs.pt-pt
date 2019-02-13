@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: d4d4420e2d38b1418a08ad1ca51dd0f75f3fe7b9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001107"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106466"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Ativar o registo de diagnóstico no Gestor de tráfego do Azure
 
@@ -40,14 +40,14 @@ Pode executar os comandos que se seguem na [Azure Cloud Shell](https://shell.azu
 
 2. **Ative o registo de diagnóstico para o perfil do Gestor de tráfego:**
 
-    Ativar o registo de diagnóstico para o perfil de Gestor de tráfego com o ID de obteve no passo anterior com [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). O seguinte comando armazena registos verbosos para o perfil do Gestor de tráfego para uma conta de armazenamento do Azure especificada. 
+    Ativar o registo de diagnóstico para o perfil de Gestor de tráfego com o ID de obteve no passo anterior com [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). O seguinte comando armazena registos verbosos para o perfil do Gestor de tráfego para uma conta de armazenamento do Azure especificada. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verifique se as definições de diagnóstico:**
 
-      Verifique se as definições de diagnóstico para o perfil do Gestor de tráfego utilizando [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). O comando seguinte apresenta as categorias que são registadas para um recurso.
+      Verifique se as definições de diagnóstico para o perfil do Gestor de tráfego utilizando [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). O comando seguinte apresenta as categorias que são registadas para um recurso.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
