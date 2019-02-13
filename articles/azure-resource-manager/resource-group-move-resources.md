@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 59322e303824d3a0db89e9e1252476d52106ba56
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991349"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108777"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -28,7 +28,7 @@ O grupo de origem e o grupo de destino estão bloqueados durante a operação de
 Mover um recurso apenas move-o para um novo grupo de recursos. A operação de movimentação não é possível alterar a localização do recurso. Novo grupo de recursos pode ter uma localização diferente, mas que não altera a localização do recurso.
 
 > [!NOTE]
-> Este artigo descreve como mover a oferta de contas de recursos dentro do Azure. Se pretender alterar a sua conta do Azure da oferta (por exemplo, a atualização de gratuita para pay as you go), na verdade, terá de converter a sua subscrição.
+> Este artigo descreve como mover recursos entre subscrições do Azure existentes. Se realmente quiser atualizar a sua subscrição do Azure (por exemplo, mudar de gratuita para pay as you go), terá de converter a sua subscrição.
 > * Para atualizar uma versão de avaliação gratuita, consulte [atualizar a sua subscrição de avaliação gratuita ou o Microsoft Imagine Azure para pay as you go](..//billing/billing-upgrade-azure-subscription.md).
 > * Para alterar uma conta pay as you go, consulte [alterar a sua subscrição pay as you go do Azure para outra oferta](../billing/billing-how-to-switch-azure-offer.md).
 > * Se não é possível converter a subscrição [criar um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
@@ -102,7 +102,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Dashboards de portais
 * Power BI - tanto o Power BI Embedded e robustez com a coleção de área de trabalho de BI
 * IP público - IP público de SKU básico que podem ser movido. Não é possível mover o IP público de SKU Standard.
-* Serviços de recuperação cofre - Inscreva-se numa [pré-visualização privada](#recovery-services-limitations).
+* Serviços de recuperação cofre - Inscreva-se numa [pré-visualização](#recovery-services-limitations).
 * A Cache do Azure para Redis - se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Scheduler
 * Pesquisa - não é possível mover a vários recursos de pesquisa em regiões diferentes numa única operação. Em vez disso, movê-los em operações separadas.

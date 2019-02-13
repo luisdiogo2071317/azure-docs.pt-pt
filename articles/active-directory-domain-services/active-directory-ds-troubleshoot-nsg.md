@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181899"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112501"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de rede inválida para o seu domínio gerido
 Este artigo ajuda-o a resolver erros de configuração relacionadas com a rede que resultam na mensagem de alerta seguinte:
@@ -36,7 +36,7 @@ Configurações de NSG inválidas são a causa mais comum de erros de rede para 
 2. A partir da tabela, escolha o NSG associado à sub-rede na qual o seu domínio gerido está ativado.
 3. Sob **configurações** no painel à esquerda, clique em **regras de segurança de entrada**
 4. Reveja as regras no local e identificar quais regras estão a bloquear o acesso a [estas portas](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
-5. Edite o NSG para garantir a conformidade a eliminar a regra, adicionar uma regra, ou criando um novo NSG inteiramente. Os passos para [adicionar uma regra](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou [criar um NSG novo e em conformidade](#create-a-nsg-for-azure-ad-domain-services-using-powershell) estão abaixo
+5. Edite o NSG para garantir a conformidade a eliminar a regra, adicionar uma regra, ou criando um novo NSG inteiramente. Os passos para [adicionar uma regra](#add-a-rule-to-a-network-security-group-using-the-azure-portal) ou crie um novo, em conformidade com NSG estão abaixo
 
 ## <a name="sample-nsg"></a>Exemplo de NSG
 A tabela a seguir ilustra um NSG que seria manter seu domínio gerido segura, permitindo que a Microsoft para monitorizar, gerir e atualizar as informações de exemplo.

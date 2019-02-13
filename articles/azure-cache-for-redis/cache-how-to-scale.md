@@ -3,7 +3,7 @@ title: Como dimensionar a Cache do Azure para Redis | Documentos da Microsoft
 description: Saiba como dimensionar a sua Cache do Azure para instâncias de Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: wesmc
-ms.openlocfilehash: 904c96d71194a097f2750ad2c1076b30b80f3745
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.author: yegu
+ms.openlocfilehash: 1b6239f1d9c9d6563fda1b72391461595abd6318
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100232"
+ms.locfileid: "56113622"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Como dimensionar a Cache do Azure para Redis
 A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de tamanho de cache e as funcionalidades. Depois de criar uma cache, pode aumentar o tamanho e o escalão de preço da cache se alteram os requisitos da sua aplicação. Este artigo mostra-lhe como dimensionar a sua cache com o portal do Azure e ferramentas como o Azure PowerShell e CLI do Azure.

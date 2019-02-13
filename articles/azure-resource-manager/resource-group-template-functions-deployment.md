@@ -12,14 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 58eca4c73a6e1fd0941e100a55bdad763b986590
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491472"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114353"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos Azure Resource Manager 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 O Resource Manager proporciona as seguintes funções para obter valores de secções do modelo e os valores relacionados com a implementação:
 

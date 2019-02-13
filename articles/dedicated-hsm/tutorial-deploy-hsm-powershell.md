@@ -4,7 +4,7 @@ description: Tutorial que mostra como implementar um HSM dedicado com o PowerShe
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fd701c92ea2cf1447f0c3ea14db6a968ac8910e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086314"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115679"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – implementar HSMs numa rede virtual existente com o PowerShell
 
@@ -37,7 +37,7 @@ Este tutorial concentra-se num par de HSMs e o Gateway do ExpressRoute necessár
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-HSM dedicada do Azure não está atualmente disponível no portal do Azure, portanto toda a interação com o serviço será através do PowerShell da linha de comandos ou utilizando. Este tutorial irá utilizar o PowerShell no Azure Cloud Shell. Se estiver familiarizado com o PowerShell, siga instruções de introdução aqui: [do Azure PowerShell começar](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+HSM dedicada do Azure não está atualmente disponível no portal do Azure, portanto toda a interação com o serviço será através do PowerShell da linha de comandos ou utilizando. Este tutorial irá utilizar o PowerShell no Azure Cloud Shell. Se estiver familiarizado com o PowerShell, siga instruções de introdução aqui: [O Azure PowerShell Get Started](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
 
 Pressupostos:
 
@@ -187,7 +187,7 @@ Este comando deve demorar cerca de 20 minutos a concluir. O "-verbose" opção u
 
 ![Estado de aprovisionamento](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Quando concluída com êxito, mostrado pela "provisioningState": "Foi concluída com êxito", pode iniciar sessão na sua máquina virtual existente e utilizar o SSH para garantir a disponibilidade do dispositivo HSM.
+Quando concluída com êxito, mostrado pela "provisioningState": "Com êxito", pode iniciar sessão na sua máquina virtual existente e utilizar o SSH para garantir a disponibilidade do dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Verificar a implementação
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: deb8eacb1e9c55feba6b356eedc61ba57c3a6566
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299066"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110325"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importar um ficheiro de certificado para um contentor em execução no Service Fabric
 
-Pode proteger os seus serviços de contentor ao especificar um certificado. O Service Fabric fornece um mecanismo para serviços dentro de um contentor para aceder a um certificado que está instalado em nós num cluster do Windows ou Linux (versão 5.7 ou superior). O certificado tem de estar instalado no LocalMachine em todos os nós do cluster. As informações do certificado são fornecidas no manifesto do aplicativo sob o `ContainerHostPolicies` marca como o fragmento seguinte mostra:
+Pode proteger os seus serviços de contentor ao especificar um certificado. O Service Fabric fornece um mecanismo para serviços dentro de um contentor para aceder a um certificado que está instalado em nós num cluster do Windows ou Linux (versão 5.7 ou superior). O certificado tem de ser instalado num arquivo de certificados LocalMachine em todos os nós do cluster. A chave privada que correspondente para o certificado tem de estar disponível, acessível e - Windows - exportável. As informações do certificado são fornecidas no manifesto do aplicativo sob o `ContainerHostPolicies` marca como o fragmento seguinte mostra:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,7 +31,7 @@ Pode proteger os seus serviços de contentor ao especificar um certificado. O Se
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Para clusters do Windows, ao iniciar a aplicação, o tempo de execução lê os certificados e gera um ficheiro PFX e a palavra-passe para cada certificado. Este ficheiro PFX e a palavra-passe estão acessíveis no interior do contentor com as seguintes variáveis de ambiente: 
+Para clusters do Windows, ao iniciar a aplicação, o tempo de execução exporta cada certificado referenciado e a respetiva chave privada correspondente para um ficheiro PFX, protegido por uma palavra-passe gerada aleatoriamente. Os ficheiros PFX e a palavra-passe, respectivamente, estão acessíveis no interior do contentor com as seguintes variáveis de ambiente: 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

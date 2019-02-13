@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468874"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116853"
 ---
-# <a name="choose-the-right-consistency-level"></a>Escolha o nível de consistência certo 
+# <a name="choose-the-right-consistency-level"></a>Escolher o nível de consistência certo 
 
 Bases de dados distribuídas depender de replicação para elevada disponibilidade, latência baixa ou ambos, tornam o compromisso fundamental entre a consistência de leitura versus disponibilidade, latência e débito. A maioria dos comercialmente disponíveis bases de dados distribuídas perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: consistência forte e consistência eventual. O Azure Cosmos DB permite aos desenvolvedores escolher entre os cinco modelos de consistência bem definidos: forte, estagnação limitada, sessão, prefixo consistente e eventual. Cada um desses modelos de consistência é bem definidos, intuitiva e pode ser utilizada para cenários específicos do mundo real. Cada um dos modelos de cinco consistência fornecer [vantagens e desvantagens de desempenho e disponibilidade](consistency-levels-tradeoffs.md) e são apoiados por SLAs abrangentes. As seguintes considerações simples lhe ajudarão a tornar a opção certa em muitos cenários comuns.
 
@@ -33,6 +33,8 @@ Considere os seguintes pontos se seu aplicativo for criado com o Cosmos DB SQL A
 - Se precisar de menos garantias de consistência rigorosa dos que foram fornecidas pelo consistência da sessão, é recomendado que utilize o nível de consistência de prefixo consistente.
 
 - Se precisar da maior disponibilidade e a latência mais baixa, em seguida, utilize o nível de consistência eventual.
+
+- Se precisar de ainda mais elevada durabilidade de dados sem sacrificar o desempenho, pode criar um nível de consistência personalizada na camada da aplicação. Para obter mais informações, consulte [procedimentos personalizados de sincronização de implementar em seus aplicativos](how-to-custom-synchronization.md).
 
 ## <a name="cassandra-mongodb-and-gremlin-api"></a>API de Cassandra, MongoDB e Gremlin
 

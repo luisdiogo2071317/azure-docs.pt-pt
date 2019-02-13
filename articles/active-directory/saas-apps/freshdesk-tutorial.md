@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: f8f47201149ce2384eb0adcef86936dc9d017c85
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1f0165ae77a3f933b76a2e61e30414455ddcf06b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813598"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Active Directory do Azure com o FreshDesk
 
@@ -117,7 +118,7 @@ Para configurar o Azure AD início de sessão único com o FreshDesk, execute os
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | ---------------| --------------- |
     | Identificador de Utilizador Exclusivo | user.mail |
 

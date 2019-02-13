@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Leapsome | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Leapsome | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Leapsome.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824012"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191236"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integração do Azure Active Directory com Leapsome
+# <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integração do Active Directory do Azure com Leapsome
 
 Neste tutorial, saiba como integrar Leapsome com o Azure Active Directory (Azure AD).
 
@@ -126,10 +127,10 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome do Atributo | Valor do Atributo | Espaço de Nomes |
+    | Nome do Atributo | Valor do Atributo | Espaço de nomes |
     | ---------------| --------------- | --------- |   
-    | FirstName | User.givenName | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Apelido | User.Surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | FirstName | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Apelido | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | título | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | imagem | URL para imagem o funcionário | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 

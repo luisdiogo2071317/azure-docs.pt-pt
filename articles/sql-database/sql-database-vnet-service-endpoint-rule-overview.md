@@ -1,5 +1,5 @@
 ---
-title: Pontos finais de serviço de rede virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse | Documentos da Microsoft
+title: VNet pontos finais e regras para únicos e em pool bases de dados SQL do Azure | Documentos da Microsoft
 description: Marca uma sub-rede como um ponto de extremidade do serviço de rede Virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados do SQL do Azure. A base de dados SQL, em seguida, aceita comunicações de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453932"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118382"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para SQL do Azure
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utilizar pontos finais de serviço de rede virtual e regras para servidores de base de dados
 
-*Regras de rede virtual* são um recurso de segurança de firewall que controla se do Azure [base de dados SQL](sql-database-technical-overview.md) ou [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) server aceita comunicações que são enviadas do sub-redes específicos em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é sua melhor opção de forma segura que permite a comunicação para a sua base de dados do Azure SQL e SQL Data Warehouse.
+*Regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de base de dados para as suas bases de dados individuais e o conjunto elástico no Azure [base de dados SQL](sql-database-technical-overview.md) ou nas bases de dados no [dados do SQL Armazém](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações que são enviadas as sub-redes específicas nas redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é sua melhor opção de forma segura que permite a comunicação para a sua base de dados do Azure SQL e SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo faz *não* aplicam-se ao **instância gerida da base de dados SQL do Azure**.
+> Este artigo aplica-se ao servidor SQL do Azure e a base de dados SQL e SQL Data Warehouse bases de dados que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. Este artigo faz *não* aplicam-se a um **instância gerida** implementação na base de dados do Azure SQL porque não tem um ponto de extremidade de serviço associado ao mesmo.
 
 Para criar uma regra de rede virtual, tem primeiro de existir uma [ponto final de serviço de rede virtual] [ vm-virtual-network-service-endpoints-overview-649d] para a regra fazer referência.
 

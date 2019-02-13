@@ -4,7 +4,7 @@ description: Este artigo fornece uma descrição geral da base de dados do Azure
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584779"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116325"
 ---
 # <a name="azure-database-security-overview"></a>Descrição geral da segurança da base de dados do Azure
 
@@ -100,7 +100,7 @@ Para fornecer segurança, base de dados SQL controla o acesso ao utilizar:
 - Mecanismos de autenticação que exigem que os usuários comprovem sua identidade.
 - Mecanismos de autorização que limitam os utilizadores a ações específicas e dados.
 
-### <a name="database-access"></a>Acesso à Base de Dados
+### <a name="database-access"></a>Acesso a bases de dados
 
 Proteção de dados começa com a controlar o acesso aos seus dados. O datacenter que aloja os seus dados gere o acesso físico. Pode configurar uma firewall para gerir a segurança na camada da rede. Também controlar o acesso ao configurar os inícios de sessão para autenticação e definir permissões para funções de servidor e base de dados.
 
@@ -110,12 +110,12 @@ Proteção de dados começa com a controlar o acesso aos seus dados. O datacente
 
 O serviço de base de dados do Azure SQL está disponível apenas através da porta TCP 1433. Para acessar um banco de dados SQL no seu computador, certifique-se de que a firewall de computador do cliente permite comunicação TCP de saída na porta TCP 1433. Se as conexões de entrada não são necessários para outras aplicações, bloqueá-las na porta TCP 1433.
 
-#### <a name="authentication"></a>Autenticação
+#### <a name="authentication"></a>Authentication
 
 A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. A Base de Dados SQL suporta dois tipos de autenticação:
 
--   **Autenticação do SQL Server**: é criada uma conta de início de sessão único quando é criada uma instância SQL lógica, denominada conta de subscritor da base de dados SQL. Esta conta liga-se utilizando [autenticação do SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome de utilizador e palavra-passe). Esta conta é administradora na instância do servidor lógico e em todas as bases de dados de utilizador ligadas a essa instância. As permissões da conta de subscritor não podem ser limitadas. Só pode existir uma destas contas.
--   **Autenticação do Azure Active Directory**: [autenticação do Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) é um mecanismo de ligação a base de dados do Azure SQL e o Azure SQL Data Warehouse, utilizando as identidades no Azure AD. Pode usá-lo para gerir centralmente identidades de utilizadores de base de dados.
+-   **Autenticação do SQL Server**: Quando é criada uma instância SQL lógica, é criada conta de início de sessão individual, denominada Conta de Subscritor da Base de Dados SQL. Esta conta liga-se utilizando [autenticação do SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (nome de utilizador e palavra-passe). Esta conta é administradora na instância do servidor lógico e em todas as bases de dados de utilizador ligadas a essa instância. As permissões da conta de subscritor não podem ser limitadas. Só pode existir uma destas contas.
+-   **Autenticação do Azure Active Directory**: [Autenticação do Azure AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) é um mecanismo de ligação a base de dados do Azure SQL e o Azure SQL Data Warehouse, utilizando as identidades no Azure AD. Pode usá-lo para gerir centralmente identidades de utilizadores de base de dados.
 
 ![Autenticação do Azure AD com a base de dados SQL](./media/azure-databse-security-overview/azure-database-fig2.png)
 
@@ -176,8 +176,8 @@ Pode utilizar a base de dados SQL a auditoria para:
 
 Existem dois métodos de auditorias:
 
--   **Auditoria de BLOBs**: os registos são escritos para o armazenamento de Blobs do Azure. Esse é um método de auditoria mais recente. Fornece um desempenho mais elevado, suporta a auditoria e ao nível do objeto do maior granularidade e é mais económico.
--   **Auditoria de tabelas**: os registos são escritos para o armazenamento de tabelas do Azure.
+-   **Auditoria de BLOBs**: Os registos são escritos no armazenamento de blobs do Azure e Esse é um método de auditoria mais recente. Fornece um desempenho mais elevado, suporta a auditoria e ao nível do objeto do maior granularidade e é mais económico.
+-   **Auditoria de tabelas**: Os registos são escritos para o armazenamento de tabelas do Azure.
 
 ### <a name="threat-detection"></a>Deteção de ameaças
 
@@ -214,7 +214,7 @@ O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/serv
 
 Centro de segurança suporta o acesso baseado em funções.
 
-## <a name="sql-information-protection"></a>Proteção de informações de SQL
+## <a name="sql-information-protection"></a>Proteção das Informações SQL
 
 [Proteção de informações de SQL](../sql-database/sql-database-data-discovery-and-classification.md) automaticamente Deteta e classifica os dados potencialmente confidenciais, fornece um mecanismo de etiquetagem de forma permanente marcar dados confidenciais com atributos de classificação e fornece uma apresentação do dashboard detalhado o estado de classificação da base de dados.  
 

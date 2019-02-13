@@ -4,7 +4,7 @@ description: " Detetar ameaças e malicioso ao integrar o Microsoft Cloud App Se
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2a747bdd8de41283b9cba1e40e2652aa826e9c60
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044455"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108016"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA para utilizadores e recursos do Azure 
 
@@ -62,7 +62,7 @@ Estes alertas são ativados por predefinição, mas pode desativá-las:
    ![Alerta de deteção de ameaças](./media/security-center-ueba-mcas/security-center-mcas-optout.png)
 
 > [!NOTE]
-> Existe um período de aprendizagem inicial de sete dias durante os quais nem todas as anomalias são geradas alertas de deteção. Depois disso, cada sessão é comparada com a atividade, quando os utilizadores estavam ativos, endereços IP, dispositivos, entre outros fatores detetados no último mês e a classificação de risco dessas atividades. Estas deteções fazem parte da máquina do motor de deteção de anomalias de aprendizagem que perfis de seu ambiente e aciona alertas relativamente a uma linha de base que foi aprendida na atividade da sua organização. Estas deteções também tirar partido de algoritmos de machine learning concebidos para criar um perfil a utilizadores e o padrão de logon para reduzir os falsos positivos.
+> Existe um período de aprendizagem inicial de sete dias durante os quais nem todas as anomalias são geradas alertas de deteção. Depois disso, cada sessão é comparada com a atividade, quando os utilizadores estavam ativos, endereços IP, dispositivos, entre outros fatores detetados no último mês e com a pontuação de risco dessas atividades. Estas deteções fazem parte da máquina do motor de deteção de anomalias de aprendizagem que perfis de seu ambiente e aciona alertas relativamente a uma linha de base que foi aprendida na atividade da sua organização. Estas deteções também tirar partido de algoritmos de machine learning concebidos para criar um perfil a utilizadores e o padrão de logon para reduzir os falsos positivos.
 >
   
 ## <a name="next-steps"></a>Passos Seguintes

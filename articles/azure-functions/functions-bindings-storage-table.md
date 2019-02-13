@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: bd85214efc3c8f67d41563e3ca46a1e2278c4868
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e10c42ee7d0d1c3ec7ade576fef6cb8053fdb633
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062678"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111362"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
@@ -465,7 +465,7 @@ Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os
   }
   ```
 
-  Para obter um exemplo completo, consulte [entrada de-exemplo do c#](#input---c-example).
+  Para obter um exemplo completo, consulte Introdução - C# exemplo.
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -507,7 +507,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**tableName** | **TableName** | O nome da tabela.| 
 |**partitionKey** | **PartitionKey** |Opcional. A chave de partição da entidade de tabela para ler. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**rowKey** |**RowKey** | Opcional. A chave de linha da entidade de tabela para ler. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
-|**tirar** |**tirar** | Opcional. O número máximo de entidades para ler em JavaScript. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
+|**take** |**Take** | Opcional. O número máximo de entidades para ler em JavaScript. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**filter** |**Filtro** | Opcional. Uma expressão de filtro de OData para a tabela de entrada em JavaScript. Consulte a [utilização](#input---usage) secção para obter orientações sobre como utilizar esta propriedade.| 
 |**ligação** |**ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para essa ligação. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação com o nome `AzureWebJobsStorage`.|
 

@@ -4,7 +4,7 @@ description: Este documento demonstra como just-in-time o acesso à VM no Centro
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5c42c0d5597e1e14bbb7814ad635abcd086db804
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94364a54a5a0994cc3de3a2fe014b556d438b2c2
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339047"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114914"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual com just-in-time
 
@@ -150,7 +150,7 @@ Isto permite o acesso just-in-time para a VM com as seguintes definições:
      
 Se uma VM já tiver just-in-time ativada, quando vai para a página de configuração será capaz de ver que just-in-time estiver ativado e que pode utilizar a ligação para abrir a política no Centro de segurança do Azure para ver e alterar as definições.
 
-![configuração de JIT em vm](./media/security-center-just-in-time/jit-vm-config.png)
+![jit config in vm](./media/security-center-just-in-time/jit-vm-config.png)
 
 ### <a name="requesting-jit-access-to-a-vm"></a>Pedir acesso JIT para uma VM
 
@@ -193,7 +193,7 @@ Atribuí-las *ações* para a função:
 
 Defina esses privilégios para permitir que um utilizador com êxito pedir acesso JIT para uma VM: Atribuí-las *ações* ao usuário:
 -   No âmbito de uma subscrição ou grupo de recursos que está associado com a VM:
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ iniciar/ação
+   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
 -    No âmbito de uma subscrição ou grupo de recursos ou VM:
    - Microsoft.Compute/virtualMachines/read
 

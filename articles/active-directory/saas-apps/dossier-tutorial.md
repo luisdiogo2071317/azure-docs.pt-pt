@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com dossiê | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com dossiê | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e dossiê.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 932a832d4717a788f2d9adfd98ce1ba0c4ca07a1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dd69616fa544c1d13e14eb8eebb92adb6350d9e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506480"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217535"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: Integração do Azure Active Directory com dossiê
+# <a name="tutorial-azure-active-directory-integration-with-dossier"></a>Tutorial: Integração do Active Directory do Azure com dossiê
 
 Neste tutorial, saiba como integrar dossiê com o Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com dossiê, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um dossiê de logon único habilitado subscrição
 
 > [!NOTE]
@@ -61,7 +62,7 @@ Para configurar a integração do dossiê com o Azure AD, terá de adicionar dos
 
 **Para adicionar dossiê a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory][1]
 
@@ -176,7 +177,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="create-a-dossier-test-user"></a>Criar um utilizador de teste dossiê
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no dossiê. Trabalhar com [equipa de suporte de dossiê](mailto:support@intellimedia.ca) para adicionar os utilizadores na plataforma dossiê. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no dossiê. Trabalhar com [equipa de suporte de dossiê](mailto:support@intellimedia.ca) para adicionar os utilizadores na plataforma dossiê. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -208,7 +209,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

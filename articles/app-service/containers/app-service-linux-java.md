@@ -13,18 +13,29 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 61bbc65c543801b0f783d01dfb803f47dbcf8a07
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d6e8d943d14cfddc260ba502e724543c6dc9cf4f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215304"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110341"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
 Serviço de aplicações do Azure no Linux permite aos programadores de Java para rapidamente criar, implementar e dimensionar seus Tomcat ou aplicativos de web num serviço baseado em Linux totalmente gerido de pacote de Java Standard Edition (SE). Implemente aplicações com o plug-ins do Maven na linha de comandos ou em editores de como o IntelliJ, o Eclipse ou o Visual Studio Code.
 
 Este guia fornece os conceitos chave e instruções para programadores de Java no serviço de aplicações a utilizar para Linux. Se nunca tiver utilizado o serviço de aplicações do Azure para Linux, deve ler os [início rápido de Java](quickstart-java.md) primeiro. Perguntas gerais sobre como utilizar o serviço de aplicações para Linux que não sejam específicas para o desenvolvimento de Java são respondidas no [FAQ de Linux do serviço de aplicações](app-service-linux-faq.md).
+
+## <a name="deploying-your-app"></a>Implementar a sua aplicação
+
+Pode utilizar o plug-in do Maven para implementar ficheiros. JAR e. War. Veja [esta documentação](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) para obter mais informações sobre o plug-in do Maven. 
+
+Se não estiver a utilizar o Maven, seu método de implementação irá depender do tipo de arquivo:
+
+- Para implementar ficheiros. War para Tomcat, utilize o `/api/wardeploy/` ponto final para publicar o seu ficheiro de arquivo. Para obter mais informações sobre esta API, veja [esta documentação](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#deploy-war-file).
+- Para implementar ficheiros. JAR nas imagens de Java SE, utilize o `/api/zipdeploy/` ponto final do Kudu site. Para obter mais informações sobre esta API, veja [esta documentação](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#rest).
+
+Não implemente sua. War ou. JAR utilizando o FTP. A ferramenta FTP foi criada para carregar scripts de inicialização, dependências ou outros arquivos de tempo de execução. Não é a escolha ideal para a implementação de aplicações web.
 
 ## <a name="logging-and-debugging-apps"></a>Registo e depuração de aplicativos
 

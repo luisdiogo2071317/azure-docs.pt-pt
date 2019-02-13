@@ -1,6 +1,6 @@
 ---
 title: Criar uma regra de firewall ao nível do servidor - base de dados SQL do Azure | Documentos da Microsoft
-description: Criar uma regra de firewall ao nível do servidor de base de dados SQL para uma base de dados individual ou agrupada
+description: Criar uma regra de firewall ao nível do servidor de base de dados SQL para bases de dados únicos e em pool
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,17 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2374707d3fdf4d389a7c96c18767d3c52a9efb2f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/11/2019
+ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757419"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108964"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall ao nível do servidor na base de dados do SQL do Azure no portal do Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Início rápido: Criar uma regra de firewall ao nível do servidor para os bancos de dados únicos e agrupados com o portal do Azure
 
-Este início rápido explica como criar uma regra de firewall ao nível do servidor na base de dados do SQL do Azure no portal do Azure que lhe permite ligar à mesma a partir de um recurso no local.
+Este início rápido explica como criar uma [regra de firewall ao nível do servidor](sql-database-firewall-configure.md) único e em pool bases de dados na base de dados do SQL do Azure no portal do Azure para lhe permitir estabelecer ligação a servidores de base de dados, único bases de dados e conjuntos elásticos e respetivas bases de dados. Uma regra de firewall é necessária para ligar a partir de outros recursos do Azure e de recursos no local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -1,6 +1,6 @@
 ---
-title: Script do PowerShell do Azure de exemplo - criar uma definição de aplicações geridas | Microsoft Docs
-description: Script do PowerShell do Azure de exemplo - criar uma definição de aplicações geridas
+title: Script do Azure PowerShell de exemplo - criar uma definição de aplicação gerida | Documentos da Microsoft
+description: Script do Azure PowerShell de exemplo - criar uma definição de aplicação gerida
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,34 +12,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: ee721b7c68924f5e05fbdc4bc4b919837d4cc05b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: HT
+ms.openlocfilehash: 35f1b805323da03f1622e5c355d6ffa6d960b275
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23940957"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106924"
 ---
-# <a name="create-a-managed-application-definition-with-powershell"></a>Criar uma definição de aplicações geridas com o PowerShell
+# <a name="create-a-managed-application-definition-with-powershell"></a>Criar uma definição da aplicação gerida com o PowerShell
 
-Este script publica uma definição de aplicação gerida para um catálogo de serviço.
+Este script publica uma definição da aplicação gerida num catálogo de serviço.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/managed-applications/create-definition/create-definition.ps1 "Create definition")]
 
 
-## <a name="script-explanation"></a>Explicação de script
+## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza o seguinte comando para criar a definição de aplicações geridas. Cada comando nas ligações de tabela para a documentação específica do comando.
+Este script utiliza o seguinte comando para criar a definição da aplicação gerida. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [Novo AzureRmManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermmanagedapplicationdefinition) | Crie uma definição de aplicações geridas. Forneça o pacote que contém os ficheiros necessários. |
+| [New-AzManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Criar uma definição da aplicação gerida. Forneça o pacote que contém os ficheiros necessários. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Para uma introdução para aplicações geridas, consulte [descrição geral do Azure gerida aplicações](../overview.md).
-* Para obter mais informações sobre o PowerShell, consulte [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Para obter uma introdução às aplicações geridas, veja [Descrição geral da Aplicação Gerida do Azure](../overview.md).
+* Para obter mais informações sobre o PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).

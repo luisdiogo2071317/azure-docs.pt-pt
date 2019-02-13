@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ebca3060e902c0a45619c2bd64240537cd95308d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811856"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117736"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar a sua aplicação do Centro de IoT
 
@@ -141,15 +141,15 @@ Para concluir este processo self-service, siga estes passos:
 
 ## <a name="export-data"></a>Exportar dados
 
-Pode habilitar **exportação de dados contínua** para exportar as medidas, dispositivos e dados de modelos de dispositivos à sua conta de armazenamento de Blobs do Azure. Saiba mais sobre [como exportar os dados](#howto-export-data).
+Pode habilitar **exportação de dados contínua** para exportar as medidas, dispositivos e dados de modelos de dispositivos à sua conta de armazenamento de Blobs do Azure. Saiba mais sobre como [exportar seus dados](#export-data).
 
 ## <a name="manage-device-connection"></a>Gerir ligação de dispositivo
 
-Ligar dispositivos à escala em seu aplicativo usando aqui as chaves e certificados. Saiba mais sobre [ligar dispositivos](#concepts-connectivity).
+Ligar dispositivos à escala em seu aplicativo usando aqui as chaves e certificados. Saiba mais sobre [ligar dispositivos](/azure/iot-central/concepts-connectivity-experimental?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="use-access-tokens"></a>Utilizar tokens de acesso
 
-Gere tokens de acesso para utilizá-los em ferramentas de desenvolvimento. Atualmente, existe uma ferramenta de desenvolvedor disponível que é o Explorador de IoT Central para monitorizar mensagens do dispositivo e alterações nas definições e propreties. Saiba mais sobre o [Explorador de IoT Central](#howto-use-iotc-explorer). 
+Gere tokens de acesso para utilizá-los em ferramentas de desenvolvimento. Atualmente, existe uma ferramenta de desenvolvedor disponível que é o Explorador de IoT Central para monitorizar mensagens do dispositivo e alterações nas definições e propreties. Saiba mais sobre o Explorador de IoT Central. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Utilizar os SDKs do Azure para operações do painel de controlo
 

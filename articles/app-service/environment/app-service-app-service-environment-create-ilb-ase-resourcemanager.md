@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 34278e02c62bda18a4b4d2f404417e8844dd5fc4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 35e0dc5dabaf1602b87ec6a8be86ed609f3ea12f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156685"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107383"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Como Criar um ASE do ILB Utilizando Modelos do Azure Resource Manager
 
 > [!NOTE] 
 > Este artigo é sobre o ambiente de serviço de aplicações v1. Existe uma versão mais recente do ambiente de serviço de aplicação que é mais fácil de usar e é executado numa infraestrutura mais poderosa. Para saber mais sobre o novo início de versão com o [introdução ao ambiente de serviço de aplicações](intro.md).
 >
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Descrição geral
 Ambientes de serviço de aplicações podem ser criados com um endereço de rede virtual interna em vez de um VIP público.  Este endereço interno é fornecido por um componente do Azure chamado o Balanceador de carga interno (ILB).  Um ASE de ILB podem ser criado no portal do Azure.  Ele também pode ser criado com a automatização por meio de modelos Azure Resource Manager.  Este artigo explica os passos e a sintaxe necessária para criar um ASE de ILB com modelos Azure Resource Manager.
@@ -51,7 +53,7 @@ Uma vez a *azuredeploy* foi preenchido ficheiro para um ASE de ILB, o ASE de ILB
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 Depois do Azure Resource Manager modelo é submetido irá demorar algumas horas até que o ASE de ILB a ser criada.  Uma vez concluída a criação, o ASE de ILB serão apresentados no portal do UX na lista de ambientes de serviço de aplicações para a subscrição que disparou a implementação.
 
@@ -124,7 +126,7 @@ Uma vez a *azuredeploy* ficheiro tiver sido preenchido, o certificado SSL predef
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+    New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
 Depois do Azure Resource Manager modelo é submetido irá demorar aproximadamente quarenta minutos por ASE front-end para aplicar a alteração.  Por exemplo, com um ASE de predefinição em tamanho normal utilizando dois front-ends, o modelo irá demorar aproximadamente uma hora e vinte minutos a concluir.  Enquanto o modelo está em execução o ASE não será capaz de dimensionada.  
 

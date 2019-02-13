@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 26268c892b0e900c410cd669454b8b6f02ee8886
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211893"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102366"
 ---
 # <a name="azure-managed-disks-overview"></a>Descrição geral do Managed Disks do Azure
 
@@ -75,9 +75,9 @@ Aqui estão disponíveis para um disco gerido premium os tamanhos de discos, tam
 
 Aqui estão que os tamanhos de disco disponíveis para um SSD standard de disco gerido, tamanhos marcados com um asterisco estão atualmente em pré-visualização:
 
-| **SSD Standard gerido <br>tipo de disco** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
-|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| Tamanho do Disco        | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
+| **SSD Standard gerido <br>tipo de disco** | **E4** | **E6** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Tamanho do Disco        | 32 GiB | 64 GiB | 128 GiB | 256 GiB | 512 GiB | 1.024 GiB (1 TiB) | 2.048 GiB (2 TiB) | 4.095 GiB (4 TiB) | 8.192 GiB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
 
 Aqui estão que os tamanhos de disco disponíveis para um padrão HDD de disco gerido, tamanhos marcados com um asterisco estão atualmente em pré-visualização:
 
