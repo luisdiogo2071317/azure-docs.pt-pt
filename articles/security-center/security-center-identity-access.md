@@ -4,7 +4,7 @@ description: Saiba como utilizar a capacidade de identidade e acesso no Centro d
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012076"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105557"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorizar a identidade e acesso no Centro de segurança do Azure (pré-visualização)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.

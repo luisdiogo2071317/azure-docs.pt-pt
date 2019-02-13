@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.openlocfilehash: db34ee2d99c5bd51aba4da49546eb2a5f691be4f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: da1c4d546c3fbc9ced06f3016536af98b9dadf8f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005408"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166611"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: Integração do Active Directory do Azure com o representante
 

@@ -17,12 +17,13 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4c9e3c689a7b61e10d63272dd80815b11cacc71e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ed27830aa1f4212e4bc26af8da4febc1b61a76cc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075430"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175111"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>Ligar de protocolos - OAuth 2.0 e OpenID v2.0
 
@@ -62,7 +63,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Onde o `{tenant}` pode efetuar uma das quatro valores diferente:
 
-| Valor | Descrição |
+| Value | Descrição |
 | --- | --- |
 | `common` | Permite aos utilizadores com contas Microsoft pessoais e contas escolares/do Azure AD para iniciar sessão na aplicação. |
 | `organizations` | Permite que apenas os utilizadores com contas escolares/do Azure AD para iniciar sessão na aplicação. |

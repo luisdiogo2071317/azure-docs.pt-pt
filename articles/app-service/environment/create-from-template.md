@@ -14,23 +14,26 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277476"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109899"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE com um modelo Azure Resource Manager
 
 ## <a name="overview"></a>Descrição geral
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Ambientes de serviço de aplicações (ASEs) do Azure podem ser criados com um ponto final acessível pela internet ou de um ponto final num endereço interno numa rede virtual do Azure (VNet). Quando é criado com um ponto final interno, o ponto de extremidade é fornecida por um Azure componente chamado de um balanceador de carga interno (ILB). O ASE num endereço IP interno é chamado de um ASE de ILB. O ASE com um ponto final público é chamado ASE externo. 
 
 Um ASE pode ser criado utilizando o portal do Azure ou um modelo Azure Resource Manager. Este artigo explica os passos e a sintaxe que tem de criar um ASE externo ou o ASE de ILB com modelos do Resource Manager. Para saber como criar um ASE no portal do Azure, veja [tornar um ASE externo] [ MakeExternalASE] ou [tornar um ASE de ILB][MakeILBASE].
 
 Ao criar um ASE no portal do Azure, pode criar a sua VNet ao mesmo tempo ou escolha uma VNet preexistente para implementar numa. Quando criar um ASE a partir de um modelo, tem de começar com: 
 
-* Uma VNet do Resource Manager.
+* A Resource Manager VNet.
 * Uma sub-rede nessa vnet. Recomendamos um tamanho de sub-rede do ASE de `/24` com 256 endereços para acomodar o crescimento futuro e as necessidades de dimensionamento. Após a criação do ASE, não é possível alterar o tamanho.
 * O ID de recurso da sua VNet. Pode obter estas informações no portal do Azure nas suas propriedades de rede virtual.
 * A subscrição que pretende implementar.
@@ -60,7 +63,7 @@ Depois do *azuredeploy* ficheiro é preenchido, criar o ASE com o trecho de cód
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Demora cerca de uma hora para o ASE a ser criada. Em seguida, o ASE aparece no portal na lista dos ASEs para a subscrição que disparou a implementação.
@@ -146,7 +149,7 @@ Depois do *azuredeploy* ficheiro é preenchido, configure o certificado SSL pred
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 Demora cerca de 40 minutos por front-end de ASE para aplicar a alteração. Por exemplo, para um ASE de tamanho padrão que utiliza dois front-ends, o modelo demora aproximadamente uma hora e 20 minutos a concluir. Enquanto o modelo está em execução, não é possível dimensionar o ASE.  

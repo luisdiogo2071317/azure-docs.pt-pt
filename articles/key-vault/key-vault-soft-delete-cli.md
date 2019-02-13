@@ -2,17 +2,17 @@
 title: O Azure Key Vault - como utilizar a eliminação de forma recuperável com a CLI
 description: Utilize os exemplos de casos de eliminação de forma recuperável com o CLI recortes de código
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663949"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116728"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como utilizar a eliminação de forma recuperável do Key Vault com a CLI
 
@@ -226,5 +226,5 @@ A listagem de objetos de Cofre de chaves eliminado também mostra quando eles es
 ## <a name="other-resources"></a>Outros recursos
 
 - Para uma descrição geral da funcionalidade de eliminação de forma recuperável do Key Vault, consulte [descrição geral da eliminação de forma recuperável do Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Para obter uma visão geral da utilização do Azure Key Vault, consulte [introdução ao Azure Key Vault](key-vault-get-started.md).
+- Para obter uma visão geral da utilização do Azure Key Vault, consulte [o que é o Azure Key Vault?](key-vault-overview.md).
 

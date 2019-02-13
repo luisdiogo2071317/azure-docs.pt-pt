@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5b17cf1bfae884e1fbdf47dabd78a1c6c3e1c7a0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 57f7d72be86a05b9785f7714380363d9c6ddb5c6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151605"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205703"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Resolver problemas de conectividade com o Azure AD Connect
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD e como resolver problemas de conectividade. Estes problemas são mais probabilidades de ser vistos num ambiente com um servidor proxy.

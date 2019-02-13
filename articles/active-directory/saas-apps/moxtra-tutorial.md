@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e0674c0bd3e5244b76d35e05057aee3b75249703
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0f613c7768b92ce97dcc16a757a066dd5796879b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197114"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180604"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Tutorial: Integração do Active Directory do Azure com Moxtra
 
@@ -120,7 +121,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
 1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
     
-    | Nome de atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
     | FirstName | user.givenname |
     | Apelido | user.surname |

@@ -4,7 +4,7 @@ description: Utilize este procedimentos para ajudá-lo mãos à obra com monitor
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 10e60076fe527e6e773e966ccdae52a7fe99c4b2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997212"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106125"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com auditoria e rotação de chaves
 
@@ -38,7 +38,7 @@ Este artigo explica o tempo limite:
 - Ele demonstra como monitorizar os registos de auditoria do Cofre de chaves e emitir alertas quando são feitos inesperados de pedidos.
 
 > [!NOTE]
-> Este tutorial destina-se não a explicar em detalhes a configuração inicial do seu Cofre de chaves. Para obter estas informações, consulte o artigo [Introdução ao Cofre de Chaves do Azure](key-vault-get-started.md). Para obter instruções de Interface de linha de comandos para várias plataformas, consulte [gerir Key Vault com a CLI](key-vault-manage-with-cli2.md).
+> Este tutorial destina-se não a explicar em detalhes a configuração inicial do seu Cofre de chaves. Para obter estas informações, consulte [o que é o Azure Key Vault?](key-vault-overview.md). Para obter instruções de Interface de linha de comandos para várias plataformas, consulte [gerir Key Vault com a CLI](key-vault-manage-with-cli2.md).
 >
 >
 

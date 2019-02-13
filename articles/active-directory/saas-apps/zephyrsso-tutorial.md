@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com ZephyrSSO | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com ZephyrSSO | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e ZephyrSSO.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 47bbdc1c50f0d96f1f26d5595a9e54814fa85188
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307798"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209530"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: Integração do Azure Active Directory com ZephyrSSO
+# <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: Integração do Active Directory do Azure com ZephyrSSO
 
 Neste tutorial, saiba como integrar ZephyrSSO com o Azure Active Directory (Azure AD).
 
@@ -160,7 +161,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
   
 ### <a name="create-a-zephyrsso-test-user"></a>Criar um utilizador de teste ZephyrSSO
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no ZephyrSSO. Trabalhar com [equipa de suporte de ZephyrSSO](https://support.getzephyr.com) para adicionar os utilizadores na plataforma ZephyrSSO. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no ZephyrSSO. Trabalhar com [equipa de suporte de ZephyrSSO](https://support.getzephyr.com) para adicionar os utilizadores na plataforma ZephyrSSO. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

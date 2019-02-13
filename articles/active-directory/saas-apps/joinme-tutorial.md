@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com join.me | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com join.me | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e join.me.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: dc393b8701bd72ea7f9de543de33116ea3cb5653
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f61520994bdeeab75b6d26731dee9af15b4ccda6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871741"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209545"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: Integração do Azure Active Directory com join.me
+# <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: Integração do Active Directory do Azure com join.me
 
 Neste tutorial, saiba como integrar join.me com o Azure Active Directory (Azure AD).
 
@@ -148,7 +149,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
   
 ### <a name="create-a-joinme-test-user"></a>Criar um utilizador de teste join.me
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no join.me. Trabalhar com [equipa de suporte de join.me](https://help.join.me/s/?language) para adicionar os utilizadores na plataforma join.me. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no join.me. Trabalhar com [equipa de suporte de join.me](https://help.join.me/s/?language) para adicionar os utilizadores na plataforma join.me. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

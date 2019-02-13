@@ -4,7 +4,7 @@ description: " Saiba como para carregar para o Azure Security Center Standard fo
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ea94e79fdcc331554f42e2396d954af7cb979d8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9d95503e4b17124d1d027a90a21869ef65831654
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850079"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114421"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
 Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuita. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
@@ -57,7 +57,7 @@ Para atualizar uma subscrição ou a área de trabalho padrão:
    >
    >
 
-## <a name="onboard-non-azure-computers"></a>Integrar computadores não Azure
+## <a name="onboard-non-azure-computers"></a>Inclusão de computadores não pertencentes ao Azure
 O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. Pode adicionar computadores não pertencentes ao Azure a partir da **introdução ao** painel ou a partir do **computação** painel. Vamos explicar através de ambos os métodos.
 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Adicionar novos computadores não pertencentes ao Azure a partir de **introdução**

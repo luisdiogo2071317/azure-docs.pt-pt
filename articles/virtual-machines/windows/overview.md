@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2b442137f8e7ca8e5b01a03da81af6259ac8e03e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 37bb0dcc2b9848d3fd3d49c78b52adbcd2dcc046
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984754"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106409"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Descrição Geral das Máquinas Virtuais do Windows no Azure
 
@@ -62,7 +62,7 @@ Esta tabela apresenta algumas das formas de obter uma lista de localizações di
 | --- | --- |
 | Portal do Azure |Selecione uma localização da lista ao criar uma VM. |
 | Azure PowerShell |Utilize o [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) comando. |
-| API REST |Utilize a operação [Listar localizações](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
+| API REST |Utilize a operação [Listar localizações](https://docs.microsoft.com/rest/api/resources/subscriptions). |
 | CLI do Azure |Utilize a operação [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ### <a name="vm-size"></a>Tamanho da VM

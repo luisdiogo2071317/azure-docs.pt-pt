@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 6c495bc496202bccfc47633527fbd84a200be059
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4543352fc87216458aa247f5eea0c8ff5980d0e8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080383"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209341"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedimento: Configurar a repetição de escrita de palavra-passe
 
@@ -36,7 +37,7 @@ Para tarefas de resolução de problemas comuns relacionados com a repetição d
 > [!WARNING]
 > Repetição de escrita de palavra-passe deixarão de funcionar para os clientes que estão a utilizar o Azure AD Connect versões 1.0.8641.0 e mais antigo quando o [o serviço de controlo de acesso do Azure (ACS) é descontinuado a 7 de Novembro de 2018](../develop/active-directory-acs-migration.md). O Azure AD Connect versões 1.0.8641.0 e mais antigos deixará de permitir repetição de escrita de palavra-passe neste momento porque dependem de ACS para obter essa funcionalidade.
 >
-> Para evitar uma interrupção do serviço, a atualização de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [do Azure AD Connect: Atualizar de uma versão anterior para a versão mais recente](../hybrid/how-to-upgrade-previous-version.md)
+> Para evitar uma interrupção do serviço, a atualização de uma versão anterior do Azure AD Connect para uma versão mais recente, consulte o artigo [do Azure AD Connect: Atualizar de uma versão anterior para a mais recente](../hybrid/how-to-upgrade-previous-version.md)
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavra-passe
