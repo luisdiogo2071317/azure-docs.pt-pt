@@ -11,6 +11,7 @@
 ## [Migrar o SQL Server para a BD SQL do Azure online](tutorial-sql-server-azure-sql-online.md)
 ## [Migrar o SQL Server para a Instância Gerida de BD SQL do Azure](tutorial-sql-server-to-managed-instance.md)
 ## [Migrar o SQL Server para a Instância Gerida de BD SQL do Azure online](tutorial-sql-server-managed-instance-online.md)
+## [Migrar o SQL Server RDS para a BD SQL do Azure ou para a Instância Gerida de BD SQL do Azure online](tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md)
 ## [Migrar o MySQL para a BD do Azure para MySQL online](tutorial-mysql-azure-mysql-online.md)
 ## [Migrar o PostgreSQL para o Azure DB para o PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 ## [Migrar a API Mongo do MongoDB para o Azure Cosmos DB offline](tutorial-mongodb-cosmos-db.md)
