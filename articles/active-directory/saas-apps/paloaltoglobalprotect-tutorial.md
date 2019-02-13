@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: fb153317d90cf94781c5bb64dc8d5ce65021adcf
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9d2fd0d7dd7f42f98f73b8d6648907d65772336
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54822880"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Tutorial: Integração do Active Directory do Azure com o da Palo Alto Networks - GlobalProtect
 
@@ -118,7 +119,7 @@ Para configurar o Azure AD início de sessão único da Palo Alto Networks - Glo
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ------|--------- |
     | o nome de utilizador  | user.userprincipalname  |
     | | |

@@ -1,6 +1,6 @@
 ---
-title: Mover dados de armazenamento de Blobs com o AzCopy - Team Data Science Process
-description: Mover dados de e para o Armazenamento de Blobs do Azure com AzCopy
+title: Copiar dados de armazenamento de Blobs com o AzCopy - Team Data Science Process
+description: Copiar dados de e para armazenamento de Blobs do Azure com o AzCopy
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3165aad326ad476eb5064f0b99acd8c3f5a036d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6c0951eb6ad3b7651da97e1a49c5edf5ab55a199
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474705"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209579"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Mover dados para e do armazenamento de Blobs do Azure com o AzCopy
+# <a name="copy-data-to-and-from-azure-blob-storage-using-azcopy"></a>Copiar dados de e para armazenamento de Blobs do Azure com o AzCopy
 O AzCopy é um utilitário de linha de comandos concebido para carregar, transferir e copiar dados de e para o blob, ficheiro e armazenamento de tabelas do Microsoft Azure.
 
 Para obter instruções sobre como instalar o AzCopy e informações adicionais sobre a utilização-lo com a plataforma do Azure, consulte [de introdução com o utilitário de linha de comandos do AzCopy](../../storage/common/storage-use-azcopy.md).
@@ -65,10 +65,10 @@ Para transferir um ficheiro de um blob do Azure, utilize o seguinte comando:
     AzCopy /Source:https://<your_account_name>.blob.core.windows.net/<your_container_name>/<your_sub_directory_at_blob>  /Dest:<your_local_directory> /SourceKey:<your_account_key> /Pattern:<file_pattern> /S
 
 
-## <a name="transfer-blobs-between-azure-containers"></a>Transferir blobs entre contentores do Azure
-Para transferir blobs entre contentores do Azure, utilize o seguinte comando:
+## <a name="copy-blobs-between-azure-containers"></a>Copiar blobs entre contentores do Azure
+Para copiar blobs entre contentores do Azure, utilize o seguinte comando:
 
-    # Transferring blobs between Azure containers
+    # Copying blobs between Azure containers
     AzCopy /Source:https://<your_account_name1>.blob.core.windows.net/<your_container_name1>/<your_sub_directory_at_blob1> /Dest:https://<your_account_name2>.blob.core.windows.net/<your_container_name2>/<your_sub_directory_at_blob2> /SourceKey:<your_account_key1> /DestKey:<your_account_key2> /Pattern:<file_pattern> /S
 
     <your_account_name>: your storage account name
@@ -76,7 +76,7 @@ Para transferir blobs entre contentores do Azure, utilize o seguinte comando:
     <your_container_name>: your container name
     <your_sub_directory_at_blob>: the sub directory in the container
     <your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
-    <file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
+    <file_pattern>: pattern of file names to be copied. The standard wildcards are supported
 
 
 ## <a name="tips-for-using-azcopy"></a>Dicas para usar o AzCopy

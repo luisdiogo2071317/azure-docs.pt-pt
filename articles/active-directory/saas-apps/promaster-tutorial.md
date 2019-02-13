@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com ProMaster (por Inlogik) | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com ProMaster (por Inlogik) | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e ProMaster (por Inlogik).
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 218f0c8a49d99c611219a43cc4b51214e4087012
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017659"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205244"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Tutorial: Integração do Azure Active Directory com ProMaster (por Inlogik)
+# <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Tutorial: Integração do Active Directory do Azure com ProMaster (por Inlogik)
 
 Neste tutorial, saiba como integrar ProMaster (por Inlogik) com o Azure Active Directory (Azure AD).
 

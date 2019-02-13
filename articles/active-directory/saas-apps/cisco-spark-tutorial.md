@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e5ed2abca6c9a8bab6ee0df7a8aa05e40b48de5e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 87161c79bc58387d97863581675bb49f1e09160f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810810"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Tutorial: Integração do Active Directory do Azure com o Cisco Spark
 
@@ -117,7 +118,7 @@ Para configurar o Azure AD início de sessão único com o Cisco Spark, execute 
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 

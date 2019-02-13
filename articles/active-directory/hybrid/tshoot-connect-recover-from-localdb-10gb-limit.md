@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08e1beb199287db1d030d5ad9357cbd20f1eb859
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5e0942f028752b1e3db89802ee889eac7157815d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168648"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205618"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como recuperar a partir do limite de 10 GB de LocalDB
 O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Pode utilizar a predefinição da LocalDB do SQL Server 2012 Express instalada com o Azure AD Connect ou utilizar o seu SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao utilizar a LocalDB e este limite ser atingido, o Serviço de Sincronização do Azure AD Connect já não pode iniciar ou sincronizar corretamente. Este artigo fornece os passos de recuperação.
@@ -100,7 +101,7 @@ Este passo é reduzir a probabilidade de em execução para o problema de limite
 ## <a name="long-term-solution--migrate-to-full-sql"></a>Solução a longo prazo – migrar para o SQL completo
 Em geral, o problema é indicativo-se de que o tamanho da base de dados de 10 GB já não é suficiente para o Azure AD Connect sincronizar o diretório de Active Directory no local para o Azure AD. Recomenda-se que mude para utilizar a versão completa do SQL server. Não é possível substituir diretamente a LocalDB de uma implementação existente do Azure AD Connect pela base de dados da versão completa do SQL. Em vez disso, tem de implementar um novo servidor do Azure AD Connect com a versão completa do SQL. É recomendado que efetue uma migração rotativa, em que o novo servidor do Azure AD Connect (com a base de dados do SQL) seja implementado como um servidor de teste, ao lado do servidor do Azure AD Connect existente (com a LocalDB). 
 * Para obter instruções sobre como configurar o SQL remoto com o Azure AD Connect, consulte o artigo [Instalação personalizada do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* Para obter instruções sobre a migração rotativa de atualização do Azure AD Connect, consulte o artigo [do Azure AD Connect: Atualizar de uma versão anterior para a versão mais recente](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+* Para obter instruções sobre mudar a migração para a atualização do Azure AD Connect, veja o artigo [Azure AD Connect: Upgrade from a previous version to the latest](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration) (Sincronização do Azure AD Connect: Atualizar de uma versão anterior para a mais recente).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

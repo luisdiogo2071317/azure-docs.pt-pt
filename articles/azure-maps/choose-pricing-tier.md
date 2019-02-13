@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 366637274a8006455f05702f47c02f505a615820
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 56f9226f1bee630895725eb0b3806e294e9a5b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063238"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56218147"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolher o melhor de escalão de preço no Azure Maps
 
@@ -34,15 +34,14 @@ Os escalões de preços S0 e S1 lidar com diferentes quantidades de débito de d
 | Composição                                  |        ✓           |     ✓    |
 | Trânsito                                 |        ✓           |     ✓    |
 | Fusos horários                              |        ✓           |     ✓    |
-| * Imagens mais imagens de híbrida (pré-visualização)  |        ✓           |     ✓    |
-| * Intervalo de rota (pré-visualização)                  |        ✓           |     ✓    |
-| * Localização do IP 2 (pré-visualização)                |        ✓           |     ✓    |
-| * Os polígonos da pesquisa (pré-visualização)         |        ✓           |     ✓    |
-| * A geocodificação de batch (pré-visualização)              |        ✓           |     ✓    |
-| * (Pré-visualização) encaminhamento do batch                |        ✓           |     ✓    |
-| * Roteamento de matriz (pré-visualização)               |        ✓           |     ✓    |
+| Imagens e imagens híbridas    |            |     ✓    |
+| Intervalo de rota                    |                   |     ✓    |
+| Localização do IP 2 (pré-visualização)                |        ✓           |     ✓    |
+| Polígonos da pesquisa          |                   |     ✓    |
+| Geocodificação de batch (pré-visualização)              |                   |     ✓    |
+| Encaminhamento (pré-visualização) do batch                |                   |     ✓    |
+| Roteamento de matriz (pré-visualização)               |                   |     ✓    |
 
-\* Acesso a estas capacidades do S0 escalão de preço será preterido após 4 de Fevereiro de 2019.
 
 Esses pontos de dados adicionais são a pena considerar:
 * Que tipo de enterprise tem?

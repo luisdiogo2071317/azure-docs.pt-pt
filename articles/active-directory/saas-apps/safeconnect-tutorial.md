@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com SafeConnect | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com SafeConnect | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e SafeConnect.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: f011b9ef7229ba1e588e488be8b4fc5b098ee5ac
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40025090"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183807"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Tutorial: Integração do Azure Active Directory com SafeConnect
+# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Tutorial: Integração do Active Directory do Azure com SafeConnect
 
 Neste tutorial, saiba como integrar SafeConnect com o Azure Active Directory (Azure AD).
 
@@ -59,7 +60,7 @@ Para configurar a integração do SafeConnect com o Azure AD, terá de adicionar
 
 **Para adicionar SafeConnect a partir da galeria, execute os seguintes passos:**
 
-1. Na ** [portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -83,11 +84,11 @@ Para o início de sessão único funcione, o Azure AD precisa saber qual é o ut
 
 Para configurar e testar o Azure AD início de sessão único com SafeConnect, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on) ** - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) ** - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste SafeConnect](#create-a-safeconnect-test-user) ** - para ter um equivalente da Eduarda Almeida na SafeConnect que está ligado à representação de utilizador do Azure AD.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) ** - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on) ** - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste SafeConnect](#create-a-safeconnect-test-user)**  - para ter um equivalente da Eduarda Almeida na SafeConnect que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -153,7 +154,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-safeconnect-test-user"></a>Criar um utilizador de teste SafeConnect
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no SafeConnect. Trabalhar com [equipa de suporte de SafeConnect](mailto:support@impulse.com) para adicionar os utilizadores na plataforma SafeConnect. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no SafeConnect. Trabalhar com [equipa de suporte de SafeConnect](mailto:support@impulse.com) para adicionar os utilizadores na plataforma SafeConnect. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -185,7 +186,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
