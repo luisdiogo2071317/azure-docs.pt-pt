@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 3275fb0e40e7cdd6f02ec96fb949ec4e4e673f26
-ms.sourcegitcommit: 902aae1b5f872993185cbf1e35a4f7bb93748226
-ms.translationtype: HT
+ms.openlocfilehash: 01c879618ed96d193821b476cdd4772da9cf539b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35656322"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118756"
 ---
 Crie uma [aplicação Web](../articles/app-service/containers/app-service-linux-intro.md) no plano do Serviço de Aplicações `myAppServicePlan`. 
 
-Na Cloud Shell, pode utilizar o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). No exemplo a seguir, substitua `<app_name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). 
+Na Cloud Shell, pode utilizar o comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). No exemplo a seguir, substitua `<app_name>` com um nome de aplicação globalmente exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-local-git

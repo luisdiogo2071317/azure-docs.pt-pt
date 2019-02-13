@@ -3,7 +3,7 @@ title: Como administrar o Azure Cache de Redis | Documentos da Microsoft
 description: Saiba como efetuar tarefas de administração, tais como o reinício e agendar atualizações para a Cache do Azure para Redis
 services: azure-cache-for-redis
 documentationcenter: na
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: tysonn
 ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: wesmc
-ms.openlocfilehash: 72e27b7098d9891dc54b31c34e2211362e7c9f50
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.author: yegu
+ms.openlocfilehash: 92a28beeae14b253c84c56e497be242d9c60de17
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099977"
+ms.locfileid: "56112075"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o Azure Cache de Redis
 Este tópico descreve como executar tarefas de administração, tal como [reinicialização](#reboot) e [agendar atualizações](#schedule-updates) para a sua Cache do Azure para instâncias de Redis.

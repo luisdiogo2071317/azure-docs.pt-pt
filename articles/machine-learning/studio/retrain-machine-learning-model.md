@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: e691913daabb832b2a3b51dac5d4a5b0e1f53871
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509580"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165083"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Voltar a preparar um modelo do Azure Machine Learning Studio
 Como parte do processo de operacionalização de modelos de machine learning no Azure Machine Learning, o seu modelo é preparado e guardado. , Em seguida, utilizá-lo para criar um serviço Web preditivo. O serviço Web, em seguida, pode ser consumido em web sites, dashboards e aplicações móveis. 
@@ -63,8 +63,6 @@ Se tiver implementado um serviço Web clássico:
 * Criar um novo ponto final do serviço Web preditivo
 * Obter o URL de PATCHES e o código
 * Utilize o URL de PATCHES para apontar o novo ponto final para o modelo retrained 
-
-Para obter instruções sobre anterior os passos, consulte [reenviar um serviço Web clássico](retrain-a-classic-web-service.md).
 
 Caso se depare com dificuldades reparametrização um serviço Web clássico, veja [resolução de problemas relativos a novas preparações de um serviço Web clássico do Azure Machine Learning](troubleshooting-retraining-models.md).
 

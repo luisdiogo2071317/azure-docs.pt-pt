@@ -4,7 +4,7 @@ description: Este artigo ajuda-o a começar a proteger os seus serviços de apli
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: bf3ceb0d5f12783957e127b3596ab07b7531ad5a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f90ad2707e42c4b5b2c4188d7f0f18bb9c5ea31b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491948"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105031"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteger o serviço de aplicações com o Centro de segurança do Azure
 Este artigo ajuda-o a utilizar o Centro de segurança do Azure para monitorizar e proteger as suas aplicações em execução com base no serviço de aplicações.

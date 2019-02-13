@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 6c45c7d70a1a091440d33ba76aa430c9a9252144
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b9a546cf4c822f63d9d07a1f23ec5f13285653af
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997996"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164130"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -157,7 +157,7 @@ Depois de ter um modelo de preparação, avalie o modelo utilizando os restantes
 * **sample**: Uma parte de um conjunto de dados que se destina a ser representativo da totalidade. Exemplos podem ser selecionados aleatoriamente ou com base nas funcionalidades específicas do conjunto de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Pode saber as noções básicas de análise preditiva e do Machine Learning utilizando um [tutorial passo a passo](create-experiment.md) e [tendo amostras](sample-experiments.md).
+Pode aprender as noções básicas de Análise Preditiva e machine learning utilizando um [guia de introdução passo a passo](create-experiment.md) e por [tendo amostras](sample-experiments.md).
 
 
 <!-- Module References -->

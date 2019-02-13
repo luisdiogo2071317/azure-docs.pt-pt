@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Figma | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Figma | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Figma.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeedes
-ms.openlocfilehash: b57fdb3f039a9395133854f8b4d4f2095e3a4f9b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3885f579e4543f25c409010c0aae970c26d2b9c4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095250"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183985"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: Integração do Azure Active Directory com Figma
+# <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: Integração do Active Directory do Azure com Figma
 
 Neste tutorial, saiba como integrar Figma com o Azure Active Directory (Azure AD).
 
@@ -135,7 +136,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 8. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | ---------------| --------- |
     | `externalId` | `user.mailnickname` |
     | `displayName` | `user.displayname` |

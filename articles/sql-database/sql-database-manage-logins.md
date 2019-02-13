@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 436dbccfe8d5b732bc64b58ff79dc772ac8b2bce
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964190"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164622"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlar e conceder acesso de base de dados para a base de dados SQL e SQL Data Warehouse
 
@@ -87,7 +87,7 @@ Para além das funções administrativas ao nível do servidor abordadas anterio
 Uma destas funções administrativas é a função **dbmanager**. Os membros desta função podem criar novas bases de dados. Para utilizar esta função, crie um utilizador na base de dados `master` e, em seguida, adicione o utilizador à função de base de dados **dbmanager**. Para criar uma base de dados, o utilizador tem de ser um utilizador baseado num início de sessão do SQL Server na base de dados mestra ou um utilizador de base de dados contida baseado num utilizador do Azure Active Directory.
 
 1. Ao utilizar uma conta de administrador, ligue à base de dados mestra.
-2. Passo opcional: Criar um início de sessão de autenticação do SQL Server, utilizando o [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instrução. Instrução de exemplo:
+2. Criar um início de sessão de autenticação do SQL Server, utilizando o [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instrução. Instrução de exemplo:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';

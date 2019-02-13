@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Kanbanize | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Kanbanize | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Kanbanize.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 746eaadcdb9a588087367c4c70237922cf0f14bf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 22c136225e5a8526afd482e5ef8400198947422f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059600"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199690"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Tutorial: Integração do Azure Active Directory com Kanbanize
+# <a name="tutorial-azure-active-directory-integration-with-kanbanize"></a>Tutorial: Integração do Active Directory do Azure com Kanbanize
 
 Neste tutorial, saiba como integrar Kanbanize com o Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Kanbanize, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Kanbanize logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Para configurar a integração do Kanbanize com o Azure AD, terá de adicionar K
 
 **Para adicionar Kanbanize a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -168,7 +169,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!Note]
     > Pode obter estes valores através da combinação de valores de espaço de nomes e o nome do respetivo atributo da secção de atributos de utilizador no portal do Azure.
 
-    g. No bloco de notas, abra o certificado com codificação base 64 que transferiu a partir do portal do Azure, copie o seu conteúdo (sem os marcadores de início e de fim) e, em seguida, cole-o para o **certificado X.509 de Idp** caixa.
+    g. No bloco de notas, abra o certificado com codificação base 64 que transferiu a partir do portal do Azure, copie o seu conteúdo (sem os marcadores de início e de fim) e, em seguida, cole-o para o **certificado X.509 de Idp** caixa.
 
     h. Verifique **ativar início de sessão com o SSO e Kanbanize**.
     
@@ -211,7 +212,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Kanbanize. Kanbanize suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Kanbanize se não existir ainda.
 
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente Kanbanize](mailto:support@ms.kanbanize.com).
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente Kanbanize](mailto:support@ms.kanbanize.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -243,7 +244,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -253,7 +254,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

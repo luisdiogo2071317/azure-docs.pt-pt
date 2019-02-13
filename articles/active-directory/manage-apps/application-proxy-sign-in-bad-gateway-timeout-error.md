@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 6ba1feb6655701ab7bfbaa485f7fd157f2f2e3da
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dc032a15a2938333cd25d05c271187f218f9be4d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959413"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206808"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 

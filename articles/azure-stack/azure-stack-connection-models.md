@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: d55cebf380c4ca5183e8ff15fd193e254b66c30b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246590"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182022"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Modelos de ligação de sistemas de integrados do Azure Stack
-Se estiver interessado num sistema integrado do Azure Stack, terá de compreender [várias considerações de integração de datacenter](azure-stack-datacenter-integration.md) para implementação do Azure Stack determinar como o sistema se ajustarem ao seu datacenter. Além disso, precisará decidir exatamente como irá integre o Azure Stack para seu ambiente de cloud híbrida. Este artigo fornece uma visão geral dessas decisões principais, incluindo a ligação do Azure, armazenamento de identidade e as decisões de modelo de faturação.
+Se estiver interessado em adquirir um sistema integrado do Azure Stack, terá de compreender [várias considerações de integração de datacenter](azure-stack-datacenter-integration.md) para implementação do Azure Stack determinar como o sistema se ajustarem ao seu datacenter. Além disso, terá de decidir como irá integrar o Azure Stack para seu ambiente de cloud híbrida. Este artigo fornece uma visão geral dessas decisões principais, incluindo a ligação do Azure, armazenamento de identidade e as decisões de modelo de faturação.
 
 Se optar por comprar um sistema integrado, o seu fornecedor de hardware do fabricante de equipamento original (OEM) ajuda a guia para que grande parte do processo de planejamento mais detalhadamente. Eles também irão executar a implantação real.
 

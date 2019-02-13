@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c24dfabcbbb94639e334e89f0b5e17888806b5f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0b2652676ad1187db4f58779fa0b891aa286fe01
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820854"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cbre-serviceinsight"></a>Tutorial: Integração do Active Directory do Azure com CBRE ServiceInsight
 
@@ -116,7 +117,7 @@ Para configurar o Azure AD início de sessão único com CBRE ServiceInsight, ex
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ------------ | --------- |
     | SSOCallerPhone | user.telephonenumber |
     | | |

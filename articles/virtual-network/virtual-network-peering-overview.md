@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169319"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175732"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -78,7 +78,7 @@ Também pode tentar o [resolução de problemas de problemas de peering de rede 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 
 As seguintes restrições aplicam-se quando as redes virtuais são colocadas no modo de peering global:
-- As redes virtuais podem existir em qualquer região de cloud pública do Azure, mas não em clouds nacionais do Azure.
+- As redes virtuais podem existir em qualquer região de cloud pública do Azure e regiões de cloud do Azure na China, mas não em clouds do Azure Government.
 - Os recursos numa rede virtual não conseguem comunicar com o endereço IP do front-end de um balanceador de carga interno do Azure na rede virtual em modo de peering global. O balanceador de carga e os recursos que comunicam com o mesmo têm de estar na mesma região.
 - Não pode utilizar gateways remotos ou permitir trânsito de gateway. Para utilizar gateways remotos ou permitir trânsito de gateway, as redes virtuais em modo de peering têm de estar na mesma região.
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 24bd6fe29e05f84d78316d0bb3e8ffc0d25157f3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cce0543ac47b1abc4a37ca06a0ff73f6ad90999e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828048"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de pessoal de Mimecast
 
@@ -106,7 +107,7 @@ Para configurar o Azure AD início de sessão único com o Portal de pessoal de 
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL: 
 
-    | Região  |  Valor | 
+    | Região  |  Value | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Estados Unidos   | `https://us-api.mimecast.com/login/saml`|
@@ -116,7 +117,7 @@ Para configurar o Azure AD início de sessão único com o Portal de pessoal de 
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
 
-    | Região  |  Valor | 
+    | Região  |  Value | 
     | --------------- | --------------- |
     | Europa          | `https://eu-api.mimecast.com/sso/<accountcode>`|
     | Estados Unidos   | `https://us-api.mimecast.com/sso/<accountcode>`|    
@@ -126,7 +127,7 @@ Para configurar o Azure AD início de sessão único com o Portal de pessoal de 
 
     c. Na **URL de resposta** caixa de texto, escreva um URL: 
 
-    | Região  |  Valor | 
+    | Região  |  Value | 
     | --------------- | --------------- | 
     | Europa          | `https://eu-api.mimecast.com/login/saml`|
     | Estados Unidos   | `https://us-api.mimecast.com/login/saml`|

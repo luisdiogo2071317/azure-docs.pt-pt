@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 668d69921fd2001cd52bc864e5ee272d179a7bbc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a7cd67a9a7027e8567e470acab006fd09748de54
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770474"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181716"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Razões possíveis para a mensagem de erro "não pode aceder aí a partir daqui"
 Ao aceder a aplicações web internas ou serviços da sua organização, poderá receber uma mensagem de erro que diz **não pode aceder aí a partir daqui**. Esta mensagem indica que sua organização colocou uma política que está a impedir o seu dispositivo de acesso a recursos da sua organização. Enquanto acabar, poderá ter de contactar o suporte técnico para corrigir este problema, aqui estão algumas coisas que pode tentar primeiro.

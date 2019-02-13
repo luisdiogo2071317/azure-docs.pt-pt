@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0b419343829e7e7bbbd31260b9cd0c8d93cd255d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fce3c2975e4b82583aa09a3862f704f05a363828
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847820"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210599"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -83,6 +83,9 @@ Tal como acontece com outros serviços no Azure, do Service Bus impõe um conjun
 Serviços de mensagens do Service Bus (filas e tópicos/subscrições) permitem que a aplicação para enviar mensagens de tamanho de até 256 KB (escalão standard) ou 1 MB (o escalão premium). Se estiver lidando com mensagens de tamanho superior a 1 MB, usar o padrão de verificação de afirmação descrito em [nesta mensagem de blogue](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que motivo não consigo criar um espaço de nomes depois excluí-lo a partir de outra subscrição? 
+Quando elimina um espaço de nomes de uma subscrição, aguarde até quatro horas antes de recriá-lo com o mesmo nome noutra subscrição. Caso contrário, poderá receber a seguinte mensagem de erro: `Namespace already exists`. 
+
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelo APIs de barramento de serviço do Azure e respetivas ações sugeridas?
 Para obter uma lista de possíveis exceções do Service Bus, consulte [descrição geral de exceções][Exceptions overview].
 

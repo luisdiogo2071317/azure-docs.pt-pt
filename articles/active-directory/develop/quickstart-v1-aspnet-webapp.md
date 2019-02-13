@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816276"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185321"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -229,7 +230,7 @@ Esta opção é um cenário comum para aplicações de linha de negócio.
 Se quiser que a aplicação aceite inícios de sessão apenas de contas que pertençam a uma instância específica do Azure AD (incluindo *contas de convidado* dessa instância), siga estes passos:
 
 1. Substitua o parâmetro `Tenant` em *web.config* de `Common` pelo nome de inquilino da organização – por exemplo, *contoso.onmicrosoft.com*.
-1. Altere o argumento `ValidateIssuer` na sua [*Classe de Arranque do OWIN*](#configure-the-authentication-pipeline) para `true`.
+1. Altere o argumento `ValidateIssuer` na sua [*Classe de Arranque do OWIN*](#step-4-configure-the-authentication-pipeline) para `true`.
 
 Para permitir utilizadores de apenas uma lista de organizações específicas, siga estes passos:
 

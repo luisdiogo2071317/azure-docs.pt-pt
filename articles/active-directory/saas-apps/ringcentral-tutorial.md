@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com RingCentral | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com RingCentral | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e RingCentral.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 35033e52fb54177428f8869ebcc462bd9465ad4c
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871774"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173305"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Tutorial: Integração do Azure Active Directory com RingCentral
+# <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Tutorial: Integração do Active Directory do Azure com RingCentral
 
 Neste tutorial, saiba como integrar RingCentral com o Azure Active Directory (Azure AD).
 
@@ -231,7 +232,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-ringcentral-test-user"></a>Criar um utilizador de teste RingCentral
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no RingCentral. Trabalhar com [equipa de suporte de cliente RingCentral](https://success.ringcentral.com/RCContactSupp) para adicionar os utilizadores na plataforma RingCentral. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no RingCentral. Trabalhar com [equipa de suporte de cliente RingCentral](https://success.ringcentral.com/RCContactSupp) para adicionar os utilizadores na plataforma RingCentral. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

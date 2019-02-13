@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 285f4f4aad18943399511cbcac711933f23f7cb2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9f5cf0e8be0529ce59edc9aa4cd33d470415c8a6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004800"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190964"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas e limitações em serviços de multimédia do Azure v3
 
@@ -37,7 +37,7 @@ Este artigo descreve as quotas e limitações em serviços de multimédia do Azu
 | Contas de serviços de multimédia numa única subscrição | 25 (fixo) |
 | Saídas em direto no estado parado por LiveEvent |3|
 | Contas de armazenamento | 100<sup>(4)</sup> (fixa) |
-| Pontos finais de transmissão em fluxo no estado parado por conta dos Media Services|2|
+| Pontos finais de transmissão em fluxo (parada ou em execução) por conta dos Media Services|2|
 | Políticas de Transmissão em Fluxo | 100 <sup>(3)</sup> |
 | Transformações por conta dos Media Services | 100 (fixa)|
 | Localizadores de transmissão em fluxo exclusivos associados um recurso de uma só vez | 100<sup>(5)</sup> (fixa) |

@@ -3,7 +3,7 @@ title: Início Rápido do Azure - Definir e obter um segredo do Key Vault com o 
 description: Início Rápido que mostra como definir e obter um segredo do Azure Key Vault com o portal do Azure
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078393"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117107"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início rápido: Definir e obter um segredo no Azure Key Vault com o portal do Azure
 
@@ -58,14 +58,14 @@ Nesta altura, a sua conta do Azure é a única autorizada a realizar as operaç�
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
 
-Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adicionais. Neste caso, vamos adicionar uma palavra-passe que possa ser utilizada por uma aplicação. A palavra-passe é denominada **ExamplePassword** e armazenamos o valor **Pa$$w0rd** na mesma.
+Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adicionais. Neste caso, vamos adicionar uma palavra-passe que possa ser utilizada por uma aplicação. A palavra-passe é denominada **ExamplePassword** e armazenamos o valor de **hVFkk965BuUv** nela.
 
 1. Na página de propriedades do Key Vault, selecione **Segredos**.
 2. Clique em **Gerar/Importar**.
 3. No ecrã **Criar um segredo**, selecione os seguintes valores:
     - **Opções de carregamento**: Manual.
     - **Nome**: ExamplePassword.
-    - **Valor**: Pa$$w0rd.
+    - **Value**: hVFkk965BuUv
     - Deixe as outras opções com os valores predefinidos. Clique em **Criar**.
 
 Depois de receber a mensagem de que o segredo foi criado com êxito, pode clicar no mesmo na lista. Em seguida, pode ver algumas das propriedades. Se clicar na versão atual, pode ver o valor que especificou no passo anterior.

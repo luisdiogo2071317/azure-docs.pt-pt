@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fbf94d0430685ea5791aaaa83669a730986e665c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770219"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111310"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Ver as operações de implementação Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Pode ver as operações de uma implementação através do portal do Azure. Pode estar mais interessado em visualizar as operações quando Recebi um erro durante a implementação para que este artigo se concentra na visualização de operações que falharam. O portal fornece uma interface que permite-lhe facilmente os erros e determinar possíveis correções.
 
@@ -68,13 +70,13 @@ Para ver as operações de implementação, utilize os seguintes passos:
   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-1. Para obter o ID de correlação, utilize:
+2. Para obter o ID de correlação, utilize:
 
   ```powershell
   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Cada implementação inclui várias operações. Cada operação representa uma etapa no processo de implantação. Para descobrir o que aconteceu de errado com uma implementação, terá, normalmente ver detalhes sobre as operações de implementação. Pode ver o estado das operações com **Get-AzResourceGroupDeploymentOperation**.
+3. Cada implementação inclui várias operações. Cada operação representa uma etapa no processo de implantação. Para descobrir o que aconteceu de errado com uma implementação, terá, normalmente ver detalhes sobre as operações de implementação. Pode ver o estado das operações com **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -92,7 +94,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-1. Para obter mais detalhes sobre as operações com falhas, recuperar as propriedades para as operações com **falhada** estado.
+4. Para obter mais detalhes sobre as operações com falhas, recuperar as propriedades para as operações com **falhada** estado.
 
   ```powershell
   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -115,7 +117,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
   ```
 
     Tenha em atenção o serviceRequestId e trackingId para a operação. O serviceRequestId pode ser útil ao trabalhar com o suporte técnico para resolver problemas de uma implementação. Irá utilizar o trackingId no próximo passo para se concentrar numa determinada operação.
-1. Para obter a mensagem de estado de uma determinada operação com falha, utilize o seguinte comando:
+5. Para obter a mensagem de estado de uma determinada operação com falha, utilize o seguinte comando:
 
   ```powershell
   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -128,7 +130,7 @@ Para ver as operações de implementação, utilize os seguintes passos:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-1. Cada operação de implementação no Azure inclui conteúdo de solicitação e resposta. O conteúdo do pedido é o que é enviado para o Azure, durante a implementação (por exemplo, criar uma VM, disco de SO e outros recursos). O conteúdo de resposta é o que Azure reenviadas a partir de seu pedido de implementação. Durante a implementação, pode utilizar **DeploymentDebugLogLevel** parâmetro para especificar que o pedido de e/ou resposta é mantida no registo. 
+6. Cada operação de implementação no Azure inclui conteúdo de solicitação e resposta. O conteúdo do pedido é o que é enviado para o Azure, durante a implementação (por exemplo, criar uma VM, disco de SO e outros recursos). O conteúdo de resposta é o que Azure reenviadas a partir de seu pedido de implementação. Durante a implementação, pode utilizar **DeploymentDebugLogLevel** parâmetro para especificar que o pedido de e/ou resposta é mantida no registo. 
 
   Obter essas informações do log e guarde-o localmente ao utilizar os seguintes comandos do PowerShell:
 
@@ -146,13 +148,13 @@ Para ver as operações de implementação, utilize os seguintes passos:
   az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-1. Um dos valores devolvidos é o **correlationId**. Este valor é utilizado para controlar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para resolver problemas de uma implementação.
+2. Um dos valores devolvidos é o **correlationId**. Este valor é utilizado para controlar eventos relacionados e pode ser útil ao trabalhar com o suporte técnico para resolver problemas de uma implementação.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-1. Para ver as operações de uma implementação, utilize:
+3. Para ver as operações de uma implementação, utilize:
 
   ```azurecli
   az group deployment operation list -g ExampleGroup -n ExampleDeployment

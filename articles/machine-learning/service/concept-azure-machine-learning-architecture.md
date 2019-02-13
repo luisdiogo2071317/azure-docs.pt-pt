@@ -11,16 +11,16 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6f558fd97dc13044d1ea4da63ff5879e6599f9e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 1b2934ceb402dab5e9cf98e7e0a53b1b438c66a8
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100720"
+ms.locfileid: "56111854"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: Conceitos e arquitetura
 
-Este artigo descreve a arquitetura e conceitos do serviço Azure Machine Learning. Os principais componentes do serviço e o fluxo de trabalho geral para utilizar o serviço são apresentados no diagrama seguinte: 
+Este artigo descreve a arquitetura e conceitos do serviço Azure Machine Learning. Os principais componentes do serviço e o fluxo de trabalho geral para utilizar o serviço são apresentados no diagrama seguinte:
 
 [![Arquitetura de serviço do Azure Machine Learning e o fluxo de trabalho](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
@@ -32,7 +32,7 @@ O fluxo de trabalho em geral, segue essa seqüência:
 1. **Consultar a experimentação** para as métricas registadas de execuções a atuais e anteriores. Se as métricas não indicam um resultado desejado, fazer um loop novamente para o passo 1 e iterar em seus scripts.
 1. Após encontra uma execução satisfatória, registe o modelo persistente na **registo de modelo**.
 1. Desenvolva um script de classificação.
-1. **Criar uma imagem** e registe-na **registo de imagem**. 
+1. **Criar uma imagem** e registe-na **registo de imagem**.
 1. **Implementar a imagem** como uma **serviço web** no Azure.
 
 
@@ -61,11 +61,17 @@ Quando cria uma nova área de trabalho, este cria automaticamente vários recurs
 * [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/): Os segredos de arquivos que são utilizados por computação destinos e outras informações confidenciais que é necessário pela área de trabalho.
 
 > [!NOTE]
-> Além de criar novas versões, também pode utilizar os serviços do Azure existentes. 
+> Além de criar novas versões, também pode utilizar os serviços do Azure existentes.
 
 Uma taxonomia da área de trabalho é ilustrada no diagrama seguinte:
 
 [![Taxonomia da área de trabalho](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+
+## <a name="experiment"></a>Experimentação
+
+Uma experimentação é um agrupamento de várias execuções de um script especificado. Sempre pertence a uma área de trabalho. Quando submete uma execução, fornece um nome de experimentação. Informações para a execução são armazenadas desse experimento. Se submeter uma execução e especifique um nome de experimentação que não existe, é automaticamente criada uma nova experimentação com esse nome recentemente especificado.
+
+Para obter um exemplo da utilização de uma experimentação, consulte [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
 
 ## <a name="model"></a>Modelo
 
@@ -79,7 +85,7 @@ Para obter um exemplo de preparar um modelo, consulte [início rápido: Criar um
 
 ### <a name="model-registry"></a>Registo de modelo
 
-O registo de modelo mantém um registo de todos os modelos na sua área de trabalho do serviço do Azure Machine Learning. 
+O registo de modelo mantém um registo de todos os modelos na sua área de trabalho do serviço do Azure Machine Learning.
 
 Modelos são identificados pelo nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro parte do princípio de que é uma nova versão. A versão é incrementada e o novo modelo está registado com o mesmo nome.
 
@@ -88,6 +94,83 @@ Quando registra o modelo, pode fornecer marcas de metadados adicionais e, em seg
 Não é possível eliminar modelos que estão a ser utilizados por uma imagem.
 
 Para obter um exemplo de um modelo de registo, consulte [preparar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+## <a name="run-configuration"></a>Configuração de execução
+
+Uma configuração de execução é um conjunto de instruções que define como executar um script num destino de computação especificado. A configuração inclui uma grande variedade de definições de comportamento, por exemplo, se utilizar um ambiente de Python existente ou utilizar um ambiente de Conda que é criado a partir de uma especificação.
+
+Uma configuração de execução pode ser mantida num arquivo dentro do diretório que contém o script de treinamento, ou pode ser construído como um objeto na memória e utilizado para submeter uma execução.
+
+Por exemplo, executar configurações, consulte [selecionar e utilizar um destino de computação para preparar o seu modelo](how-to-set-up-training-targets.md).
+
+## <a name="datastore"></a>Arquivo de dados
+
+Um arquivo de dados é uma abstração de armazenamento através de uma conta de armazenamento do Azure. O arquivo de dados pode utilizar um contentor de Blobs do Azure ou uma partilha de ficheiros do Azure, como o armazenamento de back-end. Cada área de trabalho tem um arquivo de dados padrão e pode registar os arquivos de dados adicionais.
+
+Utilize a API do SDK de Python ou a CLI do Azure Machine Learning para armazenar e recuperar ficheiros a partir do arquivo de dados.
+
+## <a name="compute-target"></a>Destino de computação
+
+Um destino de computação é o recurso de computação que utiliza para executar o script de treinamento ou a implementação do serviço de anfitrião. Os destinos de computação suportados são:
+
+| Destino de computação | Formação | Implementação |
+| ---- |:----:|:----:|
+| Seu computador local | ✓ | &nbsp; |
+| Computação do Machine Learning do Azure | ✓ | &nbsp; |
+| Uma VM do Linux no Azure</br>(por exemplo, a Máquina Virtual de ciência de dados) | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
+| Apache Spark para HDInsight | ✓ | &nbsp; |
+| Azure Container Instances | &nbsp; | ✓ |
+| Serviço Kubernetes do Azure | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Matriz de porta de campos programáveis) | &nbsp; | ✓ |
+
+Destinos de computação são anexados a uma área de trabalho. Destinos que não seja o computador local são partilhados por utilizadores da área de trabalho de computação.
+
+### <a name="managed-and-unmanaged-compute-targets"></a>Destinos de computação geridos e não geridos
+
+* **Gerido**: Computação destinos que são criados e geridos pelo serviço Azure Machine Learning. Estes computação destinos estão otimizados para cargas de trabalho do machine learning. Computação do Machine Learning do Azure é o único destino de computação gerida a partir de 4 de Dezembro de 2018. Destinos de computação geridos adicionais podem ser adicionados no futuro.
+
+    Pode criar machine learning instâncias diretamente através da área de trabalho de computação com o portal do Azure, o SDK do Azure Machine Learning ou a CLI do Azure. Todos os outros destinos de computação tem de ser criados fora da área de trabalho e, em seguida, ligados ao mesmo.
+
+* **Não gerido**: Destinos de computação que são *não* gerido pelo serviço Azure Machine Learning. Poderá ter de criá-los fora do Azure Machine Learning e, em seguida, anexe-os à área de trabalho antes do uso. Destinos de computação não gerenciado podem exigem passos adicionais para si para manter ou melhorar o desempenho para cargas de trabalho do machine learning.
+
+Para obter informações sobre como selecionar um destino de computação para a formação, consulte [selecionar e utilizar um destino de computação para preparar o seu modelo](how-to-set-up-training-targets.md).
+
+Para obter informações sobre como selecionar um destino de computação para a implementação, consulte a [implementar modelos com o serviço Azure Machine Learning](how-to-deploy-and-where.md).
+
+## <a name="training-script"></a>Script de treinamento
+
+Para preparar um modelo, especifique o diretório que contém o script de formação e os ficheiros associados. Também especificar um nome de experimentação, o que é utilizado para armazenar informações que são recolhidas durante o treinamento. Durante o treinamento, o diretório é copiado para o ambiente de treinamento (destino de computação) e o script que é especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado abaixo a experimentação na área de trabalho.
+
+Por exemplo, veja [criar uma área de trabalho com o Python](quickstart-get-started.md).
+
+## <a name="run"></a>Executar
+
+Uma execução é um registo que contém as seguintes informações:
+
+* Metadados sobre a execução (timestamp, a duração e assim por diante)
+* Métricas que são registadas pelo seu script
+* Ficheiros de saída que estão autocollected pela experimentação ou explicitamente carregados por si
+* Um instantâneo do diretório que contém os scripts, antes da execução
+
+Produzir uma execução ao submeter um script para preparar um modelo. Uma execução pode ter zero ou mais execuções de subordinados. Por exemplo, a execução de nível superior pode ter duas execuções de subordinados, cada um dos quais pode ter seu próprio filho em execução.
+
+Para obter um exemplo de execuções que são produzidas por preparar um modelo de exibição, consulte [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
+
+## <a name="snapshot"></a>Instantâneo
+
+Quando submete uma execução, o Azure Machine Learning compacta o diretório que contém o script como um ficheiro zip e envia-os para o destino de computação. O ficheiro zip, em seguida, é extraído e o script é executado lá. O Azure Machine Learning também armazena o ficheiro zip como um instantâneo como parte do registo de execução. Qualquer pessoa com acesso à área de trabalho pode procurar um registo de execução e transferir o instantâneo.
+
+## <a name="activity"></a>Atividade
+
+Uma atividade representa uma operação de longa execução. As seguintes operações são exemplos de atividades:
+
+* Criar ou eliminar um destino de computação
+* Executar um script num destino de computação
+
+Atividades podem fornecer notificações através do SDK ou a IU da web, de modo a que pode monitorizar facilmente o progresso de uma destas operações.
 
 ## <a name="image"></a>Imagem
 
@@ -110,7 +193,7 @@ O registo de imagem mantém um registo de imagens que são criadas a partir de s
 
 ## <a name="deployment"></a>Implementação
 
-Uma implementação é uma instanciação de sua imagem em qualquer um de um serviço da web que pode ser alojado na cloud ou um módulo de IoT para Implantações de dispositivos integrada. 
+Uma implementação é uma instanciação de sua imagem em qualquer um de um serviço da web que pode ser alojado na cloud ou um módulo de IoT para Implantações de dispositivos integrada.
 
 ### <a name="web-service"></a>Serviço Web
 
@@ -124,36 +207,11 @@ Para obter um exemplo de implementação de um modelo como um serviço web, cons
 
 ### <a name="iot-module"></a>Módulo de IoT
 
-Um módulo de IoT implementado é um contentor de Docker que inclui o seu modelo e script associado ou aplicação e dependências adicionais. Implementar esses módulos, utilizando o Azure IoT Edge em dispositivos periféricos. 
+Um módulo de IoT implementado é um contentor de Docker que inclui o seu modelo e script associado ou aplicação e dependências adicionais. Implementar esses módulos, utilizando o Azure IoT Edge em dispositivos periféricos.
 
 Se ativar a monitorização, o Azure recolhe dados de telemetria do modelo dentro do módulo do Azure IoT Edge. Os dados de telemetria estão acessíveis apenas para si e é armazenado na sua instância de conta de armazenamento.
 
 O Azure IoT Edge garante que seu módulo está a ser executado e que monitoriza o dispositivo que está hospedando.
-
-## <a name="datastore"></a>Arquivo de dados
-
-Um arquivo de dados é uma abstração de armazenamento através de uma conta de armazenamento do Azure. O arquivo de dados pode utilizar um contentor de Blobs do Azure ou uma partilha de ficheiros do Azure, como o armazenamento de back-end. Cada área de trabalho tem um arquivo de dados padrão e pode registar os arquivos de dados adicionais. 
-
-Utilize a API do SDK de Python ou a CLI do Azure Machine Learning para armazenar e recuperar ficheiros a partir do arquivo de dados. 
-
-## <a name="run"></a>Executar
-
-Uma execução é um registo que contém as seguintes informações:
-
-* Metadados sobre a execução (timestamp, a duração e assim por diante)
-* Métricas que são registadas pelo seu script
-* Ficheiros de saída que estão autocollected pela experimentação ou explicitamente carregados por si
-* Um instantâneo do diretório que contém os scripts, antes da execução
-
-Produzir uma execução ao submeter um script para preparar um modelo. Uma execução pode ter zero ou mais execuções de subordinados. Por exemplo, a execução de nível superior pode ter duas execuções de subordinados, cada um dos quais pode ter seu próprio filho em execução.
-
-Para obter um exemplo de execuções que são produzidas por preparar um modelo de exibição, consulte [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
-
-## <a name="experiment"></a>Experimentação
-
-Uma experimentação é um agrupamento de várias execuções de um script especificado. Sempre pertence a uma área de trabalho. Quando submete uma execução, fornece um nome de experimentação. Informações para a execução são armazenadas desse experimento. Se submeter uma execução e especifique um nome de experimentação que não existe, é automaticamente criada uma nova experimentação com esse nome recentemente especificado.
-
-Para obter um exemplo da utilização de uma experimentação, consulte [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -161,67 +219,9 @@ Utilizar o machine learning pipelines para criar e gerir fluxos de trabalho que 
 
 Para obter mais informações sobre o machine learning pipelines com este serviço, consulte [Pipelines e o Azure Machine Learning](concept-ml-pipelines.md).
 
-## <a name="compute-target"></a>Destino de computação
-
-Um destino de computação é o recurso de computação que utiliza para executar o script de treinamento ou a implementação do serviço de anfitrião. Os destinos de computação suportados são: 
-
-| Destino de computação | Formação | Implementação |
-| ---- |:----:|:----:|
-| Seu computador local | ✓ | &nbsp; |
-| Computação do Machine Learning do Azure | ✓ | &nbsp; |
-| Uma VM do Linux no Azure</br>(por exemplo, a Máquina Virtual de ciência de dados) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
-| Azure Data Lake Analytics | ✓ | &nbsp; |
-| Apache Spark para HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | &nbsp; | ✓ |
-| Serviço Kubernetes do Azure | &nbsp; | ✓ |
-| Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Matriz de porta de campos programáveis) | &nbsp; | ✓ |
-
-Destinos de computação são anexados a uma área de trabalho. Destinos que não seja o computador local são partilhados por utilizadores da área de trabalho de computação.
-
-### <a name="managed-and-unmanaged-compute-targets"></a>Destinos de computação geridos e não geridos
-
-* **Gerido**: Computação destinos que são criados e geridos pelo serviço Azure Machine Learning. Estes computação destinos estão otimizados para cargas de trabalho do machine learning. Computação do Machine Learning do Azure é o único destino de computação gerida a partir de 4 de Dezembro de 2018. Destinos de computação geridos adicionais podem ser adicionados no futuro. 
-
-    Pode criar machine learning instâncias diretamente através da área de trabalho de computação com o portal do Azure, o SDK do Azure Machine Learning ou a CLI do Azure. Todos os outros destinos de computação tem de ser criados fora da área de trabalho e, em seguida, ligados ao mesmo.
-
-* **Não gerido**: Destinos de computação que são *não* gerido pelo serviço Azure Machine Learning. Poderá ter de criá-los fora do Azure Machine Learning e, em seguida, anexe-os à área de trabalho antes do uso. Destinos de computação não gerenciado podem exigem passos adicionais para si para manter ou melhorar o desempenho para cargas de trabalho do machine learning.
-
-Para obter informações sobre como selecionar um destino de computação para a formação, consulte [selecionar e utilizar um destino de computação para preparar o seu modelo](how-to-set-up-training-targets.md).
-
-Para obter informações sobre como selecionar um destino de computação para a implementação, consulte a [implementar modelos com o serviço Azure Machine Learning](how-to-deploy-and-where.md).
-
-## <a name="run-configuration"></a>Configuração de execução
-
-Uma configuração de execução é um conjunto de instruções que define como executar um script num destino de computação especificado. A configuração inclui uma grande variedade de definições de comportamento, por exemplo, se utilizar um ambiente de Python existente ou utilizar um ambiente de Conda que é criado a partir de uma especificação.
-
-Uma configuração de execução pode ser mantida num arquivo dentro do diretório que contém o script de treinamento, ou pode ser construído como um objeto na memória e utilizado para submeter uma execução.
-
-Por exemplo, executar configurações, consulte [selecionar e utilizar um destino de computação para preparar o seu modelo](how-to-set-up-training-targets.md).
-
-## <a name="training-script"></a>Script de treinamento
-
-Para preparar um modelo, especifique o diretório que contém o script de formação e os ficheiros associados. Também especificar um nome de experimentação, o que é utilizado para armazenar informações que são recolhidas durante o treinamento. Durante o treinamento, o diretório é copiado para o ambiente de treinamento (destino de computação) e o script que é especificado pela configuração de execução é iniciado. Um instantâneo do diretório também é armazenado abaixo a experimentação na área de trabalho.
-
-Por exemplo, veja [criar uma área de trabalho com o Python](quickstart-get-started.md).
-
 ## <a name="logging"></a>Registo
 
-Quando desenvolver a sua solução, utilize o SDK de Python do Azure Machine Learning no seu script de Python para registar o métricas arbitrárias. Após a execução, consulte as métricas para determinar se a execução tiver produzido o modelo que pretende implementar. 
-
-## <a name="snapshot"></a>Instantâneo
-
-Quando submete uma execução, o Azure Machine Learning compacta o diretório que contém o script como um ficheiro zip e envia-os para o destino de computação. O ficheiro zip, em seguida, é extraído e o script é executado lá. O Azure Machine Learning também armazena o ficheiro zip como um instantâneo como parte do registo de execução. Qualquer pessoa com acesso à área de trabalho pode procurar um registo de execução e transferir o instantâneo.
-
-## <a name="activity"></a>Atividade
-
-Uma atividade representa uma operação de longa execução. As seguintes operações são exemplos de atividades:
-
-* Criar ou eliminar um destino de computação
-* Executar um script num destino de computação
-
-Atividades podem fornecer notificações através do SDK ou a IU da web, de modo a que pode monitorizar facilmente o progresso de uma destas operações.
+Quando desenvolver a sua solução, utilize o SDK de Python do Azure Machine Learning no seu script de Python para registar o métricas arbitrárias. Após a execução, consulte as métricas para determinar se a execução tiver produzido o modelo que pretende implementar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

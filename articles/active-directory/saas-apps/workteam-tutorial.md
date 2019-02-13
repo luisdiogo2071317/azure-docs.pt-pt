@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Workteam | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Workteam | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Workteam.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d6ca6395e4f5e1aca361c56e21afc4e6bd1fc0c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132987"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185779"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: Integração do Azure Active Directory com Workteam
+# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: Integração do Active Directory do Azure com Workteam
 
 Neste tutorial, saiba como integrar Workteam com o Azure Active Directory (Azure AD).
 
@@ -145,7 +146,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     c. Na **ID de entidade de SAML** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
 
-    d. No bloco de notas, abra a **certificado com codificação base 64** que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **certificado de assinatura de SAML (Base64)** caixa.
+    d. No bloco de notas, abra a **certificado com codificação base 64** que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **certificado de assinatura de SAML (Base64)** caixa.
 
     e. Clique em **OK**.
 

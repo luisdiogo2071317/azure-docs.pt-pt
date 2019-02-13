@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 9be16f7ce1fbe37eb823a33e4f8cf1b29acc4fd6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 049c2ad008bfeda0969087a8c08a08cd00f38d5e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810436"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integração do Active Directory do Azure com Boomi
 
@@ -117,7 +118,7 @@ Para configurar o Azure AD início de sessão único com Boomi, execute os segui
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 

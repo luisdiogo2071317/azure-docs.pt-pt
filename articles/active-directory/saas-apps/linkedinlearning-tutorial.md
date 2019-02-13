@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 0b742ec14dfb40d941fab68594d4bb45f6e37f55
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9328564b082ba3eb0cff94652271fcd64cf2630c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099280"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168772"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutorial: Integração do Active Directory do Azure com o LinkedIn Learning
 

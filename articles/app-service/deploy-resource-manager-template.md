@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 780d2134aa00f828a614af6938978e24df3534cd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015207"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105116"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Documentação de orientação sobre a implementação de aplicações web utilizando modelos Azure Resource Manager
 
@@ -113,12 +113,14 @@ O nome da sua aplicação web tem de ser globalmente exclusivo. Pode usar uma co
 
 ## <a name="deploy-web-app-certificate-from-key-vault"></a>Implementar o certificado de aplicação web do Key Vault
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Se o seu modelo inclui uma [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) recurso para o enlace SSL e o certificado é armazenado no Cofre de chaves, deve certificar-se de que a identidade de serviço de aplicações pode aceder ao certificado.
 
 No global Azure, o principal de serviço do serviço de aplicações tem o ID de **abfa0a7c-a6b6-4736-8310-5855508787cd**. Para conceder acesso ao Key Vault para o principal de serviço de serviço de aplicações, utilize:
 
 ```azurepowershell-interactive
-Set-AzureRmKeyVaultAccessPolicy `
+Set-AzKeyVaultAccessPolicy `
   -VaultName KEY_VAULT_NAME `
   -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
   -PermissionsToSecrets get `

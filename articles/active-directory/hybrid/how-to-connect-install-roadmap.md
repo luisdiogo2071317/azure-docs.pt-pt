@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fe128e37103fc913b97f8ac8b9f0395ad74c4198
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496982"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163058"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
 
@@ -76,12 +77,12 @@ A [atualização automática](how-to-connect-install-automatic-upgrade.md) está
 ### <a name="next-steps-to-configure-sync-features"></a>Passos seguintes para configurar as funcionalidades de sincronização
 |Tópico |Ligação|  
 | --- | --- |
-|Configurar a filtragem | [Sincronização do Azure AD Connect: Configurar a filtragem](how-to-connect-sync-configure-filtering.md)|
+|Configurar a filtragem | [Sincronização do Azure AD Connect: Configure filtering](how-to-connect-sync-configure-filtering.md) (Sincronização do Azure AD Connect: Configurar a Filtragem)|
 |Sincronização de hash de palavra-passe | [Sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md)|
 |Autenticação pass-through | [Autenticação pass-through](how-to-connect-pta.md)
 |Repetição de escrita de palavras-passe | [Introdução à gestão de palavras-passe](../authentication/quickstart-sspr.md)|
 |Repetição de escrita do dispositivo | [Ativar a repetição de escrita do dispositivo no Azure AD Connect](how-to-connect-device-writeback.md)|
-|Impedir eliminações acidentais | [Sincronização do Azure AD Connect: Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
+|Impedir eliminações acidentais | [Sincronização do Azure AD Connect: Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md) (Sincronização do Azure AD Connect: Impedir eliminações acidentais)|
 |Atualização automática | [Azure AD Connect: Atualização automática](how-to-connect-install-automatic-upgrade.md)|
 
 ## <a name="customize-azure-ad-connect-sync"></a>Personalizar a sincronização do Azure AD Connect
@@ -97,10 +98,10 @@ O modelo de configuração em sincronização é designado por [aprovisionamento
 |Tópico |Ligação|  
 | --- | --- |
 |Todos os artigos acerca da sincronização do Azure AD Connect | [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)|
-|Conceitos técnicos | [Sincronização do Azure AD Connect: Conceitos técnicos](how-to-connect-sync-technical-concepts.md)|
-|Entender a configuração predefinida | [Sincronização do Azure AD Connect: Entender a configuração predefinida](concept-azure-ad-connect-sync-default-configuration.md)|
+|Conceitos técnicos | [Sincronização do Azure AD Connect: Technical Concepts](how-to-connect-sync-technical-concepts.md) (Sincronização do Azure AD Connect: Conceitos Técnicos)|
+|Entender a configuração predefinida | [Sincronização do Azure AD Connect: Understanding the default configuration](concept-azure-ad-connect-sync-default-configuration.md) (Sincronização do Azure AD Connect: Compreender a configuração predefinida)|
 |Entender utilizadores e contactos | [Sincronização do Azure AD Connect: Entender utilizadores e contactos](concept-azure-ad-connect-sync-user-and-contacts.md)|
-|Aprovisionamento declarativo | [Sincronização do Azure AD Connect: Entender as expressões do aprovisionamento declarativas](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
+|Aprovisionamento declarativo | [Sincronização do Azure AD Connect: Understanding Declarative Provisioning Expressions](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) (Sincronização do Azure AD Connect: Compreender as Expressões do Aprovisionamento Declarativo)|
 |Alterar a configuração predefinida | [Melhores práticas para alterar a configuração predefinida](how-to-connect-sync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>Configurar as funcionalidades de federação

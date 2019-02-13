@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com ZenQMS | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com ZenQMS | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e ZenQMS.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 57a8c698133b2b5516a1f5d352f28148afe6f3d2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f9804dee56e9f099654359e7c336f706cedbd1f7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447401"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204870"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutorial: Integração do Azure Active Directory com ZenQMS
+# <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutorial: Integração do Active Directory do Azure com ZenQMS
 
 Neste tutorial, saiba como integrar ZenQMS com o Azure Active Directory (Azure AD).
 
@@ -172,7 +173,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="create-a-zenqms-test-user"></a>Criar um utilizador de teste ZenQMS
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no ZenQMS. Trabalhar com [equipa de suporte de ZenQMS](mailto:help@zenqms.com) para adicionar os utilizadores na plataforma ZenQMS. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no ZenQMS. Trabalhar com [equipa de suporte de ZenQMS](mailto:help@zenqms.com) para adicionar os utilizadores na plataforma ZenQMS. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

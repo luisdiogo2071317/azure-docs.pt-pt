@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Gra Pe | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Gra Pe | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Gra Pe.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 5e642cba3354f4f8589e44d975c0cecf5692c5b5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431650"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188533"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Azure Active Directory com o Gra Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Active Directory do Azure com o Gra Pe
 
 Neste tutorial, saiba como integrar Gra Pe com o Azure Active Directory (Azure AD).
 
@@ -156,7 +157,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-gra-pe-test-user"></a>Criar um utilizador de teste Gra Pe
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida Gra PE. Trabalhar com [equipa de suporte do Gra Pe](https://www.toppantravel.com/inquiry/) para adicionar os utilizadores na plataforma do Gra Pe. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida Gra PE. Trabalhar com [equipa de suporte do Gra Pe](https://www.toppantravel.com/inquiry/) para adicionar os utilizadores na plataforma do Gra Pe. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

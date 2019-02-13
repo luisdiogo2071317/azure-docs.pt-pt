@@ -10,12 +10,13 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d14b44a45d9001e945e559dcd080683220c6a0b7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b054dd8c78968ffb65b92ab7ee4fe1b21501b0d3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076405"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192528"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Que métodos de autenticação estão disponíveis?
 
@@ -58,4 +59,4 @@ Para começar a utilizar a reposição personalizada de palavra-passe, veja o ar
 
 Saiba mais sobre senhas de auto-atendimento Repor no artigo, [como ele funciona: Redefinição de senha de autoatendimento de AD do Azure](concept-sspr-howitworks.md)
 
-Saiba mais sobre o Azure multi-factor Authentication no artigo, [como ele funciona: Autenticação Multifator do Azure](concept-mfa-howitworks.md)
+Saiba mais sobre o Azure multi-factor Authentication no artigo, [como ele funciona: Azure Multi-Factor Authentication](concept-mfa-howitworks.md) (Como funciona: Multi-Factor Authentication do Azure)

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/09/2018
 ms.author: celested
 ms.reviwer: japere
-ms.openlocfilehash: 1256f9adbb88a9a1fd2d3e3d9b5f0a4abc40ceb1
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21ed169003caded8ef80689ceec61f6d2fc4305c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960841"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178996"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Uma aplicação atribuída não é apresentada no painel de acesso
 
@@ -203,13 +204,13 @@ Para transferir os metadados da aplicação ou o certificado do Azure AD, siga o
 
 Para configurar uma aplicação de externas à galeria, tem de ter o Azure AD premium e a aplicação suporta SAML 2.0. Para obter mais informações sobre as versões do AD do Azure, visite [preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
--   [Configurar valores de metadados da aplicação no Azure AD (URL de resposta de URL, identificador, início de sessão)](#configuring-single-sign-on)
+-   [Configurar valores de metadados da aplicação no Azure AD (URL de resposta de URL, identificador, início de sessão)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
 -   [Selecione o identificador de utilizador e adicionar atributos de utilizador sejam enviados para a aplicação](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Obter metadados do Azure AD e o certificado](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configurar valores de metadados do Azure AD no aplicativo (início de sessão no URL, o emissor, o URL de fim de sessão e o certificado)](#configuring-single-sign-on)
+-   [Configurar valores de metadados do Azure AD no aplicativo (início de sessão no URL, o emissor, o URL de fim de sessão e o certificado)](#configure-the-application-for-password-single-sign-on-1)
 
 #### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Configurar valores de metadados da aplicação no Azure AD (URL de resposta de URL, identificador, início de sessão)
 

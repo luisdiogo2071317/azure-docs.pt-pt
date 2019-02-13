@@ -12,12 +12,13 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 7753a70c379a7b2afce5e53f20513800c3293fd0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 807643146c4f2821cecf60499ea1985f56e9d251
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099384"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168600"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página da sua organização do Azure Active Directory início de sessão
 Utilize o logótipo e esquemas de cores personalizada da sua organização para fornecer uma consistente aspeto e funcionalidade em suas páginas de início de sessão no Azure Active Directory (Azure AD). As páginas de início de sessão são apresentadas quando os utilizadores iniciam sessão em aplicações de baseada na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.

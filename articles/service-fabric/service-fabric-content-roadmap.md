@@ -14,26 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 58db410fe5a6c2b081507eae2ccad3a258ec0864
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 226fea2df2b4a5d6dd428c1d28d8c09f47bca7de
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427595"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162293"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Portanto, quiser saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Service Fabric tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse do Service Fabric e descreve os principais conceitos, modelos, ciclo de vida do aplicativo, teste, clusters e monitorização de estado de funcionamento de programação. Leitura a [descrição geral](service-fabric-overview.md) e [o que são microsserviços?](service-fabric-overview-microservices.md) para uma introdução e como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista de conteúdo abrangente, mas associar à descrição geral e ao obter os artigos de introdução para todas as áreas do Service Fabric. 
 
 ## <a name="core-concepts"></a>Conceitos-chave
 [Terminologia do Service Fabric](service-fabric-technical-overview.md), [modelo de aplicativo](service-fabric-application-model.md), e [modelos de programação suportados](service-fabric-choose-framework.md) fornecer mais conceitos e as descrições, mas aqui estão os fundamentos básicos.
-
-<table><tr><th>Conceitos-chave</th><th>Tempo de design</th><th>Tempo de execução</th></tr>
-<tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
-<img src="./media/service-fabric-content-roadmap/CoreConceptsVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965"><img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td>
-<td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">
-<img src="./media/service-fabric-content-roadmap/RunTimeVid.png" WIDTH="240" HEIGHT="162"></a></td></tr>
-</table>
 
 ### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tempo de design: tipo de aplicação, o tipo de serviço, o pacote de aplicação e manifesto, o pacote de serviço e manifesto
 Um tipo de aplicação é o nome/versão atribuído a uma coleção de tipos de serviço. Isso é definido numa *Applicationmanifest* arquivo, que é incorporado num diretório do pacote de aplicação. O pacote de aplicação, em seguida, é copiado para armazenamento de imagens do cluster do Service Fabric. Em seguida, pode criar uma aplicação com o nome deste tipo de aplicação, que, em seguida, é executado dentro do cluster. 
@@ -106,10 +98,6 @@ Como com outras plataformas, uma aplicação no Service Fabric normalmente execu
 
 O ciclo de vida do aplicativo inteiro pode ser gerido através de [cmdlets do PowerShell](/powershell/module/ServiceFabric/), [comandos da CLI](service-fabric-sfctl.md), [APIs c#](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java APIs](/java/api/overview/azure/servicefabric), e [ REST APIs](/rest/api/servicefabric/). Pode configurar a integração contínua/contínua pipelines de implantação com ferramentas, como também [Pipelines do Azure](service-fabric-set-up-continuous-integration.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
-O vídeo do Microsoft Virtual Academy seguinte descreve como gerir o ciclo de vida do aplicativo: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
-
 ## <a name="test-applications-and-services"></a>Testar aplicações e serviços
 Para realmente criar serviços de escala da cloud, é fundamental para verificar que seus aplicativos e serviços podem suportar a falhas do mundo real. O serviço de análise de falhas foi concebido para fins de teste de serviços que são criados no Service Fabric. Com o [serviço de análise de falhas](service-fabric-testability-overview.md), pode induza falhas significativas e executar cenários de teste completa contra as suas aplicações. Estas falhas e cenários de exercitem e validar os diversos Estados e transições que um serviço irá ocorrer em toda a sua vida, tudo de forma consistente, controlada e segura.
 
@@ -129,10 +117,6 @@ Para realmente criar serviços de escala da cloud, é fundamental para verificar
 Um [cluster do Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Os clusters podem ser dimensionados para milhares de máquinas. Uma máquina ou VM que faça parte de um cluster é chamado de um nó de cluster. É atribuído um nome de nó (uma cadeia) a cada nó. Os nós têm características, como as propriedades de colocação. Cada máquina ou a VM tem um serviço de início automático, `FabricHost.exe`, que começa a ser executado na inicialização e, em seguida, inicia dois executáveis: Fabric.exe e FabricGateway.exe. Estes dois executáveis compõem o nó. Para cenários de teste, pode alojar vários nós numa única máquina ou VM ao executar várias instâncias `Fabric.exe` e `FabricGateway.exe`.
 
 Clusters do Service Fabric podem ser criadas em máquinas virtuais ou físicas que executem Windows Server ou Linux. Pode implementar e executar aplicações do Service Fabric em qualquer ambiente em que tem um conjunto de computadores Windows Server ou Linux que estão interligados: no local, no Microsoft Azure ou em qualquer fornecedor de cloud.
-
-Os seguintes Microsoft Virtual Academy vídeo descreve os clusters do Service Fabric: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">
-<img src="./media/service-fabric-content-roadmap/ClusterOverview.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="clusters-on-azure"></a>Clusters no Azure
 Executar clusters do Service Fabric no Azure fornece integração com outras funcionalidades do Azure e serviços, o que torna as operações e gestão do cluster mais fácil e mais confiável. Um cluster é um recurso do Azure Resource Manager, para que pode modelar clusters, como quaisquer outros recursos no Azure. Gestor de recursos também fornece gerenciamento fácil de todos os recursos utilizados pelo cluster, como uma única unidade. Clusters no Azure estão integrados com o diagnóstico do Azure e o Log Analytics. Tipos de nó de cluster são [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/index), por isso, a funcionalidade de dimensionamento automático é criada.
@@ -187,10 +171,6 @@ O Service Fabric fornece várias formas de [ver relatórios de estado de funcion
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização.
 * Consultas de estado de funcionamento (por meio [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), o [c#: APIs FabricClient](/dotnet/api/system.fabric.fabricclient.healthclient) e [Java FabricClient APIs](/java/api/system.fabric), ou [REST APIs](/rest/api/servicefabric)).
 * Geral consulta ou retorno uma lista de entidades que tenham o estado de funcionamento como uma das propriedades (através do PowerShell, CLI, APIs ou REST).
-
-O vídeo do Microsoft Virtual Academy seguinte descreve o modelo de estado de funcionamento do Service Fabric e como são utilizadas: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 [Monitorização e diagnóstico](service-fabric-diagnostics-overview.md) são fundamentais para o desenvolvimento, teste e implantação de aplicativos e serviços em qualquer ambiente. Soluções do Service Fabric funcionam melhor quando planear e implementar a monitorização e diagnóstico que o ajudam a garantir que aplicativos e serviços estão a funcionar conforme esperado num ambiente de desenvolvimento local ou na produção.

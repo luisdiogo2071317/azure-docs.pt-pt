@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194292"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193769"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução à monitorização do estado de funcionamento do Service Fabric
 O Azure Service Fabric introduz um modelo de estado de funcionamento que fornece relatórios e de avaliação do Estado de funcionamento avançado, flexível e extensível. O modelo permite que quase em tempo real de monitorização do Estado do cluster e os serviços em execução no mesmo. Pode facilmente obter informações de estado de funcionamento e corrigir possíveis problemas antes de cascata e provocar interrupções em massa. No modelo típico, serviços enviam relatórios com base em suas exibições locais e que informações são agregadas para fornecer um geral cluster a nível de exibição.
 
 Componentes do Service Fabric usam esse modelo de estado de funcionamento avançado para reportar o estado atual. Pode utilizar o mesmo mecanismo para Estado de funcionamento do relatório de seus aplicativos. Se investe no relatório de estado de funcionamento de alta qualidade, que captura suas condições personalizadas, pode detetar e corrigir problemas para a sua aplicação em execução muito mais facilidade.
-
-O seguinte vídeo do Microsoft Virtual Academy também descreve o modelo de estado de funcionamento do Service Fabric e como são utilizadas: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > Começamos o subsistema de estado de funcionamento para resolver uma necessidade de atualizações monitorizadas. O Service Fabric fornece atualizações monitorizadas do aplicativo e o cluster que garantir a disponibilidade total, sem períodos de indisponibilidade e mínima sem intervenção do utilizador. Para atingir esses objetivos, a atualização verifica o estado de funcionamento com base em políticas de atualização configuradas. Uma atualização possa prosseguir apenas quando o estado de funcionamento respeita os limiares pretendidos. Caso contrário, a atualização é automaticamente revertida ou colocada em pausa para dar aos administradores uma oportunidade de se corrigir os problemas. Para saber mais sobre as atualizações de aplicações, veja [este artigo](service-fabric-application-upgrade.md).

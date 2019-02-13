@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 60acd381015a513873c4c414d6f1d9f3adc54b84
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 880c825ab8923dbdf17277a51378b6f4b624e091
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870321"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179901"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo do LUIS
 
@@ -34,6 +34,7 @@ Compreensão de idiomas (LUIS) fornece entidades pré-concebidas. Quando uma ent
 |Coreano|[ko-KR](#korean-entity-support)|
 |Português|[pt-BR (Brasil)](#portuguese-brazil-entity-support)|
 |Espanhol|[(Espanha) de es-ES](#spanish-spain-entity-support), [es-MX (México)](#spanish-mexico-entity-support)|
+|Turco|[turkish](#turkish-entity-support)|
 
 ## <a name="chinese-entity-support"></a>Suporte de entidade chinês
 
@@ -51,7 +52,7 @@ As entidades a seguir são suportadas:
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
@@ -169,7 +170,7 @@ As entidades a seguir são suportadas:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>semana<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>hora<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>hora<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -190,7 +191,7 @@ As entidades a seguir são suportadas:
 ------|:------:|
 [Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>semana<br>dia   |    ✔   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>hora<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>hora<br>timerange   |    -   | 
 [Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    ✔   | 
 [E-mail](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -290,6 +291,32 @@ As entidades a seguir são suportadas:
 Consulte as notas sobre [preterido entidades pré-concebidas](luis-reference-prebuilt-deprecated.md)
 
 KeyPhrase não está disponível em todos os subcultures de Português (Brasil) - ```pt-BR```.
+
+## <a name="turkish-entity-support"></a>Suporte de entidade turco
+
+As entidades a seguir são suportadas:
+
+|Entidade pré-criados|```tr-tr``` |
+------|:------:|
+[Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>semana<br>dia   |    -   |
+[Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>Dólar<br>unidade fracionária (ex: mínima)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>hora<br>timerange   |    -   | 
+[Dimensão](luis-reference-prebuilt-dimension.md):<br>volume<br>área<br>peso<br>informações (ex: bits/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: lá por hora)  |    -   | 
+[E-mail](luis-reference-prebuilt-email.md)   |    -   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Número](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Percentagem](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperatura](luis-reference-prebuilt-temperature.md):<br>Fahrenheit<br>Kelvin<br>Rankine<br>delisle<br>Celsius   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    -   |
+
+Consulte as notas sobre [preterido entidades pré-concebidas](luis-reference-prebuilt-deprecated.md)
+
+KeyPhrase não está disponível.
+
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir para culturas de entidade predefinidos
 As entidades pré-concebidas são desenvolvidas no projeto de código-fonte aberto reconhecedores-texto. [Contribuir](https://github.com/Microsoft/Recognizers-Text) ao projeto. Esse projeto inclui exemplos de moeda por cultura. 

@@ -14,12 +14,13 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: ae4f92d9dc1671ab32a2a309da5095d59b9b5212
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4239c07c73825f75dd39053e312ae731f6f0d7d1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961223"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162718"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações empresariais no portal do Azure
 Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir a conta de utilizador automático provisionamento e desprovisionamento para aplicações que o suportam. Para saber mais sobre o aprovisionamento de contas de utilizadores automático e como ele funciona, veja [automatizar o aprovisionamento do utilizador e cancelar o aprovisionamento a aplicações SaaS com o Azure Active Directory](user-provisioning.md).

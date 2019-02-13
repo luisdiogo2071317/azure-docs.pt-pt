@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: e756b48003ebfaff98271d93a3d8f0231571b5f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242438"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160916"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planeamento da capacidade de computação do Azure Stack
 O [tamanhos VM suportados no Azure Stack](./user/azure-stack-vm-sizes.md) são um subconjunto desses suportado no Azure. Azure impõe limites de recursos ao longo de muitos vetores para evitar o consumo excessivo de recursos (servidor local e o nível de serviço). Sem gerar alguns limites no consumo de inquilino, as experiências de inquilino irão afetado quando outros inquilinos overconsume recursos. Para funcionamento em rede de saída da VM, existem limites de largura de banda no local no Azure Stack que correspondem a limitações do Azure. Para recursos de armazenamento, limites de IOPs de armazenamento foram implementados no Azure Stack para evitar básico consumo excessivo de recursos por inquilinos para acesso de armazenamento.  
