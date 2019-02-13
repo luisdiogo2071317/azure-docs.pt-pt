@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Hornbill | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Hornbill | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Hornbill.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 30fdb55758d5fbac41452236ebaa9f96ab9bba6b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 86f23a1520175827f775553e1ba949c62567cf83
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164072"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201929"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Tutorial: Integração do Azure Active Directory com Hornbill
+# <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Tutorial: Integração do Active Directory do Azure com Hornbill
 
 Neste tutorial, saiba como integrar Hornbill com o Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Hornbill, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Hornbill logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Para configurar a integração do Hornbill com o Azure AD, terá de adicionar Ho
 
 **Para adicionar Hornbill a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -195,7 +196,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Hornbill. Hornbill suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Hornbill se não existir ainda.
 
 > [!Note]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente Hornbill](https://www.hornbill.com/support/?request/).
+> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente Hornbill](https://www.hornbill.com/support/?request/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -227,7 +228,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -237,7 +238,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

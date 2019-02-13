@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ed5107d581c880d130901bfb31d34afb9e986635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ec8085d2d3ac4cc338ab9c0c36eec481a5d4fbc9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190093"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200348"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Tutorial: Integração do Active Directory do Azure com TextMagic
 
@@ -122,7 +123,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador e afirmações** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome  | Atributo de origem  | Espaço de nomes |
+    | Name  | Atributo de origem  | Espaço de nomes |
     | --------------- | --------------- | --------------- |
     | Empresa | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |

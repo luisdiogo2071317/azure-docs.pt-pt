@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o conector de redes de Meta | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o conector de redes de Meta | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o conector de redes de metadados.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a3f40624e51ef287d70bed547eba7ec9e0882b0e
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3c4d702a33742da5501be208154cbdd593fa0524
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669200"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199719"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Azure Active Directory com o conector de redes de metadados
+# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Active Directory do Azure com o conector de redes de metadados
 
 Neste tutorial, saiba como integrar o conector de redes de Meta no Azure Active Directory (Azure AD).
 
@@ -130,11 +131,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     | Nome do Atributo | Valor do Atributo | ESPAÇO DE NOMES|
     | ---------------| --------------- | -------- |
-    | FirstName | User.givenName | |
-    | Apelido | User.Surname | |
-    | endereço de correio eletrónico| User.Mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | FirstName | user.givenname | |
+    | Apelido | user.surname | |
+    | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | nome | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | telefone | User.telephoneNumber | |
+    | telefone | user.telephonenumber | |
 
     1. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -240,7 +241,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no conector de redes de metadados. Meta redes conector suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder a Meta redes conector, se não existir ainda.
 
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente de conector de redes de Meta](mailto:support@metanetworks.com).
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente de conector de redes de Meta](mailto:support@metanetworks.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

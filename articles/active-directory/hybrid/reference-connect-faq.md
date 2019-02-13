@@ -14,12 +14,13 @@ ms.topic: reference
 ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: f15556596063a09f68f024346e9fbe08663436c9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497813"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194976"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ do Azure Active Directory Connect
 
@@ -155,10 +156,10 @@ Para verificar a versão do Azure AD Connect está instalada no seu servidor, v�
 ![Versão do Azure AD Connect no painel de controlo](./media/reference-connect-faq/faq1.png)
 
 **P: Como posso atualizar para a versão mais recente do Azure AD Connect?**  
-Para saber como atualizar para a versão mais recente, veja [do Azure AD Connect: Atualizar de uma versão anterior para a versão mais recente](how-to-upgrade-previous-version.md). 
+Para saber como atualizar para a versão mais recente, veja [do Azure AD Connect: Upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) (Sincronização do Azure AD Connect: Atualizar de uma versão anterior para a mais recente). 
 
 **P: Nós já atualizado para a versão mais recente do Azure AD Connect no ano passado. Precisamos atualizar novamente?**  
-A equipa do Azure AD Connect torna as atualizações frequentes para o serviço. Para se beneficiar de correções de erros e atualizações de segurança, bem como novas funcionalidades, é importante manter o seu servidor atualizados com a versão mais recente. Se ativar a atualização automática, a sua versão de software é atualizado automaticamente. Para obter o histórico de versões do Azure AD Connect, consulte [do Azure AD Connect: Histórico de versões](reference-connect-version-history.md).
+A equipa do Azure AD Connect torna as atualizações frequentes para o serviço. Para se beneficiar de correções de erros e atualizações de segurança, bem como novas funcionalidades, é importante manter o seu servidor atualizados com a versão mais recente. Se ativar a atualização automática, a sua versão de software é atualizado automaticamente. Para obter o histórico de versões do Azure AD Connect, consulte [do Azure AD Connect: Version release history](reference-connect-version-history.md) (Azure AD Connect: Histórico de versões).
 
 **P: Quanto tempo demora para fazer a atualização e o que é o impacto sobre os meus utilizadores?**  
 O tempo necessário para atualizar depende do tamanho do seu inquilino. Para organizações maiores, será melhor efetuar a atualização na noite ou ao fim de semana. Durante a atualização, nenhuma atividade de sincronização ocorre.

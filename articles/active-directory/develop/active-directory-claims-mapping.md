@@ -12,12 +12,13 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241675"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209749"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar afirmações emitidas nos tokens de um aplicativo específico num inquilino (pré-visualização)
 
@@ -80,7 +81,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 |azpacr|
 |c_hash|
 |ca_enf|
-|Cc|
+|cc|
 |cert_token_use|
 |client_id|
 |cloud_graph_host_name|
@@ -89,7 +90,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 |Código|
 |controlos|
 |credential_keys|
-|CSR|
+|csr|
 |csr_type|
 |DeviceID|
 |dns_names|
@@ -99,7 +100,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 |e-mail|
 |endpoint|
 |enfpolids|
-|EXP|
+|exp|
 |expires_on|
 |grant_type|
 |gráfico|
@@ -117,7 +118,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |iat|
 |identityprovider|
-|IDP|
+|idp|
 |in_corp|
 |instância|
 |ipaddr|
@@ -133,7 +134,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameid|
-|NBF|
+|nbf|
 |netbios_name|
 |Valor de uso único|
 |OID|
@@ -174,10 +175,10 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 |tokenAutologonEnabled|
 |trustedfordelegation|
 |unique_name|
-|UPN|
+|upn|
 |user_setting_sync_url|
 |o nome de utilizador|
-|utis|
+|uti|
 |ver|
 |verified_primary_email|
 |verified_secondary_email|
@@ -243,9 +244,9 @@ Para controlar quais as afirmações são emitidas e de onde vêm os dados, use 
 
 **Cadeia de caracteres:** IncludeBasicClaimSet
 
-**Tipo de dados:** booleano (True ou False)
+**Tipo de dados:** Valor booleano (True ou False)
 
-**Resumo:** esta propriedade determina se o conjunto de afirmações básica está incluído nos tokens afetados por esta política. 
+**Resumo:** Esta propriedade determina se o conjunto de afirmações básica está incluído nos tokens afetados por esta política. 
 
 - Se definido como True, todas as afirmações no conjunto de afirmação básicas é emitido nos tokens afetados pela política. 
 - Se definido como False, afirmações no conjunto de afirmações básica de não está em tokens, a menos que eles são adicionados individualmente na propriedade de esquema de afirmações da mesma política.
@@ -259,29 +260,29 @@ Para controlar quais as afirmações são emitidas e de onde vêm os dados, use 
 
 **Tipo de dados:** BLOBs JSON com uma ou mais entradas de esquema de afirmação
 
-**Resumo:** esta propriedade define que afirmações estão presentes nos tokens de afetados pela política, além disso, para o conjunto de afirmações básica e o principal conjunto de afirmações.
+**Resumo:** Esta propriedade define que afirmações estão presentes nos tokens de afetados pela política, além do conjunto de afirmações básica e o conjunto de declarações de núcleo.
 Para cada entrada de esquema de afirmação definida nessa propriedade, são necessárias determinadas informações. Especifique os dados proveniência (**valor** ou **par de ID de origem/**), e que os dados de afirmação é emitida em (**tipo de afirmação**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de afirmação
 
-**Valor:** o elemento de valor define um valor estático, como os dados sejam emitidos na afirmação.
+**Valor:** O elemento de valor define um valor estático, como os dados sejam emitidos na afirmação.
 
-**Par de ID de origem /:** elementos a origem e o ID de definem de onde os dados da declaração são obtidos a partir. 
+**Par de origem/ID:** Os elementos de origem e o ID da definem onde os dados da declaração são obtidos a partir. 
 
 Defina o elemento de origem para um dos seguintes valores: 
 
-- "utilizador": os dados na afirmação são uma propriedade no objeto User. 
-- "aplicação": os dados na afirmação são uma propriedade no principal de serviço de aplicação (cliente). 
-- "recurso": os dados na afirmação são uma propriedade no principal de serviço de recursos.
-- "público": os dados na afirmação são uma propriedade no principal de serviço que é o público-alvo do token (o cliente ou o recurso principal de serviço).
-- "empresa": os dados na afirmação são uma propriedade no objeto do inquilino de recursos da empresa.
-- "transformação": os dados da declaração são de transformação de declarações (consulte a secção "Transformação de afirmações" mais adiante neste artigo).
+- "user": Os dados na afirmação são uma propriedade no objeto User. 
+- "aplicação": Os dados na afirmação são uma propriedade sobre o principal de serviço de aplicação (cliente). 
+- "resource": Os dados na afirmação são uma propriedade sobre o principal de serviço de recursos.
+- "audience": Os dados na afirmação são uma propriedade no principal de serviço que é o público-alvo do token (o cliente ou o recurso principal de serviço).
+- "empresa": Os dados na afirmação são uma propriedade no objeto do inquilino de recursos da empresa.
+- "transformation": Os dados da declaração são de transformação de declarações (consulte a secção "Transformação de afirmações" mais adiante neste artigo).
 
 Se a origem estiver a transformação, o **TransformationID** elemento têm de ser incluído nesta definição de afirmação também.
 
 O elemento de ID identifica qual propriedade de origem fornece o valor para a afirmação. A tabela seguinte lista os valores de ID válido para cada valor de origem.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válido por origem
+#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válidos por origem
 
 |Origem|ID|Descrição|
 |-----|-----|-----|
@@ -297,7 +298,7 @@ O elemento de ID identifica qual propriedade de origem fornece o valor para a af
 |Utilizador|dnsdomainname|Nome de domínio de DNS|
 |Utilizador|onpremisesecurityidentifier|Identificador de segurança no local|
 |Utilizador|companyname|Nome da Organização|
-|Utilizador|streetAddress|Morada|
+|Utilizador|streetaddress|Morada|
 |Utilizador|código postal|Código Postal|
 |Utilizador|preferredlanguange|Idioma Preferencial|
 |Utilizador|onpremisesuserprincipalname|UPN no local|
@@ -329,11 +330,11 @@ O elemento de ID identifica qual propriedade de origem fornece o valor para a af
 |aplicativo, recurso, público-alvo|etiquetas|Etiqueta de Principal de serviço|
 |Empresa|tenantcountry|País do inquilino|
 
-**TransformationID:** deve ser fornecido o elemento de TransformationID apenas se o elemento de origem está definido como "transformação".
+**TransformationID:** Tem de fornecer o elemento de TransformationID apenas se o elemento de origem está definido como "transformação".
 
 - Este elemento tem de corresponder ao elemento de ID da entrada de transformação no **ClaimsTransformation** propriedade que define a forma como os dados para esta afirmação são gerados.
 
-**Tipo de afirmação:** a **JwtClaimType** e **SamlClaimType** elementos definem que afirmação esta entrada de esquema de afirmação refere-se a.
+**Tipo de afirmação:** O **JwtClaimType** e **SamlClaimType** elementos definem que afirmação esta entrada de esquema de afirmação refere-se a.
 
 - O JwtClaimType tem de conter o nome da afirmação a ser emitida no JWTs.
 - O SamlClaimType tem de conter o URI da afirmação a ser emitida em SAML tokens.
@@ -345,43 +346,43 @@ O elemento de ID identifica qual propriedade de origem fornece o valor para a af
 
 **Cadeia de caracteres:** ClaimsTransformation
 
-**Tipo de dados:** blob JSON, com uma ou mais entradas de transformação 
+**Tipo de dados:** BLOBs JSON, com uma ou mais entradas de transformação 
 
 **Resumo:** Use essa propriedade para aplicar transformações comuns aos dados de origem, para gerar os dados de saída para afirmações especificados no esquema de afirmações.
 
-**ID:** usar o elemento de ID para fazer referência a esta entrada de transformação na entrada TransformationID afirmações esquema. Este valor tem de ser exclusivo para cada entrada de transformação dentro desta política.
+**ID:** Utilize o elemento de ID para fazer referência a esta entrada de transformação na entrada TransformationID afirmações esquema. Este valor tem de ser exclusivo para cada entrada de transformação dentro desta política.
 
-**TransformationMethod:** o elemento de TransformationMethod identifica qual operação é executada para gerar os dados para a afirmação.
+**TransformationMethod:** O elemento de TransformationMethod identifica qual operação é executada para gerar os dados para a afirmação.
 
 Com base no método escolhido, é esperado um conjunto de entradas e saídas. Definir as entradas e saídas ao utilizar o **InputClaims**, **InputParameters** e **OutputClaims** elementos.
 
-#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e esperado de entradas e saídas
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e esperadas entradas e saídas
 
 |TransformationMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
-|Associar|string1, string2, separador|outputClaim|Associações de cadeias de caracteres de entrada utilizando um separador entre. Por exemplo: string1: "foo@bar.com", string2: "sandbox", o separador: "." resulta na outputClaim: "foo@bar.com.sandbox"|
+|Associar|string1, string2, separator|outputClaim|Associações de cadeias de caracteres de entrada utilizando um separador entre. Por exemplo: string1: "foo@bar.com", string2: "sandbox", o separador: "." resulta na outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrai a parte local de um endereço de e-mail. Por exemplo: correio: "foo@bar.com" resulta na outputClaim: "foo". Se não \@ início de sessão está presente, em seguida, a cadeia de entrada original é retornada como está.|
 
-**InputClaims:** usar um elemento de InputClaims para passar os dados a partir de uma entrada de esquema de afirmação para uma transformação. Ele possui dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**InputClaims:** Utilize um elemento de InputClaims para passar os dados a partir de uma entrada de esquema de afirmação para uma transformação. Ele possui dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** está associado com o elemento de ID da entrada de esquema de afirmação para encontrar a afirmação de entrada apropriada. 
 - **TransformationClaimType** é usada para indicar um nome exclusivo para esta entrada. Este nome tem de corresponder a uma das entradas esperadas para o método de transformação.
 
-**InputParameters:** utilizar um elemento de InputParameters para passar um valor constante para uma transformação. Ele possui dois atributos: **valor** e **ID**.
+**InputParameters:** Utilize um elemento de InputParameters para passar um valor constante para uma transformação. Ele possui dois atributos: **Valor** e **ID**.
 
 - **Valor** é o valor da constante real a serem passados.
 - **ID** usada para dar um nome exclusivo para a entrada. O nome tem de corresponder a uma das entradas esperadas para o método de transformação.
 
-**OutputClaims:** utilize um elemento de OutputClaims para manter os dados gerados por uma transformação e vinculá-lo a uma entrada de esquema de afirmação. Ele possui dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**OutputClaims:** Utilize um elemento de OutputClaims para manter os dados gerados por uma transformação e vinculá-lo a uma entrada de esquema de afirmação. Ele possui dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** está associado com o ID da entrada de esquema de afirmação para encontrar a afirmação de saída adequados.
 - **TransformationClaimType** usada para dar um nome exclusivo para a saída. O nome tem de corresponder a um das saídas esperadas para o método de transformação.
 
 ### <a name="exceptions-and-restrictions"></a>Exceções e restrições
 
-**NameID de SAML e UPN:** os atributos a partir do qual origem os valores de NameID e de UPN e as transformações de afirmações que são permitidas, são limitados. Consulte a tabela 5 e a tabela 6 para ver os valores permitidos.
+**NameID SAML e UPN:** Os atributos a partir do qual origem os valores de NameID e de UPN e as transformações de afirmações que são permitidas, são limitados. Consulte a tabela 5 e a tabela 6 para ver os valores permitidos.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como origem de dados para NameID de SAML
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como uma origem de dados para NameID de SAML
 
 |Origem|ID|Descrição|
 |-----|-----|-----|

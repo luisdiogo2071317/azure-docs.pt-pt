@@ -9,18 +9,18 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 945f89633060df7f57aa937be392149340acc21d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856007"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199498"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>As respostas que inclui a resposta da pesquisa de filtragem  
 
-Quando consultar a web, o Bing devolve todos os conteúdos que são relevante para a pesquisa. Por exemplo, se a consulta de pesquisa é "dinghies sailing +", a resposta pode conter as respostas seguintes:
+Quando consultar a web, o Bing devolve todos os conteúdos relevantes para a pesquisa encontra. Por exemplo, se a consulta de pesquisa é "dinghies sailing +", a resposta pode conter as respostas seguintes:
 
 ```json
 {
@@ -44,8 +44,16 @@ Quando consultar a web, o Bing devolve todos os conteúdos que são relevante pa
     }
 }    
 ```
+Pode filtrar os tipos de conteúdo, receberá (para imagens de exemplo, vídeos e notícias), utilizando o [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) parâmetro de consulta. Se o Bing localiza conteúdo relevante para as respostas especificadas, será devolvido. O filtro de resposta é uma lista delimitada por vírgulas de respostas. 
 
-Se estiver interessado em tipos específicos de conteúdo, como imagens, vídeos e notícias, pode pedir apenas essas respostas, utilizando o [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) parâmetro de consulta. Se o Bing localiza conteúdo relevante para as respostas especificadas, o Bing devolve-lo. O filtro de resposta é uma lista delimitada por vírgulas de respostas. O seguinte mostra como utilizar `responseFilter` pedido imagens, vídeos e notícias de velejar dinghies. Ao codificar a cadeia de consulta, vírgulas alterar para %2 C.  
+Para excluir determinados tipos de conteúdo, como imagens, de resposta, pode adicionar um `-` caráter para o início do `responseFilter` valor. Pode separar tipos excluídos com uma vírgula (`,`). Por exemplo:
+
+```
+&responseFilter=-images,-videos
+```
+
+
+O seguinte mostra como utilizar `responseFilter` pedido imagens, vídeos e notícias de velejar dinghies. Ao codificar a cadeia de consulta, vírgulas alterar para %2 C.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -57,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Segue-se a resposta à consulta anterior. Como pode ver o Bing não foram encontradas resultados relevantes, vídeos e notícias, portanto, a resposta não incluí-los.
+Segue-se a resposta à consulta anterior. Uma vez que não encontrou o Bing vídeos relevantes e os resultados de notícias, a resposta não incluí-los.
 
 ```json
 {
@@ -80,12 +88,6 @@ Segue-se a resposta à consulta anterior. Como pode ver o Bing não foram encont
         }
     }
 }
-```
-
-Se quiser excluir determinados tipos de conteúdo, como imagens, da resposta, pode exclui-los com o hífen (prefixo para o valor de responseFilter menos). Tipos de excluídos separados com uma vírgula:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Embora o Bing não devolveu resultados de vídeo e as notícias na resposta anterior, não significa que não existe conteúdo de vídeo e notícias. Simplesmente significa que a página não incluí-los. No entanto, se [página](./paging-webpages.md) através de resultados de mais, as páginas subsequentes seriam provavelmente incluí-los. Além disso, se chamar o [API de pesquisa de vídeos](../bing-video-search/search-the-web.md) e [API de pesquisa de notícias](../bing-news-search/search-the-web.md) pontos de extremidade diretamente, a resposta provavelmente iria conter os resultados.

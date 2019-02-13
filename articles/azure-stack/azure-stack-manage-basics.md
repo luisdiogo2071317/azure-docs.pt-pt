@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239677"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164027"
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure Stack
-Há várias coisas que precisa saber se estiver familiarizado com a administração do Azure Stack. Esta orientação fornece uma descrição geral da sua função como um operador do Azure Stack e o que precisa dizer aos utilizadores para os mesmos para se tornar produtivos rapidamente.
+Há várias coisas que precisa saber se estiver familiarizado com a administração do Azure Stack. Este artigo fornece uma descrição geral da sua função como um operador do Azure Stack, e o que precisa dizer aos utilizadores para os mesmos para se tornar produtivos rapidamente.
 
 ## <a name="understand-the-builds"></a>Compreender as compilações
 
 ### <a name="integrated-systems"></a>Sistemas integrados
 
-Se estiver a utilizar um sistema integrado do Azure Stack, versões atualizadas do Azure Stack são distribuídas por meio de pacotes de atualização. Pode importar estes pacotes e aplicá-las usando o mosaico de atualizações no portal do administrador.
+Se estiver a utilizar um sistema integrado do Azure Stack, versões atualizadas do Azure Stack são distribuídas por meio de pacotes de atualização. Pode importar estes pacotes e aplicá-las usando o mosaico de atualizações no portal do administrador. Não é suportada para atualizar instalações ASDK. 
  
 ### <a name="development-kit"></a>Kit de desenvolvimento
 

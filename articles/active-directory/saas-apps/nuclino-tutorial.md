@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Nuclino | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Nuclino | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Nuclino.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43146163"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189564"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Tutorial: Integração do Azure Active Directory com Nuclino
+# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Tutorial: Integração do Active Directory do Azure com Nuclino
 
 Neste tutorial, saiba como integrar Nuclino com o Azure Active Directory (Azure AD).
 
@@ -133,8 +134,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     | Nome do Atributo | Valor do Atributo |
     | ---------------| --------------- |
-    | first_name | User.givenName |
-    | last_name | User.Surname |
+    | first_name | user.givenname |
+    | last_name | user.surname |
 
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -229,7 +230,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Nuclino. Nuclino suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Nuclino se não existir ainda.
 
 > [!Note]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Nuclino](mailto:contact@nuclino.com).
+> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Nuclino](mailto:contact@nuclino.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

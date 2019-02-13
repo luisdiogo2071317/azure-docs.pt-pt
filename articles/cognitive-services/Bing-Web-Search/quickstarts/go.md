@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 49bfcf7ea9758cc17d8e83ebf813e7334239e6d2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856517"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186867"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa do Bing Web e Go
 
-Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
+Utilize este guia de introdução para efetuar a primeira chamada à API de pesquisa Web do Bing e receber a resposta JSON. Esta aplicação Go envia um pedido de pesquisa para a API e apresenta a resposta. Embora esse aplicativo é escrito em Go, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
 Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -34,6 +32,8 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 * Uma chave de subscrição
 
 Este início rápido exige apenas bibliotecas de **núcleo**, não existem dependências externas.  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>Criar um projeto e importar bibliotecas de núcleo
 

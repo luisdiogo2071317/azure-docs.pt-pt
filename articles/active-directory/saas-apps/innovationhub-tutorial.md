@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 07385089e64977243929de15ab53f84520029495
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 13c7e4b42cc3de0910589af3091eab10500ecce5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806893"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Tutorial: Integração do Active Directory do Azure com Innoverse
 
@@ -124,7 +125,7 @@ Para configurar o Azure AD início de sessão único com Innoverse, execute os s
 
 7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
-    | Nome | Atributo de origem| Espaço de nomes |
+    | Name | Atributo de origem| Espaço de nomes |
     | ---------------| --------- | ----------------|
     | DisplayName | `user.userprincipalname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f336f6fdb5cde638fe62d1410a9f993492be21ed
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747565"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118297"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 
@@ -961,7 +961,7 @@ Neste caso, queremos carregar um VHD, com ou sem um sistema operacional e montá
 * Inicie sessão na sua subscrição com *início de sessão az*
 * Selecione a sua subscrição com *set de conta de az--subscrição `<subscription name or id`>*
 * Carregar o VHD com o *carregamento de BLOBs de armazenamento az* -veja [utilizar a CLI do Azure com o armazenamento do Azure][storage-azure-cli]
-* (Opcional) Criar um disco gerido a partir de VHD com o *criar disco de az* -veja https://docs.microsoft.com/cli/azure/disk#az_disk_create
+* (Opcional) Criar um disco gerido a partir de VHD com o *criar disco de az* -veja https://docs.microsoft.com/cli/azure/disk
 * Criar uma nova VM, especificando o VHD carregado ou o disco gerido como disco do SO com *az vm crie* e o parâmetro *– anexar-disco de SO*
 * Adicionar um disco de dados a uma VM nova com *anexar o disco da vm az* e o parâmetro *-novo*
 
@@ -990,7 +990,7 @@ Para carregar uma VM existente ou VHD a partir da rede no local, para usá-lo co
 * Inicie sessão na sua subscrição com *início de sessão az*
 * Selecione a sua subscrição com *set de conta de az--subscrição `<subscription name or id`>*
 * Carregar o VHD com o *carregamento de BLOBs de armazenamento az* -veja [utilizar a CLI do Azure com o armazenamento do Azure][storage-azure-cli]
-* (Opcional) Criar uma imagem de disco gerido a partir de VHD com o *criar imagem de az* -veja https://docs.microsoft.com/cli/azure/image#az_image_create
+* (Opcional) Criar uma imagem de disco gerido a partir de VHD com o *criar imagem de az* -veja https://docs.microsoft.com/cli/azure/image
 * Criar uma nova VM, especificando o VHD carregado ou a imagem de disco gerido como disco do SO com *az vm crie* e o parâmetro *– imagem*
 
 **Modelo**

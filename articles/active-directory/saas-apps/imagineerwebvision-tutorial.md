@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Imagineer WebVision | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Imagineer WebVision | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Imagineer WebVision.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeedes
-ms.openlocfilehash: d86004680bf13c9716b4ff4e7a41af73ea186f27
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 377da86003543fb53240de4d5fc672f71e1ed5f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047193"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202405"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Tutorial: Integração do Azure Active Directory com Imagineer WebVision
+# <a name="tutorial-azure-active-directory-integration-with-imagineer-webvision"></a>Tutorial: Integração do Active Directory do Azure com Imagineer WebVision
 
 Neste tutorial, saiba como integrar Imagineer WebVision com o Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Imagineer WebVision, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Imagineer WebVision logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Para configurar a integração do Imagineer WebVision com o Azure AD, terá de a
 
 **Para adicionar Imagineer WebVision a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -158,7 +159,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-an-imagineer-webvision-test-user"></a>Criar um utilizador de teste Imagineer WebVision
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Imagineer WebVision. Trabalhar com [equipa de suporte de Imagineer WebVision](mailto:support@itgny.com) para adicionar os utilizadores na plataforma Imagineer WebVision. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Imagineer WebVision. Trabalhar com [equipa de suporte de Imagineer WebVision](mailto:support@itgny.com) para adicionar os utilizadores na plataforma Imagineer WebVision. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -190,7 +191,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -200,7 +201,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

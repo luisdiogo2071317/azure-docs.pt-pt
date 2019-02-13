@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com a ligação de SAML de ambiente Virtual ON24 | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com a ligação de SAML de ambiente Virtual ON24 | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e ON24 ligação de SAML de ambiente Virtual.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ec18f0013a7fa640395a8b8bedd9df8b0924c3a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0827895d58b0b7633ee4543495014c62b5394312
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071323"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209494"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Azure Active Directory com a ligação de SAML de ambiente Virtual ON24
+# <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Active Directory do Azure com a ligação de SAML de ambiente Virtual ON24
 
 Neste tutorial, saiba como integrar ON24 ligação de SAML de ambiente Virtual com o Azure Active Directory (Azure AD).
 
@@ -194,7 +195,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-an-on24-virtual-environment-saml-connection-test-user"></a>Criar um utilizador de teste de ligação de SAML de ambiente Virtual ON24
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida na ligação de SAML de ambiente Virtual ON24. Trabalhar com [equipa de suporte de ligação de SAML de ambiente Virtual ON24](https://www.on24.com/about-us/support/) para adicionar os utilizadores na plataforma ON24 ligação de SAML de ambiente Virtual. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida na ligação de SAML de ambiente Virtual ON24. Trabalhar com [equipa de suporte de ligação de SAML de ambiente Virtual ON24](https://www.on24.com/about-us/support/) para adicionar os utilizadores na plataforma ON24 ligação de SAML de ambiente Virtual. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

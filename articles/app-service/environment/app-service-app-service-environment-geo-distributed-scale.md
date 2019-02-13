@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273872"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113707"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Cenários de aplicações que requerem dimensionamento muito elevado podem exceder a capacidade de recursos de computação disponível para uma implementação única de uma aplicação.  Votações, eventos e eventos de entretenimento televised são todos os exemplos de cenários que exigem dimensionamento extremamente alto. Podem ser cumpridos os requisitos de escala elevada ao dimensionar horizontalmente as aplicações, com várias implementações de aplicações que está a ser efetuadas numa única região, bem como em várias regiões, para lidar com requisitos de carga extrema.
 
 Os ambientes de serviço de aplicações são uma plataforma ideal para aumentar horizontalmente.  Uma vez uma aplicação ambiente de serviço de configuração tiver sido selecionada que pode oferecer suporte a uma taxa de pedidos conhecidos, os programadores podem implementar adicionais ambientes de serviço de aplicações de modo de "cortador de biscoitos" para obter uma capacidade de carga de pico pretendido.
@@ -52,9 +55,9 @@ Antes de criar um espaço de aplicação distribuída, ajuda para ter algumas in
 ## <a name="setting-up-the-traffic-manager-profile"></a>Como configurar o perfil do Gestor de tráfego
 Depois de várias instâncias de uma aplicação estão implementadas em vários ambientes de serviço de aplicações, as instâncias de aplicações individuais podem ser registadas com o Gestor de tráfego.  Para a aplicação de exemplo, um Gestor de tráfego de perfil é necessária para *demo.trafficmanager.net dimensionável ase* que possa rotear os clientes a qualquer uma das seguintes instâncias de aplicação implementada:
 
-* **webfrontend1.fe1ase.p.azurewebsites.NET:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações primeiro.
-* **webfrontend2.fe2ase.p.azurewebsites.NET:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações segundo.
-* **webfrontend3.fe3ase.p.azurewebsites.NET:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações terceiro.
+* **webfrontend1.fe1ase.p.azurewebsites.net:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações primeiro.
+* **webfrontend2.fe2ase.p.azurewebsites.net:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações segundo.
+* **webfrontend3.fe3ase.p.azurewebsites.net:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações terceiro.
 
 A maneira mais fácil para registrar vários App Service do Azure pontos de extremidade, tudo em execução no **mesmo** região do Azure, é com o Powershell [suporte do Gestor de tráfego do Azure Resource Manager] [ ARMTrafficManager].  
 
@@ -68,13 +71,13 @@ O *TrafficRoutingMethod* parâmetro define a política de Gestor de tráfego ir�
 
 Com o perfil que criou, cada instância da aplicação é adicionada ao perfil como um ponto de final do Azure nativo.  O código a seguir obtém uma referência para cada aplicação de web de front-end e, em seguida, adiciona cada aplicação como um ponto de final do Gestor de tráfego por meio dos *TargetResourceId* parâmetro.
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    $webapp2 = Get-AzWebApp -Name webfrontend2
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    $webapp3 = Get-AzWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile

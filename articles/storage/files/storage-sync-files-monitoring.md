@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 032b39846d19e34f2eb87c1311feeb4bb890cb24
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a14b0f2b01a0566a47cbcb02ee4315adcba9a90f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467463"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200807"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -29,7 +29,7 @@ No portal do Azure, pode ver o estado de funcionamento do servidor registado e m
 
 ### <a name="storage-sync-service"></a>Serviço de Sincronização de Armazenamento
 
-Para ver o servidor registado e estado de funcionamento de ponto final de servidor, vá para o serviço de sincronização de armazenamento no portal do Azure. Estado de funcionamento do servidor registado é visível no painel de servidores registada. Estado de funcionamento de ponto final de servidor é visualizável em Painel de grupos de sincronização.
+Para ver o estado de funcionamento do servidor registado, o estado de funcionamento de ponto final de servidor e métricas, vá para o serviço de sincronização de armazenamento no portal do Azure. Estado de funcionamento do servidor registado é visível no painel de servidores registada. Estado de funcionamento de ponto final de servidor é visualizável em Painel de grupos de sincronização.
 
 Estado de funcionamento do servidor registado
 - Se o estado do servidor registado estiver Online, o servidor está a comunicar corretamente com o serviço.
@@ -38,6 +38,23 @@ Estado de funcionamento do servidor registado
 Server Endpoint Health
 - O estado de funcionamento do ponto final do servidor no portal do baseia-se sobre os eventos de sincronização que são registados no registo de eventos de telemetria no servidor (ID 9102 e 9302). Se uma sessão de sincronização falhar devido a um erro transitório (por exemplo, o erro foi cancelado), sincronização pode ainda mostrar bom estado de funcionamento no portal, desde que a sessão de sincronização atual está fazendo progresso (9302 de ID de evento é usada para determinar se os ficheiros estão a ser aplicados). Consulte a seguinte documentação para obter mais informações: [Sincronizar o estado de funcionamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [sincronizar progresso](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Se o portal mostra um erro de sincronização devido à não fazendo progresso de sincronização, consulte a [documentação de resolução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter orientações.
+
+Métricas
+- As seguintes métricas estão visíveis no portal do serviço de sincronização de armazenamento:
+
+  | Nome da métrica | Descrição | Portal blade(s) | 
+  |-|-|-|
+  | Bytes sincronizados | Tamanho dos dados transferidos (carregamento e transferência) | Grupo de sincronização, o ponto final do servidor |
+  | Lembre-se camadas da cloud | Tamanho dos dados recuperados | Servidores Registados |
+  | Os ficheiros não estão a sincronizar | Contagem de ficheiros que estão a falhar para sincronizar | Ponto final do servidor |
+  | Ficheiros sincronizados | Contagem de ficheiros transferidos (carregamento e transferência) | Grupo de sincronização, o ponto final do servidor |
+  | Heartbeat do servidor | Contagem de heartbeats recebido do servidor | Servidores Registados |
+
+- Para obter mais informações, consulte [do Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) secção. 
+
+  > [!Note]  
+  > Os gráficos no portal do serviço de sincronização de armazenamento tem um intervalo de tempo de 24 horas. Para ver os intervalos de tempo diferente ou dimensões, utilize o Azure Monitor.
+
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
@@ -52,7 +69,7 @@ As métricas seguintes para o Azure File Sync estão disponíveis no Azure Monit
 | Bytes sincronizados | Tamanho dos dados transferidos (carregamento e transferência).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
 | Lembre-se camadas da cloud | Tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do Servidor |
 | Os ficheiros não estão a sincronizar | Contagem de ficheiros que estão a falhar para sincronizar.<br><br>Unidade: Contagem<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
-| Ficheiros sincronizados | Contagem de ficheiros carregados e transferidos.<br><br>Unidade: Contagem<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+| Ficheiros sincronizados | Contagem de ficheiros transferidos (carregamento e transferência).<br><br>Unidade: Contagem<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
 | Heartbeat do servidor | Número de heartbeats recebido do servidor.<br><br>Unidade: Contagem<br>Tipo de agregação: Máximo<br>Dimensão aplicável: Nome do Servidor |
 | Resultado da sessão de sincronização | Resultado da sessão de sincronização (1 = a sincronização com êxito sessão; 0 = a sessão de sincronização com falha)<br><br>Unidade: Contagem<br>Tipos de agregação: Máximo<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
 

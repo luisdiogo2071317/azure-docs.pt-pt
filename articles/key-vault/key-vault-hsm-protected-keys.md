@@ -4,7 +4,7 @@ description: Utilize este artigo para o ajudar a planejar, gerar e, em seguida, 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 928ed383c08dd87cb003d1f729bc3fecce0c6935
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76943c89cd4c0a283dc36a2a0d28c907cef0ad28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999237"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114693"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Chaves de como gerar e transferir protegida por HSM para o Azure Key Vault
 
@@ -32,7 +32,7 @@ Esta funcionalidade não está disponível para o Azure China.
 
 > [!NOTE]
 > Para obter mais informações sobre o Azure Key Vault, consulte [o que é o Azure Key Vault?](key-vault-whatis.md)  
-> Para um tutorial de introdução, que inclui a criação de um cofre de chaves para chaves protegidas por HSM, consulte [introdução ao Azure Key Vault](key-vault-get-started.md).
+> Para um tutorial de introdução, que inclui a criação de um cofre de chaves para chaves protegidas por HSM, consulte [o que é o Azure Key Vault?](key-vault-overview.md).
 
 Obter mais informações sobre como gerar e transferir uma chave protegida por HSM através da Internet:
 
@@ -62,7 +62,7 @@ Consulte a tabela seguinte para obter uma lista de pré-requisitos para traga a 
 | Uma subscrição do Azure |Para criar um Azure Key Vault, precisa de uma subscrição do Azure: [Inscreva-se a versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | A camada de serviços do Azure Key Vault Premium para suportar chaves protegidas por HSM |Para obter mais informações sobre as camadas de serviços e capacidades para Azure Key Vault, consulte a [preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) Web site. |
 | HSM da Thales, smart cards e software de suporte |Tem de ter acesso a um módulo de Hardware de segurança da Thales e conhecimentos operacionais básicos dos Hmss da Thales. Ver [módulo de Hardware de segurança da Thales](https://www.thales-esecurity.com/msrms/buy) para obter a lista de modelos compatíveis ou para comprar um HSM, se não tiver uma. |
-| O seguinte hardware e software:<ol><li>Um offline x64 estação de trabalho com um sistema de operação mínimo do Windows do Windows 7 e da Thales software nShield, pelo menos, versão 11.50.<br/><br/>Se esta estação de trabalho executa o Windows 7, deve [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema de operativo mínimo do Windows do Windows 7 e [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **versão mínima 1.1.0** instalado.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha, pelo menos, 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não está ligada a uma rede. No entanto, esta recomendação não é imposta por meio de programação.<br/><br/>Nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave de inquilino for para uma rede de produção, recomendamos que utilize uma segunda estação de trabalho separada para transferir o conjunto de ferramentas e carregar a chave de inquilino. Mas para fins de teste, pode utilizar a mesma estação de trabalho como primeiro.<br/><br/>Nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
+| O seguinte hardware e software:<ol><li>Um offline x64 estação de trabalho com um sistema de operação mínimo do Windows do Windows 7 e da Thales software nShield, pelo menos, versão 11.50.<br/><br/>Se esta estação de trabalho executa o Windows 7, deve [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema de operativo mínimo do Windows do Windows 7 e [do Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **versão mínima 1.1.0** instalado.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha, pelo menos, 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não está ligada a uma rede. No entanto, esta recomendação não é imposta por meio de programação.<br/><br/>Nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave de inquilino for para uma rede de produção, recomendamos que utilize uma segunda estação de trabalho separada para transferir o conjunto de ferramentas e carregar a chave de inquilino. Mas para fins de teste, pode utilizar a mesma estação de trabalho como primeiro.<br/><br/>Nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Gerar e transferir a chave para o HSM do Azure Key Vault
 
@@ -503,4 +503,4 @@ Se o carregamento for bem-sucedido, verá apresentadas as propriedades da chave 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora, pode utilizar esta chave protegida por HSM no Cofre de chaves. Para obter mais informações, consulte a **se pretender utilizar um módulo de segurança de hardware (HSM)** secção a [introdução ao Azure Key Vault](key-vault-get-started.md) tutorial.
+Agora, pode utilizar esta chave protegida por HSM no Cofre de chaves. Para obter mais informações, consulte a **se pretender utilizar um módulo de segurança de hardware (HSM)** secção a [introdução ao Azure Key Vault](key-vault-overview.md) tutorial.

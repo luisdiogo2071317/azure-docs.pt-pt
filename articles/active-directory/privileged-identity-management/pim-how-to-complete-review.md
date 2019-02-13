@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: fc4dcc22cf22f70fcf441c3c8a54aeda2ffd7588
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bea4f649b40298de15b8352fc8eb522da87dead5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189686"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190352"
 ---
 # <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Concluir uma revisão de acesso para funções de diretório do Azure AD no PIM
 Os administradores de função com privilégios podem rever acesso privilegiado de uma vez um [revisão de acesso foi iniciada](pim-how-to-start-security-review.md). O Azure AD Privileged Identity Management (PIM) enviará automaticamente um e-mail a pedir aos utilizadores para rever o acesso. Se um utilizador não recebeu uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-how-to-perform-security-review.md).

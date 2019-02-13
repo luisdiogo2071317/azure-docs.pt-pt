@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03e15532d04a4c62796aad884c5e344688814672
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633968"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209239"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é o Apache Hive e o HiveQL no HDInsight do Azure?
 
@@ -191,7 +191,7 @@ Essas instruções executam as seguintes ações:
 
 ## <a name="improve-hive-query-performance"></a>Melhorar o desempenho de consulta do Hive
 
-### <a id="usetez"></a>O Apache Tez
+### <a id="usetez"></a>Apache Tez
 
 [Apache Tez](https://tez.apache.org) é uma estrutura que permite que aplicações intensivas em termos de dados, como o Hive, sejam executados de maneira muito mais eficiente em escala. Tez está ativado por predefinição para os clusters do HDInsight baseado em Linux.
 
@@ -204,11 +204,7 @@ Essas instruções executam as seguintes ações:
 
 O [Apache Hive no Tez criar documentos](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contém detalhes sobre as opções de implementação e configurações de otimização.
 
-Para auxiliar na depuração de tarefas foi executada com Tez, o HDInsight oferece a seguinte interfaces do usuário que permitem-lhe ver os detalhes das tarefas do Tez na web:
-
-* [Utilize a vista do Apache Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md)
-
-* [Utilizar a interface do Usuário do Apache Tez no HDInsight baseado em Windows](../hdinsight-debug-tez-ui.md)
+Para auxiliar na depuração de tarefas foi executada com Tez, o HDInsight fornece a interface do Usuário que permite-lhe ver os detalhes das tarefas do Tez da web seguinte: [Utilize a vista do Apache Ambari Tez no HDInsight baseado em Linux](../hdinsight-debug-ambari-tez-view.md).
 
 ### <a name="low-latency-analytical-processing-llap"></a>Processamento analítico de baixa latência (LLAP)
 
@@ -234,7 +230,7 @@ Pode usar o SQL Server Integration Services (SSIS) para executar uma tarefa do H
 
 Para obter mais informações, consulte a [pacote de funcionalidades do Azure] [ ssispack] documentação.
 
-### <a name="apache-oozie"></a>O Apache Oozie
+### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie é um sistema de fluxo de trabalho e a coordenação que gere as tarefas do Hadoop. Para obter mais informações sobre como utilizar o Oozie com o Hive, consulte a [utilização Apache Oozie para definir e executar um fluxo de trabalho](../hdinsight-use-oozie-linux-mac.md) documento.
 

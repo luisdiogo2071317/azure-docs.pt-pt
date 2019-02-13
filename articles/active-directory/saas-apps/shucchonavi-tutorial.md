@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Shuccho Navi | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com Shuccho Navi | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Shuccho Navi.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: f90af5b57fcb9ed7f02bba0a184dacb17570136b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1709abdf1d5e90cb253e67b29c0e48f6aa29a712
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312981"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209681"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: Integração do Azure Active Directory com Shuccho Navi
+# <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: Integração do Active Directory do Azure com Shuccho Navi
 
 Neste tutorial, saiba como integrar Shuccho Navi com o Azure Active Directory (Azure AD).
 
@@ -149,7 +150,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-shuccho-navi-test-user"></a>Criar um utilizador de teste Shuccho Navi
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Shuccho Navi. Trabalhar com [equipa de suporte de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para adicionar os utilizadores na plataforma Shuccho Navi. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Shuccho Navi. Trabalhar com [equipa de suporte de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para adicionar os utilizadores na plataforma Shuccho Navi. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

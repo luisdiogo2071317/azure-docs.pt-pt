@@ -3,7 +3,7 @@ title: Considerações sobre o funcionamento em rede - HSM dedicada do Azure | D
 description: Descrição geral do funcionamento em rede considerações aplicáveis a implementações de HSM dedicados do Azure
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 46a4cc5e48a9fe239a3c62bd72cf6a99e9bf76d8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092893"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115458"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Redes de HSM dedicados do Azure
 

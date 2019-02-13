@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b2f82b4feea94c5c0ed732ff84856c96f46afc0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 60a648b24ad16c1b5ea404b5ad9f1f18fd5041da
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498085"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193854"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: Compreender a arquitetura
 Este tópico abrange a arquitetura básica para sincronização do Azure AD Connect. Em muitos aspectos, ele é semelhante a seus antecessores, o MIIS 2003, o ILM 2007 e o FIM 2010. Sincronização do Azure AD Connect é a evolução dessas tecnologias. Se estiver familiarizado com qualquer uma dessas tecnologias anteriores, o conteúdo deste tópico será familiar para também. Se estiver familiarizado com a sincronização, em seguida, este tópico é para. No entanto não é um requisito para saber os detalhes deste tópico para ter êxito na criação de personalizações para sincronização do Azure AD Connect (chamado de motor de sincronização neste tópico).

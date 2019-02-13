@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5339b0c77a69a915e58118888f8b82d095a43e38
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817793"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198752"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este tópico fornece os passos sobre como resolver problemas com a sincronização de hash de palavra-passe. Se as palavras-passe não estão sincronizado como esperado, pode ser para um subconjunto de utilizadores ou para todos os utilizadores.

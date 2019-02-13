@@ -9,18 +9,18 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: acae8076350c26e7a7157fd2063f64220b167771
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5c5615dcfc9d43016bdf995a22ae29a5c5dd2c6f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486066"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185388"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utilizar o pacote de segurança empresarial no HDInsight
 
 O cluster standard do Azure HDInsight é um cluster de utilizador único. É adequado para a maioria das empresas que têm mais pequenas equipas de aplicações cargas de trabalho de dados grandes. Cada utilizador pode criar um cluster dedicado a pedido e destruí-lo quando não é mais necessária. 
 
-Muitas empresas terem sido movidos para um modelo no qual os clusters são geridos pelas equipas de TI e aplicação de várias equipas partilham esses clusters. Estas empresas maiores tem acesso multiusuário, a cada cluster no Azure HDInsight.
+Muitas empresas terem sido movidos para um modelo em que as equipas de gerir clusters e aplicações de várias equipas partilham esses clusters. Estas empresas maiores tem acesso multiusuário, a cada cluster no Azure HDInsight.
 
 HDInsight depende de um fornecedor de identidade populares--Active Directory – de forma gerida. Ao integrar o HDInsight com [do Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), pode acessar os clusters com as suas credenciais de domínio. 
 
@@ -28,12 +28,13 @@ As máquinas virtuais (VMs) no HDInsight são associados ao seu domínio forneci
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrar o HDInsight no Active Directory
 
-Código aberto Apache Hadoop depende de Kerberos para autenticação e segurança. Por conseguinte, nós de cluster do HDInsight com o pacote de segurança da empresa (ESP) estão associados a um domínio gerido pelo Azure AD DS. Segurança do Kerberos está configurada para os componentes do Hadoop no cluster. 
+Código aberto Apache Hadoop baseia-se no protocolo Kerberos para autenticação e segurança. Por conseguinte, nós de cluster do HDInsight com o pacote de segurança da empresa (ESP) estão associados a um domínio gerido pelo Azure AD DS. Segurança do Kerberos está configurada para os componentes do Hadoop no cluster. 
 
 Os itens seguintes são criados automaticamente:
-- um principal de serviço para cada componente do Hadoop 
+
+- um principal de serviço para cada componente do Hadoop
 - um principal de máquina para cada máquina que está associado ao domínio
-- uma unidade organizacional (UO) para cada cluster para armazenar estas principais de serviços e da máquinas 
+- uma unidade organizacional (UO) para cada cluster para armazenar estas principais de serviços e da máquinas
 
 Para resumir, terá de configurar um ambiente com:
 
@@ -47,7 +48,7 @@ Atualmente, o HDInsight suporta apenas o Azure AD DS como controlador de domíni
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
 [O Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md) fornece um domínio gerido, que é totalmente compatível com o Windows Server Active Directory. Microsoft se encarrega de gerir, a aplicação de patches e a monitorizar o domínio numa configuração de elevada disponibilidade (HA). Pode implementar o cluster sem se preocupar em manter os controladores de domínio. 
 
-Os utilizadores, grupos e as palavras-passe são sincronizadas a partir do Azure Active Directory (Azure AD). A sincronização unidirecional da sua instância do Azure AD para o Azure AD DS permite aos utilizadores iniciar sessão para o cluster, utilizando as mesmas credenciais empresariais. 
+Os utilizadores, grupos e as palavras-passe são sincronizadas a partir do Azure AD. A sincronização unidirecional da sua instância do Azure AD para o Azure AD DS permite aos utilizadores iniciar sessão para o cluster, utilizando as mesmas credenciais empresariais. 
 
 Para obter mais informações, consulte [clusters do HDInsight configurar com ESP com o Azure AD DS](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -57,38 +58,38 @@ Se tiver uma instância do Active Directory no local ou configurações mais com
 
 Uma vez que Kerberos se baseia nos hashes de palavra-passe, tem [ativar a sincronização de hash de palavra-passe no Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
 
-Se estiver usando o federação com o Active Directory Federation Services (ADFS), tem de ativar sincronização de hash de palavra-passe (um recomendada de configuração, consulte [isso](https://youtu.be/qQruArbu2Ew)) que também ajuda na recuperação após desastre em caso de falha de sua infraestrutura de AD FS e a proteção de fuga de credenciais. Para obter mais informações, consulte [ativar a sincronização de hash de palavra-passe com o Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Se estiver a utilizar o federação com os serviços de Federação do Active Directory (AD FS), deve habilitar a sincronização de hash de palavra-passe. (Para uma configuração recomendada, consulte [este vídeo](https://youtu.be/qQruArbu2Ew).) No caso de falha de infraestrutura do AD FS e também o ajuda a fornecer proteção de fuga-credential, ajuda a sincronização de hash de palavra-passe com a recuperação após desastre. Para obter mais informações, consulte [ativar a sincronização de hash de palavra-passe com o Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
-Utilizar o Active Directory no local ou no Active Directory em VMs de IaaS sozinho, sem o Azure AD e o Azure AD DS, não é uma configuração suportada para clusters do HDInsight com ESP.
+Utilização no local do Active Directory ou do Active Directory em VMs de IaaS sozinho, sem o Azure AD e o Azure AD DS, não é uma configuração suportada para clusters do HDInsight com ESP.
 
-Se está a ser utilizada o Federação e hashes de palavra-passe são sincronizado correcty, mas estiver a obter falhas de autenticação,. Verifique se a autenticação de palavra-passe da cloud principal de serviço do powershell está ativada; caso contrário, tem de definir um [home page, como Realm Discovery (HRD ) política](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para o seu inquilino do AAD. Para chek e defina a política HRD:
+Se está a ser utilizada o Federação e hashes de palavra-passe são sincronizados corretamente, mas estiver a obter falhas de autenticação, verifique se a autenticação de palavra-passe na nuvem está ativada para o principal de serviço do PowerShell. Se não, tem de definir uma [Home Realm Discovery () da política de HRD](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) para o seu inquilino do Azure AD. Para verificar e definir a política HRD:
 
- 1. Instalar o módulo do AzureAD do powershell
-
- ```
-  Install-Module AzureAD
- ```
-
- 2. ```Connect-AzureAD``` com as credenciais de administrador global (administrador de inquilino)
-
- 3. Verifique se o principal de serviço "Microsoft Azure Powershell" já foi criado
+ 1. Instale o módulo do PowerShell do Azure AD.
 
  ```
-  $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+    Install-Module AzureAD
  ```
 
- 4. Se não existir (ou seja, se ($powershellSPN - eq $null)), em seguida, criar o principal de serviço
+ 2. Introduza `Connect-AzureAD` utilizando as credenciais de administrador global (administrador de inquilino).
+
+ 3. Verifique se o principal de serviço do Microsoft Azure PowerShell já foi criado.
 
  ```
-  $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+    $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
  ```
 
- 5. Criar e anexar a política para este principal de serviço: 
+ 4. Se não existir (ou seja, se `($powershellSPN -eq $null)`), em seguida, criar o principal de serviço.
 
  ```
- $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+ ```
 
- Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+ 5. Criar e anexar a política para este principal de serviço.
+
+ ```
+    $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+    Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
  ```
 
 ## <a name="next-steps"></a>Passos Seguintes

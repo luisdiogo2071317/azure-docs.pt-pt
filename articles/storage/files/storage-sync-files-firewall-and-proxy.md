@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: c0a1d2bf1d7a103ad473cadb1528bd9b9a4c90de
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fab8ec5a6ca94d2f30ec47da390885339adf8b43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488021"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192222"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga-se os servidores no local para os ficheiros do Azure, ativar a sincronização de múltiplos site e recursos de camada de cloud. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor chegar a serviços cloud do Azure.
@@ -46,7 +46,7 @@ O Azure File Sync irá funcionar através de meios que disponíveis que permitem
 ## <a name="proxy"></a>Proxy
 O Azure File Sync suporta as definições de proxy de aplicações específicas e todo o computador.
 
-**Definições de proxy de aplicações específicas** permitem a configuração de um proxy especificamente para o tráfego do Azure File Sync. Definições de proxy de aplicações específicas são suportados na versão do agente 4.0.1.0 ou posterior e podem ser configuradas durante a instalação do agente ou utilizando o cmdlet do PowerShell Set-StorageSyncProxyConfiguration.
+**Definições de proxy de aplicações específicas** permitem a configuração de um proxy especificamente para o tráfego do Azure File Sync. Definições de proxy de aplicações específicas são suportadas na versão do agente 4.0.1.0 ou mais recente e podem ser configuradas durante a instalação do agente ou utilizando o cmdlet do PowerShell Set-StorageSyncProxyConfiguration.
 
 Comandos do PowerShell para configurar definições de proxy de aplicações específicas:
 ```PowerShell
@@ -100,7 +100,7 @@ A tabela seguinte descreve os domínios necessários para a comunicação:
 | **Azure Active Directory** | https://graph.windows.net/ | Como parte da implementação do Azure File Sync, será criado um principal de serviço no Azure Active Directory da subscrição. Este URL é usado para isso. Este principal é utilizado para delegar a um conjunto mínimo de direitos para o serviço de sincronização de ficheiros do Azure. O utilizador que executa a configuração inicial do Azure File Sync tem de ser um utilizador autenticado com privilégios de proprietário da subscrição. |
 | **Armazenamento do Azure** | &ast;.core.windows.net | Quando o servidor transfere um ficheiro, em seguida, o servidor executa esse movimento de dados com mais eficiência quando se fala diretamente para a partilha de ficheiros do Azure na conta de armazenamento. O servidor tem uma chave SAS que só permite o acesso de partilha de ficheiros de destino. |
 | **Azure File Sync** | &ast;.one.microsoft.com | Após o registo do servidor inicial, o servidor recebe um URL regional para a instância do serviço Azure File Sync nessa região. O servidor pode utilizar o URL para se comunicar diretamente e eficiente com a instância de lidar com a sincronizar. |
-| **Microsoft PKI** | http://ocsp.msocsp.com | Depois de instalar o agente de sincronização de ficheiros do Azure, o URL de PKI é utilizado para transferir os certificados intermédios necessários para comunicar com o serviço de sincronização de ficheiros do Azure e a partilha de ficheiros do Azure. O URL de protocolo OCSP é utilizado para verificar o estado de um certificado. |
+| **Microsoft PKI** | https://www.microsoft.com/pki/mscorp<br>http://ocsp.msocsp.com | Depois de instalar o agente de sincronização de ficheiros do Azure, o URL de PKI é utilizado para transferir os certificados intermédios necessários para comunicar com o serviço de sincronização de ficheiros do Azure e a partilha de ficheiros do Azure. O URL de protocolo OCSP é utilizado para verificar o estado de um certificado. |
 
 > [!Important]
 > Quando a permitir o tráfego para &ast;. one.microsoft.com, o tráfego para mais do que apenas o serviço de sincronização é possível a partir do servidor. Existem muitos serviços da Microsoft mais disponíveis em subdomínios.

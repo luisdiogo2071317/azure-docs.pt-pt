@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 6f2d869f345aeb8f50d42de6b1533b849ffb2182
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a73fbfe96382437c3cf605a5b042e7ddccaad92d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197573"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Active Directory do Azure com SignalFx
 
@@ -121,7 +122,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem e execute os seguintes passos:
     
-    | Nome de atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ------------------- | -------------------- |    
     | User.FirstName          | user.givenname |
     | User.email          | user.mail |

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5422704f126bbce9f2de7c2f007b5b1753f4d0ed
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c72ed2852f0f732c9f3b5641fc1ed819fc72476b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813054"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutorial: Integração do Active Directory do Azure com a Pluralsight
 
@@ -122,7 +123,7 @@ Para configurar o Azure AD início de sessão único com a Pluralsight, execute 
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | --------------- | --------- |
     | Nome Próprio  | user.givenname  |
     | Apelido  | user.surname  |

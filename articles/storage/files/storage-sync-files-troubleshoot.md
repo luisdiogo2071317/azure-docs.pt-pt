@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 376ebcbc17cc9f5c797c2985fe3c0784f5036600
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 52e0521217fb99bc5fac3fdde8f43f9c80f86ac7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752097"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194243"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -70,7 +70,7 @@ Reset-StorageSyncServer
 Este problema ocorre quando o **segurança avançada do Internet Explorer** política for ativada durante o registo do servidor. Para obter mais informações sobre como desativar corretamente o **segurança avançada do Internet Explorer** política, veja [preparar o Windows Server para utilizar com o Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [como implementar os ficheiros do Azure Sincronização](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Gestão de grupo de sincronização
-<a id="cloud-endpoint-using-share"></a>**Falha ao criar o ponto final na cloud, com este erro: "A partilha de ficheiros do Azure especificado já está em utilização por um CloudEndpoint diferente"**  
+<a id="cloud-endpoint-using-share"></a>**Falha ao criar o ponto final na cloud, com este erro: "A partilha especificada do Azure FileShare já está em utilização por um CloudEndpoint diferente"**  
 Este problema ocorre se a partilha de ficheiros do Azure já está a ser utilizada por outro ponto final da cloud. 
 
 Se vir esta mensagem e a partilha de ficheiros do Azure atualmente não está em utilização por um ponto final da cloud, conclua os seguintes passos para limpar os metadados de sincronização de ficheiros do Azure na partilha de ficheiros do Azure:
@@ -145,12 +145,12 @@ Um Estado de funcionamento do ponto final de servidor de "Sem atividade" signifi
 
 Um ponto final do servidor não poderá iniciar a atividade de sincronização pelos seguintes motivos:
 
-- O servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto final do servidor, os outros pontos de extremidade do servidor no mesmo volume não é possível iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída.
+- Versão do agente 4.3.0.0 ou mais antiga é instalada e o servidor tem uma sessão de sincronização ativa do VSS (SnapshotSync). Quando uma sessão de sincronização do VSS está ativa para um ponto final do servidor, os outros pontos de extremidade do servidor no mesmo volume não é possível iniciar uma sessão de sincronização inicial até que a sessão de sincronização VSS seja concluída. Para resolver este problema, instale a versão do agente 5.0.2.0 ou mais recente que suporta vários pontos finais de servidor que a sincronização num volume, quando a sessão de sincronização de um VSS está ativo.
 
     Para verificar a atividade de sincronização atual num servidor, consulte [como posso monitorizar o progresso de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 - O servidor atingiu o número máximo de sessões de sincronização em simultâneo. 
-    - Versão do agente 4.x e posterior: Limite varia com base nos recursos de sistema disponíveis.
+    - Versão do agente 4.x e mais recentes: Limite varia com base nos recursos de sistema disponíveis.
     - Versão do agente 3.x: 2 sessões de sincronização do Active Directory por processador ou um máximo de 8 sessões de sincronização do Active Directory por servidor.
 
 > [!Note]  
@@ -538,7 +538,7 @@ Este erro ocorre porque há o alterações na partilha de ficheiros do Azure dir
 | **Cadeia de erro** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Remediação necessária** | Sim |
 
-Em casos em que há muitas por erros de sincronização de ficheiros, sessões de sincronização podem começar a falhar. Para resolver problemas neste estado, consulte [resolução de problemas por erros de sincronização de diretório do ficheiro]().
+Em casos em que há muitas por erros de sincronização de ficheiros, sessões de sincronização podem começar a falhar. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
 > [!NOTE]
 > O Azure File Sync cria um instantâneo VSS temporário vez por dia no servidor para sincronizar ficheiros com identificadores abertos.

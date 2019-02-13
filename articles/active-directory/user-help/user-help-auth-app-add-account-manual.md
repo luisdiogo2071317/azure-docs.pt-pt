@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: ff068be02d5cf37edbb9b3573e1d980529f2e566
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773742"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173947"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar manualmente uma conta para a aplicação
 Se a câmara não consegue capturar o código QR, pode adicionar manualmente as informações da sua conta para a aplicação Microsoft Authenticator para verificação de dois fatores. Isto funciona para contas escolar ou profissional e contas de não-Microsoft.

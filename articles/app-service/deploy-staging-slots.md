@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 2a5ff771064c860447427c9e3cc1345a03a69634
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893764"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181427"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
@@ -205,6 +205,11 @@ Ao usar [troca automática](#Auto-Swap), algumas aplicações podem exigir açõ
         </applicationInitialization>
     </system.webServer>
 
+Também pode personalizar o comportamento de aquecimento com um ou mais dos seguintes procedimentos [as definições da aplicação](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
+
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para enviar um ping para aquecer seu site. Adicione esta definição de aplicação, especificando um caminho personalizado que começa com uma barra como o valor. Por exemplo, `/statuscheck`. O valor predefinido é `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione esta definição de aplicação com uma lista separada por vírgulas de códigos HTTP. Por exemplo: `200,202` . Se o código de estado devolvido não estiver na lista, as operações de aquecimento e troca são paradas. Por predefinição, todos os códigos de resposta são válidos.
+
 ## <a name="monitor-swap"></a>Troca de monitor
 
 Se a operação de troca demora muito tempo a concluir, pode obter informações sobre a operação de troca no [registo de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
@@ -263,6 +268,8 @@ Navegue até à página de recursos da sua aplicação. Selecione **blocos de im
 
 ## <a name="automate-with-powershell"></a>Automatizar com o PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 O Azure PowerShell é um módulo que oferece cmdlets para gerir o Azure através do Windows PowerShell, incluindo suporte para o gerenciamento de blocos de implementação no serviço de aplicações do Azure.
 
 Para obter informações sobre como instalar e configurar o Azure PowerShell e sobre a autenticação do Azure PowerShell com a sua subscrição do Azure, consulte [como instalar e configurar o Microsoft Azure PowerShell](/powershell/azure/overview).  
@@ -270,44 +277,44 @@ Para obter informações sobre como instalar e configurar o Azure PowerShell e s
 - - -
 ### <a name="create-web-app"></a>Criar aplicação Web
 ```PowerShell
-New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
+New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-slot"></a>Criar a ranhura
 ```PowerShell
-New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Iniciar a troca com pré-visualização (troca de múltiplas fase) e aplicar a configuração da ranhura de destino para a ranhura de origem
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Cancelar pendentes troca (swap com revisão) e restaurar a configuração da ranhura de origem
 ```PowerShell
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Trocar as ranhuras de implementação
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 ### <a name="monitor-swap-events-in-the-activity-log"></a>Eventos de troca de monitor na atividade de registo
 ```PowerShell
-Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
+Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
 ### <a name="delete-slot"></a>Eliminar Bloco
-```PowerShell
-Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
+```powershell
+Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
 - - -

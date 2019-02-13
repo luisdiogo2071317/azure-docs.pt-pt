@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5ab47165118b68e91c1218be35c6f88aa55350e2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982612"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118450"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQs sobre a configuração e gestão de aplicações Web no Azure
 
@@ -262,6 +262,8 @@ Para saber como utilizar um nome de domínio personalizado com uma aplicação d
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Meu certificado de serviço de aplicações é sinalizado por fraude. Como posso resolver isto?
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Durante a verificação de domínio de uma compra do certificado de serviço de aplicações, poderá ver a mensagem seguinte:
 
 "O certificado foi sinalizado como possível fraude. O pedido está atualmente a ser analisadas. Se o certificado se tornar utilizável dentro de 24 horas, contacte o suporte do Azure."
@@ -271,12 +273,12 @@ Como a mensagem indica, este processo de verificação de fraude poderá demorar
 Se o certificado do serviço de aplicação continua a mostrar esta mensagem após 24 horas, execute o seguinte script do PowerShell. Os contactos do script da [fornecedor de certificados](https://www.godaddy.com/) diretamente para resolver o problema.
 
 ```powershell
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <subId>
+Connect-AzAccount
+Set-AzContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
     };
-Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
+Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>Como a autenticação e autorização funcionam no serviço de aplicações?

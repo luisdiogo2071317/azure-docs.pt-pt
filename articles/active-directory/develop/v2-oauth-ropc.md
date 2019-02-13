@@ -16,12 +16,13 @@ ms.date: 11/28/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6df19f8d20853b569a2bc357e6c1115976a7de2c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 716f48a5db437ef1dc865aca66fbac1c1d51aec3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097976"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207437"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>O Azure Active Directory v 2.0 e a credencial de palavra-passe de proprietário de recursos do OAuth 2.0
 
@@ -81,7 +82,7 @@ O código a seguir mostra um exemplo de uma resposta de token com êxito:
 
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | Cadeia | Sempre definido como `Bearer`. |
+| `token_type` | String | Sempre definido como `Bearer`. |
 | `scope` | Cadeias de caracteres de espaço separado | Se foi devolvido um token de acesso, este parâmetro indica os âmbitos que o token de acesso é válido para. |
 | `expires_in`| int | Número de segundos que o token de acesso incluído é válido para. |
 | `access_token`| Cadeia opaca | Emitido para o [âmbitos](v2-permissions-and-consent.md) que foram solicitados. |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com determinados SSO de administrador | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com determinados SSO de administrador | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e determinados SSO de administrador.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 40bdba8e7ce699f0fd6ca589c753f51b550fae05
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7d85e8dbac47bd41c759e9c225df5544c659cc05
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439458"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205533"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutorial: Integração do Azure Active Directory com determinados SSO de administrador
+# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Tutorial: Integração do Active Directory do Azure com determinados SSO de administrador
 
 Neste tutorial, saiba como integrar determinados SSO de administrador no Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com determinados SSO de administrador, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um determinados SSO de administrador logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Para configurar a integração de determinados SSO de administrador no Azure AD,
 
 **Para adicionar determinados SSO de administrador a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -162,7 +163,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-certain-admin-sso-test-user"></a>Criar um utilizador de teste de determinados SSO de administrador
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida em determinados SSO de administrador. Trabalhar com [equipa de suporte de SSO de administrador determinados](mailto:integrations@certain.com) para adicionar os utilizadores na plataforma determinados SSO de administrador. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida em determinados SSO de administrador. Trabalhar com [equipa de suporte de SSO de administrador determinados](mailto:integrations@certain.com) para adicionar os utilizadores na plataforma determinados SSO de administrador. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -194,7 +195,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

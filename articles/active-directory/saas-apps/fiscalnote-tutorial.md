@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cea5c6ad57d8c391bd1d5264abbc1397fbad0f30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 42dd7b23416e723d9c51cc065e61cfd7a1b3aaa9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162010"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Tutorial: Integração do Active Directory do Azure com FiscalNote
 
@@ -125,7 +126,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. No **atributos de utilizador** secção sobre o **início de sessão único** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem anterior e execute os seguintes passos:
            
-    | Nome de atributo | Valor do atributo |
+    | Nome do Atributo | Valor do Atributo |
     | ---------------| ----------------|
     | nome | user.userprincipalname|
     | givenName| user.givenname|

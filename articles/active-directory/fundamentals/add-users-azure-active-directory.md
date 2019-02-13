@@ -12,12 +12,13 @@ ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: af3078a2db7aecc8d82114f74f55d841cca9b69e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f3881026c1877059639b550f3d0342674b2f8b29
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099265"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187207"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar os utilizadores que utilizam o Azure Active Directory
 Adicionar novos utilizadores ou eliminar os utilizadores existentes do seu inquilino do Azure Active Directory (Azure AD).

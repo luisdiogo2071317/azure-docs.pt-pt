@@ -10,16 +10,17 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f7e539b2f444109e902f4b85d0a879183217f262
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 13f8d04a5e59092ee5173e8c1a446385b71faac2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076252"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201589"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Os requisitos de palavra-passe self-service do Azure AD de licenciamento de reposição
 
-Azure Active Directory (Azure AD) é fornecido em quatro edições: Gratuito, básico, Premium P1 e Premium P2. Existem vários recursos diferentes que tornam a reposição de palavra-passe self-service, incluindo a alteração, repor, desbloquear e repetição de escrita, que estão disponíveis nas edições diferentes do Azure AD. Este artigo tenta explicar as diferenças. Podem encontrar mais detalhes dos recursos incluídos em cada edição do Azure AD na [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory/).
+O Azure Active Directory (Azure AD) está disponível em quatro edições: Gratuito, Básico, Premium P1 e Premium P2. Existem vários recursos diferentes que tornam a reposição de palavra-passe self-service, incluindo a alteração, repor, desbloquear e repetição de escrita, que estão disponíveis nas edições diferentes do Azure AD. Este artigo tenta explicar as diferenças. Podem encontrar mais detalhes dos recursos incluídos em cada edição do Azure AD na [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Compare as edições e funcionalidades
 

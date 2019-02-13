@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 92d08d12571236276ad6e3d6f3705139ea050a8d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300239"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184504"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência das definições de roaming do Windows 10
 Segue-se uma lista completa de todas as definições que serão movidas ou uma cópia de segurança no Windows 10. 

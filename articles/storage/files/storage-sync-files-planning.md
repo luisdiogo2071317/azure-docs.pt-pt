@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751417"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200501"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -167,10 +167,14 @@ Clustering de ativação pós-falha do Windows Server é suportada pelo Azure Fi
 > O agente do Azure File Sync tem de ser instalado em cada nó num Cluster de ativação pós-falha para a sincronização funcione corretamente.
 
 ### <a name="data-deduplication"></a>A eliminação de duplicados de dados
-Para volumes que não têm a cloud em camadas ativado, o Azure File Sync suporta a ser ativada no volume do Windows eliminação de duplicados de dados de servidor. Atualmente, não suportamos a interoperabilidade entre o Azure File Sync com camadas ativado da cloud e a eliminação de duplicados de dados.
+**Versão do agente 5.0.2.0**   
+Eliminação de dados duplicados é suportada em volumes com camadas ativado no Windows Server 2016 e Windows Server 2019 da cloud. Ativar a eliminação de duplicados num volume com camadas ativado da cloud permite-lhe colocar em cache mais ficheiros no local sem aprovisionar mais armazenamento.
+
+**Windows Server 2012 R2 ou versões mais antigas do agente**  
+Para volumes que não têm a cloud em camadas ativado, o Azure File Sync suporta a ser ativada no volume do Windows eliminação de duplicados de dados de servidor.
 
 ### <a name="distributed-file-system-dfs"></a>Sistema de ficheiros distribuído (DFS)
-O Azure File Sync suporta a interoperabilidade com espaços de nomes do DFS (DFS-N) e replicação DFS (DFS-R) a partir [agente do Azure File Sync 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
+O Azure File Sync suporta a interoperabilidade com espaços de nomes do DFS (DFS-N) e a replicação de DFS (DFS-R).
 
 **Espaços de nomes do DFS (DFS-N)**: O Azure File Sync é totalmente suportado em servidores do DFS-N. Pode instalar o agente do Azure File Sync num ou mais membros do DFS-N para sincronizar dados entre os pontos de extremidade do servidor e o ponto final da cloud. Para obter mais informações, consulte [descrição geral de espaços de nomes DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  

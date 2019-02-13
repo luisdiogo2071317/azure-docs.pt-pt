@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096913"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203204"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Apresentando o Gestor de recursos de cluster do Service Fabric
 Tradicionalmente, gerenciamento de sistemas de TI ou serviços online significava dedicar máquinas virtuais ou físicas específicas para esses serviços específicos ou sistemas. Foram arquitetados como camadas de serviços. Deveria haver uma camada de "web" e uma camada de "dados" ou "armazenamento". Aplicativos teria uma camada de mensagens em que pedidos fluísse entrada e saída, bem como um conjunto de máquinas dedicadas a colocação em cache. Cada camada ou o tipo de carga de trabalho tinha máquinas específicas dedicadas a ele: a base de dados tem duas máquinas dedicadas a ele, os servidores web alguns. Se um determinado tipo de carga de trabalho causado máquinas era para executar muito quente, em seguida, adicionou mais máquinas com essa mesma configuração para essa camada. No entanto, nem todas as cargas de trabalho podem ser dimensionadas tão facilmente – particularmente com a camada de dados, normalmente, poderia substituir máquinas com máquinas maiores. Fácil. Se uma máquina falhou, essa parte do aplicativo global foi executada atingiu o limite inferior, até que a máquina pode ser restaurada. Ainda assim relativamente fácil (se não necessariamente divertido).
@@ -43,10 +43,6 @@ O Gestor de recursos do Cluster é o componente de sistema que trata da orquestr
 1. Imposição de regras
 2. Otimizando seu ambiente
 3. Ajudando com outros processos
-
-Para ver como funciona o Gestor de recursos do Cluster, veja o seguinte vídeo do Microsoft Virtual Academy: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
-<img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="what-it-isnt"></a>O que não é
 Em aplicativos de camada N tradicionais, há sempre uma [Balanceador de carga](https://en.wikipedia.org/wiki/Load_balancing_(computing)). Normalmente, esse era um balanceador de carga de rede (NLB) ou um balanceador de carga de aplicação (ALB) dependendo de onde Sentei na pilha da rede. Alguns balanceadores de carga são baseadas em Hardware como oferta de BigIP da F5, outras são baseados em software, como o Microsoft do NLB. Em outros ambientes, pode ver algo como HAProxy, nginx, Istio ou o Envoy nesta função. Estas arquiteturas, o trabalho de balanceamento de carga é Certifique-se de que as cargas de trabalho sem monitorização de estado (aproximadamente) recebem a mesma quantidade de trabalho. Estratégias para o balanceamento de carga variados. Alguns balanceadores enviaria cada chamada diferente para um servidor diferente. Outras fornecidas afixar/persistência da sessão. Balanceadores de mais avançados utilizam estimativa da carga real ou de relatório para encaminhar uma chamada com base no respetivo custo esperado e a carga atual da máquina.

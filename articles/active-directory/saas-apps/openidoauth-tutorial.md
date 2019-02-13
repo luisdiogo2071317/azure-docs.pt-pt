@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f2ed840065b4efd4b0e519333307388dca61827d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0742a08e0169d47307f28ff08491b0f7c7c4a914
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807019"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201521"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar uma aplicação de OpenID/OAuth a partir da Galeria de aplicações do Azure AD
 
@@ -105,7 +106,7 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
 
 3. Se o utilizador já não for autenticado, o Azure AD / autorizar pedidos de ponto final de início de sessão.
 
-    ![Autenticação](./media/openidoauth-tutorial/authentication.png)
+    ![Authentication](./media/openidoauth-tutorial/authentication.png)
 
 4. Depois do utilizador tem sessão iniciada, o Azure AD determina se o utilizador tem de ser apresentada uma página de consentimento. Essa determinação baseia-se o utilizador (ou o administrador da sua organização) já concedeu o consentimento da aplicação.
 

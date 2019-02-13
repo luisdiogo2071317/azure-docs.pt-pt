@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 3cb1849f9fbf99bcd811761f6b72b0d0cb61945d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dc5be2f5bbeb901888edc1e69953fdeb8de566c0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965057"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187139"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações com suporte para afirmações no Proxy de aplicações
 [Aplicações com suporte para afirmações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) efetuar um redirecionamento para o serviço STS (Security Token). O STS solicita credenciais do usuário em troca de um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de ativar o Proxy de aplicações para trabalhar com esses redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações com suporte para afirmações. 

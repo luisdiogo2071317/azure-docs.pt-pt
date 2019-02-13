@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: e681d192b3df429fc7aa5f340baa56fa739bad34
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 38ad75d22d21a141d48e9664ae580dfb5577a389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891645"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184929"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect com permissões de administrador do SQL delegado
 Antes da compilação mais recente do Azure AD Connect, a delegação administrativa, ao implementar as configurações necessárias do SQL, não era suportada.  Os utilizadores que pretendem instalar o Azure AD Connect é necessário ter permissões de administrador (SA) de servidor no SQL server.

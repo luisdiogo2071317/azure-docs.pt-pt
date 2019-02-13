@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com iPass SmartConnect | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com iPass SmartConnect | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e iPass SmartConnect.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: ecfdd3fae1d394e3b57fcd325f44cad0d1a98534
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91a68a208496904fcc8bfe13a227c61bf313214f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444899"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198172"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: Integração do Azure Active Directory com iPass SmartConnect
+# <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: Integração do Active Directory do Azure com iPass SmartConnect
 
 Neste tutorial, saiba como integrar iPass SmartConnect com o Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com iPass SmartConnect, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um iPass SmartConnect logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Para configurar a integração do iPass SmartConnect com o Azure AD, terá de ad
 
 **Para adicionar iPass SmartConnect a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -119,10 +120,10 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
 1. Clique em **ver e editar todos os outros atributos de utilizador** caixa de seleção o **atributos de utilizador** secção para expandir os atributos. Execute os seguintes passos em cada um dos atributos apresentados-
 
-    | Nome de atributo | Valor do atributo | Valor de espaço de nomes|
+    | Nome do Atributo | Valor do Atributo | Valor de espaço de nomes|
     | ---------------| --------------- |----------------|
-    | firstName | User.givenName |   |
-    | Apelido | User.Surname | |
+    | firstName | user.givenname |   |
+    | lastName | user.surname | |
     | e-mail | user.userprincipalname | |
     | o nome de utilizador | user.userprincipalname | |
 
@@ -184,7 +185,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="create-an-ipass-smartconnect-test-user"></a>Criar um utilizador de teste de SmartConnect iPass
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no iPass SmartConnect. Trabalhar com [equipa de suporte de iPass SmartConnect](mailto:help@ipass.com) para adicionar os utilizadores ou o domínio que é necessário para estar incluído na plataforma de SmartConnect iPass. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de SmartConnect iPass. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no iPass SmartConnect. Trabalhar com [equipa de suporte de iPass SmartConnect](mailto:help@ipass.com) para adicionar os utilizadores ou o domínio que é necessário para estar incluído na plataforma de SmartConnect iPass. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de SmartConnect iPass. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -216,7 +217,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

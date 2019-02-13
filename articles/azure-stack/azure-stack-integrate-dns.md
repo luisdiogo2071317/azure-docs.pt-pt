@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 13525fffb7e6720fe81759876ffd0fe71559279c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252324"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182855"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integração de datacenter do Azure Stack - DNS
 Para poder aceder aos pontos finais do Azure Stack (**portal**, **adminportal**, **gestão**, **adminmanagement**, etc.)  a partir de fora do Azure Stack, tem de integrar os serviços de DNS do Azure Stack com os servidores DNS que alojam as zonas DNS que pretende utilizar no Azure Stack.
@@ -114,9 +114,9 @@ Os servidores a utilizar os valores de exemplo, o FQDN para o DNS são:
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-Estas informações também são criadas no final de todas as implementações do Azure Stack num ficheiro denominado `AzureStackStampDeploymentInfo.json`. Este ficheiro está localizado no `C:\CloudDeployment\logs` pasta da máquina de virtual de implementação. Se não tiver a certeza de que os valores que foram utilizados para a sua implementação do Azure Stack, pode obter os valores a partir daqui.
+Estas informações também são criadas no final de todas as implementações do Azure Stack num ficheiro denominado `AzureStackStampInformation.json`. Este ficheiro está localizado no `C:\CloudDeployment\logs` pasta da máquina de virtual de implementação. Se não tiver a certeza de que os valores que foram utilizados para a sua implementação do Azure Stack, pode obter os valores a partir daqui.
 
-Se a máquina virtual de implementação já não está disponível ou está inacessível, pode obter os valores ao ligar ao ponto final com privilégios e executar o `Get-AzureStackInfo` cmdlet do PowerShell. Para obter mais informações, consulte [ponto final com privilégios](azure-stack-privileged-endpoint.md).
+Se a máquina virtual de implementação já não está disponível ou está inacessível, pode obter os valores ao ligar ao ponto final com privilégios e executar o `Get-AzureStackStampInformation` cmdlet do PowerShell. Para obter mais informações, consulte [ponto final com privilégios](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Configurar o reencaminhamento condicional para o Azure Stack
 

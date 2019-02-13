@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com meus pontos principais Sub/superior a equipa do prémio | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com meus pontos principais Sub/superior a equipa do prémio | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e meus pontos principais Sub/superior a equipa do prémio.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247759"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210735"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: Integração do Azure Active Directory com meus pontos principais Sub/superior a equipa do prémio
+# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Tutorial: Integração do Active Directory do Azure com meus pontos principais Sub/superior a equipa do prémio
 
 Neste tutorial, saiba como integrar os meus pontos principais Sub/superior a equipa do prémio com o Azure Active Directory (Azure AD).
 
@@ -161,7 +162,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>Criar um utilizador de teste de meus pontos principais Sub/superior a equipa do prémio
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no meus pontos principais Sub/superior a equipa do prémio. Trabalhar com [equipa de suporte de meus pontos principais Sub/superior a equipa do prémio](mailto:myawardpoints@biworldwide.com) para adicionar os utilizadores na plataforma do meus pontos principais Sub/superior a equipa do prémio. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no meus pontos principais Sub/superior a equipa do prémio. Trabalhar com [equipa de suporte de meus pontos principais Sub/superior a equipa do prémio](mailto:myawardpoints@biworldwide.com) para adicionar os utilizadores na plataforma do meus pontos principais Sub/superior a equipa do prémio. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

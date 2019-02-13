@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Base de habilidades | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com a Base de habilidades | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e a Base de habilidades.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8bc0353453cf5fe689eec398f6a7d73fb356b178
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205379"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190845"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração do Azure Active Directory com Base de habilidades
+# <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração do Active Directory do Azure com a Base de habilidades
 
 Neste tutorial, saiba como integrar a Base de habilidades com o Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com a Base de habilidades, precisa do seguinte:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Uma Base de habilidades de logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Para configurar a integração da Base de habilidades para o Azure AD, terá de 
 
 **Para adicionar a Base de habilidades da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -210,7 +211,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -220,7 +221,7 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 
 

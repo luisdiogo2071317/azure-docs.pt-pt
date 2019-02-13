@@ -16,18 +16,19 @@ ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: aa6579719588889ae23f664391d893b04e103804
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492968"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197390"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de controlo de acesso para a sua solução de identidade híbrida
 Quando uma organização é conceber a sua solução de identidade híbrida, também podem utilizar esta oportunidade para rever os requisitos de acesso para os recursos que eles estiverem planejando para disponibilizá-lo para os utilizadores. O acesso a dados em várias quatro todos os pilares da identidade, que são:
 
 * Administração
-* Autenticação
+* Authentication
 * Autorização
 * Auditoria
 

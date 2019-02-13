@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Manabi Pocket | Documentos da Microsoft'
+title: 'Tutorial: Integração do Active Directory do Azure com o Manabi Pocket | Documentos da Microsoft'
 description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Manabi Pocket.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0116cac7d0e44efee0112d57aedd4f5ee02833b3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3f5dd7012d280580dca76e50290bc2de4322d55c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430720"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198425"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: Integração do Azure Active Directory com o Manabi Pocket
+# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: Integração do Active Directory do Azure com o Manabi Pocket
 
 Neste tutorial, saiba como integrar o Manabi Pocket com o Azure Active Directory (Azure AD).
 
@@ -37,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Manabi Pocket, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Manabi Pocket logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +60,7 @@ Para configurar a integração do Manabi Pocket com o Azure AD, terá de adicion
 
 **Para adicionar Manabi Pocket a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -158,7 +159,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-manabi-pocket-test-user"></a>Criar um utilizador de teste Manabi Pocket
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Manabi Pocket. Trabalhar com [equipa de suporte do Manabi Pocket](mailto:info-ed-cl@ntt.com) para adicionar os utilizadores na plataforma do Manabi Pocket. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Manabi Pocket. Trabalhar com [equipa de suporte do Manabi Pocket](mailto:info-ed-cl@ntt.com) para adicionar os utilizadores na plataforma do Manabi Pocket. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -190,7 +191,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
