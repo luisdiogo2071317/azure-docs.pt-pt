@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: ee2ea608fb2a53563340b76ea916160231b27dca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978430"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244798"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos para o Azure Machine Learning Studio
 
@@ -41,7 +41,7 @@ Leia as etiquetas de caminho e o algoritmo no gráfico, como "para  *&lt;etiquet
 Por vezes, nenhuma delas é um ajuste perfeito. Se se destinam a ser recomendações de regra de geral, para que não se preocupe a ser exata.
 Cientistas de dados de várias que falei com disse que a forma-se de que apenas para encontrar o melhor algoritmo é tentar todas elas.
 
-Eis um exemplo do [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [Compare classificadores de Roc: Reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Eis um exemplo do [Galeria de IA do Azure](http://gallery.azure.ai/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [Compare classificadores de Roc: Reconhecimento de letra](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Para transferir uma visão geral de fácil de compreender o infográfico de noções básicas do machine learning para saber mais sobre os algoritmos populares utilizados para responder a perguntas comuns de machine learning, consulte [de Machine learning Noções básicas com exemplos de algoritmos](basics-infographic-with-algorithm-examples.md).

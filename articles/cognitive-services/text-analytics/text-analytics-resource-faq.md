@@ -3,19 +3,19 @@ title: Perguntas mais frequentes sobre a API de análise de texto
 titleSuffix: Azure Cognitive Services
 description: Obtenha respostas a perguntas comuns sobre a API de análise de texto.
 services: cognitive-services
-author: HeidiSteen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: 6da9526c67b5c99bfd76dd881ebcceda2c769dfe
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bdc8549f5f72d6098bf132d8395c9892170be9b0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874453"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245461"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Perguntas mais frequentes (FAQ) sobre o serviço cognitivos de análise de texto
 

@@ -10,17 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: de809ef1455e4c8c4c2284c2139e962f1829770b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510175"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244339"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Quando cria uma nova área de trabalho no Azure Machine Learning, um número de conjuntos de dados de exemplo e experimentações está incluído por predefinição. Muitos destes conjuntos de dados de exemplo são utilizados pelos modelos de exemplo no [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/). Outras pessoas estão incluídas como exemplos de vários tipos de dados normalmente utilizados na machine learning.
+Quando cria uma nova área de trabalho no Azure Machine Learning, um número de conjuntos de dados de exemplo e experimentações está incluído por predefinição. Muitos destes conjuntos de dados de exemplo são utilizados pelos modelos de exemplo no [Galeria de IA do Azure](http://gallery.azure.ai/). Outras pessoas estão incluídas como exemplos de vários tipos de dados normalmente utilizados na machine learning.
 
 Algumas destes conjuntos de dados estão disponíveis no armazenamento de Blobs do Azure. Para estes conjuntos de dados, a tabela seguinte fornece uma ligação direta. Pode utilizar estes conjuntos de dados em suas experiências utilizando o [importar dados] [ import-data] módulo.
 

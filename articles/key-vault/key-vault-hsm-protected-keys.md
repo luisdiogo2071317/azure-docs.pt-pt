@@ -11,14 +11,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 76943c89cd4c0a283dc36a2a0d28c907cef0ad28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114693"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238118"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Chaves de como gerar e transferir protegida por HSM para o Azure Key Vault
 
@@ -246,7 +246,6 @@ Copie o pacote de conjunto de ferramentas BYOK da unidade USB ou outro armazenam
 
 Para este passo de terceiro, efetue os seguintes procedimentos na estação de trabalho desligada. Para concluir este passo seu HSM tem de estar no modo de inicialização. 
 
-
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Passo 3.1: Alterar o modo HSM para o "I"
 
 Se estiver a utilizar nShield da Thales Edge, para alterar o modo: 1. Utilize o botão de modo para realçar o modo necessário. 2. Dentro de alguns segundos, prima e mantenha premido o botão Limpar para alguns segundos. Se alterar o modo, LED o novo modo interrompe flashing e permanece iluminado. O LED de estado pode flash irregularmente por alguns segundos e, em seguida, pisca regularmente quando o dispositivo está pronto. Caso contrário, o dispositivo permanece no modo de atual, com o modo adequado LED ativada.
@@ -256,13 +255,13 @@ Se estiver a utilizar nShield da Thales Edge, para alterar o modo: 1. Utilize o 
 Inicie um prompt de comando e execute o programa de novo universo da Thales.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 Este programa cria um **universo de segurança** ficheiros em % NFAST_KMDATA%\local\world, que corresponde à pasta C:\ProgramData\nCipher\Key Management data\local. Pode utilizar valores diferentes para o quórum, mas no nosso exemplo, lhe for pedido que introduza três cartões em branco e pins para cada um deles. Em seguida, usar dois dos cartões forneça acesso total ao universo de segurança. Estes cartões tornam-se a **conjunto de cartões de administrador** para o novo universo de segurança.
 
 > [!NOTE]
-> Se o seu HSM oferece suporte a mais recente DLf3072s256mRijndael de conjunto de cifras, pode substituir – conjunto de cifras = DLf1024s160mRijndael – com o conjunto de cifras = DLf3072s256mRijndael
+> Se o seu HSM não oferece suporte a mais recente DLf3072s256mRijndael de conjunto de cifras, pode substituir – conjunto de cifras = DLf3072s256mRijndael – com o conjunto de cifras = DLf1024s160mRijndael
 
 Em seguida, faça o seguinte:
 
