@@ -17,12 +17,13 @@ ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: cfc1ba6250a2d246c2dcf9a0128097b64896732d
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098515"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204424"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permissões e consentimento no ponto de final de v2.0 do Azure Active Directory
 
@@ -58,13 +59,13 @@ OAuth 2.0, esses tipos de permissões são chamados *âmbitos*. Eles também, mu
 * Escrever para o calendário de um utilizador ao utilizar `Calendars.ReadWrite`
 * Envie e-mails como um utilizador a utilizar por `Mail.Send`
 
-Uma aplicação mais frequentemente pedidos de ponto final de autorizar estas permissões, especificando os âmbitos em pedidos para a versão 2.0. No entanto, determinadas permissões de privilégio alto só podem ser concedidas através de consentimento de administrador e geralmente solicitado/concedido a utilizar o [ponto final de consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-scopes). Continue a ler para obter mais informações.
+Uma aplicação mais frequentemente pedidos de ponto final de autorizar estas permissões, especificando os âmbitos em pedidos para a versão 2.0. No entanto, determinadas permissões de privilégio alto só podem ser concedidas através de consentimento de administrador e geralmente solicitado/concedido a utilizar o [ponto final de consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Continue a ler para obter mais informações.
 
 ## <a name="permission-types"></a>Tipos de permissão
 
 Plataforma de identidade da Microsoft suporta dois tipos de permissões: **permissões delegadas** e **permissões de aplicação**.
 
-* **Permissões delegadas** são utilizados por aplicações que têm um utilizador com sessão iniciada presente. Para estas aplicações, o utilizador ou administrador autorizar as permissões que os pedidos de aplicação e a aplicação é uma permissão delegada para atuar como o utilizador com sessão iniciada ao efetuar chamadas para o recurso de destino. Algumas permissões delegadas podem ser permitidas por utilizadores não administrativos, mas exigem algumas permissões com mais privilégios [consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-scopes). Para saber que funções podem dar consentimento a permissões delegadas de administrador, veja [permissões da função de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Permissões delegadas** são utilizados por aplicações que têm um utilizador com sessão iniciada presente. Para estas aplicações, o utilizador ou administrador autorizar as permissões que os pedidos de aplicação e a aplicação é uma permissão delegada para atuar como o utilizador com sessão iniciada ao efetuar chamadas para o recurso de destino. Algumas permissões delegadas podem ser permitidas por utilizadores não administrativos, mas exigem algumas permissões com mais privilégios [consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Para saber que funções podem dar consentimento a permissões delegadas de administrador, veja [permissões da função de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
 * **Permissões de aplicação** são utilizados por aplicações que executam o sem um utilizador com sessão iniciada presente; por exemplo, aplicativos que são executados como serviços em segundo plano ou daemons.  Permissões de aplicação só é possível [deu consentimento por um administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -259,7 +260,7 @@ Para obter mais informações sobre o protocolo OAuth 2.0 e como obter os tokens
 
 Pode utilizar o `/.default` âmbito para o ajudar a migrar as suas aplicações a partir do ponto final v1.0 para o ponto final v2.0. Este é um âmbito integrado para cada aplicativo que se refere à lista estática de permissões configuradas no registo de aplicação. R `scope` valor de `https://graph.microsoft.com/.default` é funcionalmente o mesmo que os pontos finais v1.0 `resource=https://graph.microsoft.com` -ou seja, ele solicita um token com os âmbitos no Microsoft Graph que o aplicativo registrou no portal do Azure.
 
-O âmbito de /.default pode ser utilizado em qualquer fluxo de OAuth 2.0, mas é especialmente necessário no [](v2-oauth2-on-behalf-of-flow.md) em-nome-de fluxo e [fluxo de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md).  
+O âmbito de /.default pode ser utilizado em qualquer fluxo de OAuth 2.0, mas é especialmente necessário no [em-nome-de fluxo](v2-oauth2-on-behalf-of-flow.md) e [fluxo de credenciais de cliente](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]
 > Os clientes não é possível combinar estática (`/.default`) e consentimento dinâmico numa única solicitação. Portanto, `scope=https://graph.microsoft.com/.default+mail.read` resultará num erro devido à combinação de tipos de âmbito.
