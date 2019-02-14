@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6f0f9202a02acf5e6f7d6fe3fba2b68e8b266090
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882188"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238135"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>Início rápido: Pesquisa de imagens com o SDK de pesquisa de imagens do Bing para Java
 
@@ -45,7 +45,7 @@ Instale as dependências do SDK da Pesquisa de Imagens do Bing com o Maven, Grad
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo projeto Java no seu IDE ou editor favorito e adicione as seguintes importações à sua implementação de classe:
+1. Criar um novo projeto de Java no seu IDE ou editor favorito e adicione as seguintes importações à sua implementação da classe:
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -63,9 +63,10 @@ Instale as dependências do SDK da Pesquisa de Imagens do Bing com o Maven, Grad
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Enviar um pedido de pesquisa para a API de Pesquisa de Imagens do Bing
+## <a name="send-a-search-request-to-the-api"></a>Enviar um pedido de pesquisa para a API
 
 1. Utilize `bingImages().search()` para enviar o pedido HTTP que contém a consulta de pesquisa. Guarde a resposta como `ImagesModel`.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
@@ -76,7 +77,7 @@ Instale as dependências do SDK da Pesquisa de Imagens do Bing com o Maven, Grad
 ## <a name="parse-and-view-the-result"></a>Analisar e ver o resultado
 
 Analise os resultados da imagem devolvidos na resposta.
-Se a resposta contiver os resultados da pesquisa, armazene o primeiro resultado e imprima os detalhes, como um URL de miniatura, o URL original, juntamente com o número total de imagens devolvidas.  
+Se a resposta contém os resultados da pesquisa, armazenar o primeiro resultado e imprimir os detalhes, como uma miniatura devolveu o URL, o URL original, juntamente com o número total de imagens.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 0d27ae79ab2c14cc5fd5ca81b8b7f089e7fa294e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126229"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233053"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrar Gen1 de armazenamento do Azure Data Lake em várias regiões
 
@@ -46,7 +46,7 @@ Outros detalhes importantes a considerar quando planear a migração são:
 
 * **Custos de largura de banda**. [Custos de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) aplicam-se de uma vez que dados são transferidos para fora de uma região do Azure.
 
-* **ACLs nos seus dados**. Proteger os seus dados na nova região através da aplicação de ACLs para ficheiros e pastas. Para obter mais informações, consulte [proteger os dados armazenados no Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Recomendamos que utilize a migração para atualizar e ajustar as ACLs. Pode querer utilizar definições semelhantes às suas definições atuais. Pode ver as ACLs que são aplicadas a qualquer arquivo com o portal do Azure, [cmdlets do PowerShell](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission), ou SDKs.  
+* **ACLs nos seus dados**. Proteger os seus dados na nova região através da aplicação de ACLs para ficheiros e pastas. Para obter mais informações, consulte [proteger os dados armazenados no Azure Data Lake Storage Gen1](data-lake-store-secure-data.md). Recomendamos que utilize a migração para atualizar e ajustar as ACLs. Pode querer utilizar definições semelhantes às suas definições atuais. Pode ver as ACLs que são aplicadas a qualquer arquivo com o portal do Azure, [cmdlets do PowerShell](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission), ou SDKs.  
 
 * **Localização de serviços de análise**. Para um melhor desempenho, seus serviços de análise, como o Azure Data Lake Analytics ou o Azure HDInsight, devem estar na mesma região que seus dados.  
 

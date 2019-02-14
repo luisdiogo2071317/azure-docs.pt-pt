@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820441"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236979"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -253,3 +253,6 @@ Para limpar manualmente o restauro pontos de coleção que não estão a ser des
 
 5. Clique em **eliminar**, para limpar a coleção de ponto de restauro.
 6. Repita a operação de cópia de segurança novamente.
+
+> [!NOTE]
+ >Se o recurso (coleção de RP) tem grande número de pontos de restauro, em seguida, eliminar o mesmo a partir do portal pode tempo limite e falha. Este é um problema de CRP conhecido, onde todos os pontos de restauro não são eliminados no período de tempo estipulado e a operação exceder o tempo limite; No entanto, a operação de eliminação é normalmente bem-sucedida depois de 2 ou 3 tentativas.

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dd90834a2e112effbfd6876b84dfe8b3ca87fcf3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 38d5d469c920cafa33e0cc5b37846df2dc6d6ab9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015649"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236424"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de uma base de dados de Cassandra no local com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-cassandra-connector.md)
 > * [Versão 2 (versão atual)](../connector-cassandra.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "54015649"
 
 Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de uma base de dados do Cassandra no local. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.
 
-Pode copiar dados de um arquivo de dados do Cassandra no local para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, consulte a [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. O Data factory suporta, atualmente, apenas mover dados de um arquivo de dados do Cassandra para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para um arquivo de dados do Cassandra. 
+Pode copiar dados de um arquivo de dados do Cassandra no local para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, consulte a [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. O Data factory suporta, atualmente, apenas mover dados de um arquivo de dados do Cassandra para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para um arquivo de dados do Cassandra.
 
 ## <a name="supported-versions"></a>Versões suportadas
 O conector do Cassandra suporta as seguintes versões do Cassandra: 2.x e 3.x. Para a atividade em execução no Runtime de integração autoalojado, Cassandra 3.x é suportada desde o runtime de integração versão 3.7 e posteriores.
@@ -38,26 +38,26 @@ O conector do Cassandra suporta as seguintes versões do Cassandra: 2.x e 3.x. P
 ## <a name="prerequisites"></a>Pré-requisitos
 Para o serviço do Azure Data Factory conseguir ligar à sua base de dados do Cassandra no local, tem de instalar um Gateway de gestão de dados no mesmo computador que aloja a base de dados ou numa máquina separada para evitar competindo por recursos com a base de dados. O Data Management Gateway é um componente que liga origens de dados no local para serviços cloud de forma segura e gerida. Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para obter detalhes sobre o Data Management Gateway. Ver [mover dados do local para a cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados mover dados.
 
-Tem de utilizar o gateway para ligar a uma base de dados do Cassandra, mesmo que a base de dados está alojado na cloud, por exemplo, numa VM de IaaS do Azure. Y pode ter o gateway na mesma VM que aloja a base de dados ou numa VM separada, desde que o gateway, pode ligar à base de dados.  
+Tem de utilizar o gateway para ligar a uma base de dados do Cassandra, mesmo que a base de dados está alojado na cloud, por exemplo, numa VM de IaaS do Azure. Y pode ter o gateway na mesma VM que aloja a base de dados ou numa VM separada, desde que o gateway, pode ligar à base de dados.
 
-Ao instalar o gateway, ele automaticamente instala um driver ODBC do Microsoft Cassandra utilizado para ligar à base de dados Cassandra. Portanto, não precisa de instalar manualmente qualquer driver no computador gateway, quando se copiam dados a partir da base de dados do Cassandra. 
+Ao instalar o gateway, ele automaticamente instala um driver ODBC do Microsoft Cassandra utilizado para ligar à base de dados Cassandra. Portanto, não precisa de instalar manualmente qualquer driver no computador gateway, quando se copiam dados a partir da base de dados do Cassandra.
 
 > [!NOTE]
 > Ver [resolver problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obter sugestões sobre resolução de problemas do gateway de ligação/problemas relacionados com.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do Cassandra no local através de APIs/ferramentas diferentes. 
+Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do Cassandra no local através de APIs/ferramentas diferentes.
 
-- A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados. 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+- A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
 1. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados.
-2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
-3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
+2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia.
+3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída.
 
-Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do Cassandra no local, consulte [exemplo de JSON: Copiar dados do Cassandra para BLOBs do Azure](#json-example-copy-data-from-cassandra-to-azure-blob) seção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON. Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do Cassandra no local, consulte [exemplo de JSON: Copiar dados do Cassandra para BLOBs do Azure](#json-example-copy-data-from-cassandra-to-azure-blob) seção deste artigo.
 
 As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para um arquivo de dados do Cassandra:
 
@@ -116,7 +116,7 @@ O exemplo possui as seguintes entidades do data factory:
 
 **Serviço ligado do Cassandra:**
 
-Este exemplo utiliza a **Cassandra** serviço ligado. Ver [serviço ligado do Cassandra](#linked-service-properties) secção para as propriedades suportadas por este serviço ligado.  
+Este exemplo utiliza a **Cassandra** serviço ligado. Ver [serviço ligado do Cassandra](#linked-service-properties) secção para as propriedades suportadas por este serviço ligado.
 
 ```json
 {
@@ -143,7 +143,7 @@ Este exemplo utiliza a **Cassandra** serviço ligado. Ver [serviço ligado do Ca
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
+        "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
@@ -212,13 +212,13 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
 Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obter a lista das propriedades compatíveis com o RelationalSource.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2016-06-01T18:00:00",
         "end":"2016-06-01T19:00:00",
         "description":"pipeline with copy activity",
-        "activities":[  
+        "activities":[
         {
             "name": "CassandraToAzureBlob",
             "description": "Copy from Cassandra to an Azure blob",
@@ -254,7 +254,7 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
                 "timeout": "01:00:00"
             }
         }
-        ]    
+        ]
     }
 }
 ```
@@ -262,20 +262,20 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 ### <a name="type-mapping-for-cassandra"></a>Mapeamento do tipo de Cassandra
 | Tipo de Cassandra | .NET com base em tipo |
 | --- | --- |
-| ASCII |Cadeia |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | VALOR BOOLEANO |Booleano |
 | DECIMAL |Decimal |
-| VALOR DE DUPLO |Valor de duplo |
-| NÚMERO DE VÍRGULA FLUTUANTE |Único |
-| INET |Cadeia |
+| VALOR DE DUPLO |Double |
+| NÚMERO DE VÍRGULA FLUTUANTE |Single |
+| INET |String |
 | INT |Int32 |
-| TEXTO |Cadeia |
+| TEXTO |String |
 | TIMESTAMP |DateTime |
-| TIMEUUID |GUID |
-| UUID |GUID |
-| VARCHAR |Cadeia |
+| TIMEUUID |Guid |
+| UUID |Guid |
+| VARCHAR |String |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -300,7 +300,7 @@ Pode utilizar o [Assistente para copiar](data-factory-data-movement-activities.m
 ### <a name="example"></a>Exemplo
 Por exemplo, "Seguinte ExampleTable" é uma tabela de base de dados do Cassandra que contém a coluna de chave primária de um número inteiro com o nome "pk_int", uma coluna de texto valor com nome, uma coluna de lista, uma coluna de mapa e uma coluna de conjunto (com o nome "StringSet").
 
-| pk_int | Valor | Lista | Mapa | StringSet |
+| pk_int | Value | Lista | Mapa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valor de exemplo 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valor de exemplo 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -309,14 +309,14 @@ O controlador irá gerar várias tabelas virtuais para representar nesta única 
 
 A primeira tabela virtual é a tabela de base com o nome "ExampleTable" é mostrada na seguinte tabela. A tabela base contém os mesmos dados da tabela de base de dados original, exceto para as coleções, o que são omitidos desta tabela e expandido em outras tabelas virtuais.
 
-| pk_int | Valor |
+| pk_int | Value |
 | --- | --- |
 | 1 |"valor de exemplo 1" |
 | 3 |"valor de exemplo 3" |
 
 As tabelas seguintes mostram as tabelas de virtual renormalizar dados das colunas de lista, o mapa e StringSet. As colunas com nomes que terminam com "_index" ou "c_have" indicam a posição dos dados dentro da lista original ou do mapa. As colunas com nomes que terminam com value"contêm os dados expandidos da coleção.
 
-#### <a name="table-exampletablevtlist"></a>Tabela de "ExampleTable_vt_List":
+#### <a name="table-exampletablevtlist"></a>Table “ExampleTable_vt_List”:
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -327,14 +327,14 @@ As tabelas seguintes mostram as tabelas de virtual renormalizar dados das coluna
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletablevtmap"></a>Tabela de "ExampleTable_vt_Map":
+#### <a name="table-exampletablevtmap"></a>Table “ExampleTable_vt_Map”:
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletablevtstringset"></a>Tabela de "ExampleTable_vt_StringSet":
+#### <a name="table-exampletablevtstringset"></a>Table “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

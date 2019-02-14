@@ -15,12 +15,12 @@ ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427c8b35f66b9b17d3da917b632d41cba5ddc99f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4a8311e359b5afa84020227de309e8b153a7ccda
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171524"
+ms.locfileid: "56238067"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação do Azure AD e principal de serviço que pode aceder aos recursos
 
@@ -137,7 +137,7 @@ Tem de ter permissões suficientes para registar uma aplicação no seu inquilin
 
    ![ver registos de aplicações](./media/howto-create-service-principal-portal/view-app-registrations.png)
 
-Se a definição dos registos da aplicação estiver definido como **não**, apenas [administradores globais](../users-groups-roles/directory-assign-admin-roles.md) podem registar aplicações. Se a sua conta está atribuída à função de utilizador, mas a definição de registo de aplicação está limitada a utilizadores de administração, peça ao seu administrador para a atribuir à função de administrador global ou para permitir que os utilizadores registem aplicações.
+Se a definição dos registos da aplicação estiver definido como **não**, apenas os utilizadores com uma função de administrador podem registar esses tipos de aplicativos. Ver [funções disponíveis](../users-groups-roles/directory-assign-admin-roles.md#available-roles) e [permissões de função](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) para saber mais sobre as funções de administrador disponíveis e as permissões específicas no Azure AD, que são fornecidas para cada função. Se a sua conta está atribuída à função de utilizador, mas a definição de registo de aplicação está limitada a utilizadores de administração, peça ao seu administrador para qualquer um atribuir a uma das funções de administrador que podem criar e gerir todos os aspetos de registos de aplicações ou para permitir que os utilizadores Registe aplicações.
 
 ### <a name="check-azure-subscription-permissions"></a>Verifique as permissões de subscrição do Azure
 

@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 1f13c5220eee19b6cf8b56e4b55922acc1b2c6b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b8bcdc57996e04b613a2196cb505c3f59edb953
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865034"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237285"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
 
@@ -59,6 +59,15 @@ Adicione as diferentes variações como expressões de exemplo para a intenção
 
 Cortana criados previamente as aplicações foram preteridas em 2017. Já não são suportadas.
 
+### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como transferir a propriedade de uma aplicação do LUIS?
+Para transferir uma aplicação do LUIS para uma subscrição do Azure diferente, exportar a aplicação do LUIS e importe-o utilizando uma conta nova. Atualize o ID da aplicação LUIS no aplicativo cliente que chama-lo. A nova aplicação poderá devolver as LUIS ligeiramente diferente pontuações da aplicação original.
+
+## <a name="luis-collaborating"></a>LUIS colaborar
+
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Como posso conceder acesso de colaboradores para LUIS com o Azure Active Directory (Azure AD) ou o controlo de acesso baseado em funções (RBAC)?
+
+Ver [recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) e [utilizador de inquilino do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para aprender a conceder acesso de colaboradores. 
+
 ## <a name="luis-endpoint"></a>Ponto final de LUIS
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de ponto final devolvidos resultados inesperados. O que devo fazer?
@@ -67,7 +76,7 @@ Resultados da predição de consulta inesperada baseiam-se sobre o estado do mod
 
 Como corrigir o modelo começa com [aprendizagem ativa](luis-how-to-review-endoint-utt.md).
 
-Pode remover o treinamento determinística ao atualizar o [aplicação API de definições de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para utilizar todos os dados de treinamento. 
+Pode remover o treinamento determinística ao atualizar o [aplicação API de definições de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para utilizar todos os dados de treinamento.
 
 Reveja os [melhores práticas](luis-concept-best-practices.md) para outras sugestões. 
 
@@ -152,10 +161,23 @@ Cada aplicação LUIS tem a chave de criação/starter na lista de ponto de extr
 
 Se a sua aplicação existia antes do LUIS foi em disponibilidade geral (GA), as chaves de ponto final do LUIS na sua subscrição são atribuídas automaticamente. Isso foi feito para facilitar a migração de disponibilidade geral. Quaisquer novas chaves de ponto final de LUIS no portal do Azure são _não_ atribuída automaticamente aos LUIS.
 
-## <a name="app-management"></a>Gestão de aplicações
+## <a name="key-management"></a>Gestão de chaves
 
-### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como transferir a propriedade de uma aplicação do LUIS?
-Para transferir uma aplicação do LUIS para uma subscrição do Azure diferente, exportar a aplicação do LUIS e importe-o utilizando uma conta nova. Atualize o ID da aplicação LUIS no aplicativo cliente que chama-lo. A nova aplicação poderá devolver as LUIS ligeiramente diferente pontuações da aplicação original.
+### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Como posso saber que preciso, onde posso obtê-lo, de chave e o que posso fazer com ele? 
+
+Ver [criação e a consulta a chaves do ponto final de predição em LUIS](luis-concept-keys.md) para saber mais sobre as diferenças entre o [chave de criação](luis-how-to-account-settings.md) e o [chave de predição de ponto final](luis-how-to-azure-subscription.md). 
+
+### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro sobre a ser fora da quota. Como posso corrigi-lo? 
+
+Ver, [como corrigir erros de fora da quota, quando a chave excede a utilização do escalão de preço](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) para saber mais.
+
+### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Preciso de lidar com mais consultas de ponto final. Como fazer isso? 
+
+Ver, [como corrigir erros de fora da quota, quando a chave excede a utilização do escalão de preço](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) para saber mais.
+
+
+
+## <a name="app-management"></a>Gestão de aplicações
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Como posso transferir um log de expressões de utilizador?
 Por predefinição, a sua aplicação LUIS regista expressões com dos utilizadores. Para transferir um log das expressões com que os utilizadores enviar para a sua aplicação LUIS, aceda a **as minhas aplicações**e selecione a aplicação. Na barra de ferramentas contextual, selecione **exportar registos de ponto final**. O registo é formatado como um ficheiro de valores separados por vírgulas (CSV).

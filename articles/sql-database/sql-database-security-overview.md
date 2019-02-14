@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728407"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235993"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -98,7 +98,7 @@ Tentarem ameaças melhora a deteção de auditoria através da análise de regis
 
 ### <a name="transport-layer-security-tls-encryption-in-transit"></a>O TLS (encriptação em trânsito) Transport Layer Security
 
-Base de dados SQL protege os dados dos clientes ao encriptar os dados em movimento com [Transport Layer Security](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+Base de dados SQL protege os dados dos clientes ao encriptar os dados em movimento com [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
 > [!IMPORTANT]
 > Base de dados SQL do Azure impõe a encriptação (SSL/TLS) em todos os momentos para todas as ligações, que garante que todos os dados são encriptados "em trânsito" entre a base de dados e o cliente. Este processo ocorre independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.

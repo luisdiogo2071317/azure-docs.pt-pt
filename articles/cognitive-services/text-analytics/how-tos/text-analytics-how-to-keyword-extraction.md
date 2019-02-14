@@ -1,22 +1,22 @@
 ---
-title: Extração de expressões-chave procedimentos na API de REST de análise de texto (serviços cognitivos da Microsoft no Azure) | Documentos da Microsoft
-description: Como extrair expressões-chave com a API de REST de análise de texto nos serviços cognitivos da Microsoft no Azure neste tutorial passo a passo.
+title: Extração de expressões-chave com a API de REST de análise de texto | Documentos da Microsoft
+description: Como extrair expressões-chave com a API de REST de análise de texto dos serviços cognitivos do Azure.
 services: cognitive-services
-author: HeidiSteen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: d6e3223b4f7931f250e422f1f30edcb375407c8c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865705"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245614"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: Como extrair expressões-chave na análise de texto
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair expressões-chave com análise de texto
 
 A [API de Extração de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avalia o texto não estruturado e, para cada documento JSON, devolve uma lista de expressões-chave. 
 
@@ -29,13 +29,13 @@ Atualmente, a Extração de Expressões-Chave suporta inglês, alemão, espanhol
 
 ## <a name="preparation"></a>Preparação
 
-A extração de expressões-chave funciona melhor quando fornece segmentos de texto maiores. O mesmo já não acontece com a análise de sentimentos, que tem um melhor desempenho com blocos de texto mais pequenos. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
+Extração de expressões-chave funciona melhor quando dá maiores quantidades de texto para trabalhar em. Este é o oposto de análise de sentimentos, que tem um desempenho melhor em mais pequenas quantidades de texto. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
 
 Tem de ter documentos JSON neste formato: id, texto, idioma
 
 Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O seguinte exemplo é uma ilustração de conteúdos que pode enviar para extração de expressões-chave.
 
-```
+```json
     {
         "documents": [
             {
@@ -94,9 +94,9 @@ Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propr
 
 O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
 
-Um exemplo de resultado para extração de expressões-chave é mostrado a seguir:
+Um exemplo de saída para extração de expressões-chave é mostrado aqui:
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

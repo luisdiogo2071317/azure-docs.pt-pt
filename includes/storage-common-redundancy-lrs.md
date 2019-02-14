@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/24/2018
+ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a948a40e638b5f6e042c62ab58c2b7b65a49cd4e
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 32032f729283cb3f2a786412b563fdee88ba4c8a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741985"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238572"
 ---
 Armazenamento localmente redundante (LRS) fornece, pelo menos, 99,999999999% (11 nines) durabilidade dos objetos ao longo de um ano. LRS fornece este durabilidade de objetos ao replicar os seus dados para uma unidade de escala de armazenamento. Centro de dados, localizado na região em que criou sua conta de armazenamento aloja a unidade de escala de armazenamento. Um pedido de escrita para uma conta de armazenamento LRS com êxito devolve apenas depois dos dados são gravados para todas as réplicas. Cada réplica reside em domínios de falha e domínios de atualização dentro de uma unidade de escala de armazenamento.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: cdc48cf278fdd68bacf74c2d6d762c8d731949e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 509c9cbe3a4c2f930c9fdfda186d78118dbe4b80
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111576"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237853"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
@@ -46,7 +46,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 | parâmetros |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
 | Variáveis |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
 | functions |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
-| recursos |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos. |
+| recursos |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos ou subscrição. |
 | saídas |Não |Valores que são devolvidos após a implementação. |
 
 Cada elemento tem propriedades que pode definir. O exemplo seguinte mostra a sintaxe completa para um modelo:

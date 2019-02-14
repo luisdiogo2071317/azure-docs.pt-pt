@@ -11,12 +11,12 @@ ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.suite: integration
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: fa2ae313ab18d6e474f1dd0953a3b0a0d094c7c3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38bc1615c0849a33ddfa5790a66fc05d681ce339
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111820"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244934"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Mensagens B2B seguras com certificados
 
@@ -30,6 +30,8 @@ Pode utilizar estes certificados nas suas aplicações de integração do enterp
 * [Certificados públicos](https://en.wikipedia.org/wiki/Public_key_certificate), que tem de comprar uma Internet pública [autoridade de certificação (AC)](https://en.wikipedia.org/wiki/Certificate_authority) mas não precisam de todas as chaves. 
 
 * Certificados privados ou [ *certificados autoassinados*](https://en.wikipedia.org/wiki/Self-signed_certificate), que criar e emitir por conta própria, mas também exigem chaves privadas. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upload-a-public-certificate"></a>Carregar um certificado público
 
@@ -60,18 +62,18 @@ Para utilizar um *certificado público* no logic apps com capacidades B2B, prime
 
 ## <a name="upload-a-private-certificate"></a>Carregar um certificado privado
 
-Para utilizar um *certificado privado* no logic apps com capacidades B2B, primeiro tem de carregar o certificado para a sua conta de integração. Também tem de ter uma chave privada que primeiro adiciona à [do Azure Key Vault](../key-vault/key-vault-overview.md). 
+Para utilizar um *certificado privado* no logic apps com capacidades B2B, primeiro tem de carregar o certificado para a sua conta de integração. Também tem de ter uma chave privada que primeiro adiciona à [do Azure Key Vault](../key-vault/key-vault-get-started.md). 
 
 Depois de definir as propriedades a [contratos](logic-apps-enterprise-integration-agreements.md) que cria, o certificado está disponível para ajudar a proteger as mensagens B2B.
 
 > [!NOTE]
 > Para certificados privados, certifique-se de que adicione um certificado público correspondente que aparece no [contrato de AS2](logic-apps-enterprise-integration-as2.md) **enviar e receber** definições para assinatura e criptografia de mensagens.
 
-1. [Adicionar a sua chave privada ao Azure Key Vault](../key-vault/quick-create-cli.md#add-a-secret-to-key-vault) e forneça um **nome da chave**.
+1. [Adicionar a sua chave privada ao Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) e forneça um **nome da chave**.
    
-2. Autorize o Azure Logic Apps para executar operações no Azure Key Vault. Para conceder acesso ao principal de serviço de aplicações lógicas, utilize o comando do PowerShell [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), por exemplo:
+2. Autorize o Azure Logic Apps para executar operações no Azure Key Vault. Para conceder acesso ao principal de serviço de aplicações lógicas, utilize o comando do PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), por exemplo:
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. Inicie sessão no [portal do Azure](https://portal.azure.com). No menu principal do Azure, selecione **todos os recursos**. Na caixa de pesquisa, introduza o nome da sua conta de integração e, em seguida, selecione a conta de integração que pretende.

@@ -1,22 +1,22 @@
 ---
-title: Análise de sentimentos procedimentos na API de REST de análise de texto (serviços cognitivos da Microsoft no Azure) | Documentos da Microsoft
-description: Como detetar sentimento com a API de REST de análise de texto nos serviços cognitivos da Microsoft no Azure neste tutorial passo a passo.
+title: Análise de sentimentos com a análise de texto dos serviços cognitivos do Azure | Documentos da Microsoft
+description: Saiba como detetar sentimentos com a API REST de Análise de Texto.
 services: cognitive-services
-author: HeidiSteen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: 4c5b55a5e11bddd6eac8155c2e49ccbd80d3164e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856381"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242140"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemplo: Como detetar o sentimento de análise de texto
+# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemplo: Como detetar sentimento com análise de texto
 
 A [API de Análise de Sentimentos](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e devolve uma pontuação de sentimento para cada documento entre 0 (negativo) e 1 (positivo).
 

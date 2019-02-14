@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886346"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247079"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Manter os ficheiros no Azure Cloud Shell
 Cloud Shell utiliza o armazenamento de ficheiros do Azure para manter os ficheiros em sessões. No início inicial, o Cloud Shell pede-lhe para associar uma partilha de ficheiros novos ou existentes para manter os ficheiros em sessões.
@@ -40,7 +40,7 @@ Ao utilizar a opção avançada, pode associar recursos existentes. Quando selec
 Quando for apresentada a linha de comandos do programa de configuração da armazenamento, selecione **Mostrar definições avançadas** para ver opções adicionais. O filtro de opções de armazenamento preenchida para o armazenamento localmente redundante (LRS), armazenamento georredundante (GRS) e contas de armazenamento com redundância de zona (ZRS). 
 
 > [!NOTE]
-> Contas de armazenamento com o GRS ou ZRS são recomendadas para uma resiliência adicional de segurança de partilha de ficheiros. Que tipo de redundância depende de suas metas e a preferência de preço. [Saiba mais sobre as opções de replicação para contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
+> Contas de armazenamento com o GRS ou ZRS são recomendadas para uma resiliência adicional de segurança de partilha de ficheiros. Que tipo de redundância depende de suas metas e a preferência de preço. [Saiba mais sobre as opções de replicação para contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ![A definição de grupo de recursos](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

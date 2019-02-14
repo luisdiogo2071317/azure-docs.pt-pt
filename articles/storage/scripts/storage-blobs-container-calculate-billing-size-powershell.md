@@ -15,18 +15,18 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 5e1505794097ac6d67997841cade46013686377f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53627764"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245410"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de faturação de um contentor de BLOBs
 
 Este script calcula o tamanho de um contentor no armazenamento de Blobs do Azure com o objetivo de estimar os custos de faturação. O script os totais do tamanho dos blobs no contentor.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -86,11 +86,11 @@ Segue-se a análise detalhada:
 * bytes 124 de sobrecarga para o blob, que inclui:
     - Hora da Última Modificação
     - Tamanho
-    - Controlo de cache
+    - Cache-Control
     - Content-Type
     - Idioma do conteúdo
     - Codificação de conteúdo
-    - MD5 de conteúdo
+    - Content-MD5
     - Permissões
     - Informações de instantâneo
     - Concessão

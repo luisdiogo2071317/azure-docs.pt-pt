@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244186"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243550"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
 ## <a name="overview"></a>Descrição geral
@@ -25,7 +25,7 @@ Este artigo apresenta uma implementação de referência de um projeto de análi
 Esta experiência foi desenvolvida e testada pela Serge Berger, cientista de dados Principal da Microsoft e Roger Barga, anteriormente, Gestor de produto do Microsoft Azure Machine Learning. A equipe de documentação do Azure gratamente reconhece os seus conhecimentos e obrigado-los para partilhar este white paper.
 
 > [!NOTE]
-> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de aprendizagem automática para análise de alterações a dados, consulte: [Modelo de modelo de abandono de varejo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)
+> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de aprendizagem automática para análise de alterações a dados, consulte: [Modelo de modelo de abandono de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](http://gallery.azure.ai/)
 > 
 > 
 
@@ -106,7 +106,7 @@ Os diagramas seguintes mostram os dados que foi utilizados.
  
 
 > Tenha em atenção que estes dados são privados e, portanto, não não possível partilhar o modelo e os dados.
-> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](http://gallery.azure.ai/): [Telco Customer Churn](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como implementar um modelo de análise de alterações a dados com o Cortana Intelligence Suite, também é recomendável [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) pelo gerente de programas Sênior Wee Hyong Tok. 
 > 
@@ -219,7 +219,7 @@ Este documento descreve um método sensato para lidar com o problema comum de ab
 
 [4] [Marketing de grandes volumes de dados: Cative os clientes com mais eficiência e o valor da unidade](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [modelo de modelo de abandono de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) no [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) 
+[5] [modelo de modelo de abandono de telecomunicações](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) no [Galeria de IA do Azure](http://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Anexo

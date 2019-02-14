@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/23/2019
+ms.date: 02/13/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8807f3dd888e3bf53e58ec896f824e6ecbf6273b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163364"
+ms.locfileid: "56234293"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -191,7 +191,7 @@ ms.locfileid: "56163364"
 | AADSTS90016 | MissingRequiredClaim - não o token de acesso é válido. A afirmação necessária está em falta. |
 | AADSTS90019 | MissingTenantRealm - Azure AD não foi possível determinar o identificador do inquilino no pedido. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - o formato de nome principal não é válido ou não cumpre a esperada `name[/host][@realm]` formato. O nome do principal não é necessário, o anfitrião e o realm são opcionais e podem ser definidos como nulo. |
-| AADSTS90023 | InvalidRequest |
+| AADSTS90023 | InvalidRequest - o pedido de serviço de autenticação não é válido. |
 | AADSTS90024 | RequestBudgetExceededError - Ocorreu um erro transitório. Tente novamente. |
 | AADSTS90033 | MsodsServiceUnavailable - o Microsoft Online Directory Service (MSODS) não está disponível. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - Ocorreu um erro inesperado, não repetição do serviço WCF hospedado pelo MSODS. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro. |

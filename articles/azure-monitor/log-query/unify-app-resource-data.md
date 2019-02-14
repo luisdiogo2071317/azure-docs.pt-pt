@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766017"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237676"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Uniformizar a vários recursos do Azure Monitor Application Insights 
 Este artigo descreve como consultar e ver todos os Application Insights log dados da sua aplicação num único lugar, mesmo quando eles estão em diferentes subscrições do Azure, como um substituto para a descontinuação do conector do Application Insights. O número de recursos que podem ser incluídos numa única consulta recursos do Application Insights está limitado a 100.  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Criar uma função com o operador union com a lista de aplicações, em seguida, guarde a consulta como função com o alias *applicationsScoping*.  
+Criar uma função com o operador union com a lista de aplicações, em seguida, guarde a consulta na sua área de trabalho como função com o alias *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -45,7 +45,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->Pode modificar as aplicações listadas em qualquer altura, ao navegar para o Explorador de consultas no portal de registos e a função de edição ou usando o `SavedSearch` cmdlet do PowerShell. O `withsource= SourceApp` comando adiciona uma coluna para os resultados que designa o aplicativo que enviou o registo. 
+>Pode modificar as aplicações listadas em qualquer altura no portal ao navegar para o Explorador de consultas na sua área de trabalho e selecionar a função de edição e, em seguida, salvar ou, usando o `SavedSearch` cmdlet do PowerShell. O `withsource= SourceApp` comando adiciona uma coluna para os resultados que designa o aplicativo que enviou o registo. 
 >
 >A consulta usa o esquema do Application Insights, apesar da consulta é executada na área de trabalho, uma vez que a função de applicationsScoping devolve a estrutura de dados do Application Insights. 
 >

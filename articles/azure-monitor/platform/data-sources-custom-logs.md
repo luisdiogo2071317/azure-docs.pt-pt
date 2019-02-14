@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 7a25686ffa80b831e5d459a8795595a00f869fda
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997597"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234803"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Registos personalizados no Azure Monitor
 A origem de dados de registos personalizado no Azure Monitor permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog. Depois de recolhidos, pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleção de campos individuais.
@@ -43,7 +43,11 @@ Os ficheiros de registo a recolher devem coincidir com os seguintes critérios.
 >
 
 >[!NOTE]
-> Um máximo de 500 registos personalizados pode ser criado por área de trabalho do Log Analytics. 
+> Uma área de trabalho do Log Analytics suporta os seguintes limites:
+> 
+> * Podem ser criados apenas 500 registos personalizados.
+> * Uma tabela só suporta até 500 colunas. 
+> * O número máximo de carateres para o nome da coluna é 500. 
 >
 
 ## <a name="defining-a-custom-log"></a>Definir um registo personalizado

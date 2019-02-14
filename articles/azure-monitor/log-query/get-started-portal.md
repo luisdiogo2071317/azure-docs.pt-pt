@@ -2,23 +2,18 @@
 title: Introdução ao log Analytics do Azure Monitor | Documentos da Microsoft
 description: Este artigo fornece um tutorial para utilizar o Log Analytics no portal do Azure para escrever consultas.
 services: log-analytics
-documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: b9a5c78ff9d6c1e2c7194f5b92511e94dfafb058
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990501"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242112"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução ao log Analytics do Azure Monitor
 

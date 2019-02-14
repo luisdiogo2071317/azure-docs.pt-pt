@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 026c399af70a0c97446fba28b5dd7ca1ed82b89c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 0aae733f94ab4a217ca41ca3de6df2e5da47df50
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635498"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244356"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Criar uma conta de armazenamento e rodar as chaves de acesso da conta
 
 Este script cria uma conta de armazenamento do Azure, apresenta a chave de acesso primária da conta de armazenamento nova, em seguida, renova (roda) a chave.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,10 +49,10 @@ Este script utiliza os seguintes comandos para criar a conta de armazenamento e 
 | Comando | Notas |
 |---|---|
 | [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | Obtém todas as localizações e os fornecedores de recursos suportados para cada localização. |
-| [Novo AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos do Azure. |
-| [Novo AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Cria uma Conta de armazenamento. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos do Azure. |
+| [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Cria uma Conta de armazenamento. |
 | [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Obtém as chaves de acesso para uma conta de Armazenamento do Azure. |
-| [Novo AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) | Volta a gerar uma chave de acesso para uma conta de armazenamento do Azure. |
+| [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) | Volta a gerar uma chave de acesso para uma conta de armazenamento do Azure. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

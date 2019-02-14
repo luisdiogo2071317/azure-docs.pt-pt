@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 01/31/2019
-ms.openlocfilehash: adc303e9b375aaa6f37e9e79ea5434675c75523d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824140"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237489"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Principais diferenças entre os serviços do Machine Learning na base de dados do Azure SQL e SQL Server
 
@@ -25,7 +25,7 @@ A funcionalidade do Machine Learning Services (com R) na Base de Dados SQL do Az
 
 ## <a name="language-support"></a>Suporte de idiomas
 
-O SQL Server tem suporte para R e Python através da [estrutura de extensibilidade](https://docs.microsoft.com/en-us/sql/advanced-analytics/concepts/extensibility-framework). Base de dados SQL não suporta as duas linguagens. As principais diferenças são:
+O SQL Server tem suporte para R e Python através da [estrutura de extensibilidade](https://docs.microsoft.com/sql/advanced-analytics/concepts/extensibility-framework). Base de dados SQL não suporta as duas linguagens. As principais diferenças são:
 
 - R é o único idioma suportado na base de dados SQL. Ainda não há suporte para Python neste momento.
 - A versão de R é 3.4.4.

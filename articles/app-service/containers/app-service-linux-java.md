@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: d6e8d943d14cfddc260ba502e724543c6dc9cf4f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0d24fbe075316e492b638a2877439af270250d70
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110341"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234636"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -28,12 +28,12 @@ Este guia fornece os conceitos chave e instruções para programadores de Java n
 
 ## <a name="deploying-your-app"></a>Implementar a sua aplicação
 
-Pode utilizar o plug-in do Maven para implementar ficheiros. JAR e. War. Veja [esta documentação](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) para obter mais informações sobre o plug-in do Maven. 
+Pode utilizar o plug-in do Maven para implementar ficheiros. JAR e. War. Veja [esta documentação](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable) para obter mais informações sobre o plug-in do Maven. 
 
 Se não estiver a utilizar o Maven, seu método de implementação irá depender do tipo de arquivo:
 
-- Para implementar ficheiros. War para Tomcat, utilize o `/api/wardeploy/` ponto final para publicar o seu ficheiro de arquivo. Para obter mais informações sobre esta API, veja [esta documentação](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#deploy-war-file).
-- Para implementar ficheiros. JAR nas imagens de Java SE, utilize o `/api/zipdeploy/` ponto final do Kudu site. Para obter mais informações sobre esta API, veja [esta documentação](https://docs.microsoft.com/en-us/azure/app-service/deploy-zip#rest).
+- Para implementar ficheiros. War para Tomcat, utilize o `/api/wardeploy/` ponto final para publicar o seu ficheiro de arquivo. Para obter mais informações sobre esta API, veja [esta documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Para implementar ficheiros. JAR nas imagens de Java SE, utilize o `/api/zipdeploy/` ponto final do Kudu site. Para obter mais informações sobre esta API, veja [esta documentação](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Não implemente sua. War ou. JAR utilizando o FTP. A ferramenta FTP foi criada para carregar scripts de inicialização, dependências ou outros arquivos de tempo de execução. Não é a escolha ideal para a implementação de aplicações web.
 

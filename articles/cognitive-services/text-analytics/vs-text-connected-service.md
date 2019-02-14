@@ -1,23 +1,23 @@
 ---
-title: 'Tutorial: Análise de texto comC#'
+title: 'Tutorial: Ligar ao serviço de análise de texto com os serviços ligados no Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Ligue à Análise de Texto a partir de uma aplicação Web ASP.NET Core.
+description: Saiba como ligar à análise de texto a partir de uma aplicação web ASP.NET Core.
 services: cognitive-services
-author: ghogen
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: ghogen
-ms.openlocfilehash: bcd0d68119d141f02f77d4d8828d55b1d984be0e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: a37ea5fdad941e1559e470ccb22303a8e3c7ca3d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869811"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243897"
 ---
-# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Tutorial: Ligar para o serviço cognitivos de análise de texto com os serviços ligados no Visual Studio
+# <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Ligar ao serviço de análise de texto com os serviços ligados no Visual Studio
 
 Ao utilizar o Serviço de Análise de Texto, pode extrair informações detalhadas para categorizar e processar dados do elemento visual e para realizar moderação assistida por computador de imagens para ajudar a organizar os seus serviços.
 

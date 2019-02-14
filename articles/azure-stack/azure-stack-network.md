@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 56884f2299df35c1565804a92fc404b6ed9e2f9a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185014"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243492"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede do Azure Stack para ajudar a decidir como integrar melhor o Azure Stack em seu ambiente de rede existente. 
@@ -67,9 +67,6 @@ Este /24 (anfitrião 254 IPs) é privada para a região do Azure Stack (não exp
 
 ### <a name="azure-stack-infrastructure-network"></a>Rede de infraestrutura do Azure Stack
 Isso/rede 24 é dedicada a componentes internos do Azure Stack para que eles podem se comunicar e trocar dados entre si. Esta sub-rede necessita de endereços IP encaminháveis, mas é mantida privada para a solução ao utilizar listas de controlo de acesso (ACL). Ele não se espera que ser encaminhado para além dos comutadores de limite, exceto para uma pequena gama equivalente em tamanho/27 rede utilizada por alguns desses serviços, ao necessitem de acesso a recursos externos e/ou da internet. 
-
-### <a name="public-infrastructure-network"></a>Rede pública de infraestrutura
-Isso/27 de rede é o intervalo de pequenas da sub-rede de infraestrutura do Azure Stack, mencionado anteriormente, ele não necessita de endereços IP públicos, mas requer acesso à internet através de uma NAT ou o Proxy transparente. Esta rede será atribuída para o sistema de consola de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registo para o Azure e cópias de segurança da infraestrutura. A VM ERCS devem ser encaminhável para a rede de gestão para fins de resolução de problemas.
 
 ### <a name="public-vip-network"></a>Rede VIP pública
 A rede VIP público é atribuída para o controlador de rede no Azure Stack. Não é uma rede lógica no comutador. O SLB utiliza o conjunto de endereços e atribui/32 redes para cargas de trabalho de inquilino. Na tabela de encaminhamento de comutador, estes IPs 32 são anunciados como uma rota disponível através do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura do Azure Stack reserva os primeiros 31 endereços desta rede VIP pública, enquanto o restante é utilizado pelas VMs inquilino. O tamanho de rede nesta sub-rede pode abranger desde um mínimo de /26 (64 anfitriões) até um máximo de /22 (1022 anfitriões), recomendamos que considere uma /24 rede.

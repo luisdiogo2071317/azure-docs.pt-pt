@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754222"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237872"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha MongoDB, Express, AngularJS e node. js (MEAN) numa máquina virtual do Linux no Azure
 
@@ -134,7 +134,7 @@ O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, sem
 
 6. Crie uma pasta com o nome *Livros* e adicione um ficheiro à mesma, que contenha a configuração do servidor Web, com o nome *server.js*.
 
-    ```node.js
+    ```javascript
     var express = require('express');
     var bodyParser = require('body-parser');
     var app = express();
@@ -159,7 +159,7 @@ O [Express](https://expressjs.com) é uma arquitetura de aplicação Web Node.js
 
 2. Na pasta *Livros*, crie uma pasta com o nome *aplicações* e adicione um ficheiro com o nome *routes.js* com os caminhos expressos definidos.
 
-    ```node.js
+    ```javascript
     var Book = require('./models/book');
     module.exports = function(app) {
       app.get('/book', function(req, res) {
@@ -201,7 +201,7 @@ O [Express](https://expressjs.com) é uma arquitetura de aplicação Web Node.js
 
 3. Na pasta *aplicações*, crie uma pasta com o nome *modelos* e adicione um ficheiro com o nome *book.js*, com a configuração de modelo de livros definida.  
 
-    ```node.js
+    ```javascript
     var mongoose = require('mongoose');
     var dbHost = 'mongodb://localhost:27017/test';
     mongoose.connect(dbHost);
@@ -223,7 +223,7 @@ O [AngularJS](https://angularjs.org) fornece uma arquitetura Web para criar vist
 
 1. Reverta o diretório para *Livros* (`cd ../..`) e, em seguida, crie uma pasta com o nome *público* e adicione um ficheiro com o nome *script.js* com a configuração de controlador definida.
 
-    ```node.js
+    ```javascript
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $http) {
       $http( {

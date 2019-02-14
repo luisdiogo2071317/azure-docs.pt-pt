@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: ba7ac806a74cd0b378c39eb3873e7d64435bcf4f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105659"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233604"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
 Quando a implementação de recursos, especifica que a implementação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Resource Manager processa os recursos existentes no grupo de recursos que não estão no modelo. O modo predefinido é incremental.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Apenas os modelos de nível de raiz suportam o modo de implantação completa. Para [ligada ou para aninhados modelos](resource-group-linked-templates.md), tem de utilizar o modo de incremental. 
 
 ## <a name="incremental-and-complete-deployments"></a>Implementações de incrementais e completas
 
@@ -63,8 +63,6 @@ Quando implementado num **concluída** modo, C de recurso é eliminado. O grupo 
 
 ## <a name="set-deployment-mode"></a>Definir o modo de implementação
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Para definir o modo de implementação ao implementar com o PowerShell, utilize o `Mode` parâmetro.
 
 ```azurepowershell-interactive
@@ -86,7 +84,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Quando utilizar um [modelo ligado ou aninhado](resource-group-linked-templates.md), tem de definir o `mode` propriedade `Incremental`. Apenas os modelos de nível de raiz suportam o modo de implantação completa.
+O exemplo seguinte mostra um modelo ligado definido para o modo de implantação incremental:
 
 ```json
 "resources": [

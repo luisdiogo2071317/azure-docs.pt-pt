@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8d99a52b500377e02af339588fe7155e26cf588c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548600"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233394"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementação contínua para Funções do Azure
 As funções do Azure torna mais fácil de implementar a sua aplicação de função a utilizar a integração contínua do serviço de aplicações. Funções integra-se com o BitBucket, Dropbox, GitHub e do Azure DevOps. Isto permite que um fluxo de trabalho que onde o código de função atualizações feito através de um desses implantação de Acionador de serviços integrados no Azure. Se estiver familiarizado com as funções do Azure, comece com [descrição geral das funções do Azure](functions-overview.md).
@@ -29,7 +29,7 @@ A implementação contínua é uma excelente opção para projetos em que vária
 * [Repositório de Git local](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Serviços de DevOps do Azure](https://www.visualstudio.com/team-services/)
+* [DevOps do Azure](https://azure.microsoft.com/services/devops/)
 
 As implementações são configuradas numa base por função de aplicação. Depois da implementação contínua é ativada, o acesso ao código de função no portal do estiver definido como *só de leitura*.
 
@@ -93,9 +93,9 @@ Quando tem funções existentes que foi criado e mantido no portal, tem de trans
 > [!NOTE]
 > Depois de configurar a integração contínua, já não será capaz de editar os arquivos de origem no portal de funções.
 
-- [Como: Configurar as credenciais de implementação](#credentials)
-- [Como: Transferir os ficheiros com FTP](#downftp)
-- [Como: Baixar os arquivos usando o repositório de Git local](#downgit)
+- [How to: Configurar as credenciais de implementação](#credentials)
+- [How to: Transferir os ficheiros com FTP](#downftp)
+- [How to: Baixar os arquivos usando o repositório de Git local](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Como: Configurar as credenciais de implementação

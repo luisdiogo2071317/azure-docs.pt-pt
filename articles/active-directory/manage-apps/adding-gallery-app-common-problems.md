@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6d47f22b4c7b29457de18593e38548aa818205a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205635"
+ms.locfileid: "56237880"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar uma aplicação da galeria do Azure AD
 
@@ -28,13 +28,13 @@ Este artigo ajuda-o a compreender os rostos de pessoas de problemas comuns ao ad
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "Adicionar" e a minha aplicação demorava muito tempo para que sejam apresentadas
 
-Em algumas circunstâncias, pode demorar 1 a 2 minutos (e, às vezes, mais tempo) para uma aplicação para aparecerem ao fim de adicioná-lo ao seu diretório. Embora não seja o desempenho esperado normal, pode ver a adição de aplicação está em curso, ao clicar no **notificações** ícone (na campainha) no canto superior direito dos [portal do Azure](https://portal.azure.com/) e à procura para uma **em curso** ou **concluído** notificação rotulada **Criar aplicação.**
+Em algumas circunstâncias, pode demorar 1 a 2 minutos (e, às vezes, mais tempo) para uma aplicação para aparecerem ao fim de adicioná-lo ao seu diretório. Embora não seja o desempenho esperado normal, pode ver a adição de aplicação está em curso, ao clicar no **notificações** ícone (na campainha) no canto superior direito dos [portal do Azure](https://portal.azure.com/) e à procura para uma **em curso** ou **concluído** notificação rotulada **a adicionar a aplicação.**
 
 Se seu aplicativo nunca é adicionado ou encontrar um erro ao clicar o **Add** botão, verá um **notificação** num **erro** estado. Se quiser obter mais detalhes sobre o erro para obter mais informações para ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro ao seguir os passos a [como ver os detalhes de uma notificação no portal](#how-to-see-the-details-of-a-portal-notification) secção.
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>Cliquei no botão "Adicionar" e meu aplicativo não foi publicado
 
-Às vezes, devido a problemas transitórios, problemas de rede ou um bug, adicionando uma falha de aplicação. Pode dizer isso acontece quando clica o **notificações** ícone (na campainha) no canto superior direito do portal do Azure e que veja um ícone vermelho (!!!) junto ao seu **Criar aplicação** notificação. Isto indica que ocorreu um erro ao criar a aplicação.
+Às vezes, devido a problemas transitórios, problemas de rede ou um bug, adicionar uma aplicação falha. Pode dizer isso acontece quando clica o **notificações** ícone (na campainha) no canto superior direito do portal do Azure e que veja um ícone vermelho (!!!) junto ao seu **a adicionar a aplicação** notificação. Isto indica que ocorreu um erro ao criar a aplicação.
 
 Se ocorrer um erro ao clicar o **Add** botão, verá um **notificação** num **erro** estado. Se quiser obter mais detalhes sobre o erro para obter mais informações para ou partilhar com um engenheiro de suporte, pode ver mais informações sobre o erro ao seguir os passos a [como ver os detalhes de uma notificação no portal](#how-to-see-the-details-of-a-portal-notification) secção.
 
@@ -42,13 +42,13 @@ Se ocorrer um erro ao clicar o **Add** botão, verá um **notificação** num **
 
 Se precisar de ajuda a aprender sobre aplicativos, o [lista de tutoriais sobre como integrar aplicações de SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom lugar para começar.
 
-Além disso, o [biblioteca de documentos de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajudá-lo a saber mais sobre o início de sessão único com o Azure AD e como ela funciona.
+Além disso, o [biblioteca de documentos de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda-o a saber mais sobre o início de sessão único com o Azure AD e como ela funciona.
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação no portal
 
 Pode ver os detalhes de qualquer notificação do portal, seguindo os passos abaixo:
 
-1.  Clique nas **notificações** ícone (de sino) na parte superior direita do Portal do Azure
+1.  Selecione o **notificações** ícone (de sino) na parte superior direita do Portal do Azure
 
 2.  Selecione qualquer notificação numa **erro** Estado (aquelas com linhas vermelhas (!!!) junto a eles).
 
@@ -61,7 +61,7 @@ Pode ver os detalhes de qualquer notificação do portal, seguindo os passos aba
 
 5.  Se ainda precisar de ajuda, também pode partilhar estas informações com um engenheiro de suporte ou o grupo de produto para obter ajuda com o seu problema.
 
-6.  Clique nas **cópia** **ícone** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo do produto ou de suporte
+6.  Clique nas **cópia** **ícone** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo de suporte ou o produto.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte
 

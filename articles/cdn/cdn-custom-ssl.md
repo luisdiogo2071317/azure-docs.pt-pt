@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f75b14ce2ca860ee894fe0a2ef501066b91f8e8a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9fb24cd6bcfae273c5430eee8d1fa8df58c6202
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755650"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236316"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado da CDN do Azure
 
@@ -45,6 +45,8 @@ Neste tutorial, ficará a saber como:
 > - Desativar o protocolo HTTPS no domínio personalizado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, consulte [início rápido: Criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md).
 
@@ -103,11 +105,11 @@ Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Est
 
 Registe a CDN do Azure como uma aplicação no Azure Active Directory através do PowerShell.
 
-1. Caso seja necessário, instale o [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) no PowerShell no seu computador local.
+1. Se necessário, instale [do Azure PowerShell](/powershell/azure/install-az-ps) no seu computador local.
 
 2. No PowerShell, execute o seguinte comando:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
     ![Registar a CDN do Azure no PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
               

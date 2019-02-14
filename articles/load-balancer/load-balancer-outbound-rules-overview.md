@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439107"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243608"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -34,7 +34,7 @@ Regras de saída permitem controlar:
 - quais as máquinas virtuais devem ser convertidas para que endereços IP públicos. 
 - como [portas de SNAT de saída](load-balancer-outbound-connections.md#snat) deve ser alocado.
 - os protocolos para fornecer a tradução de saída para.
-- o que duração a utilizar para o tempo limite de inatividade de ligação de saída.
+- o que duração a utilizar para a ligação de saída tempo limite de inatividade (4-120 minutos).
 - Se enviar uma reposição do TCP no tempo limite de inatividade (em pré-visualização pública). 
 
 Regras de saída expandir [cenário 2](load-balancer-outbound-connections.md#lb) descritas na [ligações de saída](load-balancer-outbound-connections.md) artigo e a precedência de cenário permanece como-é.
@@ -90,7 +90,7 @@ Pode reverter para [a alocação de porta SNAT automática com base no tamanho d
 
 ### <a name="idletimeout"></a> Tempo limite de inatividade de fluxo de saída do controle
 
-Regras de saída fornecem um parâmetro de configuração para controlar o tempo de limite de inatividade de fluxo de saída e fazer sua correspondência com as necessidades da sua aplicação.  Padrão de limites de ociosidade de saída a 4 minutos.  O parâmetro aceita um valor de 4 a 66 como específico, o número de minutos para que o tempo limite de inatividade para os fluxos que correspondam esta regra específica.
+Regras de saída fornecem um parâmetro de configuração para controlar o tempo de limite de inatividade de fluxo de saída e fazer sua correspondência com as necessidades da sua aplicação.  Padrão de limites de ociosidade de saída a 4 minutos.  O parâmetro aceita um valor de 4 a 120 como específico, o número de minutos para que o tempo limite de inatividade para os fluxos que correspondam esta regra específica.
 
 Utilize o parâmetro seguinte para definir o tempo de limite de inatividade saído para 1 hora:
 
@@ -205,7 +205,7 @@ Ao usar um Standard Balanceador de carga interno, NAT de saída não está dispo
 ## <a name="limitations"></a>Limitações
 
 - O número máximo de portas efêmeras utilizáveis por endereço IP de front-end é 51,200.
-- O intervalo do configurável saído tempo limite de inatividade é 4 para 66 minutos (240 para 4000 segundos).
+- O intervalo do configurável saído tempo limite de inatividade é 4 a 120 minutos (240 para 7200 segundos).
 - Balanceador de carga não suporta o ICMP para NAT de saída.
 - Não é possível utilizar o portal para configurar ou ver regras de saída.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.
 - Regras de saída só podem ser aplicadas para o NIC primário e a configuração de IP primária.

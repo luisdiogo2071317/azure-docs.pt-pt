@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: fff26406b036edeb48371b89f7e585160ddc58e0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123322"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235607"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Guia para utilizar o PowerShell com a geração 1 de armazenamento do Azure Data Lake de sintonização de desempenho
 
 Este artigo lista as propriedades que podem ser otimizadas para obter um melhor desempenho ao utilizar o PowerShell para trabalhar com a geração 1 de armazenamento do Azure Data Lake:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="performance-related-properties"></a>Propriedades relacionadas de desempenho
 
@@ -33,13 +35,13 @@ Este artigo lista as propriedades que podem ser otimizadas para obter um melhor 
 
 Este comando transfere ficheiros de geração 1 de armazenamento do Data Lake para unidade local do usuário com 20 threads por ficheiro e 100 ficheiros simultâneos.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>Como posso determinar o valor para estas propriedades?
 
 A próxima pergunta que pode ter é como determinar a que valor para fornecer para as propriedades relacionados ao desempenho. Eis algumas orientações que poderá utilizar.
 
-* **Passo 1: Determine a contagem total de threads** - Deve começar por calcular a contagem total de threads a utilizar. Como orientação geral, deve usar seis threads para cada núcleo físico.
+* **Passo 1: Determinar a contagem total de threads** -deve começar por calcular a contagem total de threads a utilizar. Como orientação geral, deve usar seis threads para cada núcleo físico.
 
         Total thread count = total physical cores * 6
 
@@ -50,7 +52,7 @@ A próxima pergunta que pode ter é como determinar a que valor para fornecer pa
         Total thread count = 16 cores * 6 = 96 threads
 
 
-* **Passo 2: Calcular a PerFileThreadCount** - Calculamos a nossa PerFileThreadCount com base no tamanho dos ficheiros. Para ficheiros inferior a 2,5 GB, não é necessário para alterar este parâmetro, uma vez que a predefinição de 10 é suficiente. Para ficheiros com mais de 2,5 GB, deve utilizar 10 threads como base para os primeiros 2,5 GB e adicionar 1 thread por cada aumento de 256 MB adicional no tamanho do ficheiro. Se estiver a copiar uma pasta com uma grande variedade de tamanhos de ficheiros, considere agrupá-los em tamanhos de ficheiro semelhantes. Ter tamanhos de ficheiro diferentes pode causar um desempenho não ideal. Se não for possível agrupar tamanhos de ficheiros semelhantes, deve definir PerFileThreadCount com base no tamanho de ficheiro maior.
+* **Passo 2: Calcular a PerFileThreadCount** -Calculamos a nossa PerFileThreadCount com base no tamanho dos ficheiros. Para ficheiros inferior a 2,5 GB, não é necessário para alterar este parâmetro, uma vez que a predefinição de 10 é suficiente. Para ficheiros com mais de 2,5 GB, deve utilizar 10 threads como base para os primeiros 2,5 GB e adicionar 1 thread por cada aumento de 256 MB adicional no tamanho do ficheiro. Se estiver a copiar uma pasta com uma grande variedade de tamanhos de ficheiros, considere agrupá-los em tamanhos de ficheiro semelhantes. Ter tamanhos de ficheiro diferentes pode causar um desempenho não ideal. Se não for possível agrupar tamanhos de ficheiros semelhantes, deve definir PerFileThreadCount com base no tamanho de ficheiro maior.
 
         PerFileThreadCount = 10 threads for the first 2.5 GB + 1 thread for each additional 256 MB increase in file size
 
@@ -84,13 +86,13 @@ Pode continuar a otimizar estas definições, alterando a **PerFileThreadCount**
 
 ### <a name="limitation"></a>Limitação
 
-* **O número de ficheiros é menor que ConcurrentFileCount**: se o número de ficheiros que está a carregar for menor que a **ConcurrentFileCount** que calculou, deve reduzir a **ConcurrentFileCount** para ser igual ao número de ficheiros. Pode utilizar quaisquer threads restantes para aumentar a **PerFileThreadCount**.
+* **Número de ficheiros é menor que ConcurrentFileCount**: Se o número de ficheiros que está a carregar for menor que o **ConcurrentFileCount** que tenha de calcular, em seguida, deve reduzir **ConcurrentFileCount** seja igual ao número de ficheiros. Pode utilizar quaisquer threads restantes para aumentar a **PerFileThreadCount**.
 
-* **Existem demasiados threads**: se aumentar demasiado a contagem de threads sem aumentar o tamanho do cluster, corre o risco de degradar o desempenho. Podem existir problemas de contenção ao alternar de contexto na CPU.
+* **Muitos threads**: Se aumentar a contagem de threads demais sem aumentar o tamanho do cluster, corre o risco de degradar o desempenho. Podem existir problemas de contenção ao alternar de contexto na CPU.
 
-* **Simultaneidade insuficiente**: se a simultaneidade não for suficiente, significa que o cluster pode ser demasiado pequeno. Pode aumentar o número de nós no seu cluster, o que lhe dá mais simultaneidade.
+* **Simultaneidade insuficiente**: Se a simultaneidade não for suficiente, em seguida, o cluster pode ser demasiado pequeno. Pode aumentar o número de nós no seu cluster, o que lhe dá mais simultaneidade.
 
-* **Erros de limitação**: poderá ver erros de limitação se a simultaneidade for demasiado elevada. Se vir erros de limitação, deverá reduzir a simultaneidade ou contactar a Microsoft.
+* **Erros de limitação**: Poderá ver erros de limitação, se a simultaneidade for demasiado elevada. Se vir erros de limitação, deverá reduzir a simultaneidade ou contactar a Microsoft.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Utilize a geração 1 de armazenamento do Azure Data Lake para requisitos de grandes volumes de dados](data-lake-store-data-scenarios.md) 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 88cb9f18002f15ea926fe5ded3a5ac9af7a99cbe
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 80bf9247bbb07fa61b7153e321b1991b82a9d616
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716250"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247086"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -28,4 +28,4 @@ Os serviços cognitivos da Microsoft [SDK de voz](~/articles/cognitive-services/
 Consulte os seguintes fragmentos de código para cenários de reconhecimento da intenção que utilizam o SDK de voz. Substitua os valores no exemplo a sua própria chave de subscrição de LUIS (chave de ponto final), o [região da sua subscrição](~/articles/cognitive-services/speech-service/regions.md#intent-recognition)e o **AppId** do seu modelo de intenção.
 
 > [!NOTE]
-> Ao contrário de outros serviços suportados pelo SDK de voz, reconhecimento da intenção requer uma chave de subscrição específica (chave de ponto final de LUIS). Para obter informações sobre a tecnologia de reconhecimento da intenção, consulte a [Web site do LUIS](https://www.luis.ai). Para obter informações sobre como adquirir o **chave de ponto final**, consulte [crie uma chave de ponto final do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> Ao contrário de outros serviços suportados pelo SDK de voz, reconhecimento da intenção requer uma chave de subscrição específica (chave de ponto final de LUIS). Para obter informações sobre a tecnologia de reconhecimento da intenção, consulte a [Web site do LUIS](https://www.luis.ai). Para obter informações sobre como adquirir o **chave de ponto final**, consulte [crie uma chave de ponto final do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription).

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428244"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236010"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
 
@@ -26,7 +26,7 @@ Para um runbook a ser utilizado como um script de pré ou post, o runbook tem de
 
 ## <a name="using-a-prepost-script"></a>Usando um script de pré/pós
 
-Para utilizar um script de pré e/ou postagem numa implementação de atualização, basta começar por criar uma implementação de atualização. Selecione **pré- scripts de + Scripts de publicação (pré-visualização)**. Esta ação abre o **pré-scripts de selecione + pós-scripts** página.  
+Para utilizar o pré e ou postagem de script numa implementação de atualização, comece por criar uma implementação de atualização. Selecione **pré- scripts de + Scripts de publicação (pré-visualização)**. Esta ação abre o **pré-scripts de selecione + pós-scripts** página.  
 
 ![Selecione os scripts](./media/pre-post-scripts/select-scripts.png)
 
@@ -42,17 +42,19 @@ O **itens selecionados** secção mostra agora ambos os seus scripts selecionado
 
 Conclua a configuração da sua implementação de atualização.
 
-Quando a implementação de atualização estiver concluída, pode aceder à **implementações de atualizações** para ver os resultados. Como pode ver o estado de são o script prévio e o script posterior fornecido.
+Quando a implementação de atualização estiver concluída, pode aceder à **implementações de atualizações** para ver os resultados. Como pode ver, o estado do script prévio e o script posterior são fornecidos.
 
 ![Resultados da atualização](./media/pre-post-scripts/update-results.png)
 
-Ao clicar em executar, a implementação da atualização são fornecidos detalhes adicionais para os scripts de pré e post. É fornecida uma ligação para a origem do script no momento da execução.
+Ao clicar em executar a implementação da atualização, é-lhe fornecido detalhes adicionais para os scripts de pré e post. É fornecida uma ligação para a origem do script no momento da execução.
 
 ![Resultados de execução de implementação](./media/pre-post-scripts/deployment-run.png)
 
 ## <a name="passing-parameters"></a>Passando parâmetros
 
-Quando configurar scripts anteriores e post, que pode passar parâmetros apenas como agendar um runbook. Os parâmetros são definidos no momento da criação de implementação de atualização. Além dos parâmetros do runbook padrão é fornecido um parâmetro adicional. Este parâmetro é **SoftwareUpdateConfigurationRunContext**. Este parâmetro é uma cadeia de caracteres do JSON e, se definir o parâmetro no script anterior ou post, é automaticamente passado pela implementação de atualizações. O parâmetro contém informações sobre a implementação de atualização que é um subconjunto de informações retornado pelos [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) a tabela seguinte mostra as propriedades que são fornecidas na variável:
+Quando configurar o pré e post scripts, pode passar parâmetros, assim como agendar um runbook. Os parâmetros são definidos no momento da criação de implementação de atualização. Scripts de pré e Post exigem parâmetro seja do tipo `String`. Se precisar de outro tipo de objeto, pode convertê-lo para outro e tipo usando `[System.Convert]` ou processá-la com a sua própria lógica.
+
+Além dos parâmetros do runbook padrão, é fornecido um parâmetro adicional. Este parâmetro é **SoftwareUpdateConfigurationRunContext**. Este parâmetro é uma cadeia de caracteres do JSON e, se definir o parâmetro no script anterior ou post, é automaticamente passado pela implementação de atualizações. O parâmetro contém informações sobre a implementação da atualização, que é um subconjunto de informações retornado pelos [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) a tabela seguinte mostra as propriedades que são fornecidas na variável:
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriedades de SoftwareUpdateConfigurationRunContext
 
@@ -70,7 +72,7 @@ Quando configurar scripts anteriores e post, que pode passar parâmetros apenas 
 |azureVirtualMachines     | Uma lista de resourceIds para as VMs do Azure na implementação de atualizações        |
 |nonAzureComputerNames|Uma lista dos computadores não pertencentes ao Azure FQDNs da implementação de atualizações|
 
-Segue-se um exemplo de uma cadeia de caracteres do JSON passado para o **SoftwareUpdateConfigurationRunContext** parâmetro:
+O exemplo seguinte é uma cadeia de caracteres do JSON passada para o **SoftwareUpdateConfigurationRunContext** parâmetro:
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
@@ -119,7 +121,7 @@ Ou pode pesquisá-los pelo respetivo nome de script como visto na lista seguinte
 > [!IMPORTANT]
 > Depois de importar os runbooks, deve **publicar** -los antes de poderem ser utilizados. Para fazer o runbook que encontrar na sua conta de automatização, selecione **edite**e clique em **Publish**.
 
-Os exemplos são baseados no modelo básico que está definido no exemplo a seguir. Este modelo pode ser utilizado para criar seu próprio runbook para utilizar com os scripts de pré e post. A lógica necessária para autenticar com o Azure, bem como manipulação de `SoftwareUpdateConfigurationRunContext` parâmetro estão incluídos.
+Os exemplos são baseados no modelo básico que está definido no exemplo a seguir. Este modelo pode ser utilizado para criar seu próprio runbook para utilizar com os scripts de pré e post. A lógica necessária para autenticar com o Azure e a manipulação do `SoftwareUpdateConfigurationRunContext` parâmetro estão incluídos.
 
 ```powershell
 <# 
@@ -174,14 +176,14 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="interacting-with-non-azure-machines"></a>Interagir com máquinas não Azure
 
-Tarefas de pré e post executados no contexto do Azure e não tem acesso às máquinas não Azure. Para interagir com as máquinas não Azure tem de ter o seguinte:
+Tarefas de pré e post executados no contexto do Azure e não tem acesso a máquinas não Azure. Para interagir com as máquinas não Azure, tem de ter os seguintes itens:
 
 * Uma conta Run As
 * Runbook Worker híbrido instalado na máquina
 * Um runbook que pretende executar localmente
 * Runbook principal
 
-Para interagir com máquinas não Azure, que um runbook principal é executaram no contexto do Azure. Este runbook chama um runbook subordinado com o [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Tem de especificar o `-RunOn` parâmetro e forneça o nome da função de trabalho de Runbook híbrida para o script seja executado.
+Para interagir com máquinas não Azure, um runbook principal é executado no contexto do Azure. Este runbook chama um runbook subordinado com o [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Tem de especificar o `-RunOn` parâmetro e forneça o nome da função de trabalho de Runbook híbrida para o script seja executado.
 
 ```powershell
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'

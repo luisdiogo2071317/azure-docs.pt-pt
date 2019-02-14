@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 4a8ab770eef1c8d95ea2fb6340480089ded0218b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863147"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235891"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -130,38 +130,42 @@ Para evitar interrupções na replicação em curso, certifique-se de que o ende
 
 ## <a name="faq"></a>FAQ
 
-1. Pode utilizar a VM, onde está instalado o servidor de configuração, para fins diferentes?
+1. Quanto tempo dura a licença fornecida no servidor de configuração implementada através do OVF é válida? O que acontece se eu não reativar a licença?
+
+    A licença fornecida com o modelo de OVA é uma licença de avaliação válida por 180 dias. Antes da expiração, terá de ativar a licença. Caso contrário, isso pode resultar em frequente encerramento do servidor de configuração e, portanto, fazer com que hinderance para atividades de replicação.
+
+2. Pode utilizar a VM, onde está instalado o servidor de configuração, para fins diferentes?
 
     **Não**, recomendamos que utilize a VM para o único propósito de servidor de configuração. Certifique-se de que segue todas as especificações mencionadas na [pré-requisitos](#prerequisites) para a gestão eficiente de recuperação após desastre.
-2. Pode alternar o Cofre já está registado no servidor de configuração com um cofre recém-criado?
+3. Pode alternar o Cofre já está registado no servidor de configuração com um cofre recém-criado?
 
     **Não**, depois de um cofre está registado no servidor de configuração, não pode ser alterado.
-3. Pode utilizar o mesmo servidor de configuração para proteger máquinas virtuais e físicas?
+4. Pode utilizar o mesmo servidor de configuração para proteger máquinas virtuais e físicas?
 
     **Sim**, o mesmo servidor de configuração pode ser utilizado para replicar máquinas físicas e virtuais. No entanto, o computador físico pode ser falha back apenas a uma VM de VMware.
-4. Qual é a finalidade de um servidor de configuração e em que é utilizada?
+5. Qual é a finalidade de um servidor de configuração e em que é utilizada?
 
     Consulte a [arquitetura de replicação do Azure de VMware para](vmware-azure-architecture.md) para saber mais sobre o servidor de configuração e as funcionalidades do mesmo.
-5. Onde posso encontrar a versão mais recente do servidor de configuração?
+6. Onde posso encontrar a versão mais recente do servidor de configuração?
 
     Para obter os passos atualizar o servidor de configuração através do portal, consulte [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para obter instruções detalhadas sobre como atualizar todos os componentes do Site Recovery, consulte [aqui](https://aka.ms/asr_how_to_upgrade).
-6. Onde posso transferir a frase de acesso para o servidor de configuração?
+7. Onde posso transferir a frase de acesso para o servidor de configuração?
 
     Consulte a [este artigo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para transferir a frase de acesso.
-7. Pode alterar a frase de acesso?
+8. Pode alterar a frase de acesso?
 
     **Não**, é **-se vivamente não alterar a frase de acesso** do servidor de configuração. Alteração na frase de acesso divide os replicação das máquinas protegidas e leva ao estado de funcionamento crítico.
-8. Onde posso transferir as chaves de registo do Cofre?
+9. Onde posso transferir as chaves de registo do Cofre?
 
     Na **Cofre de serviços de recuperação**, **gerir** > **infraestrutura do Site Recovery** > **deservidoresdeconfiguração**. Nos servidores, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
-9. Pode clonar um servidor de configuração existente e utilizá-lo para a orquestração da replicação?
+10. Pode clonar um servidor de configuração existente e utilizá-lo para a orquestração da replicação?
 
     **Não**, utilização de um componente de servidor de configuração clonado não é suportada.
 
-10. Pode alterar o IP do servidor de configuração?
+11. Pode alterar o IP do servidor de configuração?
 
     **Não**, é vivamente recomendado para não alterar o endereço IP de um servidor de configuração. Certifique-se de que todos os IPs atribuídos ao servidor de configuração são IPs ESTÁTICOS e não os IPs de DHCP.
-11. Posso configurar o servidor de configuração no Azure?
+12. Posso configurar o servidor de configuração no Azure?
 
     Recomenda-se para configurar o servidor de configuração no ambiente no local com direto linha de visão com o Centro de v e para minimizar a latências de transferência de dados. Pode efetuar cópias de segurança agendadas do servidor de configuração para [fins de reativação pós-falha](vmware-azure-manage-configuration-server.md#failback-requirements).
 

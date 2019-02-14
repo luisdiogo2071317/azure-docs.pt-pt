@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535279"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238152"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obter uma cadeia de ligação dos Hubs de eventos
 
@@ -51,13 +51,16 @@ Pode adicionar uma nova política SAS e obter a cadeia de ligação ou utilizar 
 ![Os Hubs de eventos-obter cadeia de ligação](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Obter a cadeia de ligação com o Azure PowerShell
-Pode utilizar o Get-AzureRmEventHubNamespaceKey para obter a cadeia de ligação para o nome de política/regra específica, conforme mostrado abaixo:
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Pode utilizar o Get-AzEventHubNamespaceKey para obter a cadeia de ligação para o nome de política/regra específica, conforme mostrado abaixo:
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
-Consulte a [módulo do PowerShell de Hubs de eventos do Azure](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey) para obter mais detalhes.
+Consulte a [módulo do PowerShell de Hubs de eventos do Azure](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey) para obter mais detalhes.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Obter a cadeia de ligação com a CLI do Azure
 Pode utilizar o seguinte para obter a cadeia de ligação para o espaço de nomes:

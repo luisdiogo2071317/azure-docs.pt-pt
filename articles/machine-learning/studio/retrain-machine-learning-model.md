@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: e691913daabb832b2a3b51dac5d4a5b0e1f53871
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165083"
+ms.locfileid: "56236265"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Voltar a preparar um modelo do Azure Machine Learning Studio
 Como parte do processo de operacionalização de modelos de machine learning no Azure Machine Learning, o seu modelo é preparado e guardado. , Em seguida, utilizá-lo para criar um serviço Web preditivo. O serviço Web, em seguida, pode ser consumido em web sites, dashboards e aplicações móveis. 
@@ -53,8 +53,6 @@ Voltar a preparar o serviço Web:
 * Implementar o serviço web reparametrização
 * Utilize o código de serviço de execução do Batch para voltar a preparar o modelo
 
-Para obter instruções sobre anterior os passos, consulte [Retrain Machine Learning dos modelos](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > Para implementar um novo serviço web tem de ter permissões suficientes na subscrição para a qual estiver a implementar o serviço web. Para obter mais informações, consulte [gerir um serviço Web através do portal do Azure Machine Learning Web Services](manage-new-webservice.md). 
 
@@ -74,8 +72,6 @@ Se tiver implementado um serviço Web novo:
 * Atualizar a referência para o `ilearner` BLOBs no JSON
 * Importar o JSON para uma definição de serviço Web
 * Atualização do serviço Web com a nova definição de serviço da Web
-
-Para obter instruções sobre anterior os passos, consulte [reenviar um serviço Web novo utilizando os cmdlets do PowerShell de gestão do Machine Learning](retrain-new-web-service-using-powershell.md).
 
 O processo de configuração de reparametrização para um serviço Web clássico envolve os seguintes passos:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 56f9226f1bee630895725eb0b3806e294e9a5b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218147"
+ms.locfileid: "56234684"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolher o melhor de escalão de preço no Azure Maps
 
@@ -30,17 +30,21 @@ Os escalões de preços S0 e S1 lidar com diferentes quantidades de débito de d
 | Capacidade                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Pesquisa                                  |        ✓           |     ✓    |
-| Encaminhamento                                 |        ✓           |     ✓    |
-| Composição                                  |        ✓           |     ✓    |
-| Trânsito                                 |        ✓           |     ✓    |
-| Fusos horários                              |        ✓           |     ✓    |
-| Imagens e imagens híbridas    |            |     ✓    |
-| Intervalo de rota                    |                   |     ✓    |
-| Localização do IP 2 (pré-visualização)                |        ✓           |     ✓    |
-| Polígonos da pesquisa          |                   |     ✓    |
 | Geocodificação de batch (pré-visualização)              |                   |     ✓    |
+| Polígonos da pesquisa          |                   |     ✓    |
+| Encaminhamento                                 |        ✓           |     ✓    |
+| Intervalo de rota                    |                   |     ✓    |
 | Encaminhamento (pré-visualização) do batch                |                   |     ✓    |
 | Roteamento de matriz (pré-visualização)               |                   |     ✓    |
+| Composição                                  |        ✓           |     ✓    |
+| Imagens e imagens híbridas    |            |     ✓    |
+| Trânsito                                 |        ✓           |     ✓    |
+| Fusos horários                              |        ✓           |     ✓    |
+| Geolocalização (pré-visualização)                |        ✓           |     ✓    |
+| Dados (pré-visualização)               |                   |     ✓    |
+| Geográ (pré-visualização)               |                   |     ✓    |
+| Barreira geográfica (pré-visualização)               |                   |     ✓    |
+
 
 
 Esses pontos de dados adicionais são a pena considerar:

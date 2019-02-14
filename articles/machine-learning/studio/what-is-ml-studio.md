@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: b9a546cf4c822f63d9d07a1f23ec5f13285653af
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 77c69e7e655770ab912e6ee25183e760f972504d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164130"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243693"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -61,7 +61,7 @@ Clique em **Studio** e será direcionado para o **Azure Machine Learning Studio*
 * **DEFINIÇÕES** - Uma coleção de definições que pode utilizar para configurar a sua conta e recursos.
 
 ### <a name="gallery"></a>Galeria
-Clique em **Galeria** e será direcionado para a **[Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)**. A Galeria é um local onde uma comunidade de cientistas de dados e programadores partilham as soluções criadas com componentes do Cortana Intelligence Suite.
+Clique em **Galeria** e será direcionado para a **[Galeria de IA do Azure](http://gallery.azure.ai/)**. A Galeria é um local onde uma comunidade de cientistas de dados e programadores partilham as soluções criadas com componentes do Cortana Intelligence Suite.
 
 Para mais informações sobre a Galeria, veja [Partilhar e detetar soluções na galeria de IA do Azure](gallery-how-to-use-contribute-publish.md).
 

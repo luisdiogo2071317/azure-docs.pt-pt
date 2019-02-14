@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 12af8cd2fb46bf61324ddfb8e9a396e53e308a6d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978617"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242905"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico transferível: Noções básicas com exemplos de algoritmos de aprendizagem automática
 
@@ -23,7 +23,7 @@ Baixe esta descrição geral de fácil de compreender o infográfico de noções
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos populares no Machine Learning Studio
 
-[O Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para Análise Preditiva. O infográfico identifica quatro famílias populares de algoritmos - regressão, deteção de anomalias, clustering e classificação e fornece ligações para exemplos de trabalho na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/). A Galeria contém experimentações de exemplo e tutoriais que demonstram como esses algoritmos podem ser aplicados em muitas soluções do mundo real.
+[O Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para Análise Preditiva. O infográfico identifica quatro famílias populares de algoritmos - regressão, deteção de anomalias, clustering e classificação e fornece ligações para exemplos de trabalho na [Galeria de IA do Azure](https://gallery.azure.ai/). A Galeria contém experimentações de exemplo e tutoriais que demonstram como esses algoritmos podem ser aplicados em muitas soluções do mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Transferir o infográfico com exemplos de algoritmos
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/06/2018
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19a771d75cd1f2a2a18a3a4c42fcc34e55afb111
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5ab50bd5a2b5b1b0e63060986d4336774be7875b
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438852"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245869"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook da automatização do Azure com um webhook
 
@@ -29,16 +29,16 @@ A tabela seguinte descreve as propriedades que devem ser configuradas para um we
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Nome |Pode fornecer qualquer nome que pretende para um webhook, uma vez que isso não seja exposto ao cliente. É utilizado apenas para si para identificar o runbook na automatização do Azure. <br> Como melhor prática, deve dar o webhook um nome relacionado com o cliente que o utiliza. |
+| Name |Pode fornecer qualquer nome que pretende para um webhook, uma vez que isso não é exposto ao cliente. É utilizado apenas para si para identificar o runbook na automatização do Azure. <br> Como melhor prática, deve dar o webhook um nome relacionado com o cliente que o utiliza. |
 | do IdP |O URL do webhook é o endereço exclusivo que um cliente chama-se com um HTTP POST para iniciar o runbook associado para o webhook. É gerado automaticamente quando cria o webhook. Não é possível especificar um URL personalizado. <br> <br> O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, deve ser tratada como uma palavra-passe. Por motivos de segurança, apenas pode ver o URL no portal do Azure no momento que o webhook for criado. Anote o URL numa localização segura para utilização futura. |
-| Data de validade |Como um certificado, cada webhook tem uma data de expiração nesse momento que já não pode ser utilizado. Esta data de expiração pode ser modificada depois do webhook for criado, desde que o webhook não expirou. |
-| Ativado |Um webhook está ativado por predefinição, quando é criado. Se definido como desativado, nenhum cliente é capaz de usá-lo. Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
+| Data de validade |Como um certificado, cada webhook tem uma data de expiração nesse momento que já não pode ser utilizado. Esta data de expiração pode ser modificada depois do webhook for criado, desde que o webhook não está expirado. |
+| Ativado |Um webhook está ativado por predefinição, quando é criado. Se definido como desativado, nenhum cliente pode utilizá-lo. Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
 
 ### <a name="parameters"></a>Parâmetros
 
 Um webhook pode definir valores para parâmetros do runbook que são utilizados quando o runbook é iniciado por esse webhook. O webhook tem de incluir valores para todos os parâmetros obrigatórios do runbook e pode incluir valores para parâmetros opcionais. Um valor de parâmetro configurado para um webhook pode ser modificado, mesmo depois de criar o webhook. Cada um vários webhooks ligados a um único runbook pode utilizar valores de parâmetros diferentes.
 
-Quando um cliente inicia um runbook com um webhook, ele não é possível substituir os valores dos parâmetros definidos no webhook. Para receber dados do cliente, o runbook pode aceitar um parâmetro único chamado **$WebhookData** do tipo [object], que contém dados que o cliente inclua no pedido POST.
+Quando um cliente inicia um runbook com um webhook, ele não é possível substituir os valores dos parâmetros definidos no webhook. Para receber dados do cliente, o runbook pode aceitar um parâmetro único chamado **$WebhookData**. Este parâmetro é do tipo [object] que contém dados que o cliente inclua no pedido POST.
 
 ![Propriedades do Webhookdata](media/automation-webhooks/webhook-data-properties.png)
 
@@ -50,7 +50,7 @@ O **$WebhookData** objeto tem as seguintes propriedades:
 | RequestHeader |Tabela de hash que contém os cabeçalhos do pedido de mensagem a receber. |
 | RequestBody |O corpo do pedido de mensagem a receber. Isso mantém a qualquer formatação, como a cadeia de caracteres, JSON, XML, ou formulário codificado em dados. O runbook deve ser escrito para trabalhar com o formato de dados que é esperado. |
 
-Não existe nenhuma configuração do webhook necessário para suportar o **$WebhookData** parâmetro e o runbook não é necessário para aceitá-lo. Se o runbook não define o parâmetro, em seguida, todos os detalhes do pedido enviados do cliente é ignorada.
+Não existe nenhuma configuração do webhook necessário para suportar o **$WebhookData** parâmetro e o runbook não é necessário para aceitá-lo. Se o runbook não definir o parâmetro, em seguida, todos os detalhes do pedido enviados do cliente é ignorada.
 
 Se especificar um valor para $WebhookData ao criar o webhook que valor é substituído quando o webhook do runbook é iniciado com os dados a partir do pedido POST do cliente, mesmo que o cliente não inclui todos os dados no corpo do pedido. Se iniciar um runbook que tenha $WebhookData usando um método que não seja um webhook, pode fornecer um valor para $Webhookdata é reconhecido pelo runbook. Este valor deve ser um objeto com o mesmo [propriedades](#details-of-a-webhook) como $Webhookdata para que o runbook pode trabalhar corretamente com o mesmo como se ele estava trabalhando WebhookData real passada por um webhook.
 
@@ -124,7 +124,7 @@ O cliente não consegue determinar quando a tarefa de runbook é concluída ou o
 
 ## <a name="renew-webhook"></a>Renovar um webhook
 
-Quando é criado um webhook tem um tempo de validade de um ano. Depois desse ano tempo o webhook automaticamente expira. Após a expiração de um webhook não pode ser novamente ativado, tem de ser removido e recriado. Se um webhook não atingiu o seu tempo de expiração, ele pode ser estendido.
+Quando é criado um webhook, ele tem um tempo de validade de um ano. Depois desse ano tempo o webhook automaticamente expira. Após a expiração de um webhook não pode ser reativado, tem de ser removido e recriado. Se um webhook não atingiu o seu tempo de expiração, ele pode ser estendido.
 
 Para expandir um webhook, navegue para o runbook que contém o webhook. Selecione **Webhooks** sob **recursos**. Clique com o webhook que deseja estender, esta ação abre o **Webhook** página.  Escolha uma nova data de expiração e hora e clique em **guardar**.
 
@@ -189,7 +189,7 @@ else {
 
 O exemplo seguinte utiliza o Windows PowerShell para iniciar um runbook com um webhook. Qualquer linguagem que pode fazer uma solicitação HTTP pode utilizar um webhook; Windows PowerShell é utilizado aqui como um exemplo.
 
-O runbook está esperando uma lista de máquinas virtuais formatado em JSON no corpo do pedido. O runbook também valida que os cabeçalhos de contenham um especificamente definido mensagem para validar o chamador de webhook é válida.
+O runbook está esperando uma lista de máquinas virtuais formatado em JSON no corpo do pedido. O runbook também valida que os cabeçalhos de contenham um definido mensagem para validar o chamador de webhook é válida.
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -200,11 +200,11 @@ $vms  = @(
         )
 $body = ConvertTo-Json -InputObject $vms
 $header = @{ message="StartedbyContoso"}
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
+$response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-O exemplo seguinte mostra o corpo do pedido que está disponível para o runbook no **RequestBody** propriedade da **WebhookData**. Isso é formatado como JSON porque foi o formato que foi incluído no corpo do pedido.
+O exemplo seguinte mostra o corpo do pedido que está disponível para o runbook no **RequestBody** propriedade da **WebhookData**. Esse valor é formatado como JSON, porque essa era o formato que foi incluído no corpo do pedido.
 
 ```json
 [

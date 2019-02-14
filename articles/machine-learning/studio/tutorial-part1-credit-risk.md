@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 84b78dc65e4f2e859e5c8f1e92daa6dfbfd4cbcb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6789e1d6e514ce107ab96fddbaa582ccbe922bbb
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008172"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243727"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Prever o risco de crédito - Azure Machine Learning Studio
 
@@ -47,7 +47,7 @@ Se nunca tiver utilizado **Azure Machine Learning Studio** antes, convém começ
 
 
 > [!TIP] 
-> Pode encontrar uma cópia de trabalho da experimentação que desenvolver neste tutorial no [Galeria de IA do Azure](https://gallery.cortanaintelligence.com). Aceda a **[tutorial - previsão do risco de crédito](https://gallery.cortanaintelligence.com/Experiment/tutorial-Credit-risk-prediction-1)** e clique em **abrir no Studio** para transferir uma cópia da experimentação para a área de trabalho do Machine Learning Studio.
+> Pode encontrar uma cópia de trabalho da experimentação que desenvolver neste tutorial no [Galeria de IA do Azure](https://gallery.azure.ai). Aceda a **[Tutorial - prever crédito risco](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** e clique em **abrir no Studio** para transferir uma cópia da experimentação para a área de trabalho do Machine Learning Studio.
 > 
 
 

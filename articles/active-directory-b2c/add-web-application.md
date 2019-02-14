@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: c20f455a0a325dadd3eeeb77dea7026de4834c56
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4522914f249413300ffa5bb1545d840711777bff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757674"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235925"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar uma web de aplicação de API com o seu inquilino do Azure Active Directory B2C
 
@@ -38,20 +38,20 @@ Recursos da API Web têm de ser registados no seu inquilino antes de poderem ace
 
 1. Selecione **aplicativos**e, em seguida, selecione *webapi1*.
 2. Selecione **âmbitos publicados**.
-3. Para **âmbito**, introduza `Hello.Read`e para a descrição, insira `Read access to hello`.
-4. Para **âmbito**, introduza `Hello.Write`e para a descrição, insira `Write access to hello`.
+3. Para **âmbito**, introduza `Read`e para a descrição, insira `Read access to the application`.
+4. Para **âmbito**, introduza `Write`e para a descrição, insira `Write access to the application`.
 5. Clique em **Guardar**.
 
 Os âmbitos publicados podem ser utilizados para conceder um cliente permissão da aplicação para a API web.
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
-Para chamar uma API web protegida a partir de uma aplicação, tem de conceder as permissões de aplicação para a API. O tutorial de pré-requisitos, criou uma aplicação web no Azure AD B2C com o nome *webapp1*. Utilizar esta aplicação para chamar a API web.
+Para chamar uma API web protegida a partir de uma aplicação, tem de conceder as permissões de aplicação para a API. Por exemplo, no [Tutorial: Registar uma aplicação no Azure Active Directory B2C](tutorial-register-applications.md), um aplicativo web é criado no Azure AD B2C com o nome *webapp1*. Pode utilizar esta aplicação para chamar a API web.
 
 1. Selecione **aplicativos**e, em seguida, selecione a sua aplicação web.
 2. Selecione **acesso à API**e, em seguida, selecione **Add**.
 3. Na **selecionar API** menu pendente, selecione *webapi1*.
-4. Na **selecionar âmbitos** menu pendente, selecione a **Hello.Read** e **Hello.Write** âmbitos que definiu anteriormente.
+4. Na **selecionar âmbitos** menu pendente, selecione a **leitura** e **escrever** âmbitos que definiu anteriormente.
 5. Clique em **OK**.
 
 A aplicação fica registada para chamar a API web protegida. Um utilizador é autenticado com o Azure AD B2C para utilizar a aplicação. A aplicação obtém uma concessão de autorização do Azure AD B2C para aceder à API web protegida.

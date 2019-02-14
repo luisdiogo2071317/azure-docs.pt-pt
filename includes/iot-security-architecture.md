@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995760"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56247073"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança de Internet das coisas (IoT)
 
@@ -225,7 +225,7 @@ Ameaças em torno do caminho de comunicação entre dispositivos, dispositivos e
 | **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
 | Dispositivo IoT Hub |NIF |(D) TLS (PSK/RSA) para criptografar o tráfego |Interceptação ou interferir a comunicação entre o dispositivo e o gateway |Segurança no nível do protocolo. Com protocolos personalizados, precisa descobrir como protegê-los. Na maioria dos casos, a comunicação ocorre do dispositivo ao IoT Hub (o dispositivo inicia a ligação). |
-| Dispositivo do dispositivo |NIF |(D) TLS (PSK/RSA) para criptografar o tráfego. |Leitura de dados em trânsito entre dispositivos. Adulteração com os dados. Sobrecarregando o dispositivo com novas ligações |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP. Com protocolos personalizados, precisa descobrir como protegê-los. A atenuação para a ameaça DoS é configurar o peering entre dispositivos através de um gateway de campo ou na cloud e tê-las apenas act como clientes em direção à rede. O peering pode resultar numa conexão direta entre os elementos de rede depois de ter sido mediadas pelo gateway |
+| Dispositivo para dispositivo |NIF |(D) TLS (PSK/RSA) para criptografar o tráfego. |Leitura de dados em trânsito entre dispositivos. Adulteração com os dados. Sobrecarregando o dispositivo com novas ligações |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP. Com protocolos personalizados, precisa descobrir como protegê-los. A atenuação para a ameaça DoS é configurar o peering entre dispositivos através de um gateway de campo ou na cloud e tê-las apenas act como clientes em direção à rede. O peering pode resultar numa conexão direta entre os elementos de rede depois de ter sido mediadas pelo gateway |
 | Dispositivo de entidade externa |NIF |Emparelhamento forte da entidade externa para o dispositivo |Interceptação a ligação para o dispositivo. A comunicação a interferir com o dispositivo |Emparelhamento com segurança a entidade externa para o dispositivo NFC/Bluetooth LE. Controlar o painel operacional do dispositivo (física) |
 | Gateway de nuvem de Gateway de campo |NIF |TLS (PSK/RSA) para criptografar o tráfego. |Interceptação ou interferir a comunicação entre o dispositivo e o gateway |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP). Com protocolos personalizados, precisa descobrir como protegê-los. |
 | Gateway de Cloud de dispositivo |NIF |TLS (PSK/RSA) para criptografar o tráfego. |Interceptação ou interferir a comunicação entre o dispositivo e o gateway |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP). Com protocolos personalizados, precisa descobrir como protegê-los. |

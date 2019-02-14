@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: db7ac84b5ce1f3ee2558bbc5ce14332aecd578c7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860648"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232897"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos de estrutura e a resposta de resposta de API de pesquisa Web Bing  
 
@@ -42,7 +42,7 @@ Normalmente, a pesquisa Web Bing devolve um subconjunto de respostas. Por exempl
 
 ## <a name="webpages-answer"></a>Resposta de páginas da Web
 
-O [páginas Web](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) resposta contém uma lista de links para páginas Web que pesquisa Web Bing determinado foram relevantes para a consulta. Cada [página da web](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) na lista inclui o URL de apresentação de nome, url, da página, uma descrição breve de conteúdo e a data do Bing foi encontrado o conteúdo.
+O [páginas Web](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) resposta contém uma lista de links para páginas Web que pesquisa Web Bing determinado foram relevantes para a consulta. Cada [página da web](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) na lista irá incluir: nome da página, url, apresentar URL, uma breve descrição do conteúdo e a data Bing encontrado o conteúdo.
 
 ```json
 {
@@ -91,7 +91,7 @@ O [imagens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-ap
 }, ...
 ```
 
-Consoante o dispositivo do utilizador, normalmente seria exibe um subconjunto das miniaturas com uma opção para o utilizador ver as imagens restantes.
+Consoante o dispositivo do utilizador, normalmente seria exibida um subconjunto das miniaturas, com uma opção para que o usuário [navegarem por](paging-webpages.md) as imagens restantes.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -314,7 +314,7 @@ Uma expressão matemática pode conter as seguintes funções:
 
 |Símbolo|Descrição|
 |------------|-----------------|
-|Sqrt|Raiz quadrada|
+|Ordenar|Raiz quadrada|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funções trigonométricas (com argumentos em radianos)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Inversa funções trigonométricas (dar resultados em radianos)|
 |Exp[x], E^x|Função exponencial|
@@ -428,6 +428,48 @@ Se o Bing determina que o utilizador pode ter se destina a procurar algo diferen
     }]
 }, ...
 ```
+
+A seguir mostra como o Bing utiliza as sugestões de ortografia.
+
+![Exemplo de sugestões de ortografia do Bing](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="response-headers"></a>Cabeçalhos de resposta
+
+As respostas da API de pesquisa Web do Bing podem conter os seguintes cabeçalhos:
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|O ID exclusivo que Bing atribuída ao utilizador|
+|`BingAPIs-Market`|O mercado que foi utilizado para satisfazer o pedido|
+|`BingAPIs-TraceId`|A entrada de log no servidor de API do Bing para este pedido (para obter suporte)|
+
+É particularmente importante manter o ID de cliente e retorná-lo com as solicitações subseqüentes. Ao fazê-lo, a pesquisa irá utilizar em contexto na classificação os resultados da pesquisa e também proporcionar uma experiência de usuário consistente.
+
+No entanto, quando chama a API de pesquisa Web Bing a partir de JavaScript, funcionalidades de segurança incorporadas do seu browser (CORS) podem impedir que os valores desses cabeçalhos a aceder.
+
+Para obter acesso aos cabeçalhos, pode fazer o pedido de API de pesquisa Web Bing através de um proxy CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
+
+É fácil de instalar um proxy CORS para permitir que nossos [tutorial de aplicação](tutorial-bing-web-search-single-page-app.md) para acessar os cabeçalhos de opcional do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
+
+    npm install -g cors-proxy-server
+
+Em seguida, altere o ponto final de API de pesquisa Web Bing no arquivo HTML para:
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+Por fim, inicie o proxy do CORS com o comando seguinte:
+
+    cors-proxy-server
+
+Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
+
+## <a name="response-headers-in-production"></a>Cabeçalhos de resposta em produção
+
+A abordagem de proxy CORS descrita na resposta anterior é adequada para o desenvolvimento, teste e aprendizado.
+
+Num ambiente de produção, deve hospedar um script do lado do servidor no mesmo domínio que a página da Web que utiliza a API de pesquisa Web Bing. Este script deve fazer chamadas à API mediante a solicitação de página da Web JavaScript e passar todos os resultados, incluindo os cabeçalhos, volta ao cliente. Como os dois recursos (página e script) compartilham uma origem, não é utilizado o CORS e os cabeçalhos especiais estão acessíveis para o JavaScript na página da Web.
+
+Essa abordagem também protege a chave de API de exposição ao público, uma vez que somente o script do lado do servidor precise dele. O script pode usar outro método para certificar-se de que a solicitação é autorizada.
 
 A seguir mostra como o Bing utiliza as sugestões de ortografia.
 

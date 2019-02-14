@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492832"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244303"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Utilize o PowerShell para criar modelos de Studio e pontos finais de serviço da web a partir de uma experiência
 
@@ -35,7 +35,7 @@ Felizmente, isso pode ser feito utilizando o [reparametrização API do Azure Ma
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurar a experimentação de preparação
-Utilize o exemplo [experimentação de preparação](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) que está no [galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Abrir esta experimentação na sua [Azure Machine Learning Studio](https://studio.azureml.net) área de trabalho.
+Utilize o exemplo [experimentação de preparação](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) que está no [galeria do Cortana Intelligence](http://gallery.azure.ai). Abrir esta experimentação na sua [Azure Machine Learning Studio](https://studio.azureml.net) área de trabalho.
 
 > [!NOTE]
 > Para acompanhar este exemplo, pode querer utilizar uma área de trabalho padrão, em vez de uma área de trabalho gratuita. Criar um ponto final de cada cliente - para um total de 10 pontos finais - e que requer uma área de trabalho padrão, uma vez que uma área de trabalho gratuita está limitada a 3 pontos de extremidade. Se tiver apenas uma área de trabalho gratuita, basta altere os scripts para permitir apenas as localizações de th.
@@ -63,7 +63,7 @@ Agora precisa implementar o serviço web de pontuação.
 Para tal, clique em **segurança de serviço Web** abaixo de tela e selecione **serviço da Web preditiva**. Esta ação cria uma experimentação de classificação.
 Precisa fazer alguns ajustes secundários fazê-lo funcionar como um serviço web. Remover a coluna de etiqueta "cnt" os dados de entrada e limitar a saída para apenas o id de instância e o valor previsto correspondente.
 
-Para guardar esse trabalho, pode abrir o [experimentação preditiva](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) na galeria que já tenha sido preparada.
+Para guardar esse trabalho, pode abrir o [experimentação preditiva](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) na galeria que já tenha sido preparada.
 
 Para implementar o serviço web, execute a experimentação preditiva, em seguida, clique nas **implementar serviço Web** botão abaixo da tela. Nome do serviço web de pontuação "Aluguer de bicicletas classificação".
 

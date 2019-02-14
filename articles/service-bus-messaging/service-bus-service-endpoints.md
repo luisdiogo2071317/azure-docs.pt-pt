@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: 8a5832433d1d8c81c22c828ec4659c10951f680a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103637"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234072"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utilizar pontos finais de serviço de rede Virtual com o Azure Service Bus
 
@@ -29,7 +29,7 @@ O resultado é uma relação isolada e privada entre as cargas de trabalho ligad
 >[!WARNING]
 > Implementar a integração de redes virtuais pode impedir que outros serviços do Azure a interagir com o Service Bus.
 >
-> Confiável Microsoft serviços não são suportados quando as redes virtuais são implementadas e serão disponibilizadas em breve.
+> Confiável Microsoft serviços não são suportados quando as redes virtuais são implementadas.
 >
 > Cenários comuns do Azure que não funcionam com redes virtuais (tenha em atenção que a lista está **não** exaustiva)-
 > - Azure Monitor

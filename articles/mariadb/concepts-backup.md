@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c9a9b6f0127bba4efda6e691a2b7126935d81c0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d6141c3184c8915c36f22d010db39aef2460dd1c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817704"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233545"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Cópia de segurança e restauro na base de dados do Azure para MariaDB
 
@@ -52,7 +52,7 @@ Existem dois tipos de restauro disponíveis:
 O tempo estimado da recuperação depende de vários fatores, incluindo os tamanhos de base de dados, o tamanho do registo de transações, a largura de banda de rede e o número total de bases de dados a recuperar na mesma região ao mesmo tempo. O tempo de recuperação é normalmente inferior a 12 horas.
 
 > [!IMPORTANT]
-> Eliminar servidores **não é possível** ser restaurada. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminados e não podem ser recuperados. Para proteger os recursos de servidor, após a implementação, de eliminação acidental ou alterações inesperadas, os administradores podem aproveitar [bloqueios de gestão](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
+> Eliminar servidores **não é possível** ser restaurada. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminados e não podem ser recuperados. Para proteger os recursos de servidor, após a implementação, de eliminação acidental ou alterações inesperadas, os administradores podem aproveitar [bloqueios de gestão](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 

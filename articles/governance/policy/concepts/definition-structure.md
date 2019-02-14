@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 14c5a9a5d9e3bd71ca1fdaf3545af3e74b3973c2
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100654"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237422"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -208,7 +208,7 @@ Pode aninhar operadores lógicos. A exemplo a seguir mostra um **não** operaç�
 
 ### <a name="conditions"></a>Condições
 
-A condição for avaliada se um **campo** atende a certos critérios. As condições suportadas são:
+A condição for avaliada se um **campo** ou o **valor** acessador atende a certos critérios. As condições suportadas são:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -252,7 +252,53 @@ São suportados os seguintes campos:
   - Essa sintaxe de colchete suporta nomes de etiqueta têm um período.
   - Em que **\<tagName\>** é o nome da etiqueta para validar a condição para.
   - Exemplo: `tags[Acct.CostCenter]` em que **Acct.CostCenter** é o nome da etiqueta.
+
 - aliases de propriedade - para obter uma lista, consulte [Aliases](#aliases).
+
+### <a name="value"></a>Value
+
+Também podem ser formadas condições usando **valor**. **valor** verifica condições contra [parâmetros](#parameters), [suportada de funções de modelo](#policy-functions), ou literais.
+**valor** é emparelhado com qualquer suportado [condição](#conditions).
+
+#### <a name="value-examples"></a>Exemplos de valor
+
+Este exemplo de regra de política utiliza **valor** comparar o resultado do `resourceGroup()` função e retornado **nome** propriedade para um **como** condição de `*netrg`. A regra nega qualquer recurso não dos `Microsoft.Network/*` **tipo** em qualquer grupo de recursos cujo nome termina em `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Este exemplo de regra de política utiliza **valor** para verificar se o resultado de vários aninhar funções **é igual a** `true`. A regra nega qualquer recurso que não tem, pelo menos, três etiquetas.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>Efeito
 
@@ -295,12 +341,15 @@ Para obter detalhes completos sobre cada efeito, a ordem de avaliação, proprie
 
 ### <a name="policy-functions"></a>Funções de política
 
-Várias [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política. As funções atualmente suportadas são:
+Exceto para a seguinte implementação e as funções de recursos, todos os [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política:
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [subscrição](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- Providers()
+- reference()
+- resourceId()
+- variables()
 
 Além disso, o `field` função está disponível para as regras de política. `field` é utilizado principalmente com **AuditIfNotExists** e **DeployIfNotExists** aos campos de referência no recurso que estão a ser avaliados. Um exemplo desta utilização pode ser visto na [DeployIfNotExists exemplo](effects.md#deployifnotexists-example).
 

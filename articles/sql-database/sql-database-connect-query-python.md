@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/28/2019
-ms.openlocfilehash: b611eb02203c872e3497b5b7c12acddd9eab14c0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/12/2019
+ms.openlocfilehash: d0dcfa3d5e387b03fe76eff34e32860ae5b17e76
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188393"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235381"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Python para consultar uma base de dados SQL do Azure
 
@@ -27,20 +27,40 @@ ms.locfileid: "55188393"
 
 Para concluir este início rápido, certifique-se de que tem o seguinte:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Uma base de dados SQL do Azure. Pode utilizar um dos seguintes inícios rápidos para criar e, em seguida, configurar uma base de dados na base de dados do Azure SQL:
+
+  || Base de dados individual | Instância gerida |
+  |:--- |:--- |:---|
+  | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)| [Conectividade a partir de uma VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Conectividade no local do](sql-database-managed-instance-configure-p2s.md)
+  |Carregar dados|A Adventure Works carregados por início rápido|[Restaurar a Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restaure ou importar Adventure Works no [BACPAC](sql-database-import.md) ficheiro [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
+
+  > [!IMPORTANT]
+  > Os scripts neste artigo são escritos para utilizar a base de dados do Adventure Works. Com uma instância gerida, tem de importar a base de dados do Adventure Works para uma base de dados de instância ou modificar os scripts neste artigo para utilizar a base de dados do Wide World Importers.
   
 - Python e software relacionado para o seu sistema operativo:
   
   - **MacOS**: Instale o Homebrew e o Python, instale o controlador ODBC e o SQLCMD e, em seguida, instale o controlador Python para SQL Server. Veja os passos 1.2, 1.3 e 2.1 no [aplicações de Python de criar através do SQL Server no macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). Para obter mais informações, consulte [instalar o Microsoft ODBC Driver no Linux e macOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
-    
+
   - **Ubuntu**: Instale o Python e outros pacotes necessários com `sudo apt-get install python python-pip gcc g++ build-essential`. Baixe e instale o controlador ODBC, SQLCMD e o controlador Python para SQL Server. Para obter instruções, consulte [configurar um ambiente de desenvolvimento para pyodbc desenvolvimento Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
-    
+
   - **Windows**: Instale o Python, o controlador ODBC e o SQLCMD e o controlador Python para SQL Server. Para obter instruções, consulte [configurar um ambiente de desenvolvimento para pyodbc desenvolvimento Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
 
 ## <a name="get-sql-server-connection-information"></a>Obter as informações de ligação do SQL server
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
-    
+Obtenha as informações de ligação que tem de se ligar à base de dados SQL do Azure. Precisará do nome de servidor completamente qualificado ou nome de anfitrião, nome de base de dados e informações de início de sessão para os próximos procedimentos.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+
+2. Navegue para o **bases de dados SQL** ou **instâncias geridas SQL** página.
+
+3. Sobre o **descrição geral** , reveja o nome de servidor completamente qualificado junto a **nome do servidor de** para uma base de dados ou o servidor completamente qualificado nome junto a **anfitrião** para um instância. Para copiar o nome do servidor ou o nome de anfitrião, coloque o cursor sobre ela e selecione o **cópia** ícone.
+
 ## <a name="create-code-to-query-your-sql-database"></a>Criar código para consultar a base de dados SQL 
 
 1. Num editor de texto, crie um novo ficheiro designado *sqltest.py*.  

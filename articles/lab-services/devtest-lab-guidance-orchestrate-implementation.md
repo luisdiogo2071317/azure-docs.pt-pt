@@ -3,23 +3,22 @@ title: Orquestrar a implementação do Azure DevTest Labs
 description: Este artigo fornece orientações para a implementação de orquestração de Azure DevTest Labs na sua organização.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: christianreddington
+author: spelluru
 manager: femila
-editor: spelluru
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2019
-ms.author: chredd
-ms.reviewer: anthdela,juselph
-ms.openlocfilehash: 1e657260eeb36dc813f856ab172882a396324450
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004439"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242996"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestrar a implementação do Azure DevTest Labs
 Este artigo fornece uma abordagem recomendada para implementação rápida e a implementação do Azure DevTest Labs. A imagem seguinte enfatiza o processo geral de como uma orientação prescritiva ao observar a flexibilidade para oferecer suporte a vários cenários e requisitos do setor.

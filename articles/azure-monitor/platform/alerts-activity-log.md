@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 17a7b0e0ee76490ef43fb869260dceef83cbd124
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984499"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234242"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo de atividade através do Azure Monitor  
 
@@ -224,7 +224,7 @@ Para criar uma regra de alerta de registo de atividade, utilize pela seguinte or
 
 Para obter o recurso de uma regra de alerta de registo do atividade, o comando da CLI do Azure [show de alerta de registo de atividades do az monitor](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
 ) pode ser utilizado. E para ver todos os recursos de regra de alerta de registo de atividade num grupo de recursos, utilize [lista de alerta de registo de atividades do az monitor](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
-Recursos de regra de alerta de registo de atividade podem ser removidos utilizando o comando da CLI do Azure [eliminação de alerta de registo de atividades do az monitor](https://docs.microsoft.com/en-us/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
+Recursos de regra de alerta de registo de atividade podem ser removidos utilizando o comando da CLI do Azure [eliminação de alerta de registo de atividades do az monitor](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

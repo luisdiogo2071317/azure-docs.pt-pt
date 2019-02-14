@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091685"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233409"
 ---
-# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
+# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real, enviados para os Hubs de eventos do Azure
 
 Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para verificar os dados recebidos e extrair as anomalias, que, em seguida, pode visualizar no Power BI. Imaginemos que tem milhares de dispositivos constantemente a enviar dados em tempo real para um hub de eventos, adicionando até milhões de eventos por segundo. De que forma verifica a existência de anomalias ou erros nessa quantidade de dados? Por exemplo, e se os dispositivos estiverem a enviar transações de cartão de crédito, e precisa de capturar dados em qualquer lugar que tenha várias transações em vários países num intervalo de tempo de 5 segundos? Isto poderia acontecer se alguém roubar cartões de crédito e, em seguida, utilizá-los para comprar artigos em todo o mundo ao mesmo tempo. 
 
@@ -33,6 +33,8 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, precisa de uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita][] antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -112,7 +114,7 @@ As variáveis que têm de ser globalmente exclusivas têm `$(Get-Random)` concat
 
 ```azurepowershell-interactive
 # Log in to Azure account.
-Login-AzureRMAccount
+Login-AzAccount
 
 # Set the values for the location and resource group.
 $location = "West US"
@@ -120,7 +122,7 @@ $resourceGroup = "ContosoResourcesEH"
 
 # Create the resource group to be used  
 #   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # The Event Hubs namespace name must be globally unique, so add a random number to the end.
 $eventHubNamespace = "contosoEHNamespace$(Get-Random)"
@@ -131,12 +133,12 @@ $eventHubName = "contosoEHhub$(Get-Random)"
 Write-Host "Event hub Name is " $eventHubName
 
 # Create the Event Hubs namespace.
-New-AzureRmEventHubNamespace -ResourceGroupName $resourceGroup `
+New-AzEventHubNamespace -ResourceGroupName $resourceGroup `
      -NamespaceName $eventHubNamespace `
      -Location $location
 
 # Create the event hub.
-$yourEventHub = New-AzureRmEventHub -ResourceGroupName $resourceGroup `
+$yourEventHub = New-AzEventHub -ResourceGroupName $resourceGroup `
     -NamespaceName $eventHubNamespace `
     -Name $eventHubName `
     -MessageRetentionInDays 3 `
@@ -144,7 +146,7 @@ $yourEventHub = New-AzureRmEventHub -ResourceGroupName $resourceGroup `
 
 # Get the event hub key, and retrieve the connection string from that object.
 # You need this to run the app that sends test messages to the event hub.
-$eventHubKey = Get-AzureRmEventHubKey -ResourceGroupName $resourceGroup `
+$eventHubKey = Get-AzEventHubKey -ResourceGroupName $resourceGroup `
     -Namespace $eventHubNamespace `
     -AuthorizationRuleName RootManageSharedAccessKey
 
@@ -174,13 +176,13 @@ Agora, pode transmitir dados em fluxo para o seu hub de eventos. Para utilizar e
 
 2. Introduza as seguintes informações para a tarefa:
 
-   **Nome da tarefa**: utilize **contosoEHjob**. Este campo é o nome da tarefa e tem de ser globalmente exclusivo.
+   **Nome da tarefa**: Uso **contosoEHjob**. Este campo é o nome da tarefa e tem de ser globalmente exclusivo.
 
-   **Subscrição**: selecione a sua subscrição.
+   **Subscrição**: Selecione a sua subscrição.
 
-   **Grupo de recursos**: utilize o mesmo grupo de recursos utilizado pelo seu hub de eventos (**ContosoResourcesEH**).
+   **Grupo de recursos**: Utilize o mesmo grupo de recursos utilizado pelo seu hub de eventos (**ContosoResourcesEH**).
 
-   **Localização**: utilize a mesma localização que utilizou no script de configuração (**E.U.A. Oeste**).
+   **Localização**: Utilizar a mesma localização que utilizou no script de configuração (**E.U.A. oeste**).
 
    ![Captura de ecrã que mostra como criar uma nova tarefa do Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -199,17 +201,17 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 2. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione Hubs de Eventos. No ecrã apresentado, preencha os campos seguintes:
 
-   **Alias de entrada**: utilize **contosoinputs**. Este campo é o nome do fluxo de entrada, utilizado quando define a consulta para os dados.
+   **O alias de entrada**: Uso **contosoinputs**. Este campo é o nome do fluxo de entrada, utilizado quando define a consulta para os dados.
 
-   **Subscrição**: selecione a sua subscrição.
+   **Subscrição**: Selecione a sua subscrição.
 
-   **Espaço de nomes dos Hubs de Eventos**: selecione o seu espaço de nomes do Hub de Eventos ($**eventHubNamespace**). 
+   **Espaço de nomes de Hubs de eventos**: Selecione o seu espaço de nomes do Hub de eventos ($**eventHubNamespace**). 
 
-   **Nome do Hub de Eventos**: clique em **Utilizar existente** e selecione o seu hub de eventos ($**eventHubName**).
+   **Nome do Hub de eventos**: Clique em **utilizar existente** e selecione o seu hub de eventos ($**eventHubName**).
 
-   **Nome da política dos Hubs de Eventos**: selecione **RootManageSharedAccessKey**.
+   **Nome da política dos Hubs de eventos**: Selecione **RootManageSharedAccessKey**.
 
-   **Grupo de consumidores de Hubs de Eventos**: deixe este campo em branco para utilizar o grupo de consumidores predefinido.
+   **Grupo de consumidores de Hubs de eventos**: Deixe este campo em branco para usar o grupo de consumidores predefinido.
 
    Aceite as predefinições no resto dos campos.
 
@@ -223,11 +225,11 @@ As entradas para a tarefa do Stream Analytics são as transações de cartão de
 
 2. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
-   **Alias de saída**: utilize **contosooutputs**. Este campo é o alias exclusivo para a saída. 
+   **Alias de saída**: Uso **contosooutputs**. Este campo é o alias exclusivo para a saída. 
 
-   **Nome do conjunto de dados**: utilize **contosoehdataset**. Este campo é nome do conjunto de dados a utilizar no Power BI. 
+   **Nome do conjunto de dados**: Uso **contosoehdataset**. Este campo é nome do conjunto de dados a utilizar no Power BI. 
 
-   **Nome da tabela**: utilize **contosoehtable**. Este campo é o nome da tabela a utilizar no Power BI. 
+   **Nome da tabela**: Uso **contosoehtable**. Este campo é o nome da tabela a utilizar no Power BI. 
 
    Aceite as predefinições no resto dos campos.
 
@@ -361,13 +363,13 @@ az group delete --name $resourceGroup
 
 ### <a name="clean-up-resources-using-powershell"></a>Limpar os recursos com o PowerShell
 
-Para remover o grupo de recursos, utilize o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Para remover o grupo de recursos, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]

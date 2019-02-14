@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 40a43fd8ea1f47b564d0c0ee2b5e67fd011f2ff9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895980"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235840"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **VMware**: As VMs que planeia migrar tem de ser geridas pelo vCenter Server com a versão 5.5, 6.0 ou 6.5. Além disso, precisa de uma versão em execução de anfitrião ESXi 5.5 ou superior para implementar a VM do recoletor.
+- **VMware**: As VMs que planeia migrar tem de ser geridas pelo vCenter Server com a versão 5.5, 6.0, 6.5 ou 6.7. Além disso, precisa de uma versão em execução de anfitrião ESXi 5.5 ou superior para implementar a VM do recoletor.
 - **conta do vCenter Server**: Precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
 - **Permissões**: No vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no. Formato de OVA.
 

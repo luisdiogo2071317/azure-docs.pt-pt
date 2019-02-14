@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170424"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232788"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório a partir de um conjunto de dados nas coleções de área de trabalho do Power BI
 
@@ -40,13 +40,13 @@ O *classe PowerBIToken* necessita que instale o [pacote do Power BI Core NuGut](
 
 **Instalação do pacote de NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **O código c#**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -65,15 +65,16 @@ Para criar um novo relatório, deve ser fornecida a configuração de criar. Ist
 
 **Instalação do pacote de NuGet**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **Código de JavaScript**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -85,6 +86,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 Chamar *powerbi.createReport()* faz uma tela em branco no modo de edição aparecer dentro do *div* elemento.
@@ -95,7 +97,7 @@ Chamar *powerbi.createReport()* faz uma tela em branco no modo de edição apare
 
 O relatório não é criado até que chamar o **guardar como** operação. Isso pode ser feito no menu de ficheiro ou a partir de JavaScript.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -116,9 +118,9 @@ O relatório não é criado até que chamar o **guardar como** operação. Isso 
 
 Para interagir com o novo relatório, terá de incorporá-lo da mesma forma que o aplicativo incorpora um relatório regular, ou seja, um novo token tem de ser emitido especificamente para o novo relatório e, em seguida, chamar o método de incorporação.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -130,13 +132,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatizar salvar e carregar de um novo relatório utilizando o evento de "guardado"
 
 Para automatizar o processo de "Guardar como" e, em seguida, carregar o novo relatório, pode fazer uso do evento "guardado". Este evento é desencadeado quando o salvamento operação estiver concluída, e ele retorna um objeto Json que contém o novo Iddorelatório, nome do relatório, o Iddorelatório antigo (se houvesse um) e se a operação foi saveAs ou guardar.
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -147,9 +150,9 @@ Para automatizar o processo de "Guardar como" e, em seguida, carregar o novo rel
 
 Para automatizar o processo que pode escutar o evento de "guardado", faça o o Iddorelatório nova, criar o token novo e incorporar o novo relatório com o mesmo.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -192,6 +195,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## <a name="see-also"></a>Consulte também

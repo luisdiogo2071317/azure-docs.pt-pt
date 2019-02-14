@@ -3,25 +3,25 @@ title: O que é a Análise de Texto?
 titleSuffix: Azure Cognitive Services
 description: Análise de Texto nos Serviços Cognitivos do Azure para análise de sentimentos, extração de expressões-chave, deteção de idioma e associação de entidades.
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 6e14d1b6d9bec4409ca2a1e57c7d2fb018ccce53
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869454"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242944"
 ---
 # <a name="what-is-text-analytics"></a>O que é a Análise de Texto?
 
 A API de Análise de Texto é um serviço com base na cloud que fornece capacidades de processamento avançado de linguagem natural em texto não processado. Inclui quatro funções principais: análise de sentimentos, extração de expressões-chave, deteção de idioma e associação de entidades.
 
-A API é suportada por recursos dos [Serviços Cognitivos da Microsoft](https://docs.microsoft.com/azure/cognitive-services/), uma coleção de aprendizagem automática e algoritmos de IA na cloud, prontamente consumível nos seus projetos de desenvolvimento.
+A API é uma parte [serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/), uma coleção de machine learning e algoritmos de IA na cloud para seus projetos de desenvolvimento.
 
 ## <a name="capabilities-in-text-analytics"></a>Funções na Análise de Texto
 

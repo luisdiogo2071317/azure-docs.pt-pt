@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: 30d9de5653db385760155d533ad747c3cf6d2400
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960356"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235500"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir o Log Analytics, utilizando modelos Azure Resource Manager
 Pode usar [modelos Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho do Log Analytics. Exemplos de tarefas que pode realizar com modelos incluem:
@@ -56,7 +56,7 @@ Os seguintes parâmetros de definir um valor predefinido:
 
 > [!NOTE]
 >Se criar ou configurar uma área de trabalho do Log Analytics numa subscrição que tenha optado pelo modelo de preços de Abril de 2018 novo, o escalão de preço de Log Analytics só é válida é **PerGB2018**.  
->Se pode ter algumas subscrições no (pré-Abril de 2018 modelo de preços) [https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], pode especificar o **autónomo** e escalão de preço, isso será concluída com êxito para ambas as subscrições no modelo de preços do pre-Abril de 2018 e para assinaturas em novos preços. Para áreas de trabalho nas subscrições que já ADOTARAM o novo modelo de proicing, o escalão de preço será definido como **PerGB2018**. 
+>Se pode ter algumas subscrições no (pré-Abril de 2018 modelo de preços) [https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model], pode especificar o **autónomo** e escalão de preço, isso será concluída com êxito para ambas as subscrições no modelo de preços do pre-Abril de 2018 e para assinaturas em novos preços. Para áreas de trabalho nas subscrições que já ADOTARAM o novo modelo de proicing, o escalão de preço será definido como **PerGB2018**. 
 
 ### <a name="create-and-deploy-template"></a>Criar e implementar modelo
 

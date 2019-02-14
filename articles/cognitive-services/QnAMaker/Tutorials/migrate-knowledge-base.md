@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 56d79ce236dac4659bd863b645cc6780752091da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865365"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245920"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento através de importação-exportação
 
@@ -56,7 +56,7 @@ Migrar uma base de dados de conhecimento necessita de exportar a partir de uma b
     Neste momento, todo o conhecimento conteúdo - perguntas, respostas e metadados, junto com os nomes dos arquivos de origem e os URLs são importados para a nova base de dados de conhecimento. 
 
 ## <a name="chat-logs-and-alterations"></a>Registos de chat ou alterações
-Alterações (sinónimos) não são importadas automaticamente. Utilize o [APIs de V2](https://aka.ms/qnamaker-v2-apis) para exportar as alterações de dados de conhecimento antigo e o [V4 APIs](https://aka.ms/qnamaker-v4-apis) para mover as alterações na nova base de dados de conhecimento.
+Alterações de maiúsculas e minúsculas (sinónimos) não são importadas automaticamente. Utilize o [APIs de V2](https://aka.ms/qnamaker-v2-apis) para exportar as alterações de dados de conhecimento antigo e o [V4 APIs](https://aka.ms/qnamaker-v4-apis) para mover as alterações na nova base de dados de conhecimento.
 
 Não é possível migrar os logs de bate-papo, uma vez que a nova base de dados de conhecimento utiliza o Application Insights para armazenar registos de chat. 
 

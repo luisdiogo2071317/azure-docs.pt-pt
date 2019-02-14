@@ -3,18 +3,18 @@ title: Criar um perímetro geográfico com o Azure Maps | Documentos da Microsof
 description: Configure um perímetro geográfico com o Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a991fbde8ce1ae43f18be4f13ae7edc5f60044bf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108709"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244458"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configure um perímetro geográfico, utilizando o Azure Maps
 
@@ -40,9 +40,9 @@ Para concluir os passos neste tutorial, tem primeiro de ver [gerir conta e chave
 
 ## <a name="upload-geofences"></a>Carregar perímetros geográficos
 
-Para carregar o perímetro geográfico para o site de construção com a API de carregamento de dados, utilizamos o aplicativo do postman. Tendo em vista neste tutorial, presumimos que existe uma área de site de construção geral, o que é um parâmetro de disco rígido que o equipamento de construção não deve viole. Violações deste cerca são uma séria ofensas e são relatadas para o Operations Manager. Pode ser utilizado um conjunto otimizado de limites adicionais que controlam a construção de diferente áreas dentro da área de construção geral de acordo com a agenda. Podemos supor que o perímetro geográfico principal tem um subsite1, que tem uma conjunto de expiração de tempo e irão expirar depois disso. Pode criar mais perímetros geográficos aninhados de acordo com os seus requisitos. Por exemplo, subsite1 poderia ser em que trabalho está a ocorrer durante a semana de 1 a 4 da agenda e subsite 2 é onde trabalho ocorre durante a semana de 5 a 7. Todos os tais limites podem ser carregados como um único conjunto de dados no início do projeto e utilizados para controlar as regras com base no tempo e espaço. Ver [dados de perímetro geográfico GeoJSON](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) para obter mais informações sobre o formato de dados do perímetro geográfico. Pode ver o [dados - documentação da API de carregar](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para obter mais informações sobre o carregamento de dados para o serviço do Azure Maps.
+Para carregar o perímetro geográfico para o site de construção com a API de carregamento de dados, utilizamos o aplicativo do postman. Tendo em vista neste tutorial, presumimos que existe uma área de site de construção geral, o que é um parâmetro de disco rígido que o equipamento de construção não deve viole. Violações deste cerca são uma séria ofensas e são relatadas para o Operations Manager. Pode ser utilizado um conjunto otimizado de limites adicionais que controlam a construção de diferente áreas dentro da área de construção geral de acordo com a agenda. Podemos supor que o perímetro geográfico principal tem um subsite1, que tem uma conjunto de expiração de tempo e irão expirar após esse tempo. Pode criar mais perímetros geográficos aninhados de acordo com os seus requisitos. Por exemplo, subsite1 poderia ser em que trabalho está a ocorrer durante a semana de 1 a 4 da agenda e subsite 2 é onde trabalho ocorre durante a semana de 5 a 7. Todos os tais limites podem ser carregados como um único conjunto de dados no início do projeto e utilizados para controlar as regras com base no tempo e espaço. Para obter mais informações sobre o formato de dados do perímetro geográfico, consulte [dados de perímetro geográfico GeoJSON](https://docs.microsoft.com/azure/azure-maps/geofence-geojson). Para obter mais informações sobre a carregar dados para o serviço do Azure Maps, consulte [documentação da API de carregar dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) .
 
-Abra a aplicação Postman e siga os passos seguintes para carregar o site de construção perímetro geográfico com a API de carregar dados do mapa do Azure Maps.
+Abra a aplicação Postman e siga os passos seguintes para carregar o site de construção perímetro geográfico com o Azure Maps, a API de carregar dados.
 
 1. Abra a aplicação Postman e clique em novo | Criar um novo e selecione o pedido. Introduza um nome de pedido para o Upload perímetro geográfico dados, selecionados uma coleção ou uma pasta para guardá-lo para e clique em Guardar.
 

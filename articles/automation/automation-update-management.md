@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/28/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94171da3c60de3efc4e2a234494816899c3d2f05
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511858"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246039"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -600,6 +600,13 @@ No entanto, a gestão de atualizações ainda podem comunicar que a máquina com
 
 Implantação de atualizações por classificação da atualização não funciona no CentOS prontos a utilizar. Para implementar corretamente as atualizações para CentOS, selecione todas as classificações para garantir que as atualizações são aplicadas. Para o SUSE, selecionando *apenas* "Outras atualizações" como a classificação pode resultar em alguma segurança atualiza também a ser instalada se as atualizações de segurança relacionados com o zypper (Gestor de pacotes) ou as respetivas dependências são necessárias em primeiro lugar. Este comportamento é uma limitação do zypper. Em alguns casos, poderá ter de voltar a executar a implementação da atualização. Para verificar, verifique o registo de atualização.
 
+## <a name="remove-a-vm-for-update-management"></a>Remover uma VM para gestão de atualizações
+
+Para remover uma VM de gestão de atualizações:
+
+* Na área de trabalho do Log Analytics, remover a VM da pesquisa guardada para a configuração de âmbito `MicrosoftDefaultScopeConfig-Updates`. Pesquisas guardadas podem ser encontradas na **gerais** na sua área de trabalho.
+* Remover os [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+  
 ## <a name="troubleshoot"></a>Resolução de problemas
 
 Para saber como resolver problemas de gestão de atualizações, veja [resolução de problemas de gestão de atualizações](troubleshoot/update-management.md)

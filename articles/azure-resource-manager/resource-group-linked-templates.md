@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 69dd9374f32dbea7ab6f11beec0204ac26e299bc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 92e5fb782eed3344a55178d6ba74dfd6d7b8cafd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104453"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235919"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -31,7 +31,9 @@ Ao utilizar modelos ligados, criar um modelo principal que recebe os valores de 
 
 Para obter um tutorial, veja [Tutorial: criar modelos do Azure Resource Manager ligados](./resource-manager-tutorial-create-linked-templates.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> Para modelos ligados ou aninhados, só pode utilizar [Incremental](deployment-modes.md) modo de implementação.
+>
 
 ## <a name="link-or-nest-a-template"></a>Associar ou aninhar um modelo
 
@@ -52,8 +54,6 @@ Para ligar a outro modelo, adicione uma **implementações** recursos ao seu mod
 ```
 
 As propriedades que fornecer para o recurso de implantação variam consoante quer esteja a criar uma ligação para um modelo externo ou aninhar um modelo inline no modelo principal.
-
-Para ambos ligados e aninhados modelos, só pode utilizar [Incremental](deployment-modes.md) modo de implementação.
 
 ### <a name="nested-template"></a>Modelo aninhado
 

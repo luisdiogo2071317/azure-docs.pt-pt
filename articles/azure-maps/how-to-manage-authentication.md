@@ -3,21 +3,21 @@ title: Gerir a autenticação no Azure Maps | Documentos da Microsoft
 description: Pode utilizar o portal do Azure para gerir a autenticação no Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/09/2018
+ms.date: 02/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: db0450ab8b765ec158201c6db149a7de7d135b98
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 68c3c8ac39f5803e01ee1038ec85ddb96ac80b30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143907"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242690"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação no Azure Maps
 
-Depois de criar uma conta do Azure Maps, são criados três GUIDS para suportar o Azure Active Directory (Azure AD) ou autenticação de chave partilhada.
+Depois de criar uma conta do Azure Maps, o ID de cliente e as chaves são criadas para suportar o Azure Active Directory (Azure AD) ou autenticação de chave partilhada.
 
 Pode encontrar os detalhes da sua autenticação ao navegar para o **autenticação** página sob **definições** no portal do Azure. Navegue até à sua conta. Em seguida, selecione **autenticação** no menu.
 
@@ -35,7 +35,7 @@ Para ver os detalhes da sua autenticação, navegue para o **autenticação** op
 
 Depois de criar uma conta de mapa do Azure, é necessária uma ligação entre o seu inquilino do Azure AD e o recurso do Azure de mapas do Azure. 
 
-1. Aceda ao painel do AAD e criar um registo de aplicações com um nome e o URL de início de sessão como a página inicial da aplicação web / API, tais como "https://localhost/". Se já tiver um aplicativo registrado, avance para o passo 2.
+1. Aceda ao painel do Azure AD e criar um registo de aplicações com um nome e o URL de início de sessão como a página inicial da aplicação web / API, tais como "https://localhost/". Se já tiver um aplicativo registrado, avance para o passo 2.
 
     ![Registo de aplicações](./media/how-to-manage-authentication/app-registration.png)
 
@@ -51,11 +51,11 @@ Depois de criar uma conta de mapa do Azure, é necessária uma ligação entre o
 
 4. Siga o passo uma ou b, dependendo da implementação de autenticação.
 
-    1. Se o aplicativo é destinar a utilizar a autenticação de token de utilizador com o nosso SDK Web do Azure Maps, tem de ativar o `oauthEnableImplicitFlow` ao defini-la como true na secção manifesto da página de detalhes do registo da aplicação. 
+    1. Se o aplicativo é destinar a utilizar a autenticação de token de utilizador com o nosso SDK Web do Azure Maps, tem de ativar o `oauthEnableImplicitFlow` ao defini-la como true na secção manifesto da página de detalhes do registo da aplicação.
     
        ![Manifesto da aplicação](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Se a autenticação de servidor/aplicação de utilizações de aplicação para o **chaves** painel no registo da aplicação e a criar uma palavra-passe ou carregar um certificado de chave pública para o registo de aplicações. Se criar uma palavra-passe, uma vez que **guardar**, copie a palavra-passe para utilizar mais tarde e armazena de forma segura, irá utilizá-lo a adquirir tokens do AAD. 
+    2. Se a autenticação de servidor/aplicação de utilizações de aplicação para o **chaves** painel dentro do registo da aplicação e a criar uma palavra-passe ou carregar um certificado de chave pública para o registo de aplicações. Se criar uma palavra-passe, uma vez que **guardar**, copie a palavra-passe para utilizar mais tarde e armazena de forma segura, irá utilizá-lo a adquirir tokens do Azure AD.
 
        ![Chaves da aplicação](./media/how-to-manage-authentication/app-keys.png)
 
@@ -94,8 +94,7 @@ Assim que a sua aplicação esteja registrada e associada mapas do Azure, pode a
 
 * Se o aplicativo é destinar a utilizar a autenticação de token de utilizador com o nosso SDK de Web do Azure Maps (Web), tem de configurar a sua página html com o ID de cliente de mapas do Azure e o ID de aplicação do Azure AD
 
-
-* Para aplicações através da autenticação de aplicação/servidor, solicitar um token a partir do ponto final de início de sessão do Azure AD https://login.microsoftonline.com com senha de registo do ID de cliente do Azure Maps, ID de aplicação do Azure AD e aplicações do Azure AD ou o certificado.
+* Para aplicações através da autenticação de aplicação/servidor, solicitar um token a partir do ponto final de início de sessão do Azure AD `https://login.microsoftonline.com` com o ID de recurso do Azure AD `https://atlas.microsoft.com/`, certificado ou a palavra-passe registo ID de cliente do Azure Maps, ID de aplicação do Azure AD e aplicações do Azure AD.
 
 Para obter mais informações sobre como pedir tokens de acesso do Azure AD para utilizadores e os principais de serviço, consulte [cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

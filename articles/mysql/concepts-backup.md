@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: cefb0c5f578f109a8cce2555dd896f81d2f0f627
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6fe5aea9b8fa87efdfa7cc57716cf548a52e076b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821121"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237914"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Cópia de segurança e restauro na base de dados do Azure para MySQL
 
@@ -50,7 +50,7 @@ Existem dois tipos de restauro disponíveis:
 O tempo estimado da recuperação depende de vários fatores, incluindo os tamanhos de base de dados, o tamanho do registo de transações, a largura de banda de rede e o número total de bases de dados a recuperar na mesma região ao mesmo tempo. O tempo de recuperação é normalmente inferior a 12 horas.
 
 > [!IMPORTANT]
-> Eliminar servidores **não é possível** ser restaurada. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminados e não podem ser recuperados. Para proteger os recursos de servidor, após a implementação, de eliminação acidental ou alterações inesperadas, os administradores podem aproveitar [bloqueios de gestão](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources).
+> Eliminar servidores **não é possível** ser restaurada. Se eliminar o servidor, todas as bases de dados que pertencem ao servidor também são eliminados e não podem ser recuperados. Para proteger os recursos de servidor, após a implementação, de eliminação acidental ou alterações inesperadas, os administradores podem aproveitar [bloqueios de gestão](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 

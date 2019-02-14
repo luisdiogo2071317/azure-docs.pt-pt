@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 918cfb36c3afb9fc5c9a3f2c25b7c14b04354db1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002224"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237931"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de registo para o Azure Monitor com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados de registo para o Azure Monitor, de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Azure Monitor.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -173,6 +173,8 @@ Existem algumas restrições sobre os dados publicados para a API de recolha de 
 * Máximo de 30 MB por mensagem à API de Recoletor de dados do Azure Monitor. Este é um limite de tamanho para um post individual. Se os dados a partir de uma única mensagem que exceda 30 MB, deve dividir os dados até mais pequenos segmentos de tamanho e enviá-los em simultâneo.
 * Máximo de limite de 32 KB para os valores de campo. Se o valor do campo for superior a 32 KB, os dados serão truncados.
 * Número máximo recomendado de campos para um determinado tipo é 50. Este é um limite prático de uma perspectiva de experiência de pesquisa e a usabilidade.  
+* Uma tabela numa área de trabalho do Log Analytics só suporta até 500 colunas (referidas como um campo neste artigo). 
+* O número máximo de carateres para o nome da coluna é 500.
 
 ## <a name="return-codes"></a>Códigos de retorno
 O código de estado HTTP 200 significa que o pedido foi recebido para processamento. Isto indica que a operação foi concluída com êxito.

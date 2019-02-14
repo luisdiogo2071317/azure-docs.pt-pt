@@ -9,26 +9,23 @@ ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 10/11/2017
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b5fc297850ef4b8bfbc0e4bdcf21877e1b94ffe1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861756"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237319"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>O que é a API de Pesquisa de Imagens do Bing?
 
-A API de Pesquisa de Imagens do Bing permite-lhe utilizar as capacidades cognitivas de pesquisa de imagens do Bing na sua aplicação. Com o envio de consultas de pesquisa de utilizadores com a API, pode obter e apresentar imagens relevantes e de alta qualidade semelhantes às [Imagens do Bing](https://www.bing.com/images).
+A API de pesquisa de imagens do Bing permite-lhe utilizar as capacidades de pesquisa de imagens do Bing na sua aplicação. Ao enviar consultas de pesquisa para a API, pode obter imagens de alta qualidade semelhante [bing.com/images](https://www.bing.com/images).
 
-Lembre-se de que a API de Pesquisa de Imagens do Bing fornece apenas resultados da pesquisa com imagens. Utilize a [API de Pesquisa na Web do Bing](../bing-web-search/search-the-web.md), a [API de Pesquisa de Vídeos do Bing](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) e a [API de Pesquisa de Notícias do Bing](https://review.docs.microsoft.com/azure/cognitive-services/bing-news-search) para outros tipos de conteúdo web.
+Enquanto a API de pesquisa de imagens do Bing fornece os resultados da pesquisa apenas com imagens, pode combinar ou utilizar outros disponíveis [APIs de pesquisa Bing](../bing-web-search/bing-api-comparison.md) encontrar vários tipos de conteúdo na web.
 
 ## <a name="bing-image-search-features"></a>Funcionalidades da Pesquisa de Imagens do Bing
-
-Enquanto a Pesquisa de Imagens do Bing localiza e devolve principalmente imagens relevantes a partir de uma consulta de pesquisa, o serviço também fornece várias funcionalidades adicionais para a obtenção de imagens na web inteligente e focada.
-
 
 | Funcionalidade                                                                                                                                                                                 | Descrição                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,7 +48,7 @@ A API de Pesquisa de Imagens do Bing é um serviço Web RESTful fácil de chamar
 Em primeiro lugar, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) da API de Pesquisa de Imagens do Bing.
 Esta demonstração mostra como pode rapidamente personalizar uma consulta de pesquisa e fazer uma busca de imagens na web.
 
-Quando estiver pronto para chamar a API, crie uma [conta dos serviços cognitivos da API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Se não tiver uma subscrição do Azure, pode [criar uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
+Quando estiver pronto para chamar a API, criar um [conta dos serviços cognitivos API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Se não tiver uma subscrição do Azure, pode [criar uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
 
 Para começar rapidamente com o primeiro pedido da API, pode aprender a:
 
@@ -60,10 +57,12 @@ Para começar rapidamente com o primeiro pedido da API, pode aprender a:
 
 ## <a name="see-also"></a>Consulte também
 
-* A secção de referência [API de Pesquisa de Imagens do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) contém definições e informações sobre pontos finais, cabeçalhos, respostas de API e parâmetros de consulta que pode utilizar para solicitar resultados de pesquisa baseados em imagem.
+* [Os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) para as APIs de pesquisa do Bing. 
+
+* O [API de pesquisa de imagens do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) seção de referência contém informações sobre pontos finais da API, cabeçalhos, as respostas de API e parâmetros de consulta.
 
 * Os [Requisitos de apresentação e utilização do Bing](./useanddisplayrequirements.md) especificam as utilizações aceitáveis do conteúdo e as informações obtidas por meio das APIs de Pesquisa do Bing.
 
-* O tópico [Obter imagens da web com a API de Pesquisa de Imagens do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) descreve como pesquisar e obter imagens da web.
+* O [obter imagens da web com a API de pesquisa de imagens do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) artigo descreve como pesquisar e obter imagens a partir da web.
 
-* O tópico [Enviar e trabalhar com consultas de pesquisa](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) descreve como fazer, personalizar e dinamizar consultas de pesquisa.
+* O [Sending e trabalhar com consultas de pesquisa](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) artigo descreve como fazer, personalizar e dinamizar consultas de pesquisa.

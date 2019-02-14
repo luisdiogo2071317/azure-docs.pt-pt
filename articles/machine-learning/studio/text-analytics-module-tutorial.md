@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511365"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242673"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Criar um modelo de análise de sentimentos no Azure Machine Learning Studio
 
@@ -33,9 +33,9 @@ Neste tutorial, ficará a saber estes passos enquanto percorremos um modelo de a
 
 Pode encontrar experimentações abrangidas neste tutorial na Galeria de IA do Azure:
 
-[Prever resenha de livro](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Prever resenha de livro](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Prever resenha de livro - experimentação preditiva](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Prever resenha de livro - experimentação preditiva](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>Passo 1: Limpar e pré-processar o conjunto de dados de texto
 Começamos a experimentação, dividindo as pontuações de revisão em categóricos buckets de baixas e elevados para formular o problema como classificação de duas classes. Usamos [Editar metadados](https://msdn.microsoft.com/library/azure/dn905986.aspx) e [valores Categóricos do grupo](https://msdn.microsoft.com/library/azure/dn906014.aspx) módulos.

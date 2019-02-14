@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: e93c51365adfc867082e180d8e4db804d02003ca
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 945d8690ccb61916455ba4137f59c67c9a3d9f76
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297733"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237693"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo mostra os passos a seguir para configurar relatórios para o Azure Backup com um cofre dos serviços de recuperação. Ela também mostra como acessar relatórios com o Power BI. Depois de concluir estes passos, pode aceder diretamente ao Power BI para visualizar, personalizar e criar relatórios.
 
 > [!IMPORTANT]
-> A partir de 1 de Novembro de 2018, alguns clientes podem ver problemas em carregar os dados na aplicação de cópia de segurança do Azure no Power BI, dizendo "encontrámos carateres adicionais no final da entrada JSON. A exceção foi gerada pela interface do IDataReader."
+> a partir de 1 de Novembro de 2018, é provável que alguns clientes tenham problemas ao carregar os dados na Aplicação Azure Backup no Power BI, obtendo mensagens de erro como, por exemplo, "Encontrámos carateres adicionais no final da entrada JSON. A exceção foi gerada pela interface do IDataReader."
 Tal deve-se a uma alteração no formato em que os dados são carregados para a conta de armazenamento.
 Transfira a aplicação mais recente (versão 1.8) para evitar este problema.
 >
@@ -38,6 +38,7 @@ Transfira a aplicação mais recente (versão 1.8) para evitar este problema.
 
 ## <a name="configure-storage-account-for-reports"></a>Configurar a conta de armazenamento para relatórios
 Siga estes passos para configurar a conta de armazenamento para um cofre dos serviços de recuperação com o portal do Azure. Esta é uma configuração única. Depois da conta de armazenamento está configurada, pode ir diretamente para o Power BI para ver o pacote de conteúdos e utilizar relatórios.
+
 1. Se já tiver um cofre de serviços de recuperação aberto, avance para o passo seguinte. Se não tiver um cofre de serviços de recuperação aberto, no portal do Azure, selecione **todos os serviços**.
 
    * Na lista de recursos, introduza **serviços de recuperação**.
@@ -54,7 +55,7 @@ Siga estes passos para configurar a conta de armazenamento para um cofre dos ser
 3. Sobre o **relatórios de cópia de segurança** painel, selecione a **as definições de diagnóstico** ligação. Esse link abre o **as definições de diagnóstico** interface do Usuário, que é utilizada para enviar dados por push para uma conta de armazenamento do cliente.
 
       ![Ative o diagnóstico passo 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
-4. Selecione **ativar os diagnósticos** para abrir uma interface do Usuário para utilizar para configurar uma conta de armazenamento. 
+4. Selecione **ativar os diagnósticos** para abrir uma interface do Usuário para utilizar para configurar uma conta de armazenamento.
 
       ![Ativar o passo de diagnóstico 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
 5. Na **nome** , introduza um nome de definição. Selecione o **arquivo para uma conta de armazenamento** caixa de verificação para que os relatórios de dados podem começar a ser encaminhados para a conta de armazenamento.
@@ -73,11 +74,11 @@ Siga estes passos para configurar a conta de armazenamento para um cofre dos ser
       ![Passo 9 da definição de diagnóstico do Vista](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Depois de configurar relatórios ao guardar a conta de armazenamento *Aguarde 24 horas* para o envio de dados inicial concluir. Importe a aplicação de cópia de segurança do Azure no Power BI apenas após esse tempo. Para obter mais informações, consulte a [secção de FAQ](#frequently-asked-questions). 
+> Depois de configurar relatórios ao guardar a conta de armazenamento *Aguarde 24 horas* para o envio de dados inicial concluir. Importe a aplicação de cópia de segurança do Azure no Power BI apenas após esse tempo. Para obter mais informações, consulte a [secção de FAQ](#frequently-asked-questions).
 >
 >
 
-## <a name="view-reports-in-power-bi"></a>Ver relatórios no Power BI 
+## <a name="view-reports-in-power-bi"></a>Ver relatórios no Power BI
 Depois de configurar uma conta de armazenamento para relatórios utilizando um cofre dos serviços de recuperação, demora cerca de 24 horas para dados de relatórios começar a fluir em. Após 24 horas de configuração de uma conta de armazenamento, siga estes passos para ver relatórios no Power BI.
 Se desejar personalizar e partilhar o relatório, criar uma área de trabalho e siga os passos abaixo
 
@@ -90,20 +91,20 @@ Se desejar personalizar e partilhar o relatório, criar uma área de trabalho e 
 4. Introduza o nome da conta de armazenamento que foi configurada no passo anterior, 5 e selecione **seguinte**.
 
     ![Introduza o nome da conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Usando o método de autenticação "Chave", introduza a chave de conta de armazenamento para esta conta de armazenamento. Para [ver e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys), aceda à sua conta de armazenamento no portal do Azure. 
+5. Usando o método de autenticação "Chave", introduza a chave de conta de armazenamento para esta conta de armazenamento. Para [ver e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys), aceda à sua conta de armazenamento no portal do Azure.
 
      ![Introduza a conta de armazenamento](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
-     
+
 6. Selecione **iniciar sessão**. Depois de início de sessão for bem sucedida, verá uma notificação de dados de importação.
 
     ![Importar o pacote de conteúdos](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
-    
+
     Depois de concluída a importação, verá uma **êxito** notificação. Se a quantidade de dados na conta de armazenamento for grande, poderá demorar um pouco mais para importar o pacote de conteúdos.
-    
+
     ![Importar o pacote de conteúdos de sucesso](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
-    
+
 7. Depois de importar de dados com êxito, o **Azure Backup** pacote de conteúdos é visível na **aplicações** no painel de navegação. Sob **Dashboards**, **relatórios**, e **conjuntos de dados**, a lista mostra agora a cópia de segurança do Azure.
-     
+
 8. Sob **Dashboards**, selecione **cópia de segurança do Azure**, que mostra um conjunto de afixado relatórios chave.
 
       ![Dashboard de cópia de segurança do Azure](./media/backup-azure-configure-reports/azure-backup-dashboard.png) <br/>
@@ -117,40 +118,34 @@ Se desejar personalizar e partilhar o relatório, criar uma área de trabalho e 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**Como posso ver se os dados de relatórios foi iniciada a ser encaminhados para uma conta de armazenamento?**
-    
-   Vá para a conta de armazenamento que configurou e selecionar contentores. Se o contentor tem uma entrada para insights-logs-azurebackupreport, ele indica que dados de relatórios foi iniciada a fluir.
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Como posso ver se os dados de relatórios foi iniciada a ser encaminhados para uma conta de armazenamento?
+Vá para a conta de armazenamento que configurou e selecionar contentores. Se o contentor tem uma entrada para insights-logs-azurebackupreport, ele indica que dados de relatórios foi iniciada a fluir.
 
-**O que é a frequência de push de dados para uma conta de armazenamento e o pacote de conteúdos de cópia de segurança do Azure no Power BI?**
+### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>O que é a frequência de push de dados para uma conta de armazenamento e o pacote de conteúdos de cópia de segurança do Azure no Power BI?
+  Para os utilizadores de dia 0, demora cerca de 24 horas para enviar dados para uma conta de armazenamento. Após a conclusão deste push inicial, os dados são atualizados com frequência mostrada na figura a seguir.
 
-   Para os utilizadores de dia 0, demora cerca de 24 horas para enviar dados para uma conta de armazenamento. Após a conclusão deste push inicial, os dados são atualizados com frequência mostrada na figura a seguir. 
-      
-* Dados relacionados com **trabalhos**, **alertas**, **itens de cópia de segurança**, **cofres**, **servidores protegidos**e  **Políticas** são emitidos via push para uma conta de armazenamento do cliente como e quando é registado.
-      
-* Dados relacionados com **armazenamento** são emitidos via push para uma conta de armazenamento do cliente a cada 24 horas.
-   
-   ![Frequência de push de dados de relatórios de cópia de segurança do Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+  * Dados relacionados com **trabalhos**, **alertas**, **itens de cópia de segurança**, **cofres**, **servidores protegidos**e  **Políticas** são emitidos via push para uma conta de armazenamento do cliente como e quando é registado.
 
-* O Power BI tem um [atualização agendada uma vez por dia](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Pode efetuar uma atualização manual dos dados no Power BI para o pacote de conteúdos.
+  * Dados relacionados com **armazenamento** são emitidos via push para uma conta de armazenamento do cliente a cada 24 horas.
 
-**Quanto posso manter relatórios?**
+       ![Frequência de push de dados de relatórios de cópia de segurança do Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
-   Ao configurar uma conta de armazenamento, pode selecionar um período de retenção de dados do relatório na conta de armazenamento. Siga o passo 6 na secção "Configurar conta de armazenamento para os relatórios" anterior. Também pode [analise relatórios no Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvá-los por um período de retenção mais longo, com base nas suas necessidades.
+  * O Power BI tem um [atualização agendada uma vez por dia](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Pode efetuar uma atualização manual dos dados no Power BI para o pacote de conteúdos.
 
-**Irei ver todos os meus dados em relatórios depois de configurar a conta de armazenamento?**
+### <a name="how-long-can-i-retain-reports"></a>Quanto posso manter relatórios?
+Ao configurar uma conta de armazenamento, pode selecionar um período de retenção de dados do relatório na conta de armazenamento. Siga etapa 6 a [configurar a conta de armazenamento para relatórios](backup-azure-configure-reports.md#configure-storage-account-for-reports) secção. Também pode [analise relatórios no Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvá-los por um período de retenção mais longo, com base nas suas necessidades.
 
-   Todos os dados gerados depois de configurar uma conta de armazenamento são emitidos via push para a conta de armazenamento e está disponíveis nos relatórios. Tarefas em curso não são enviados por push para relatórios. Depois da tarefa é concluída ou falha, ele é enviado para relatórios.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Irei ver todos os meus dados em relatórios depois de configurar a conta de armazenamento?
+ Todos os dados gerados depois de configurar uma conta de armazenamento são emitidos via push para a conta de armazenamento e está disponíveis nos relatórios. Tarefas em curso não são enviados por push para relatórios. Depois da tarefa é concluída ou falha, ele é enviado para relatórios.
 
-**Se eu já configurado a conta de armazenamento para ver relatórios, posso alterar a configuração para utilizar outra conta de armazenamento?**
+### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Se eu já configurado a conta de armazenamento para ver relatórios, posso alterar a configuração para utilizar outra conta de armazenamento?
+Sim, pode alterar a configuração para apontar para uma conta de armazenamento diferente. Utilize a conta de armazenamento recentemente configurado enquanto se conectar ao pacote de conteúdos do Azure Backup. Além disso, após a configuração de uma conta de armazenamento diferentes, novos fluxos de dados nesta conta de armazenamento. Os dados mais antigos (antes de alterar a configuração) ainda permanecem na conta de armazenamento mais antiga.
 
-   Sim, pode alterar a configuração para apontar para uma conta de armazenamento diferente. Utilize a conta de armazenamento recentemente configurado enquanto se conectar ao pacote de conteúdos do Azure Backup. Além disso, após a configuração de uma conta de armazenamento diferentes, novos fluxos de dados nesta conta de armazenamento. Os dados mais antigos (antes de alterar a configuração) ainda permanecem na conta de armazenamento mais antiga.
+### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Pode visualizar relatórios em cofres e subscrições?
+Sim, pode configurar a mesma conta de armazenamento em vários cofres para ver relatórios de cross-cofre. Além disso, pode configurar a mesma conta de armazenamento para cofres entre subscrições. Em seguida, pode utilizar esta conta de armazenamento enquanto se conectar ao pacote de conteúdos de cópia de segurança do Azure no Power BI para visualizar os relatórios. A conta de armazenamento selecionada tem de ser na mesma região que o Cofre de serviços de recuperação.
 
-**Pode visualizar relatórios em cofres e subscrições?**
-
-   Sim, pode configurar a mesma conta de armazenamento em vários cofres para ver relatórios de cross-cofre. Além disso, pode configurar a mesma conta de armazenamento para cofres entre subscrições. Em seguida, pode utilizar esta conta de armazenamento enquanto se conectar ao pacote de conteúdos de cópia de segurança do Azure no Power BI para visualizar os relatórios. A conta de armazenamento selecionada tem de ser na mesma região que o Cofre de serviços de recuperação.
-   
 ## <a name="troubleshooting-errors"></a>Resolução de erros
-| Detalhes do erro | Resolução |
+| Detalhes do Erro | Resolução |
 | --- | --- |
 | Depois de configurar a conta de armazenamento para relatórios de cópia de segurança, **conta de armazenamento** continua a mostrar **não configurada**. | Se tiver configurado uma conta de armazenamento com êxito, os dados de relatórios fluem apesar deste problema. Para resolver este problema, aceda ao portal do Azure e selecione **todos os serviços** > **as definições de diagnóstico** > **cofre dos serviços de recuperação**  >  **Editar definição**. Eliminar a definição configurada anteriormente e criar uma nova definição no painel do mesmo. Desta vez, além da **Name** caixa, selecione **serviço**. Agora é apresentada a conta de armazenamento configurada. |
 |Depois de importar o pacote de conteúdos de cópia de segurança do Azure no Power BI, um erro "404-container não é encontrado" é apresentada a mensagem. | Como mencionado anteriormente, tem de aguardar 24 horas depois de configurar relatórios no cofre dos serviços de recuperação para vê-los corretamente no Power BI. Se tentar aceder aos relatórios antes de 24 horas, é apresentada esta mensagem de erro pois completa de dados ainda não está presente para mostrar relatórios válidos. |
@@ -161,4 +156,3 @@ Depois de configurar a conta de armazenamento e importar o pacote de conteúdos 
 * [Utilizar um modelo de dados de relatórios do Azure Backup](backup-azure-reports-data-model.md)
 * [Filtro de relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Criar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-

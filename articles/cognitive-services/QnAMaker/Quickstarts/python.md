@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 9ff23ab0314012c32e75e667997a2e6c8f61ecb7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865765"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244645"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Como utilizar a API de REST do QnA Maker com Python
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/
 - [Eliminar uma base de dados de conhecimento.](#Delete)
 - [Obter as chaves de ponto final atual.](#GetKeys)
 - [Voltar a gerar as chaves de ponto final atual.](#PutKeys)
-- [Obter o conjunto atual de alterações de palavras.](#GetAlterations)
-- [Substituir o conjunto atual de alterações de palavras.](#PutAlterations)
+- [Obtenha o conjunto atual de alterações de palavra maiúsculas de minúsculas.](#GetAlterations)
+- [Substitua o conjunto atual de alterações de palavra maiúsculas de minúsculas.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

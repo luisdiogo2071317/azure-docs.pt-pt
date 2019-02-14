@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719606"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245954"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas no Azure Logic Apps
 
@@ -94,13 +94,15 @@ A aplicação lógica utiliza esta identidade de aplicação do Azure AD para au
 
 **Criar a identidade da aplicação para a aplicação lógica no PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Pode executar esta tarefa através do Azure Resource Manager com o PowerShell. No PowerShell, execute estes comandos:
 
-1. `Add-AzureRmAccount`
+1. `Add-AzAccount`
 
 2. `$SecurePassword = Read-Host -AsSecureString` (Introduza uma palavra-passe e clique em enter)
 
-3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Certifique-se copiar o **ID do inquilino** (GUID para o seu inquilino do Azure AD), o **ID de aplicação**e a palavra-passe que utilizou.
 
@@ -236,7 +238,7 @@ Na **autorização** secção, incluir esta linha:
 | ------- | -------- | ----------- | 
 | tipo | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor tem de ser `ClientCertificate`. | 
 | palavra-passe | Sim | A palavra-passe para aceder ao certificado de cliente (arquivo PFX) | 
-| PFX | Sim | O conteúdo codificado em base64 do certificado de cliente (arquivo PFX) | 
+| pfx | Sim | O conteúdo codificado em base64 do certificado de cliente (arquivo PFX) | 
 |||| 
 
 <a name="basic"></a>

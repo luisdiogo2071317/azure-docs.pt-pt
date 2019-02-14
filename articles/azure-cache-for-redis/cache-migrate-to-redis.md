@@ -1,25 +1,25 @@
 ---
 title: Migrar aplicações de serviço de Cache gerida para Redis - Azure | Documentos da Microsoft
 description: Saiba como migrar aplicativos de serviço de Cache gerida e Cache na função para a Cache do Azure para Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: a98b6b426ee1bf9784394ce4a83dca83179f7c28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110885"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237032"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Migrar do serviço de Cache gerida, para a Cache do Azure, para Redis
 Migrar seus aplicativos que utilizam o serviço de Cache gerida do Azure para a Cache do Azure para Redis pode ser feito com alterações mínimas à sua aplicação, dependendo dos recursos de serviço de Cache gerida utilizado pela sua aplicação de colocação em cache. Enquanto as APIs não são exatamente os mesmos recursos serem similares e grande parte do seu código existente que utiliza o serviço de Cache gerida para aceder uma cache pode ser reutilizado com alterações mínimas. Este artigo mostra como tornar as configurações necessárias e o aplicativo é alterado para migrar as suas aplicações de serviço de Cache gerida a utilizar a Cache do Azure para Redis e mostra como alguns dos recursos de Cache do Azure para Redis podem ser usado para implementar a funcionalidade de uma cache de serviço de Cache gerida.
