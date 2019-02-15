@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105082"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300589"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o serviço de aplicações e funções do Azure
 
@@ -280,8 +280,8 @@ Para saber mais sobre Microsoft.Azure.Services.AppAuthentication e as operaçõe
 
 Uma aplicação com uma identidade gerida tem duas variáveis de ambiente definidas:
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - o URL para o serviço de token de local.
+- MSI_SECRET - um cabeçalho utilizado para ajudar a mitigar os ataques de falsificação (SSRF) de pedido do lado do servidor. O valor é girado pela plataforma.
 
 O **MSI_ENDPOINT** é um URL local a partir do qual a aplicação pode pedir tokens. Para obter um token para um recurso, fazer uma solicitação HTTP GET para este ponto final, incluindo os seguintes parâmetros:
 
@@ -289,7 +289,7 @@ O **MSI_ENDPOINT** é um URL local a partir do qual a aplicação pode pedir tok
 > |-----|-----|-----|
 > |Recurso|Consulta|O URI do recurso do recurso do AAD para que deve ser obtido de um token. Isto pode ser um da [que o suporte do Azure AD a autenticação dos serviços Azure](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.|
 > |versão de API|Consulta|A versão da API do token a ser utilizado. "2017-09-01" está atualmente a única versão suportada.|
-> |segredo|Cabeçalho|O valor da variável de ambiente MSI_SECRET.|
+> |segredo|Cabeçalho|O valor da variável de ambiente MSI_SECRET. Este cabeçalho é usado para ajudar a mitigar os ataques de falsificação (SSRF) de pedido do lado do servidor.|
 > |ID de cliente|Consulta|(Opcional) O ID da identidade atribuído ao utilizador a ser utilizado. Se for omitido, é utilizada a identidade atribuída de sistema.|
 
 Uma resposta 200 OK bem-sucedida inclui um corpo JSON com as seguintes propriedades:
