@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004252"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301932"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -60,14 +60,18 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   O servidor de base de dados SQL ou a instância gerida que aloja as bases de dados secundárias no grupo de ativação pós-falha. Secundário não pode estar na mesma região que o primário.
 
-- **Adicionar bases de dados ao grupo de ativação pós-falha num servidor de base de dados SQL**
+- **Adicionar bases de dados individuais ao grupo de ativação pós-falha**
 
-  Pode colocar várias bases de dados individuais ou bases de dados dentro de um conjunto elástico no mesmo servidor de base de dados SQL no mesmo grupo de ativação pós-falha. Se adicionar uma base de dados para o grupo de ativação pós-falha, este cria automaticamente uma base de dados secundária com o mesmo tamanho de edição e de computação. Se a base de dados primária num conjunto elástico, secundário é criado automaticamente no conjunto elástico com o mesmo nome. Se adicionar uma base de dados que já tenha uma base de dados secundária no servidor secundário, essa replicação geográfica é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, um secundário novo é criado no servidor secundário.
+  Pode colocar várias bases de dados individuais no mesmo servidor de base de dados SQL no mesmo grupo de ativação pós-falha. Se adicionar uma base de dados para o grupo de ativação pós-falha, este cria automaticamente uma base de dados secundária com o mesmo tamanho de edição e de computação no servidor secundário.  Esse servidor que especificou quando foi criado o grupo de ativação pós-falha. Se adicionar uma base de dados que já tenha uma base de dados secundária no servidor secundário, essa ligação de georreplicação é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, um secundário novo é criado no servidor secundário.
   
 > [!IMPORTANT]
   > Na instância gerida, todas as bases de dados do utilizador são replicadas. Não é possível escolher um subconjunto de bases de dados de utilizador para a replicação no grupo de ativação pós-falha.
 
-- **Serviço de escuta de leitura / escrita de grupo de ativação pós-falha**
+- **Adicionar bases de dados num conjunto elástico ao grupo de ativação pós-falha**
+
+  Pode colocar todas ou várias bases de dados dentro de um conjunto elástico no mesmo grupo de ativação pós-falha. Se a base de dados primária num conjunto elástico, secundário é criado automaticamente no conjunto elástico com o mesmo nome (conjunto secundário). Tem de se certificar de que o servidor secundário contém um conjunto elástico com o mesmo nome exato e a capacidade livre suficiente para alojar as bases de dados secundários que vão ser criadas pelo grupo de ativação pós-falha. Se adicionar uma base de dados no conjunto que já tem uma base de dados secundária no agrupamento de secundário, essa ligação de georreplicação é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, é criado um secundário novo no agrupamento de secundário.
+  
+  - **Serviço de escuta de leitura / escrita de grupo de ativação pós-falha**
 
   Um registo CNAME de DNS formado que aponta para o URL da principal atual. Ele permite que os aplicativos de SQL de leitura / escrita de forma transparente voltar a ligar à base de dados primária quando primário é alterado após a ativação pós-falha.
 

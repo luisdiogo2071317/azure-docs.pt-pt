@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002291"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269965"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analisar dados de registo no Azure Monitor
 
-Dados de registo recolhidos pelo Azure Monitor são armazenados numa área de trabalho do Log Analytics, que se baseia nos [Explorador de dados do Azure](/azure/data-explorer). Ele recolhe telemetria a partir de várias origens e utiliza a [linguagem do Explorador de dados de consulta](/azure/kusto/query) para recuperar e analisar dados.
+Dados de registo recolhidos pelo Azure Monitor são armazenados numa área de trabalho do Log Analytics, que se baseia nos [Explorador de dados do Azure](/azure/data-explorer). Ele recolhe telemetria a partir de várias origens e utiliza a [linguagem de consulta de Kusto](/azure/kusto/query) utilizado pelo Explorador de dados para recuperar e analisar dados.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a name="log-queries"></a>Consultas de registo
+## <a name="log-queries"></a>Registar consultas
 
 Precisa de uma consulta de registo para recuperar os dados de registo do Azure Monitor.  Esteja [análise de dados no portal](portals.md), [configura uma regra do alerta](../platform/alerts-metric.md) para ser notificado de uma determinada condição ou ao obter dados com o [API de registos do Azure Monitor](https://dev.loganalytics.io/) , usará uma consulta para especificar os dados que pretende.  Este artigo descreve como as consultas de registo são utilizadas no Azure Monitor e fornece os conceitos que deve compreender antes de criar um.
 
@@ -47,7 +47,7 @@ As diferentes formas que irá utilizar consultas de registo no Azure Monitor inc
 ![Pesquisas de registos](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Escrever uma consulta
-Utiliza o Azure Monitor [uma versão da linguagem de consulta Data Explorer](get-started-queries.md) para recuperar e analisar dados de registo de diversas formas.  Geralmente começa com a consultas básicas e, em seguida, avançar para utilizar as funções mais avançadas, como os seus requisitos se tornam mais complexos.
+Utiliza o Azure Monitor [uma versão da linguagem de consulta de Kusto](get-started-queries.md) para recuperar e analisar dados de registo de diversas formas.  Geralmente começa com a consultas básicas e, em seguida, avançar para utilizar as funções mais avançadas, como os seus requisitos se tornam mais complexos.
 
 A estrutura básica de uma consulta é uma tabela de origem, seguida de uma série de operadores, separados por um caráter de pipe `|`.  Em conjunto pode encadear vários operadores para refinar os dados e realizar funções avançadas.
 

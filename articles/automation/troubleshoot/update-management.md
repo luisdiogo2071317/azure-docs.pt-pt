@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 01f72b8d41c1a973c7d187f519a43ce62929a23e
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359362"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270271"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas de gerenciamento de atualizações
 
@@ -43,7 +43,11 @@ Este erro pode dever-se pelos seguintes motivos:
 #### <a name="resolution"></a>Resolução
 
 1. Visitar [planeamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais são os endereços e portas têm de ser permitidos para gerenciamento de atualizações trabalhar.
-2. Se utilizar uma imagem clonada de sysprep a imagem em primeiro lugar e instalar o agente MMA após o fato.
+2. Se utilizar uma imagem clonada:
+   1. Na área de trabalho do Log Analytics, remover a VM da pesquisa guardada para a configuração de âmbito `MicrosoftDefaultScopeConfig-Updates`. Pesquisas guardadas podem ser encontradas na **gerais** na sua área de trabalho.
+   2. Execute `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
+   3. Execute `Restart-Service HealthService` para reiniciar o `HealthService`. Esta ação irá recriar a chave e gerar um UUID novo.
+   4. Caso não funcione, a imagem do sysprep primeiro e instalar o agente MMA após o fato.
 
 ### <a name="multi-tenant"></a>Cenário: Recebe um erro de subscrição ligada ao criar uma implementação de atualizações para máquinas no outro inquilino do Azure.
 

@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57c4f0595fdea3d266a56d125d6d86cba8b4f651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 01cc85f7eba2aefd08192c4e3f4e5151e7645238
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195537"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269115"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceitos de design
 O objetivo deste documento é descrever áreas que devem ser consideradas por meio de durante o design de implementação do Azure AD Connect. Este documento é uma descrição profunda sobre determinadas áreas e esses conceitos uma breve descrição também outros documentos.
@@ -171,7 +171,7 @@ Se estiver a gerir o AD FS fora do Azure AD Connect ou estiver a utilizar servid
 ![Configuração de Federação de terceiros](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Adição de novos diretórios a implementação existente
-Suponha que tiver implementado o Azure AD Connect com a funcionalidade de ConsistencyGuid ativada e, agora gostaria de adicionar outro diretório para a implementação. Quando tentar adicionar o diretório, o Assistente do Azure AD Connect verifica o estado do atributo ms-DS-ConsistencyGuid no diretório. Se o atributo é configurado num ou mais objetos no diretório, o assistente conclui o atributo está a ser utilizado por outros aplicativos e devolve um erro, conforme ilustrado no diagrama abaixo. Se tiver a certeza de que o atributo não é utilizado por aplicações existentes, terá de contactar o suporte para obter informações sobre como suprimir o erro.
+Suponha que tiver implementado o Azure AD Connect com a funcionalidade de ConsistencyGuid ativada e, agora gostaria de adicionar outro diretório para a implementação. Quando tentar adicionar o diretório, o Assistente do Azure AD Connect verifica o estado do atributo ms-DS-ConsistencyGuid no diretório. Se o atributo é configurado num ou mais objetos no diretório, o assistente conclui o atributo está a ser utilizado por outros aplicativos e devolve um erro, conforme ilustrado no diagrama abaixo. Se tiver a certeza de que o atributo não é utilizado por aplicações existentes, pode suprimir o erro reiniciando o Assistente do Azure AD Connect com o **/SkipLdapSearchcontact** especificado, tal como descrito acima ou contacte Suporte para obter mais informações.
 
 ![Adição de novos diretórios a implementação existente](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

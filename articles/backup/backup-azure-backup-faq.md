@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: b31bdacbaf1ab81223d2a99472233cd5024edced
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0c52a10aa806962ee54fe6058f236ea9bd86414b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300736"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268350"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -31,7 +31,7 @@ Pode registar até 1000 máquinas virtuais do Azure por cofre. Se estiver a util
 Dados do servidor que pretende recuperar em conjunto devem utilizar a mesma frase de acesso ao configurar a cópia de segurança. Se quiser isolar a recuperação para um determinado servidor ou servidores, utilize uma frase de acesso para esse servidor ou apenas os servidores. Por exemplo, os servidores de recursos humanos podem utilizar uma frase de acesso de encriptação, os servidores de gestão de contas outra e os servidores de armazenamento uma terceira.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover o meu cofre entre subscrições?
-Não. O Cofre é criado ao nível da subscrição e não pode ser reatribuído para outra subscrição.
+Sim. Para mover um cofre dos serviços de recuperação, consulte este [artigo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Pode mover dados de cópia de segurança para outro Cofre?
 Não. Não não possível mover dados de cópia de segurança armazenados num cofre num cofre diferente.
@@ -148,7 +148,6 @@ Não. Todos os dados transferidos para o cofre, antes da tarefa de cópia de seg
 Se cancelar uma tarefa de cópia de segurança para uma VM do Azure, os dados transferidos são ignorados. A próxima tarefa de cópia de segurança transfere os dados incrementais desde a última tarefa de cópia de segurança bem-sucedida.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que é o tamanho dos dados transferido para o Cofre de serviços de recuperação mais pequeno do que os dados selecionados para cópia de segurança?
-
  Dados de cópia de segurança do agente de cópia de segurança do Azure, o DPM, e o servidor de cópia de segurança do Azure é comprimido e encriptado antes de serem transferidos. Com a compactação e criptografia é aplicada, os dados no cofre são 30-40% mais reduzidos.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Pode eliminar ficheiros individuais a partir de um ponto de recuperação no Cofre?
@@ -156,8 +155,8 @@ Não, o Azure Backup não suporta a eliminação ou limpar os itens individuais 
 
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Se cancelar uma tarefa de cópia de segurança depois de iniciar, é os dados de cópia de segurança transferidos eliminados?
-
 Não. Todos os dados transferidos para o cofre, antes da tarefa de cópia de segurança foi cancelada permanecem no cofre.
+
 - O Backup do Azure utiliza um mecanismo de ponto de verificação para adicionar, ocasionalmente, pontos de verificação aos dados de cópia de segurança durante a cópia de segurança.
 - Por existirem pontos de verificação nos dados de cópia de segurança, o processo de cópia de segurança seguinte pode validar a integridade dos ficheiros.
 - A tarefa de cópia de segurança seguinte será incremental face aos dados para os quais foi criada uma cópia de segurança anteriormente. As cópias de segurança incrementais só transferem dados novos ou alterados, o que se traduz numa melhor utilização da largura de banda.
@@ -177,7 +176,7 @@ Não. Só podem ser aplicadas políticas de retenção em pontos de cópia de se
 
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point-br"></a>Se uma cópia de segurança é mantida durante muito tempo, demora mais tempo para recuperar um ponto de dados mais antigo? <br/>
-Não – o tempo para recuperar o ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação funciona como um ponto completo.
+Não. O tempo para recuperar o mais antigo ou o ponto mais recente é o mesmo. Cada ponto de recuperação funciona como um ponto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Se cada ponto de recuperação é como um ponto completo, afeta o armazenamento de cópia de segurança faturável total?
 Os produtos de ponto de retenção de longa duração típicos armazenam cópias de segurança como pontos completos.
@@ -203,7 +202,7 @@ Não. Recovery seja gratuito e não é cobrada para o tráfego de saída.
 Quando uma nova política é aplicada, agenda e a retenção da nova política é seguida.
 
 - Se a retenção for estendida, os pontos de recuperação existentes serão marcados para que estejam em conformidade com a política nova.
-- - Se a retenção for reduzida, serão marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados.
+- Se a retenção for reduzida, serão marcados para eliminação na tarefa de limpeza seguinte e, posteriormente, eliminados.
 
 ## <a name="encryption"></a>Encriptação
 

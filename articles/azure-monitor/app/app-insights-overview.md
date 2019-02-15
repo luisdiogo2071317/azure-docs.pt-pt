@@ -11,17 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: b3ad10c62d393e2508d3ea04f0e49d3ffbf184cd
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886378"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267500"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
-O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações numa grande variedade de plataformas, incluindo .NET, node. js e J2EE, alojadas no local, híbrido ou qualquer cloud pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
+O Application Insights é um serviço de Gestão de Desempenho de Aplicações (APM) extensível para programadores Web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para aplicações numa grande variedade de plataformas, incluindo .NET, node. js e Java EE, alojado no local, híbrido ou qualquer cloud pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
 
 [Veja a animação de introdução](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
@@ -46,7 +46,7 @@ O Application Insights destina-se à equipa de programação, para o ajudar a co
 
 * **Taxas de pedidos, tempos de resposta e taxas de falhas** - saiba quais são as páginas mais populares, em que alturas do dia e onde estão localizados os seus utilizadores. Veja que páginas têm o melhor desempenho. Se os tempos de resposta e as taxas de falhas aumentarem quando há mais pedidos, é possível que tenha um problema relativo a recursos. 
 * **Taxas de dependência, tempos de resposta e taxas de falhas** - veja se os serviços externos o estão a atrasar.
-* **Exceções** - analise as estatísticas agregadas ou escolha instâncias específicas e explore o rastreio de pilha e pedidos relacionados. São reportadas exceções do servidor e do browser.
+* **Exceções** - analisar as estatísticas agregadas ou escolha instâncias específicas e explore o rastreio de pilha e pedidos relacionados. São reportadas exceções do servidor e do browser.
 * **Vistas de página e desempenho de carga** - reportados pelos browsers dos utilizadores.
 * **Chamadas AJAX** das páginas Web - taxas, tempos de resposta e taxas de falhas.
 * **Contagens de utilizadores e sessões**.
@@ -89,7 +89,7 @@ Instale o Application Insights na sua aplicação, configure [testes Web de disp
 Quando receber um alerta ou detetar um problema:
 
 * Avalie o número de utilizadores afetados.
-* Correlacione falhas com exceções, chamadas de dependências e rastreios.
+* Correlacione falhas com exceções, chamadas de dependência e rastreios.
 * Examine o gerador de perfis, instantâneos, rastreios de pilha e registos de rastreio.
 
 ### <a name="build-measure-learn"></a>Compilar, Medir, Aprender
@@ -107,13 +107,13 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
 * **Em tempo de execução: instrumente a sua aplicação Web no servidor.** Evita atualizações ao código. Precisa de acesso de administrador ao seu servidor.
   * [**IIS no local ou numa VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Aplicação Web ou VM do Azure**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**J2EE**](../../azure-monitor/app/java-live.md)
+  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **No momento de programação: adicione o Application Insights ao seu código.** Permite-lhe escrever telemetria personalizada e instrumentar aplicações de back-end e de ambiente de trabalho.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 update 2 ou posterior.
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Outras plataformas](../../azure-monitor/app/platforms.md)
-* **[Instrumente as suas páginas Web](../../azure-monitor/app/javascript.md)** para visualização de páginas, AJAX e outra telemetria do lado do cliente.
+* **[Instrumentar suas páginas da web](../../azure-monitor/app/javascript.md)**  para vista de página, AJAX e outra telemetria do lado do cliente.
 * **[Analise a utilização da aplicação móvel](../../azure-monitor/learn/mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
 * **[Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)** - envie um ping ao seu Web site regularmente a partir dos nossos servidores.
 
@@ -122,7 +122,7 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
 Introdução ao tempo de execução com:
 
 * [Servidor do IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Servidor J2EE](../../azure-monitor/app/java-live.md)
+* [Java EE server](../../azure-monitor/app/java-live.md)
 
 Introdução no momento de programação com:
 

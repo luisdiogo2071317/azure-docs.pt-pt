@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 91814579675882ba969f5903ebeddcebbcbd6616
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118087"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301541"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Descrição Geral do Application Insights para DevOps
 
@@ -230,6 +230,6 @@ Pode começar de várias formas, consoante as características da sua aplicaçã
 * [Aplicação Web ASP.NET](../../azure-monitor/app/asp-net.md)
 * [Aplicação Web Java](../../azure-monitor/app/java-get-started.md)
 * [Aplicação Web Node.js](../../azure-monitor/app/nodejs.md)
-* Aplicações já implementadas, alojadas no [IIS](../../azure-monitor/app/monitor-web-app-availability.md), no [J2EE](../../azure-monitor/app/java-live.md) ou no [Azure](../../azure-monitor/app/app-insights-overview.md).
+* Aplicações já implementadas, alojadas no [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [Java EE](../../azure-monitor/app/java-live.md), ou [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Páginas Web](../../azure-monitor/app/javascript.md) - aplicação de uma só página ou página Web comum. Utilize esta opção por si só ou como acrescento a qualquer uma das opções do servidor.
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) para testar a sua aplicação a partir da Internet pública.

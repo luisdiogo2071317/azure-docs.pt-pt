@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 32c47233946dacf4e80a9ff3ba25388e1231d7c9
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469503"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301065"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de armazenamento do Azure
 
@@ -28,7 +28,7 @@ Erros de certificado são causados por uma das duas seguintes situações:
 1. A aplicação está conectada por meio de um "proxy transparente", que significa que um servidor (por exemplo, o servidor da empresa) é intercetar o tráfego HTTPS, desencriptá-lo e, em seguida, criptografando-a utilizar um certificado autoassinado.
 2. Está a executar uma aplicação que está a injetar um certificado SSL autoassinado nas mensagens HTTPS recebidos. Exemplos de aplicativos que inserir certificados inclui software de inspeção de tráfego de rede e software antivírus.
 
-Quando o Explorador de armazenamento vê um self assinado ou o certificado não fidedigno, pode já não sabe se a mensagem recebida do HTTPS foi alterada. Se tiver uma cópia do certificado autoassinado, pode instruir o Explorador de armazenamento confiar nele efetuando os seguintes passos:
+Quando o Explorador de armazenamento vê um certificado autoassinado ou não fidedigno, pode já não sabe se a mensagem recebida do HTTPS foi alterada. Se tiver uma cópia do certificado autoassinado, pode instruir o Explorador de armazenamento confiar nele efetuando os seguintes passos:
 
 1. Obter uma Base-64 com codificação X.509 (. cer) de cópia do certificado
 2. Clique em **edite** > **certificados SSL** > **importar certificados**e, em seguida, utilize o Seletor de ficheiros para localizar, selecione e abra o ficheiro. cer
@@ -53,6 +53,18 @@ Se tiver a certeza de onde o certificado é proveniente, pode experimentar estas
 Se não conseguir encontrar nenhum certificado autoassinado utilizando os passos anteriores, contacte-nos por meio da ferramenta de comentários para obter mais ajuda. Em alternativa, pode optar por iniciar o Explorador de armazenamento a partir da linha de comandos com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, o Explorador de armazenamento irão ignorar erros de certificado.
 
 ## <a name="sign-in-issues"></a>Problemas de início de sessão
+
+### <a name="blank-sign-in-dialog"></a>Início de sessão em branco na caixa de diálogo
+Início de sessão em branco nas caixas de diálogo é causados frequentemente por ADFS solicitando o Explorador de armazenamento para executar um redirecionamento que não é suportado por Bombardeador. Para contornar este problema, pode tentar utilizar o fluxo de código de dispositivo para início de sessão. Para tal, siga estes passos:
+1. "Ir para Experimental" -> "Utilizar código sessão de dispositivo".
+2. Abra a caixa de diálogo Ligar (quer através de "Adicionar conta" no painel de conta ou o ícone de plug na barra vertical do lado esquerdo).
+3. Escolha qual pretende iniciar sessão para o ambiente.
+4. Clique em "Iniciar" no botão.
+5. Siga as instruções no painel seguinte.
+
+Se se deparar com dificuldades a iniciar sessão na conta de que pretende utilizar porque seu navegador padrão já está conectado a uma conta diferente, que pode:
+1. Copie manualmente o link e o código numa sessão privada do seu navegador.
+2. Copie manualmente o link e o código para um browser diferente.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Ciclo de reautenticação ou alteração UPN
 Se estiver num loop de reautenticação, ou tiver alterado o UPN de uma das suas contas, experimente o seguinte:
@@ -90,7 +102,7 @@ Se nenhum desses métodos funcionam [abra um problema no GitHub](https://github.
 Se não é possível obter as suas subscrições depois de entrar com êxito, tente os seguintes métodos de resolução de problemas:
 
 * Certifique-se de que a conta tem acesso às subscrições que espera. Pode verificar se tem acesso ao iniciar sessão no portal para o ambiente do Azure que está a tentar utilizar.
-* Certifique-se de que iniciou sessão com o Azure correto ambiente (do Azure, Azure China, Azure Alemanha, Azure US Government ou ambiente personalizado).
+* Certifique-se de que iniciou sessão com o Azure correto ambiente (do Azure, Azure China 21Vianet, Azure Alemanha, Azure US Government ou ambiente personalizado).
 * Se estiver atrás de um proxy, certifique-se de que configurou o proxy do Explorador de armazenamento corretamente.
 * Tente remover e adicionar novamente a conta.
 * Se existir uma ligação de "Obter mais informações", procure e consulte as mensagens de erro estão a ser reportadas para os inquilinos que estão a falhar. Se não souber ao certo o que fazer com o mensagens de erro, consulte, em seguida, não hesite em [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
@@ -116,7 +128,7 @@ Em primeiro lugar, certifique-se de que as seguintes informações que introduzi
 * O URL de proxy e o número de porta
 * Nome de utilizador e palavra-passe se for necessário pelo proxy
 
-Tenha em atenção que o Explorador de armazenamento não suporta .pac ficheiro para configurar definições de proxy.
+Tenha em atenção que o Explorador de armazenamento não suporta ficheiros de configuração automática de proxy para configurar definições de proxy.
 
 ### <a name="common-solutions"></a>Soluções comuns
 

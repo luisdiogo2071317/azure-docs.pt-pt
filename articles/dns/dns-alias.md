@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 52b42e964e7abe207064aff49f7f8f27f8476ef4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 52653252df3efd3e12fa974ed82cd2557eee93d0
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092847"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301252"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
@@ -52,7 +52,7 @@ Registos de alias remover a complexidade associada este cenário. Eles ajudam a 
 
 ### <a name="update-dns-zones-automatically-when-application-ips-change"></a>Atualizar as zonas DNS automaticamente quando o aplicativo IPs alterar
 
-Este cenário é semelhante ao anterior. Talvez um aplicativo é movido, ou a máquina virtual subjacente é reiniciada. Um registo de alias, em seguida, atualiza automaticamente quando o endereço IP é alterado para o recurso IP público subjacente. Para evitar potenciais riscos de segurança, os usuários diretos de outro aplicativo que tem o endereço IP antigo.
+Este cenário é semelhante ao anterior. Talvez um aplicativo é movido, ou a máquina virtual subjacente é reiniciada. Um registo de alias, em seguida, atualiza automaticamente quando o endereço IP é alterado para o recurso IP público subjacente. Isso evita potenciais riscos de segurança de direcionar os utilizadores para outra aplicação que tem o endereço IP antigo.
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Alojar aplicações com balanceamento de carga no vértice da zona
 

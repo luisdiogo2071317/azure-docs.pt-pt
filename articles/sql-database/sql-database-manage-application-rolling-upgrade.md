@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 50f6f114a4d90f48218f751e1649e8694e664491
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/13/2019
+ms.openlocfilehash: 748a9f4d7c2ec47a2ed9470789a4443bffdc0eba
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295751"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301745"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gerenciamento de atualizações sem interrupção das aplicações na cloud com a base de dados SQL georreplicação ativa
 
@@ -47,7 +47,7 @@ Depois de concluir os passos de preparação, a aplicação está pronta para a 
 
 1. Defina a base de dados principal para o modo só de leitura (3). Este modo garantirá que o bloco de produção do aplicativo web (V1) irá permanecer somente-leitura durante a atualização, impedindo a potencial divergência de dados entre as instâncias de base de dados V1 e V2.  
 2. Desligar a base de dados secundária, usando o modo de terminação planeada (4). Ele criará uma cópia totalmente sincronizada independente da base de dados primário. Esta base de dados será atualizado.
-3. Ativar a base de dados principal para o modo de leitura / escrita e execute o script de atualização (5).
+3. Ativar a base de dados secundária para o modo de leitura / escrita e execute o script de atualização (5).
 
 ![Configuração de georreplicação de base de dados SQL. Recuperação de desastres em nuvem.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 

@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247073"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267154"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Resolver problemas de implementações de AKS e ACI de serviço do Azure Machine Learning
 
@@ -196,12 +196,15 @@ $ docker run -p 8000:5001 <image_id>
 Muitas vezes, o `init()` função no script de classificação, `Model.get_model_path()` função é chamada para localizar um ficheiro de modelo ou de uma pasta de ficheiros de modelo no contentor. Geralmente essa é uma origem da falha se não é possível localizar o ficheiro de modelo ou pasta. A maneira mais fácil para depurar este erro é executar o abaixo o código de Python no shell do contentor:
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 Isso seria imprimir o caminho local (relação ao `/var/azureml-app`) no contentor onde o seu script de classificação está esperando para localizar o ficheiro de modelo ou a pasta. Em seguida, pode verificar se o ficheiro ou pasta está, de fato, onde é esperado que seja.
 
+Definir o nível de registo para depuração poderá fornecer causa informações adicionais de ter sessão iniciada, que podem ser úteis na identificação da falha.
 
 ## <a name="function-fails-runinputdata"></a>Falha de função: run(input_data)
 Se o serviço é implementado com êxito, mas ele falha quando postar dados para o ponto final de classificação, pode adicionar erro capturando instrução em seu `run(input_data)` funcionar, para que ele retorne a mensagem de erro detalhada em vez disso. Por exemplo:

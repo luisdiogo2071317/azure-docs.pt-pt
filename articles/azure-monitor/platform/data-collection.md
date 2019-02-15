@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 6fc568546721511f6289600148919d28773058f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9b3e35e8372e5488fd97da3f035c29940cb1f293
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002304"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269200"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>A monitorização dos dados recolhidos pelo Azure Monitor
 [O Azure Monitor](../overview.md) é um serviço que o ajuda a monitorizar as suas aplicações e os recursos que dependem. Central para esta função é um armazenamento de telemetria e outros dados de recursos monitorizados. Este artigo fornece uma descrição completa de como os dados são armazenados e usados pelo Azure Monitor.
@@ -149,7 +149,7 @@ Tarefas que pode realizar com registos incluem o seguinte:
 - Aceda a valores de métrica de uma linha de comando ou um aplicativo personalizado usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) ou [REST API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Visualização de dados de registo
-Todos os dados de registo no Azure Monitor é recuperado usando um [consulta de registo](../log-query/log-query-overview.md) escrito com o [linguagem de consulta do Data Explorer](../log-query/get-started-queries.md), que permite a rapidamente obter, consolidar e analisar os dados recolhidos. Uso [do Log Analytics](../log-query/portals.md) escrever e testar consultas no portal do Azure. Pode trabalhar com os resultados interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter registos ao utilizar o [do Azure de monitorização de REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Todos os dados de registo no Azure Monitor é recuperado usando um [consulta de registo](../log-query/log-query-overview.md) escrito com o [linguagem de consulta de Kusto](../log-query/get-started-queries.md), que permite a rapidamente obter, consolidar e analisar os dados recolhidos. Uso [do Log Analytics](../log-query/portals.md) escrever e testar consultas no portal do Azure. Pode trabalhar com os resultados interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter registos ao utilizar o [do Azure de monitorização de REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 > [!IMPORTANT]
 > Dados do Application Insights são armazenados numa partição separada que outros dados de registo no Azure Monitor. Isso oferece suporte a mesma funcionalidade que outros dados de registo, mas tem de utilizar o [consola do Application Insights](../app/analytics.md) ou o [API do Application Insights](https://dev.applicationinsights.io/) para aceder a estes dados. Pode utilizar um [consulta entre recursos](../log-query/cross-workspace-query.md) para analisar dados de aplicativos com outros dados de registo.

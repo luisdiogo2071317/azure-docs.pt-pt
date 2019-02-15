@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9517ccac4006edec473e25c5e6524ce62d4e1259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210107"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269064"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -157,7 +157,11 @@ Os utilizadores desativados ou eliminados que não iniciem sessão anteriormente
 
 **R:** Um utilizador pode associar ou registar um dispositivo com o Azure AD utilizando o multi-factor Authentication. Em seguida, o próprio dispositivo torna-se um segundo fator fidedigno para esse utilizador. Sempre que o mesmo utilizador inicia sessão no dispositivo e acede a uma aplicação, do Azure AD considera o dispositivo como um segundo fator. Ele permite que o utilizador acessar diretamente os aplicativos sem pedidos adicionais do multi-factor Authentication. 
 
-Este comportamento não é aplicável a qualquer outro utilizador que inicia sessão nesse dispositivo. Portanto, todos os outros utilizadores que acedam a esse dispositivo obtém um desafio de multi-factor Authentication. Em seguida, podem aceder a aplicações que necessitam de multi-factor Authentication.
+Esse comportamento:
+
+- É aplicável para o Azure AD associado e do Azure AD registado dispositivos - mas não para híbrida do Azure AD associado dispositivos.
+
+- Não é aplicável a qualquer outro utilizador que inicia sessão nesse dispositivo. Portanto, todos os outros utilizadores que acedam a esse dispositivo obtém um desafio de multi-factor Authentication. Em seguida, podem aceder a aplicações que necessitam de multi-factor Authentication.
 
 ---
 

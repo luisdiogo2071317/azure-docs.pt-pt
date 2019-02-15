@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016499"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268101"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-usql-activity.md)
 > * [Versão atual](transform-data-using-data-lake-analytics.md)
 
@@ -131,7 +131,7 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | runtimeVersion      | Versão de tempo de execução do mecanismo de U-SQL para utilizar. | Não       |
 | compilationMode     | <p>Modo de compilação do U-SQL. Tem de ser um dos seguintes valores: **Semântica:** Executar apenas verificações semânticas e verificações de sanidade necessários, **completa:** Executar a compilação completa, incluindo a verificação de sintaxe, otimização, geração de código, etc., **SingleBox:** Execute a compilação completa, com a definição de TargetType para SingleBox. Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. | Não |
 
-Data Factory submete o, veja [definição de Script SearchLogProcessing.txt](#sample-u-sql-script) para a definição de script. 
+Ver [SearchLogProcessing.txt](#sample-u-sql-script) para a definição de script. 
 
 ## <a name="sample-u-sql-script"></a>Exemplo de script de U-SQL
 

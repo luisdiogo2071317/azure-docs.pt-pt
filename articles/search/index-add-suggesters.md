@@ -1,7 +1,7 @@
 ---
 title: Adicionar sugestores para um índice da Azure Search
 description: Permite que os campos para ações de consulta antecipada, onde as consultas sugeridas são compostas de texto dos campos um índice da Azure Search.
-ms.date: 01/31/2019
+ms.date: 02/13/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 35025d69865aa6890e1cd921e31ac6c26c015789
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008413"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269931"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>Adicionar sugestores para um índice da Azure Search
 
@@ -34,9 +34,12 @@ Embora uma **sugestor** tem várias propriedades, é principalmente uma coleçã
 
 Pode ter apenas um **sugestor** recurso para cada índice (especificamente, uma **sugestor** no **sugestores** coleção).
 
-Pode criar uma **sugestor** em qualquer altura, mas o impacto no seu índice varia com base nos campos. Novos campos adicionados a um sugestor como parte da mesma atualização são o menor impacto em que nenhuma recriação de índice é necessária. No entanto, a adição de campos existentes, altera a definição de campo, evitar a necessidade de uma reconstrução completa do índice.
+## <a name="creating-a-suggester"></a>Criar um sugestor 
 
-## <a name="usage"></a>Utilização  
+Pode criar uma **sugestor** em qualquer altura, mas o impacto no seu índice varia com base nos campos. 
+
++ Novos campos adicionados a um sugestor como parte da mesma atualização são o menor impacto em que nenhuma recriação de índice é necessária.
++ Existente no entanto, campos adicionados a um sugestor, altera a definição de campo, evitar a necessidade de uma reconstrução completa do índice.
 
  **Sugestores** funcionam melhor quando usadas para sugerir documentos específicos em vez de perder todas termos ou frases. Os campos de Release candidate melhor são títulos, nomes e outras expressões relativamente curtos que podem identificar um item. Menos eficazes são campos repetitivos, como categorias e etiquetas, ou campos muito longos, como campos de descrições ou comentários.  
 

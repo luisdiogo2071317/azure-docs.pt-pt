@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874193"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269745"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilizar a CLI do HDFS com o Data Lake Storage Gen2
 
@@ -26,17 +26,37 @@ O HDInsight fornece acesso ao sistema de ficheiros distribuído que está ligado
 >[!IMPORTANT]
 >Faturação do cluster do HDInsight é iniciado depois de um cluster é criado e termina quando o cluster é eliminado. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado. Para saber como eliminar um cluster, consulte nosso [artigo sobre o tópico](../../hdinsight/hdinsight-delete-cluster.md). No entanto, os dados armazenados numa conta de armazenamento com o Data Lake Storage Gen2 ativada persistir até mesmo depois de eliminar um cluster do HDInsight.
 
+### <a name="create-a-file-system"></a>Criar um sistema de ficheiros
+
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+
+* Substitua o `<file-system-name>` marcador de posição pelo nome que pretende dar o seu sistema de ficheiros.
+
+* Substitua o `<storage-account-name>` marcador de posição pelo nome da sua conta de armazenamento.
+
 ### <a name="get-a-list-of-files-or-directories"></a>Obter uma lista de arquivos ou diretórios
 
-    hdfs dfs -ls <args>
+    hdfs dfs -ls <path>
+
+Substitua o `<path>` espaço reservado com o URI do sistema de ficheiros ou pasta de sistema de ficheiros.
+
+Por exemplo: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ### <a name="create-a-directory"></a>Criar um diretório
 
-    hdfs dfs -mkdir [-p] <paths>
+    hdfs dfs -mkdir [-p] <path>
 
-### <a name="delete-a-file-or-a-directory"></a>Eliminar um ficheiro ou diretório
+Substitua o `<path>` espaço reservado com o nome de sistema de ficheiros de raiz ou uma pasta dentro de seu sistema de ficheiros.
 
-    hdfs dfs -rm [-skipTrash] URI [URI ...]
+Por exemplo: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+### <a name="delete-a-file-or-directory"></a>Eliminar um ficheiro ou diretório
+
+    hdfs dfs -rm <path>
+
+Substitua o `<path>` espaço reservado com o URI do ficheiro ou pasta que pretende eliminar.
+
+Por exemplo: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ### <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Utilizar a CLI do HDFS com um cluster de Hadoop do HDInsight no Linux
 
@@ -52,11 +72,15 @@ hdfs dfs -mkdir /samplefolder
 ```
 A cadeia de ligação pode ser encontrada no "SSH + Cluster início de sessão" seção do painel do cluster do HDInsight no portal do Azure. Foram especificadas credenciais SSH no momento da criação do cluster.
 
-Para obter mais informações sobre a CLI do HDFS, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o [guia de permissões do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). Para saber mais sobre as ACLs no Databricks, veja a [segredos CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli). 
+Para obter mais informações sobre a CLI do HDFS, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o [guia de permissões do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). Para saber mais sobre as ACLs no Databricks, veja a [segredos CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli).
 
 ## <a name="hdfs-cli-with-azure-databricks"></a>CLI de HDFS com o Azure Databricks
 
 O Databricks fornece uma CLI fácil de usar, criada sobre a API de REST do Databricks. O projeto de código-fonte aberto está hospedado no [GitHub](https://github.com/databricks/databricks-cli). Seguem-se os comandos comumente utilizados.
+
+### <a name="create-a-file-system"></a>Criar um sistema de ficheiros
+
+Coloque aqui a documentação de orientação.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Obter uma lista de arquivos ou diretórios
 

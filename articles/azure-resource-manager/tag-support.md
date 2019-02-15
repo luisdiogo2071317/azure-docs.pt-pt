@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246056"
+ms.locfileid: "56270401"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-using-tags.md).
@@ -1132,7 +1132,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | servers/tdeCertificates | Não | 
 
 > [!NOTE]
-> O mestre de base de dados não suporta etiquetas, mas outras bases de dados, incluindo bases de dados do armazém de dados suportam etiquetas.
+> O mestre de base de dados não suporta etiquetas, mas outras bases de dados, incluindo bases de dados do Azure SQL Data Warehouse suportam etiquetas. Bases de dados de armazém de dados SQL do Azure tem de estar no Active Directory (não em pausa) Estado.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

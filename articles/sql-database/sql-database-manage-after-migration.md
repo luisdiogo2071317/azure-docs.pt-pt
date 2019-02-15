@@ -1,5 +1,5 @@
 ---
-title: Gerir após a migração - base de dados SQL do Azure | Documentos da Microsoft
+title: Gerir bases de dados únicos e em pool após a migração - base de dados SQL do Azure | Documentos da Microsoft
 description: Saiba como gerir a sua base de dados após a migração para a base de dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,31 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/13/2019
+ms.openlocfilehash: 8c0c4ac6ce09ce92851b532b226dadfd8b9f7e18
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099739"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270441"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na cloud – gerenciamento de seus bancos de dados individuais e agrupados na base de dados do Azure SQL
 
-Mover o tradicional de gestão automática, ambiente Self-controlado para um ambiente PaaS pode parecer um pouco sobrecarregado em primeiro lugar. Como programador de uma aplicação ou um DBA, iria querer saber os principais recursos da plataforma que pode ajudar a manter seu aplicativo disponível, desempenho, seguro e resiliente - sempre. Este artigo tem como objetivo fazer exatamente isso. O artigo organiza os recursos de forma sucinta e dá-lhe algumas orientações sobre como usar melhor as principais capacidades de base de dados SQL para gerir e manter a sua aplicação em execução com eficiência e obter resultados ideais na cloud. Público-alvo típico para este artigo seria aqueles que:
+Mover o tradicional de gestão automática, ambiente Self-controlado para um ambiente PaaS pode parecer um pouco sobrecarregado em primeiro lugar. Como programador de uma aplicação ou um DBA, iria querer saber os principais recursos da plataforma que pode ajudar a manter seu aplicativo disponível, desempenho, seguro e resiliente - sempre. Este artigo tem como objetivo fazer exatamente isso. O artigo organiza os recursos de forma sucinta e dá-lhe algumas orientações sobre como utilizar melhor as principais capacidades de base de dados SQL com bases de dados únicos e em pool para gerir e manter a sua aplicação em execução com eficiência e obter resultados ideais na cloud. Público-alvo típico para este artigo seria aqueles que:
 
-- Estão a avaliar a migração das suas aplicações para a BD SQL do Azure – modernizar as suas aplicações.
+- Estão a avaliar a migração das suas aplicações para a SQL Database do Azure – modernizar as suas aplicações.
 - Estão no processo de migrar as suas aplicações – o cenário de migração em curso.
 - Foram concluídas recentemente a migração para o Azure SQL DB – novo DBA na cloud.
 
-Este artigo aborda algumas das principais características da BD SQL do Azure como uma plataforma que pode ser aproveitado prontamente. Eles são os seguintes:
+Este artigo aborda algumas das principais características de base de dados do Azure SQL, como uma plataforma que pode ser aproveitado prontamente ao trabalhar com bases de dados individuais e bases de dados agrupadas em conjuntos elásticos. Eles são os seguintes:
 
 - Negócios continuidade e recuperação após desastre (BCDR)
 - Segurança e conformidade
 - Monitorização de base de dados inteligente e a manutenção
 - Movimento de dados
+
+> [!NOTE]
+> Este artigo aplica-se para as seguintes opções de implementação na base de dados do Azure SQL: único conjuntos elásticos e bases de dados. Não é aplicável à opção de implementação de instância gerida na base de dados SQL.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Negócios continuidade e recuperação após desastre (BCDR)
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0ffa917aa6bcfb642cd672d0a51a70b13f041635
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492492"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267568"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gerir um serviço web com o portal de serviços Web do Azure Machine Learning Studio
 Pode gerenciar seu novo do Machine Learning e serviços Web clássicos com o portal do Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web clássicos e serviços Web novos baseiam-se nos diferentes tecnologias subjacentes, tem funcionalidades de gestão ligeiramente diferente para cada uma delas.
@@ -28,7 +28,8 @@ No portal do Machine Learning Web Services, pode:
 * Criar, delete ou update faturação planos (apenas para o novo).
 * Adicionar e eliminar os pontos de extremidade (apenas clássica)
 
-
+>[!NOTE]
+>Também pode gerir serviços web clássico [Machine Learning Studio](http://studio.azureml.net) sobre o **serviços Web** separador.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Permissões para gerir o novo Gestor de recursos com base em serviços da web
 

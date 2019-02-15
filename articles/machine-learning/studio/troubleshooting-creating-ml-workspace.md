@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 3b2e2def075721b457775003e59d5217fd2e61b8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c12c87524ac1b8d0be5b691d599510f8e4573317
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509799"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267330"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Guia de resolução de problemas: Criar e ligar a uma área de trabalho do Azure Machine Learning Studio
 Este guia fornece soluções para alguns encontrados com freqüência desafios quando estiver a configurar áreas de trabalho do Azure Machine Learning Studio.
@@ -25,9 +25,9 @@ Este guia fornece soluções para alguns encontrados com freqüência desafios q
 ## <a name="workspace-owner"></a>Proprietário da área de trabalho
 Para abrir uma área de trabalho no Machine Learning Studio, precisa estar conectado à Account Microsoft que utilizou para criar a área de trabalho ou terá de receber um convite de proprietário para associar a área de trabalho. No portal do Azure pode gerir a área de trabalho, que inclui a capacidade para configurar o acesso.
 
-Para obter mais informações sobre como gerir uma área de trabalho, consulte [gerir uma área de trabalho do Azure Machine Learning].
+Para obter mais informações sobre como gerir uma área de trabalho, consulte [gerir uma área de trabalho do Azure Machine Learning Studio].
 
-[Gerir uma área de trabalho do Azure Machine Learning]: manage-workspace.md
+[Gerir uma área de trabalho do Azure Machine Learning Studio]: manage-workspace.md
 
 ## <a name="allowed-regions"></a>Regiões permitidas
 Machine Learning está atualmente disponível num número limitado de regiões. Se a sua subscrição não incluir uma destas regiões, poderá ver a mensagem de erro, "Tem não existem subscrições nas regiões permitidas."
@@ -35,9 +35,9 @@ Machine Learning está atualmente disponível num número limitado de regiões. 
 Para pedir que uma região de ser adicionado à sua subscrição, criar um novo pedido de suporte da Microsoft a partir do portal do Azure, escolha **faturação** como o tipo de problema e siga as instruções para submeter o pedido.
 
 ## <a name="storage-account"></a>Conta de armazenamento
-O serviço Machine Learning tem uma conta de armazenamento para armazenar dados. Pode utilizar uma conta de armazenamento existente ou pode criar uma nova conta de armazenamento ao criar a nova área de trabalho do Machine Learning (se tiver de quota para criar uma nova conta de armazenamento).
+O serviço Machine Learning tem uma conta de armazenamento para armazenar dados. Pode utilizar uma conta de armazenamento existente ou pode criar uma nova conta de armazenamento ao criar a nova área de trabalho do Machine Learning Studio (se tiver de quota para criar uma nova conta de armazenamento).
 
-Depois de criar a nova área de trabalho do Machine Learning, pode iniciar sessão Machine Learning Studio, utilizando a conta da Microsoft que utilizou para criar a área de trabalho. Se encontrar a mensagem de erro, "Área de trabalho não encontrada" (semelhante à seguinte captura de ecrã), utilize os seguintes passos para eliminar os cookies do browser.
+Depois de criar a nova área de trabalho do Machine Learning Studio, pode iniciar sessão Machine Learning Studio, utilizando a conta da Microsoft que utilizou para criar a área de trabalho. Se encontrar a mensagem de erro, "Área de trabalho não encontrada" (semelhante à seguinte captura de ecrã), utilize os seguintes passos para eliminar os cookies do browser.
 
 ![Área de trabalho não foi encontrada][screen3]
 
@@ -45,15 +45,15 @@ Depois de criar a nova área de trabalho do Machine Learning, pode iniciar sess�
 
 1. Se usar o Internet Explorer, clique nas **ferramentas** no canto superior direito e selecione **opções da Internet**.  
 
-![Opções da Internet][screen4]
+   ![Opções da Internet][screen4]
 
 2. Sob o **gerais** separador, clique em **eliminar...**
 
-![Separador Geral][screen5]
+   ![Separador Geral][screen5]
 
 3. Na **eliminar histórico de navegação** caixa de diálogo caixa, certifique-se **Cookies e dados do site** está selecionada e clique em **eliminar**.
 
-![Eliminar cookies][screen6]
+   ![Eliminar cookies][screen6]
 
 Depois dos cookies são eliminados, reinicie o navegador e, em seguida, vá para o [Microsoft Azure Machine Learning](https://studio.azureml.net) página. Quando lhe for pedido um nome de utilizador e palavra-passe, introduza a mesma conta Microsoft que utilizou para criar a área de trabalho.
 

@@ -2,21 +2,21 @@
 title: Criar páginas de erro personalizado do Gateway de aplicação do Azure
 description: Este artigo mostra-lhe como criar páginas de erro personalizado do Gateway de aplicação.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2f76347105743538e9fc1d7588ecb949f2675696
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071296"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301609"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Criar páginas de erro personalizado do Gateway de aplicação
 
-Gateway de aplicação permite-lhe criar páginas de erro personalizada em vez de apresentar as páginas de erro padrão. Pode usar sua própria imagem corporativa e o layout usando uma página de erro personalizada.
+O Gateway de Aplicação permite-lhe criar páginas de erro personalizadas, em vez de apresentar as páginas de erro predefinidas. Pode utilizar a sua própria imagem e esquema corporativos através de uma página de erro personalizada.
 
 Por exemplo, pode definir sua própria página de manutenção, se a sua aplicação web não estiver acessível. Em alternativa, pode criar uma página de acesso não autorizado se um pedido malicioso for enviado para um aplicativo web.
 
@@ -34,6 +34,7 @@ Páginas de erro personalizadas podem ser definidas ao nível global e o nível 
 - **Ambos** -a página de erro personalizada definida no nível de serviço de escuta substitui o um conjunto nível global.
 
 Para criar uma página de erro personalizado, tem de ter:
+
 - um código de estado de resposta HTTP.
 - a localização correspondente para a página de erro. 
 - um blob de armazenamento do Azure acessível ao público para a localização.
@@ -47,7 +48,7 @@ Depois de especificar uma página de erro, o gateway de aplicação transfere-o 
 
 1. Navegue para o Gateway de aplicação no portal e escolher um gateway de aplicação.
 
-    ![Descrição geral do AG](media/custom-error/ag-overview.png)
+    ![ag-overview](media/custom-error/ag-overview.png)
 2. Clique em **serviços de escuta** e navegue para um determinado serviço de escuta em que pretende especificar uma página de erro.
 
     ![Serviços de escuta de Gateway de aplicação](media/custom-error/ag-listener.png)
@@ -59,5 +60,19 @@ Depois de especificar uma página de erro, o gateway de aplicação transfere-o 
 4. Especifique um URL acessível publicamente blob para um código de estado de erro fornecida e clique em **guardar**. O Gateway de aplicação está agora configurado com a página de erro personalizada.
 
    ![Códigos de erro do Gateway de aplicação](media/custom-error/ag-error-codes.png)
+
+## <a name="azure-powershell-configuration"></a>Configuração do Azure PowerShell
+
+Pode utilizar o Azure PowerShell para configurar uma página de erro personalizada. Por exemplo, uma página de erro personalizada global:
+
+`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Ou uma página de erro de nível de serviço de escuta:
+
+`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Para obter mais informações, consulte [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) e [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para obter informações sobre o diagnóstico do Gateway de aplicação, consulte [estado de funcionamento do Back-end, registos de diagnóstico e métricas para o Gateway de aplicação](application-gateway-diagnostics.md).

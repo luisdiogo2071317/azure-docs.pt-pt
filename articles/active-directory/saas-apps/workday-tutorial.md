@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184538"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
 
@@ -113,7 +113,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Workday URLs de domínio e única informações de início de sessão](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. Na **identificador** caixa de texto, escreva um URL: `https://www.workday.com`
 
@@ -166,7 +166,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     >[!NOTE]
     > O valor do atributo de ambiente está associado ao valor do URL de inquilino:  
-    >-Se o nome de domínio do URL de inquilino do Workday começa com impl por exemplo: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), o **ambiente** atributo tem de ser definido para a implementação.  
+    >-Se o nome de domínio do URL de inquilino do Workday começa com impl por exemplo: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), o **ambiente** atributo tem de ser definido para a implementação.  
     >– Se o nome de domínio é iniciado com algo mais, terá de contactar [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter a correspondência **ambiente** valor.
 
 12. Na **programa de configuração de SAML** secção, execute os seguintes passos:

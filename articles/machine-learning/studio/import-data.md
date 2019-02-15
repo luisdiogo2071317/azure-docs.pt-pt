@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 2f401290a4a9150d27685c06c2d4cd9dc2f06f0d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bbae6d4b727f3e3dc51bd57e8badbc6e87814a51
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730293"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267891"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os seus dados de preparação para o Azure Machine Learning Studio a partir de várias origens de dados
 
@@ -77,6 +77,29 @@ Qualquer módulo que formatos que não seja a tabela de dados irá converter a t
 
 Se necessário, pode converter o formato de tabela de dados no CSV, TSV, ARFF ou formato de SVMLight com outros módulos de conversão.
 Consulte a **conversões de formato de dados** secção da paleta do módulo para módulos que executar estas funções.
+
+## <a name="data-capacities"></a>Capacidades de dados
+
+Os módulos no Machine Learning Studio suportam conjuntos de dados até 10 GB de dados numéricos em casos de utilização comum. Se um módulo precisar de mais do que uma entrada, 10 GB é o valor do tamanho total de todas as entradas de dados. Pode apresentar exemplos dos conjuntos de dados maiores através de consultas do Hive ou base de dados do Azure SQL ou pode utilizar a aprendizagem por contagens pré-processamentos antes de importar os dados.  
+
+Os seguintes tipos de dados podem ser expandidos para conjuntos de dados de maiores dimensões durante a normalização da funcionalidade, estando limitados a menos de 10 GB:
+
+* Dispersos
+* Categórico
+* Cadeias
+* Dados binários
+
+Os seguintes módulos estão limitados a conjuntos de dados inferiores a 10 GB:
+
+* Módulos de recomendador
+* Módulo Synthetic Minority Oversampling Technique (SMOTE)
+* Módulos de script: R, Python, SQL
+* Módulos onde o tamanho dos dados de saída pode ser superior ao tamanho dos dados de entrada, tais como Associação ou Hashing de Funcionalidade
+* Validação Cruzada, Hiperparâmetros do Modelo de Otimização, Regressão Ordinal e Multicasse “One-vs-All”, quando o número de iterações é muito grande
+
+Para conjuntos de dados superiores a alguns GB, carregue os dados para o armazenamento do Azure ou a base de dados do Azure SQL ou utilizar o Azure HDInsight, em vez de os carregar diretamente a partir de um ficheiro local.
+
+Pode encontrar informações sobre dados de imagem na [importar imagens](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) referência do módulo.
 
 ## <a name="import-from-a-local-file"></a>Importar a partir de um ficheiro local
 

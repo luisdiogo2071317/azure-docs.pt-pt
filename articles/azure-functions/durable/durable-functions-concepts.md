@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cecf7f7fb79b6d7ebeed051b018a1e18375d68b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6eb08af9cdd19bc83d44d29874f6ac58b41ed8c8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046147"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302050"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts"></a>Padrões de funções duráveis e conceitos técnicos
 
-*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) e [WebJobs do Azure](../../app-service/web-sites-create-web-jobs.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e reinicializações por si. Este artigo fornece informações mais detalhadas sobre comportamentos da extensão de funções duráveis para as funções do Azure e os padrões de implementação comuns.
+*Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) e [WebJobs do Azure](../../app-service/web-sites-create-web-jobs.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si. Este artigo fornece informações mais detalhadas sobre comportamentos da extensão de funções duráveis para as funções do Azure e os padrões de implementação comuns.
 
 > [!NOTE]
 > Funções duráveis é uma extensão avançada para funções do Azure que não é adequado para todos os aplicativos. O restante deste artigo parte do princípio de que tem uma forte familiaridade com [as funções do Azure](../functions-overview.md) conceitos e os desafios envolvidos no desenvolvimento de aplicações sem servidor.

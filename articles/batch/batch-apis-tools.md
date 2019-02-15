@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0236947e578d12ff24e5993d253ec5597c53272a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2a9c0cf36459a2d23b8af8f69937ab9ded7f9c04
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819829"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301507"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 
@@ -69,7 +69,8 @@ Aqui estão algumas ferramentas adicionais que podem ser úteis para criar e dep
 
 * [Portal do Azure][portal]: Pode criar, monitorizar e eliminar conjuntos, trabalhos e tarefas no portal do Azure Batch. Pode ver as informações de estado para estes e outros recursos ao executar os trabalhos, e até mesmo transferir os ficheiros de nós de computação nos seus conjuntos. Por exemplo, pode transferir o `stderr.txt` de uma tarefa falhada, durante a resolução de problemas. Também pode transferir ficheiros de Ambiente de Trabalho Remoto (RDP) que pode utilizar para iniciar sessão em nós de computação.
 * [O Azure Batch Explorer][batch_labs]: Explorador do batch (anteriormente denominadas BatchLabs) é uma ferramenta de cliente autónoma gratuita e rica em funcionalidades, para ajudar a criar, depurar e monitorizar aplicações do Azure Batch. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
-* [Explorador de armazenamento do Microsoft Azure][storage_explorer]: Embora não seja estritamente uma ferramenta do Azure Batch, o Explorador de armazenamento é outra ferramenta valiosa a ter enquanto estiver a desenvolver e depurar as soluções do Batch.
+* [O Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Shipyard de batch é uma ferramenta para ajudar a aprovisionar, executar e monitorizar cargas de trabalho HPC no Azure Batch e de processamento em lotes baseadas em contentores.
+* [Explorador de armazenamento do Azure][storage_explorer]: Embora não seja estritamente uma ferramenta do Azure Batch, o Explorador de armazenamento é outra ferramenta valiosa a ter enquanto estiver a desenvolver e depurar as soluções do Batch.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -81,7 +82,6 @@ Aqui estão algumas ferramentas adicionais que podem ser úteis para criar e dep
 * Leia a [Descrição geral da funcionalidade Batch para programadores](batch-api-basics.md), com informações essenciais para todos os utilizadores que se preparam para utilizar o Batch. O artigo contém informações mais detalhadas sobre recursos do serviço Batch, como conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch.
 * [Introdução à biblioteca do Azure Batch para .NET](tutorial-parallel-dotnet.md) para saber como utilizar C# e a biblioteca .NET do Batch para executar uma carga de trabalho simples utilizando um fluxo de trabalho Batch comum. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.
 * Transfira as [amostras de código no GitHub][github_samples] para ver como tanto o C# como o Python pode interagir com o Batch para agendar e processar amostras de cargas de trabalho.
-
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

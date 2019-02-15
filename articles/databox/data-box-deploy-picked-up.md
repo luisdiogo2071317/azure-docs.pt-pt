@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4398f16e0b8179242b6bcd9a69955460291310e7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243013"
+ms.locfileid: "56267364"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -42,7 +42,7 @@ Antes de começar, certifique-se:
 ## <a name="ship-data-box-back"></a>Enviar o Data Box de volta
 
 1. Certifique-se de que o dispositivo está desligado e os cabos são removidos. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
-2. Se o dispositivo for enviado nos EUA, confirme que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a etiqueta está danificada ou perdida ou não é apresentada no ecrã do tinta E, em seguida, contacte o suporte da Microsoft. Apenas se o suporte sugere, em seguida, aceda a **descrição geral > Download etiqueta de envio** no portal do Azure. Transfira a etiqueta de envio e affix no dispositivo.
+2. Se o dispositivo for enviado nos EUA, confirme que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a etiqueta está danificada ou perdida ou não é apresentada no ecrã do E-tinta, contacte o suporte da Microsoft. Se recomenda a suporte, em seguida, aceda a **descrição geral > Download etiqueta de envio** no portal do Azure. Transfira a etiqueta de envio e affix no dispositivo.
 
     Se o dispositivo for enviado na Europa, o ecrã de tinta eletrónica não mostrará a etiqueta de envio. Em vez disso, a etiqueta de envio de devolução estará incluída na bolsa transparente sob a etiqueta de envio de encaminhamento. Remova a etiqueta de envio antiga e confirme que a etiqueta de envio está claramente visível.
     

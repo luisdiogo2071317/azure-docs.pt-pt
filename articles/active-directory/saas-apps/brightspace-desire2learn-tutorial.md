@@ -4,114 +4,106 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e2d3065b-1f6c-4c45-af78-0d5da3266999
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 257061cac484f61170c6a3b5438cd27a1e613d8d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e14d69f2aea91582e00cbaa72f30c4c37e102787
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187020"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301371"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Active Directory do Azure com Brightspace por Desire2Learn
 
 Neste tutorial, saiba como integrar Brightspace por Desire2Learn com o Azure Active Directory (Azure AD).
-
 Integrar Brightspace por Desire2Learn no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Brightspace por Desire2Learn
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Brightspace por Desire2Learn (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
+* Pode controlar no Azure AD que tenha acesso ao Brightspace por Desire2Learn.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Brightspace por Desire2Learn (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Brightspace por Desire2Learn, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um Brightspace por Desire2Learn logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Subscrição de ativado Brightspace por Desire2Learn início de sessão único
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Brightspace por Desire2Learn da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta Brightspace por Desire2Learn **IDP** iniciada SSO
 
 ## <a name="adding-brightspace-by-desire2learn-from-the-gallery"></a>Adicionando Brightspace por Desire2Learn da Galeria
+
 Para configurar a integração do Brightspace por Desire2Learn com o Azure AD, terá de adicionar Brightspace por Desire2Learn a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Brightspace por Desire2Learn a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **Brightspace por Desire2Learn**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_search.png)
+4. Na caixa de pesquisa, escreva **Brightspace por Desire2Learn**, selecione **Brightspace por Desire2Learn** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. No painel de resultados, selecione **Brightspace por Desire2Learn**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+     ![Brightspace por Desire2Learn na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com Brightspace por Desire2Learn com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Brightspace por Desire2Learn a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Brightspace por Desire2Learn deve ser estabelecido.
-
-Brightspace por Desire2Learn, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Nesta secção, configurar e testar o Azure AD início de sessão único com Brightspace por Desire2Learn com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Brightspace por Desire2Learn deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com Brightspace por Desire2Learn, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um Brightspace por utilizador de teste Desire2Learn](#creating-a-brightspace-by-desire2learn-test-user)**  - para ter um equivalente da Eduarda Almeida na Brightspace por Desire2Learn que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar Brightspace por Desire2Learn início de sessão único](#configure-brightspace-by-desire2learn-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar Brightspace por utilizador de teste Desire2Learn](#create-brightspace-by-desire2learn-test-user)**  - para ter um equivalente da Eduarda Almeida na Brightspace por Desire2Learn que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão único no portal do Azure e configurar o início de sessão único na sua Brightspace pelo aplicativo Desire2Learn.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com Brightspace por Desire2Learn, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com Brightspace por Desire2Learn, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **Brightspace por Desire2Learn** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Brightspace por Desire2Learn** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **Brightspace por Desire2Learn domínio e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+4. Sobre o **definir a segurança de início de sessão único com o SAML** página, execute os seguintes passos:
+
+    ![Brightspace por Desire2Learn domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
 
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |
@@ -121,118 +113,95 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [Brightspace pela equipa de suporte de Desire2Learn](https://www.d2l.com/contact/) obter esses valores.
- 
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [Brightspace pela equipa de suporte de cliente Desire2Learn](https://www.d2l.com/contact/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+    ![O link de download de certificado](common/metadataxml.png)
 
-    ![Configurar o início de sessão único](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_certificate.png) 
+6. Sobre o **configure Brightspace, Desire2Learn** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-1. Clique em **guardar** botão.
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    ![Configurar o início de sessão único](./media/brightspace-desire2learn-tutorial/tutorial_general_400.png)
+    a. URL de início de sessão
 
-1. Para configurar o início de sessão único num **Brightspace por Desire2Learn** lado, terá de enviar o transferido **XML de metadados** para [Brightspace pela equipa de suporte de Desire2Learn](https://www.d2l.com/contact/).
+    b. Azure Ad Identifier
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. URL de fim de sessão
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="configure-brightspace-by-desire2learn-single-sign-on"></a>Configurar Brightspace por Desire2Learn início de sessão único
+
+Para configurar o início de sessão único num **Brightspace por Desire2Learn** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [Brightspace equipa de suporte por Desire2Learn](https://www.d2l.com/contact/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar utilizador do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](./media/brightspace-desire2learn-tutorial/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/brightspace-desire2learn-tutorial/create_aaduser_02.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/brightspace-desire2learn-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/brightspace-desire2learn-tutorial/create_aaduser_04.png) 
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
-
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-brightspace-by-desire2learn-test-user"></a>Criar um Brightspace por utilizador de teste Desire2Learn
 
-Para habilitar os utilizadores do Azure AD iniciar sessão no Brightspace por Desire2Learn, eles têm de ser aprovisionados em Brightspace por Desire2Learn.  
-
-No caso de Brightspace por Desire2Learn, as contas de utilizador têm de ser criadas por sua [Brightspace pela equipa de suporte de Desire2Learn](https://www.d2l.com/contact/).
-
->[!NOTE]
->Pode utilizar qualquer outro Brightspace pelas ferramentas de criação de conta de utilizador Desire2Learn ou APIs fornecidas pelo Brightspace por Desire2Learn para aprovisionar o Azure Active Directory contas de utilizador. 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Brightspace por Desire2Learn.
 
-![Atribuir utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Brightspace por Desire2Learn**.
 
-**Para atribuir a Eduarda Almeida a Brightspace por Desire2Learn, execute os seguintes passos:**
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **Brightspace por Desire2Learn**.
 
-    ![Atribuir utilizador][201] 
+    ![Brightspace por Desire2Learn link na lista de aplicações](common/all-applications.png)
 
-1. Na lista de aplicações, selecione **Brightspace por Desire2Learn**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![Configurar o início de sessão único](./media/brightspace-desire2learn-tutorial/tutorial_brightspacebydesire2learn_app.png) 
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![Atribuir utilizador][202] 
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![Atribuir utilizador][203]
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+### <a name="create-brightspace-by-desire2learn-test-user"></a>Criar Brightspace por utilizador de teste Desire2Learn
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Brightspace por Desire2Learn. Trabalhar com [Brightspace pela equipa de suporte de Desire2Learn](https://www.d2l.com/contact/) para adicionar os utilizadores no Brightspace pelo Desire2Learn plataforma. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+
+> [!NOTE]
+> Pode utilizar qualquer outro Brightspace pelas ferramentas de criação de conta de utilizador Desire2Learn ou APIs fornecidas pelo Brightspace por Desire2Learn para aprovisionar o Azure Active Directory contas de utilizador.
+
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Ao clicar o Brightspace por Desire2Learn mosaico no painel de acesso, deve obter automaticamente com sessão iniciada para sua Brightspace pelo aplicativo Desire2Learn.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Ao clicar o Brightspace por Desire2Learn mosaico no painel de acesso, deve ser automaticamente sessão iniciada no Brightspace por Desire2Learn para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/brightspace-desire2learn-tutorial/tutorial_general_01.png
-[2]: ./media/brightspace-desire2learn-tutorial/tutorial_general_02.png
-[3]: ./media/brightspace-desire2learn-tutorial/tutorial_general_03.png
-[4]: ./media/brightspace-desire2learn-tutorial/tutorial_general_04.png
-
-[100]: ./media/brightspace-desire2learn-tutorial/tutorial_general_100.png
-
-[200]: ./media/brightspace-desire2learn-tutorial/tutorial_general_200.png
-[201]: ./media/brightspace-desire2learn-tutorial/tutorial_general_201.png
-[202]: ./media/brightspace-desire2learn-tutorial/tutorial_general_202.png
-[203]: ./media/brightspace-desire2learn-tutorial/tutorial_general_203.png
-
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993423"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270152"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com pastas de trabalho do Azure Monitor
 
@@ -77,7 +77,7 @@ As secções de consulta são altamente flexíveis e podem ser utilizadas para r
 
 * Como muitas exceções seu site colocado durante o período de tempo mesmo como um declínio em utilização?
 * Qual era a distribuição de tempos de carregamento de página para utilizadores que visualizam alguns página?
-* O número de utilizadores visualizados um conjunto de páginas em seu site, mas não de algum outro conjunto de páginas? Isso pode ser útil para entender se tiver clusters de utilizadores que utilizam diferentes subconjuntos de funcionalidade de seu site (utilizar o `join` operador com o `kind=leftanti` modificador na linguagem de consulta de Data Explorer).
+* O número de utilizadores visualizados um conjunto de páginas em seu site, mas não de algum outro conjunto de páginas? Isso pode ser útil para entender se tiver clusters de utilizadores que utilizam diferentes subconjuntos de funcionalidade de seu site (utilizar o `join` operador com o `kind=leftanti` modificador no [linguagem de consulta de Kusto](/azure/kusto/query/)).
 
 Também não está apenas limitadas a consulta do contexto do aplicativo iniciado o livro de. Pode consultar em várias aplicações monitorizadas do Application Insights como áreas de trabalho do Log Analytics, desde que tem a permissão de acesso a esses recursos.
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094534"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300266"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -41,7 +41,7 @@ O serviço Application Insights armazena e analisa a telemetria. Para ver a aná
 
 Pode ter dados exportados do serviço do Application Insights, por exemplo, para uma base de dados ou ferramentas externas. Cada ferramenta é fornecer uma chave especial que obtém do serviço. A chave pode ser revogada se necessário. 
 
-SDKs do Application Insights estão disponíveis para uma variedade de tipos de aplicações: web services hospedados em seus próprios servidores J2EE ou ASP.NET, ou no Azure; Web clientes – ou seja, o código em execução numa página da web; aplicações de ambiente de trabalho e serviços; aplicações de dispositivos, como o Windows Phone, iOS e Android. Todos eles enviam telemetria para o mesmo serviço.
+SDKs do Application Insights estão disponíveis para uma variedade de tipos de aplicações: web services hospedados em seus próprios servidores de Java EE ou ASP.NET, ou no Azure; Web clientes – ou seja, o código em execução numa página da web; aplicações de ambiente de trabalho e serviços; aplicações de dispositivos, como o Windows Phone, iOS e Android. Todos eles enviam telemetria para o mesmo serviço.
 
 ## <a name="what-data-does-it-collect"></a>Os dados que-recolhe?
 ### <a name="how-is-the-data-is-collected"></a>É como os dados é recolhidos?
@@ -51,7 +51,7 @@ Existem três origens de dados:
   
   * Cada SDK tem diversas [módulos](../../azure-monitor/app/configuration-with-applicationinsights-config.md), que usam diferentes técnicas para recolher diferentes tipos de telemetria.
   * Se instalar o SDK no desenvolvimento, pode utilizar a sua API para enviar sua própria telemetria, além dos módulos padrão. Este telemetria personalizada pode incluir quaisquer dados que deseja enviar.
-* Em alguns servidores web, também existem agentes que são executados em conjunto com a aplicação e enviam telemetria sobre CPU, memória e ocupação da rede. Por exemplo, VMs do Azure, anfitriões do Docker, e [J2EE servidores](../../azure-monitor/app/java-agent.md) pode ter esses agentes.
+* Em alguns servidores web, também existem agentes que são executados em conjunto com a aplicação e enviam telemetria sobre CPU, memória e ocupação da rede. Por exemplo, VMs do Azure, anfitriões do Docker, e [servidores de Java EE](../../azure-monitor/app/java-agent.md) pode ter esses agentes.
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) processos são executados pela Microsoft que enviam pedidos à sua aplicação web em intervalos regulares. Os resultados são enviados para o serviço do Application Insights.
 
 ### <a name="what-kinds-of-data-are-collected"></a>Quais são os tipos de dados são recolhidos?

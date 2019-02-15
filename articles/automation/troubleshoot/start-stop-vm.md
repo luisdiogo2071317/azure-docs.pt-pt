@@ -6,17 +6,66 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef2a782a19dd319de346f14d6189759d0a26686c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666759"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270003"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Iniciar/parar VMs durante a solução de horas de resolução de problemas
+
+## <a name="deployment-failure"></a>Cenário: A solução iniciar/parar VM não consegue implementar corretamente
+
+### <a name="issue"></a>Problema
+
+Ao implementar o [iniciar/parar VMs durante a solução de horas](../automation-solution-vm-management.md), receberá um dos seguintes erros:
+
+```
+Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
+```
+
+```
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.OperationsManagement'.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.Insights'.
+```
+
+```
+The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
+```
+
+### <a name="cause"></a>Causa
+
+As implementações podem falhar devido a uma das seguintes razões:
+
+1. Já existe uma conta de automatização com o mesmo nome na região selecionada.
+2. É uma política que não permite a implementação da solução iniciar/parar VMs.
+3. O `Microsoft.OperationsManagement`, `Microsoft.Insights`, ou `Microsoft.Automation` tipos de recursos não estão registados.
+4. A área de trabalho do Log Analytics tem um bloqueio.
+
+### <a name="resolution"></a>Resolução
+
+Reveja a seguir uma lista de possíveis soluções para o seu problema ou locais para procurar:
+
+1. Contas de automatização tem de ser exclusivo dentro de uma região do Azure, mesmo que se encontrem em grupos de recursos diferentes. Verifique as suas contas de automatização existentes na região de destino.
+2. Uma política existente impede que um recurso que é necessário para a solução iniciar/parar VM devem ser implantados. Vá para as atribuições de política no portal do Azure e verifique se tem uma atribuição de política que não permite a implementação deste recurso. Para obter mais informações, veja [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+3. Para poder implementar a solução iniciar/parar VM, a subscrição tem de estar registada para os espaços de nomes de recursos do Azure seguintes:
+    * `Microsoft.OperationsManagement`
+    * `Microsoft.Insights`
+    * `Microsoft.Automation`
+
+   Ver, [resolver erros de registo do fornecedor de recursos](../../azure-resource-manager/resource-manager-register-provider-errors.md) para obter mais informações sobre erros quando registar fornecedores.
+4. Se tiver um bloqueio na sua área de trabalho do Log Analytics, vá para a área de trabalho no portal do Azure e remover nenhum bloqueio no recurso.
 
 ## <a name="all-vms-fail-to-startstop"></a>Cenário: Todas as VMs não conseguem iniciar/parar
 

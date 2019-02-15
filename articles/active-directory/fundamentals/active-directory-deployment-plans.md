@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2ec578fcc51519cb6794ea87f8e4236d6b1d96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ca8d75b4a8c0e7586b25cbfd53cd9eaa134d0ad3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198087"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299586"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Está à procura de orientações completas para implementar algumas das capacidades do Azure Active Directory (Azure AD)? Os planos de implementação que se seguem orientam-no ao longo do valor comercial, das considerações de planeamento, de design e dos procedimentos operacionais necessários para implementar algumas das capacidades mais comuns do Azure AD. 
@@ -29,7 +29,7 @@ Gostaríamos muito de saber a sua opinião sobre os documentos. Responda a este 
 |Cenário |Descrição |
 |-|-|
 |[Multi-Factor Authentication](https://aka.ms/MFADPDownload)|A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Ao utilizar métodos de autenticação aprovados pelo administrador, o MFA do Azure ajuda a salvaguardar o acesso a dados e aplicações, enquanto cumpre a exigência de um processo de início de sessão simples.|
-|[Acesso condicional](https://aka.ms/CADPDownload)|Com o acesso condicional, pode implementar decisões de controlo de acesso automatizadas relativamente a quem pode aceder às aplicações na cloud com base em condições.|
+|Acesso condicional [plano que pode ser baixado](https://aka.ms/CADPDownload) ou [plano online](https://aka.ms/caonlineplan)|Com o acesso condicional, pode implementar decisões de controlo de acesso automatizadas relativamente a quem pode aceder às aplicações na cloud com base em condições.|
 |[Reposição personalizada de palavras-passe](https://aka.ms/SSPRDPDownload)|A reposição personalizada de palavras-passe ajuda os utilizadores a repor as respetivas palavras-passe, sem qualquer intervenção do administrador, quando e onde precisarem.|
 |[Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)|O Azure AD Privileged Identity Management (PIM) ajuda-o a gerir as funções administrativas com privilégios no Azure AD, recursos do Azure e outros serviços Online da Microsoft. PIM fornece soluções, como acesso just-in-time, fluxos de trabalho de aprovação de solicitação e acesso totalmente integrado a revisões para que possa identificar, descobrir e impedir que atividades maliciosas de funções com privilégios em tempo real.|
 |[Início de sessão único](https://aka.ms/SSODPDownload)|O início de sessão único ajuda-o a aceder a todos os recursos e aplicações de que precisa para trabalhar ao iniciar sessão só uma vez e com uma única conta de utilizador. Depois de iniciar sessão, pode utilizar o Microsoft Office, o SalesForce ou o Box sem ter de se autenticar (por exemplo, introduzir uma palavra-passe) uma segunda vez.|

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ad6ea26535190d2fc5798e1223c2196d3d5a5d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1fde586563c142690078a693970a9a24bd5cacb4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211143"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Active Directory do Azure com o SAP NetWeaver
 
@@ -175,7 +175,14 @@ Para configurar o Azure AD início de sessão único com o SAP NetWeaver, execut
 
     ![SAP NetWeaver domínio e URLs únicas início de sessão em informações](common/sp-identifier-reply.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<your company instance of SAP NetWeaver>`
+    d. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<your company instance of SAP NetWeaver>`
+
+    > [!NOTE]
+    > Vimos alguns clientes reportar um erro do URL de resposta incorreto configurado às respetivas instâncias. Se receber qualquer erro desse tipo, pode utilizar após o script do PowerShell como um trabalho em torno para definir o URL de resposta correta para a sua instância.:
+    ```
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+    ``` 
+    > ID de objeto ServicePrincipal está seja definido por mesmo pela primeira vez ou pode passá-lo também aqui.
 
 12. SAP NetWeaver aplicativo espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
@@ -374,4 +381,3 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no SAP NetWeaver. 
 - [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700983"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301803"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido
 
@@ -29,10 +29,10 @@ Este esquema tiver sido revisto pelo do Reino Unido National Cyber Security Cent
 
 A arquitetura utiliza o Azure [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) componentes para entregar um ambiente que permite aos clientes evitar a despesa e a complexidade da compra de licenças de software, de gestão da infraestrutura subjacente do aplicativo e middleware ou as ferramentas de desenvolvimento e outros recursos. Os clientes gerir as aplicações e serviços que desenvolve, concentrando-se em fornecer valor comercial, lidando simultaneamente e o Microsoft Azure gere os outros recursos do Azure como máquinas virtuais, armazenamento e rede, colocar mais do [divisão da responsabilidade](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) para a gestão de infraestrutura para a plataforma do Azure. [Serviços de aplicações Azure](https://azure.microsoft.com/services/app-service/) oferece o dimensionamento automático, de elevada disponibilidade, suporta Windows e Linux e permite implementações automáticas a partir do GitHub, do Azure DevOps ou qualquer repositório de Git como serviços de predefinição. Durante a utilização dos serviços de aplicações, os desenvolvedores podem se concentrar no fornecimento de valor de negócio sem a sobrecarga de gerenciamento de infraestrutura. É possível criar novas aplicações de web de Java, PHP, node. js, Python, HTML ou c# de ambiente intacto, ou também para migrar a nuvem existente ou no local da web aplicações para serviços de aplicações do Azure (embora completa devida diligência e de teste para confirmar o desempenho é necessário).
 
-Este esquema enfoca o aprovisionamento de uma base segura [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) interface baseada na web para utilizadores do office também voltar e pública. Neste cenário de design do esquema considera que a utilização do Azure alojada serviços baseados na web, onde um usuário público pode com segurança submeter, ver e gerir dados confidenciais; também que um operador de back-office ou do Governo pode processar os dados confidenciais que o usuário público submeteu em segurança. Casos de utilização para este cenário podem incluir:
+Este esquema enfoca o aprovisionamento de uma base segura [plataforma como serviço](https://azure.microsoft.com/overview/what-is-paas/) interface baseada na web para público e também os utilizadores de back office. Neste cenário de design do esquema considera que a utilização do Azure alojada serviços baseados na web, onde um usuário público pode com segurança submeter, ver e gerir dados confidenciais; também que um operador de back-office ou do Governo pode processar os dados confidenciais que o usuário público submeteu em segurança. Casos de utilização para este cenário podem incluir:
 
 - Um utilizador de submeter um retorno de imposto, com um operador de Governo processar a submissão;
-- Um utilizador que solicitam um serviço através de uma aplicação baseada na web, com um utilizador de back-office validação e fornecer o serviço; ou
+- Um utilizador que solicitam um serviço através de uma aplicação baseada na web, com um utilizador de back office, validação e fornecer o serviço; ou
 - Um usuário procurar e visualizar o domínio público ajudam a informações relativas um serviço de administração pública.
 
 Usando [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelos e scripts de Interface de linha de comandos do Azure, o plano gráfico implementa um ambiente que se alinha para do Reino Unido National Cyber Security Centre (NCSC) 14 [osprincípiosdesegurançanaCloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) e o Centro de segurança de Internet (CIS) [controlos de segurança críticas](https://www.cisecurity.org/critical-controls.cfm). O NCSC recomenda seus princípios de segurança na Cloud utilizadas pelos clientes para avaliar as propriedades de segurança do serviço de e para ajudar a compreender a divisão de responsabilidade entre o cliente e o fornecedor. A Microsoft forneceu informações em relação a cada um desses princípios para ajudar a compreender melhor a divisão das responsabilidades. Esta arquitetura e modelos do Azure Resource Manager correspondente são compatíveis com o White Paper [utilizar o Microsoft Azure na cloud de 14 controlos de segurança de Cloud para o RU](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Esta arquitetura tiver sido revista pelo NCSC e se alinha com do Reino Unido NCSC 14 Cloud princípios de segurança, permitindo desta forma organizações do setor público para sua capacidade para cumprir as obrigações reguladoras de conformidade com serviços baseados na nuvem, globalmente e no Reino Unido, no instante o Nuvem do Microsoft Azure. Este modelo implementa a infraestrutura para a carga de trabalho. Código do aplicativo e o suporte de camada de negócio e o software de camada de dados devem ser instalados e configurados por parte dos clientes. Estão disponíveis instruções de implementação detalhados [aqui](https://aka.ms/ukofficial-paaswa-repo/).
@@ -43,7 +43,7 @@ Para implementar esta arquitetura, é necessária uma subscrição do Azure. Se 
 
 ## <a name="architecture-and-components"></a>Arquitetura e componentes
 
-Esta arquitetura fornece um solução num ambiente de cloud do Azure que suporta cargas de trabalho do Reino Unido oficial de hospedagem de aplicativos de web. A arquitetura proporciona um ambiente seguro que tira partido da plataforma do Azure como um capacidades do serviço. Dentro do ambiente, duas aplicações web do serviço de aplicações são implementado (um para os utilizadores públicos) e outra para usuários de back-office, com uma camada de aplicação API fornecer os serviços de negócios para o front-end da web. Uma base de dados do SQL do Azure é implementada como um arquivo de dados relacionais geridos para a aplicação. Conectividade para esses componentes de fora a plataforma e entre todos esses componentes é criptografada por meio de TLS 1.2 para garantir que os dados em privacidade de transporte, com acesso autenticado pelo Azure Active Directory.
+Esta arquitetura fornece um solução num ambiente de cloud do Azure que suporta cargas de trabalho do Reino Unido oficial de hospedagem de aplicativos de web. A arquitetura proporciona um ambiente seguro que tira partido da plataforma do Azure como um capacidades do serviço. Dentro do ambiente, duas aplicações web do serviço de aplicações são implementado (um para os utilizadores públicos) e outra para usuários de back office, com uma camada de aplicação API fornecer os serviços de negócios para o front-end da web. Uma base de dados do SQL do Azure é implementada como um arquivo de dados relacionais geridos para a aplicação. Conectividade para esses componentes de fora a plataforma e entre todos esses componentes é criptografada por meio de TLS 1.2 para garantir que os dados em privacidade de transporte, com acesso autenticado pelo Azure Active Directory.
 
 ![PaaS alojamento da aplicação Web para o diagrama de arquitetura de referência de cargas de trabalho oficial do Reino Unido](images/ukofficial-paaswa-architecture.png?raw=true "PaaS alojamento da aplicação Web para o diagrama de arquitetura de referência de cargas de trabalho oficial do Reino Unido")
 
@@ -182,7 +182,7 @@ Informações detalhadas sobre como proteger o armazenamento do Azure podem ser 
 
 #### <a name="application-insights"></a>Application Insights
 
-[O Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. Utilizado para monitorizar aplicações web em direto, ele será automaticamente detetar anomalias de desempenho, analisar o desempenho, diagnosticar problemas e para compreender como os utilizadores interagem com a aplicação. O Application Insights pode ser implementado em plataformas, incluindo .NET, node. js e J2EE, alojadas no local ou na cloud. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação.
+[O Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. Utilizado para monitorizar aplicações web em direto, ele será automaticamente detetar anomalias de desempenho, analisar o desempenho, diagnosticar problemas e para compreender como os utilizadores interagem com a aplicação. O Application Insights pode ser implementado em plataformas, incluindo .NET, node. js e Java EE, alojado no local ou na cloud. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação.
 
 #### <a name="application-insights-in-this-blueprint"></a>Application Insights nesse plano gráfico
 
@@ -232,7 +232,7 @@ Foram fornecidas três abordagens para a implementação; Um simples "expressa" 
 1.  Clonar ou transferir [isso](https://aka.ms/ukofficial-paaswa-repo) repositório do GitHub para a estação de trabalho local.
 2.  Revisão [método 1: 2 de CLI do Azure (versão Express)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) e execute os comandos fornecidos.
 3.  Revisão [método 1a: 2 de CLI do Azure (configurar a implantação por meio de argumentos de script)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) e execute os comandos fornecidos
-4.  Revisão [método 2: Processo de implementação do Portal do Azure](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) e execute os comandos listados
+4.  Revisão [método 2: Portal do Azure, o processo de implantação](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) e execute os comandos listados
 
 ## <a name="guidance-and-recommendations"></a>Orientações e recomendações
 
@@ -242,7 +242,7 @@ Foram fornecidas três abordagens para a implementação; Um simples "expressa" 
 
 ### <a name="azure-b2c"></a>Azure B2C
 
-[O Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) pode ser implementado como um controle para permitir que os utilizadores para se registrar, criar uma identidade e ativar a autorização e controlo para a aplicação web públicos de acesso.
+[O Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) pode ser implementado como um controle para permitir que os utilizadores registem, criar uma identidade e controlo de acesso e autorização de ativar para a aplicação web pública.
 
 ## <a name="disclaimer"></a>Exclusão de Responsabilidade
 

@@ -4,65 +4,82 @@ description: Analisadores de atribuir a campos de texto pesquisável num índice
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 02/14/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 008a24fe9822ca51b81e1f6979a3731d794a8867
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 5c3894b1f19a6baa65323391526ea5492d79f8a7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964343"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301337"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores de processamento no Azure Search de texto
 
-Uma *analisador* é um componente do [pesquisa em texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de consulta e documentos indexados. As seguintes transformações são característicos durante a análise:
+Uma *analisador* é um componente dos [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de consulta e documentos indexados. Existem analisadores de idiomas e analisadores de manipulação de texto. Analisadores de idiomas são as mais comuns e existe o analisador de idioma padrão atribuída a cada campo de cadeia de caracteres num índice da Azure Search.
+
+As seguintes transformações de idioma são característicos durante a análise de texto:
 
 + Não essencial palavras (palavras de paragem) e pontuação são removidos.
 + Frases e palavras hifenizadas são divididas em componentes.
 + Palavras de maiúsculas estão em minúsculas.
 + Palavras são reduzidas para formulários de raiz, de modo a que pode ser encontrada uma correspondência, independentemente do tempo verbal.
 
-Analisadores linguística convert uma entrada de texto para o primitivo ou formulários de raiz que são eficientes para armazenamento de informações e a recuperação. Conversão ocorre durante a indexação, quando o índice é criado e, em seguida, novamente durante a pesquisa quando o índice é de leitura. Que é mais provável que obtenha os resultados da pesquisa esperado se usar o mesmo analisador de texto para as duas operações.
+Converter de analisadores de idioma um texto de entrada para o primitivo ou formulários de raiz que são eficientes para armazenamento de informações e a recuperação. Conversão ocorre durante a indexação, quando o índice é criado e, em seguida, novamente durante a pesquisa quando o índice é de leitura. É provável que mais obter os resultados de pesquisa que espera se utilizar o analisador de mesmo para as duas operações.
 
-O Azure Search utiliza a [analisador de Lucene padrão](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) como predefinição. É possível substituir a predefinição de forma de campo por campo. Este artigo descreve a gama de opções e oferece melhores práticas para análise personalizada. Ele também fornece as configurações de exemplo para cenários-chave.
+## <a name="default-analyzer"></a>Analisador de predefinição  
 
-## <a name="supported-analyzers"></a>Analisadores suportados
+O Azure Search utiliza a [analyzer Apache Lucene Standard (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) como padrão, que divide texto em elementos a seguir a ["Segmentação de texto Unicode"](https://unicode.org/reports/tr29/) regras. Além disso, o analisador padrão converte todos os carateres para o formato de minúsculas. Documentos indexados e termos de pesquisa percorrer a análise durante a indexação e de processamento de consultas.  
 
-A lista seguinte descreve os analisadores são suportados no Azure Search.
+Ele é usado automaticamente em todos os campos pesquisáveis. É possível substituir a predefinição de forma de campo por campo. Analisadores alternativos podem ser um [analisador de idioma](index-add-language-analyzers.md), [analisador personalizado](index-add-custom-analyzers.md), ou um analisador predefinido do [lista de analisadores disponíveis](index-add-custom-analyzers.md#AnalyzerTable).
+
+
+## <a name="types-of-analyzers"></a>Tipos de analisadores
+
+A lista seguinte descreve os analisadores estão disponíveis no Azure Search.
 
 | Categoria | Descrição |
 |----------|-------------|
 | [Analisador de Lucene padrão](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predefinição. Não é necessária nenhum especificação ou configuração. Executa este analyzer para fins gerais bem para a maioria das linguagens e cenários.|
-| Analisadores predefinidos | Oferecido como um produto deve ser usado como-é, na personalização limitada. <br/>Existem dois tipos: especializadas e idioma. O que os torna "predefinido" é referenciá-los por nome, sem personalização. <br/><br/>[Especializada analisadores (independente de idioma)](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) são utilizadas quando entradas de texto requerem processamento especializado ou processamento mínimo. Analisadores de idioma não predefinidos incluem **Asciifolding**, **palavra-chave**, **padrão**, **simples**, **parar**, **Espaços em branco**.<br/><br/>[Analisadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support) são utilizados quando precisar de suporte linguístico avançado para idiomas individuais. O Azure Search suporta 35 analisadores de idiomas do Lucene e 50 analisadores de processamento de linguagem natural da Microsoft. |
-|[Analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Uma configuração definida pelo utilizador de uma combinação de elementos existentes, constituída por um atomizador (obrigatório) e filtros opcionais (char ou token).|
+| Analisadores predefinidos | Oferecido como um produto deve ser usado como-é. <br/>Existem dois tipos: especializadas e idioma. O que os torna "predefinido" é referenciá-los por nome, sem qualquer configuração ou a personalização. <br/><br/>[Especializada (linguagem desconhecida) analisadores](index-add-custom-analyzers.md#AnalyzerTable) são utilizadas quando entradas de texto requerem processamento especializado ou processamento mínimo. Analisadores de idioma não predefinidos incluem **Asciifolding**, **palavra-chave**, **padrão**, **simples**, **parar**, **Espaços em branco**.<br/><br/>[Analisadores de idiomas](index-add-language-analyzers.md) são utilizados quando precisar de suporte linguístico avançado para idiomas individuais. O Azure Search suporta 35 analisadores de idiomas do Lucene e 50 analisadores de processamento de linguagem natural da Microsoft. |
+|[Analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refere-se para uma configuração definida pelo utilizador de uma combinação de elementos existentes, constituída por um atomizador (obrigatório) e filtros opcionais (char ou token).|
 
-Pode personalizar um analisador predefinido, tais como **padrão** ou **parar**, para utilizar opções alternativas documentadas na [predefinidos de analisador de referência](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Apenas alguns dos analisadores predefinidos tem opções que pode definir. Como com qualquer personalização, forneça a nova configuração com um nome, como *myPatternAnalyzer* para distingui-la a partir do analisador de Lucene padrão.
+Algumas predefinidas analisadores, tal como **padrão** ou **parar**, suporta um conjunto limitado de opções de configuração. Para definir essas opções, efetivamente cria um analisador personalizado, consistindo no analzer predefinida e uma das opções alternativas documentados em [predefinidos de analisador de referência](index-add-custom-analyzers.md#AnalyzerTable). Como com qualquer configuração personalizada, forneça a nova configuração com um nome, como *myPatternAnalyzer* para distingui-la a partir do analisador de Lucene padrão.
 
 ## <a name="how-to-specify-analyzers"></a>Como especificar analisadores
 
-1. (para apenas analisadores personalizados) Criar uma **analyzer** secção na definição do índice. Para obter mais informações, consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) e também [analisadores personalizados > criar](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
+1. (para apenas analisadores personalizados) Criar uma determinada **analyzer** secção na definição do índice. Para obter mais informações, consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) e também [adicionar analisadores personalizados](index-add-custom-analyzers.md).
 
-2. Num [campo definição](https://docs.microsoft.com/rest/api/searchservice/create-index) no índice, definir o **analyzer** propriedade para o nome de um analisador de destino (por exemplo, `"analyzer" = "keyword"`. Valores válidos incluem o nome de um analisador predefinido, o analisador de idioma ou o analisador personalizado também definido no esquema do índice.
+2. Num [campo definição](https://docs.microsoft.com/rest/api/searchservice/create-index) no índice, defina o campo **analyzer** propriedade para o nome de um analisador de destino (por exemplo, `"analyzer" = "keyword"`. Valores válidos incluem o nome de um analisador predefinido, o analisador de idioma ou o analisador personalizado também definido no esquema do índice. Tencione atribuir analyzer na fase de definição de índice antes do índice é criado no serviço.
 
-3. Opcionalmente, em vez de um **analisador** propriedade, pode definir diferentes analisadores de indexação e consulta utilizando o **indexAnalyzer** e **searchAnalyzer'** campo parâmetros. 
+3. Opcionalmente, em vez de um **analisador** propriedade, pode definir diferentes analisadores de indexação e consulta utilizando o **indexAnalyzer** e **searchAnalyzer** campo parâmetros. 
 
 3. Adicionar um analisador para uma definição de campo, incorre numa operação de escrita no índice. Se adicionar um **analyzer** para um índice existente, tenha em atenção os seguintes passos:
  
  | Cenário | Impacto | Passos |
  |----------|--------|-------|
- | Adicionar um novo campo | minimal | Se o campo ainda não existe no esquema, não há nenhum revisão do campo porque o campo ainda não tiver uma presença física no seu índice. Uso [índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarefa.|
- | Adicione um analisador para um campo indexado existente. | Reconstruir | O índice invertido para esse campo deve ser recriado desde o backup e o conteúdo para os campos têm de ser reindexado. <br/> <br/>Para índices em permanente desenvolvimento, [elimine](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [criar](https://docs.microsoft.com/rest/api/searchservice/create-index) o índice de retirada a nova definição de campo. <br/> <br/>Para índices em produção, deve criar um novo campo para fornecer a definição revisada e começar a utilizar. Uso [índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para incorporar o novo campo. Mais tarde, como parte da manutenção planeada de índice, é possível limpar o índice para remover campos obsoletos. |
+ | Adicionar um novo campo | minimal | Se o campo ainda não existe no esquema, não há nenhum revisão do campo porque o campo ainda não tiver uma presença física no seu índice. Uso [índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) para adicionar um novo campo para um índice existente.|
+ | Adicione um analisador para um campo indexado existente. | [rebuild](search-howto-reindex.md) | O índice invertido para esse campo deve ser recriado desde o backup e o conteúdo para os campos têm de ser reindexado. <br/> <br/>Para índices em permanente desenvolvimento, [elimine](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [criar](https://docs.microsoft.com/rest/api/searchservice/create-index) o índice de retirada a nova definição de campo. <br/> <br/>Para índices em produção, pode diferir a reconstrução através da criação de um novo campo para fornecer a definição revisada e começar a usá-lo no lugar do antigo. Uso [índice de atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) incorporar o novo campo e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para preencher itbet. Mais tarde, como parte da manutenção planeada de índice, é possível limpar o índice para remover campos obsoletos. |
 
-## <a name="tips-and-best-practices"></a>Dicas e melhores práticas
+## <a name="when-to-add-analyzers"></a>Quando adicionar analisadores
+
+Pode definir vários analisadores personalizados para variar a combinação de filtros, mas cada campo só pode utilizar um analisador para indexação de análise e outro para análise de pesquisa.  
+
+Deve configurar analisadores durante o desenvolvimento do Active Directory quando a definição de índice é ainda em fluxo. Um analisador especificado num campo é uma parte integral da definição do campo, para que possa adicionar apenas quando o campo é criado. Se pretender adicionar os analisadores de campos existentes, terá [de remover e recriar](search-howto-reindex.md) o índice.
+
+Uma exceção é a variante de searchAnalyzer. Existem três formas para especificar os analisadores: **analisador**, **indexAnalyzer**, **searchAnalyzer**. O primeiro ponto, **analyzer**, é utilizado para pedidos de indexação e consulta. As outras duas permitem-lhe controlar quais analisadores são utilizados para cada tipo de pedido.
+
+Ambos **analisador** e **indexAnalyzer** tem de ser especificado na definição do campo inicial. O **searchAnalyzer** atributo pode ser adicionado a um campo que já existe, sem incorrer num requisito de reconstrução.
+
+## <a name="recommendations-for-working-with-analyzers"></a>Recomendações para trabalhar com analisadores
 
 Esta secção oferece orientação sobre como trabalhar com os analisadores.
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>Um analisador para leitura e escrita, a menos que tenha requisitos específicos
 
-O Azure Search permite-lhe especificar diferentes analisadores de indexação e pesquisa via adicionais `indexAnalyzer` e `searchAnalyzer` parâmetros de campo. Se não for especificado, o analisador de conjunto com o `analyzer` propriedade é utilizada para a indexação e a pesquisa. Se `analyzer` é especificado, é utilizado o analisador de Lucene padrão de predefinição.
+O Azure Search permite-lhe especificar diferentes analisadores de indexação e pesquisa via adicionais **indexAnalyzer** e **searchAnalyzer** parâmetros de campo. Se não for especificado, o analisador de conjunto com o **analyzer** propriedade é utilizada para a indexação e a pesquisa. Se `analyzer` é especificado, é utilizado o analisador de Lucene padrão de predefinição.
 
 Regra geral é usar o mesmo analyzer para indexação e consulta, a menos que necessidades específicas determinem o contrário. Certifique-se de que testar minuciosamente. Quando o processamento de texto é diferente no tempo de indexação e pesquisa, corre o risco de erro de correspondência entre os termos de consulta e termos indexados quando a pesquisa e indexação de analisador de configurações não está alinhado.
 
@@ -82,8 +99,14 @@ O [demonstração do Search Analyzer](https://alice.unearth.ai/) é uma aplicaç
 
 Os exemplos abaixo mostram as definições do analyzer para alguns cenários essenciais.
 
++ [Exemplo de analisador personalizado](#Example1)
++ [Atribuir analisadores para um exemplo de campo](#Example2)
++ [Misturar analisadores de indexação e pesquisa](#Example3)
++ [Exemplo do analisador de idioma](#Example4)
+
 <a name="Example1"></a>
-### <a name="example-1-custom-options"></a>Exemplo 1: Opções personalizadas
+
+### <a name="custom-analyzer-example"></a>Exemplo de analisador personalizado
 
 Este exemplo ilustra uma definição de analisador com opções personalizadas. Opções personalizadas para os filtros de char, tokenizers e filtros de token são especificadas em separado como construções com nome e, em seguida, referenciadas na definição do analyzer. Elementos predefinidos são utilizados como-é e simplesmente referenciado por nome.
 
@@ -156,7 +179,8 @@ Percorrendo neste exemplo:
 ~~~~
 
 <a name="Example2"></a>
-### <a name="example-2-override-the-default-analyzer"></a>Exemplo 2: Substituir o analisador de predefinição
+
+### <a name="per-field-analyzer-assignment-example"></a>Exemplo de atribuição de analisador por campo
 
 O analisador padrão é a predefinição. Suponha que pretende substituir a predefinição com um analisador de predefinidos diferente, como o analisador padrão. Se não forem opções personalizadas de definição, só precisa de especificá-lo pelo nome na definição do campo.
 
@@ -188,9 +212,10 @@ O elemento "analyzer" substitui o analisador padrão numa base de campo por camp
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Exemplo 3: Analisadores de diferentes para operações de indexação e pesquisa
 
-As APIs incluem os atributos de índice adicional para especificar diferentes analisadores de indexação e pesquisa. O `searchAnalyzer` e `indexAnalyzer` atributos tem de ser especificados como um par, substituindo o único `analyzer` atributo.
+### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Misturar analisadores para operações de indexação e pesquisa
+
+As APIs incluem os atributos de índice adicional para especificar diferentes analisadores de indexação e pesquisa. O **searchAnalyzer** e **indexAnalyzer** atributos tem de ser especificados como um par, substituindo o único **analisador** atributo.
 
 
 ~~~~
@@ -215,7 +240,8 @@ As APIs incluem os atributos de índice adicional para especificar diferentes an
 ~~~~
 
 <a name="Example4"></a>
-### <a name="example-4-language-analyzer"></a>Exemplo 4: Analisador de idioma
+
+### <a name="language-analyzer-example"></a>Exemplo do analisador de idioma
 
 Campos que contenham as cadeias de caracteres em diferentes idiomas podem usar um analisador de idioma, enquanto outros campos mantém a predefinição (ou utilizam outro analisador predefinida ou personalizada). Se usar um analisador de idioma, tem de ser utilizado para operações de indexação e pesquisa. Campos que utilizam um analisador de idioma não é possível ter diferentes analisadores para indexação e pesquisa.
 
@@ -250,11 +276,11 @@ Campos que contenham as cadeias de caracteres em diferentes idiomas podem usar u
 
 + Reveja nossa explicação abrangente das [completa como funciona a pesquisa de texto no Azure Search](search-lucene-query-architecture.md). Este artigo utiliza exemplos para explicar os comportamentos que podem parecer achem à primeira vista.
 
-+ Experimente a sintaxe de consulta adicionais do [documentos sobre pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) secção de exemplo ou a partir de [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) no Explorador de pesquisa no portal.
++ Experimente a sintaxe de consulta adicionais do [documentos sobre pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) secção de exemplo ou a partir de [sintaxe de consulta simples](query-simple-syntax.md) no Explorador de pesquisa no portal.
 
-+ Saiba como aplicar [analisadores lexicais de idioma específico](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Saiba como aplicar [analisadores lexicais de idioma específico](index-add-language-analyzers.md).
 
-+ [Configurar os analisadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para processamento mínimo ou processamento especializado em campos individuais.
++ [Configurar os analisadores personalizados](index-add-custom-analyzers.md) para processamento mínimo ou processamento especializado em campos individuais.
 
 + [Compare os analisadores de padrão e em inglês](https://alice.unearth.ai/) nos painéis adjacentes neste site da web de demonstração. 
 
@@ -262,11 +288,11 @@ Campos que contenham as cadeias de caracteres em diferentes idiomas podem usar u
 
  [Procurar nos documentos de REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
- [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+ [Sintaxe de consulta simples](query-simple-syntax.md) 
 
- [Sintaxe de consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+ [Sintaxe de consulta Lucene completa](query-lucene-syntax.md) 
  
- [Processar os resultados da pesquisa](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
+ [Processar os resultados da pesquisa](search-pagination-page-layout.md)
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png

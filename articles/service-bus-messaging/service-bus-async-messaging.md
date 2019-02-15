@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0ff2fbf8ddfdd191c72cfdb36a9462076f8dec5b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657302"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301575"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e elevada disponibilidade
 
@@ -62,77 +62,10 @@ Outros componentes no Azure, ocasionalmente, podem ter problemas de serviço. Po
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Falha do Service Bus num subsistema único
 Com qualquer aplicativo, circunstâncias podem fazer com que um componente interno do Service Bus para se tornar inconsistente. Quando o Service Bus detete isso, recolhe os dados da aplicação para ajudar a diagnosticar o que aconteceu. Quando os dados são recolhidos, o aplicativo for reiniciado numa tentativa para devolvê-lo para um estado consistente. Este processo ocorre rapidamente, e os resultados numa entidade de parecerem estar a ser indisponível para até alguns minutos, embora típicos redução são muito menores.
 
-Nestes casos, a aplicação cliente gera um [System.TimeoutException] [ System.TimeoutException] ou [MessagingException] [ MessagingException] exceção. Barramento de serviço contém uma atenuação para este problema na forma de lógica de repetição de clientes automatizada. Depois do período de repetição se esgota, e não é possível entregar a mensagem, pode explorar através de outros recursos, como [emparelhado espaços de nomes][paired namespaces]. Espaços de nomes emparelhados têm outras limitações que são abordadas nesse artigo.
-
-### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Falha do Service Bus num datacenter do Azure
-A razão mais provável para uma falha no datacenter do Azure é uma falha na implementação de atualização do Service Bus ou um sistema dependente. Como a plataforma amadureceu, foi reduzida a probabilidade deste tipo de falha. Também pode ocorrer uma falha de centro de dados por motivos que incluem o seguinte:
-
-* Falha de elétrica (fonte de alimentação e gerar power desaparecer).
-* Conectividade (intervalo de internet entre a clientes e o Azure).
-
-Em ambos os casos, um desastre natural ou afastado causou o problema. Para contornar este problema e certifique-se de que ainda pode enviar mensagens, pode usar [emparelhado espaços de nomes] [ paired namespaces] para permitir mensagens sejam enviadas para uma segunda localização, enquanto a localização primária é feita em bom estado novamente. Para obter mais informações, consulte [melhores práticas para aplicações do Service Bus interrupções e desastres de separando][Best practices for insulating applications against Service Bus outages and disasters].
-
-## <a name="paired-namespaces"></a>Espaços de nomes emparelhados
-O [emparelhado espaços de nomes] [ paired namespaces] recurso oferece suporte a cenários em que uma entidade do Service Bus ou a implantação num Datacenter fica indisponível. Enquanto este evento ocorre com pouca frequência, ainda existem sistemas distribuídos que tem de estar preparados para lidar com cenários de casos de pior. Normalmente, este evento ocorre porque algum elemento de que depende do Service Bus está a ter um problema de curto prazo. Para manter a disponibilidade da aplicação durante um período de indisponibilidade, os utilizadores do Service Bus podem utilizar dois espaços de nomes separados, preferencialmente, nos centros de dados separado, para alojar as suas entidades de mensagens. O restante desta seção utiliza a seguinte terminologia:
-
-* Espaço de nomes principal: O espaço de nomes com que seu aplicativo interage, para enviar e receber operações.
-* Espaço de nomes secundário: O espaço de nomes que age como uma cópia de segurança para o espaço de nomes principal. Lógica do aplicativo não interage com este espaço de nomes.
-* Intervalo de ativação pós-falha: A quantidade de tempo para falhas normais de aceitar antes da aplicação muda do espaço de nomes primário para o espaço de nomes secundário.
-
-Suporte de espaços de nomes de emparelhado *enviar disponibilidade*. Envie disponibilidade preserva a capacidade de enviar mensagens. Para utilizar a disponibilidade de envio, a aplicação tem de cumprir os seguintes requisitos:
-
-1. As mensagens são recebidas apenas do espaço de nomes primário.
-2. As mensagens enviadas para uma determinada fila ou tópico poderá chegar fora de ordem.
-3. Mensagens dentro de uma sessão podem chegar fora de ordem. Esta é uma quebra de funcionalidade normal de sessões. Isso significa que seu aplicativo usa sessões logicamente agrupar mensagens.
-4. Estado da sessão é apenas mantido no espaço de nomes primário.
-5. A fila primária pode ficar online e iniciar a aceitação das mensagens antes da fila secundária oferece todas as mensagens na fila principal.
-
-As secções seguintes abordam as APIs, como as APIs são implementadas e mostra o código de exemplo que utilizam a funcionalidade. Tenha em atenção de que há implicações de faturação associadas a esta funcionalidade.
-
-### <a name="the-messagingfactorypairnamespaceasync-api"></a>A API de MessagingFactory.PairNamespaceAsync
-A funcionalidade de espaços de nomes emparelhados inclui a [PairNamespaceAsync] [ PairNamespaceAsync] método no [Microsoft.ServiceBus.Messaging.MessagingFactory] [ Microsoft.ServiceBus.Messaging.MessagingFactory] classe:
-
-```csharp
-public Task PairNamespaceAsync(PairedNamespaceOptions options);
-```
-
-Quando a tarefa estiver concluída, o emparelhamento de espaço de nomes também é concluído e pronto para agir em [MessageReceiver][MessageReceiver], [QueueClient] [ QueueClient] , ou [TopicClient] [ TopicClient] criados com o [MessagingFactory] [ MessagingFactory] instância. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] [ Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] é a classe base para os diferentes tipos de emparelhamento que estão disponíveis com um [MessagingFactory] [ MessagingFactory] objeto. Atualmente, a única classe derivada é um denominado [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], que implementa os requisitos de disponibilidade de envio. [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] tem um conjunto de construtores que completam. Olhando para o construtor com a maioria dos parâmetros, pode compreender o comportamento dos outros construtores.
-
-```csharp
-public SendAvailabilityPairedNamespaceOptions(
-    NamespaceManager secondaryNamespaceManager,
-    MessagingFactory messagingFactory,
-    int backlogQueueCount,
-    TimeSpan failoverInterval,
-    bool enableSyphon)
-```
-
-Esses parâmetros têm os significados seguintes:
-
-* *secondaryNamespaceManager*: Um inicializado [NamespaceManager] [ NamespaceManager] instância para o espaço de nomes secundário que o [PairNamespaceAsync] [ PairNamespaceAsync] método pode usar para definir Se o espaço de nomes secundário. O Gestor de espaço de nomes é utilizado para obter a lista de filas no espaço de nomes e certifique-se de que as filas de registo de segurança necessária existem. Se não existirem nessas filas, são criados. [NamespaceManager] [ NamespaceManager] requer a capacidade de criar um token com o **gerir** de afirmação.
-* *messagingFactory*: O [MessagingFactory] [ MessagingFactory] instância para o espaço de nomes secundário. O [MessagingFactory] [ MessagingFactory] objeto é utilizado para enviar e, se o [EnableSyphon] [ EnableSyphon] propriedade está definida como **true**, receber mensagens das filas de registo de segurança.
-* *backlogQueueCount*: O número de filas de registo de segurança para criar. Este valor tem de ser, pelo menos, 1. Ao enviar mensagens para o registo de segurança, um destas filas é escolhido aleatoriamente. Se definir o valor como 1, em seguida, apenas uma fila pode nunca ser utilizada. Quando isso acontece e a fila de uma lista de pendências gera erros, o cliente não é possível experimentar uma fila de registo de segurança diferentes e pode não conseguir enviar a mensagem. Recomendamos a definição deste valor para alguns maior valor e padrão, o valor para o 10. Pode alterar isto para um valor superior ou inferior, consoante a quantidade de dados a aplicação envia por dia. Cada fila de registo de segurança pode conter até 5 GB de mensagens.
-* *failoverInterval*: A quantidade de tempo durante o qual irá aceitar falhas no espaço de nomes primário antes de alternar qualquer entidade única para o espaço de nomes secundário. As ativações pós-falha ocorrerem com base numa entidade por entidade. Entidades de um único espaço de nomes com frequência em direto em diferentes nós dentro do Service Bus. Uma falha numa entidade não implica uma falha em outro. Pode definir este valor [System.TimeSpan.Zero] [ System.TimeSpan.Zero] a ativação pós-falha para o secundário imediatamente após a falha em primeiro lugar, não transitórias. Falhas que acionam o timer de ativação pós-falha são qualquer [MessagingException] [ MessagingException] em que o [IsTransient] [ IsTransient] propriedade é false, ou um [ System.TimeoutException][System.TimeoutException]. Outras exceções, tal como [UnauthorizedAccessException] [ UnauthorizedAccessException] não dão origem a ativação pós-falha, porque indicam que o cliente está configurado incorretamente. R [ServerBusyException] [ ServerBusyException] faz não causa ativação pós-falha porque o padrão correto está a aguardar 10 segundos, em seguida, enviar a mensagem novamente.
-* *enableSyphon*: Indica que esse emparelhamento específico deve também syphon mensagens do espaço de nomes secundário para o espaço de nomes principal. Em geral, os aplicativos que enviam mensagens devem definir este valor como **false**; os aplicativos que recebem as mensagens devem definir este valor como **verdadeiro**. A razão disso é que com freqüência, há menos recetores de mensagens de remetentes de mensagens. Dependendo do número de recetores, pode optar por ter uma instância de aplicação única lidar com as tarefas de syphon. Usar vários recetores tem implicações de faturas para cada fila de registo de segurança.
-
-Para utilizar o código, crie um site primário [MessagingFactory] [ MessagingFactory] instância de uma secundária [MessagingFactory] [ MessagingFactory] de instância, um secundário [ NamespaceManager] [ NamespaceManager] instância e um [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instância. A chamada pode ser tão simples quanto o seguinte:
-
-```csharp
-SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
-primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
-```
-
-Quando a tarefa retornada pela [PairNamespaceAsync] [ PairNamespaceAsync] método for concluído, tudo o que é definido e estão prontos a utilizar. Antes da task é retornada, poderá não concluir todo o necessário para o emparelhamento funcionava direito de trabalho em segundo plano. Como resultado, não deve começar a enviar mensagens, até que a tarefa devolve. Se tiver ocorreram quaisquer falhas, como credenciais incorretas ou falha para criar as filas de registo de segurança, essas exceções serão geradas uma vez concluída a tarefa. Quando a tarefa retorna, certifique-se de que as filas foram encontradas ou criadas, examinando os [BacklogQueueCount] [ BacklogQueueCount] propriedade no seu [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instância. Para o código anterior, essa operação será exibida da seguinte forma:
-
-```csharp
-if (sendAvailabilityOptions.BacklogQueueCount < 1)
-{
-    // Handle case where no queues were created.
-}
-```
+Nestes casos, a aplicação cliente gera um [System.TimeoutException] [ System.TimeoutException] ou [MessagingException] [ MessagingException] exceção. Barramento de serviço contém uma atenuação para este problema na forma de lógica de repetição de clientes automatizada. Depois do período de repetição se esgota, e não é possível entregar a mensagem, pode explorar usando outro mencionado no artigo na [lidar com interrupções e desastres][handling outages and disasters].
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu as noções básicas de mensagens assíncronas no Service Bus, leia mais detalhes sobre [emparelhado espaços de nomes][paired namespaces].
+Agora que aprendeu as noções básicas de mensagens assíncronas no Service Bus, leia mais detalhes sobre [lidar com interrupções e desastres][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -152,4 +85,4 @@ Agora que aprendeu as noções básicas de mensagens assíncronas no Service Bus
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
-[paired namespaces]: service-bus-paired-namespaces.md
+[handling outages and disasters]: service-bus-outages-disasters.md

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0326e6f05f44b5f2c4416a1c1db09bc5816a297
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558316"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301677"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights
 
@@ -189,7 +189,7 @@ Pré-visualização do Time Series Insights indexa dados através de uma estrat�
 
 ### <a name="scale"></a>Escala
 
-Pré-visualização do Time Series Insights suporta um dimensionamento de entrada inicial de até 6 megabits por segundo (Mbps) por ambiente. Suporte avançado de dimensionamento está em curso. Planeamos atualizar a nossa documentação para refletir esses avanços.
+Pré-visualização do Time Series Insights suporta um dimensionamento de entrada inicial de até 6 de megabytes de Bytes por segundo (Mbps) por ambiente. Suporte avançado de dimensionamento está em curso. Estamos a planear atualizar a nossa documentação para refletir esses avanços
 
 ## <a name="next-steps"></a>Passos Seguintes
 

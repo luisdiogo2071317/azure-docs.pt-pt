@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107825"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267705"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>Tutorial: Mover recursos do Azure para outro grupo de recursos ou subscrição
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Aprenda a mover recursos do Azure a partir de um grupo de recursos para outro grupo de recursos. Também pode mover os recursos do Azure a partir de uma subscrição do Azure para outra subscrição do Azure. Neste tutorial, utilizou um modelo do resource manager para implementar dois grupos de recursos e uma conta de armazenamento. Em seguida, mover a conta de armazenamento de um grupo de recursos para outro.
 
@@ -37,8 +35,6 @@ Este tutorial abrange as seguintes tarefas:
 > * Limpe os recursos.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>Preparar os recursos
 
@@ -98,6 +94,8 @@ A operação de movimentação de validar permite testar o seu cenário de movim
 ## <a name="move-the-resource"></a>Mova o recurso
 
 A conta de armazenamento é dentro do grupo de recursos de origem (rg1), execute o PowerShell seguinte script de mover o recurso para o grupo de recursos de destino (rg2). Certifique-se utilizar o mesmo nome de projeto que utilizou quando implementar os recursos.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"

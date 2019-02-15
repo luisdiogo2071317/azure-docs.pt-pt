@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: sogup
-ms.openlocfilehash: d0fac3a075923b000c453480edbf18599f5fed3d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 118e32994ed6471c52726e826ecfd42620bd3a91
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994902"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269591"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerir cópias de segurança de máquinas virtuais do Azure
 
@@ -216,4 +216,6 @@ Para eliminar dados de cópia de segurança numa máquina virtual com o *desativ
     Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foi eliminados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, verifique [restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se precisar de informações sobre como proteger suas máquinas virtuais, consulte o artigo [primeira impressão: Cópia de segurança de VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md). Para obter informações sobre eventos de monitorização, consulte [monitorizar alertas para cópias de segurança da máquina virtual do Azure](backup-azure-monitor-vms.md).
+* Para informações sobre como voltar a criar uma máquina virtual a partir de um ponto de recuperação, verifique [restaurar VMs do Azure](backup-azure-arm-restore-vms.md).
+* Se precisar de informações sobre como proteger suas máquinas virtuais, consulte o artigo [primeira impressão: Cópia de segurança de VMs para um cofre dos serviços de recuperação](backup-azure-vms-first-look-arm.md).
+* Para obter informações sobre eventos de monitorização, consulte [monitorizar alertas para cópias de segurança da máquina virtual do Azure](backup-azure-monitor-vms.md).

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: spelluru
-ms.openlocfilehash: ddda9ef2b9bb716f7cdd33aa8fe9233f6c7d8e82
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 2903228a3257abe9c454c6e0720a1e228b905290
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749005"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300045"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especifique um grupo de recursos para máquinas virtuais do laboratório no Azure DevTest Labs
 Como proprietário de um laboratório, pode configurar as máquinas virtuais do laboratório ser criado num grupo de recursos específico. Utilize esta funcionalidade para que o recurso não atingir os limites de grupo na sua subscrição do Azure. Esta funcionalidade permite-lhe consolidar todos os recursos do laboratório dentro de um grupo de recursos. Também simplifica controlar esses recursos e aplicar [políticas](../governance/policy/overview.md) geri-los ao nível do grupo de recursos.
@@ -32,7 +32,7 @@ Agora vamos examinar as opções que tem como proprietário de um laboratório a
 - Pode introduzir um **novo grupo de recursos** nome todas as máquinas virtuais.
 - Pode continuar com o comportamento existente, ou seja, um grupo de recursos é criado para cada VM no laboratório.
  
-Esta definição aplica-se para novas máquinas de virtuais criadas no laboratório. As VMs mais antigas em seu laboratório que foram criadas em seus próprios grupos de recursos continuam a não são afetados. No entanto, pode migrar estas máquinas virtuais dos seus grupos de recurso individual para o grupo de recursos comuns, para que todas as suas máquinas virtuais do laboratório são num grupo de recursos comuns. Para obter mais informações, consulte [mover recursos para um novo grupo de recursos](../azure-resource-manager/resource-group-move-resources.md). Ambientes criados no seu laboratório continuam a permanecer em seus próprios grupos de recursos.
+Esta definição aplica-se para novas máquinas de virtuais criadas no laboratório. As VMs mais antigas em seu laboratório que foram criadas em seus próprios grupos de recursos continuam a não são afetados. Ambientes criados no seu laboratório continuam a permanecer em seus próprios grupos de recursos.
 
 ### <a name="how-to-use-this-api"></a>Como utilizar esta API:
 - Utilizar a versão de API **2018_10_15_preview** ao utilizar esta API. 

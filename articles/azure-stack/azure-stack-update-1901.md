@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 94c7b5c81785c3d6fba31396f5812a1308817e33
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115713"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301116"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização de 1901 de pilha do Azure
 
@@ -199,7 +199,9 @@ Para rever a referência para os módulos atualizados, consulte [referência de 
            "autoUpgradeMinorVersion": "true"
    ```
 
-- Há uma consideração de novo para planeamento da capacidade do Azure Stack com precisão. Podemos ter definir limites no número total de VMs que podem ser implementados no Azure Stack, para garantir que todos os nossos serviços internos de satisfazem a escala a que os clientes executar. O limite é de 60 VMs por anfitrião, com um máximo de 700 para o carimbo inteiro (se for atingida a 60 por limite de anfitrião). Para obter mais informações, consulte a [nova versão do Planeador de capacidade](http://aka.ms/azstackcapacityplanner).
+- Há uma consideração de novo para planeamento da capacidade do Azure Stack com precisão. Com a atualização de 1901, agora existe um limite no número total de máquinas virtuais que podem ser criados.  Este limite é de se destina a ser temporário para evitar instabilidade de solução. A origem do problema de estabilidade no número mais elevado de VMs que está a ser resolvida, mas ainda não foram identificada uma linha de tempo específica de remediação. Com a atualização de 1901, agora existe um limite de servidor de 60 VMs com um limite de solução total de 700 por.  Por exemplo, um limite de VM do Azure Stack 8 server seria 480 (8 * 60).  Para um servidor de 12 a 16 solução do Azure Stack, o limite seria 700. Este limite foi criado tendo a toda a computação considerações sobre a capacidade em mente, como a reserva de resiliência e a CPU virtual para física proporção que um operador gostaria de manter o carimbo. Para obter mais informações, veja a nova versão do Planeador de capacidade.  
+No caso de foi atingido o limite de dimensionamento VM, os seguintes códigos de erro seriam retornados assim: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - A versão de API de computação tem aumentado para 2017-12-01.
 

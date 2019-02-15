@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164622"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301762"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlar e conceder acesso de base de dados para a base de dados SQL e SQL Data Warehouse
 
@@ -84,9 +84,9 @@ Para além das funções administrativas ao nível do servidor abordadas anterio
 
 ### <a name="database-creators"></a>Criadores de base de dados
 
-Uma destas funções administrativas é a função **dbmanager**. Os membros desta função podem criar novas bases de dados. Para utilizar esta função, crie um utilizador na base de dados `master` e, em seguida, adicione o utilizador à função de base de dados **dbmanager**. Para criar uma base de dados, o utilizador tem de ser um utilizador baseado num início de sessão do SQL Server na base de dados mestra ou um utilizador de base de dados contida baseado num utilizador do Azure Active Directory.
+Uma destas funções administrativas é a função **dbmanager**. Os membros desta função podem criar novas bases de dados. Para utilizar esta função, crie um utilizador na base de dados `master` e, em seguida, adicione o utilizador à função de base de dados **dbmanager**. Para criar uma base de dados, o utilizador tem de ser um utilizador com base num início de sessão do SQL Server no `master` da base de dados ou utilizador de base de dados contida, com base num utilizador do Azure Active Directory.
 
-1. Ao utilizar uma conta de administrador, ligue à base de dados mestra.
+1. Utilizar uma conta de administrador, ligue para o `master` base de dados.
 2. Criar um início de sessão de autenticação do SQL Server, utilizando o [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) instrução. Instrução de exemplo:
 
    ```sql
@@ -98,7 +98,7 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
 
    Para melhorar o desempenho, os início de sessão (principais ao nível do servidor) são temporariamente colocados em cache ao nível da base de dados. Para atualizar a cache de autenticação, veja [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. Na base de dados mestra, crie um utilizador com a instrução [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx). O utilizador pode ser um utilizador de base de dados contido do Azure Active Directory (se tiver configurado o ambiente para autenticação do Azure AD), um utilizador de base de dados contido de autenticação do SQL Server ou um utilizador de autenticação do SQL Server com base num início de sessão de autenticação do SQL Server (criado no passo anterior). Instruções de exemplo:
+3. Na `master` bases de dados, crie um utilizador com o [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) instrução. O utilizador pode ser um utilizador de base de dados contido do Azure Active Directory (se tiver configurado o ambiente para autenticação do Azure AD), um utilizador de base de dados contido de autenticação do SQL Server ou um utilizador de autenticação do SQL Server com base num início de sessão de autenticação do SQL Server (criado no passo anterior). Instruções de exemplo:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o utilizador novo à função de base de dados **dbmanager** com a instrução [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx). Instruções de exemplo:
+4. Adicionar novo utilizador, para o **dbmanager** função de base de dados no `master` com o [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) instrução. Instruções de exemplo:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ Uma destas funções administrativas é a função **dbmanager**. Os membros des
 
 5. Se for necessário, configure uma regra de firewall para permitir que o novo utilizador se ligue. (O novo utilizador poderá ser abrangido por uma regra de firewall existente.)
 
-Agora, o utilizador pode ligar à base de dados mestra e criar bases de dados novas. A conta que cria a base de dados torna-se na proprietária da base de dados.
+Agora, o utilizador pode ligar-se para o `master` de base de dados e pode criar novas bases de dados. A conta que cria a base de dados torna-se na proprietária da base de dados.
 
 ### <a name="login-managers"></a>Gestores de início de sessão
 
@@ -141,11 +141,19 @@ Inicialmente, apenas um dos administradores ou o proprietário da base de dados 
 GRANT ALTER ANY USER TO Mary;
 ```
 
-Para conceder aos utilizadores adicionais controlo total da base de dados, torne-os membros da função de base de dados fixa **db_owner** com a instrução `ALTER ROLE`.
+Para conceder aos utilizadores adicionais controlo total da base de dados, torná-los um membro do **db_owner** função de base de dados fixa.
+
+Em utilização de base de dados do Azure SQL o `ALTER ROLE` instrução.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+Na utilização do Azure SQL Data Warehouse [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > É uma das razões comuns para criar um utilizador de base de dados com base num início de sessão do servidor de base de dados SQL para os utilizadores que necessitam de aceder a várias bases de dados. Uma vez que continha os utilizadores de base de dados são entidades individuais, cada base de dados mantém sua própria de utilizador e a sua própria palavra-passe. Isso pode causar overhead à medida que o utilizador tem, em seguida, lembre-se de cada palavra-passe para cada base de dados, e ele pode se tornar untenable quando precisar alterar várias palavras-passe para muitas bases de dados. No entanto, ao utilizar inícios de sessão do SQL Server e de elevada disponibilidade (georreplicação ativa e grupos de ativação pós-falha), os inícios de sessão do SQL Server tem de ser definidos manualmente em cada servidor. Caso contrário, o utilizador de base de dados será já não está mapeado para o início de sessão do servidor depois de ocorre uma ativação pós-falha e não será capaz de aceder a ativação pós-falha de postagem de base de dados. Para obter mais informações sobre como configurar os inícios de sessão para georreplicação, veja [configurar e gerir a segurança de base de dados do Azure SQL para o restauro geográfico ou de ativação pós-falha](sql-database-geo-replication-security-config.md).

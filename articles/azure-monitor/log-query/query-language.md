@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c59ef72f6e836b9cdf6899d917701555fc5e1988
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989258"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268775"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de registo do Azure Monitor
-Registos de Monitor do Azure são criados no Explorador de dados do Azure e consultas de registo do Azure Monitor utiliza uma versão da mesma linguagem de consulta. O [documentação de linguagem de consulta do Explorador de dados do Azure](/azure/kusto/query) tem todos os detalhes para o idioma e deve ser o principal recurso para escrever consultas de registo do Azure Monitor. Esta página fornece links para outros recursos para aprender a escrever consultas e nas diferenças com a implementação do Azure Monitor da linguagem.
+Registos de Monitor do Azure são criados no Explorador de dados do Azure e consultas de registo do Azure Monitor de utilizar uma versão da linguagem de consulta de Kusto mesmo. O [documentação de linguagem de consulta do Explorador de dados do Azure](/azure/kusto/query) tem todos os detalhes para o idioma e deve ser o principal recurso para escrever consultas de registo do Azure Monitor. Esta página fornece links para outros recursos para aprender a escrever consultas e nas diferenças com a implementação do Azure Monitor da linguagem.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Registos de Monitor do Azure são criados no Explorador de dados do Azure e cons
 
 ## <a name="reference"></a>Referência
 
-- [Referência de linguagem de consulta](/azure/kusto/query) é a referência de linguagem completa para a linguagem de consulta do Data Explorer.
-- [Azure diferenças de linguagem de consulta do Monitor log](data-explorer-difference.md) descreve as diferenças entre as versões da linguagem de consulta Data Explorer.
+- [Referência de linguagem de consulta](/azure/kusto/query) é a referência de linguagem completa para a linguagem de consulta de Kusto.
+- [Azure diferenças de linguagem de consulta do Monitor log](data-explorer-difference.md) descreve as diferenças entre as versões da linguagem de consulta de Kusto.
 - [Registos de propriedades padrão no Azure Monitor](../../azure-monitor/platform/log-standard-properties.md) Descreve propriedades padrão para todos os dados de registo do Azure Monitor.
 - [Executar consultas de registo entre recursos no Azure Monitor](../../azure-monitor/log-query/cross-workspace-query.md) descreve como escrever consultas de registo que utilizam dados de várias áreas de trabalho do Log Analytics e aplicações do Application Insights.
 
@@ -65,4 +65,4 @@ Registos de Monitor do Azure são criados no Explorador de dados do Azure e cons
  
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Aceder a completa [documentação para o idioma de consulta do Explorador de dados de referência](/azure/kusto/query/).
+- Aceder a completa [documentação para o idioma de consulta de Kusto de referência](/azure/kusto/query/).

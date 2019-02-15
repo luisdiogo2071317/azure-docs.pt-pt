@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: raynew
-ms.openlocfilehash: 552ba28a9635cdd484ccd598726dcea0b3bcbc60
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261507"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268877"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -40,7 +40,7 @@ Para monitorizar alertas, ou ver os dados de gestão sobre um cofre dos serviço
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Na lista de cofres, clique num cofre para abrir o respetivo **descrição geral** dashboard. 
+4. Na lista de cofres, clique num cofre para abrir o respetivo **descrição geral** dashboard.
 
     ![dashboard do Cofre de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -75,7 +75,7 @@ Para aceder ao menu de alertas de cópia de segurança, no menu do cofre dos ser
 
 ![Alertas de cópia de segurança](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-O relatório de alertas de cópia de segurança apresenta os alertas para o cofre. 
+O relatório de alertas de cópia de segurança apresenta os alertas para o cofre.
 
 ![Alertas de cópia de segurança](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -124,7 +124,7 @@ Por predefinição, todos os detalhes, exceto **hora da última ocorrência**, s
 
 ### <a name="change-the-filter-in-alerts-report"></a>Alterar o filtro no relatório de alertas
 
-Utilize o **filtro** menu para alterar a gravidade, estado, a hora de início e a hora de fim para os alertas. 
+Utilize o **filtro** menu para alterar a gravidade, estado, a hora de início e a hora de fim para os alertas.
 
 > [!NOTE]
 > Editar os alertas de cópia de segurança do filtro não altera os alertas críticas ou de aviso do dashboard de descrição geral do cofre.
@@ -184,7 +184,7 @@ Para ver detalhes adicionais sobre as tarefas, clique em **em curso** ou **falha
 
 O **tarefas de cópia de segurança** menu apresenta informações sobre o Item tipo, operação, estado, hora de início e a duração.  
 
-Para abrir o menu de tarefas de cópia de segurança, no menu principal do cofre, clique em **tarefas de cópia de segurança**. 
+Para abrir o menu de tarefas de cópia de segurança, no menu principal do cofre, clique em **tarefas de cópia de segurança**.
 
 ![Itens de cópia de segurança das definições](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -263,17 +263,14 @@ O mosaico de armazenamento de cópia de segurança no dashboard mostra o armazen
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**Q1. Quanto tempo demora para o estado da tarefa de agente de cópia de segurança do Azure refletir no portal?**
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo demora para o estado da tarefa de agente de cópia de segurança do Azure refletir no portal?
+O portal do Azure pode demorar até 15 minutos para refletir o estado da tarefa de agente de cópia de segurança do Azure.
 
-R1. O portal do Azure pode demorar até 15 minutos para refletir o estado da tarefa de agente de cópia de segurança do Azure.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando uma tarefa de cópia de segurança falhar, o tempo que demora para emitir um alerta?
+Um alerta é gerado dentro de 20 minutos da falha de cópia de segurança do Azure.
 
-**P2. Quando uma tarefa de cópia de segurança falhar, o tempo que demora para emitir um alerta?**
-
-R2. Um alerta é gerado dentro de 20 minutos da falha de cópia de segurança do Azure.
-
-**Q3. Existe um caso onde não ser enviado um e-mail se estiverem configuradas notificações?**
-
-R3. Sim. Nas seguintes situações, não são enviadas notificações.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Existe um caso onde não ser enviado um e-mail se estiverem configuradas notificações?
+Sim. Nas seguintes situações, não são enviadas notificações.
 
 * Se as notificações estão configuradas por hora e um alerta for emitido e resolvido dentro da hora
 * Quando uma tarefa é cancelada

@@ -10,21 +10,32 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 8e9d41131228c2399277e59a6d0edd78efda307b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 67d0ef88072985141c05d9da77377e5d4228a669
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999118"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270322"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Implementar um serviço web do Azure Machine Learning Studio
-O Azure Machine Learning permite-lhe criar, testar e implementar soluções de Análise Preditiva.
 
-A partir de uma ponto de-de-visão de alto nível, isso é feito em três passos:
+O Azure Machine Learning Studio permite-lhe criar e testar uma solução de Análise Preditiva. Em seguida, pode implementar a solução como um serviço web.
 
-* **[Criar uma experimentação de preparação]**  -Azure Machine Learning Studio é um ambiente de desenvolvimento de visual de colaboração que utiliza para treinar e testar um modelo de Análise Preditiva com dados de treinamento que fornecer.
+Os serviços web do Machine Learning Studio fornecem uma interface entre uma aplicação e um modelo de classificação de fluxo de trabalho de Machine Learning Studio. Uma aplicação externa comunica com um modelo de classificação de fluxo de trabalho de Machine Learning Studio em tempo real. Uma chamada para um serviço web do Machine Learning Studio devolve resultados de predição para uma aplicação externa. Para fazer uma chamada para um serviço Web, tem de transmitir uma chave de API que foi criada quando implementou esse serviço. Um serviço web do Machine Learning Studio baseia-se em REST, uma opção de arquitetura popular para projetos de programação web.
+
+O Azure Machine Learning Studio tem dois tipos de serviços da web:
+
+* Serviço de solicitação-resposta (RRS): Uma baixa latência, serviço altamente escalável que pontua um registo de dados individual.
+* Serviço de execução de lote (BES): Um serviço assíncrono que pontua um lote de registos de dados.
+
+A entrada para BES é como a entrada de dados que o RRS utiliza. A principal diferença é que BES lê um bloco de registos a partir de várias origens, como o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure, a Base de Dados SQL do Azure, o HDInsight (consulta do Hive) e origens HTTP.
+
+
+A partir de uma ponto de-de-visão de alto nível, implementar o seu modelo em três passos:
+
+* **[Criar uma experimentação de preparação]**  -no Studio, pode treinar e testar um modelo de Análise Preditiva com dados de treinamento que fornecer, utilizando um grande conjunto de algoritmos de aprendizagem automática incorporado.
 * **[Convertê-lo para uma experimentação preditiva]**  -assim que o seu modelo foi treinado com os dados existentes e está pronto para usá-lo para pontuar novos dados, preparar e simplifique a sua experimentação para previsões.
-* **[Implementá-lo como um serviço web]**  -pode implementar a sua experimentação preditiva como um [novo] ou [clássico] serviço web do Azure. Os utilizadores podem enviar dados para o seu modelo e receber previsões de seu modelo.
+* **[Implementá-lo como um serviço web]**  -pode implementar a sua experimentação preditiva como um *clássico* ou *New* serviço web do Azure (baseados no Resource Manager). Os utilizadores podem enviar dados para o seu modelo e receber previsões de seu modelo.
 
 
 
@@ -34,7 +45,7 @@ Para preparar um modelo de Análise Preditiva, use Azure Machine Learning Studio
 O processo de criação e gestão de experimentações de treinamento é abordado mais a fundo em outro lugar. Para obter mais informações, veja estes artigos:
 
 * [Criar uma experimentação simple no Azure Machine Learning Studio](create-experiment.md)
-* [Desenvolver uma solução Preditiva com o Azure Machine Learning](tutorial-part1-credit-risk.md)
+* [Desenvolver uma solução Preditiva com o Azure Machine Learning Studio](tutorial-part1-credit-risk.md)
 * [Importar os dados de treinamento para o Azure Machine Learning Studio](import-data.md)
 * [Gerir iterações de experimentação no Azure Machine Learning Studio](manage-experiment-iterations.md)
 
@@ -58,12 +69,12 @@ Pode implementar a experimentação preditiva como um novo serviço web ou como 
 ### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Implementar a experimentação preditiva como um serviço web novo
 Agora que a experimentação preditiva tenha sido preparada, pode implementá-lo como um novo serviço web do Azure. Usando o web service, os utilizadores podem enviar dados para o seu modelo e o modelo retornará seu previsões.
 
-Para implementar a sua experimentação preditiva, clique em **executar** na parte inferior da tela de experimentação. Quando tiver terminado de executar a experimentação, clique em **implementar serviço Web** e selecione **implementar serviço Web [novo]**.  É aberta a página de implementação do portal do serviço Web Machine Learning.
+Para implementar a sua experimentação preditiva, clique em **executar** na parte inferior da tela de experimentação. Quando tiver terminado de executar a experimentação, clique em **implementar serviço Web** e selecione **implementar serviço Web [New]**.  É aberta a página de implementação do portal do serviço Web do Machine Learning Studio.
 
 > [!NOTE] 
 > Para implementar um novo serviço web tem de ter permissões suficientes na subscrição para a qual estiver a implementar o serviço web. Para obter mais informações, consulte [gerir um serviço Web através do portal do Azure Machine Learning Web Services](manage-new-webservice.md). 
 
-#### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Portal de serviço do Learning Web Deploy página de experimentação do Machine
+#### <a name="machine-learning-studio-web-service-portal-deploy-experiment-page"></a>Portal de serviço do Learning Studio Web Deploy página de experimentação do Machine
 Na página de experimentação de implementar, introduza um nome para o serviço web.
 Selecione um plano de preços. Se tiver um plano de preços existente, que pode selecioná-lo, caso contrário, tem de criar um novo plano de preços para o serviço.
 
@@ -105,7 +116,7 @@ Sobre o **configuração** página, pode alterar a descrição, title, atualizar
 Depois de implementar o serviço web, pode:
 
 * **Acesso** -lo por meio da API de serviço da web.
-* **Gerir** -lo através do portal do Azure Machine Learning web services.
+* **Gerir** -lo através do portal de serviços web Azure Machine Learning Studio.
 * **Atualização** -lo se seu modelo for alterado.
 
 #### <a name="access-your-new-web-service"></a>Aceda ao seu serviço web novo
@@ -113,10 +124,10 @@ Depois de implementar o serviço web do Machine Learning Studio, pode enviar dad
 
 O **Consume** página fornece todas as informações necessárias acessar o serviço web. Por exemplo, a chave de API é fornecida para permitir o acesso autorizado ao serviço.
 
-Para obter mais informações sobre como acessar um serviço web do Machine Learning, consulte [como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
+Para obter mais informações sobre como acessar um serviço web do Machine Learning Studio, consulte [como consumir um serviço Web do Azure Machine Learning Studio](consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Gerir o seu novo serviço web
-Pode gerenciar o novo portal de serviços Web Machine Learning de serviços web. Partir do [página principal do portal](https://services.azureml-test.net/), clique em **serviços da Web**. Da página de serviços da web, pode eliminar ou copiar um serviço. Para monitorizar um serviço específico, clique no serviço e, em seguida, clique em **Dashboard**. Para monitorizar trabalhos de lote associados ao serviço web, clique em **registo de pedido de lote**.
+Pode gerenciar o novo portal de serviços da Web do Machine Learning Studio de serviços web. Partir do [página principal do portal](https://services.azureml-test.net/), clique em **serviços da Web**. Da página de serviços da web, pode eliminar ou copiar um serviço. Para monitorizar um serviço específico, clique no serviço e, em seguida, clique em **Dashboard**. Para monitorizar trabalhos de lote associados ao serviço web, clique em **registo de pedido de lote**.
 
 ### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Implementar a experimentação preditiva como um serviço web clássico
 
@@ -128,11 +139,11 @@ Para implementar a sua experimentação preditiva, clique em **execute** na part
 
 #### <a name="test-your-classic-web-service"></a>Testar o serviço da web clássico
 
-Pode testar o serviço web no Machine Learning Studio ou no portal de serviços Web Machine Learning.
+Pode testar o serviço web no portal de serviços da Web do Machine Learning Studio ou no Machine Learning Studio.
 
 Para testar o serviço da web de resposta a um pedido, clique nas **testar** botão no dashboard do serviço web. Exibe uma caixa de diálogo a pedir-lhe para os dados de entrada para o serviço. Estas são as colunas esperadas pela experimentação de classificação. Introduza um conjunto de dados e, em seguida, clique em **OK**. Os resultados gerados pelo serviço da web são apresentados na parte inferior do dashboard.
 
-Pode clicar a **testar** link de pré-visualização para testar seu serviço no portal do Azure Machine Learning Web Services, como mostrado anteriormente na secção de serviço web novo.
+Pode clicar a **testar** ligação de pré-visualização para testar seu serviço no portal do serviços de Web do Azure Machine Learning Studio, conforme mostrado anteriormente na secção de serviço web novo.
 
 Para testar o serviço de execução do Batch, clique em **testar** link de pré-visualização. Na página de teste do Batch, clique em Procurar em sua entrada e selecione um ficheiro CSV que contém os valores de exemplo apropriado. Se não tiver um ficheiro CSV e criou sua experimentação Preditiva com o Machine Learning Studio, pode transferir o conjunto de dados para a experimentação preditiva e utilizá-lo.
 
@@ -142,7 +153,7 @@ Sobre o **configuração** página, pode alterar o nome a apresentar do serviço
 
 Pode fornecer uma descrição para os dados de entrada, dados de saída e web parâmetros de serviço ao introduzir uma cadeia de caracteres para cada coluna em **esquema de entrada**, **esquema de saída**, e **serviço Web PARÂMETRO**. Estas descrições são usadas na documentação do código de exemplo fornecida para o serviço web.
 
-Pode ativar o registo diagnosticar quaisquer falhas que está vendo quando seu serviço web é acessado. Para obter mais informações, consulte [ativar o registo de serviços web Machine Learning](web-services-logging.md).
+Pode ativar o registo diagnosticar quaisquer falhas que está vendo quando seu serviço web é acessado. Para obter mais informações, consulte [ativar o registo de serviços web Machine Learning Studio](web-services-logging.md).
 
 ![Configurar o serviço web](./media/publish-a-machine-learning-web-service/figure-4.png)
 
@@ -153,15 +164,15 @@ Depois de implementar o serviço web do Machine Learning Studio, pode enviar dad
 
 O dashboard fornece todas as informações necessárias acessar o serviço web. Por exemplo, a chave de API é fornecida para permitir o acesso autorizado ao serviço e páginas de ajuda da API são fornecidas para o ajudar a começar a escrever seu código.
 
-Para obter mais informações sobre como acessar um serviço web do Machine Learning, consulte [como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
+Para obter mais informações sobre como acessar um serviço web do Machine Learning Studio, consulte [como consumir um serviço Web do Azure Machine Learning Studio](consume-web-services.md).
 
 #### <a name="manage-your-classic-web-service"></a>Gerir o seu serviço de web clássico
 Existem várias ações que pode efetuar para monitorizar um serviço web. Pode atualizá-la e eliminá-lo. Também pode adicionar pontos finais adicionais para um serviço da web clássico, além do ponto final predefinido que é criado quando a implementá-la.
 
-Para obter mais informações, consulte [gerir uma área de trabalho do Azure Machine Learning](manage-workspace.md) e [gerir um serviço web através do portal do Azure Machine Learning Web Services](manage-new-webservice.md).
+Para obter mais informações, consulte [gerir uma área de trabalho do Azure Machine Learning Studio](manage-workspace.md) e [gerir um serviço web com o portal de serviços Web do Azure Machine Learning Studio](manage-new-webservice.md).
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
+For more information on how to manage Azure Machine Learning Studio web service endpoints using the REST API, see **Azure Machine Learning Studio web service endpoints**.
 -->
 
 ## <a name="update-the-web-service"></a>Atualizar o serviço web
@@ -173,17 +184,24 @@ Uma vez que implantou esta experiência antes, é-lhe perguntado se pretende sub
 
 > [!NOTE]
 > Se tiver efetuado alterações de configuração no original web service, por exemplo, introduzir um novo nome a apresentar ou a descrição, terá de introduzir novamente esses valores.
-> 
-> 
 
-Uma opção para atualizar o seu serviço web é para voltar a preparar programaticamente o modelo. Para obter mais informações, veja [Retrain Machine Learning models programmatically (Reparametrizar modelos do Machine Learning programaticamente)](retrain-models-programmatically.md).
+Uma opção para atualizar o seu serviço web é para voltar a preparar programaticamente o modelo. Para obter mais informações, consulte [Retrain Machine Learning Studio dos modelos](retrain-models-programmatically.md).
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* Para obter mais detalhes técnicos sobre como funciona a implantação, consulte [progride de modelo de como um Machine Learning Studio de uma experimentação para um serviço Web operacionalizado](model-progression-experiment-to-web-service.md).
+
+* Para obter detalhes sobre como obter o seu modelo pronto para implementar, veja [como preparar o seu modelo para a implementação no Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
+
+* Existem várias formas de utilizar a API REST e aceder ao serviço Web. Ver [como consumir um serviço web do Azure Machine Learning Studio](consume-web-services.md).
+
 
 <!-- internal links -->
 [Criar uma experimentação de preparação]: #create-a-training-experiment
 [Convertê-lo para uma experimentação preditiva]: #convert-the-training-experiment-to-a-predictive-experiment
 [Implementá-lo como um serviço web]: #deploy-it-as-a-web-service
-[novo]: #deploy-the-predictive-experiment-as-a-new-web-service
-[clássico]: #deploy-the-predictive-experiment-as-a-classic-web-service
+[new]: #deploy-the-predictive-experiment-as-a-new-web-service
+[classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

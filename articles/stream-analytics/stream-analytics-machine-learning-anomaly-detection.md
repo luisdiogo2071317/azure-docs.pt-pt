@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: bdd512972f1a684a3b76ae0323bbadd87bf0d659
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9ea9cc116a13aac2dca9edf8ba86c933310b5198
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238322"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269642"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias no Azure Stream Analytics
 
-O Azure Stream Analytics oferece incorporado do machine learning capacidades de deteção de anomalias com base que podem ser usadas para monitorar as anomalias mais que duas: temporários e persistentes. Com o **AnomalyDetection_SpikeAndDip** e **AnomalyDetection_ChangePoint** funções, pode executar a deteção de anomalias diretamente na sua tarefa de Stream Analytics.
+Disponível na cloud e no Azure IoT Edge, Azure Stream Analytics oferece incorporado do machine learning capacidades de deteção de anomalias com base que podem ser usadas para monitorar as anomalias mais que duas: temporários e persistentes. Com o **AnomalyDetection_SpikeAndDip** e **AnomalyDetection_ChangePoint** funções, pode executar a deteção de anomalias diretamente na sua tarefa de Stream Analytics.
 
 Os modelos de machine learning partem do princípio de uma série de tempo de amostragem de maneira uniforme. Se não for uniforme a série de tempo, pode inserir um passo de agregação com uma janela em cascata antes de chamar a deteção de anomalias.
 
@@ -36,13 +36,14 @@ As lacunas na série de tempo podem ser o resultado do modelo não receber event
 
 ## <a name="spike-and-dip"></a>Pico e dip
 
-Anomalias temporárias num fluxo de eventos de série de tempo são conhecidas como picos e quedas. Picos e descidas podem ser monitorizadas com o operador de Machine Learning, **AnomalyDetection_SpikeAndDip**.
+Anomalias temporárias num fluxo de eventos de série de tempo são conhecidas como picos e quedas. Picos e descidas podem ser monitorizadas com o operador de Machine Learning, [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+).
 
 ![Exemplo de anomalias de pico e dip](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
 Na mesma janela deslizante, se um segundo pico for menor que o primeiro, a classificação calculada para a menor oscilação provavelmente não é significativa suficiente em comparação com a classificação para o pico primeiro no nível de confiança especificado. Pode tentar reduzir a definição de nível de confiança do modelo para capturar essas anomalias. No entanto, se começar a obter demasiados alertas, pode utilizar um intervalo mais alto de confiança.
 
-A seguinte consulta de exemplo parte do princípio de uma taxa uniforme de entrada de 1 evento por segundo num minuto 2 janela com um histórico de eventos de 120 deslizante. A instrução SELECT final extrai e devolve a pontuação e anomalias Estado com um nível de confiança de 95%.
+A seguinte consulta de exemplo parte do princípio de uma taxa uniforme de entrada de um evento por segundo numa janela deslizante de 2 minutos com um histórico de eventos de 120. A instrução SELECT final extrai e devolve a pontuação e anomalias Estado com um nível de confiança de 95%.
 
 ```SQL
 WITH AnomalyDetectionStep AS
@@ -67,9 +68,9 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Alterar ponto
 
-Anomalias persistentes num fluxo de eventos de série de tempo são as alterações na distribuição de valores no fluxo de eventos, como alterações no nível e tendências. No Stream Analytics, essas anomalias são detetadas com o Machine Learning com base **AnomalyDetection_ChangePoint** operador.
+Anomalias persistentes num fluxo de eventos de série de tempo são as alterações na distribuição de valores no fluxo de eventos, como alterações no nível e tendências. No Stream Analytics, essas anomalias são detetadas com o Machine Learning com base [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics) operador.
 
-Alterações persistentes duram muito mais do que os picos e quedas e podem indicar o evento ou eventos catastróficos. Alterações persistentes normalmente não são facilmente visíveis literal, mas pode ser detectadas com o **AnomalyDetection_ChangePoint** operador.
+Alterações persistentes duram muito mais do que os picos e quedas e podem indicar o evento ou eventos catastróficos. Alterações persistentes não são normalmente visíveis literal, mas pode ser detectadas com o **AnomalyDetection_ChangePoint** operador.
 
 A imagem seguinte é um exemplo de uma alteração de nível:
 
@@ -79,7 +80,7 @@ A imagem seguinte é um exemplo de uma alteração de tendência:
 
 ![Exemplo de anomalias de alteração de tendência](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-trend-change.png)
 
-A seguinte consulta de exemplo parte do princípio de uma taxa uniforme de entrada de 1 evento por segundo num minuto de 20 janela com um tamanho de histórico de eventos de 1200 deslizante. A instrução SELECT final extrai e devolve a pontuação e anomalias Estado com um nível de confiança de 80%.
+A seguinte consulta de exemplo parte do princípio de uma taxa uniforme de entrada de um evento por segundo numa janela deslizante de 20 minutos com um tamanho de histórico de eventos de 1200. A instrução SELECT final extrai e devolve a pontuação e anomalias Estado com um nível de confiança de 80%.
 
 ```SQL
 WITH AnomalyDetectionStep AS

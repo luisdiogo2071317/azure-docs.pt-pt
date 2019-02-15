@@ -1,21 +1,21 @@
 ---
 title: Tutorial de início rápido de indexação e consulta através do portal do Azure - Azure Search
-description: Neste tutorial de início rápido, utilize o portal do Azure e os dados de exemplo incorporado para gerar um índice no Azure Search. Explore a pesquisa em texto completo, filtros, facetas, a pesquisa difusa, a pesquisa geográfica e muito mais.
+description: Saiba como criar e consultar o seu primeiro índice na Azure Search utilizando o Assistente para importar dados e dados de exemplo incorporado no portal do Azure.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991315"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270339"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Início rápido: Utilizar ferramentas do portal internas para importação de Azure Search, indexação e consultas
 
@@ -94,15 +94,17 @@ Os campos têm tipos de dados e atributos. As caixas de verificação na parte s
 
 Requisitos de armazenamento não varia devido a sua seleção. Por exemplo, se definir o **recuperável** atributo em múltiplos campos, não subir o requisitos de armazenamento.
 
-Por predefinição, o assistente verifica a origem de dados relativamente a identificadores exclusivos como a base do campo de chaves. As cadeias são atribuídas como recuperáveis e pesquisáveis. Os números inteiros são atribuídos como recuperáveis, filtráveis, ordenáveis e facetáveis.
+Por predefinição, o assistente verifica a origem de dados relativamente a identificadores exclusivos como a base do campo de chaves. *Cadeias de caracteres* são atribuídas como **recuperável** e **pesquisável**. *Números inteiros* são atribuídas como **recuperável**, **filtrável**, **ordenável**, e **Facetável**.
 
-1. Aceite todos os padrões.
+1. Aceite as predefinições. 
 
-  ![Índice de realestate gerado](media/search-get-started-portal/realestateindex2.png)
+   Se executar novamente o assistente uma segunda vez usando uma origem de dados de realestate existente, o índice não será configurado com atributos predefinidos. Terá de selecionar manualmente os atributos no imports futuras.
+
+   ![Índice de realestate gerado](media/search-get-started-portal/realestateindex2.png)
 
 2. Continue para a página seguinte.
 
-  ![Próxima página Criar indexador](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Próxima página Criar indexador](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Passo 4 - configurar o indexador
 

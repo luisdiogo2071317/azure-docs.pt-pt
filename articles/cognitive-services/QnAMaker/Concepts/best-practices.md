@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245546"
+ms.locfileid: "56270186"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 O [ciclo de vida de desenvolvimento de base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) orienta-o sobre como gerir a sua BDC do início ao fim. Utilize estas melhores práticas para melhorar a sua base de dados de conhecimento e fornecer os melhores resultados para os utilizadores finais do seu bot de aplicação/bate-papo.
@@ -25,6 +25,18 @@ O [ciclo de vida de desenvolvimento de base de dados de conhecimento](../Concept
 O serviço QnA Maker está continuamente a melhorar os algoritmos que extrair QnAs de conteúdo e expandir a lista de ficheiro suportados e formatos HTML. Siga os [diretrizes](../Concepts/data-sources-supported.md) para extração de dados com base no seu tipo de documento. 
 
 Em geral, as páginas de FAQ devem ser autónomo e não combinada com outras informações. Os manuais de produto devem ter títulos claros e preferencialmente, uma página de índice. 
+
+## <a name="creating-good-questions-and-answers"></a>Criar boas perguntas e respostas
+
+### <a name="good-questions"></a>Boas perguntas
+
+As melhores perguntas são simples. Considere a palavra-chave ou a expressão para cada pergunta, em seguida, criar uma simple pergunta para essa palavra-chave ou frase. 
+
+Adicione tantas perguntas alternativas conforme necessário, mas manter as alterações simples. A adição de mais palavras ou frases que não fazem parte da meta principal da pergunta não ajuda QnA Maker encontrar uma correspondência. 
+
+### <a name="good-answers"></a>Boa respostas
+
+As melhores respostas são respostas simples, mas não muito simples, como Sim e não existem respostas. Se a sua resposta deve ligar a outras origens ou fornecer uma experiência avançada com suporte de dados e links, utilize [marcação](../how-to/metadata-generateanswer-usage.md) para distinguir o tipo de resposta esperado, em seguida, enviar essa etiqueta com a consulta para obter a versão de resposta correta.
 
 ## <a name="chit-chat"></a>Chit-bate-papo
 Adicionar chit-bate-papo ao seu bot, para tornar o seu bot mais conversacionais e apelativas, com esforço reduzido. Pode facilmente adicionar conjuntos de dados de chit chat para 3 personalidades predefinidas ao criar a sua BDC e alterá-los em qualquer altura. Saiba como [adicionar chit-bate-papo para sua BDC](../How-To/chit-chat-knowledge-base.md). 
@@ -58,7 +70,6 @@ Certifique-se de que está fazendo o melhor uso dos recursos de classificação 
 ### <a name="choosing-a-threshold"></a>Escolher um limiar
 A pontuação de confiança de predefinição que é utilizada como um limiar é 50, no entanto, pode alterá-lo para a sua BDC com base nas suas necessidades. Uma vez que cada KB é diferente, deve testar e escolha o limiar de que é melhor adequado para seu KB. Leia mais sobre o [pontuação de confiança](../Concepts/confidence-score.md). 
 
-
 ### <a name="add-alternate-questions"></a>Adicionar perguntas alternativas
 [Alternate perguntas](../How-To/edit-knowledge-base.md) melhorar a probabilidade de uma correspondência com uma consulta de utilizador. Perguntas alternativas são úteis quando existem múltiplas formas em que pode ser solicitada a mesma pergunta. Isto pode incluir alterações na estrutura da sentença e estilo do word.
 
@@ -81,17 +92,16 @@ Embora haja algum suporte para sinónimos em inglês, utilize maiúsculas e min�
 |Comprar|comprar<br>netbanking<br>banca NET|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Utilizar palavras diferentes para diferenciar perguntas
-Algoritmos de correspondência de classificação do QnA Maker, que correspondem a uma consulta de utilizador com uma pergunta na base de dados de conhecimento, funcionam melhor se cada pergunta resolve uma necessidade de diferente. Repetição da mesma palavra definido entre perguntas reduz a probabilidade de que a resposta certa é escolhida para uma consulta de determinado usuário com essas palavras. 
+Algoritmo de classificação do QnA Maker, que corresponde a uma consulta de utilizador com uma pergunta na base de dados de conhecimento, funciona melhor se cada pergunta resolve uma necessidade de diferente. Repetição da mesma palavra definido entre perguntas reduz a probabilidade de que a resposta certa é escolhida para uma consulta de determinado usuário com essas palavras. 
 
 Por exemplo, pode ter dois QnAs separados com as seguintes perguntas:
 
 |QnAs|
 |--|
 |onde está o estacionamento *localização*|
-|onde está o caixa eletrônico *localização*|
+|onde está o caixa Eletrônico *localização*|
 
-Uma vez que estes dois QnAs são dizer com palavras muito semelhantes, essa semelhança poderia causar pontuações muito semelhantes para muitas consultas de utilizador que estão a dizer, como *"em que é o `<x>` localização"*. Em vez disso, tente claramente diferenciá-los com consultas como *"em que é a área de estacionamento"* e *"onde está o caixa eletrônico"*, ao evitar palavras como "localização" que poderia ser em muitas perguntas em sua KB. 
-
+Uma vez que estes dois QnAs são dizer com palavras muito semelhantes, essa semelhança poderia causar pontuações muito semelhantes para muitas consultas de utilizador que estão a dizer, como *"em que é o `<x>` localização"*. Em vez disso, tente claramente diferenciá-los com consultas como *"em que é a área de estacionamento"* e *"onde está o caixa Eletrônico"*, ao evitar palavras como "localização" que poderia ser em muitas perguntas em sua KB. 
 
 ## <a name="collaborate"></a>Colaboração
 A ferramenta QnA Maker permite que os usuários [colaborar](../How-to/collaborate-knowledge-base.md) numa base de dados de conhecimento. Os utilizadores precisam de acesso para o grupo de recursos do Azure QnA Maker para acessar as bases de dados de conhecimento. Algumas organizações poderão querer terceirizar a edição de base de dados de conhecimento e a manutenção e continuará a poder proteger o acesso aos seus recursos do Azure. Esse modelo de aprovador de editor é feito ao configurar dois idêntico [serviços do QnA Maker](../How-to/set-up-qnamaker-service-azure.md) em diferentes subscrições e selecionando um para o ciclo de teste de edição. Assim que o teste estiver concluído, o conteúdo de base de dados é transferido com um [importação-exportação](../Tutorials/migrate-knowledge-base.md) processos para o serviço QnA Maker do aprovador que finalmente publicar a base de dados de conhecimento e atualizar o ponto final.

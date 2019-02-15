@@ -1,7 +1,7 @@
 ---
 title: Adicionar os analisadores personalizados - Azure Search
 description: Modificar tokenizers de texto e os filtros de caráter utilizados em consultas de pesquisa de texto completo do Azure Search.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,22 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 150510ec09744b1350a93bde4e2a4dcb141867c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008287"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302085"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Adicionar os analisadores personalizados para um índice da Azure Search
 
-R *analisador personalizado* é uma combinação especificado pelo utilizador de atomizador e filtros opcionais utilizados para personalizar o processamento no mecanismo de pesquisa de texto. Por exemplo, pode criar um analisador personalizado com um *filtro de char* para remover a marcação HTML antes de entradas de texto são indexadas.
+R *analisador personalizado* é um tipo específico de [analisador de texto](search-analyzers.md) que consiste numa combinação de definidas pelo utilizador de mensagens em fila de atomizador existente e filtros opcionais. Ao combinar tokenizers e filtros de novas formas, pode personalizar o processamento no mecanismo de pesquisa para alcançar resultados específicos de texto. Por exemplo, pode criar um analisador personalizado com um *filtro de char* para remover a marcação HTML antes de entradas de texto são indexadas.
+
+ Pode definir vários analisadores personalizados para variar a combinação de filtros, mas cada campo só pode utilizar um analisador para indexação de análise e outro para análise de pesquisa. Para obter uma ilustração o aspeto de um analisador de cliente, consulte [exemplo de analisador personalizado](search-analyzers.md#Example1).
 
 ## <a name="overview"></a>Descrição geral
 
- A função de um [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md), em termos simples, é processar e armazenar documentos de forma que permite e obtenção de uma consulta eficiente. Num alto nível, tudo se resume extrair palavras importantes de documentos, colocá-las num índice e, em seguida, utilizar o índice para localizar documentos que correspondem palavras de uma determinada consulta. O processo de extração de palavras de documentos e consultas de pesquisa é chamado de análise lexical. Componentes que executam a análise lexical são chamados de analisadores.
+ A função de um [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md), em termos simples, é processar e armazenar documentos de forma que permite e obtenção de uma consulta eficiente. Num alto nível, tudo se resume extrair palavras importantes de documentos, colocá-las num índice e, em seguida, utilizar o índice para localizar documentos que correspondem palavras de uma determinada consulta. O processo de extração de palavras de documentos e consultas de pesquisa é chamado *análise lexical*. São chamados de componentes que executam a análise lexical *analisadores*.
 
- No Azure Search, pode escolher entre um conjunto de analisadores de agnóstica de idioma predefinidas no [analisadores](#AnalyzerTable) listados na tabela e de idioma analisadores específicos [analisadores de idiomas &#40;API de REST do serviço do Azure Search&#41;](index-add-language-analyzers.md). Tem também uma opção para definir suas próprias analisadores personalizados.  
+ No Azure Search, pode escolher entre um conjunto de analisadores de idioma agnóstico predefinidos no [analisadores](#AnalyzerTable) tabela ou analisadores de idioma específico listados na [analisadores de idiomas &#40;API de REST do serviço do Azure Search&#41;](index-add-language-analyzers.md). Tem também uma opção para definir suas próprias analisadores personalizados.  
 
  Um analisador personalizado permite-lhe assumir o controlo sobre o processo de conversão de texto em tokens indexáveis e pesquisáveis. É uma configuração definida pelo utilizador compostas por um único atomizador predefinido, um ou mais filtros de token e um ou mais filtros de char. O atomizador é responsável pela divisão de texto em tokens e os filtros de token para modificar tokens emitidos pelo atomizador. Filtros de char são aplicados para preparar o texto de entrada antes de é processado pelo atomizador. Por exemplo, o filtro de char pode substituir determinados caracteres ou símbolos.
 
@@ -50,22 +52,13 @@ R *analisador personalizado* é uma combinação especificado pelo utilizador de
 
 -   Dobragem ASCII. Adicione o ASCII padrão subconjuntos de validação de filtro para normalizar diacríticos como ö ou ê em termos de pesquisa.  
 
- Pode definir vários analisadores personalizados para variar a combinação de filtros, mas cada campo só pode utilizar um analisador para indexação de análise e outro para análise de pesquisa.  
-
- Esta página fornece uma lista de filtros de char, filtros de token, tokenizers e analisadores suportados. Também pode encontrar uma descrição das alterações para a definição do índice com um exemplo de utilização. Para obter mais informações sobre a tecnologia subjacente utilizada na implementação do Azure Search, veja [resumo com pacote de análise (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Para obter exemplos de configurações do analisador de mensagens em fila, consulte [analisadores no Azure Search > exemplos](https://docs.microsoft.com/azure/search/search-analyzers#examples).
-
-
-## <a name="default-analyzer"></a>Analisador de predefinição  
-
-Por predefinição, os campos pesquisáveis no Azure Search são analisados com o [analyzer Apache Lucene Standard (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que divide texto em elementos a seguir os ["Segmentação de texto Unicode"](https://unicode.org/reports/tr29/) regras. Além disso, o analisador padrão converte todos os carateres para o formato de minúsculas. Documentos indexados e termos de pesquisa percorrer a análise durante a indexação e de processamento de consultas.  
-
- Ele é usado automaticamente em todos os campos pesquisáveis, a menos que substituir explicitamente com o outro analyzer dentro da definição de campo. Analisadores alternativos podem ser um analisador personalizado ou um analisador de predefinidos diferente na lista de disponíveis [analisadores](#AnalyzerTable) abaixo.
+ Esta página fornece uma lista de filtros de char, filtros de token, tokenizers e analisadores suportados. Também pode encontrar uma descrição das alterações para a definição do índice com um exemplo de utilização. Para obter mais informações sobre a tecnologia subjacente utilizada na implementação do Azure Search, veja [resumo com pacote de análise (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). Para obter exemplos de configurações do analisador de mensagens em fila, consulte [adicionar analisadores no Azure Search](search-analyzers.md#examples).
 
 ## <a name="validation-rules"></a>Regras de validação  
  Nomes dos analisadores, tokenizers, filtros de token e filtros de char tem de ser exclusivo e não podem ser o mesmo que qualquer um dos analisadores predefinidos, tokenizers, filtros de token ou filtros de char. Consulte a [referência de propriedade](#PropertyReference) para nomes já em utilização.
 
-## <a name="create-a-custom-analyzer"></a>Criar um analisador personalizado
- Pode definir os analisadores personalizados no momento de criação do índice. A sintaxe para especificar um analisador personalizado é descrita nesta secção. Pode também se familiarizar com a sintaxe por rever as definições de exemplo na [analisadores no Azure Search](https://docs.microsoft.com/azure/search/search-analyzers#examples).  
+## <a name="create-custom-analyzers"></a>Criar analisadores personalizados
+ Pode definir os analisadores personalizados no momento de criação do índice. A sintaxe para especificar um analisador personalizado é descrita nesta secção. Pode também se familiarizar com a sintaxe por rever as definições de exemplo na [adicionar analisadores no Azure Search](search-analyzers.md#examples).  
 
  Uma definição de analisador inclui um nome, um tipo, um ou mais filtros de char, um máximo de um atomizador e um ou mais filtros de token para o processamento de pós atomização. Se filtram de char é aplicadas antes de atomização. Filtros de token e filtros de char são aplicados, da esquerda para a direita.
 
@@ -148,12 +141,13 @@ A definição de analyzer é uma parte do índice maior. Ver [criar o índice AP
 Definições de filtros de char, tokenizers e token filtros são adicionadas ao índice apenas se estiver a definir opções personalizadas. Para utilizar um filtro existente ou atomizador como-é, especifique-o por nome na definição do analyzer.
 
 <a name="Testing custom analyzers"></a>
-## <a name="test-a-custom-analyzer"></a>Testar um analisador personalizado
+
+## <a name="test-custom-analyzers"></a>Analisadores personalizados de teste
 
 Pode utilizar o **operação do analisador de teste** no [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para ver como um analisador desmembra fornecido texto em tokens.
 
 **Pedido**
-~~~~
+```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
     api-key: [admin key]
@@ -162,9 +156,9 @@ Pode utilizar o **operação do analisador de teste** no [REST API](https://docs
      "analyzer":"my_analyzer",
      "text": "Vis-à-vis means Opposite"
   }
-~~~~
+```
 **Resposta**
-~~~~
+```
   {
     "tokens": [
       {
@@ -193,21 +187,21 @@ Pode utilizar o **operação do analisador de teste** no [REST API](https://docs
       }
     ]
   }
- ~~~~
+```
 
- ## <a name="update-a-custom-analyzer"></a>Atualizar um analisador personalizado
+ ## <a name="update-custom-analyzers"></a>Atualize os analisadores personalizados
 
 Depois de um analisador, um tokenizer, um filtro de token ou um filtro de char é definido, não pode ser modificado. Novos podem ser adicionados a um índice existente, apenas se o `allowIndexDowntime` sinalizador estiver definido como verdadeiro no pedido de atualização de índice:
 
-~~~~
+```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
-~~~~
+```
 
 Esta operação retira o seu índice offline para, pelo menos, alguns segundos, fazendo com que os pedidos de indexação e consulta a falhar. Disponibilidade de desempenho e de escrita do índice pode ser afetada durante vários minutos, depois do índice é mais longo para índices muito grandes ou atualizados, mas esses efeitos são temporários e, eventualmente, resolver por conta própria.
 
  <a name="ReferenceIndexAttributes"></a>
 
-## <a name="index-attribute-reference"></a>Referência de atributo de índice
+## <a name="analyzer-reference"></a>Referência de analisador
 
 As tabelas a seguir listam as propriedades de configuração para analisadores, tokenizers, filtros de token e char secção filtro de uma definição de índice. A estrutura de um analisador, tokenizer ou filtro no seu índice é composta por estes atributos. Para informações de atribuição de valor, consulte a [referência de propriedade](#PropertyReference).
 
@@ -289,7 +283,7 @@ Esta secção fornece os valores válidos para atributos especificados na defini
 |[stop](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|Divide texto na não letras, aplica-se os filtros de token em minúsculas e a palavra de paragem.<br /><br /> **Opções**<br /><br /> palavras de paragem (tipo: matriz de cadeia de caracteres)-uma lista de palavras de paragem. A predefinição é uma lista predefinida para inglês. |  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(tipo aplica-se apenas quando estão disponíveis opções) |Um analisador que utiliza o atomizador de espaço em branco. São divididas tokens que são mais de 255 carateres.|  
 
- <sup>1</sup> analisador de tipos são sempre o prefixo no código com "#Microsoft.Azure.Search", de modo a que o "PatternAnalyzer", na verdade, teria de ser especificado como "#Microsoft.Azure.Search.PatternAnalyzer". Removemos o prefixo para fins de brevidade, a mas prefixo é necessária no seu código. 
+ <sup>1</sup> analisador de tipos são sempre o prefixo no código com "#Microsoft.Azure.Search", de modo a que o "PatternAnalyzer", na verdade, teria de ser especificado como "#Microsoft.Azure.Search.PatternAnalyzer". Removemos o prefixo para fins de brevidade, mas o prefixo é necessária no seu código. 
  
 O analyzer_type só é fornecido para analisadores que podem ser personalizados. Se não há opções, como é o caso com o analisador de palavra-chave, não há nenhum tipo de #Microsoft.Azure.Search associados.
 
@@ -390,5 +384,5 @@ Na tabela abaixo, os filtros de token que são implementados com o Apache Lucene
 
 ## <a name="see-also"></a>Consulte também  
  [REST do serviço de pesquisa do Azure](https://docs.microsoft.com/rest/api/searchservice/)   
- [Analisadores no Azure Search > exemplos](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
+ [Analisadores no Azure Search > exemplos](search-analyzers.md#examples)    
  [Criar índice &#40;API de REST do serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

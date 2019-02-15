@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1383c59ca88400868f83d30d04d9b0e5f5401282
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895997"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268962"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -400,7 +400,7 @@ No entanto, a forma recomendada para enviar a telemetria de pedido é onde o ped
 
 ## <a name="operation-context"></a>Contexto de operação
 
-Pode correlacionar os itens de telemetria em conjunto, associando-os com o contexto de operação. O módulo de controlo de solicitação padrão faz isso para exceções e outros eventos que são enviados enquanto está a ser processada uma solicitação HTTP. Na [pesquisa](../../azure-monitor/app/diagnostic-search.md) e [Analytics](analytics.md), pode encontrar facilmente todos os eventos associados à solicitação usando a operação de ID.
+Pode correlacionar os itens de telemetria em conjunto, associando-os com o contexto de operação. O módulo de controlo de solicitação padrão faz isso para exceções e outros eventos que são enviados enquanto está a ser processada uma solicitação HTTP. Na [pesquisa](../../azure-monitor/app/diagnostic-search.md) e [Analytics](analytics.md), pode encontrar facilmente todos os eventos associados à solicitação com o seu ID de operação.
 
 Ver [correlação de telemetria no Application Insights](../../azure-monitor/app/correlation.md) para obter mais detalhes sobre a correlação.
 
@@ -508,7 +508,7 @@ catch (ex)
 Os SDKs capturam muitas exceções automaticamente, nem sempre tem que chamar TrackException explicitamente.
 
 * ASP.NET: [Escrever código para interceptar exceções](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Exceções são capturadas automaticamente](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [Exceções são capturadas automaticamente](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Exceções são capturadas automaticamente. Se pretender desativar a recolha automática, adicione uma linha para o fragmento de código que insere em suas páginas da Web:
 
 ```javascript
@@ -732,7 +732,7 @@ Thread.sleep(5000);
 telemetry.flush();
 ```
 
-Tenha em atenção que a função é assíncrona para o [canal de telemetria do servidor](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+A função é assíncrona para o [canal de telemetria do servidor](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
 O ideal é que o método Flush () deve ser usado na atividade de encerramento do aplicativo.
 
@@ -1141,10 +1141,10 @@ Se definir qualquer um destes valores por conta própria, considere remover a li
 
 * **Componente**: A aplicação e sua versão.
 * **Dispositivo**: Dados sobre o dispositivo em que a aplicação está em execução. (Em aplicações web, isso é o servidor ou dispositivo de cliente que a telemetria é enviada a partir.)
-* **InstrumentationKey**: O recurso do Application Insights no Azure, onde a telemetria são apresentados. Ele é normalmente escolhido do applicationinsights. config.
+* **InstrumentationKey**: O recurso do Application Insights no Azure, onde a telemetria é apresentada. Ele é normalmente escolhido do applicationinsights. config.
 * **Localização**: A localização geográfica do dispositivo.
 * **Operação**: Nas aplicações web, a solicitação HTTP atual. Outros tipos de aplicação, pode definir esta opção para agrupar eventos em conjunto.
-  * **Id**: Um valor gerado que correlaciona eventos diferentes, para que quando inspecionar qualquer evento na pesquisa de diagnósticos, pode encontrar itens relacionados.
+  * **ID**: Um valor gerado que correlaciona eventos diferentes, para que quando inspecionar qualquer evento na pesquisa de diagnósticos, pode encontrar itens relacionados.
   * **Nome**: Um identificador, geralmente, o URL da solicitação HTTP.
   * **SyntheticSource**: Se não for nulo ou vazio, uma cadeia que indica que a origem do pedido foi identificada como um teste de robô ou web. Por predefinição, esta é excluída da cálculos no Explorador de métricas.
 * **Propriedades**: Propriedades que são enviadas com todos os dados de telemetria. Pode ser substituído no Roteiro * chamadas individuais.

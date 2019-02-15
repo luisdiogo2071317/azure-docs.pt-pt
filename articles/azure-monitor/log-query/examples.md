@@ -1,6 +1,6 @@
 ---
-title: Exemplos de consulta do log de Monitor do Azure Monitor do Azure | Documentos da Microsoft
-description: Exemplos de consultas de registo no Azure Monitor utilizando a linguagem de consulta do Data Explorer.
+title: Exemplos de consulta do log de Monitor do Azure | Documentos da Microsoft
+description: Exemplos de consultas de registo no Azure Monitor utilizando a linguagem de consulta de Kusto.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c161a2fd8d1be670435d2b1a749749cea7d82bcf
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993202"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268452"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de registo do Azure Monitor
-Este artigo inclui vários exemplos de [consultas](log-query-overview.md) utilizando o [linguagem de consulta do Data Explorer](https://docs.microsoft.com/azure/kusto/query/) para recuperar os diferentes tipos de dados de registo do Azure Monitor. Métodos diferentes são utilizados para consolidar e analisar os dados, pelo que pode utilizar estes exemplos para identificar estratégias diferentes que poderia usar em seus próprios requisitos.  
+Este artigo inclui vários exemplos de [consultas](log-query-overview.md) utilizando o [linguagem de consulta de Kusto](/azure/kusto/query/) para recuperar os diferentes tipos de dados de registo do Azure Monitor. Métodos diferentes são utilizados para consolidar e analisar os dados, pelo que pode utilizar estes exemplos para identificar estratégias diferentes que poderia usar em seus próprios requisitos.  
 
 Consulte a [referência de linguagem de Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Aceda através de um [lição sobre a criação de consultas](get-started-queries.md) se estiver familiarizado com o Azure Monitor.
 

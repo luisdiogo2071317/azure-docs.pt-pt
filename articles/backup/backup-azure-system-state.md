@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255869"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268728"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Criar cópias de segurança do Estado do sistema Windows na implementação do Resource Manager
 Este artigo explica como fazer cópias de segurança do Estado do sistema Windows Server para o Azure. É um tutorial que se destina a explicar as noções básicas.
 
-Se pretender saber mais sobre o Backup do Azure, leia esta [descrição geral](backup-introduction-to-azure-backup.md).
+Se pretender saber mais sobre o Backup do Azure, leia esta [descrição geral](backup-overview.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) que lhe permite aceder a qualquer serviço do Azure.
 
@@ -131,7 +131,7 @@ Agora que criou um cofre, configure-o para fazer backup de estado do sistema Win
 
     ![as credenciais do cofre terminaram de ser transferidas](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> As credenciais do cofre tem de ser guardadas apenas para uma localização que seja local para o Windows Server no qual pretende usar o agente. 
+> As credenciais do cofre tem de ser guardadas apenas para uma localização que seja local para o Windows Server no qual pretende usar o agente.
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -163,7 +163,7 @@ Agora que criou um cofre, configure-o para fazer backup de estado do sistema Win
 
 O agente está agora instalado e a máquina está registada no cofre. Está pronto para configurar e agendar a cópia de segurança.
 
-## <a name="back-up-windows-server-system-state"></a>Fazer cópia de segurança do Estado do Sistema Windows Server 
+## <a name="back-up-windows-server-system-state"></a>Fazer cópia de segurança do Estado do Sistema Windows Server
 A cópia de segurança inicial inclui duas tarefas:
 
 * Agendar a cópia de segurança
@@ -194,7 +194,7 @@ Para concluir a cópia de segurança inicial, utilize o agente dos Serviços de 
 
 6. Clique em **Seguinte**.
 
-7. Selecione a frequência de cópia de segurança necessária e a política de retenção para as cópias de segurança do Estado do sistema nas páginas subsequentes. 
+7. Selecione a frequência de cópia de segurança necessária e a política de retenção para as cópias de segurança do Estado do sistema nas páginas subsequentes.
 
 8. Na página de Confirmação, reveja as informações e, em seguida, clique em **Concluir**.
 

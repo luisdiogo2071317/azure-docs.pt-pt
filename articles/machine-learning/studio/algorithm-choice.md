@@ -10,16 +10,20 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6442facf680c934d976e7fa8008f2f3c3551045f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244798"
+ms.locfileid: "56268103"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos para o Azure Machine Learning Studio
 
 A resposta à pergunta "O algoritmo de machine learning devo utilizar?" é sempre "Depende". Depende do tamanho, a qualidade e a natureza dos dados. Depende do que deseja fazer com a resposta. Depende de como a matemática do algoritmo foi traduzida nas instruções para o computador que estiver a utilizar. Além de depender da sobre quanto tempo tem. Até mesmo os mais experientes cientistas de dados não podem informar quais algoritmos serão o desempenho antes de tentá-los.
+
+O Machine Learning Studio dispõe de algoritmos avançados, como Árvores de Decisão Escaláveis, Sistemas de Recomendação Bayesianos, Redes Neurais Profundas e Selvas de Decisão desenvolvidas junto da Microsoft Research. Estão também incluídos pacotes de código aberto e dimensionáveis de machine learning, como o Vowpal Wabbit. O Machine Learning Studio suporta algoritmos de machine learning para classificação de várias classes e binária, regressão e clustering. Ver a lista completa dos [módulos do Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index).
+A documentação fornece algumas informações sobre cada algoritmo e de como otimizar os parâmetros para otimizar o algoritmo para a sua utilização.  
+
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Roteiro para o algoritmo de Machine Learning
 

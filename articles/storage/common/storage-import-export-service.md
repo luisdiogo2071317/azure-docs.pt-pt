@@ -5,21 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453387"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267517"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço importar/exportar do Azure?
 
 O serviço importar/exportar do Azure é utilizado para importar com segurança as grandes quantidades de dados para o armazenamento de Blobs do Azure e ficheiros do Azure envie unidades de disco num Datacenter do Azure. Este serviço também pode ser utilizado para transferir dados do armazenamento de Blobs do Azure para unidades de disco e disponibilize aos seus sites no local. Dados a partir de uma ou mais unidades de disco podem ser importados ou ficheiros do Azure ou de armazenamento de Blobs do Azure. 
 
-Fornecer-lhe próprias unidades de disco e a transferência de dados com o serviço importar/exportar do Azure. Também pode utilizar unidades de disco fornecidas pela Microsoft. 
+Forneça as suas próprias unidades de disco e transferir dados com o serviço importar/exportar do Azure. Também pode utilizar unidades de disco fornecidas pela Microsoft. 
 
 Se quiser transferir dados através de unidades de disco fornecidas pela Microsoft, pode utilizar [disco do Azure Data Box](../../databox/data-box-disk-overview.md) para importar dados para o Azure. Microsoft vem até 5 encriptadas disco unidades de estado sólido (SSDs) com uma capacidade total de 40 TB por ordem, no seu datacenter através de uma operadora regional. Pode rapidamente configurar unidades de disco, copiar os dados em unidades de disco através de uma ligação USB 3.0 e enviar as unidades de disco para o Azure. Para obter mais informações, aceda a [descrição geral do disco do Azure Data Box](../../databox/data-box-disk-overview.md).
 

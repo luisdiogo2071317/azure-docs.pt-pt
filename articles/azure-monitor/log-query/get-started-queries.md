@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994892"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269861"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de registo do Azure Monitor
 
@@ -43,7 +43,7 @@ Neste tutorial irá aprender a escrever consultas de registo do Azure LMonitor. 
 Consultas podem começar com o nome de uma tabela ou o *pesquisa* comando. Deve começar com um nome de tabela, uma vez que define um âmbito claro para a consulta e melhora o desempenho da consulta e relevância dos resultados.
 
 > [!NOTE]
-> A linguagem de consulta do Explorador de dados utilizada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave idiomáticas são normalmente escritas em minúsculas. Ao utilizar nomes de tabelas ou colunas numa consulta, certifique-se utilizar as maiúsculas e minúsculas corretas, conforme mostrado no painel de esquema.
+> A linguagem de consulta de Kusto utilizada pelo Azure Monitor diferencia maiúsculas de minúsculas. Palavras-chave idiomáticas são normalmente escritas em minúsculas. Ao utilizar nomes de tabelas ou colunas numa consulta, certifique-se utilizar as maiúsculas e minúsculas corretas, conforme mostrado no painel de esquema.
 
 ### <a name="table-based-queries"></a>Consultas baseadas em tabela
 Monitor do Azure organiza os dados de registo em tabelas, cada uma consistindo em várias colunas. Todas as tabelas e colunas são apresentadas no painel de esquema no Log Analytics no portal do Analytics. Identificar uma tabela que tem interesse e, em seguida, dê uma olhada num pouco de dados:

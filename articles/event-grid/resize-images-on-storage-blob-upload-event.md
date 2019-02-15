@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0bd602ff6c6d42730439dac2b898899b07dcb2cc
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756874"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301456"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas com o Event Grid
 
@@ -27,7 +27,19 @@ Este tutorial é a segunda parte de uma série de tutoriais sobre Armazenamento.
 
 Utilize a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redimensionamento a uma aplicação de carregamento de imagens existente.
 
-![Aplicação web publicada no browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
+![Aplicação web publicada no browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[SDK de node. js V2](#tab/nodejs)
+
+![Aplicação web publicada no browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK de node. js V10](#tab/nodejsv10)
+
+![Aplicação web publicada no browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 Neste tutorial, ficará a saber como:
 
@@ -46,10 +58,6 @@ Tem de ter concluído o tutorial de armazenamento de BLOBs anterior: [Carregar d
 
 Se não registou o fornecedor de recursos do Event Grid na sua subscrição anteriormente, confirme que está registado.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
-```
-
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
 ```
@@ -62,33 +70,30 @@ Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o 
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-As Funções do Azure requerem uma conta de armazenamento geral. Crie uma conta de armazenamento geral separada no grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create).
-
-Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. 
-
-No comando seguinte, substitua o nome da conta de armazenamento geral globalmente exclusivo onde vir o marcador de posição `<general_storage_account>`. 
+As Funções do Azure requerem uma conta de armazenamento geral. Para a conta de armazenamento de BLOBs que criou no tutorial anterior, além de criar uma conta de armazenamento geral separada no grupo de recursos com o [criar conta de armazenamento az](/cli/azure/storage/account) comando. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas. 
 
 1. Defina uma variável para conter o nome do grupo de recursos que criou no tutorial anterior. 
 
     ```azurecli-interactive
-    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    resourceGroupName=myResourceGroup
     ```
-2. Defina uma variável para o nome da conta de armazenamento que requer a função do Azure. 
+2. Defina uma variável para o nome da nova conta de armazenamento que requer que as funções do Azure. 
 
     ```azurecli-interactive
-    functionstorage=<name of the storage account to be used by function>
+    functionstorage=<name of the storage account to be used by the function>
     ```
-3. Crie a conta de armazenamento para a função do Azure. Isso é diferente de armazenamento que contém as imagens. 
+3. Crie a conta de armazenamento para a função do Azure. 
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    az storage account create --name $functionstorage --location southeastasia \
+    --resource-group $resourceGroupName --sku Standard_LRS --kind storage
     ```
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função  
 
-Precisa de uma aplicação de funções para alojar a execução da sua função. A aplicação Function App proporciona um ambiente para a execução sem servidor do código da sua função. Utilize o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) para criar uma aplicação Function App. 
+Precisa de uma aplicação de funções para alojar a execução da sua função. A aplicação Function App proporciona um ambiente para a execução sem servidor do código da sua função. Utilize o comando [az functionapp create](/cli/azure/functionapp) para criar uma aplicação Function App. 
 
-No comando seguinte, substitua o nome da aplicação de funções exclusivo onde vir o marcador de posição `<function_app>`. O nome da aplicação de funções vai ser utilizado como o domínio DNS predefinido para a aplicação de funções, por isso o nome tem de ser exclusivo em todas as aplicações no Azure. Para `<general_storage_account>`, substitua o nome da conta de armazenamento geral que criou.
+No comando seguinte, forneça o nome de aplicação de funções exclusivo. O nome da aplicação de funções vai ser utilizado como o domínio DNS predefinido para a aplicação de funções, por isso o nome tem de ser exclusivo em todas as aplicações no Azure. 
 
 1. Especifique um nome para a aplicação de função que está a ser criada. 
 
@@ -98,29 +103,62 @@ No comando seguinte, substitua o nome da aplicação de funções exclusivo onde
 2. Crie a função do Azure. 
 
     ```azurecli-interactive
-    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    az functionapp create --name $functionapp --storage-account $functionstorage \
+    --resource-group $resourceGroupName --consumption-plan-location southeastasia
     ```
 
 Agora tem de configurar a aplicação de funções para ligar à Conta de armazenamento de blobs que criou no [tutorial anterior][previous-tutorial].
 
 ## <a name="configure-the-function-app"></a>Configurar a aplicação de funções
 
-A função precisa da cadeia de ligação para ligar à Conta de armazenamento de blobs. O código de função que implementar no Azure no passo seguinte procura a cadeia de ligação na definição da aplicação myblobstorage_STORAGE e procura o nome do contentor da imagem da miniatura na definição da aplicação myContainerName. Obtenha a cadeia de ligação com o comando [az storage account show-connection-string](/cli/azure/storage/account). Configure as definições da aplicação com o comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
+A função precisa de credenciais para a conta de armazenamento de BLOBs, que são adicionadas às definições da aplicação da aplicação de função com o [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) comando.
 
-Nos seguintes comandos da CLI, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs que criou no tutorial anterior.
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-1. Obter a cadeia de ligação para a conta de armazenamento que contém as imagens. 
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
 
-    ```azurecli-interactive
-    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
-    ```
-2. Configure a aplicação de funções. 
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
 
-    ```azurecli-interactive
-    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
-    ```
+# <a name="nodejs-v2-sdktabnodejs"></a>[SDK de node. js V2](#tab/nodejs)
 
-    A definição `FUNCTIONS_EXTENSION_VERSION=~2` determina que a aplicação de funções seja executada na versão 2.x do runtime das Funções do Azure.
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK de node. js V10](#tab/nodejsv10)
+
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+-n $blobStorageAccount --query [0].value --output tsv)
+
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
+AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
+AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+```
+
+---
+
+A definição `FUNCTIONS_EXTENSION_VERSION=~2` determina que a aplicação de funções seja executada na versão 2.x do runtime das Funções do Azure.
 
 Agora, pode implementar um projeto de código de função nesta aplicação de funções.
 
@@ -128,23 +166,30 @@ Agora, pode implementar um projeto de código de função nesta aplicação de f
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-O redimensionamento do script (.csx) do C# de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source). 
-
-No comando seguinte, `<function_app>` é o nome da aplicação de funções que criou anteriormente.
+O exemplo C# função de redimensionamento está disponível no [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Implementar o projeto de código para a aplicação de funções com o [az functionapp deployment origem config](/cli/azure/functionapp/deployment/source) comando. 
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs-v2-sdktabnodejs"></a>[SDK de node. js V2](#tab/nodejs)
+
 A função de redimensionamento do Node.js de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
-No comando seguinte, `<function_app>` é o nome da aplicação de funções que criou anteriormente.
+```azurecli-interactive
+az functionapp deployment source config --name $functionapp \
+--resource-group $resourceGroupName --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+```
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK de node. js V10](#tab/nodejsv10)
+
+A função de redimensionamento do Node.js de exemplo está disponível no [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Implemente este projeto de código de Funções na aplicação de funções com o comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source).
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+az functionapp deployment source config --name $functionapp \
+--resource-group $resourceGroupName --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 ---
 
@@ -152,10 +197,22 @@ A função de redimensionamento da imagem é acionada por pedidos de HTTP enviad
 
 Os dados transmitidos para a função a partir da notificação do Event Grid incluem o URL do blob. Esse URL é transmitido para o enlace de entrada para obter a imagem carregada a partir do armazenamento de Blobs. A função gera uma imagem em miniatura e escreve o fluxo resultante num contentor separado no armazenamento de Blobs. 
 
-Este projeto utiliza `EventGridTrigger` para o tipo de acionador. É recomendado utilizar o acionador do Event Grid através de acionadores HTTP genéricos. O Event Grid valida automaticamente os acionadores de função do Event Grid. Com os acionadores HTTP genéricos, tem de implementar a [resposta de validação](security-authentication.md#webhook-event-delivery).
+Este projeto utiliza `EventGridTrigger` para o tipo de acionador. É recomendado utilizar o acionador do Event Grid através de acionadores HTTP genéricos. O Event Grid valida automaticamente os acionadores de função do Event Grid. Com os acionadores HTTP genéricos, tem de implementar a [resposta de validação](security-authentication.md).
 
-Para obter mais informações sobre esta função, veja os [ficheiros function.json e run.csx](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/imageresizerfunc).
- 
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
+Para obter mais informações sobre esta função, veja os [ficheiros function.json e run.csx](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions).
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[SDK de node. js V2](#tab/nodejs)
+
+Para obter mais informações sobre esta função, veja a [ficheiros Function e Index](https://github.com/Azure-Samples/storage-blob-resize-function-node/tree/master/Thumbnail).
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK de node. js V10](#tab/nodejsv10)
+
+Para obter mais informações sobre esta função, veja a [ficheiros Function e Index](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail).
+
+---
+
 O código de projeto de função é implementado diretamente a partir do repositório de exemplo público. Para saber mais sobre as opções de implementação para as Funções do Azure, veja [Implementação contínua para Funções do Azure](../azure-functions/functions-continuous-deployment.md).
 
 ## <a name="create-an-event-subscription"></a>Criar uma subscrição de evento
@@ -197,11 +254,25 @@ Agora que os serviços de back-end estão configurados, teste a funcionalidade d
 
 Para testar o redimensionamento de imagens na aplicação Web, navegue para o URL da aplicação publicada. O URL predefinido da aplicação Web é `https://<web_app>.azurewebsites.net`.
 
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
 Clique na região **Carregar fotografias** para selecionar e carregar um ficheiro. Também pode arrastar uma fotografia para esta região. 
 
 Tenha em atenção que, depois de a imagem carregada desaparecer, é apresentada uma cópia da imagem carregada no carrossel **Miniaturas geradas**. Esta imagem foi redimensionada pela função, adicionada ao contentor de *miniaturas* e transferida pelo cliente Web.
 
-![Aplicação web publicada no browser Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Aplicação web publicada no browser](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[SDK de node. js V2](#tab/nodejs)
+
+Clique em **Escolher ficheiro** para selecionar um ficheiro, em seguida, clique em **carregar imagem**. Quando o carregamento for bem-sucedido, o navegador navega para uma página de êxito. Clique na ligação para regressar à home page. Uma cópia da imagem carregada é apresentada na **miniaturas geradas** área. (Se a imagem não aparece em primeiro lugar, tente recarregar a página). Esta imagem foi redimensionada pela função, adicionada ao contentor de *miniaturas* e transferida pelo cliente Web.
+
+![Aplicação web publicada no browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK de node. js V10](#tab/nodejsv10)
+
+Clique em **Escolher ficheiro** para selecionar um ficheiro, em seguida, clique em **carregar imagem**. Quando o carregamento for bem-sucedido, o navegador navega para uma página de êxito. Clique na ligação para regressar à home page. Uma cópia da imagem carregada é apresentada na **miniaturas geradas** área. (Se a imagem não aparece em primeiro lugar, tente recarregar a página). Esta imagem foi redimensionada pela função, adicionada ao contentor de *miniaturas* e transferida pelo cliente Web.
+
+![Aplicação web publicada no browser](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

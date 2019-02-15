@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 40f7f15c85d5676fefe8daff0aa6a6fb5d95cf53
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117073"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266998"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utilize o recurso de API do Gerenciador de autenticação para aceder a subscrições
 
@@ -75,8 +75,6 @@ Antes de começar a codificar, registe a sua aplicação web com o Azure Active 
 Porque a sua aplicação acede a outra subscrição, tem de configurá-la como uma aplicação multi-inquilino. Para passar na validação, forneça um domínio associado com o Azure Active Directory. Para ver os domínios associados com o Azure Active Directory, inicie sessão no portal.
 
 O exemplo seguinte mostra como registar a aplicação com o Azure PowerShell. Tem de ter a versão mais recente (Agosto de 2016) do Azure PowerShell para este comando funcione.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true

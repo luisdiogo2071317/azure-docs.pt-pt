@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 71e88c06dcfe935f712af473c7f496d9165107a7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242818"
+ms.locfileid: "56267551"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão da v3 de serviços de multimédia do Azure
 
@@ -37,6 +37,8 @@ Para obter mais informações, consulte [orientações de migração para mover 
 ## <a name="february-2019"></a>Fevereiro de 2019
 
 Serviços de multimédia v3 já está upported em clouds nacionais do Azure. Nem todas as funcionalidades estão disponíveis em todas as nuvens ainda. Para obter detalhes, consulte [nuvens e regiões nos quais serviços de multimédia do Azure v3 existe](azure-clouds-regions.md).
+
+[Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) eventos foi adicionado para os esquemas de Azure Event Grid para os serviços de multimédia.
 
 ## <a name="january-2019"></a>Janeiro de 2019
 

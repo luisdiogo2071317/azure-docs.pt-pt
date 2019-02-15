@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2bb6237e53f945b645f1ee757a53ef67270e2416
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108743"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268384"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQs de desempenho da aplicação para aplicações Web no Azure
 
@@ -113,7 +113,7 @@ Para ativar o rastreio de pedido falhado:
 10. Selecione **Web. config**.
 11. No System. webServer, adicione esta configuração (para capturar um URL específico):
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -129,7 +129,7 @@ Para ativar o rastreio de pedido falhado:
     </tracing>
     ```
 12. Para resolver problemas de desempenho lento, adicione esta configuração (se o pedido de captura está a demorar mais de 30 segundos):
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />

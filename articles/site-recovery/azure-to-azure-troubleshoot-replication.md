@@ -1,5 +1,5 @@
 ---
-title: O Azure Site Recovery de resolução de problemas para erros e problemas de replicação do Azure para o Azure | Documentos da Microsoft
+title: O Azure Site Recovery de resolução de problemas para problemas de replicação em curso do Azure para o Azure | Documentos da Microsoft
 description: Erros e problemas de resolução de problemas ao replicar máquinas virtuais do Azure para recuperação após desastre
 services: site-recovery
 author: asgang
@@ -8,46 +8,41 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 9ff756270c368d39b7ef78d7c1046f7c91169668
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993336"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299604"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Resolver problemas de replicação em curso de VMS do Azure para o Azure
+# <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Resolução de problemas em curso na replicação de VM do Azure para o Azure
 
-Este artigo descreve os problemas comuns no Azure Site Recovery quando replicar e recuperar máquinas virtuais do Azure a partir de uma região para outra região e explica como solucionar esses problemas. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
+Este artigo descreve problemas comuns no Azure Site Recovery ao replicar e recuperar máquinas virtuais do Azure a partir de uma região para outra região. Também explica como solucionar esses problemas. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs do Azure](site-recovery-support-matrix-azure-to-azure.md).
 
+O Azure Site Recovery replica os dados da região de origem para a região de recuperação após desastre de forma consistente e cria um ponto de recuperação consistentes com falhas a cada 5 minutos. Se o Site Recovery não é possível criar pontos de recuperação durante 60 minutos, alerta-o com estas informações:
 
-## <a name="recovery-points-not-getting-generated"></a>Pontos de recuperação não ser gerados
+Mensagem de erro: "Não existem falhas consistente ponto de recuperação disponível para a VM nos últimos 60 minutos."</br>
+ID do erro: 153007 </br>
 
-MENSAGEM DE ERRO: Nenhum ponto de recuperação consistente com a falha disponível para a VM nos últimos 60 minutos.</br>
-ID DO ERRO: 153007 </br>
+As secções seguintes descrevem as causas e soluções.
 
-O Azure Site Recovery replica os dados da região de origem para a região de recuperação após desastre de forma consistente e cria ponto consistente com a falha a cada 5 minutos. Se o Site Recovery não consegue criar pontos de recuperação durante 60 minutos, em seguida, alerta utilizador. Seguem-se as causas que poderá resultar neste erro:
-
-**Fazer com que 1: [Taxa de alteração de dados de elevada na máquina de virtual de origem](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Causa 2: [Problema de conectividade de rede ](#Network-connectivity-issue)**
-
-## <a name="causes-and-solutions"></a>Causas e soluções
-
-### <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Taxa na origem da Máquina Virtual de alteração de dados elevado
-O Azure Site Recovery dispara um evento se a taxa de alteração de dados na máquina de virtual de origem for maior do que os limites suportados. Para verificar se o problema é devido ao elevado número de alterações, aceda a itens de replicado > VM > clique em "eventos-últimas 72 horas".
-Deverá ver a evento "dados taxa de alteração para além dos limites suportados", conforme mostrado na captura de ecrã abaixo
+## <a name="high-data-change-rate-on-the-source-virtal-machine"></a>Taxa de alteração de dados de elevada na máquina de virtual de origem
+O Azure Site Recovery dispara um evento se a taxa de alteração de dados na máquina de virtual de origem for maior do que os limites suportados. Para verificar se o problema é devido ao elevado número de alterações, aceda a **itens replicados** > **VM** > **eventos-últimas 72 horas**.
+Deverá ver o evento de "Taxa além dos limites suportados de alteração de dados":
 
 ![data_change_rate_high](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png)
 
-Se clicar no evento, deverá ver as informações do disco exato conforme mostrado na captura de ecrã abaixo
+Se selecionar o evento, deverá ver as informações do disco exata:
 
 ![data_change_rate_event](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png)
 
 
-#### <a name="azure-site-recovery-limits"></a>Limites do Azure Site Recovery
-A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites baseiam-se nos nossos testes, mas não abrangem todas as combinações de E/S de aplicações possíveis. Os resultados reais podem variar consoante a combinação de E/S da sua aplicação. Observe também que existem limites de duas a serem considerados, por disco de dados de alterações e por dados da máquina virtual de abandono.
-Por exemplo, se observarmos o disco Premium P20 na abaixo da tabela, Site Recovery pode lidar com alterações a 5 MB/s por disco com a máxima de cinco esses discos por VM devido ao limite de 25 MB/s total de alterações por VM.
+### <a name="azure-site-recovery-limits"></a>Limites do Azure Site Recovery
+A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites baseiam-se nos nossos testes, mas não abrangem todas as combinações de e/s de aplicações possíveis. Os resultados reais podem variar consoante a combinação de E/S da sua aplicação. 
 
-**Destino do armazenamento da replicação** | **Tamanho médio de E/S do disco de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
+Existem limites de duas a serem considerados, alterações a dados por máquina virtual e alterações a dados por disco. Por exemplo, vamos analisar o disco Premium P20 na tabela seguinte. Recuperação de sites pode processar 5 MB/s de alterações a dados por disco com um máximo de cinco esses discos por VM, devido ao limite de 25 MB/s de quantidade total de alterações por VM.
+
+**Destino do armazenamento da replicação** | **Tamanho médio de e/s de disco de origem** |**Alterações a dados média de disco de origem** | **Total de dados de alterações por dia para o disco de dados de origem**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
@@ -57,29 +52,27 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
 
 ### <a name="solution"></a>Solução
-É necessário compreendermos que o Azure Site Recovery tem limites de velocidade, com base no tipo de disco de alteração de dados. Para saber se este problema seja recorrente ou momentaneamente, é importante localizar os dados alterados padrão da taxa da máquina virtual afetada.
-Para localizar os dados de taxa de alteração da máquina virtual afetada. Aceda a máquina virtual de origem > métricas em monitorização e adicione as métricas, como mostrado abaixo.
+O Azure Site Recovery tem limites na taxa de alterações de dados, com base no tipo de disco. Para saber se este problema é recorrente ou momentânea, encontre a que taxa da máquina virtual afetada de alteração de dados. Vá para a máquina virtual de origem, encontre as métricas sob **monitorização**e adicione as métricas, como mostrado nesta captura de ecrã:
 
-![high_data_change_rate](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
+![Processo em três etapas para localizar a taxa de alteração de dados](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
 
-1. Clique em "Adicionar métrica" e adicione "Bytes/seg de escrita de disco do SO" e "Bytes/seg de escrita de disco de dados".
+1. Selecione **adicionar métrica**e adicione **SO disco Bytes escritos/seg** e **dados disco Bytes escritos/seg**.
 2. Monitorize o pico, conforme mostrado na captura de ecrã.
-3. Esta operação irá mostrar que o total escreve operação a acontecer no disco do SO e todos os discos de dados combinados. Agora estas métricas podem não informará por informações do nível de disco, mas são um bom indicador do padrão de alterações a total de dados.
+3. Curso nos discos de SO e todos os discos de dados combinados de operações de escrita de ver o total. Estas métricas não poderão fornecer informações ao nível por disco, mas indicam o padrão de total de alterações a dados.
 
-Em casos como acima se é um fluxo de dados ocasionais e a taxa de alteração de dados for superior a 10 (para Premium) e 2 MBps (por padrão) há algum tempo e resume, replicação será acompanhar. No entanto se o volume de alterações está muito além do limite suportado na maioria das vezes, em seguida, deve considerar uma do abaixo opção se for possível:
+Se é um pico de um dados ocasionais de rajada e os dados alterar taxa é maior que 10 MB/s (para Premium) e 2 MB/s (por padrão) para algumas de tempo e se resume, replicação será acompanhar. Mas, se o volume de alterações está muito além do suporte limitar a maior parte do tempo, considere uma destas opções se possível:
 
-**Opção 1:** Exclua o disco, o que está causando a taxa de alteração de dados de alta: </br>
-Atualmente pode excluir o disco com [Powershell da recuperação de Site](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)
+* **Excluir o disco que está a causar uma taxa elevada de alteração de dados**: Pode excluir o disco, utilizando [PowerShell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
+* **Alterar a camada do disco de armazenamento de recuperação após desastre**: Esta opção só é possível se o volume de alterações de dados do disco é inferior a 10 MB/s. Vamos supor que uma VM com um disco P10 está a ter uma alterações a dados da maior que 8 MB/s, mas inferior a 10 MB/s. Se o cliente pode utilizar um disco de P30 para armazenamento de destino durante a proteção, pode ser resolvido o problema.
 
-**Opção 2:** Altere a camada de disco de armazenamento de recuperação de desastres: </br>
-Esta opção só é possível se o volume de alterações de dados do disco é inferior a 10 MB/s. Permitir que dizer que uma VM com P10 disco está a ter uma alterações a dados da maior que 8 MB/s, mas inferior a 10 MB/s. Se o cliente pode utilizar P30 disco para armazenamento de destino durante a proteção, pode ser resolvido o problema.
+## <a name="Network-connectivity-problem"></a>Problemas de conectividade de rede
 
-### <a name="Network-connectivity-issue"></a>Problema de conectividade de rede
+### <a name="network-latency-to-a-cache-storage-account"></a>Latência de rede para uma conta de armazenamento de cache
+Recuperação de site envia os dados replicados para a conta de armazenamento de cache. Pode ver a latência de rede se carregar os dados de uma máquina virtual para a conta de armazenamento de cache é inferior a 4 MB em 3 segundos. 
 
-#### <a name="network-latency-to-cache-storage-account-"></a>Latência de rede para a conta de armazenamento de Cache:
- Recuperação de site envia os dados replicados para a conta de armazenamento de cache e o problema pode acontecer se carregar os dados da Máquina Virtual para a conta de armazenamento de cache é mais lento do que 4 MB em 3 segundos. Para verificar se há qualquer problema relacionado com a utilização de latência [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) para carregar dados a partir da máquina virtual para a conta de armazenamento de cache.<br>
-Se a latência alta, verifique se estiver a utilizar aplicações virtuais de uma rede para controlar o tráfego de rede de saída das VMs. A aplicação poderá ficar bloqueada se todo o tráfego de replicação passa através da NVA. Recomendamos que crie um ponto de extremidade do serviço de rede na sua rede virtual para "Armazenamento", para que o tráfego de replicação não é transmitido para a NVA. Consulte [configuração de aplicação virtual de rede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+Para verificar a existência de um problema relacionado com a latência, utilize [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) para carregar dados a partir da máquina virtual para a conta de armazenamento de cache. Se a latência alta, verifique se está a utilizar uma aplicação virtual de rede (NVA) para controlar o tráfego de rede de saída das VMs. A aplicação poderá ficar bloqueada se todo o tráfego de replicação passa através da NVA. 
 
-#### <a name="network-connectivity"></a>Conectividade de rede
-Para replicação do Site Recovery para o trabalho, a conectividade de saída para URLs ou IP específicos a intervalos é necessária da VM. Se a VM estiver protegido por uma firewall ou utiliza regras de grupo (NSG) de segurança de rede para controlar a conectividade de saída, poderá deparar-se com um desses problemas.</br>
-Consulte a [conectividade de saída para URLs do Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) para garantir que todos os URLs estão ligados 
+Recomendamos que crie um ponto de extremidade do serviço de rede na sua rede virtual para "Armazenamento", para que o tráfego de replicação não vai para a NVA. Para obter mais informações, consulte [configuração de aplicação virtual de rede](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
+
+### <a name="network-connectivity"></a>Conectividade de rede
+Para replicação do Site Recovery para o trabalho, a conectividade de saída para URLs ou IP específicos a intervalos é necessária da VM. Se a VM estiver protegido por uma firewall ou utiliza regras de grupo (NSG) de segurança de rede para controlar a conectividade de saída, poderá deparar-se com um desses problemas. Para garantir que todos os URLs estão ligados, consulte [conectividade de saída para URLs do Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 

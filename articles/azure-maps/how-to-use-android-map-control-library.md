@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3f7579324e1218cc2e2c3594889db776da6e529
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c1258ab619b165553c55481ad67d663be65ac832
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143795"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269608"
 ---
 # <a name="how-to-use-azure-maps-android-sdk"></a>Como utilizar o SDK Android do Azure Maps
 
@@ -45,7 +45,7 @@ Ver [documentação do Android Studio](https://developer.android.com/studio/intr
 
 ## <a name="set-up-a-virtual-device"></a>Configurar um dispositivo virtual
 
-Android Studio permite-lhe configurar um dispositivo virtual Android no seu computador. Que pode ajudar a testar seu aplicativo enquanto programa. A configuração de um dispositivo virtual, clique no ícone do Gestor de dispositivo Virtual Android (AVD) no canto superior direito do ecrã do seu projeto. Em seguida, clique nas **criar dispositivo Virtual** botão. Também pode obter o Gerenciador por meio de ferramentas > Android > Gestor de AVD na barra de ferramentas. Partir do **telemóveis** categoria, selecione **Nexus 5 X** e clique em **seguinte**.
+Android Studio permite-lhe configurar um dispositivo virtual Android no seu computador. Que pode ajudar a testar seu aplicativo enquanto programa. Para configurar um dispositivo virtual, clique no ícone Manager do dispositivo Virtual Android (AVD) no canto superior direito do ecrã do seu projeto. Em seguida, clique nas **criar dispositivo Virtual** botão. Também pode obter para o Gestor de via **ferramentas > Android > Gestor de AVD** na barra de ferramentas. Partir do **telemóveis** categoria, selecione **Nexus 5 X** e clique em **seguinte**.
 
 Saiba mais sobre como configurar um AVD no [documentação do Android Studio](https://developer.android.com/studio/run/managing-avds).
 
@@ -55,7 +55,7 @@ Saiba mais sobre como configurar um AVD no [documentação do Android Studio](ht
 
 Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para instalar o SDK Android do Azure Maps. 
 
-1. Adicione o seguinte para o **allprojects**, repositórios de bloco no seu **gradle** ficheiro.
+1. Adicione o seguinte para o **todos os projetos**, repositórios de bloco no seu **gradle** ficheiro.
 
     ```
     maven {
@@ -79,7 +79,7 @@ Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para in
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Configurar permissões ao adicionar o seguinte para 'Androidmanifest. XML'
+3. Configurar permissões ao adicionar o seguinte para sua **androidmanifest. XML**
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para in
     </manifest>
     ```
 
-4. Editar **res > layout > ctivity_main**, por isso, ele procurar, como o XML abaixo:
+4. Editar **res > layout > ctivity_main**, por isso, ele se parece com o XML abaixo:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -187,7 +187,7 @@ Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para in
 
 ## <a name="import-classes"></a>Importar Classes
 
-Depois de concluir os passos acima, provavelmente receberá avisos do Android Studio em alguns do texto no código. Para lidar com isso terá de importar algumas das classes que estão a ser referenciadas no `MainActivity.java`.
+Depois de concluir os passos acima, provavelmente receberá avisos do Android Studio em alguns do texto no código. Para resolver estes avisos, importar as classes que está a ser referenciadas no `MainActivity.java`.
 
 Pode importar automaticamente essas classes, premindo `Alt` + `Enter`(`Option` + `Return` no Mac). 
 
@@ -288,6 +288,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Execute novamente a sua aplicação e deverá ver um marcador no mapa, como o mostrado abaixo.
+Volte a executar a aplicação e deverá ver um marcador no mapa, como o mostrado abaixo.
 
 ![Pin de mapa de Android](./media/how-to-use-android-map-control-library/android-map-pin.png)

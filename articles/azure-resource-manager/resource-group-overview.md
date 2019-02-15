@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691562"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268138"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
 
 O Azure Resource Manager é o serviço de implementação e gestão para o Azure. Ele fornece uma camada de gestão consistente que lhe permite criar, atualizar e eliminar recursos na sua subscrição do Azure. Pode utilizar o controlo de acesso, auditoria e etiquetagem funcionalidades para proteger e organizar os recursos após a implementação.
 
-Quando pega ações através do portal, PowerShell, CLI do Azure, REST APIs ou SDKs de cliente, a API do Azure Resource Manager processa o pedido. Uma vez que todos os pedidos são processados através da API do mesmo, verá resultados consistentes e capacidades em todas as ferramentas diferentes.
+Quando pega ações através do portal, PowerShell, CLI do Azure, REST APIs ou SDKs de cliente, a API do Azure Resource Manager processa o pedido. Uma vez que todos os pedidos são processados através da API do mesmo, verá resultados consistentes e capacidades em todas as ferramentas diferentes. Todas as capacidades que estão disponíveis no portal também estão disponíveis através do PowerShell, CLI do Azure, REST APIs e SDKs do cliente. A funcionalidade inicialmente lançada através de APIs será representada no portal dentro de 180 dias do lançamento inicial.
 
 A imagem seguinte mostra como todas as ferramentas interagem com a API do Azure Resource Manager. A API transmite pedidos ao serviço Resource Manager, o qual autentica e autoriza os pedidos. Gestor de recursos, em seguida, encaminha os pedidos para o serviço apropriado.
 

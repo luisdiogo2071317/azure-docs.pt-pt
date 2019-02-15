@@ -1,30 +1,31 @@
 ---
-title: Como itens de página numa página de resultados de pesquisa - Azure Search
-description: Paginação no Azure Search, um serviço de pesquisa de nuvem alojada no Microsoft Azure.
+title: Como trabalhar com os resultados da pesquisa - Azure Search
+description: Estruturar e ordenar os resultados da pesquisa, obter uma contagem de documentos e adicionar a navegação no conteúdo para os resultados da pesquisa no Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2016
+ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f36dbb72e2518f7e3a27ef3aadec85312d751c2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309348"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301558"
 ---
-# <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa no Azure Search
-Este artigo fornece orientações sobre como usar a API de REST do serviço de pesquisa do Azure para implementar elementos padrão de uma página de resultados de pesquisa, como contagens de totais, obtenção de documento, ordens de classificação e navegação.
+# <a name="how-to-work-with-search-results-in-azure-search"></a>Como trabalhar com a pesquisa resulta no Azure Search
+Este artigo fornece orientações sobre como implementar elementos padrão de uma página de resultados de pesquisa, como contagens de totais, obtenção de documento, ordens de classificação e navegação. Opções relacionadas com a página que contribuem com dados ou informações para os resultados da pesquisa são especificadas através da [pesquisar no documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pedidos enviados para o serviço de pesquisa do Azure. 
 
-Em cada caso mencionado abaixo, as opções relacionadas com a página que contribuem informações à sua página de resultados de pesquisa ou dados são especificadas através da [pesquisar no documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pedidos enviados para o serviço de pesquisa do Azure. Pedidos de incluir um comando GET, caminho e os parâmetros de consulta que informam o serviço, o que está a ser requerido e como a formular a resposta.
+Na API do REST, pedidos de incluir um comando GET, caminho e os parâmetros de consulta que informam o serviço, o que está a ser requerido e como a formular a resposta. No SDK do .NET, é a API equivalente [DocumentSearchResult classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+
+Vários exemplos de código incluem uma interface de front-end da web, que pode ser encontrado aqui: [Aplicação de demonstração de tarefas da cidade de nova York](http://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Um pedido válido inclui um número de elementos, como um URL do serviço e o caminho, verbo HTTP, `api-version`e assim por diante. Para fins de brevidade, podemos cortados os exemplos para realçar apenas a sintaxe que é relevante para paginação. Consulte a [API de REST do serviço do Azure Search](https://docs.microsoft.com/rest/api/searchservice) documentação para obter detalhes sobre a sintaxe do pedido.
-> 
+> Um pedido válido inclui um número de elementos, como um URL do serviço e o caminho, verbo HTTP, `api-version`e assim por diante. Para fins de brevidade, podemos cortados os exemplos para realçar apenas a sintaxe que é relevante para paginação. Para obter mais informações sobre a sintaxe do pedido, consulte [API de REST do serviço do Azure Search](https://docs.microsoft.com/rest/api/searchservice). > 
 > 
 
 ## <a name="total-hits-and-page-counts"></a>Total de resultados e contagens de página
@@ -32,7 +33,7 @@ Que mostra o número total de resultados devolvidos por uma consulta e, em segui
 
 ![][1]
 
-Azure Search, vai utilizar o `$count`, `$top`, e `$skip` parâmetros para esses valores de retorno. O exemplo seguinte mostra um pedido de exemplo para cliques total, retornado como `@OData.count`:
+Azure Search, vai utilizar o `$count`, `$top`, e `$skip` parâmetros para esses valores de retorno. O exemplo seguinte mostra um pedido de exemplo para cliques total num índice chamado "onlineCatalog" retornado como `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
@@ -70,7 +71,7 @@ Ordenação orders, muitas vezes, a predefinição para relevância, mas é comu
 
  ![][3]
 
-No Azure Search, classificação se baseia o `$orderby` expressão, para todos os campos que são indexados como `"Sortable": true.`
+No Azure Search, classificação se baseia a `$orderby` expressão, para todos os campos que são indexados como `"Sortable": true.` um `$orderby` cláusula é uma expressão de OData. Para obter informações sobre a sintaxe, consulte [sintaxe da expressão OData para filtros e por ordem cláusulas](query-odata-filter-orderby-syntax.md).
 
 Relevância é fortemente associada com perfis de classificação. Pode usar o padrão de classificação, que baseia-se na análise de texto e estatísticas para a ordem de classificação de todos os resultados, com pontuações mais altas acontecendo para documentos com mais fortes ou mais correspondências um termo de pesquisa.
 
@@ -83,7 +84,7 @@ Deverá criar um método que aceita a opção de ordenação selecionada como en
  ![][5]
 
 > [!NOTE]
-> Embora o padrão de classificação seja suficiente para muitos cenários, é recomendável baseando relevância num perfil de classificação personalizado em vez disso. Um perfil de classificação personalizado dá-lhe uma forma de itens de boost que são mais úteis para o seu negócio. Ver [adicionar um perfil de classificação](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) para obter mais informações. 
+> Embora o padrão de classificação seja suficiente para muitos cenários, é recomendável baseando relevância num perfil de classificação personalizado em vez disso. Um perfil de classificação personalizado dá-lhe uma forma de itens de boost que são mais úteis para o seu negócio. Ver [adicionar perfis de classificação](index-add-scoring-profiles.md) para obter mais informações. 
 > 
 > 
 
@@ -91,7 +92,7 @@ Deverá criar um método que aceita a opção de ordenação selecionada como en
 Navegação de pesquisa é comum numa página de resultados, muitas vezes, localizada no lado ou da parte superior de uma página. No Azure Search, navegação por facetas fornece pesquisa orientada com base nos filtros predefinidos. Ver [navegação por facetas no Azure Search](search-faceted-navigation.md) para obter detalhes.
 
 ## <a name="filters-at-the-page-level"></a>Filtros ao nível da página
-Se seu design de solução incluído páginas de pesquisa dedicadas para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online tem departamentos listados na parte superior da página), pode inserir uma expressão de filtro juntamente com um **onClick**evento para abrir uma página num estado pré-filtrada. 
+Se seu design de solução incluído páginas de pesquisa dedicadas para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online tem departamentos listados na parte superior da página), pode inserir um [expressão de filtro](search-filters.md) juntamente com um **onClick** evento para abrir uma página num estado pré-filtrada. 
 
 Pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, o pedido seguinte irá filtrar no nome de marca, retornando apenas esses documentos que correspondam a ele.
 

@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 480d453cc906fa1b1d93e00bd4a6d2b080768a47
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 25b29f6e6f8a4aa99d8ac83ca2cf27d8a5810bfc
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105841"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267976"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
 
-Uma parte importante de qualquer solução de Analysis Services está a monitorizar o desempenho dos seus servidores. Com o [registos de diagnóstico de recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md), pode monitorizar e enviar registos ao [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-las para [registo Análise](https://azure.microsoft.com/services/log-analytics/), um serviço da [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Uma parte importante de qualquer solução de Analysis Services está a monitorizar o desempenho dos seus servidores. Com o [registos de diagnóstico de recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md), pode monitorizar e enviar registos ao [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-las para [Azure Monitorize registos](../azure-monitor/azure-monitor-log-hub.md).
 
-![Registo de diagnósticos para armazenamento, os Hubs de eventos ou do Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Registo de diagnósticos para registos de armazenamento, os Hubs de eventos ou do Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>O que é registado?
@@ -82,7 +82,7 @@ A categoria de métricas, registos a mesma [métricas do servidor](analysis-serv
 
     * **Arquivo para uma conta de armazenamento**. Para utilizar esta opção, terá de uma conta de armazenamento existente para ligar a. Ver [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Siga as instruções para criar um Gerenciador de recursos, conta para fins gerais, em seguida, selecione a sua conta de armazenamento por meio do retorno a esta página no portal. Pode demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
     * **Stream para um hub de eventos**. Para utilizar esta opção, terá de um Hub de eventos espaço de nomes e o event hub para ligar a. Para obter mais informações, consulte [criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política do Hub de eventos.
-    * **Enviar para o Log Analytics**. Para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho do Log Analytics ao seguir os passos para [criar uma nova área de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre a visualização dos registos no Log Analytics, consulte [vista de registos no Log Analytics](#view-logs-in-log-analytics) neste artigo.
+    * **Enviar para o Azure Monitor (área de trabalho do Log Analytics)**. Para utilizar esta opção, utilize uma área de trabalho existente ou [criar uma nova área de trabalho](../azure-monitor/learn/quick-create-workspace.md) recursos no portal. Para obter mais informações sobre a visualização de seus registos, consulte [vista de registos na área de trabalho do Log Analytics](#view-logs-in-log-analytics) neste artigo.
 
     * **Motor**. Selecione esta opção para registar xEvents. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos estão autodeleted após o período de retenção expira.
     * **Serviço**. Selecione esta opção para registar eventos de nível de serviço. Se estiver a arquivamento para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos estão autodeleted após o período de retenção expira.
@@ -150,47 +150,21 @@ Os registos estão normalmente disponíveis dentro de duas horas de configuraç�
 * Elimine os registos que já não pretende manter na sua conta de armazenamento.
 * Certifique-se de que definir um período de retenção para que os registos antigos serão eliminados da conta de armazenamento.
 
-## <a name="view-logs-in-log-analytics"></a>Ver registos no Log Analytics
+## <a name="view-logs-in-log-analytics-workspace"></a>Ver registos na área de trabalho do Log Analytics
 
-Eventos de métricas e servidor estão integrados xEvents no Log Analytics para análise de lado a lado. O log Analytics também pode ser configurado para receber eventos dos outros serviços do Azure, oferecendo uma visão holística dos dados de registo de diagnóstico em sua arquitetura.
+Eventos de métricas e servidor estão integrados xEvents no seu recurso da área de trabalho do Log Analytics para análise de lado a lado. Área de trabalho do log Analytics também pode ser configurada para receber eventos dos outros serviços do Azure, oferecendo uma visão holística dos dados de registo de diagnóstico em sua arquitetura.
 
-Para ver os dados de diagnóstico no Log Analytics, abra a página de pesquisa de registos do menu à esquerda ou área de gestão, conforme mostrado abaixo.
+Para ver os dados de diagnóstico, na área de trabalho do Log Analytics, abra **registos** no menu à esquerda.
 
 ![Opções de pesquisa de registo no portal do Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Agora que ativou a recolha de dados, no **pesquisa de registos**, clique em **todos os dados recolhidos**.
+No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. AzureDiagnostics inclui o mecanismo e eventos de serviço. Tenha em atenção que é criada uma consulta em tempo real. A registar\_campo s contém nomes de xEvent, que podem parecer familiares se já usou xEvents para iniciar sessão no local. Clique em **registar\_s** ou um dos nomes de eventos e do Log Analytics continua a construir uma consulta. Certifique-se de que guardar as suas consultas para reutilização posterior.
 
-Na **tipo**, clique em **AzureDiagnostics**e, em seguida, clique em **aplicar**. AzureDiagnostics inclui o mecanismo e eventos de serviço. Observe que uma consulta do Log Analytics é criado no momento. A registar\_campo s contém nomes de xEvent, que podem parecer familiares se já usou xEvents para iniciar sessão no local.
-
-Clique em **registar\_s** ou um dos nomes de eventos e do Log Analytics continua a construir uma consulta. Certifique-se de que guardar as suas consultas para reutilização posterior.
-
-Certifique-se de que consulte o Log Analytics, que fornece um Web site com as capacidades de alertas sobre os dados recolhidos, vistas e de consultas avançada.
-
-### <a name="queries"></a>Consultas
-
-Há centenas de consultas que pode utilizar. Aqui estão alguns para começar.
-Para saber mais sobre como utilizar a nova linguagem de consulta de pesquisa de registos, consulte [compreender a pesquisa do Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
-
-* Consulta devolver consultas submetidas para o Azure Analysis Services que demorou mais de cinco minutos (300.000 milissegundos) para concluir.
-
-    ```
-    search * | where ( Type == "AzureDiagnostics" ) | where ( EventClass_s == "QUERY_END" ) | where toint(Duration_s) > 300000
-    ```
-
-* Identifique as réplicas de escalamento horizontal.
-
-    ```
-    search * | summarize count() by ServerName_s
-    ```
-    Ao utilizar o Escalamento horizontal, pode identificar réplicas só de leitura porque o ServerName\_valores de campo s tem o número de instância da réplica acrescentado ao nome. O campo de recursos contém o nome de recurso do Azure, que corresponde ao nome do servidor que os utilizadores veem. O campo de IsQueryScaleoutReadonlyInstance_s é igual a VERDADEIRO para réplicas.
+Há centenas de consultas que pode utilizar. Para saber mais sobre consultas, veja [introdução às consultas de registo do Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 
+## <a name="turn-on-logging-by-using-powershell"></a>Ativar o registo com o PowerShell
 
-> [!TIP]
-> Tem uma consulta do Log Analytics excelente que pretende partilhar? Se tiver uma conta do GitHub, pode adicioná-lo a este artigo. Basta clicar **editar** no canto superior direito desta página.
-
-
-## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Tutorial - ativar o registo com o PowerShell
 Este tutorial rápido, vai criar uma conta de armazenamento na mesma subscrição e grupo de recursos que o seu servidor do serviço de análise. Em seguida, utilizar Set-AzureRmDiagnosticSetting para ativar os diagnósticos de log e enviar a saída para a nova conta de armazenamento.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -227,7 +201,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 
 ### <a name="create-a-new-storage-account-for-your-logs"></a>Criar uma nova conta de armazenamento para os seus registos
 
-Pode utilizar uma conta de armazenamento existente para os seus registos, desde que ele está na mesma subscrição que o seu servidor. Para este tutorial cria uma nova conta de armazenamento dedicada aos registos de Analysis Services. Para que seja fácil, está armazenando os detalhes da conta de armazenamento numa variável chamada **sa**.
+Pode utilizar uma conta de armazenamento existente para os seus registos, desde que ele está na mesma subscrição que o seu servidor. Para este tutorial, crie uma nova conta de armazenamento dedicada aos registos de Analysis Services. Para que seja fácil, está armazenando os detalhes da conta de armazenamento numa variável chamada **sa**.
 
 Também usar o mesmo grupo de recursos como aquela que contém o servidor do Analysis Services. Substitua os valores para `awsales_resgroup`, `awsaleslogs`, e `West Central US` pelos seus próprios valores:
 
@@ -253,7 +227,7 @@ Para ativar o registo, utilize o cmdlet Set-AzureRmDiagnosticSetting, juntamente
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
-O resultado deverá ser semelhante ao seguinte:
+A saída deverá ter um aspeto semelhante a este exemplo:
 
 ```powershell
 StorageAccountId            : 
@@ -292,7 +266,7 @@ Location                    :
 Tags                        :
 ```
 
-Isto confirma que o registo está agora ativado para o servidor, ao guardar as informações para a conta de armazenamento.
+Esta saída confirma que o registo está agora ativado para o servidor, ao guardar as informações para a conta de armazenamento.
 
 Também pode definir a política de retenção para os seus registos, para que os registos mais antigos são automaticamente eliminados. Por exemplo, definir a política de retenção utilizando **- RetentionEnabled** sinalizador para **$true**e defina **- RetentionInDays** parâmetro **90**. Registos de mais de 90 dias são automaticamente eliminados.
 

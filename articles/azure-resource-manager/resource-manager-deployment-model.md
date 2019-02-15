@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c8aafa2dc2798aee5576dab4781b42d4aa67ddd9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104997"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269268"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Gestor de recursos do Azure vs. de implementação clássica: Compreender os modelos de implementação e o estado dos seus recursos
 
@@ -48,8 +48,6 @@ Em 2014, o Azure introduziu o Resource Manager, que acrescentou o conceito de gr
 Quando o Resource Manager foi acrescentado, todos os recursos foram adicionados retroativamente a grupos de recursos predefinidos. Se criar um recurso com a implementação clássica agora, esse recurso é criado automaticamente num grupo de recursos predefinido para esse serviço, pese embora não tenha especificado esse grupo durante a implementação. No entanto, o facto de existir dentro de um grupo de recursos não significa que o recurso foi convertido no modelo Resource Manager.
 
 ## <a name="understand-support-for-the-models"></a>Compreender o suporte para os modelos
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Existem três cenários a ter em consideração:
 

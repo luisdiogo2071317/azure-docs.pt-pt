@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fdede1308ac2c4c036d835a7be28b0e5ee180d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207086"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268444"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador pela tarefa de administração no Azure Active Directory
 
@@ -202,8 +202,8 @@ Eliminar todas as palavras-passe de aplicação existentes geradas pelos utiliza
 Desativar a MFA | Administrador Global | 
 Ativar MFA | Administrador Global | 
 Gerir definições do serviço MFA | Administrador Global | 
-Exigir que os utilizadores selecionados forneçam novamente os métodos de contacto | Administrador Global | 
-Restaurar a autenticação multifator em todos os dispositivos memorizados  | Administrador Global | 
+Exigir que os utilizadores selecionados forneçam novamente os métodos de contacto | Administrador da Autenticação | 
+Restaurar a autenticação multifator em todos os dispositivos memorizados  | Administrador da Autenticação | 
 
 ## <a name="mfa-server"></a>Servidor MFA
 

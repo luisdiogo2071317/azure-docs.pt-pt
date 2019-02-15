@@ -11,24 +11,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: bc28349e1bfc935ac8298f991575c1e0cb42d38c
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233604"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299236"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
 Quando a implementação de recursos, especifica que a implementação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Resource Manager processa os recursos existentes no grupo de recursos que não estão no modelo. O modo predefinido é incremental.
 
-Apenas os modelos de nível de raiz suportam o modo de implantação completa. Para [ligada ou para aninhados modelos](resource-group-linked-templates.md), tem de utilizar o modo de incremental. 
-
-## <a name="incremental-and-complete-deployments"></a>Implementações de incrementais e completas
-
 Em ambos os modos, Gestor de recursos tenta criar todos os recursos especificados no modelo. Se o recurso já existe no grupo de recursos e as respetivas definições são iguais, nenhuma operação está a ser utilizada para esse recurso. Se alterar os valores de propriedade para um recurso, o recurso é atualizado com os novos valores. Se tentar atualizar a localização ou o tipo de um recurso existente, a implementação falhar com um erro. Em vez disso, implementar um novo recurso com a localização ou escreva o que precisa.
 
+## <a name="complete-mode"></a>Modo de conclusão
+
 No modo de conclusão, Gestor de recursos **elimina** recursos de que existem no grupo de recursos, mas não estão especificados no modelo. Recursos que são especificados no modelo, mas não implementados porque um [condição](resource-manager-templates-resources.md#condition) for avaliada como falsa, não são eliminados.
+
+Há alguma diferença no como tipos de recurso lidar com as eliminações de modo completa. Recursos de principal são automaticamente eliminados quando não num modelo que é implementada no modo de conclusão. Alguns recursos filho não são automaticamente eliminados quando não estiver no modelo. No entanto, esses recursos subordinados são eliminados se o recurso principal é eliminado. 
+
+Por exemplo, se o seu grupo de recursos contém uma zona DNS (tipo de recurso Microsoft.Network/dnsZones) e um registo CNAME (tipo de recurso Microsoft.Network/dnsZones/CNAME), a zona DNS é o recurso principal para o registo CNAME. Se implementar com o modo de conclusão e não incluem a zona DNS no seu modelo, a zona DNS e o registo CNAME são ambos eliminados. Se incluir a zona DNS no seu modelo, mas não incluem o registo CNAME, não é eliminado o CNAME. 
+
+Para obter uma lista de como tipos de recurso lidar com a eliminação, veja [recursos de eliminação do Azure para implementações no modo completa](complete-mode-deletion.md).
+
+> [!NOTE]
+> Apenas os modelos de nível de raiz suportam o modo de implantação completa. Para [ligada ou para aninhados modelos](resource-group-linked-templates.md), tem de utilizar o modo de incremental. 
+>
+
+## <a name="incremental-mode"></a>Modo de incremental
 
 No modo de incremental, Gestor de recursos **deixa inalterado** recursos de que existem no grupo de recursos, mas não estão especificados no modelo. Quando voltar a implementar um recurso no modo de incremental, especifique todos os valores de propriedade para o recurso, não apenas aqueles que estiver a atualizar. Se não especificar determinadas propriedades, o Resource Manager interpreta a atualização como substituir esses valores.
 

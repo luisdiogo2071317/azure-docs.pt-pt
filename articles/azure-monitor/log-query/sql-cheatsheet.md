@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993672"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268333"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL para referência rápida do Azure Monitor log consulta 
 
-A tabela abaixo ajuda os utilizadores que estão familiarizados com o SQL para aprender a linguagem de consulta do Data Explorer para escrever consultas de registo no Azure Monitor. Dê uma olhada no comando T-SQL para resolver um cenários comuns e o equivalente numa consulta de registo do Azure Monitor.
+A tabela abaixo ajuda os utilizadores que estão familiarizados com o SQL para aprender a linguagem de consulta de Kusto escrever consultas de registo no Azure Monitor. Dê uma olhada no comando T-SQL para resolver um cenários comuns e o equivalente numa consulta de registo do Azure Monitor.
 
 ## <a name="sql-to-azure-monitor"></a>SQL para o Azure Monitor
 

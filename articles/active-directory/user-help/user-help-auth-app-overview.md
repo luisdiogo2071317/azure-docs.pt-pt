@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1724454ff67f6cfe3646b59e8302a3dd099081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217450"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301184"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
@@ -59,11 +59,11 @@ Se utilizar um PIN para concluir o processo de autenticação, pode configurar a
 ## <a name="who-decides-if-you-use-this-feature"></a>Quem decide se utilizar esta funcionalidade?
 Dependendo do tipo de conta, a sua organização poderá decidir que tem de utilizar a verificação de dois fatores, ou poderá decidir sozinho.
 
-- **Conta escolar ou profissional.** Se estiver a utilizar uma conta escolar ou profissional (por exemplo, alain@contoso.com), a escolha é sua organização se é necessário utilizar a verificação de dois fatores, juntamente com os métodos de verificação específica. Para obter mais informações sobre como adicionar a sua conta escolar ou profissional para a aplicação Microsoft Authenticator, consulte [adicionar as suas contas escolares ou profissionais](microsoft-authenticator-app-add-work-account.md).
+- **Conta escolar ou profissional.** Se estiver a utilizar uma conta escolar ou profissional (por exemplo, alain@contoso.com), a escolha é sua organização se é necessário utilizar a verificação de dois fatores, juntamente com os métodos de verificação específica. Para obter mais informações sobre como adicionar a sua conta escolar ou profissional para a aplicação Microsoft Authenticator, consulte [adicionar as suas contas escolares ou profissionais](user-help-auth-app-add-work-school-account.md).
 
-- **Conta Microsoft pessoal.** Pode optar por configurar a verificação de dois fatores para suas contas Microsoft pessoais (por exemplo, alain@outlook.com). Para obter mais informações sobre como adicionar a sua conta Microsoft pessoal, consulte 
+- **Conta Microsoft pessoal.** Pode optar por configurar a verificação de dois fatores para suas contas Microsoft pessoais (por exemplo, alain@outlook.com). Para obter mais informações sobre como adicionar a sua conta Microsoft pessoal, consulte [adicionar as suas contas pessoais](user-help-auth-app-add-personal-ms-account.md).
 
-- **Conta não Microsoft.** Pode optar por configurar a verificação de dois fatores para as suas contas de terceiros (por exemplo, alain@gmail.com). As contas de não-Microsoft não poderão utilizar o termo, verificação de dois fatores, mas deve ser capaz de encontrar o recurso no **Security** ou o **início de sessão** definições. A aplicação Microsoft Authenticator funciona com todas as contas que suportam os padrões TOTP.
+- **Conta não Microsoft.** Pode optar por configurar a verificação de dois fatores para as suas contas de terceiros (por exemplo, alain@gmail.com). As contas de não-Microsoft não poderão utilizar o termo, verificação de dois fatores, mas deve ser capaz de encontrar o recurso no **Security** ou o **início de sessão** definições. A aplicação Microsoft Authenticator funciona com todas as contas que suportam os padrões TOTP. Para obter mais informações sobre como adicionar as contas de não-Microsoft, consulte [adicionar as contas de não-Microsoft](user-help-auth-app-add-non-ms-account.md).
 
 ## <a name="in-this-section"></a>Nesta secção
 
@@ -71,7 +71,8 @@ Dependendo do tipo de conta, a sua organização poderá decidir que tem de util
 |------|------------|
 |[Transferir e instalar a aplicação](user-help-auth-app-download-install.md)|Descreve onde e como obter e instalar a aplicação Microsoft Authenticator para dispositivos Android e iOS.|
 |[Adicionar as suas contas escolares ou profissional](user-help-auth-app-add-work-school-account.md)|Descreve como adicionar o seu trabalho ou escola e contas pessoais diversos para a aplicação Microsoft Authenticator.|
-|[Adicionar as suas contas pessoais](user-help-auth-app-add-personal-ms-account.md)|Descreve como adicionar o seu Microsoft pessoa e contas de terceiros para a aplicação Microsoft Authenticator.|
+|[Adicionar as suas contas pessoais](user-help-auth-app-add-personal-ms-account.md)|Descreve como adicionar as suas contas Microsoft pessoais para a aplicação Microsoft Authenticator.|
+|[Adicionar as contas de não-Microsoft](user-help-auth-app-add-non-ms-account.md)|Descreve como adicionar as contas de terceiros para a aplicação Microsoft Authenticator.|
 |[Adicionar manualmente as suas contas](user-help-auth-app-add-account-manual.md)|Descreve como adicionar manualmente as contas para a aplicação Microsoft Authenticator, se não for possível digitalizar o código de QR fornecido.|
 |[Inicie sessão com a aplicação](user-help-auth-app-sign-in.md)|Descreve como iniciar sessão nas suas várias contas, com a aplicação Microsoft Authenticator.|
 |[Cópia de segurança e credenciais de recuperação da conta](user-help-auth-app-backup-recovery.md)| Apresenta informações sobre como criar cópias de segurança e recuperar as suas credenciais da conta através da aplicação Microsoft Authenticator.|

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002232"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268197"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analisar dados de texto nos registos do Azure Monitor
 Alguns dados de registo recolhidos pelo Azure Monitor irão incluir várias partes de informações numa única propriedade. Analisando estes dados em várias propriedades facilitam a utilizar nas consultas. Um exemplo comum é um [log personalizado](../../log-analytics/log-analytics-data-sources-custom-logs.md) que recolhe uma entrada de registo inteira com vários valores numa única propriedade. Ao criar propriedades separadas para os valores diferentes, pode pesquisar e agregados em cada um.
@@ -63,7 +63,7 @@ Desvantagens deste método incluem o seguinte:
 Ver [criar campos personalizados no Azure Monitor](../platform/custom-fields.md) para obter detalhes sobre a análise de dados à medida que é recolhido. Esta ação cria propriedades personalizadas na tabela que pode ser utilizada pelas consultas assim como qualquer outra propriedade.
 
 ## <a name="parse-data-in-query-using-patterns"></a>Analisar dados com padrões de consulta
-Quando os dados que pretende analisar podem ser identificados por um padrão repetido em registos, pode utilizar diferentes operadores no [linguagem de consulta do Data Explorer](/azure/kusto/query/) para extrair o conjunto específico de dados para uma ou mais propriedades de novo.
+Quando os dados que pretende analisar podem ser identificados por um padrão repetido em registos, pode utilizar diferentes operadores no [linguagem de consulta de Kusto](/azure/kusto/query/) para extrair o conjunto específico de dados para uma ou mais propriedades de novo.
 
 ### <a name="simple-text-patterns"></a>Padrões de texto simples
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>Analisar estruturas predefinidas numa consulta
-Se os dados estão formatados numa estrutura conhecida, poderá conseguir utilizar uma das funções no [linguagem de consulta do Data Explorer](/azure/kusto/query/) para analisar estruturas predefinidas:
+Se os dados estão formatados numa estrutura conhecida, poderá conseguir utilizar uma das funções no [linguagem de consulta de Kusto](/azure/kusto/query/) para analisar estruturas predefinidas:
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

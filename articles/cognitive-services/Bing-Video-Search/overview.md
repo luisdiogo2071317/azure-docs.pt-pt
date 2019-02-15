@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: a7fbd9eb70c50f3bbd154726bdaa807c2bc41818
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863963"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267177"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>O que é a API de Pesquisa de Vídeos do Bing?
 
@@ -29,7 +29,7 @@ A API de pesquisa de vídeos do Bing torna mais fácil adicionar capacidades de 
 | [Filtrar e restringir os resultados de vídeo](concepts/get-videos.md#filtering-videos)                      | Filtre os vídeos devolvidos ao editar os parâmetros de consulta.                                                                                                       |
 | [Recortar, redimensionar e apresentar miniaturas](resize-and-crop-thumbnails.md)                                                | Edição e exibição de visualizações de miniaturas para os vídeos devolvidos pela API de pesquisa de vídeos do Bing.                                                                                      |
 | [Obtenha vídeos populares](trending-videos.md) | Procurar vídeos populares em todo o mundo.                                                                                                          |
-| [Obtenha informações de vídeo](video-insights.md) | Personalize uma pesquisa para obter imagens populares em todo o mundo.                                                                                                          |
+| [Obtenha informações de vídeo](video-insights.md) | Personalize uma pesquisa de vídeos populares em todo o mundo.                                                                                                          |
 
 ## <a name="workflow"></a>Fluxo de trabalho
 

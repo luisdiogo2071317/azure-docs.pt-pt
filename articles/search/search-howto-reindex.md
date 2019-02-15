@@ -6,21 +6,21 @@ author: HeidiSteen
 manager: cgronlun
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55de72b2a82dea3dfe763d786966565beb229042
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1d9dffe9d311674aeb043fcc4c35110775f420af
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745096"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300810"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Como reconstruir um índice da Azure Search
 
 Este artigo explica como reconstruir um índice da Azure Search, as circunstâncias nas quais as recompilações são necessárias e as recomendações para mitigar o impacto de recompilações em pedidos de consulta em curso.
 
-R *reconstruir* refere-se a remover e recriar as estruturas de dados físicos associadas a um índice, incluindo todos os índices em invertida com base em campo. No Azure Search, não é possível remover e recriar a campos específicos. Para reconstruir um índice, todo o armazenamento de campo tem de ser eliminado, recriados com base num esquema de índice existente ou revisada e, em seguida, repovoado com os dados enviados por push para o índice ou extraídos de fontes externas. É comum para reconstruir índices durante o desenvolvimento, mas também poderá ter de reconstruir um índice de nível de produção para acomodar alterações estruturais, por exemplo, adicionar tipos complexos.
+R *reconstruir* refere-se a remover e recriar as estruturas de dados físicos associadas a um índice, incluindo todos os índices em invertida com base em campo. No Azure Search, não pode remover e recriar campos individuais. Para reconstruir um índice, todo o armazenamento de campo tem de ser eliminado, recriados com base num esquema de índice existente ou revisada e, em seguida, repovoado com os dados enviados por push para o índice ou extraídos de fontes externas. É comum para reconstruir índices durante o desenvolvimento, mas também poderá ter de reconstruir um índice de nível de produção para acomodar alterações estruturais, como adicionar tipos complexos ou adicionar campos ao sugestores.
 
 Em contraste com recompilações colocar offline um índice *atualização de dados* é executado como uma tarefa em segundo plano. Pode adicionar, remover e substituir os documentos com a mínima interrupção para cargas de trabalho de consulta, embora normalmente consultas demoram mais tempo a concluir. Para obter mais informações sobre como atualizar o conteúdo de índice, consulte [adicionar, atualizar ou eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -28,7 +28,9 @@ Em contraste com recompilações colocar offline um índice *atualização de da
 
 | Condição | Descrição |
 |-----------|-------------|
-| Alterar uma definição de campo | A revisão de um nome, tipo de dados ou específicos [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) (pesquisável, filtrável, ordenável, facetável) requer uma reconstrução completa. |
+| Alterar uma definição de campo | A revisão de um nome de campo, tipo de dados ou específicos [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) (pesquisável, filtrável, ordenável, facetável) requer uma reconstrução completa. |
+| Adicionar um analisador para um campo | [Analisadores](search-analyzers.md) são definidos num índice e, em seguida, são atribuídas a campos. Pode adicionar um analisador para um índice em qualquer altura, mas só pode atribuir um analisador quando o campo é criado. Isso é verdadeiro para ambos os **analisador** e **indexAnalyzer** propriedades. O **searchAnalyzer** propriedade é uma exceção.
+| Adicionar um campo para um sugestor | Se já existe um campo e pretende adicioná-lo para um [Sugestores](index-add-suggesters.md) construir, tem de reconstruir o índice. |
 | A eliminar um campo | Para remover fisicamente todos os rastreios de um campo, terá de recriar o índice. Quando uma reconstrução imediata não é prática, a maioria dos desenvolvedores modificar o código de aplicação para desativar o acesso ao campo "eliminado". Fisicamente, a definição de campo e o conteúdo permanece no índice até a recompilação de seguinte, usando um esquema que omite o campo em questão. |
 | Alternância de camadas | Se necessitar de mais capacidade, não existe nenhuma atualização no local. É criado um novo serviço no ponto de nova capacidade e índices devem ser criados a partir do zero no novo serviço. |
 
@@ -36,10 +38,10 @@ Qualquer modificação de outra pode ser feita sem afetar as estruturas físicas
 
 + Adicionar um novo campo
 + Definir o **recuperável** atributo num campo existente
-+ Definir um analisador num campo existente
++ Definir um **searchAnalyzer** num campo existente
++ Adicionar, atualizar ou eliminar uma construção de analisador num índice
 + Adicionar, atualizar ou eliminar perfis de classificação
 + Adicionar, atualizar ou eliminar definições de CORS
-+ Adicionar, atualizar ou eliminar sugestores
 + Adicionar, atualizar ou eliminar synonymMaps
 
 Quando adiciona um novo campo, documentos indexados existentes tem um valor nulo para o novo campo. Numa atualização de dados futuros, valores dos dados de origem externa substituem os valores nulos adicionados pelo Azure Search.
@@ -76,7 +78,7 @@ Permissões de leitura / escrita no nível de serviço são necessárias para at
 
 5. [Carregar o índice com documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) de uma origem externa. Também pode utilizar esta API se um esquema de índice existente, inalterada com documentos atualizados da atualização.
 
-Ao criar o índice, o armazenamento físico é alocado para cada campo no esquema do índice, com um índice invertido criado para cada campo pesquisável. Campos são que não pesquisável pode ser usado nos filtros ou expressões, mas não têm invertido índices e não são texto completo pesquisável. Numa recompilação de índice, esses índices invertidas são eliminados e recriados com base no esquema de índice que fornecer.
+Ao criar o índice, o armazenamento físico é alocado para cada campo no esquema do índice, com um índice invertido criado para cada campo pesquisável. Campos que não podem ser pesquisados podem ser utilizados em filtros ou expressões, mas não têm invertido índices e estão não texto completo ou difusa pesquisáveis. Numa recompilação de índice, esses índices invertidas são eliminados e recriados com base no esquema de índice que fornecer.
 
 Quando carrega o índice, o índice de invertida de cada campo é preenchido com todas as palavras exclusivas, com token de cada documento, com um mapa para IDs de documento correspondente. Por exemplo, quando um conjunto de dados de hotéis a indexação, um índice invertido criado para um campo de cidade pode conter termos para Seattle, Portland e assim por diante. Documentos que incluem Seattle ou Portland no campo Cidade teria o ID de documento listado juntamente com o termo. Em qualquer [adicionar, atualizar ou eliminar](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operação, os termos e a lista de ID do documento são atualizados em conformidade.
 

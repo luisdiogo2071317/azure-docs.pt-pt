@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812791"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268843"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -121,7 +121,7 @@ Os gateways de rede no local podem utilizar o BGP (Border Gateway Protocol) para
 
 Quando utiliza o BGP para trocar rotas com o Azure, é adicionada uma rota separada à tabela de rotas de todas as sub-redes numa rede virtual para cada prefixo anunciado. A rota é adicionada com *Gateway de rede virtual* listado como a origem e o tipo de próximo salto. 
 
-A propagação de rotas do BGP pode ser desativada numa sub-rede através de uma propriedade numa tabela de rotas. Quando trocar as rotas com o Azure com o BGP, as rotas não são adicionadas à tabela de rotas de todas as sub-redes com a propagação do BGP desativada. A conectividade com ligações VPN é conseguida através de [rotas personalizadas](#custom-routes) com um tipo de salto seguinte de *Gateway de rede virtual*. Para obter detalhes, veja [Como desativar a propagação de rotas do BGP](manage-route-table.md#create-a-route-table).
+ER e propagação de rotas do Gateway de VPN podem ser desativadas numa sub-rede através de uma propriedade numa tabela de rotas. Quando trocar as rotas com o Azure com o BGP, as rotas não são adicionadas à tabela de rotas de todas as sub-redes com a propagação do BGP desativada. A conectividade com ligações VPN é conseguida através de [rotas personalizadas](#custom-routes) com um tipo de salto seguinte de *Gateway de rede virtual*. Para obter detalhes, veja [Como desativar a propagação de rotas do BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Como o Azure seleciona uma rota
 

@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd5f58a03ffd054e79f1ff4ea6d61c33c06b6e7c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000955"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268554"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Criar um índice básico no Azure Search
 
@@ -23,6 +23,12 @@ No Azure Search, um *índice* é um armazenamento persistente de *documentos* e 
 Quando adiciona ou carregar um índice, o Azure Search cria estruturas físicas com base no esquema que fornecer. Por exemplo, se um campo no seu índice é marcado como pesquisável, é criado um índice invertido para esse campo. Mais tarde, quando adiciona ou carregar documentos ou submete consultas de pesquisa para o Azure Search, enviar pedidos para um índice específico no seu serviço de pesquisa. A carregar campos com valores de documento é chamada *indexação* ou uma ingestão de dados.
 
 Pode criar um índice no portal, [REST API](search-create-index-rest-api.md), ou [SDK do .NET](search-create-index-dotnet.md).
+
+## <a name="recommended-workflow"></a>Fluxo de trabalho recomendado
+
+Como estruturas físicas são criadas durante a indexação, será necessário para [remover e recriar índices](search-howto-reindex.md) sempre que fizer alterações materiais a uma definição de campo existente. Isso significa que durante o desenvolvimento, deve planejar a recompilações frequentes. Pode optar por trabalhar com um subconjunto dos seus dados para tornar recria ir mais rápido. 
+
+Código em vez de indexação portal também é recomendado. Se contar com o portal para a definição de índice, terá de preencher a definição do índice em cada reconstrução. Como alternativa, usando uma ferramenta como [Postman e a API REST](search-fiddler.md) são úteis para quando os projetos de desenvolvimento ainda se encontram em fases iniciais de teste de prova de conceito. Pode fazer as alterações incrementais para uma definição de índice no corpo do pedido, enviar o pedido para o seu serviço para recriar um índice com um esquema atualizado.
 
 ## <a name="components-of-an-index"></a>Componentes de um índice
 
@@ -133,8 +139,20 @@ Pode encontrar mais informações detalhadas sobre os [tipos de dados suportados
 
 Pode encontrar mais informações detalhadas sobre os [atributos de índice aqui](https://docs.microsoft.com/rest/api/searchservice/Create-Index) do Azure Search.
 
+## <a name="storage-implications-of-index-attributes"></a>Implicações de armazenamento de atributos de índice
+
+Os atributos que selecionar tem um impacto no armazenamento. Captura de ecrã seguinte é uma ilustração de padrões de armazenamento de índice resultante de várias combinações de atributos. O índice baseia-se no [exemplo de realestate incorporada](search-get-started-portal.md) fonte de dados, o que permite-lhe indexar e consultas no portal.
+
+Filtrar e ordenar a consulta de operações em correspondências exatas para que os documentos são armazenados intacto. Campos pesquisáveis ative a pesquisa difusa e de texto completo. Invertida índices são criados para campos pesquisáveis e preenchidos com os termos com token. Não marcar um campo como um campo recuperável tem nenhum impacto considerável no tamanho do índice.
+
+![Tamanho com base na seleção de atributos de índice](./media/search-what-is-an-index/realestate-index-size.png "tamanho com base na seleção de atributos de índice")
+
+Implementação de armazenamento é considerada um detalhe de implementação do Azure Search e pode ser alteradas sem aviso prévio. Não é garantido que o comportamento atual serão mantidas no futuro.
+
 ## <a name="suggesters"></a>Sugestões
-Um sugestor é uma seção do esquema que define os campos num índice são usados para oferecer suporte a consultas de conclusão automática ou antecipada em pesquisas. Normalmente, cadeias de procura parciais são enviadas para as sugestões (API do REST de serviço de pesquisa do Azure) enquanto o usuário está digitando uma consulta de pesquisa e a API devolve um conjunto de expressões sugeridas. Um sugestor que definir no índice determina quais os campos são utilizados para criar os termos de pesquisa antecipada. Para obter mais informações, consulte [adicionar sugestores](index-add-suggesters.md) para obter detalhes de configuração.
+Um sugestor é uma seção do esquema que define os campos num índice são usados para oferecer suporte a consultas de conclusão automática ou antecipada em pesquisas. Normalmente, cadeias de procura parciais são enviadas para as sugestões (API do REST de serviço de pesquisa do Azure) enquanto o usuário está digitando uma consulta de pesquisa e a API devolve um conjunto de expressões sugeridas. 
+
+Um sugestor que definir no índice determina quais os campos são utilizados para criar os termos de pesquisa antecipada. Para obter mais informações, consulte [adicionar sugestores](index-add-suggesters.md) para obter detalhes de configuração.
 
 ## <a name="scoring-profiles"></a>Perfis de classificação
 

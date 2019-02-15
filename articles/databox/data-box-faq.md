@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077460"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268401"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -70,7 +70,7 @@ R.  Para obter o Azure Data Box, inicie sessão no portal do Azure e crie uma en
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>P. Não consegui criar uma encomenda de um dispositivo Data Box no portal do Azure. O que correu mal?
 R. Se não conseguiu criar uma encomenda de um dispositivo Data Box, poderá haver um problema com o tipo ou o acesso da sua subscrição. 
 
-Verifique a sua subscrição. O Data Box só está disponível para as ofertas de subscrições Contrato Enterprise (EA), Fornecedor de soluções na cloud (CSP) ou Pay as you go. Se a sua subscrição não pertencer a nenhum destes tipos, contacte o Suporte da Microsoft para a atualizar.
+Verifique a sua subscrição. Caixa de dados só está disponível para contrato Enterprise (EA) e na Cloud ofertas de subscrição de fornecedor (CSP) de solução. Se a sua subscrição não pertencer a nenhum destes tipos, contacte o Suporte da Microsoft para a atualizar.
 
 Se o tipo da sua oferta de subscrição for suportado, verifique o nível de acesso da mesma. Para poder criar encomendas, tem de ser contribuidor ou proprietário na subscrição.
 
