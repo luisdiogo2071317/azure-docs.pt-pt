@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 9711e9bf94619b8cd003972d74f3bca4c45894bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498034"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312091"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desenvolvimento de ação de script com o HDInsight
 
@@ -142,7 +142,7 @@ Na maioria das operações, não é necessário especificar o sistema de ficheir
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-Neste exemplo, o `hdfs` comando usa de modo transparente o armazenamento de cluster predefinido. Para algumas operações, terá de especificar o URI. Por exemplo, `adl:///example/jars` para o armazenamento do Data Lake ou `wasb:///example/jars` do armazenamento do Azure.
+Neste exemplo, o `hdfs` comando usa de modo transparente o armazenamento de cluster predefinido. Para algumas operações, terá de especificar o URI. Por exemplo, `adl:///example/jars` para a geração 1 de armazenamento do Data Lake ou `wasb:///example/jars` do armazenamento do Azure.
 
 ### <a name="bPS7"></a>Escrever informações STDOUT e STDERR
 

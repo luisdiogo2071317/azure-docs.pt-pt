@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810246"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310296"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Otimizar inserções em massa e utilizar dados transitórios numa base de dados do Azure para o servidor PostgreSQL 
 Este artigo descreve como pode otimizar as operações de inserção em massa e usar dados transitórios numa base de dados do Azure para o servidor PostgreSQL.
@@ -25,9 +25,9 @@ Inserir num meio de tabela unlogged esse PostgreSQL inserções sem ter de escre
 
 Utilize as seguintes opções para criar uma tabela unlogged:
 - Criar uma nova tabela unlogged utilizando a sintaxe `CREATE UNLOGGED TABLE <tableName>`.
-- Converter um existente com sessão iniciada tabela para uma tabela de unlogged utilizando a sintaxe `ALTER <tableName> SET UNLOGGED`.  
+- Converter um existente com sessão iniciada tabela para uma tabela de unlogged utilizando a sintaxe `ALTER TABLE <tableName> SET UNLOGGED`.  
 
-Para reverter o processo, utilize a sintaxe `ALTER <tableName> SET LOGGED`.
+Para reverter o processo, utilize a sintaxe `ALTER TABLE <tableName> SET LOGGED`.
 
 ## <a name="unlogged-table-tradeoff"></a>Compensação de tabela unlogged
 Tabelas unlogged não são seguras para falhas. Uma tabela unlogged é truncada automaticamente após uma pane ou sujeitos a um encerramento unclean. O conteúdo de uma tabela unlogged também não é replicado para servidores em espera. Índices criados numa tabela unlogged também são automaticamente unlogged. Após a inserção operação for concluída, converter a tabela de sessão iniciada para que a inserção é durável.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5fbcfd102518dc231ad61c54e626c14381bf5a02
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 0ee3ff8bb1ebfc276550cba3570fdf4360aabf72
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321624"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327872"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analisar o relatório do Azure Site Recovery Deployment Planner
 Este artigo aborda as folhas do relatório do Excel que o Planeador de Implementações do Azure Site Recovery gera para um cenário de Hyper-V para o Azure.
@@ -179,7 +179,7 @@ O relatório do Excel gerado pelo Planeador de Implementações do Site Recovery
 
 **Nome da VM**: O nome da VM que é utilizado em VMListFile quando é gerado um relatório. Esta coluna também apresenta os discos (VHDs) que estão ligados às VMs. Os nomes incluem os nomes do anfitrião Hyper-V onde as VMs foram colocadas quando a ferramenta os detetou durante o período de criação de perfis.
 
-**Compatibilidade VM**: Os valores são **Sim** e **Sim**\*. **Yes**\* é para instâncias nas quais a VM se enquadra no [armazenamento premium do Azure](https://aka.ms/premium-storage-workload). Aqui, a elevada taxa de abandono da criação de perfis ou o disco IOPS encaixa num tamanho de disco premium superior ao tamanho mapeado para o disco. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho dos mesmos: 
+**Compatibilidade VM**: Os valores são **Sim** e **Sim**\*. **Sim** \* é para instâncias nas quais a VM se enquadra [premium SSDs](../virtual-machines/windows/disks-types.md). Aqui, a elevada taxa de abandono da criação de perfis ou o disco IOPS encaixa num tamanho de disco premium superior ao tamanho mapeado para o disco. A conta de armazenamento decide para que tipo de disco de armazenamento premium mapear os discos com base no tamanho dos mesmos: 
 * < 128 GB é P10.
 * 128 GB a 256 GB é P15.
 * 256 GB a 512 GB é P20.

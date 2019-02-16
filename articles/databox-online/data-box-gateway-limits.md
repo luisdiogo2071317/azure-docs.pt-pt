@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f785e9e540af01b74678cf75159775cd2888e09e
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 34aac9a589516ace080906095ef3c14b34469bbd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959583"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311193"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Limites do Gateway de caixa de dados do Azure (pré-visualização)
 
@@ -36,7 +36,7 @@ A tabela seguinte descreve os limites para o dispositivo de Gateway de caixa de 
 |---|---|
 |Não. de arquivos por dispositivo |100 milhões <br> Limite é de aproximadamente 25 milhões de ficheiros para todas as 2 TB de espaço em disco com o limite máximo em 100 milhões |
 |Não. de partilhas por dispositivo |24 |
-|Não. de partilhas por contentor |1 |
+|Não. de partilhas por contentor de armazenamento do Azure |1 |
 |Tamanho máximo do ficheiro escrito para uma partilha|Para um dispositivo virtual de 2 TB, o tamanho máximo é 500 GB. <br> O tamanho máximo do ficheiro aumenta com o tamanho de disco de dados a proporção anterior até atingir um máximo de 5 TB. |
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento do Azure

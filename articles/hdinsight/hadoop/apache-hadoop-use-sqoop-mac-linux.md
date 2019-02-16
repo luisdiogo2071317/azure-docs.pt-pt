@@ -1,7 +1,7 @@
 ---
 title: O Apache Sqoop com o Apache Hadoop - Azure HDInsight
 description: Saiba como utilizar o Apache Sqoop para importar e exportar entre o Apache Hadoop no HDInsight e uma base de dados do SQL do Azure.
-keywords: sqoop do hadoop, sqoop
+keywords: hadoop sqoop,sqoop
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: cf4895220c19e029952d5bf76aa9baa41250f692
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635702"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309349"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Utilizar o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e a base de dados SQL
 
@@ -105,7 +105,7 @@ GO
     Os campos de dados são separados por um caractere de tabulação e as linhas são terminadas por um caractere de nova linha.
 
     > [!IMPORTANT]  
-    > O `wasb:///` caminho funciona com clusters que utilizam o armazenamento do Azure como o armazenamento de cluster predefinido. Para clusters que utilizam o armazenamento do Azure Data Lake, utilize `adl:///` em vez disso.
+    > O `wasb:///` caminho funciona com clusters que utilizam o armazenamento do Azure como o armazenamento de cluster predefinido. Para clusters que utilizam o Azure Data Lake Storage Gen1, utilize `adl:///` em vez disso.
 
 2. Depois de concluída a importação, utilize o seguinte comando para listar os dados no novo diretório:
 

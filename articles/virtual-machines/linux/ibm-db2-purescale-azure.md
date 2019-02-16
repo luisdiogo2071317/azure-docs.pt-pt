@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 61cad318dbbe55ef5ecf1b8167b6594ab6e57553
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247542"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327418"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale no Azure
 
@@ -89,7 +89,7 @@ Esta arquitetura é executado as camadas do aplicativo, armazenamento e dados em
 
 ### <a name="storage-considerations"></a>Considerações sobre armazenamento
 
-Como Oracle RAC, DB2 pureScale é um bloco de alto desempenho e/s, base de dados de escalamento horizontal. Recomendamos que utilize o maior [armazenamento Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) opção adequado às suas necessidades. Opções de armazenamento mais pequenas de mensagens em fila podem ser adequadas para ambientes de desenvolvimento e teste, enquanto os ambientes de produção, muitas vezes, precisam de mais capacidade de armazenamento. A arquitetura de exemplo utiliza [P30](https://azure.microsoft.com/pricing/details/managed-disks/) devido a respetiva relação entre pedidos de IOPS tamanho e preço. Independentemente do tamanho, utilize o armazenamento Premium para um melhor desempenho.
+Como Oracle RAC, DB2 pureScale é um bloco de alto desempenho e/s, base de dados de escalamento horizontal. Recomendamos que utilize o maior [do Azure premium SSD](disks-types.md) opção adequado às suas necessidades. Opções de armazenamento mais pequenas de mensagens em fila podem ser adequadas para ambientes de desenvolvimento e teste, enquanto os ambientes de produção, muitas vezes, precisam de mais capacidade de armazenamento. A arquitetura de exemplo utiliza [P30](https://azure.microsoft.com/pricing/details/managed-disks/) devido a respetiva relação entre pedidos de IOPS tamanho e preço. Independentemente do tamanho, utilize o armazenamento Premium para um melhor desempenho.
 
 DB2 pureScale utiliza um partilhado-tudo o que arquitetura, onde todos os dados estão acessíveis a partir de todos os nós de cluster. O armazenamento Premium tem de ser partilhado entre instâncias, se a pedido ou de instâncias dedicadas.
 

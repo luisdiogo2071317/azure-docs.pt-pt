@@ -4,15 +4,15 @@ description: Este artigo descreve como o Azure Cosmos DB fornece elevada disponi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b5e99b421e66f087a1793f5301736e192ef75c08
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109763"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311244"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -64,19 +64,7 @@ Falhas regionais não são invulgares e Azure Cosmos DB torna-se de que a sua ba
 
 - Mesmo que a sua conta do Cosmos está altamente disponível, seu aplicativo pode não ser criado corretamente para continuar altamente disponível. Para testar a disponibilidade elevada de ponto-a-ponto para a sua aplicação, invocar periodicamente o [ativação pós-falha manual ao utilizar a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#manual-failover), como parte do seu teste de aplicativos ou a recuperação após desastre (DR) explorações.
 
-
-Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após um evento problemático. O tempo necessário para uma aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes, a aplicação pode tolerar perder ao recuperar após um evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO).
-
-A tabela seguinte mostra o RTO e RPO para os cenários mais comuns.
-
-|Número de regiões |Configuração |Nível de Consistência|RPO: |RTO |
-|---------|---------|---------|-------|-------|
-|1    | *    |*   | < A 240 minutos | < 1 semana |
-|>1     | Replicação de mestre único | Sessão, prefixo consistente, Eventual | < a 15 minutos | < a 15 minutos |
-|>1     | Replicação de mestre único | Estagnação Limitada | K E T | < a 15 minutos |
-|>1     | Replicação de vários mestre | Sessão, prefixo consistente, Eventual | < a 15 minutos | 0 |
-|>1     | Replicação de vários mestre | Estagnação Limitada | K E T | 0 |
-|>1     | * | Forte | 0 | < a 15 minutos |
+- Dentro de um ambiente de base de dados globalmente distribuída existe uma relação direta entre a durabilidade de dados e de nível de consistência na presença de uma interrupção de toda a região. Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após um evento problemático. O tempo necessário para uma aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes, a aplicação pode tolerar perder ao recuperar após um evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO). Para ver o RTO e RPO para o Azure Cosmos DB, consulte [durabilidade de dados e níveis de consistência](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

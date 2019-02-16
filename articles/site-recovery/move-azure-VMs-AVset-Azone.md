@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 6a731750da4edfb4a71c00156c5ff527dee30941
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823384"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312298"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover VMs do Azure para zonas de disponibilidade
 As zonas de disponibilidade no Azure protege as suas aplicações e dados de falhas de datacenter. Cada zonas de disponibilidade é constituído por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. Zona de disponibilidade é suportada em determinadas regiões, como mencionado [aqui](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -95,7 +95,7 @@ Os passos abaixo irão orientá-lo como utilizar o Azure Site Recovery para ativ
 2. Escolha os valores de appropraite para destino subscriptiom, destino o grupo de recursos de VM e rede virtual.
 3. Na **disponibilidade** secção, selecione a zona de disponibilidade na qual pretende mover a VM. 
 > [!NOTE]
-> Se não vir a opção para o conjunto de disponibilidade ou a zona de disponibilidade,. snore que o [pré-requisitos](#prepare-the-source-vms) são cumpridos e a [preparação](#prepare-the-source-vms) da origem de VMs estão concluídas.
+> Se não vir a opção para o conjunto de disponibilidade ou a zona de disponibilidade, certifique-se que o [pré-requisitos](#prepare-the-source-vms) são cumpridos e a [preparação](#prepare-the-source-vms) da origem de VMs estão concluídas.
 
    ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 

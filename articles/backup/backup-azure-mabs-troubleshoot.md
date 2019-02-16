@@ -8,24 +8,24 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/24/2017
 ms.author: kasinh
-ms.openlocfilehash: 830bf8603a495d1f2708f73cf090695f1b7a7c48
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f90650cc058697e4bf9e4a0710ada213fe3d9a1f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493937"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310836"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
 Utilize as informações nas tabelas seguintes para resolver problemas de erros que encontra ao utilizar o Azure Backup Server.
 
-## <a name="invalid-vault-credentials-provided"></a>Credenciais de cofre inválidas fornecidas 
+## <a name="invalid-vault-credentials-provided"></a>Credenciais de cofre inválidas fornecidas
 
 Para resolver este problema, siga [estes passos de resolução de problemas](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
-## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>A operação do agente falhou devido a um erro de comunicação com o serviço de coordenador de agente do DPM no servidor 
+## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>A operação do agente falhou devido a um erro de comunicação com o serviço de coordenador de agente do DPM no servidor
 
-Para resolver este problema, siga [estes passos de resolução de problemas](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues). 
+Para resolver este problema, siga [estes passos de resolução de problemas](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
 ## <a name="setup-could-not-update-registry-metadata"></a>Configuração não conseguiu atualizar os metadados de registo
 
@@ -56,7 +56,7 @@ Para resolver este problema, siga [estes passos de resolução de problemas](htt
 | Configurar grupos de proteção | O DPM não conseguiu enumerar o componente da aplicação protegida no computador (nome do computador protegido). | Selecione **atualizar** no ecrã de interface do Usuário de grupo de proteção configurar ao nível da origem de dados/componente relevante. |
 | Configurar grupos de proteção | Não é possível configurar a proteção | Se o servidor protegido é um SQL server, certifique-se de que as permissões de função de administrador do sistema foram fornecidas para a conta do sistema (NTAuthority\System) no computador protegido, tal como descrito em [este artigo](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx).
 | Configurar grupos de proteção | Existe espaço livre suficiente no agrupamento de armazenamento para este grupo de proteção. | Os discos que são adicionados ao agrupamento de armazenamento [não deve conter uma partição](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Elimine quaisquer volumes existentes nos discos. Em seguida, adicioná-los ao agrupamento de armazenamento.|
-| Alteração de política |Não foi possível modificar a política de cópia de segurança. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Repita a operação após algum tempo ter passado. Se o problema persistir, contacte o suporte da Microsoft. |**Causa:**<br/>Este erro ocorre em três condições: quando as definições de segurança estiverem ativadas, quando tenta reduzir o período de retenção abaixo os valores mínimo especificado anteriormente, e quando estiver a utilizar uma versão não suportada. (Não suportadas de versões são aqueles abaixo versão 2.0.9052 do Microsoft Azure Backup Server e a atualização 1 do servidor de cópia de segurança do Azure.) <br/>**Ação recomendada:**<br/> Para continuar com o ID={0 relacionados com políticas, defina o período de retenção acima o período especificado de retenção mínimo. (O período de retenção mínimo é de sete dias para diariamente, quatro semanas para semanais, três semanas para mensalmente ou um ano para anualmente.) <br><br>Opcionalmente, outro preferencial abordagem é atualizar o agente de cópia de segurança e o servidor de cópia de segurança do Azure para tirar partido de todas as atualizações de segurança. |
+| Alteração de política |Não foi possível modificar a política de cópia de segurança. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Repita a operação após algum tempo ter passado. Se o problema persistir, contacte o suporte da Microsoft. | **Causa:**<br/>Este erro ocorre em três condições: quando as definições de segurança estiverem ativadas, quando tenta reduzir o período de retenção abaixo os valores mínimo especificado anteriormente, e quando estiver a utilizar uma versão não suportada. (Não suportadas de versões são aqueles abaixo versão 2.0.9052 do Microsoft Azure Backup Server e a atualização 1 do servidor de cópia de segurança do Azure.) <br/>**Ação recomendada:**<br/> Para continuar com o ID={0 relacionados com políticas, defina o período de retenção acima o período especificado de retenção mínimo. (O período de retenção mínimo é de sete dias para diariamente, quatro semanas para semanais, três semanas para mensalmente ou um ano para anualmente.) <br><br>Opcionalmente, outro preferencial abordagem é atualizar o agente de cópia de segurança e o servidor de cópia de segurança do Azure para tirar partido de todas as atualizações de segurança. |
 
 ## <a name="backup"></a>Cópia de segurança
 | Operação | Detalhes do erro | Solução |
@@ -71,6 +71,11 @@ Para resolver este problema, siga [estes passos de resolução de problemas](htt
 | Cópia de segurança | Não mostrar como disponível para adicionar a opção para voltar a proteger uma VM do VMware num novo servidor de cópia de segurança do Azure de Microsoft. | Propriedades do VMware são apontaram para uma instância antiga, extinto do Microsoft Azure Backup Server. Para resolver este problema:<br><ol><li>No VCenter (equivalente do SC VMM), vá para o **resumo** separador e clique em **Vlastní Atributy**.</li>  <li>Eliminar o nome antigo do Microsoft Azure Backup Server partir da **DPMServer** valor.</li>  <li>Volte para o novo servidor de cópia de segurança do Azure do Microsoft e modificar o PG.  Depois de selecionar o **atualizar** botão, a VM é apresentada uma caixa de verificação como estando disponíveis para adicionar a proteção.</li></ol> |
 | Cópia de segurança | Erro ao aceder a pastas/ficheiros partilhados | Experimente modificar as definições de antivírus como sugerido no artigo da TechNet [executar software antivírus no servidor do DPM](https://technet.microsoft.com/library/hh757911.aspx).|
 | Cópia de segurança | Tarefas de criação de pontos de recuperação online para a VM de VMware falharem. O DPM encontrou um erro do VMware ao tentar obter informações de ChangeTracking. Código de erro - FileFaultFault (ID 33621) |  <ol><li> Repor o CTK no VMware para VMs afetadas.</li> <li>Verifique esse disco independente não está em vigor no VMware.</li> <li>Parar a proteção de VMs afetadas e voltar a proteger com o **atualizar** botão. </li><li>Execute um CC para VMs afetadas.</li></ol>|
+
+## <a name="restore"></a>Restauro
+| Operação | Detalhes do erro | Solução |
+| --- | --- | --- |
+| Restauro | **Código de erro**: Erro de credenciais de cofre/CBPServerRegisteredVaultDontMatchWithCurrent: 100110 <br/> <br/>**Mensagem de erro**: As credenciais de cofre fornecidas são diferentes do cofre, que o servidor está registado | **Motivo**: Este problema ocorre quando estiver a tentar restaurar ficheiros para outro servidor do servidor original usando a opção de recuperação do DPM externo e, se o servidor que está a ser recuperado e o servidor original a partir de onde os dados são uma cópia de segurança não estão associados com o mesmo Cofre de serviço de recuperação.<br/> <br/>**Solução** para resolver este problema certifique-se tanto o servidor original e alternativo, está registado no mesmo cofre.|
 
 
 ## <a name="change-passphrase"></a>Frase de acesso de alteração

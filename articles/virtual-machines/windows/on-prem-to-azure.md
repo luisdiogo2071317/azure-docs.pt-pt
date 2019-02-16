@@ -3,8 +3,8 @@ title: Migrar do AWS e de outras plataformas para os Managed Disks no Azure | Do
 description: Criar VMs no Azure com VHDs carregados a partir de outras clouds, como o AWS ou de outras plataformas de Virtualização e tire partido de Managed Disks do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2017
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83e69cd488ab7e8b69895a25716350c8025c6c48
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 05e687ab31b6c19193076033e1350952549d26e0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074908"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330754"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrar a partir do Amazon Web Services (AWS) e outras plataformas para os Managed Disks no Azure
 
@@ -46,11 +46,8 @@ Pode carregar VHDs generalizadas e especializadas.
 
 ## <a name="overview-of-managed-disks"></a>Descrição geral de discos geridos
 
-Managed Disks do Azure simplifica o gerenciamento de VM ao remover a necessidade de gerir contas de armazenamento. Discos geridos também benefício de confiabilidade de VMs num conjunto de disponibilidade. Ele garante que os discos de VMs diferentes no conjunto de disponibilidade estão suficientemente isolados uns dos outros para evitar um ponto único de falha. Coloca automaticamente discos de VMs diferentes no conjunto de disponibilidade em unidades de escala de armazenamento diferentes (carimbos de data /) que limita o impacto das falhas de unidade de escala de armazenamento únicas provocadas por hardware e de falhas de software. Com base nas suas necessidades, pode escolher entre dois tipos de opções de armazenamento: 
- 
-- [Premium Managed Disks](premium-storage.md) são a unidade de estado sólido (SSD) com base em mídias de armazenamento, que fornecem elevado desempenho, suporte de disco de baixa latência para máquinas virtuais que executam cargas de trabalho de e/S intensivas. Pode tirar partido da velocidade e o desempenho destes discos ao migrar para Premium Managed Disks.  
-
-- [Standard Managed Disks](standard-storage.md) utilizar suportes de dados de armazenamento de unidade de disco rígido (HDD) com base e são mais adequadas para programação/teste e outras cargas de trabalho de acesso pouco frequente menos sensíveis à variabilidade de desempenho.  
+Managed Disks do Azure simplifica o gerenciamento de VM ao remover a necessidade de gerir contas de armazenamento. Discos geridos também benefício de confiabilidade de VMs num conjunto de disponibilidade. Ele garante que os discos de VMs diferentes no conjunto de disponibilidade estão suficientemente isolados uns dos outros para evitar um ponto único de falha. Coloca automaticamente discos de VMs diferentes no conjunto de disponibilidade em unidades de escala de armazenamento diferentes (carimbos de data /) que limita o impacto das falhas de unidade de escala de armazenamento únicas provocadas por hardware e de falhas de software.
+Com base nas suas necessidades, pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponível, consulte nosso artigo [selecionar um tipo de disco](disks-types.md).
 
 ## <a name="plan-for-the-migration-to-managed-disks"></a>Planear a migração para os Managed Disks
 

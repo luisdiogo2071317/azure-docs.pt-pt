@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c4a7239110e0d3e712c97007ecc858f104811cc
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 53f1e8edc4286c2afbdf3b6909499a2e3fccfa5d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301694"
+ms.locfileid: "56313267"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 Este documento descreve a instalação e a configuração dos Agentes do Azure AD Connect Health. Pode transferir os agentes de [aqui](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -42,7 +42,7 @@ A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect He
 |Desativar FIPS|O FIPS não é suportado por agentes do Azure AD Connect Health.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Conectividade de saída para os pontos finais de serviço do Azure
- Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída for bloqueada com Firewalls, certifique-se de que os pontos finais seguintes são adicionados à lista de permissões. Leia mais sobre como [verificar a conectividade de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída for bloqueada com Firewalls, certifique-se de que os seguintes URLs não estão bloqueados por predefinição. Não desative a monitorização de segurança ou de inspeção de URLs, mas permitir que os mesmos como faria com outro tráfego de internet. Eles permitem a comunicação com pontos finais de serviço do Azure AD Connect Health. Leia mais sobre como [verificar a conectividade de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | Ambiente de Domínio | Pontos finais do serviço do Azure necessários |
 | --- | --- |

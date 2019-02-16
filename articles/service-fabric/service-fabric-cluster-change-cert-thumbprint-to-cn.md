@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9c1f8507cfa1f21214428e852e6ffed4d7703254
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e1a52aff0890e32ae739285c0380258939f29597
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564328"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312876"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Alterar o cluster de thumbprint do certificado para o nome comum
 Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou assunto.  Mudar de um cluster implementado da utilização de thumbprints de certificado a utilizar nomes comuns do certificado faz a gestão de certificados muito mais simples. Este artigo descreve como atualizar um cluster do Service Fabric em execução para utilizar o nome comum do certificado em vez do thumbprint do certificado.
@@ -96,7 +96,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```
 
 >[!NOTE]
-> Calcula a segredos de conjunto de dimensionamento de Máquina Virtual não suporta o mesmo id de recurso para dois segredos separados, como cada segredo é um recurso exclusivo com a versão. 
+> Segredos do conjunto de dimensionamento não suporta o mesmo ID de recurso para dois segredos separados, como cada segredo é um recurso com a versão e exclusivo. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Transferir e atualizar o modelo a partir do portal
 O certificado foi instalado no conjunto de dimensionamento subjacente, mas também tem de atualizar o cluster do Service Fabric para utilizar esse certificado e o respetivo nome comum.  Agora, transfira o modelo para a sua implementação de cluster.  Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue para o grupo de recursos que aloja o cluster.  Na **configurações**, selecione **implementações**.  Selecione a implementação mais recente e clique em **modelo de exibição**.

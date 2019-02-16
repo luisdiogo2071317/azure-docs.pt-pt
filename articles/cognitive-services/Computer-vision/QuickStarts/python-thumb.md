@@ -8,47 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 85a8bcaeecc998a2020a657e6944a18c82a0159e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c29ea46513624215421845b99bd8306b73a5a9ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860172"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309017"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Gere uma miniatura usando a REST API e Python em de imagem digitalizada
 
-Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API REST de Imagem Digitalizada. Com o método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Obter Miniatura), pode gerar uma miniatura de uma imagem. O utilizador especifica a altura e a largura, que podem ser diferentes da proporção da imagem introduzida. Imagem digitalizada utiliza o corte inteligente para inteligentemente identificar a área de interesse e gerar as coordenadas de recorte com base na região.
-
-Pode executar este início rápido passo a passo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+Neste início rápido, irá gerar uma miniatura de uma imagem usando a API de REST da visão do computador. Com o [obter miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) método, pode especificar a altura desejada e a largura e a utiliza de imagem digitalizada corte inteligente para inteligentemente identificar a área de interesse e gerar as coordenadas de recorte com base na região.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, precisa de uma chave de subscrição; veja [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Obter Chaves de Subscrição).
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-- Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
 - Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Um editor de código, tais como [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Para criar e executar o exemplo, siga os seguintes passos:
-
-1. Copie o código seguinte para um editor de texto.
-1. Faça as alterações seguintes ao código, onde for necessário:
-    1. Substitua o valor de `subscription_key` pela chave de subscrição.
-    1. Substitua o valor de `vision_base_url` pelo URL de ponto final do recurso Imagem Digitalizada na região do Azure onde obteve as chaves de subscrição, se necessário.
-    1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente para a qual pretende gerar uma miniatura.
-1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-thumbnail.py`.
-1. Abra uma janela da linha de comandos.
-1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-thumbnail.py`.
+Para criar e executar o exemplo, copie o seguinte código no editor de códigos. 
 
 ```python
 import requests
@@ -92,13 +75,27 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+Em seguida, faça o seguinte:
+1. Substitua o valor de `subscription_key` pela chave de subscrição.
+1. Substitua o valor de `vision_base_url` pelo URL de ponto final do recurso Imagem Digitalizada na região do Azure onde obteve as chaves de subscrição, se necessário.
+1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente para a qual pretende gerar uma miniatura.
+1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-thumbnail.py`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-thumbnail.py`.
+
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-É devolvida uma resposta com êxito como dados binários, que representa os dados da imagem da miniatura. Se o pedido for bem-sucedido, a miniatura é gerada a partir dos dados binários na resposta e é apresentada pelo exemplo. Se o pedido falhar, a resposta é apresentada na janela da linha de comandos. A resposta do pedido falhado contém um código de erro e uma mensagem para ajudar a determinar o que correu mal.
+Uma resposta com êxito, é devolvida como dados binários, que representa os dados de imagem para a miniatura. O exemplo deve apresentar esta imagem. Se o pedido falhar, a resposta é apresentada na janela da linha de comando e deve conter um código de erro.
+
+## <a name="run-in-jupyter-optional"></a>Executar no Jupyter (opcional)
+
+Opcionalmente, pode executar este guia de introdução passo a passo modo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Em seguida, obter informações mais detalhadas sobre a funcionalidade de geração de miniaturas.
 
 > [!div class="nextstepaction"]
-> [Tutorial do Python de API de Imagem Digitalizada](../Tutorials/PythonTutorial.md)
+> [Geração de miniaturas](../concept-generating-thumbnails.md)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: 55fbc997f6aaf4cf99bfb8492a2e4ac608c72af8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494906"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310279"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Cópia de segurança do Azure de perguntas mais frequentes
 
@@ -81,7 +81,7 @@ Pode utilizar a opção de disco de restauro para:
   * Adicionar definições de configuração que não estavam lá no momento da cópia de segurança
   * Controle a Convenção de nomenclatura para recursos que são criados.
   * Adicione a VM a um conjunto de disponibilidade.
-  * Adicione qualquer outra definição tem de ser configurada com o PowerShell ou um modelo.  W
+  * Adicione qualquer outra definição tem de ser configurada com o PowerShell ou um modelo.
 
 ### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Pode restaurar cópias de segurança de discos VM não geridos depois de atualizar para o managed disks?
 Sim, pode utilizar cópias de segurança criadas antes de discos foram migrados do não gerido para gerido.

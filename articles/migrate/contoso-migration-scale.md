@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: c36572230387ffc33a46913dbcc1259ea65f84f5
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104238"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328585"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - dimensionamento uma migração para o Azure
 
@@ -69,7 +69,7 @@ Depois de fixar-se para baixo de objetivos e requisitos, Contoso revê os requis
 
 Depois de planear e configurar uma [infraestrutura do Azure](contoso-migration-infrastructure.md) e experimentar combinações de migração do prova de conceito (POC) diferentes conforme detalhado na tabela acima, a Contoso está pronto para começar uma migração completa para o Azure em escala. Eis o que a Contoso pretende migrar.
 
-**Item** | **volume** | **Detalhes**
+**Item** | **Volume** | **Detalhes**
 --- | --- | ---
 **Cargas de trabalho** | Mais de 3.000 aplicações | Aplicações executadas nas VMs.<br/><br/>  As aplicações são Windows, baseado em SQL e sistemas operacionais LAMP.
 **Bases de dados** | Cerca de 8,500 | Bases de dados incluem o SQL Server, MySQL, PostgreSQL.
@@ -113,10 +113,10 @@ Contoso identifica algumas categorias comuns para classificar a ativos no invent
 **Categoria** | **Valor atribuído** | **Detalhes**
 --- | --- | ---
 Grupo de negócio | Lista de nomes de grupos de negócios | O grupo a que é responsável pelo item de inventário?
-Candidato a prova de conceito | S/N | Pode a aplicação ser utilizada como uma prova de conceito ou uma das primeiras a adotar para migração para a cloud?
+Candidato a prova de conceito | Y/N | Pode a aplicação ser utilizada como uma prova de conceito ou uma das primeiras a adotar para migração para a cloud?
 Dívida técnica | Nenhum/alguns/graves | O item de inventário está em execução ou através de um produto de fora de suporte, plataforma ou sistema operativo?
-Implicações de firewall | S/N | A aplicação comunicar com a Internet/fora de tráfego?  Ela é integrada com um firewall?
-Problemas de segurança | S/N | Se os problemas de segurança com a aplicação lá conhecidos?  A aplicação utilizar dados não encriptados ou plataformas Desatualizadas?
+Implicações de firewall | Y/N | A aplicação comunicar com a Internet/fora de tráfego?  Ela é integrada com um firewall?
+Problemas de segurança | Y/N | Se os problemas de segurança com a aplicação lá conhecidos?  A aplicação utilizar dados não encriptados ou plataformas Desatualizadas?
 
 
 ### <a name="discover-app-dependencies"></a>Detetar dependências de aplicações
@@ -130,7 +130,7 @@ Como parte do processo de avaliação, a Contoso precisa identificar onde as apl
 
 Com o mapeamento foi concluído, a Contoso pode garantir que todos os componentes de aplicação estão identificados e considerados ao criar o plano de migração. 
 
-![Mapeamento da dependência](./media/contoso-migration-scale/dependency-map.png)
+![Mapeamento de dependências](./media/contoso-migration-scale/dependency-map.png)
 
 
 ### <a name="evaluate-apps"></a>Avaliar aplicações
@@ -142,15 +142,15 @@ Para capturar esse processo de avaliação, eles adicionar duas classificações
 **Categoria** | **Valor atribuído** | **Detalhes**
 --- | --- | ---
 Grupo de negócio | Lista de nomes de grupos de negócios | O grupo a que é responsável pelo item de inventário?
-Candidato a prova de conceito | S/N | Pode a aplicação ser utilizada como uma prova de conceito ou uma das primeiras a adotar para migração para a cloud?
+Candidato a prova de conceito | Y/N | Pode a aplicação ser utilizada como uma prova de conceito ou uma das primeiras a adotar para migração para a cloud?
 Dívida técnica | Nenhum/alguns/graves | O item de inventário está em execução ou através de um produto de fora de suporte, plataforma ou sistema operativo?
-Implicações de firewall | S/N | A aplicação comunicar com a Internet/fora de tráfego?  Ela é integrada com um firewall?
-Problemas de segurança | S/N | Se os problemas de segurança com a aplicação lá conhecidos?  A aplicação utilizar dados não encriptados ou plataformas Desatualizadas?
-Estratégia de migração | Realojamento/Refactor/Rearquitetura/reconstrução | Que tipo de migração é necessário para a aplicação? Como será a aplicação ser implementada no Azure? [Saiba mais](contoso-migration-overview.md#migration-strategies).
-Complexidade técnica | 1 a 5 | Complexidade é a migração? Este valor deve ser definido por DevOps da Contoso e parceiros relevantes.
-Nível de importância de negócios | 1 a 5 | Quão importante é a aplicação para a empresa? Por exemplo, uma pequeno grupo de trabalho aplicação pode ser atribuída uma pontuação igual a um, enquanto um aplicativo crítico utilizado em toda a organização possa ser atribuído uma pontuação igual a cinco. Esta pontuação terá impacto sobre o nível de prioridade de migração.
+Implicações de firewall | Y/N | A aplicação comunicar com a Internet/fora de tráfego?  Ela é integrada com um firewall?
+Problemas de segurança | Y/N | Se os problemas de segurança com a aplicação lá conhecidos?  A aplicação utilizar dados não encriptados ou plataformas Desatualizadas?
+Estratégia de migração | Rehost/Refactor/Rearchitect/Rebuild | Que tipo de migração é necessário para a aplicação? Como será a aplicação ser implementada no Azure? [Saiba mais](contoso-migration-overview.md#migration-strategies).
+Complexidade técnica | 1-5 | Complexidade é a migração? Este valor deve ser definido por DevOps da Contoso e parceiros relevantes.
+Nível de importância de negócios | 1-5 | Quão importante é a aplicação para a empresa? Por exemplo, uma pequeno grupo de trabalho aplicação pode ser atribuída uma pontuação igual a um, enquanto um aplicativo crítico utilizado em toda a organização possa ser atribuído uma pontuação igual a cinco. Esta pontuação terá impacto sobre o nível de prioridade de migração.
 Prioridade de migração | 1/2/3 | O que a migração prioridade para a aplicação?
-Risco de migração  | 1 a 5 | O que é o nível de risco para migrar a aplicação? Este valor deve ser combinado entre Contoso DevOps e parceiros relevantes.
+Risco de migração  | 1-5 | O que é o nível de risco para migrar a aplicação? Este valor deve ser combinado entre Contoso DevOps e parceiros relevantes.
 
 
 
@@ -229,7 +229,7 @@ Existem quatro estratégias de migração abrangente que pode considerar a Conto
 
 **Estratégia** | **Detalhes** | **Utilização**
 --- | --- | ---
-**Realojar**  | Muitas vezes referido como migração "lift- and -shift", esta é uma opção sem códigos para migrar aplicações existentes para o Azure rapidamente.<br/><br/> Uma aplicação é migrada como-é, com os benefícios da cloud, sem os riscos ou os custos associados a alterações de código. | Contoso pode realojar aplicações menos estratégico, que requerem sem alterações de código.
+**Rehost**  | Muitas vezes referido como migração "lift- and -shift", esta é uma opção sem códigos para migrar aplicações existentes para o Azure rapidamente.<br/><br/> Uma aplicação é migrada como-é, com os benefícios da cloud, sem os riscos ou os custos associados a alterações de código. | Contoso pode realojar aplicações menos estratégico, que requerem sem alterações de código.
 **Refactor** |  Também conhecido como "reempacotamento", esta estratégia requer aplicação muito simples de código ou alterações de configuração necessitam para ligar a aplicação à PaaS do Azure e tirar melhor partido das capacidades de cloud. | Contoso refatorar aplicações estratégicas para manter a mesma funcionalidade básica, mas movê-los para executar numa plataforma do Azure como os serviços de aplicações do Azure.<br/><br/> Isso requer alterações de código mínimo.<br/><br/> Por outro lado, a Contoso tem de manter uma plataforma VM, uma vez que isto não ser gerenciado pela Microsoft.
 **Rearquitete** | Esta estratégia modifica ou expande uma base para otimizar a arquitetura de aplicações para recursos de nuvem e de dimensionamento de código de aplicação.<br/><br/> Ele moderniza uma aplicação numa arquitetura resiliente, altamente dimensionável, implementável independentemente.<br/><br/> Serviços do Azure podem acelerar o processo, dimensionar aplicações com confiança e gerir aplicações com facilidade.
 **Reconstruir** | Esta estratégia recria uma aplicação do zero usando tecnologias nativas da cloud.<br/><br/> A plataforma Azure como um serviço (PaaS) fornece um ambiente completo de desenvolvimento e implementação na cloud. Ele elimina alguns custos e a complexidade de licenças de software e remove a necessidade de uma infraestrutura subjacente de aplicações, middleware e outros recursos. | Contoso reescrever as aplicações críticas de raiz, para tirar partido das tecnologias de cloud, como microsserviços ou computador sem servidor.<br/><br/> Contoso irá gerir as aplicações e os serviços que desenvolve e o Azure gere tudo o resto.
@@ -292,11 +292,10 @@ A Contoso precisa de saber como implementar estes componentes, com base em consi
 **Servidor de configuração** | Com base na estimativa da Contoso da replicação desses 100 = 200 VMs em conjunto e o [requisitos de dimensionamento do servidor de configuração](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server), Contoso prever necessidades de uma máquina do servidor de configuração da seguinte forma:<br/><br/> CPU: 16 vCPUs (2 sockets * 8 núcleos @ 2,5 GHz)<br/><br/> Memória: 32 GB<br/><br/> Disco de cache: 1 TB<br/><br/> Taxa de alteração de dados: 1 TB para 2 TB.<br/><br/> Além dos requisitos de dimensionamento Contoso tem de certificar-se de que o servidor de configuração é ideal localizado na mesma rede e segmento de LAN que as VMs que serão migrados.
 **Servidor de processos** | Contoso irá implementar um servidor de processos dedicados autónomo com a capacidade de replicar VMs de 100-200:<br/><br/> CPU: 16 vCPUs (2 sockets * 8 núcleos @ 2,5 GHz)<br/><br/> Memória: 32 GB<br/><br/> Disco de cache: 1 TB<br/><br/> Taxa de alteração de dados: 1 TB para 2 TB.<br/><br/> O servidor de processos será difícil de trabalhar e como tal, deve estar localizado num anfitrião ESXi que pode manipular a e/s de disco, o tráfego de rede e a CPU necessária para a replicação. Contoso considerará um anfitrião dedicado para esta finalidade. 
 **Redes** | Contoso tem de rever a infraestrutura VPN de site a site atual e decidiu implementar o Azure ExpressRoute. A implementação é fundamental porque será menor latência e melhorar a largura de banda para a região de Azure de 2 do Leste E.u.a. primária da Contoso.<br/><br/> **Monitorização**: Contoso precisa de monitorizar cuidadosamente os dados transmitidos de servidor de processos. Se os dados sobrecarrega a largura de banda de rede Contoso considerará [a largura de banda do servidor de processo de limitação](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
-**Armazenamento do Azure** | Para a migração, Contoso tem de identificar o tipo correto e o número de contas de armazenamento do Azure de destino.  O site Recovery replica os dados da VM para o armazenamento do Azure.<br/><br/> Recuperação de sites pode replicar para contas de armazenamento (SSD) standard ou premium.<br/><br/> Para decidir sobre o armazenamento, Contoso tem de rever [limites de armazenamento](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)e o fator de crescimento esperado e aumento na utilização ao longo do tempo. Dada a velocidade e a prioridade das migrações, Contoso decidiu utilizar contas de armazenamento premium.<br/><br/> Eles criar e reutilizar a várias contas de armazenamento durante o processo de migração.
-Contoso tiver feito a decisão de usar os discos geridos para todas as VMs que são implementadas no Azure.  O IOPS necessário será determinar se os discos Standard (HDD) ou Premium (SSD).<br/>.<br/>
+**Armazenamento do Azure** | Para a migração, Contoso tem de identificar o tipo correto e o número de contas de armazenamento do Azure de destino.  O site Recovery replica os dados da VM para o armazenamento do Azure.<br/><br/> Recuperação de sites pode replicar para contas de armazenamento (SSD) standard ou premium.<br/><br/> Para decidir sobre o armazenamento, Contoso tem de rever [limites de armazenamento](../virtual-machines/windows/disks-types.md)e o fator de crescimento esperado e aumento na utilização ao longo do tempo. Dada a velocidade e a prioridade das migrações, Contoso decidiu utilizar premium SSDs<br/><br/>
+Contoso tiver feito a decisão de usar os discos geridos para todas as VMs que são implementadas no Azure.  O IOPS necessário irá determinar se os discos Standard HDD, Standard SSD ou Premium (SSD).<br/><br/>
 
-
-#### <a name="data-migration-service"></a>Serviço de migração de dados 
+#### <a name="data-migration-service"></a>Serviço de migração de dados
 
 O Azure Database Migration Service (DMS) é um serviço totalmente gerido que permite migrações totalmente integradas de várias origens de dados para plataformas de dados do Azure, com o período de indisponibilidade mínimo.
 

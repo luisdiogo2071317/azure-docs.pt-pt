@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495225"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327515"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceba e implemente uma base de dados Oracle no Azure
 
@@ -146,19 +146,17 @@ Com base nos seus requisitos de largura de banda de rede, existem vários tipos 
 
 ### <a name="disk-types-and-configurations"></a>Tipos de disco e configurações
 
-- *Padrão de discos de SO*: esses tipos de disco oferecem dados persistentes e a colocação em cache. Eles estão otimizados para acesso do sistema operacional na inicialização e não são concebidos para qualquer um transacional ou cargas de trabalho (análise) do armazém de dados.
+- *Padrão de discos de SO*: Esses tipos de disco oferecem dados persistentes e a colocação em cache. Eles estão otimizados para acesso do sistema operacional na inicialização e não são concebidos para qualquer um transacional ou cargas de trabalho (análise) do armazém de dados.
 
-- *Discos não geridos*: com esses tipos de disco, gerir as contas de armazenamento que armazenam os ficheiros de disco rígido virtual (VHD) que correspondem aos seus discos VM. Ficheiros VHD são armazenados como blobs de páginas em contas de armazenamento do Azure.
+- *Discos não geridos*: Com esses tipos de disco, gerir as contas de armazenamento que armazenam os ficheiros de disco rígido virtual (VHD) que correspondem aos seus discos VM. Ficheiros VHD são armazenados como blobs de páginas em contas de armazenamento do Azure.
 
-- *Discos geridos*: o Azure gere as contas de armazenamento que utilizar para os discos da VM. Especifique o tipo de disco (premium ou standard) e o tamanho do disco que precisa. O Azure cria e gere o disco por si.
+- *Discos geridos*: O Azure gere as contas de armazenamento que utilizar para os discos da VM. Especifique o tipo de disco (premium ou standard) e o tamanho do disco que precisa. O Azure cria e gere o disco por si.
 
-- *Discos de armazenamento Premium*: esses tipos de disco são mais adequados para cargas de trabalho de produção. O armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas, como série DS, DSv2, GS e F VMs. O disco premium vem com diferentes tamanhos e pode escolher entre discos variam entre 32 GB e 4,096 GB. Cada tamanho de disco tem seus próprio especificações de desempenho. Dependendo dos requisitos de aplicação, pode anexar um ou mais discos à sua VM.
+- *Discos de armazenamento Premium*: Esses tipos de disco são mais adequados para cargas de trabalho de produção. O armazenamento Premium suporta discos VM que podem ser anexados a VMs de série de tamanho específicas, como série DS, DSv2, GS e F VMs. O disco premium vem com diferentes tamanhos e pode escolher entre discos variam entre 32 GB e 4,096 GB. Cada tamanho de disco tem seus próprio especificações de desempenho. Dependendo dos requisitos de aplicação, pode anexar um ou mais discos à sua VM.
 
 Quando criar um novo disco gerido a partir do portal, pode escolher o **tipo de conta** para o tipo de disco que pretende utilizar. Tenha em mente que nem todos os discos disponíveis são apresentados no menu pendente. Depois de escolher um determinado tamanho VM, o menu mostra apenas o armazenamento premium disponível SKUs que se baseiam nesse tamanho VM.
 
 ![Captura de ecrã da página de disco gerido](./media/oracle-design/premium_disk01.png)
-
-Para obter mais informações, consulte [High-performance Premium Storage e os discos geridos para VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage).
 
 Depois de configurar o armazenamento numa VM, poderá pretender carregar os discos de teste antes de criar uma base de dados. Saber a taxa de e/s em termos de débito e latência pode ajudar a determinar se as VMs suportam o débito esperado com destinos de latência.
 
@@ -190,17 +188,15 @@ Depois de ter uma visão clara dos requisitos de e/s, pode escolher uma combina�
 
 Existem três opções para a colocação em cache do anfitrião:
 
-- *Só de leitura*: todos os pedidos são colocados em cache para leituras futuras. Todas as escritas são mantidas diretamente para o armazenamento de Blobs do Azure.
+- *Só de leitura*: Todos os pedidos são colocados em cache para leituras futuras. Todas as escritas são mantidas diretamente para o armazenamento de Blobs do Azure.
 
 - *Leitura e escrita*: Este é um algoritmo "read-ahead". As leituras e gravações são colocadas em cache para leituras futuras. Escritas simultânea não são mantidas pela primeira vez para a cache local. Para o SQL Server, as escritas são mantidas ao armazenamento do Azure porque utiliza através de escrita. Ele também fornece a menor latência de disco para cargas de trabalho leves.
 
-- *Nenhum* (desativada): ao utilizar esta opção, pode ignorar a cache. Todos os dados são transferidos para o disco e mantidos no armazenamento do Azure. Este método permite-lhe a mais alta taxa de e/s para cargas de trabalho intensivas de e/s. Também terá de levar "custos de transação" em consideração.
+- *Nenhum* (desativada): Ao utilizar esta opção, pode ignorar a cache. Todos os dados são transferidos para o disco e mantidos no armazenamento do Azure. Este método permite-lhe a mais alta taxa de e/s para cargas de trabalho intensivas de e/s. Também terá de levar "custos de transação" em consideração.
 
 **Recommendations (Recomendações)**
 
 Para maximizar o débito, recomendamos que comece com **None** para colocação em cache do anfitrião. Para armazenamento Premium, tenha em atenção que tem de desativar as "barreiras" ao montar o sistema de ficheiros com o **só de leitura** ou **nenhum** opções. Atualize o ficheiro de /etc/fstab. com o UUID aos discos.
-
-Para obter mais informações, consulte [o armazenamento Premium para VMs do Linux](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Captura de ecrã da página de disco gerido](./media/oracle-design/premium_disk02.png)
 
@@ -217,12 +213,12 @@ Depois de configurar e configurado o seu ambiente do Azure, a próxima etapa é 
 
 - *Política NSG*: NSG pode ser definido por uma sub-rede ou NIC. É mais simples para controlar o acesso ao nível da sub-rede, tanto para segurança e a força de encaminhamento para coisas como firewalls de aplicações.
 
-- *Jumpbox*: para obter acesso mais seguro, os administradores devem não ligar-se diretamente para o serviço de aplicações ou a base de dados. Uma jumpbox é utilizado como um suporte de dados entre a máquina de administrador e os recursos do Azure.
+- *Jumpbox*: Para obter acesso mais seguro, os administradores devem não ligar-se diretamente para o serviço de aplicações ou a base de dados. Uma jumpbox é utilizado como um suporte de dados entre a máquina de administrador e os recursos do Azure.
 ![Captura de ecrã da página de topologia Jumpbox](./media/oracle-design/jumpbox.png)
 
     A máquina de administrador deve oferecer acesso restrito de IP para a jumpbox apenas. A jumpbox deve ter acesso à aplicação e base de dados.
 
-- *Rede privada* (sub-redes): Recomendamos que tenha o serviço de aplicações e a base de dados em sub-redes separadas, para que melhor controle pode ser definido pela política NSG.
+- *Rede privada* (sub-redes): Recomendamos que tenha o serviço de aplicações e a base de dados em sub-redes separadas, para que um melhor controle pode ser definido pela política NSG.
 
 
 ## <a name="additional-reading"></a>Leitura adicional

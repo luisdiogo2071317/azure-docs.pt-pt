@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742393"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312292"
 ---
 # <a name="http-application-routing"></a>Encaminhamento de aplicações de HTTP
 
@@ -38,6 +38,9 @@ O suplemento de encaminhamento de aplicativo HTTP pode ser ativado com a CLI do 
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> Se pretender ativar vários suplementos, fornecem-los como uma lista separada por vírgulas. Por exemplo, para ativar a monitorização e encaminhamento de aplicações de HTTP, utilize o formato `--enable-addons http_application_routing,monitoring`.
 
 Também pode ativar o encaminhamento de HTTP num existente AKS cluster com o [enable-complementos de az aks] [ az-aks-enable-addons] comando. Para ativar o encaminhamento de HTTP num cluster existente, adicione a `--addons` parâmetro e especificar *http_application_routing* conforme mostrado no exemplo a seguir:
 

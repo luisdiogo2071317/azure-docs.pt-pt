@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266489"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310262"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar estado do sistema para o Windows Server
 
@@ -65,7 +65,7 @@ Os seguintes passos explicam como reverter a configuração do Windows Server pa
 
 9. Copiar o *WindowsImageBackup* diretório no destino de recuperação para um volume não-críticas do servidor. Normalmente, o volume do SO do Windows é o volume crítico.
 
-10. Assim que a recuperação for concluída com êxito, siga os passos na secção, [aplicar restaurou ficheiros de estado do sistema para o Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-files-to-the-windows-server), para concluir o processo de recuperação do Estado do sistema.
+10. Assim que a recuperação for concluída com êxito, siga os passos na secção, [aplicar restaurou ficheiros de estado do sistema para o Windows Server](backup-azure-restore-system-state.md), para concluir o processo de recuperação do Estado do sistema.
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>Ficheiros de estado do sistema de recuperação para um servidor alternativo
 

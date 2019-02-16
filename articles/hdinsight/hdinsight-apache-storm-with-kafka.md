@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 44ad80732d1e874ccec4ecc376b9ce9b513a3aa9
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: a90546d97fbb42a0ee4ef2d8f26c1d4f189ef8d3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652376"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310343"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Storm com o Apache Kafka no HDInsight
 
@@ -122,7 +122,7 @@ Este tutorial proporciona duas topologias:
 
 * Escritor de Kafka: Gera frases aleatórias e armazena-os ao Kafka.
 
-* Leitor de Kafka: Lê os dados do Kafka e, em seguida, armazena-o para o arquivo de ficheiro compatível com HDFS para o cluster do Storm.
+* Kafka-reader: Lê os dados do Kafka e, em seguida, armazena-o para o arquivo de ficheiro compatível com HDFS para o cluster do Storm.
 
     > [!WARNING]  
     > Para que o Storm funcione com o armazenamento compatível com o HDFS que o HDInsight utiliza, é necessária uma ação de script. O script instala vários ficheiros jar no caminho `extlib` para o Storm. O modelo neste tutorial utiliza automaticamente o script durante a criação do cluster.
@@ -373,7 +373,7 @@ O projeto contém um ficheiro denominado `dev.properties` e que é utilizado par
 | `kafka.broker.hosts` | Os anfitriões dos mediadores do Kafka (nós de trabalho). |
 | `kafka.topic` | O tópico do Kafka que as topologias utilizam. |
 | `hdfs.write.dir` | O diretório no qual a topologia de Kafka-reader escreve. |
-| `hdfs.url` | O sistema de ficheiros que o cluster do Storm utiliza. Nas contas de armazenamento do Azure, utilize o valor `wasb:///`. Para armazenamento do Azure Data Lake, utilize um valor de `adl:///`. |
+| `hdfs.url` | O sistema de ficheiros que o cluster do Storm utiliza. Nas contas de armazenamento do Azure, utilize o valor `wasb:///`. Para o Azure Data Lake Storage Gen1, utilize um valor de `adl:///`. |
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 

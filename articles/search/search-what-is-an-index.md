@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: fd5f58a03ffd054e79f1ff4ea6d61c33c06b6e7c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9cd43172fc57443cc89f238e1d4ffaae45301936
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268554"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330567"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Criar um índice básico no Azure Search
 
@@ -110,7 +110,10 @@ O [ *coleção de campos* ](#fields-collection) é, normalmente, a maior parte d
 }
 ```
 
-## <a name="fields-collection-and-attribution"></a>Coleção de campos e atribuição
+<a name="fields-collection"></a>
+
+## <a name="fields-collection-and-field-attributes"></a>Atributos de campo e de coleção de campos
+
 Na definição do esquema, tem de especificar o nome, o tipo e os atributos de cada campo do índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar o modo de utilização do campo. As tabelas seguintes enumeram os tipos e os atributos que pode especificar.
 
 ### <a name="data-types"></a>Tipos de dados
@@ -139,7 +142,7 @@ Pode encontrar mais informações detalhadas sobre os [tipos de dados suportados
 
 Pode encontrar mais informações detalhadas sobre os [atributos de índice aqui](https://docs.microsoft.com/rest/api/searchservice/Create-Index) do Azure Search.
 
-## <a name="storage-implications-of-index-attributes"></a>Implicações de armazenamento de atributos de índice
+## <a name="storage-implications"></a>Implicações de armazenamento
 
 Os atributos que selecionar tem um impacto no armazenamento. Captura de ecrã seguinte é uma ilustração de padrões de armazenamento de índice resultante de várias combinações de atributos. O índice baseia-se no [exemplo de realestate incorporada](search-get-started-portal.md) fonte de dados, o que permite-lhe indexar e consultas no portal.
 
@@ -147,7 +150,9 @@ Filtrar e ordenar a consulta de operações em correspondências exatas para que
 
 ![Tamanho com base na seleção de atributos de índice](./media/search-what-is-an-index/realestate-index-size.png "tamanho com base na seleção de atributos de índice")
 
-Implementação de armazenamento é considerada um detalhe de implementação do Azure Search e pode ser alteradas sem aviso prévio. Não é garantido que o comportamento atual serão mantidas no futuro.
+Vários dessas combinações são artificial, útil para que esclarecem de que um ponto, mas não iria resultar num índice viável. Na prática, nunca seria adicionar cada campo único para um sugestor ou criar um índice pesquisável, mas não recuperável.
+
+Arquitetura de armazenamento é considerada um detalhe de implementação do Azure Search e pode ser alteradas sem aviso prévio. Não é garantido que o comportamento atual serão mantidas no futuro.
 
 ## <a name="suggesters"></a>Sugestões
 Um sugestor é uma seção do esquema que define os campos num índice são usados para oferecer suporte a consultas de conclusão automática ou antecipada em pesquisas. Normalmente, cadeias de procura parciais são enviadas para as sugestões (API do REST de serviço de pesquisa do Azure) enquanto o usuário está digitando uma consulta de pesquisa e a API devolve um conjunto de expressões sugeridas. 

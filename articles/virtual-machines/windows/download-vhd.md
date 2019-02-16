@@ -1,6 +1,6 @@
 ---
-title: Transferir um VHD do Windows a partir do Azure | Microsoft Docs
-description: Transferir um VHD do Windows no portal do Azure.
+title: Transferir um VHD do Windows do Azure | Documentos da Microsoft
+description: Transferir um VHD do Windows com o portal do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: f62c1b815180e39468a39b8bc2a220a6bfb9ea5a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726300"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329375"
 ---
-# <a name="download-a-windows-vhd-from-azure"></a>Transferir um VHD do Windows a partir do Azure
+# <a name="download-a-windows-vhd-from-azure"></a>Transferir um VHD do Windows do Azure
 
-Neste artigo, irá aprender a transferir um [Windows de disco rígido virtual (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ficheiro a partir do Azure no portal do Azure. 
+Neste artigo, irá aprender a transferir um ficheiro de disco rígido virtual (VHD) do Windows Azure utilizando o portal do Azure.
 
 ## <a name="stop-the-vm"></a>Parar a VM
 
-Não é possível transferir um VHD a partir do Azure se está ligado a uma VM em execução. Terá de parar a VM para transferir um VHD. Se pretender utilizar um VHD como um [imagem](tutorial-custom-images.md) para criar outras VMs com novos discos, utilize [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar o sistema operativo contido no ficheiro e, em seguida, pare a VM. Para utilizar o VHD como um disco para uma nova instância de uma VM existente ou o disco de dados, apenas terá de parar e Desalocação da VM.
+Não é possível transferir um VHD do Azure se este estiver ligado a uma VM em execução. Terá de parar a VM para transferir um VHD. Se pretender utilizar um VHD como um [imagem](tutorial-custom-images.md) para criar outras VMs com novos discos, utilize [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) para generalizar o sistema de operativo contido no ficheiro e, em seguida, pare a VM. Para utilizar o VHD como um disco para uma nova instância de uma VM existente ou um disco de dados, apenas terá de parar e desalocar a VM.
 
-Para utilizar o VHD como uma imagem para criar outras VMs, conclua estes passos:
+Para usar o VHD como uma imagem para criar outras VMs, conclua estes passos:
 
 1.  Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com/).
 2.  [Ligar à VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 3.  Na VM, abra a janela de linha de comandos como administrador.
-4.  Altere o diretório para *%windir%\system32\sysprep* e execute o sysprep.exe.
-5.  Na caixa de diálogo Ferramenta de preparação do sistema, selecione **introduza sistema Out-of-Box experiência (OOBE)** e certifique-se de que **Generalize** está selecionada.
+4.  Altere o diretório para *%windir%\system32\sysprep* e execute sysprep.exe.
+5.  Na caixa de diálogo Ferramenta de preparação do sistema, selecione **Enter System Out-of-Box Experience (OOBE)** e certifique-se de que **Generalize** está selecionada.
 6.  Nas opções de encerramento, selecione **encerramento**e, em seguida, clique em **OK**. 
 
-Para utilizar o VHD como um disco para uma nova instância de uma VM existente ou o disco de dados, conclua estes passos:
+Para utilizar o VHD como um disco para uma nova instância de uma VM existente ou um disco de dados, conclua estes passos:
 
-1.  No menu do Hub no portal do Azure, clique em **máquinas virtuais**.
-2.  Selecione a VM na lista.
-3.  No painel para a VM, clique em **parar**.
+1.  No menu Hub no portal do Azure, clique em **máquinas virtuais**.
+2.  Selecione a VM a partir da lista.
+3.  No painel da VM, clique em **parar**.
 
     ![Parar VM](./media/download-vhd/export-stop.png)
 
-## <a name="generate-sas-url"></a>Gerar SAS URL
+## <a name="generate-sas-url"></a>Gerar o URL de SAS
 
-Para transferir o ficheiro VHD, terá de gerar um [assinatura de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. Quando o URL é gerado, uma hora de expiração é atribuída para o URL.
+Para transferir o ficheiro VHD, terá de gerar um [assinatura de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL. Quando o URL é gerado, é atribuído um prazo de expiração para o URL.
 
 1.  No menu do painel para a VM, clique em **discos**.
 2.  Selecione o disco do sistema operativo para a VM e, em seguida, clique em **exportar**.
@@ -59,23 +59,23 @@ Para transferir o ficheiro VHD, terá de gerar um [assinatura de acesso partilha
     ![Gerar URL](./media/download-vhd/export-generate.png)
 
 > [!NOTE]
-> A hora de expiração é aumentada da predefinição para fornecer tempo suficiente para transferir o ficheiro VHD grande para um sistema operativo Windows Server. Pode esperar um ficheiro VHD que contém o sistema operativo Windows Server demorar várias horas a transferir dependendo da sua ligação. Se estiver a transferir um VHD para um disco de dados, o tempo predefinido é suficiente. 
+> A hora de expiração é aumentada do padrão para fornecer tempo suficiente para transferir o ficheiro VHD de grandes para um sistema operativo Windows Server. Pode esperar um arquivo VHD que contém o sistema operativo do Windows Server pode levar várias horas para transferir consoante a ligação. Se estiver a transferir um VHD para um disco de dados, o tempo predefinido é suficiente. 
 > 
 > 
 
-## <a name="download-vhd"></a>Transferir o VHD
+## <a name="download-vhd"></a>Baixe o VHD
 
-1.  Sob o URL que foi gerado, clique em transferir o ficheiro VHD.
+1.  Em URL que foi gerado, clique em transferir o ficheiro VHD.
 
-    ![Transferir o VHD](./media/download-vhd/export-download.png)
+    ![Baixe o VHD](./media/download-vhd/export-download.png)
 
-2.  Poderá ter de clicar em **guardar** no browser para iniciar a transferência. O nome predefinido para o ficheiro VHD é *abcd*.
+2.  Poderá ter de clicar em **guardar** no browser para iniciar o download. É o nome predefinido para o ficheiro VHD *abcd*.
 
     ![Clique em Guardar no browser](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [carregar um ficheiro VHD para o Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Criar discos geridos a partir de discos não geridos numa conta do storage](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Criar discos geridos a partir de discos não geridos numa conta de armazenamento](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - [Gerir discos do Azure com o PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

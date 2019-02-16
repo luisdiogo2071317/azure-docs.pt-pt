@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358155"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327554"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalar o cliente do Chef no portal do Azure
 Pode adicionar a extensão de cliente do Chef diretamente numa máquina Linux ou Windows a partir do portal do Azure. Este artigo orienta-o processo usando uma nova máquina virtual de Linux.
@@ -53,7 +53,7 @@ Nesta secção, primeiro usará o portal do Azure para criar uma máquina Linux.
 1. Sobre o **Noções básicas** separador, especifique os seguintes valores e, em seguida, selecione **OK**.
 
     - **Nome** -introduza um nome para a nova máquina virtual.
-    - **Tipo de disco VM** -especifique **SSD** ou **HDD** para o tipo de disco de armazenamento. Para obter mais informações sobre os tipos de disco da máquina virtual no Azure, consulte o artigo [High-performance Premium Storage e os discos geridos para VMs](/azure/virtual-machines/windows/premium-storage).
+    - **Tipo de disco VM** -especifique **SSD** ou **HDD** para o tipo de disco de armazenamento. Para obter mais informações sobre os tipos de disco da máquina virtual no Azure, consulte o artigo [selecionar um tipo de disco](../virtual-machines/windows/disks-types.md).
     - **Nome de utilizador** -introduza um nome de utilizador que é concedido privilégios de administrador na máquina virtual.
     - **Tipo de autenticação** - selecione **palavra-passe**. Também pode selecionar **chave pública SSH**e fornecer um valor de chave público SSH. Para fins desta demonstração (e nas capturas de ecrã), **palavra-passe** está selecionada.
     - **Palavra-passe** e **Confirmar palavra-passe** -introduza uma palavra-passe do utilizador.

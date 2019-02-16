@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 160d42725abdb91af4f83696c2bceae38bbab67d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd9429ade750810138335c522d68df5cd595f320
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869335"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310988"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Início rápido: Extrair texto manuscrito usando a REST API e C&#35; na visão do computador
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>Início rápido: Extrair texto manuscrito com a API REST e C# na visão do computador
 
-Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API REST de Imagem Digitalizada. Com os métodos [Reconhecimento de Texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) e [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Obter Resultado da Operação de Reconhecimento de Texto), pode detetar texto manuscrito numa imagem e, em seguida, extrair os carateres reconhecidos para um fluxo de carateres que podem ser utilizados por um computador.
+Neste início rápido, irá extrair texto manuscrito a partir de uma imagem com API de REST do imagem digitalizada. Com o [reconhecer texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) e o [obter Resultado da operação texto reconhecer](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) métodos, pode detetar texto manuscrito numa imagem e extraia os carateres reconhecidos para um fluxo de carateres legível por máquina.
 
 > [!IMPORTANT]
 > Ao contrário do método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), o método [Reconhecimento de Texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) é executado de forma assíncrona. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em alternativa, o método Reconhecimento de Texto devolve um URI no valor do campo de cabeçalho de resposta `Operation-Content`. Em seguida, pode chamar este URI, que representa o método [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Obter Resultado da Operação de Reconhecimento de Texto), para verificar o estado e devolver os resultados da chamada do método Reconhecimento de Texto.
@@ -425,7 +425,7 @@ Quando já não for necessário, elimine a solução do Visual Studio. Para tal,
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Explore uma aplicação básica do Windows que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore uma aplicação básica do Windows que utiliza a imagem digitalizada para realizar o reconhecimento ótico de carateres (OCR). Criar miniaturas de smart-recortada; Além de detetar, categorizar, marca e descrevem recursos visual, incluindo as faces, numa imagem.
 
 > [!div class="nextstepaction"]
-> [API de Imagem Digitalizada com C&#35; Tutorial](../Tutorials/CSharpTutorial.md)
+> [API de imagem digitalizada C# Tutorial](../Tutorials/CSharpTutorial.md)

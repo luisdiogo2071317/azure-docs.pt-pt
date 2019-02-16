@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 54511ac4dfdc05ec1880695b1ae2360f0b5e8162
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246879"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328372"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -79,7 +79,7 @@ O são lançadas a vários artigos na carga de trabalho SAP no Azure. Recomenda-
 
 As seguintes notas de SAP estão relacionadas com o SAP no Azure em relação à área de abrangidas neste documento:
 
-| Número de nota | Cargo |
+| Número de nota | Título |
 | --- | --- |
 | [1928533] |Aplicações de SAP no Azure: Produtos suportados e tipos de VM do Azure |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -106,12 +106,12 @@ Embora discutir IaaS, em geral a instalação do Windows, Linux e DBMS e configu
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estrutura de armazenamento de uma VM para implementações de RDBMS
-Para seguir este capítulo, é necessário compreender o que foi apresentado no [isso] [ deployment-guide-3] capítulo o [guia de implementação][deployment-guide]. Dados de conhecimento sobre a série de VM diferente e suas diferenças e as diferenças do Azure Standard e [o armazenamento Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) devem ser compreendidos e conhecido antes de ler este capítulo.
+Para seguir este capítulo, é necessário compreender o que foi apresentado no [isso] [ deployment-guide-3] capítulo o [guia de implementação][deployment-guide]. Dados de conhecimento sobre a série de VM diferente e suas diferenças e as diferenças de armazenamento standard e o armazenamento premium devem ser compreendidos e conhecido antes de ler este capítulo. Para
 
 Em termos de armazenamento do Azure para VMs do Azure, deve estar familiarizado com os artigos:
 
-- [Sobre o armazenamento de discos para VMs do Windows do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [Sobre o armazenamento de discos para VMs Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Introdução aos discos geridos para VMs do Windows do Azure](../../windows/managed-disks-overview.md)
+- [Introdução aos discos geridos para VMs Linux do Azure](../../linux/managed-disks-overview.md)
 
 Numa configuração básica, normalmente, recomendamos uma estrutura de implementação em que o sistema operativo, o DBMS e a eventual binários SAP estão separados dos arquivos de banco de dados. Por conseguinte, recomendamos que os sistemas SAP em execução em máquinas virtuais do Azure para que o VHD base (ou disco) instalados com o sistema operativo, executáveis de sistema de gestão de base de dados e executáveis SAP. Os ficheiros de dados e de registo do DBMS são armazenados no armazenamento do Azure (armazenamento Standard ou Premium) em discos separados e anexados como discos lógicos para a imagem de sistema de operativo Azure VM original. Especialmente em Implantações de Linux, pode haver diferentes recomendações documentadas. Sobretudo em torno de SAP HANA.
 
@@ -134,10 +134,8 @@ Azure impõe uma quota IOPS por disco de dados. Estas quotas são diferentes par
 > [!NOTE]
 > Para se beneficiar do Azure do exclusivo [único SLA de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) todos os discos ligados têm de ser do tipo para o armazenamento Premium do Azure, incluindo o VHD base.
 
-
 > [!NOTE]
 > Não é suportada a hospedagem principal da base de dados de arquivos (ficheiros de registo e dados) de bases de dados do SAP no hardware de armazenamento que está localizado em datacenters de terceiros colocalizadas adjacentes aos datacenters do Azure. Para o SAP carga de trabalho apenas armazenamento que é representado como nativa do Azure, serviço é suportado para os ficheiros de registo de dados e de transação de bases de dados do SAP.
-> 
 
 A colocação de ficheiros de base de dados e ficheiros de registo/Refazer e o tipo de armazenamento do Azure utilizado, devem ser definidos pelos requisitos de IOPS, débito e latência. Para ter suficiente IOPS, poderá ser forçado a tirar partido de vários discos ou utilizar um disco de armazenamento Premium maior. Em caso de a utilizar vários discos, criaria uma faixa de software em todos os discos que contêm os ficheiros de dados ou ficheiros de registo/Refazer. Nesses casos, o IOPS e o débito de disco SLAs dos discos subjacentes do armazenamento Premium ou os discos de IOPS dos armazenamento Standard do Azure alcançáveis máximos são acumulativos para o conjunto resultante do stripe.
 

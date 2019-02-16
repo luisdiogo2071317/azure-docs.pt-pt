@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387051"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313539"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -127,7 +127,7 @@ Este conjunto de informações de configuração contém informações confidenc
 }
 ```
 
-Nome | Valor
+Name | Value
 ---- | -----
 storageAccountName | O nome da conta de armazenamento na qual os dados são escritos pela extensão.
 storageAccountEndPoint | (opcional) O ponto final de identificar a cloud em que a conta de armazenamento existe. Se esta definição estiver ausente, LAD é predefinido para a cloud pública do Azure, `https://core.windows.net`. Para utilizar uma conta de armazenamento no Azure Alemanha, do Azure Government ou Azure China, defina este valor em conformidade.
@@ -167,7 +167,7 @@ Copie a SAS gerada para o campo de storageAccountSasToken; remover o líder de i
 
 Esta secção opcional define destinos adicionais para que a extensão envia as informações que coleta. A matriz de "sink" contém um objeto para cada sink de dados adicionais. O atributo "type" determina os outros atributos no objeto.
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 nome | Uma cadeia de caracteres usada para fazer referência a este sink noutro local na configuração da extensão.
 tipo | O tipo de sink, que está a ser definido. Determina os outros valores (se houver) em instâncias deste tipo.
@@ -229,7 +229,7 @@ Essa estrutura contém vários blocos de configurações que controlam as inform
 }
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 StorageAccount | O nome da conta de armazenamento na qual os dados são escritos pela extensão. Tem de ser o mesmo nome como está especificado no [definições protegido](#protected-settings).
 mdsdHttpProxy | (opcional) Mesmo como mostra a [definições protegido](#protected-settings). O valor público é substituído pelo valor privado, se definir. Coloque as definições de proxy que contêm um segredo, por exemplo, uma palavra-passe no [definições protegido](#protected-settings).
@@ -252,7 +252,7 @@ Os elementos restantes são descritos em detalhe nas secções seguintes.
 
 Coletores de coleta de métricas e registos para entrega para o serviço de métricas do Azure e outros dados de controles esta estrutura opcional. Deve especificar `performanceCounters` ou `syslogEvents` ou ambos. Tem de especificar o `metrics` estrutura.
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 eventVolume | (opcional) Controla o número de partições criadas dentro da tabela de armazenamento. Tem de ser `"Large"`, `"Medium"`, ou `"Small"`. Se não for especificado, o valor predefinido é `"Medium"`.
 sampleRateInSeconds | (opcional) Intervalo padrão entre a coleção de métricas (unaggregated). A taxa de menor suportados exemplo é 15 segundos. Se não for especificado, o valor predefinido é `15`.
@@ -269,14 +269,14 @@ sampleRateInSeconds | (opcional) Intervalo padrão entre a coleção de métrica
 }
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 resourceId | Definir o ID de recurso do Azure Resource Manager da VM ou de dimensionamento da máquina virtual para que a VM pertence. Esta definição tem de ser também especificado se qualquer sink JsonBlob é utilizada na configuração.
 scheduledTransferPeriod | A frequência com que métricas de agregação estão a ser computado e transferidos para métricas do Azure, expresso como um intervalo de tempo é 8601. O mais pequeno período de transferência é 60 segundos, ou seja, PT1M. Tem de especificar pelo menos um scheduledTransferPeriod.
 
 Exemplos de métricas especificados na seção performanceCounters são recolhidos a cada 15 segundos ou o exemplo classificar explicitamente definida para o contador. Se aparecerem várias scheduledTransferPeriod frequências (como no exemplo), cada agregação é calculada de forma independente.
 
-#### <a name="performancecounters"></a>PerformanceCounters
+#### <a name="performancecounters"></a>performanceCounters
 
 ```json
 "performanceCounters": {
@@ -309,16 +309,16 @@ Esta secção opcional controla a coleção de métricas. Os exemplos não proce
 * recolhido o último valor
 * Contagem de amostras brutas utilizadas para calcular o agregado
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 Coletores de | (opcional) Uma lista separada por vírgulas dos nomes dos sinks que LAD envia agregado resultados métrica. Todas as métricas agregadas são publicadas cada sink listada. Ver [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
 tipo | Identifica o fornecedor real da métrica.
 classe | Em conjunto com "contador", identifica a métrica específica dentro do espaço de nomes do fornecedor.
 counter | Em conjunto com "class", identifica a métrica específica dentro do espaço de nomes do fornecedor.
 counterSpecifier | Identifica a métrica específica dentro do espaço de nomes de métricas do Azure.
-condition | (opcional) Seleciona uma instância específica do objeto ao qual a métrica aplica-se ou seleciona a agregação de todas as instâncias desse objeto. Para obter mais informações, consulte a [ `builtin` definições de métricas](#metrics-supported-by-builtin).
-SampleRate como sendo | É o intervalo de 8601 que define a taxa em que os exemplos não processados para esta métrica são recolhidos. Se não definido, o intervalo de coleta é definido pelo valor de [sampleRateInSeconds](#ladcfg). A taxa de exemplo suportadas mais curta é 15 segundos (PT15S).
-unidade | Deve ser um dessas cadeias de caracteres: "Count", "Bytes", "Segundos", "Percentagem", "CountPerSecond", "BytesPerSecond", "Milissegundo". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperam que os valores de dados recolhidos para corresponder esta unidade. LAD ignora este campo.
+condition | (opcional) Seleciona uma instância específica do objeto ao qual a métrica aplica-se ou seleciona a agregação de todas as instâncias desse objeto. Para obter mais informações, consulte o `builtin` as definições de métricas.
+sampleRate | É o intervalo de 8601 que define a taxa em que os exemplos não processados para esta métrica são recolhidos. Se não definido, o intervalo de coleta é definido pelo valor de [sampleRateInSeconds](#ladcfg). A taxa de exemplo suportadas mais curta é 15 segundos (PT15S).
+unidade | Deve ser um dessas cadeias de caracteres: "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperam que os valores de dados recolhidos para corresponder esta unidade. LAD ignora este campo.
 displayName | A etiqueta (no idioma especificado da definição de região associados) ser anexados a esses dados de métricas do Azure. LAD ignora este campo.
 
 O counterSpecifier é um identificador arbitrário. Os consumidores de métricas, como o gráfico portal do Azure e alertas de funcionalidade, utilize counterSpecifier como a "chave" que identifica uma métrica ou uma instância de uma métrica. Para `builtin` métricas, recomendamos que utilize os valores de counterSpecifier que começam com `/builtin/`. Se está a recolher uma instância específica de uma métrica, recomendamos que anexar o identificador da instância para o valor de counterSpecifier. Alguns exemplos:
@@ -355,7 +355,7 @@ Esta secção opcional controla a recolha de eventos de registo do syslog. Se a 
 
 A coleção de syslogEventConfiguration tem uma entrada para cada função do syslog de interesse. Se minSeverity é "Nenhum" para um recurso específico, ou se esse recurso não aparecer no elemento de todo, não existem eventos a partir desse recurso são capturados.
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 Coletores de | Uma lista separada por vírgulas dos nomes dos sinks ao qual os eventos de registo individuais são publicados. Todos os eventos de registo que correspondam as restrições no syslogEventConfiguration são publicados para cada sink listada. Exemplo: "EHforsyslog"
 facilityName | Um nome de recurso do syslog (por exemplo, "LOG\_utilizador" ou "LOG\_LOCAL0"). Consulte a secção "recurso" a [página do syslog man](http://man7.org/linux/man-pages/man3/syslog.3.html) para a lista completa.
@@ -384,7 +384,7 @@ Esta secção opcional controla a execução de arbitrário [OMI](https://github
 ]
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 espaço de nomes | (opcional) O espaço de nomes OMI, no qual a consulta deve ser executada. Se não for especificado, o valor predefinido é "raiz/scx", implementado pelos [fornecedores de plataformas do System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 consulta | A consulta OMI a ser executado.
@@ -408,7 +408,7 @@ Controla a captura de ficheiros de registo. LAD captura novas linhas de texto, c
 ]
 ```
 
-Elemento | Valor
+Elemento | Value
 ------- | -----
 ficheiro | O nome do caminho completo do ficheiro de registo a ser observada e capturado. O nome do caminho deve nomeá um único arquivo; ela não é possível nomear um diretório ou conter os carateres universais.
 tabela | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), no qual são escritas novas linhas de "cauda" do ficheiro.

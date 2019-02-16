@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509138"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327015"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar os Blobs do Azure, ficheiros do Azure ou discos do Azure
 Microsoft Azure fornece vários recursos no armazenamento do Azure para armazenar e aceder aos seus dados na cloud. Este artigo aborda os ficheiros do Azure, Blobs e discos e foi concebido para ajudar a escolher entre esses recursos.
@@ -56,7 +56,7 @@ A tabela seguinte compara os ficheiros do Azure com discos do Azure.
 |Âmbito|Exclusivo para uma única máquina virtual|Acesso partilhado em várias máquinas virtuais|  
 |Os instantâneos e copiar|Sim|Sim|  
 |Configuração|Conectada durante a inicialização da máquina virtual|Ligado depois da máquina virtual foi iniciada|  
-|Autenticação|Incorporado|Configurar com utilização net|  
+|Authentication|Incorporado|Configurar com utilização net|  
 |Acesso com REST|Não não possível aceder a ficheiros dentro do VHD|Armazenados numa partilha de ficheiros podem ser acedidos|  
 |Tamanho Máx|4 de TiB de disco|Partilha de ficheiros do 5 TiB e 1 TiB ficheiro na partilha|  
 |máx IOps|500 IOps|1000 IOps|  
@@ -67,4 +67,4 @@ Quando tomar decisões sobre a forma como os seus dados são armazenados e acedi
   
 Algumas funcionalidades do SMB não são aplicáveis para a cloud. Para obter mais informações, consulte [funcionalidades não suportadas pelo serviço de ficheiros do Azure](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Para obter mais informações acerca dos discos, consulte [gestão de discos e imagens](../../virtual-machines/windows/about-disks-and-vhds.md) e [como anexar um disco de dados a uma máquina de Virtual do Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).
+Para obter mais informações acerca dos discos, consulte nosso [introdução aos discos geridos](../../virtual-machines/windows/managed-disks-overview.md) e [como anexar um disco de dados a uma máquina de Virtual do Windows](../../virtual-machines/windows/attach-managed-disk-portal.md).

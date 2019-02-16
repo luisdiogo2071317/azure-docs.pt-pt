@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e1a928711a596c159ac920f11c123b73b72d3aa2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888571"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313420"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
-*Este tópico aplica-se para os conectores seguintes: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOBs do Azure](connector-azure-blob-storage.md), [do Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [do Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [File Storage do Azure](connector-azure-file-storage.md), [Sistema de ficheiros](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), e [SFTP](connector-sftp.md).*
+*Este artigo aplica-se para os conectores seguintes: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOBs do Azure](connector-azure-blob-storage.md), [do Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [do Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [File Storage do Azure](connector-azure-file-storage.md), [Sistema de ficheiros](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [ SFTP](connector-sftp.md).*
 
 Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. Se quiser **analisar ou gerar arquivos com um formato específico**, Azure Data Factory suporta os seguintes tipos de formato de ficheiro:
 
@@ -427,6 +427,13 @@ Para obter uma cópia em execução no runtime de integração autoalojado com f
 
 - **Para utilizar o JRE**: O runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrá-lo partir [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **Para utilizar OpenJDK**: é suportado desde a versão 3.13 de Runtime de integração. Pacote jvm.dll com todos os outros necessário assemblies de OpenJDK em Ir Autoalojado máquina e variável de ambiente de sistema do conjunto JAVA_HOME em conformidade.
+
+>[!TIP]
+>Se copiar dados de/para Parquet formatar a utilizar o Integration Runtime autoalojado e pressionar a indicação de erro "Ocorreu um erro ao invocar java, mensagem: **espaço de área dinâmica para dados java.lang.OutOfMemoryError:Java**", pode adicionar uma variável de ambiente `_JAVA_OPTIONS` na máquina que aloja o runtime de integração autoalojado para ajustar o tamanho de heap Mín/Máx para JVM capacitar a cópia, em seguida, voltar a executar o pipeline. 
+
+![Definir o tamanho da área dinâmica para dados JVM em Ir Autoalojado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+
+Exemplo: Definir variável `_JAVA_OPTIONS` com o valor `-Xms256m -Xmx16g`. O sinalizador `Xms` Especifica o conjunto de alocação de memória inicial para um Java Virtual Machine (JVM), enquanto `Xmx` Especifica o conjunto de alocação de memória máxima. Isso significa que JVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de `Xmx` quantidade de memória. Por predefinição, o ADF utilize mínimo 64MB e máximo de 1G.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Tipo de dados de mapeamento para ficheiros Parquet
 

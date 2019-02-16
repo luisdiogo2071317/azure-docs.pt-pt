@@ -1,7 +1,7 @@
 ---
-title: Voltar a preparar um modelo de Machine Learning Studio
+title: Voltar a preparar e implementar um serviço web
 titleSuffix: Azure Machine Learning Studio
-description: Saiba como voltar a preparar um modelo e atualizar o serviço Web para utilizar o modelo treinado recentemente no Azure Machine Learning.
+description: Saiba como atualizar um serviço web para utilizar um recentemente treinado modelo machine learning no Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,84 +9,186 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
-ms.date: 04/19/2017
-ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/14/2019
+ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236265"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330516"
 ---
-# <a name="retrain-an-azure-machine-learning-studio-model"></a>Voltar a preparar um modelo do Azure Machine Learning Studio
-Como parte do processo de operacionalização de modelos de machine learning no Azure Machine Learning, o seu modelo é preparado e guardado. , Em seguida, utilizá-lo para criar um serviço Web preditivo. O serviço Web, em seguida, pode ser consumido em web sites, dashboards e aplicações móveis. 
+# <a name="retrain-and-deploy-a-machine-learning-model"></a>Voltar a preparar e implementar um modelo de machine learning
 
-Modelos de que criar com o Machine Learning, normalmente, não são estáticos. À medida que novos dados ficam disponíveis ou quando o consumidor da API tem seus próprios dados tem de reestruturar o modelo. 
+Reparametrização é uma forma de garantir a se manter modelos de aprendizagem automática com base nos dados mais relevantes disponíveis e precisas. Este artigo mostra como voltar a preparar e implementar um modelo de machine learning como um novo serviço web no Studio. Se estiver procurando readaptar um serviço web clássico, [exibir este artigo de procedimento.](retrain-classic-web-service.md)
 
-Reparametrização pode ocorrer com frequência. Com o recurso de API de reparametrização programática, por meio de programação pode voltar a preparar o modelo com as APIs de reparametrização e atualize o serviço da Web com o modelo treinado recentemente. 
+Este artigo pressupõe que já tem um serviço web preditivo implementado. Se ainda não tiver um serviço web preditivo, [Saiba como implementar um serviço da web de Studio aqui.](publish-a-machine-learning-web-service.md)
 
-Este documento descreve o processo de reparametrização e mostra-lhe como utilizar as APIs de reparametrização.
+Executar os seguintes passos para voltar a preparar e implementar um novo serviço web machine learning:
 
-## <a name="why-retrain-defining-the-problem"></a>Por que voltar a preparar: definir o problema
-Como parte de processo de treinamento de aprendizagem automática, é preparado um modelo com um conjunto de dados. Modelos de que criar com o Machine Learning, normalmente, não são estáticos. À medida que novos dados ficam disponíveis ou quando o consumidor da API tem seus próprios dados tem de reestruturar o modelo.
+1. Implementar um **reparametrização do serviço web**
+1. Preparar um novo modelo com sua **reparametrização do serviço web**
+1. Atualizar os já existentes **experimentação preditiva** para usar o novo modelo
 
-Nestes cenários, uma API programática fornece uma forma conveniente de permitir o consumidor ou das APIs criar um cliente que pode, de forma única ou regular, voltar a preparar o modelo usando seus próprios dados. Em seguida, podem avaliar os resultados da reparametrização e atualizar a API de serviço da Web para utilizar o modelo treinado recentemente.
+## <a name="deploy-the-retraining-web-service"></a>Implementar o serviço web reparametrização
 
-> [!NOTE]
-> Se tiver uma experimentação de preparação existente e o serviço Web novo, pode querer confira reenviar um serviço Web preditivo existente em vez de seguir o passo a passo mencionada na secção seguinte.
-> 
-> 
+Um serviço da web reparametrização permite-lhe voltar a preparar o modelo com um novo conjunto de parâmetros, como novos dados e guarde-o para utilizar mais tarde. Quando liga um **saída de serviço Web** para um **Train Model**, a experimentação de preparação produz um novo modelo que pode utilizar.
 
-## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
-O processo envolve os seguintes componentes: Uma experimentação de preparação e de uma experimentação preditiva publicaram como um serviço Web. Para ativar a reciclagem profissional um modelo preparado, a experimentação de preparação tem de ser publicada como um serviço Web com a saída de um modelo preparado. Isto permite o acesso à API para o modelo para a reparametrização. 
+Utilize os seguintes passos para implementar um serviço da web reparametrização:
 
-Os seguintes passos aplicam-se aos serviços de novo e Web clássico:
+1. Ligar um **entrada de serviço da Web** módulo para a sua entrada de dados. Normalmente, desejar garantir que os seus dados de entrada são processados da mesma forma como os dados de treinamento original.
+1. Ligar um **saída de serviço Web** módulo à saída do seu **Train Model**.
+1. Se tiver uma **Evaluate Model** módulo, pode ligar um **saída de serviço da Web** módulo para enviar os resultados de avaliação
+1. Execute a sua experimentação.
 
-Crie o serviço Web preditivo inicial:
+    Depois de executar a experimentação, o fluxo de trabalho resultante deve ser semelhante à imagem seguinte:
 
-* Criar uma experimentação de preparação
-* Criar uma experimentação preditiva web
-* Implementar um serviço web preditivo
+    ![Fluxo de trabalho resultante](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
-Voltar a preparar o serviço Web:
+    Agora, implementar a experimentação de preparação como um serviço web reparametrização que produz um modelo preparado e resultados de avaliação do modelo.
 
-* Experimentação de preparação de atualização para permitir a reparametrização
-* Implementar o serviço web reparametrização
-* Utilize o código de serviço de execução do Batch para voltar a preparar o modelo
+1. Na parte inferior da tela de experimentação, clique em **no serviço Web**
+1. Selecione **implementar serviço da Web [novo]**. O portal de serviços da Web do Azure Machine Learning abre-se para o **implementar serviço Web** página.
+1. Escreva um nome para o seu serviço web e escolha um plano de pagamento.
+1. Selecione **Implementar**.
 
-> [!NOTE] 
-> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição para a qual estiver a implementar o serviço web. Para obter mais informações, consulte [gerir um serviço Web através do portal do Azure Machine Learning Web Services](manage-new-webservice.md). 
+## <a name="retrain-the-model"></a>Voltar a preparar o modelo
 
-Se tiver implementado um serviço Web clássico:
+Neste exemplo, estamos a utilizar c# para criar o aplicativo de reparametrização. Também pode utilizar o código de exemplo do Python ou R para realizar esta tarefa.
 
-* Criar um novo ponto final do serviço Web preditivo
-* Obter o URL de PATCHES e o código
-* Utilize o URL de PATCHES para apontar o novo ponto final para o modelo retrained 
+Utilize os seguintes passos para chamar as APIs de reparametrização:
 
-Caso se depare com dificuldades reparametrização um serviço Web clássico, veja [resolução de problemas relativos a novas preparações de um serviço Web clássico do Azure Machine Learning](troubleshooting-retraining-models.md).
+1. Criar um C# consola de aplicação no Visual Studio: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)**.
+1. Inicie sessão no portal de serviços Web Machine Learning.
+1. Clique no serviço de web que está trabalhando com.
+1. Clique em **consumir**.
+1. Na parte inferior a **Consume** página, além do **código de exemplo** secção, clique em **Batch**.
+1. Copie o código de exemplo em C# para execução de lotes e colá-lo no ficheiro Program.cs. Certifique-se de que o espaço de nomes permanece intacto.
 
-Se tiver implementado um serviço Web novo:
+Adicione o pacote de NuGet Microsoft.AspNet.WebApi.Client, conforme especificado nos comentários. Para adicionar a referência ao Microsoft.WindowsAzure.Storage.dll, poderá ter de instalar o [biblioteca de clientes para serviços de armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
 
-* Inicie sessão na sua conta do Azure Resource Manager
-* Obter a definição de serviço Web
-* Exportar a definição de serviço da Web como JSON
-* Atualizar a referência para o `ilearner` BLOBs no JSON
-* Importar o JSON para uma definição de serviço Web
-* Atualização do serviço Web com a nova definição de serviço da Web
+A captura de ecrã a seguir mostra a **Consume** página no portal do Azure Machine Learning Web Services.
 
-O processo de configuração de reparametrização para um serviço Web clássico envolve os seguintes passos:
+![Consumir de página](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
 
-![Visão geral do processo de reparametrização][1]
+### <a name="update-the-apikey-declaration"></a>Atualizar a declaração de apikey
 
-O processo de configuração de reparametrização para um serviço Web novo envolve os seguintes passos:
+Localize a **apikey** declaração:
 
-![Visão geral do processo de reparametrização][7]
+    const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-## <a name="other-resources"></a>Outros Recursos
-* [Modelos de reparametrização e atualizar o Azure Machine Learning com o Azure Data Factory](https://azure.microsoft.com/blog/retraining-and-updating-azure-machine-learning-models-with-azure-data-factory/)
-* [Criar muitos modelos do Machine Learning e web pontos finais de serviço a partir de uma experiência com o PowerShell](create-models-and-endpoints-with-powershell.md)
-* O [AML reparametrização modelos usando APIs](https://www.youtube.com/watch?v=wwjglA8xllg) vídeo mostra-lhe como voltar a preparar modelos de Machine Learning criados no Azure Machine Learning com o PowerShell e APIs de reparametrização.
+No **informações básicas de consumo** secção a **Consume** página, localize a chave primária e copie-o para o **apikey** declaração.
 
-<!--image links-->
-[1]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE01.png
-[7]: ./media/retrain-machine-learning-model/machine-learning-retrain-models-programmatically-IMAGE07.png
+### <a name="update-the-azure-storage-information"></a>Atualizar as informações de armazenamento do Azure
 
+O código de exemplo BES carrega um ficheiro de uma unidade local (por exemplo, "C:\temp\CensusInput.csv") ao armazenamento do Azure, processa-os e grava os resultados de volta ao armazenamento do Azure.
+
+1. Iniciar sessão no portal do Azure
+1. Na coluna de navegação esquerda, clique em **mais serviços**, procure **contas de armazenamento**e selecioná-lo.
+1. Na lista de contas de armazenamento, selecione um para armazenar o modelo retrained.
+1. Na coluna de navegação esquerda, clique em **chaves de acesso**.
+1. Copie e guarde o **chave de acesso primária**.
+1. Na coluna de navegação esquerda, clique em **contentores**.
+1. Selecione um contentor existente, ou criar um novo e guarde o nome.
+
+Localize a *StorageAccountName*, *StorageAccountKey*, e *StorageContainerName* declarações e atualize os valores que guardou a partir do portal.
+
+    const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
+    const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
+    const string StorageContainerName = "mycontainer"; // Replace this with your Azure Storage container name
+
+Também tem de garantir que o ficheiro de entrada está disponível na localização que especificou no código.
+
+### <a name="specify-the-output-location"></a>Especifique a localização de saída
+
+Quando especificar a localização de saída no Payload do pedido, a extensão do ficheiro que é especificada na *RelativeLocation* deve ser especificado como `ilearner`.
+
+    Outputs = new Dictionary<string, AzureBlobDataReference>() {
+        {
+            "output1",
+            new AzureBlobDataReference()
+            {
+                ConnectionString = storageConnectionString,
+                RelativeLocation = string.Format("{0}/output1results.ilearner", StorageContainerName) /*Replace this with the location you want to use for your output file and a valid file extension (usually .csv for scoring results or .ilearner for trained models)*/
+            }
+        },
+
+Eis um exemplo de saída reparametrização:
+
+![Saída de reparametrização](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+
+### <a name="evaluate-the-retraining-results"></a>Avaliar os resultados de reparametrização
+
+Quando executar o aplicativo, a saída inclui o URL e o token de assinaturas de acesso partilhado que são necessárias para acessar os resultados da avaliação.
+
+Pode ver os resultados de desempenho do modelo retrained ao combinar a *BaseLocation*, *RelativeLocation*, e *SasBlobToken* nos resultados da saída para *output2* e colar o URL completo na barra de endereço do browser.
+
+Examine os resultados para determinar se o modelo treinado recentemente tem um desempenho melhor do que a já existente.
+
+Guardar a *BaseLocation*, *RelativeLocation*, e *SasBlobToken* nos resultados da saída.
+
+## <a name="update-the-predictive-experiment"></a>Atualizar a experimentação preditiva
+
+### <a name="sign-in-to-azure-resource-manager"></a>Inicie sessão para o Azure Resource Manager
+
+Primeiro, inicie sessão sua conta do Azure a partir de ambiente do PowerShell, utilizando o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+
+### <a name="get-the-web-service-definition-object"></a>Obter o objeto de definição de serviço da Web
+
+Em seguida, obtém o objeto de definição de serviço Web chamando o [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice) cmdlet.
+
+    $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+
+Para determinar o nome do grupo de recursos de um serviço web existente, execute o cmdlet Get-AzureRmMlWebService sem quaisquer parâmetros para apresentar os serviços web na sua subscrição. Localize o serviço web e, em seguida, examinar sua ID de serviço web. O nome do grupo de recursos é o quarto elemento no ID, logo a seguir a *resourceGroups* elemento. No exemplo a seguir, o nome do grupo de recursos é a predefinição-MachineLearning-SouthCentralUS.
+
+    Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph
+    Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+    Name : RetrainSamplePre.2016.8.17.0.3.51.237
+    Location : South Central US
+    Type : Microsoft.MachineLearning/webServices
+    Tags : {}
+
+Em alternativa, para determinar o nome do grupo de recursos de um serviço web existente, inicie sessão no portal do Azure Machine Learning Web Services. Selecione o serviço web. O nome do grupo de recursos é o elemento quinto do URL do serviço web, logo a seguir a *resourceGroups* elemento. No exemplo a seguir, o nome do grupo de recursos é a predefinição-MachineLearning-SouthCentralUS.
+
+    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+
+### <a name="export-the-web-service-definition-object-as-json"></a>Exportar o objeto de definição de serviço da Web como JSON
+
+Para modificar a definição do modelo preparado para utilizar o modelo treinado recentemente, primeiro tem de utilizar o [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) cmdlet para os exportar para um ficheiro de formato JSON.
+
+    Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
+
+### <a name="update-the-reference-to-the-ilearner-blob"></a>Atualizar a referência para o blob de ilearner
+
+No ativos, localize o [modelo preparado], atualize o *uri* valor no *locationInfo* nó com o URI do ilearner blob. O URI é gerado ao combinar a *BaseLocation* e o *RelativeLocation* da saída do BES reparametrização chamada.
+
+     "asset3": {
+        "name": "Retrain Sample [trained model]",
+        "type": "Resource",
+        "locationInfo": {
+          "uri": "https://mltestaccount.blob.core.windows.net/azuremlassetscontainer/baca7bca650f46218633552c0bcbba0e.ilearner"
+        },
+        "outputPorts": {
+          "Results dataset": {
+            "type": "Dataset"
+          }
+        }
+      },
+
+### <a name="import-the-json-into-a-web-service-definition-object"></a>Importe o JSON para um objeto de definição de serviço da Web
+
+Utilizar o [Import-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) cmdlet para converter o ficheiro JSON modificado novamente para um objeto de definição de serviço da Web que pode utilizar para atualizar a experimentação predicative.
+
+    $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
+
+### <a name="update-the-web-service"></a>Atualizar o serviço web
+
+Por último, utilize o [AzureRmMlWebService atualização](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) cmdlet para atualizar a experimentação preditiva.
+
+    Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Para saber mais sobre como gerir os serviços web ou mantenha um registo de várias execuções de experimentações, veja os artigos seguintes:
+
+* [Explorar o portal de serviços da Web](manage-new-webservice.md)
+* [Gerir iterações de experimentação](manage-experiment-iterations.md)

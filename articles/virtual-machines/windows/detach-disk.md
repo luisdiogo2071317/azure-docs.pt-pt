@@ -16,24 +16,21 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bd91607260d47d37bc3ce94ec63f700082416b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981150"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329904"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual do Windows
 
 Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Isso remove o disco da máquina virtual, mas não o remove do armazenamento.
 
 > [!WARNING]
-> Se desligar um disco que não é eliminado automaticamente. Se tiver inscrito para o armazenamento Premium, continuará a incorrer em custos de armazenamento para o disco. Para obter mais informações, consulte [preços e faturação quando utiliza o armazenamento Premium](premium-storage.md#pricing-and-billing).
->
->
+> Se desligar um disco que não é eliminado automaticamente. Se tiver inscrito para o armazenamento Premium, continuará a incorrer em custos de armazenamento para o disco. Para obter mais informações, consulte [preços e faturação quando utiliza o armazenamento Premium](disks-types.md#billing).
 
 Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá-lo à mesma máquina virtual ou a outra.
-
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -51,11 +48,10 @@ Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 
 O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.
 
-
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados com o portal
 
 1. No menu da esquerda, selecione **máquinas virtuais**.
-2. Selecione a máquina virtual que tem o disco de dados que pretende desanexar e clique em **parar** ao desalocar a VM.
+2. Selecione a máquina virtual que tem o disco de dados que pretende desanexar e clique em **parar** para anula a alocação da VM.
 3. No painel da máquina virtual, selecione **discos**.
 4. Na parte superior a **discos** painel, selecione **editar**.
 5. Na **discos** painel, na extrema direita do disco de dados que pretende desanexar, clique nas ![imagem do botão de anulação de exposições](./media/detach-disk/detach.png) desanexar o botão.
@@ -65,5 +61,5 @@ O disco permanece no armazenamento, mas já não está ligado a uma máquina vir
 O disco permanece no armazenamento, mas já não está ligado a uma máquina virtual.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Se quiser reutilizar o disco de dados, simplesmente [anexá-lo a outra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
+Se quiser reutilizar o disco de dados, simplesmente [anexá-lo a outra VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

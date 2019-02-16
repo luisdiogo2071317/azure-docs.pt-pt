@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: bb7fbdeea9c19b8a6fabe06687261296110b4064
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301813"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328304"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Adicionar analisadores de idiomas para um índice da Azure Search
 
@@ -51,9 +51,9 @@ O analisador padrão é Lucene padrão, o que funciona bem para inglês, mas tal
 
 ## <a name="configuring-analyzers"></a>Analisadores de configuração
 
-Analisadores de idiomas são utilizados como-é. Para cada campo na definição do índice, pode definir o **analyzer** propriedade a um nome de analisador que especifica qual linguagem e o fornecedor. O analisador mesmo será aplicado quando indexação e a pesquisa para esse campo. Por exemplo, pode ter campos separados para inglês, francês e espanhol descrições de hotel que existem lado a lado no mesmo índice.  
+Analisadores de idiomas são utilizados como-é. Para cada campo na definição do índice, pode definir o **analyzer** propriedade a um nome de analisador que especifica a pilha de idioma e uma linguística (Microsoft ou de Lucene). O analisador mesmo será aplicado quando indexação e a pesquisa para esse campo. Por exemplo, pode ter campos separados para inglês, francês e espanhol descrições de hotel que existem lado a lado no mesmo índice. Em alternativa, em vez de **analisador**, pode utilizar **indexAnalyzer** e **searchAnalyzer** ter regras de análise diferente na indexação de tempo e a hora de consulta. 
 
-Utilize o **searchFields** parâmetro para especificar o campo de idioma específico para pesquisar em suas consultas de consulta. Pode rever os exemplos de consulta que incluem a propriedade de analisador em documentos de pesquisa. 
+Utilize o **searchFields** parâmetro para especificar o campo de idioma específico para pesquisar em suas consultas de consulta. Pode rever os exemplos de consulta que incluem a propriedade de analisador em [documentos sobre pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 Para obter mais informações sobre as propriedades de índice, consulte [Create Index &#40;API de REST do serviço de pesquisa do Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Para obter mais informações sobre a análise do Azure Search, consulte [analisadores no Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 

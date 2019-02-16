@@ -9,145 +9,48 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: a54c47c0f67052f2ce486a97e009293a118919d4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 02/08/2019
+ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994118"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312179"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carregar dados para as tarefas do Apache Hadoop no HDInsight
 
-O Azure HDInsight fornece um sistema de ficheiros do distribuído do Hadoop de completo (HDFS) ao longo do armazenamento do Azure e o armazenamento do Azure Data Lake (Gen1 e Gen2). Azure armazenamento e armazenamento do Data lake Gen1 e Gen2 foram criados como extensões HDFS, para fornecer uma experiência totalmente integrada aos clientes. Permitem que o conjunto completo de componentes no ecossistema do Hadoop para operar diretamente em dados que gere. Armazenamento do Azure, Gen1 de armazenamento do Data Lake e geração 2 são sistemas de ficheiros distintos que estão otimizados para armazenamento de dados e computações nesses dados. Para obter informações sobre os benefícios da utilização do armazenamento do Azure, consulte [utilizar o armazenamento do Azure com o HDInsight][hdinsight-storage], [Use Data Lake armazenamento Gen1 com HDInsight](hdinsight-hadoop-use-data-lake-store.md) e [ Utilizar o Data Lake Storage Gen2 com o HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
+O Azure HDInsight fornece um sistema de ficheiros do distribuído do Hadoop de completo (HDFS) ao longo do armazenamento do Azure e o armazenamento do Azure Data Lake (Gen1 e Gen2). Armazenamento do Azure e Gen1 de armazenamento do Data Lake e geração 2 são projetadas como extensões HDFS, fornecer uma experiência totalmente integrada aos clientes. Permitem que o conjunto completo de componentes no ecossistema do Hadoop para operar diretamente em dados que gere. Armazenamento do Azure, Gen1 de armazenamento do Data Lake e geração 2 são sistemas de ficheiros distintos que estão otimizados para armazenamento de dados e computações nesses dados. Para obter informações sobre os benefícios da utilização do armazenamento do Azure, consulte [utilizar o armazenamento do Azure com o HDInsight][hdinsight-storage], [Use Data Lake armazenamento Gen1 com HDInsight](hdinsight-hadoop-use-data-lake-store.md), e [ Utilizar o Data Lake Storage Gen2 com o HDInsight](../storage/blobs/data-lake-storage-use-hdi-cluster.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, tenha em atenção os seguintes requisitos:
 
 * Um cluster do Azure HDInsight. Para obter instruções, consulte [introdução ao Azure HDInsight] [ hdinsight-get-started] ou [clusters do HDInsight criar](hdinsight-hadoop-provision-linux-clusters.md).
-* Dados de conhecimento dos dois seguintes artigos:
+* Dados de conhecimento dos seguintes artigos:
 
     - [Utilizar o armazenamento do Azure com o HDInsight][hdinsight-storage]
     - [Utilizar o Data Lake Storage Gen1 com o HDInsight](hdinsight-hadoop-use-data-lake-store.md)
-    - [Utilizar o Data Lake Storage Gen2 com o HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)   
+    - [Utilizar o Data Lake Storage Gen2 com o HDInsight](../storage/blobs/data-lake-storage-use-hdi-cluster.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Carregar dados para o armazenamento do Azure
 
-### <a name="command-line-utilities"></a>Utilitários da linha de comandos
+## <a name="utilities"></a>Serviços Públicos
 A Microsoft fornece os seguintes utilitários para trabalhar com o armazenamento do Azure:
 
 | Ferramenta | Linux | SO X | Windows |
 | --- |:---:|:---:|:---:|
-| [CLI clássica do Azure][azurecli] |✔ |✔ |✔ |
-| [Azure PowerShell][azure-powershell] | | |✔ |
-| [AzCopy][azure-azcopy] |✔ | |✔ |
+| [Portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [CLI do Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 | [Comandos de Hadoop](#commandline) |✔ |✔ |✔ |
 
+
 > [!NOTE]  
-> Embora o CLI clássica do Azure, o Azure PowerShell e o AzCopy podem todos ser utilizados de fora do Azure, o comando de Hadoop só está disponível no HDInsight cluster. E o comando só permite o carregamento de dados do sistema de ficheiros local para o armazenamento do Azure.
->
->
+> O comando de Hadoop só está disponível no cluster do HDInsight. O comando só permite o carregamento de dados do sistema de ficheiros local para o armazenamento do Azure.  
 
-#### <a id="xplatcli"></a>CLI clássica do Azure
-A CLI clássica do Azure é uma ferramenta de várias plataformas que permite-lhe gerir serviços do Azure. Utilize os seguintes passos para carregar dados para o armazenamento do Azure:
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-
-1. [Instalar e configurar a CLI clássica do Azure para Mac, Linux e Windows](../cli-install-nodejs.md).
-2. Abra um prompt de comando, bash ou outro shell e utilize o seguinte para autenticar a sua subscrição do Azure.
-
-    ```cli
-    azure login
-    ```
-
-    Quando lhe for pedido, introduza o nome de utilizador e palavra-passe para a sua subscrição.
-3. Introduza o seguinte comando para listar as contas de armazenamento para a sua subscrição:
-
-    ```cli
-    azure storage account list
-    ```
-
-4. Selecione a conta de armazenamento que contém o blob que pretende trabalhar e, em seguida, utilize o seguinte comando para obter a chave para esta conta:
-
-    ```cli
-    azure storage account keys list <storage-account-name>
-    ```
-
-    Este comando devolve a **primário** e o **secundário** chaves. Copiar o **primário** valor de chave, como vai ser utilizada nos passos seguintes.
-5. Utilize o seguinte comando para obter uma lista de contentores de BLOBs na conta de armazenamento:
-
-    ```cli
-    azure storage container list -a <storage-account-name> -k <primary-key>
-    ```
-
-6. Utilize os seguintes comandos para carregar e transferir ficheiros para o blob:
-
-   * Para carregar um ficheiro:
-
-        ```cli
-        azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
-        ```
-
-   * Para transferir um ficheiro:
-
-        ```cli
-        azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
-        ```
-    
-> [!NOTE]  
-> Se sempre trabalha com a mesma conta de armazenamento, pode definir as seguintes variáveis de ambiente em vez de especificar a conta e da chave de cada comando:
->
-> * **AZURE\_ARMAZENAMENTO\_CONTA**: O nome da conta de armazenamento
-> * **AZURE\_ARMAZENAMENTO\_ACESSO\_CHAVE**: A chave de conta de armazenamento
->
->
-
-#### <a id="powershell"></a>O Azure PowerShell
-O Azure PowerShell é um ambiente de script que pode utilizar para controlar e automatizar a implementação e gestão das cargas de trabalho no Azure. Para obter informações sobre como configurar a sua estação de trabalho para executar o Azure PowerShell, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
-
-**Para carregar um ficheiro local para o armazenamento do Azure**
-
-1. Abra a consola do PowerShell do Azure com as instruções na [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-2. Defina os valores das variáveis primeiros cinco no seguinte script:
-
-    ```powershell
-    $resourceGroupName = "<AzureResourceGroupName>"
-    $storageAccountName = "<StorageAccountName>"
-    $containerName = "<ContainerName>"
-
-    $fileName ="<LocalFileName>"
-    $blobName = "<BlobName>"
-
-    # Get the storage account key
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-    # Create the storage context object
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
-
-    # Copy the file from local workstation to the Blob container
-    Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
-    ```
-
-3. Cole o script na consola do Azure PowerShell para executá-lo para copiar o ficheiro.
-
-Por exemplo os scripts do PowerShell criados para funcionar com o HDInsight, consulte [ferramentas do HDInsight](https://github.com/blackmist/hdinsight-tools).
-
-#### <a id="azcopy"></a>AzCopy
-O AzCopy é uma ferramenta de linha de comandos que foi concebida para simplificar a tarefa de transferência de dados para dentro e fora de uma conta de armazenamento do Azure. Pode utilizá-la como uma ferramenta autônoma ou incorporar essa ferramenta num aplicativo existente. [Baixe o AzCopy][azure-azcopy-download].
-
-A sintaxe de AzCopy é:
-
-```command
-AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
-```
-
-Para obter mais informações, consulte [AzCopy - carregar/transferir ficheiros para os Blobs do Azure][azure-azcopy].
-
-Azcopy no Linux pré-visualização está disponível.  Ver [apresentamos o AzCopy no Linux pré-visualização](https://blogs.msdn.microsoft.com/windowsazurestorage/2017/05/16/announcing-azcopy-on-linux-preview/).
-
-#### <a id="commandline"></a>Linha de comandos do Hadoop
+## <a id="commandline"></a>Linha de comandos do Hadoop
 A linha de comandos do Hadoop só é útil para armazenar dados em BLOBs de armazenamento do Azure quando os dados já estão presentes no nó principal do cluster.
 
 Para utilizar o comando de Hadoop, primeiro tem de ligar ao nó principal através de um dos seguintes métodos:
@@ -171,58 +74,38 @@ ou
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Para obter uma lista de outros comandos do Hadoop que trabalhar com arquivos, consulte [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Para obter uma lista de outros comandos do Hadoop que trabalhar com arquivos, consulte [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > Nos clusters do Apache HBase, a predefinição bloquear utilizado quando a escrita de dados é 256 KB de tamanho. Embora isso funciona bem quando utilizar APIs de HBase ou de REST APIs, usando o `hadoop` ou `hdfs dfs` comandos para escrever mais de ~ 12 GB de dados resulta num erro. Para obter mais informações, consulte a [exceção de armazenamento para escrita no blob](#storageexception) secção deste artigo.
 
-### <a name="graphical-clients"></a>Clientes de gráficos
+## <a name="graphical-clients"></a>Clientes de gráficos
 Também existem vários aplicativos que fornecem uma interface gráfica para trabalhar com o armazenamento do Azure. A tabela seguinte é uma lista de alguns desses aplicativos:
 
 | Cliente | Linux | SO X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools para o HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Explorador do Armazenamento do Azure](https://storageexplorer.com/) |✔ |✔ |✔ |
-| [Studio de armazenamento na cloud 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
+| [Explorador do Armazenamento do Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
+| [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Explorador do Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Explorador de cloudBerry para o Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
-#### <a name="visual-studio-tools-for-hdinsight"></a>Ferramentas do Visual Studio para o HDInsight
-Para obter mais informações, consulte [navegar nos recursos ligados](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
-#### <a id="storageexplorer"></a>Explorador de armazenamento do Azure
-*Explorador de armazenamento do Azure* é uma ferramenta útil para inspecionar e alterar os dados em blobs. É uma ferramenta gratuita de código fonte aberto que pode ser transferida a partir [ https://storageexplorer.com/ ](https://storageexplorer.com/). O código-fonte está disponível a partir desta ligação também.
-
-Antes de utilizar a ferramenta, deve saber a sua chave de conta e o nome da conta de armazenamento do Azure. Para obter instruções sobre como obter estas informações, consulte o "como: Ver, copiar e voltar a gerar armazenamento de chaves de acesso"seção [criar, gerir ou eliminar uma conta de armazenamento][azure-create-storage-account].
-
-1. Execute o Explorador de armazenamento do Azure. Se for a primeira vez que tem de executar o Explorador de armazenamento, que lhe for pedido para o **nome da conta _Storage** e **chave de conta de armazenamento**. Se tiver executado antes, utilize o **adicionar** botão para adicionar um novo nome da conta de armazenamento e a chave.
-
-    Introduza o nome e chave para a conta de armazenamento utilizada pelo cluster do HDInsight e, em seguida, selecione **aberto & Guardar**.
-
-    ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
-2. Na lista de contentores para a esquerda da interface, clique no nome do contentor que está associado ao seu cluster do HDInsight. Por padrão, ele é o nome do cluster do HDInsight, mas pode ser diferente se tiver introduzido um nome específico ao criar o cluster.
-3. Na barra de ferramentas, selecione o ícone de carregamento.
-
-    ![Barra de ferramentas com o ícone de carregamento realçado](./media/hdinsight-upload-data/toolbar.png)
-4. Especifique um ficheiro para carregar e, em seguida, clique em **aberto**. Quando lhe for pedido, selecione **carregar** para carregar o ficheiro para a raiz do contentor de armazenamento. Se pretender carregar o ficheiro para um caminho específico, introduza o caminho no **destino** campo e, em seguida, selecione **carregar**.
-
-    ![Caixa de diálogo de carregamento de arquivo](./media/hdinsight-upload-data/fileupload.png)
-
-    Depois do ficheiro concluiu o carregamento, pode utilizá-lo a partir de tarefas no cluster do HDInsight.
-
-### <a name="mount-azure-storage-as-local-drive"></a>Montar o armazenamento do Azure como unidade Local
+## <a name="mount-azure-storage-as-local-drive"></a>Montar o armazenamento do Azure como unidade Local
 Ver [armazenamento do Azure de montagem como unidade Local](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
-### <a name="upload-using-services"></a>Carregar com serviços
-#### <a name="azure-data-factory"></a>Azure Data Factory
+## <a name="upload-using-services"></a>Carregar com serviços
+### <a name="azure-data-factory"></a>Azure Data Factory
 O serviço Azure Data Factory é um serviço totalmente gerido para compor serviços de movimento de dados, processamento de dados e armazenamento de dados em pipelines de produção de dados simplificada, dimensionáveis e fiáveis.
 
-Pode ser utilizado o Azure Data Factory para mover dados para o armazenamento do Azure ou para criar pipelines de dados que utilizam diretamente os recursos do HDInsight, como o Pig e Hive.
+|Tipo de armazenamento|Documentação|
+|----|----|
+|Armazenamento de Blobs do Azure|[Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory](../data-factory/connector-azure-blob-storage.md)|
+|Armazenamento do Azure Data Lake Ger1|[Copiar dados de ou para a geração 1 de armazenamento do Azure Data Lake com o Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)|
+|Armazenamento do Azure Data Lake Ger2 |[Carregar dados para Gen2 de armazenamento do Azure Data Lake com o Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-Para obter mais informações, consulte a [documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
-
-#### <a id="sqoop"></a>O Apache Sqoop
+### <a id="sqoop"></a>Apache Sqoop
 Sqoop é uma ferramenta projetada para transferir dados entre o Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gerenciamento de banco de dados relacional (RDBMS), como SQL Server, MySQL ou Oracle para o sistema de ficheiros distribuído Hadoop (HDFS), transformar os dados no Hadoop com o MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS.
 
 Para obter mais informações, consulte [utilização Sqoop com o HDInsight][hdinsight-use-sqoop].
@@ -239,8 +122,8 @@ O armazenamento do Azure também pode ser acessado com um SDK de linguagens de p
 
 Para obter mais informações sobre como instalar os SDKs do Azure, consulte [transferências do Azure](https://azure.microsoft.com/downloads/)
 
-### <a name="troubleshooting"></a>Resolução de problemas
-#### <a id="storageexception"></a>Exceção de armazenamento para escrita em BLOBs
+## <a name="troubleshooting"></a>Resolução de problemas
+### <a id="storageexception"></a>Exceção de armazenamento para escrita em BLOBs
 **Os sintomas**: Ao utilizar o `hadoop` ou `hdfs dfs` comandos para escrever ficheiros de ~ 12 GB ou superior num cluster do HBase, pode encontrar o erro seguinte:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -263,7 +146,7 @@ Para obter mais informações sobre como instalar os SDKs do Azure, consulte [tr
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**Causa**: HBase no HDInsight clusters predefinido para um tamanho de bloco de 256KB ao escrever no armazenamento do Azure. Enquanto ele trabalha para APIs do HBase ou de REST APIs, que resulta num erro ao utilizar o `hadoop` ou `hdfs dfs` utilitários da linha de comandos.
+**Motivo**: HBase no HDInsight clusters predefinido para um tamanho de bloco de 256 KB ao escrever no armazenamento do Azure. Enquanto ele trabalha para APIs do HBase ou de REST APIs, que resulta num erro ao utilizar o `hadoop` ou `hdfs dfs` utilitários da linha de comandos.
 
 **Resolução**: Utilize `fs.azure.write.request.size` para especificar um tamanho de bloco maior. Pode fazer isso numa base por utilização com o `-D` parâmetro. O comando seguinte é um exemplo que usa este parâmetro com o `hadoop` comando:
 
@@ -278,7 +161,7 @@ Também pode aumentar o valor de `fs.azure.write.request.size` globalmente ao ut
     Quando lhe for pedido, introduza o nome de administrador e a palavra-passe para o cluster.
 2. Do lado esquerdo do ecrã, selecione **HDFS**e, em seguida, selecione a **configurações** separador.
 3. Na **filtro...**  , insira `fs.azure.write.request.size`. Esta ação apresenta o campo e o valor atual no meio da página.
-4. Altere o valor de 262144 (256KB) para o novo valor. Por exemplo, 4194304 (4MB).
+4. Altere o valor de 262144 (256 KB) para o novo valor. Por exemplo, 4194304 (4 MB).
 
 ![Imagem da alteração do valor por meio da interface do Usuário de Web de Ambari](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
@@ -292,34 +175,9 @@ Agora que compreende como obter dados no HDInsight, leia os artigos seguintes pa
 * [Utilizar o Apache Hive com o HDInsight][hdinsight-use-hive]
 * [Utilizar o Apache Pig com o HDInsight][hdinsight-use-pig]
 
-[azure-management-portal]: https://porta.azure.com
-[azure-powershell]: https://msdn.microsoft.com/library/windowsazure/jj152841.aspx
-
-[azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
-[azure-create-storage-account]:../storage/common/storage-create-storage-account.md
-[azure-azcopy-download]:../storage/common/storage-use-azcopy.md
-[azure-azcopy]:../storage/common/storage-use-azcopy.md
-
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
-
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-adls-gen1]: hdinsight-hadoop-use-data-lake-store.md
-[hdinsight-adls-gen2]: ../storage/data-lake-storage/use-hdi-cluster.md
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-
-[sqldatabase-create-configure]: ../sql-database-create-configure.md
-
-[apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[azurecli]: ../cli-install-nodejs.md
-
-
-[image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
-[image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
-[image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png

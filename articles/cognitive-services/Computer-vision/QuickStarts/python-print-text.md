@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 21be01219f412d190fe3a8d4b03ac0789f9deda9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c1904d271bc10639eac0d9611ca74a4e3fcc536f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881380"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310632"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Extrair texto impresso (OCR) usando a REST API e Python em de imagem digitalizada
 
@@ -207,10 +207,6 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
   ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando já não precisar do ficheiro, elimine-o.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

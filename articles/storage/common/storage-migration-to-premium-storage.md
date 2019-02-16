@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 36889fc6cb8dbec77136dc8cea08416e51837243
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564838"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330584"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento Premium do Azure (discos não geridos)
 
@@ -32,7 +32,7 @@ O objetivo deste guia é ajudar os novos utilizadores do armazenamento do Azure 
 Pode migrar VMs de outras plataformas para o armazenamento Premium do Azure ou migrar VMs do Azure existentes de armazenamento Standard para o armazenamento Premium. Este guia aborda os passos para ambos os dois cenários. Siga os passos especificados na secção relevante, dependendo do seu cenário.
 
 > [!NOTE]
-> Pode encontrar uma descrição geral das funcionalidades e preços de armazenamento Premium em armazenamento Premium: [Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure](../../virtual-machines/windows/premium-storage.md). Recomendamos que migre qualquer disco da máquina virtual que necessitam de IOPS elevado para o armazenamento Premium do Azure para o melhor desempenho para a sua aplicação. Se o disco não necessita de IOPS elevado, pode limitar os custos ao manter o aplicativo no armazenamento Standard, que armazena dados de disco da máquina virtual em unidades de disco rígido (HDDs) em vez do SSDs.
+> Pode encontrar uma descrição geral das funcionalidades e preços do premium SSDs em: [Selecione um tipo de disco para IaaS VMs](../../virtual-machines/windows/disks-types.md#premium-ssd). Recomendamos que migre qualquer disco da máquina virtual que necessitam de IOPS elevado para o armazenamento Premium do Azure para o melhor desempenho para a sua aplicação. Se o disco não necessita de IOPS elevado, pode limitar os custos ao manter o aplicativo no armazenamento Standard, que armazena dados de disco da máquina virtual em unidades de disco rígido (HDDs) em vez do SSDs.
 >
 
 Concluir o processo de migração em sua totalidade pode exigir ações adicionais, antes e depois as etapas fornecidas neste guia. Os exemplos incluem a configurar redes virtuais ou pontos finais ou fazer alterações de código dentro da própria aplicação que poderão necessitar de um período de indisponibilidade na sua aplicação. Estas ações são exclusivas para cada aplicativo e deve ser concluído, juntamente com as etapas fornecidas neste guia para fazer a transição completa para o armazenamento Premium, o mais direto possível.
@@ -69,7 +69,7 @@ Os seguintes destinos de escalabilidade, além de ter contas de armazenamento Pr
 |:--- |:--- |
 | Capacidade do disco: 35TB<br />Capacidade do instantâneo: 10 TB |Máximo de 50 gigabits por segundo para entrada + saída |
 
-Para obter mais informações sobre especificações do Premium Storage, confira [metas de desempenho ao utilizar o armazenamento Premium e escalabilidade](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
+Para obter mais informações sobre especificações do Premium Storage, confira [metas de escalabilidade e desempenho do armazenamento do Azure](storage-scalability-targets.md#premium-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Política de colocação em cache do disco
 Por predefinição, é a política de colocação em cache *só de leitura* em todos os discos de dados de Premium, e *leitura-escrita* para o disco de sistema operativo Premium ligados à VM. Esta definição de configuração é recomendada para alcançar o desempenho ideal para a IOs sua aplicação. Para discos de dados de escrita intensiva ou só de escrita (por exemplo, ficheiros de registo do SQL Server), desative o cache em disco para que pode obter um melhor desempenho do aplicativo. As definições de cache para discos de dados existente podem ser atualizadas utilizando [Portal do Azure](https://portal.azure.com) ou o *- HostCaching* parâmetro do *conjunto AzureDataDisk* cmdlet.
@@ -748,7 +748,7 @@ A configuração atual do VM pode ser personalizada especificamente para funcion
 2. Início de sessão para a VM e copie os dados do volume atual para o novo disco, que mapeia para esse volume. Fazer isso para todos os volumes atuais necessário mapear para um novo disco.
 3. Em seguida, alterar as definições de aplicação para mudar para novos discos e desanexar volumes antigos.
 
-Para ajustar o aplicativo para um melhor desempenho de disco, consulte [Otimizando o desempenho da aplicação](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
+Para ajustar o aplicativo para um melhor desempenho de disco, consulte a secção de desempenho do aplicativo Otimização do nosso [conceber o elevado desempenho](../../virtual-machines/windows/premium-storage-performance.md) artigo.
 
 ### <a name="application-migrations"></a>Migrações de aplicações
 Bases de dados e outras aplicações complexas podem exigir etapas especiais conforme definido pelo fornecedor da aplicação para a migração. Consulte a documentação da respetiva aplicação. Por exemplo, Normalmente, as bases de dados podem ser migrados através de cópia de segurança e restaurar.
@@ -765,7 +765,7 @@ Além disso, consulte os seguintes recursos para saber mais sobre o armazenament
 
 * [Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads (Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure)](../../virtual-machines/windows/premium-storage.md)
+* [Selecione um tipo de disco para IaaS VMs](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

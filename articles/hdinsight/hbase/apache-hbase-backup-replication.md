@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 0ed317abc9d4b7d8d1c6f8b878ffe69f7a0bdbf6
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651729"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310249"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar a cópia de segurança e a replicação para o Apache HBase e o Apache Phoenix no HDInsight
 
@@ -75,7 +75,7 @@ Especifique o caminho de exportação completa para o armazenamento predefinido 
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-No armazenamento do Azure Data Lake, a sintaxe é:
+Na Gen1 de armazenamento do Azure Data Lake, a sintaxe é:
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 

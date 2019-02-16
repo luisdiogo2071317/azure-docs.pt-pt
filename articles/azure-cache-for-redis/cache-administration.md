@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: b75a2faa2030fc343cbabb17eb37b63c9ea34f70
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232386"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313216"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o Azure Cache de Redis
 Este tópico descreve como executar tarefas de administração, tal como [reinicialização](#reboot) e [agendar atualizações](#schedule-updates) para a sua Cache do Azure para instâncias de Redis.
@@ -94,7 +94,7 @@ O **agendar atualizações** painel permite-lhe designar uma janela de manutenç
 
 Para especificar uma janela de manutenção, verifique os dias desejados e especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. Tenha em atenção que o tempo de janela de manutenção é em UTC. 
 
-A janela de manutenção predefinida e mínima de atualizações é cinco horas. Este valor não é configurável no portal do Azure, mas pode configurá-lo no PowerShell com o `MaintenanceWindow` parâmetro do [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. Para obter mais informações, consulte [posso gerir com o PowerShell, CLI ou outras ferramentas de gestão de atualizações agendadas?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+A janela de manutenção predefinida e mínima de atualizações é cinco horas. Este valor não é configurável no portal do Azure, mas pode configurá-lo no PowerShell com o `MaintenanceWindow` parâmetro do [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. Para obter mais informações, veja o que posso gerir com o PowerShell, CLI ou outras ferramentas de gestão de atualizações agendadas?
 
 
 ## <a name="schedule-updates-faq"></a>Agendar atualizações FAQ

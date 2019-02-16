@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 65936348dcb40c6ceb71ebf735da8bb2120af654
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 3f8590d6f8a1f038de7e3bd43d0dc6e896efa948
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694521"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329239"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Utilizar a extensão da CLI para o serviço Azure Machine Learning
 
@@ -107,15 +107,13 @@ Os comandos seguintes demonstram como utilizar a CLI para trabalhar com experiê
     az ml project attach --experiment-name myhistory
     ```
 
-* Inicie uma execução da sua experimentação. Quando utilizar este comando, especifique o nome do `.runconfig` ficheiro que contém a configuração de execução. O destino de computação utiliza a configuração de execução para criar o ambiente de treinamento para o modelo. Neste exemplo, a configuração de execução é carregada a partir do `./aml_config/myrunconfig.runconfig` ficheiro.
+* Inicie uma execução da sua experimentação. Quando utilizar este comando, especifique o nome do ficheiro runconfig que contém a configuração de execução. O destino de computação utiliza a configuração de execução para criar o ambiente de treinamento para o modelo. Neste exemplo, a configuração de execução é carregada a partir do `./aml_config/myrunconfig.runconfig` ficheiro.
 
     ```azurecli-interactive
     az ml run submit -c myrunconfig train.py
     ```
 
-    Predefinido `.runconfig` ficheiros com o nome `docker.runconfig` e `local.runconfig` são criados quando anexa um projeto com o `az ml project attach` comando. Terá de modificar esses antes de os utilizar para preparar um modelo. 
-
-    Também pode criar uma configuração de execução por meio de programação com o [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) classe. Depois de criado, em seguida, pode utilizar o `save()` método para criar o `.runconfig` ficheiro.
+    Para obter mais informações sobre o ficheiro de runconfig, consulte a [RunConfig](#runconfig) secção.
 
 * Ver uma lista de experimentações submetidas:
 
@@ -144,3 +142,133 @@ Os comandos seguintes demonstram como registar um modelo preparado e, em seguida
   ```azurecli-interactive
   az ml service create aci -n myaciservice --image-id myimage:1
   ```
+
+## <a id="runconfig"></a> Ficheiro de Runconfig
+
+Uma configuração de execução é utilizada para configurar o ambiente de treinamento usado para preparar o seu modelo. Esta configuração pode ser criada utilizando o SDK na memória ou pode ser carregado de um ficheiro de runconfig.
+
+O ficheiro de runconfig é um documento de texto que descreve a configuração para o ambiente de treinamento. Por exemplo, ele lista o nome do script de formação e o ficheiro que contém as dependências de conda necessárias para preparar o modelo.
+
+A CLI do Azure Machine Learning cria predefinidos `.runconfig` ficheiros com o nome `docker.runconfig` e `local.runconfig` quando anexa um projeto com o `az ml project attach` comando. 
+
+Se tiver o código que cria uma configuração de execução com o [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) classe, pode usar o `save()` método mantê-los para um `.runconfig` ficheiro.
+
+Segue-se um exemplo do conteúdo de um `.runconfig` ficheiro:
+
+```text
+# The script to run.
+script: train.py
+# The arguments to the script file.
+arguments: []
+# The name of the compute target to use for this run.
+target: local
+# Framework to execute inside. Allowed values are "Python" ,  "PySpark", "CNTK",  "TensorFlow", and "PyTorch".
+framework: PySpark
+# Communicator for the given framework. Allowed values are "None" ,  "ParameterServer", "OpenMpi", and "IntelMpi".
+communicator: None
+# Automatically prepare the run environment as part of the run itself.
+autoPrepareEnvironment: true
+# Maximum allowed duration for the run.
+maxRunDurationSeconds:
+# Number of nodes to use for running job.
+nodeCount: 1
+# Environment details.
+environment:
+# Environment variables set for the run.
+  environmentVariables:
+    EXAMPLE_ENV_VAR: EXAMPLE_VALUE
+# Python details
+  python:
+# user_managed_dependencies=True indicates that the environmentwill be user managed. False indicates that AzureML willmanage the user environment.
+    userManagedDependencies: false
+# The python interpreter path
+    interpreterPath: python
+# Path to the conda dependencies file to use for this run. If a project
+# contains multiple programs with different sets of dependencies, it may be
+# convenient to manage those environments with separate files.
+    condaDependenciesFile: aml_config/conda_dependencies.yml
+# Docker details
+  docker:
+# Set True to perform this run inside a Docker container.
+    enabled: true
+# Base image used for Docker-based runs.
+    baseImage: mcr.microsoft.com/azureml/base:0.2.1
+# Set False if necessary to work around shared volume bugs.
+    sharedVolumes: true
+# Run with NVidia Docker extension to support GPUs.
+    gpuSupport: false
+# Extra arguments to the Docker run command.
+    arguments: []
+# Image registry that contains the base image.
+    baseImageRegistry:
+# DNS name or IP address of azure container registry(ACR)
+      address:
+# The username for ACR
+      username:
+# The password for ACR
+      password:
+# Spark details
+  spark:
+# List of spark repositories.
+    repositories:
+    - https://mmlspark.azureedge.net/maven
+    packages:
+    - group: com.microsoft.ml.spark
+      artifact: mmlspark_2.11
+      version: '0.12'
+    precachePackages: true
+# Databricks details
+  databricks:
+# List of maven libraries.
+    mavenLibraries: []
+# List of PyPi libraries
+    pypiLibraries: []
+# List of RCran libraries
+    rcranLibraries: []
+# List of JAR libraries
+    jarLibraries: []
+# List of Egg libraries
+    eggLibraries: []
+# History details.
+history:
+# Enable history tracking -- this allows status, logs, metrics, and outputs
+# to be collected for a run.
+  outputCollection: true
+# whether to take snapshots for history.
+  snapshotProject: true
+# Spark configuration details.
+spark:
+  configuration:
+    spark.app.name: Azure ML Experiment
+    spark.yarn.maxAppAttempts: 1
+# HDI details.
+hdi:
+# Yarn deploy mode. Options are cluster and client.
+  yarnDeployMode: cluster
+# Tensorflow details.
+tensorflow:
+# The number of worker tasks.
+  workerCount: 1
+# The number of parameter server tasks.
+  parameterServerCount: 1
+# Mpi details.
+mpi:
+# When using MPI, number of processes per node.
+  processCountPerNode: 1
+# data reference configuration details
+dataReferences: {}
+# Project share datastore reference.
+sourceDirectoryDataStore:
+# AmlCompute details.
+amlcompute:
+# VM size of the Cluster to be created.Allowed values are Azure vm sizes.The list of vm sizes is available in 'https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs
+  vmSize:
+# VM priority of the Cluster to be created.Allowed values are "dedicated" , "lowpriority".
+  vmPriority:
+# A bool that indicates if the cluster has to be retained after job completion.
+  retainCluster: false
+# Name of the cluster to be created. If not specified, runId will be used as cluster name.
+  name:
+# Maximum number of nodes in the AmlCompute cluster to be created. Minimum number of nodes will always be set to 0.
+  clusterMaxNodeCount: 1
+```

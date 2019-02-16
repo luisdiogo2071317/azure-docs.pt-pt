@@ -7,16 +7,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: danlep
-ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 42790905509e2ea8bbba87587ed01b1929221db5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857759"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329324"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referência do webhook de registo de contentor do Azure
 
-Pode [configurar webhooks](container-registry-webhook.md) para o seu registo de contentor que geram eventos quando determinadas ações são efetuadas em relação a ele. Por exemplo, pode ativar webhooks que são acionados na imagem de contentor `push` e `delete` operações. Quando for acionado um webhook, o Azure Container Registry emite um pedido HTTP ou HTTPS que contém informações sobre o evento para um ponto final que especificar. O ponto final, em seguida, pode processar o webhook e aja em conformidade.
+Pode [configurar webhooks](container-registry-webhook.md) para o seu registo de contentor que geram eventos quando determinadas ações são efetuadas em relação a ele. Por exemplo, ativar webhooks que são acionados na imagem de contentor `push` e `delete` operações. Quando for acionado um webhook, o Azure Container Registry emite um pedido HTTP ou HTTPS que contém informações sobre o evento para um ponto final que especificar. O ponto final, em seguida, pode processar o webhook e aja em conformidade.
 
 As secções seguintes detalham o esquema de pedidos de webhook gerado por eventos suportados. As secções de eventos contêm o esquema do payload para o tipo de evento, um payload de pedido de exemplo e um ou mais comandos de exemplo que irá acionar o webhook.
 
@@ -40,33 +40,33 @@ Acionado quando uma imagem de contentor é emitidos via push para um repositóri
 
 ### <a name="push-event-payload"></a>Payload de evento de push
 
-|Elemento|Tipo|Descrição|
+|Elemento|Type|Descrição|
 |-------------|----------|-----------|
-|`id`|Cadeia|O ID do evento de webhook.|
+|`id`|String|O ID do evento de webhook.|
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
-|`action`|Cadeia|A ação que acionou o evento de webhook.|
-|[Destino](#target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
-|[Pedido](#request)|Tipo complexo|O pedido que gerou o evento de webhook.|
+|`action`|String|A ação que acionou o evento de webhook.|
+|[target](#target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
+|[request](#request)|Tipo complexo|O pedido que gerou o evento de webhook.|
 
 ### <a name="target"></a>destino
 
-|Elemento|Tipo|Descrição|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
-|`mediaType`|Cadeia|O tipo MIME do objeto referenciado.|
+|`mediaType`|String|O tipo MIME do objeto referenciado.|
 |`size`|Int32|O número de bytes do conteúdo. Mesmo que o campo de comprimento.|
-|`digest`|Cadeia|O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2.|
+|`digest`|String|O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2.|
 |`length`|Int32|O número de bytes do conteúdo. Mesmo que o campo de tamanho.|
-|`repository`|Cadeia|O nome do repositório.|
-|`tag`|Cadeia|O nome da tag de imagem.|
+|`repository`|String|O nome do repositório.|
+|`tag`|String|O nome da tag de imagem.|
 
 ### <a name="request"></a>pedido
 
-|Elemento|Tipo|Descrição|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
-|`id`|Cadeia|O ID do pedido que deu início ao evento.|
-|`host`|Cadeia|O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião HTTP em solicitações de entrada.|
-|`method`|Cadeia|O método de pedido que gerou o evento.|
-|`useragent`|Cadeia|O cabeçalho do agente de utilizador do pedido.|
+|`id`|String|O ID do pedido que deu início ao evento.|
+|`host`|String|O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião HTTP em solicitações de entrada.|
+|`method`|String|O método de pedido que gerou o evento.|
+|`useragent`|String|O cabeçalho do agente de utilizador do pedido.|
 
 ### <a name="payload-example-push-event"></a>Exemplo de payload: eventos de push
 
@@ -104,30 +104,30 @@ Acionado quando é eliminado um repositório ou o manifesto de Webhook. Não é 
 
 ### <a name="delete-event-payload"></a>Eliminar o payload do evento
 
-|Elemento|Tipo|Descrição|
+|Elemento|Type|Descrição|
 |-------------|----------|-----------|
-|`id`|Cadeia|O ID do evento de webhook.|
+|`id`|String|O ID do evento de webhook.|
 |`timestamp`|DateTime|A hora em que o evento de webhook foi acionado.|
-|`action`|Cadeia|A ação que acionou o evento de webhook.|
-|[Destino](#delete_target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
-|[Pedido](#delete_request)|Tipo complexo|O pedido que gerou o evento de webhook.|
+|`action`|String|A ação que acionou o evento de webhook.|
+|[target](#delete_target)|Tipo complexo|O destino do evento que acionou o evento de webhook.|
+|[request](#delete_request)|Tipo complexo|O pedido que gerou o evento de webhook.|
 
 ### <a name="delete_target"></a> Destino
 
-|Elemento|Tipo|Descrição|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
-|`mediaType`|Cadeia|O tipo MIME do objeto referenciado.|
-|`digest`|Cadeia|O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2.|
-|`repository`|Cadeia|O nome do repositório.|
+|`mediaType`|String|O tipo MIME do objeto referenciado.|
+|`digest`|String|O resumo do conteúdo, conforme definido pela especificação de API de HTTP do registo V2.|
+|`repository`|String|O nome do repositório.|
 
 ### <a name="delete_request"></a> Pedido
 
-|Elemento|Tipo|Descrição|
+|Elemento|Type|Descrição|
 |------------------|----------|-----------|
-|`id`|Cadeia|O ID do pedido que deu início ao evento.|
-|`host`|Cadeia|O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião HTTP em solicitações de entrada.|
-|`method`|Cadeia|O método de pedido que gerou o evento.|
-|`useragent`|Cadeia|O cabeçalho do agente de utilizador do pedido.|
+|`id`|String|O ID do pedido que deu início ao evento.|
+|`host`|String|O nome de anfitrião acessível externamente da instância do Registro, conforme especificado pelo cabeçalho de anfitrião HTTP em solicitações de entrada.|
+|`method`|String|O método de pedido que gerou o evento.|
+|`useragent`|String|O cabeçalho do agente de utilizador do pedido.|
 
 ### <a name="payload-example-delete-event"></a>Exemplo de payload: Eliminar evento
 
@@ -154,10 +154,10 @@ Exemplo [CLI do Azure](/cli/azure/acr) comandos nesse disparador um **eliminar**
 
 ```azurecli
 # Delete repository
-az acr repository delete -n MyRegistry --repository MyRepository
+az acr repository delete --name MyRegistry --repository MyRepository
 
-# Delete manifest
-az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --manifest
+# Delete image
+az acr repository delete --name MyRegistry --image MyRepository:MyTag
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

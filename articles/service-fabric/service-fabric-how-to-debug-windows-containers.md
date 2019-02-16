@@ -11,16 +11,16 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/14/2018
+ms.date: 02/14/2019
 ms.author: twhitney, mikhegn
-ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9801db8a38a8c21aea26b42f4fe01bd4a43988c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300069"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311227"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Como: depurar contentores Windows no Azure Service Fabric com o Visual Studio 2017
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Como: Depurar os contentores do Windows no Azure Service Fabric com o Visual Studio 2017
 
 Com o Visual Studio 2017 atualização 7 (15.7), pode depurar aplicações de .NET em contentores como serviços do Service Fabric. Este artigo mostra-lhe como configurar o seu ambiente e, em seguida, depurar uma aplicação .NET num contentor em execução no cluster do Service Fabric local.
 
@@ -37,10 +37,10 @@ Com o Visual Studio 2017 atualização 7 (15.7), pode depurar aplicações de .N
 1. Para oferecer suporte à resolução de DNS entre contentores, terá de configurar o cluster de desenvolvimento local, com o nome da máquina. Estes passos também são necessários para os serviços de endereços através do proxy inverso.
     1. Abra PowerShell como administrador
     2. Navegue para a pasta de configuração de Cluster de SDK, normalmente `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Execute o script `DevClusterSetup.ps1` com o parâmetro `-UseMachineName`
+    3. Execute o script `DevClusterSetup.ps1`
 
        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
        ```
 
     > [!NOTE]
@@ -54,7 +54,7 @@ Com o Visual Studio 2017 atualização 7 (15.7), pode depurar aplicações de .N
 Segue-se uma lista de limitações conhecidas com depuração contentores no Service Fabric e resoluções possíveis:
 
 * Utilizar localhost para ClusterFQDNorIP não suporta a resolução de DNS em contentores.
-    * Resolução: Configurar o cluster local com o nome da máquina (consultar acima)
+    * Resolução: Como configurar o cluster local com o nome da máquina (consultar acima)
 * A executar o Windows 10 numa máquina Virtual não irá obter resposta DNS para o contentor.
     * Resolução: Desative a descarga da soma de verificação UDP para IPv4 na NIC de máquinas virtuais
     * Tenha em atenção de que isso irá degradar o desempenho de rede na máquina.
@@ -81,4 +81,4 @@ Segue-se uma lista de limitações conhecidas com depuração contentores no Ser
     Visual Studio oferece suporte a consola e tipos de projeto do ASP.NET para .NET e .NET Core.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre as funcionalidades do Service Fabric e contentores, siga esta ligação: [descrição geral de contentores do Service Fabric](service-fabric-containers-overview.md).
+Para saber mais sobre as funcionalidades do Service Fabric e contentores, siga este link: [Descrição geral de contentores do Service Fabric](service-fabric-containers-overview.md).

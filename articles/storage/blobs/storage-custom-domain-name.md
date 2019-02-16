@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694589"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310555"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure
 
@@ -56,7 +56,7 @@ O segundo método também utiliza registos CNAME. Para evitar o tempo de inativi
 
 Mapear o seu domínio personalizado para um ponto final do blob pode causar um breve período de tempo de inatividade enquanto estiver a registar o domínio no [portal do Azure](https://portal.azure.com). Se o domínio suporta atualmente uma aplicação com um contrato de nível de serviço (SLA) que precisa de nenhum tempo de inatividade, utilize o Azure *asverifiy* subdomínio como passo intermédio de registo. Este passo garante que os utilizadores podem a aceder ao seu domínio enquanto o mapeamento de DNS está em curso.
 
-O método intermediário é abordado [registar um domínio personalizado com o *asverifiy* subdomínio](#register-a-custom-domain-using-the-asverify-subdomain).
+O método intermediário é abordado em registar um domínio personalizado utilizando a *asverifiy* subdomínio.
 
 ## <a name="register-a-custom-domain"></a>Registe-se um domínio personalizado
 Registe o domínio, utilizando o procedimento nesta secção, se aplicam as seguintes instruções:
@@ -65,7 +65,7 @@ Registe o domínio, utilizando o procedimento nesta secção, se aplicam as segu
 
 Pode utilizar o DNS do Azure para configurar um nome DNS personalizado para seu armazenamento de Blobs do Azure. Para obter mais informações, veja [Utilizar o DNS do Azure para oferecer definições de domínio personalizado para um serviço do Azure](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
-Se o seu domínio personalizado, atualmente, suporta um aplicativo que não pode ter qualquer período de inatividade, utilize o procedimento [registar um domínio personalizado com o *asverifiy* subdomínio](#register-a-custom-domain-using-the-asverify-subdomain).
+Se o seu domínio personalizado, atualmente, suporta um aplicativo que não pode ter qualquer período de inatividade, utilize o procedimento no Registre-se um domínio personalizado, utilizando o *asverifiy* subdomínio.
 
 Para configurar um nome de domínio personalizado, crie um novo registo CNAME no DNS. O registo CNAME Especifica um alias para um nome de domínio. No nosso exemplo, ele mapeia o endereço do seu domínio personalizado ao ponto final de armazenamento de BLOBs da conta de armazenamento.
 

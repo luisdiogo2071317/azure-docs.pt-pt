@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991332"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310948"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas do Azure Monitor
 
@@ -100,20 +100,6 @@ Pode dividir uma métrica por dimensão para visualizar como diferentes segmento
    > [!NOTE]
    > Utilize a filtragem e separação na mesma dimensão para ocultar os segmentos que são irrelevantes para o seu cenário e facilitam a leitura de gráficos.
 
-### <a name="new-alert-rule"></a>Nova regra de alerta
-
-Também pode utilizar os critérios que definiu para visualizar as métricas, como a base para a lógica subjacente de uma métrica baseada a regra de alerta. 
-
-Se clicar em **regra de novo alerta**
-
-![Botão de nova regra de alerta realçada em vermelho](./media/metrics-charts/015.png)
-
-Será conduzido para o painel de criação de regra de alerta com as dimensões de métrica subjacentes do seu gráfico pré-preenchido, para que seja mais fácil gerar regras de alerta personalizadas.
-
-![Criar regra de alerta](./media/metrics-charts/016.png)
-
-Veja esta [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métricas.
-
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Limites de bloqueio do eixo y do gráfico
 
 Bloquear o intervalo do eixo y torna-se importante quando o gráfico mostra o menores flutuações de valores maiores. 
@@ -138,6 +124,20 @@ Para afixar um gráfico configurado a um dashboard:
 Depois de configurar o seu gráfico, clique nas **ações do gráfico** menu no lado direito principais do gráfico e clique em **afixar ao dashboard**.
 
 ![imagem de métrica](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>Criar regras de alertas
+
+Pode usar os critérios que definiu para visualizar as métricas, como a base de uma métrica baseada a regra de alerta. A nova regra de alerta irá incluir o recurso de destino, métrica, divisão e dimensões de filtro de gráfico. Será capaz de modificar estas definições mais tarde no painel de criação de regra de alerta.
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Para criar uma nova regra de alerta, clique em **regra novo alerta**
+
+![Botão de nova regra de alerta realçada em vermelho](./media/metrics-charts/015.png)
+
+Será conduzido para o painel de criação de regra de alerta com as dimensões de métrica subjacentes do seu gráfico pré-preenchido, para que seja mais fácil gerar regras de alerta personalizadas.
+
+![Criar regra de alerta](./media/metrics-charts/016.png)
+
+Veja esta [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métricas.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

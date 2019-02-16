@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4f50cc46244a4fb205e0ccf60665ba892d3aa8fc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821372"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310045"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>Utilizar o cluster do Spark do HDInsight para analisar dados no armazenamento do Data Lake
 
@@ -81,7 +81,7 @@ Se tiver criado um cluster do HDInsight com o armazenamento do Data Lake como ar
 
 5. Carregar dados de exemplo para uma tabela temporária com o **Hvac** ficheiro que copiou para a conta de armazenamento do Data Lake. Pode acessar os dados na conta de armazenamento do Data Lake com o padrão de URL seguinte.
 
-    * Se tiver de armazenamento do Data Lake como armazenamento predefinido, Hvac estará no caminho semelhante ao seguinte URL:
+    * Se tiver de geração 1 de armazenamento do Data Lake como armazenamento predefinido, Hvac estará no caminho semelhante ao seguinte URL:
 
             adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 

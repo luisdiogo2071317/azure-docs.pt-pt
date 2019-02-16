@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99fa8cbc211469185f2503718c84bc1b12db44c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56c992b1cc0e8f1d9743ff8226ab48852afc1168
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178231"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313131"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o início de sessão único federado para uma aplicação de externas à Galeria
 
@@ -29,13 +29,13 @@ Para configurar o início de sessão único para uma aplicação de externas à 
 ## <a name="overview-of-steps-required"></a>Descrição geral dos passos necessários
 Segue-se uma visão geral dos passos necessários para configurar o início de sessão único Federado com o SAML 2.0 para um aplicativo (por exemplo, personalizado) externas à galeria.
 
--   [Configurar valores de metadados da aplicação no Azure AD (URL de resposta de URL, identificador, início de sessão)](#_Configuring_single_sign-on)
+-   Configurar valores de metadados da aplicação no Azure AD (URL de resposta de URL, identificador, início de sessão)
 
 -   [Selecione o identificador de utilizador e adicionar atributos de utilizador sejam enviados para a aplicação](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Obter metadados do Azure AD e o certificado](#download-the-azure-ad-metadata-or-certificate)
 
--   [Configurar valores de metadados do Azure AD no aplicativo (início de sessão no URL, o emissor, o URL de fim de sessão e o certificado)](#_Configuring_single_sign-on)
+-   Configurar valores de metadados do Azure AD no aplicativo (início de sessão no URL, o emissor, o URL de fim de sessão e o certificado)
 
 -   Atribuir utilizadores à aplicação
 

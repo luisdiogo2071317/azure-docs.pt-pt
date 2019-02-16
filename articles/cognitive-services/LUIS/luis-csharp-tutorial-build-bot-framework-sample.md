@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: d1534f76c4ef0c1edd8d83522f2d0855def48f25
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fc8283d85cf7d516edd78f20c9a47d806fbb827b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880889"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328967"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS em C# com o Bot Framework 3.x e bot de aplicação Web do Azure
 
@@ -45,7 +45,7 @@ Com o C#, crie um chatbot integrado com compreensão de idiomas (LUIS). Este cha
 
 3. Na janela do bot de funções, clique em **criar**.
 
-4. Na **Bot Service**, forneça as informações necessárias e clique em **criar**. Esta ação cria e implementa o serviço de bot e aplicação LUIS para o Azure. Se quiser usar [priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), reveja [requisitos de região](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) antes de criar o seu bot. 
+4. Na **Bot Service**, forneça as informações necessárias e clique em **criar**. Esta ação cria e implementa o serviço de bot e aplicação LUIS para o Azure. Se quiser usar [priming de voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), reveja [requisitos de região](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) antes de criar o seu bot. 
     * Definir **nome da aplicação** ao nome do seu bot. O nome é utilizado como o subdomínio ao seu bot é implementado na cloud (por exemplo, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Selecione a subscrição [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), o plano de serviço de aplicações, e [localização](https://azure.microsoft.com/regions/).
     * Para **modelo de Bot**, selecione:

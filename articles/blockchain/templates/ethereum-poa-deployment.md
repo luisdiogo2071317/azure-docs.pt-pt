@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260385"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313573"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum consortium de prova de autoridade
 
@@ -148,7 +148,7 @@ Para efetuar qualquer tipo de transações por meio do DApp de governação, ter
 Depois de instalar MetaMask, navegue para o DApp de governação no browser.  Pode localizar o URL no e-mail de confirmação de implementação ou através do portal do Azure na saída da implementação.  Se não tiver uma carteira de no browser instalada não será capaz de executar quaisquer ações; No entanto, ainda será capaz de ler o estado de administrador.  
 
 #### <a name="becoming-an-admin"></a>Tornar-se um administrador
-Se for o primeiro membro implementado na rede, em seguida, tornará automaticamente um administrador e os nós de paridade serão listados como Validadores.  Se estiver associando a rede, terá de obter votado como um administrador por uma maioria (mais de 50%) de existente administrador definir.  Se optar por não se tornar um administrador, em seguida, os nós ainda irão sincronizar e validar o blockchain; No entanto, não irá participar do processo de criação de blocos. Para iniciar o processo de voto para se tornar um administrador, clique em __Nominate__ e introduza o seu endereço de Ethereum e alias.
+Se for o primeiro membro implementado na rede, em seguida, tornará automaticamente um administrador e os nós de paridade serão listados como Validadores.  Se estiver associando a rede, terá de obter votado como um administrador a por uma maioria (mais de 50%) do conjunto de administrador existente.  Se optar por não se tornar um administrador, em seguida, os nós ainda irão sincronizar e validar o blockchain; No entanto, não irá participar do processo de criação de blocos. Para iniciar o processo de voto para se tornar um administrador, clique em __Nominate__ e introduza o seu endereço de Ethereum e alias.
 
 ![Nomear](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
@@ -359,7 +359,7 @@ Neste primeiro passo usando a implantação com base no IP público é totalment
 
     -  Escolha o mesmo número de nós de validador e o restante dos membros na rede para garantir a representação satisfatória
 
-    -  Utilizar o mesmo Ethereum endereço que foi fornecido no [passo anterior](#step-1-add-the-new-admin)
+    -  Utilizar o mesmo Ethereum endereço que foi fornecido no passo anterior
 
     -  Passar fornecido *Url de dados de consórcio* sobre o *Ethereum definições* separador
 

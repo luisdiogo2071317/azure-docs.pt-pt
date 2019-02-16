@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4f26c805c42f027409127232fcfef9840939e8d9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812570"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329188"
 ---
 # <a name="azure-backup-architecture"></a>Arquitetura de cópia de segurança do Azure
 
@@ -175,8 +175,8 @@ Criar cópias de segurança com eliminação de duplicados discos | | | ![Parcia
 
 Leia mais:
 
-- Saiba mais sobre o armazenamento em disco para [Windows](../virtual-machines/windows/about-disks-and-vhds.md) e [Linux](../virtual-machines/linux/about-disks-and-vhds.md) VMs.
-- Saiba mais sobre [padrão](../virtual-machines/windows/standard-storage.md) e [premium](../virtual-machines/windows/premium-storage.md) armazenamento.
+- Saiba mais sobre o armazenamento em disco para [Windows](../virtual-machines/windows/managed-disks-overview.md) e [Linux](../virtual-machines/linux/managed-disks-overview.md) VMs.
+- Saiba mais sobre o disponíveis [tipos de disco](../virtual-machines/windows/disks-types.md) como standard e premium.
 
 
 ### <a name="backing-up-and-restoring-azure-vms-with-premium-storage"></a>Fazer backup e restaurar VMs do Azure com o armazenamento premium 
@@ -184,9 +184,9 @@ Leia mais:
 Pode fazer backup de VMs do Azure com o armazenamento premium com o Azure Backup:
 
 - Ao backup das VMs com o armazenamento premium, o serviço de cópia de segurança cria uma localização de transição temporária, com o nome "AzureBackup-", na conta de armazenamento. O tamanho da localização de transição é igual ao tamanho do instantâneo do ponto de recuperação.
-- Certifique-se de que a conta de armazenamento premium tem espaço livre suficiente para acomodar a localização de transição temporária. [Saiba mais](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Não modifique a localização de transição.
+- Certifique-se de que a conta de armazenamento premium tem espaço livre suficiente para acomodar a localização de transição temporária. [Saiba mais](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Não modifique a localização de transição.
 - Depois de concluída a tarefa de cópia de segurança, a localização de transição é eliminada.
-- O preço de armazenamento utilizado para a localização de transição é consistente com [preços de armazenamento premium](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+- O preço de armazenamento utilizado para a localização de transição é consistente com [preços de armazenamento premium](../virtual-machines/windows/disks-types.md#billing).
 
 Ao restaurar VMs do Azure com o armazenamento premium, pode restaurá-las para premium ou o armazenamento standard. Normalmente, seria restaurar para premium, mas pode ser rentável restaurar padrão, se tiver apenas um subconjunto de ficheiros da VM.
 

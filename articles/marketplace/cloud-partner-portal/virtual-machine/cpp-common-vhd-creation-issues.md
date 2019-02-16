@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639973"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327311"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problemas comuns durante a criação do VHD (FAQ)
 
@@ -27,7 +27,7 @@ As seguintes perguntas mais frequentes (FAQ) capa de problemas comuns encontrado
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Como criar uma VM a partir do portal do Azure com o VHD que é carregado para o armazenamento premium?
 
-O Azure Marketplace não suporta atualmente a criação de VM de ofertas de imagens que residem no armazenamento gerido ou de armazenamento Premium do Azure.  Para obter mais informações sobre estas opções de armazenamento, consulte [descrição geral de discos geridos do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) e [High-performance Premium Storage e os discos geridos para VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).
+O Azure Marketplace não suporta atualmente a criação de VM de ofertas de imagens que residem no armazenamento gerido ou de armazenamento Premium do Azure.  Para obter mais informações sobre estas opções de armazenamento, consulte [descrição geral de discos geridos do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>Pode usar as VMs de geração 2 para as ofertas?
@@ -73,7 +73,7 @@ Sim, se estiver alojado no Azure.  O Azure atribui um identificador exclusivo, c
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Numa VM, como gerir a extensão de script personalizado na tarefa de arranque?
 
-O artigo seguinte fornece detalhes sobre como utilizar a extensão de Script personalizado com o módulo Azure PowerShell, modelos Azure Resource Manager e detalhes de resolução de problemas de etapas em sistemas Windows: [extensão de Script personalizado para Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+O artigo seguinte fornece detalhes sobre como utilizar a extensão de Script personalizado com o módulo Azure PowerShell, modelos Azure Resource Manager e detalhes de resolução de problemas de etapas em sistemas Windows: [Extensão de Script personalizado para Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>São suportados no Azure Marketplace de serviços ou aplicações de 32 bits?
@@ -83,7 +83,7 @@ Geralmente, não.  Os sistemas operativos suportados e os serviços padrão para
 Para obter mais informações, veja os artigos seguintes:
 - [Aplicativos de 32 bits em execução](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
 - [Suporte para sistemas de operativos de 32 bits em máquinas virtuais do Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
-- [Suporte de software de servidor Microsoft para máquinas de virtuais do Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
+- [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Suporte de software de servidor da Microsoft para máquinas virtuais do Microsoft Azure)
 
 
 ## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Sempre que tento criar uma imagem de meus VHDs, recebo a mensagem de erro `.VHD is already registered with image repository as the resource` no PowerShell. Eu não criei nenhuma imagem antes nem foi encontrado qualquer imagem com este nome no Azure. Como posso resolver este problema?

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492288"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310971"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 
@@ -31,7 +31,7 @@ Se já tiver o Cofre de serviços de recuperação aberto, avance para o segundo
 
    ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   É apresentada a lista de cofres dos serviços de recuperação. 
+   É apresentada a lista de cofres dos serviços de recuperação.
 
    ![Escolha o Cofre na lista](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Se já tiver o Cofre de serviços de recuperação aberto, avance para o segundo
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Eliminar o Cofre de serviços de recuperação por força
 
-Pode utilizar o PowerShell para eliminar um cofre de serviços de recuperação por força. Por meio da força o Cofre dos serviços de recuperação e associados todos os dados de cópia de segurança, é eliminado permanentemente. 
+Pode utilizar o PowerShell para eliminar um cofre de serviços de recuperação por força. Por meio da força o Cofre dos serviços de recuperação e associados todos os dados de cópia de segurança, é eliminado permanentemente.
 
 > [!Warning]
 > Quando utilizar o PowerShell para eliminar um cofre dos serviços de recuperação, certifique-se de que pretende eliminar permanentemente todos os dados de cópia de segurança no cofre.
@@ -95,7 +95,7 @@ Para eliminar um cofre dos serviços de recuperação:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Inicie sessão na sua subscrição no portal do Azure e certifique-se de que o Cofre é eliminado.
 
 
@@ -106,7 +106,6 @@ Para remover manualmente as dependências de cofre, elimine a configuração ent
 * Cópias de segurança de armazenamento (ficheiros do Azure) do Azure
 * SQL Server em cópias de segurança de VM do Azure
 * Cópias de segurança de máquinas virtuais do Azure
-* Cópias de segurança de agente de serviços de recuperação do Microsoft Azure
 
 Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
 
@@ -125,7 +124,7 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
 
 1. Para todos os itens na lista, com o botão direito do item e, no menu de contexto, selecione **parar cópia de segurança**.
 
-    ![Selecione o tipo de cópia de segurança](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![Selecione o tipo de cópia de segurança](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     É aberto o menu parar cópia de segurança.
 
@@ -154,9 +153,9 @@ Utilize o **infraestrutura de cópia de segurança** menu (veja a imagem) para:
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Remover servidor de cópia de segurança do Azure ou o DPM
 
-1. No menu do dashboard do cofre, desloque para baixo para a secção Gerir e clique em **infraestrutura de cópia de segurança**. 
+1. No menu do dashboard do cofre, desloque para baixo para a secção Gerir e clique em **infraestrutura de cópia de segurança**.
 
-1. No submenu, clique em **servidores de gestão de cópia de segurança** para ver o servidor de servidores de cópia de segurança do Azure e o System Center DPM. Pode parar e eliminar servidores de ficheiros do Azure, servidores SQL na VM do Azure e máquinas virtuais do Azure. 
+1. No submenu, clique em **servidores de gestão de cópia de segurança** para ver o servidor de servidores de cópia de segurança do Azure e o System Center DPM. Pode parar e eliminar servidores de ficheiros do Azure, servidores SQL na VM do Azure e máquinas virtuais do Azure.
 
     ![Selecione o cofre para abrir o dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

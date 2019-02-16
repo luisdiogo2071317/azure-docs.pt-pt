@@ -8,27 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861277"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312551"
 ---
-# <a name="detecting-adult-and-racy-content"></a>Detetar conteúdos adultos e indecorosos
+# <a name="detect-adult-and-racy-content"></a>Detetar conteúdos para adultos
 
-Entre as várias categorias visuais encontra-se o grupo para adultos e de profanidades, que permite a deteção de materiais para adultos e restringe a exibição de imagens com conteúdos sexuais. O filtro para a deteção de conteúdos para adultos ou profano pode ser definido numa escala móvel para se adaptar às preferências do utilizador.
+Imagem digitalizada pode detetar material para adultos em imagens, para que os desenvolvedores podem restringir a exibição de tais imagens no seu software. Sinalizadores de conteúdo são aplicadas com uma pontuação entre zero e outro para que os desenvolvedores podem interpretar os resultados, de acordo com suas próprias preferências. 
 
-## <a name="defining-adult-and-racy-content"></a>Definir o conteúdo para adultos
+> [!NOTE]
+> Esta funcionalidade também é oferecida pela [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) serviço. Consulte esta alternativa para soluções para cenários de moderação de conteúdos mais rigorosos, como a moderação de texto e fluxos de trabalho de revisão humana.
 
-Entre as várias funcionalidades visual abrangidas pela [método de imagem de analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), o recurso visual para adultos permite a deteção de imagens para adultos. Imagens "Para adultos" são definidas como aqueles que são pornográfico por natureza e, muitas vezes, retratar nudez e atos sexual. Imagens "Ousadas" são definidas como imagens que são sexualmente suggestive por natureza e geralmente contêm menos conteúdo sexualmente explícito que imagens etiquetadas como "Adulto." O tipo de recurso visual para adultos normalmente é usado para restringir a exibição de imagens que contenham sexualmente suggestive e conteúdo sexual explicitamente.
+## <a name="content-flag-definitions"></a>Definições do sinalizador de conteúdo
 
-## <a name="identifying-adult-and-racy-content"></a>Identificação de conteúdo para adultos
+**Para adultos** imagens são definidas como aqueles que são pornográfico por natureza e, muitas vezes, retratar nudez e atos sexual. 
 
-O método de imagem de analisar retorna duas propriedades, `isAdultContent` e `isRacyContent`, na resposta JSON do método para indicar, respectivamente, o conteúdo para adultos. Ambas as propriedades devolvem um valor booleano, VERDADEIRO ou FALSO. O método também retorna duas propriedades, `adultScore` e `racyScore`, que representam, respectivamente, as pontuações de confiança para identificar conteúdos para adultos. Um filtro de confiança para a deteção de conteúdos para adultos pode ser definido numa escala móvel para acomodar sua preferência, com base no seu cenário específico.
+**Ousado** imagens são definidas conforme as imagens que estão sexualmente suggestive por natureza e, muitas vezes, contêm menos conteúdo sexualmente explícito que imagens etiquetagem como **adulto**. 
+
+## <a name="identify-adult-and-racy-content"></a>Identificar conteúdo para adultos
+
+O [analisar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
+
+O método de imagem de analisar retorna duas propriedades booleanas, `isAdultContent` e `isRacyContent`, na resposta JSON do método para indicar o conteúdo para adultos, respetivamente. O método também retorna duas propriedades, `adultScore` e `racyScore`, que representam as pontuações de confiança para identificar os conteúdos para adultos, respetivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

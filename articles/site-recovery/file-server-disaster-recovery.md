@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 64008a91033b1fdd9cb318e76db2b1958f2337e9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508373"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309324"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Utilizar o Azure Site Recovery para proteger um servidor de ficheiros 
 
@@ -58,7 +58,7 @@ O diagrama seguinte ajuda-o a determinar a estratégia a utilizar para o seu amb
 |---------|---------|---------|
 |Ambiente do servidor de ficheiros com ou sem DFSR|   [Utilizar o Site Recovery para replicação](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    O Site Recovery não suporta clusters de discos partilhados nem o armazenamento ligado à rede (NAS). Se o ambiente utilizar estas configurações, utilize uma das outras abordagens, conforme adequado. <br> O Site Recovery não suporta SMB 3.0. A VM replicada só incorpora as alterações quando as alterações feitas aos ficheiros são atualizadas na localização original dos mesmos.
 |Ambiente do servidor de ficheiros com DFSR     |  [Expandir o DFSR para uma máquina virtual de IaaS do Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      O DFSR funciona bem em ambientes de largura de banda bastante limitada. Esta abordagem exige uma VM do Azure em funcionamento permanente. Tem de ter em conta os custos da VM no planejamento.         |
-|VM de IaaS do Azure     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     Se utilizar o File Sync num cenário de recuperação após desastre, durante a ativação pós-falha, tem de realizar ações manuais para garantir que as partilhas de ficheiros estão acessíveis para a máquina cliente de forma transparente. O File Sync requer que a porta 445 esteja aberta na máquina cliente.     |
+|VM de IaaS do Azure     |     Sincronização de ficheiros    |     Se utilizar o File Sync num cenário de recuperação após desastre, durante a ativação pós-falha, tem de realizar ações manuais para garantir que as partilhas de ficheiros estão acessíveis para a máquina cliente de forma transparente. O File Sync requer que a porta 445 esteja aberta na máquina cliente.     |
 
 
 ### <a name="site-recovery-support"></a>Suporte do Site Recovery

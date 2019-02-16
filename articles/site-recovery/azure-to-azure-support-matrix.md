@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 5f3d884720bce5777a358a27dc477eabd5263d0c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245189"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329018"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -177,8 +177,8 @@ Esta tabela resumidos suporte para o disco de SO de VM do Azure, disco de dados 
 
 **Componente** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho máximo do disco de SO | 2048 GB | [Saiba mais](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) acerca dos discos VM.
-Disco temporário | Não suportado | O disco temporário é sempre excluído da replicação.<br/><br/> Não armazene todos os dados persistentes no disco temporário. [Saiba mais](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+Tamanho máximo do disco de SO | 2048 GB | [Saiba mais](../virtual-machines/windows/managed-disks-overview.md) acerca dos discos VM.
+Disco temporário | Não suportado | O disco temporário é sempre excluído da replicação.<br/><br/> Não armazene todos os dados persistentes no disco temporário. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md).
 Tamanho máximo do disco de dados | 4095 GB |
 Número máximo de disco de dados | Acordo em até 64, com suporte para um tamanho de VM do Azure específico | [Saiba mais](../virtual-machines/windows/sizes.md) sobre tamanhos de VM.
 Taxa de alteração de disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco de armazenamento Standard. | Se a taxa de alteração os dados média no disco é continuamente maior do que o máximo, replicação não acompanhar.<br/><br/>  No entanto, se o número máximo for excedido esporadicamente, pode acompanhar a replicação, mas pode ver pontos de recuperação um pouco atrasado.
@@ -194,7 +194,7 @@ Encriptação em repouso (SSE) | Suportadas | O SSE é a predefinição nas cont
 Azure Disk Encryption (ADE) para o sistema operacional do Windows | As VMs ativadas para [encryption com a aplicação do Azure AD](https://aka.ms/ade-aad-app) são suportados |
 Azure Disk Encryption (ADE) para o SO Linux | Não suportado |
 Disco de acesso frequente Adicionar/remover | Não suportado | Se adicionar ou remover o disco de dados na VM, terá de desativar a replicação e ative a replicação novamente para a VM.
-Excluir o disco | Não suportado|   Disco temporário é excluído por predefinição.
+Excluir o disco | [suportado através do powershell](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  Disco temporário é excluído por predefinição.
 Storage Spaces Direct  | Suporte para pontos de recuperação consistente com falhas. Pontos de recuperação consistente com a aplicação não são suportados. |
 Servidor de ficheiros de escalamento horizontal  | Suporte para pontos de recuperação consistente com falhas. Pontos de recuperação consistente com a aplicação não são suportados. |
 LRS | Suportadas |

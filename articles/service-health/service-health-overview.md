@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871707"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328270"
 ---
 # <a name="service-health"></a>Service Health
 Serviço de estado de funcionamento fornece um dashboard personalizável que controla o estado de funcionamento dos seus serviços do Azure nas regiões onde usá-los. Neste dashboard, pode controlar o Active Directory eventos como problemas de serviço em curso, futura manutenção planeada ou aconselhamentos sobre o estado de funcionamento relevantes. Quando eventos tornam-se inativos, eles serão colocados no seu histórico de estado de funcionamento até 90 dias. Por fim, pode utilizar o dashboard de estado de funcionamento do serviço para criar e gerir alertas de estado de funcionamento do serviço que proativamente notificá-lo quando os problemas de serviço estão a afetar.
@@ -24,6 +24,9 @@ Estado de funcionamento do serviço controla os três tipos de eventos de estado
 1. **Problemas de serviço** -problemas nos serviços do Azure que afetá-lo neste momento. 
 2. **A manutenção planeada** -manutenção futura, que pode afetar a disponibilidade dos seus serviços no futuro.  
 3. **Aconselhamentos sobre o estado de funcionamento** -as alterações nos serviços do Azure que necessitam da sua atenção. Os exemplos incluem quando as funcionalidades do Azure foram preteridas ou se exceder a quota de utilização.
+
+> [!NOTE]
+> Para ver eventos de estado de funcionamento do serviço, os utilizadores devem ter a função de leitor numa subscrição.
 
 ## <a name="get-started-with-service-health"></a>Introdução ao serviço de estado de funcionamento
 Para iniciar o seu dashboard de estado de funcionamento do serviço, selecione o mosaico de estado de funcionamento do serviço no dashboard do portal. Se anteriormente tiver removido o mosaico ou estiver a utilizar o dashboard personalizado, procure por serviço de estado de funcionamento do serviço em "Mais serviços" (à esquerda no seu dashboard em baixo).

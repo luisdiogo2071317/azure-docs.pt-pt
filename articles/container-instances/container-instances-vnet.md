@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077476"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313488"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentor numa rede virtual do Azure
 
@@ -35,6 +35,7 @@ Determinadas limitações aplicam-se ao implementar grupos de contentores a uma 
 
 * Para implementar grupos de contentores a uma sub-rede, a sub-rede não pode conter outros tipos de recursos. Remover todos os recursos existentes de uma sub-rede existente antes de implementar grupos de contentores ao mesmo, ou criar uma nova sub-rede.
 * Grupos de contentores implementados numa rede virtual não suportam atualmente endereços IP públicos ou etiquetas de nome DNS.
+* Não é possível utilizar um [identidade gerida](container-instances-managed-identity.md) num grupo de contentores implementados numa rede virtual.
 * Devido à rede recursos adicionais envolvidos, implementar um grupo de contentores a uma rede virtual é normalmente um pouco mais lenta do que a implementação de uma instância de contentor padrão.
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
@@ -253,7 +254,7 @@ appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-### <a name="delete-container-instances"></a>Eliminar instâncias de contentor
+### <a name="delete-container-instances"></a>Eliminar instâncias de contentores
 
 Quando tiver terminado a trabalhar com as instâncias de contentor que criou, eliminá-los com os seguintes comandos:
 

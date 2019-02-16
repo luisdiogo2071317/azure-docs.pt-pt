@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ce7b73afa150ef5fef58c5baf861da92c5203548
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6493da0cfc86560fac8e69f4329804c628942806
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980505"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328723"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server em máquinas de virtuais do Azure
 
@@ -41,8 +41,8 @@ Segue-se uma lista de verificação rápida para um desempenho ideal do SQL Serv
 | Área | Otimizações |
 | --- | --- |
 | [Tamanho da VM](#vm-size-guidance) | - [DS3_v2](../sizes-general.md) ou superior para o SQL Enterprise edition.<br/><br/> - [DS2_v2](../sizes-general.md) ou superior para as edições SQL Standard e Web. |
-| [Armazenamento](#storage-guidance) | – Utilize [o armazenamento Premium](../premium-storage.md). Armazenamento Standard só é recomendado para programação/teste.<br/><br/> -Manter o [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e VM do SQL Server na mesma região.<br/><br/> * Desabilitar do Azure [armazenamento georredundante](../../../storage/common/storage-redundancy.md) (georreplicação) na conta de armazenamento. |
-| [Discos](#disks-guidance) | – Utilize um mínimo de 2 [P30 discos](../premium-storage.md#scalability-and-performance-targets) (1 para ficheiros de registo e 1 para ficheiros de dados, incluindo TempDB). Para cargas de trabalho que exigem aproximadamente 50 000 IOPS, considere a utilização de um SSD Ultra. <br/><br/> -Evite o uso de sistema operativo ou discos temporários para o armazenamento de base de dados ou de registo.<br/><br/> -Enable leia a colocação em cache no disco que aloja os ficheiros de dados e ficheiros de dados TempDB.<br/><br/> -Não ative a colocação em cache no disco (s) que aloja o ficheiro de registo.  **Importante**: Pare o serviço do SQL Server ao alterar as definições de cache para um disco de VM do Azure.<br/><br/> -Vários discos de dados do Azure para obter maior débito de e/s do stripe.<br/><br/> -Formato com tamanhos de alocação documentado. <br/><br/> -Local TempDB em SSD local para o SQL Server cargas de trabalho críticas (depois de escolher o tamanho VM correto). |
+| [Armazenamento](#storage-guidance) | – Utilize [premium SSDs](../disks-types.md). Armazenamento Standard só é recomendado para programação/teste.<br/><br/> -Manter o [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e VM do SQL Server na mesma região.<br/><br/> * Desabilitar do Azure [armazenamento georredundante](../../../storage/common/storage-redundancy.md) (georreplicação) na conta de armazenamento. |
+| [Discos](#disks-guidance) | – Utilize um mínimo de 2 [P30 discos](../disks-types.md#premium-ssd) (1 para ficheiros de registo e 1 para ficheiros de dados, incluindo TempDB). Para cargas de trabalho que exigem aproximadamente 50 000 IOPS, considere a utilização de um SSD Ultra. <br/><br/> -Evite o uso de sistema operativo ou discos temporários para o armazenamento de base de dados ou de registo.<br/><br/> -Enable leia a colocação em cache no disco que aloja os ficheiros de dados e ficheiros de dados TempDB.<br/><br/> -Não ative a colocação em cache no disco (s) que aloja o ficheiro de registo.  **Importante**: Pare o serviço do SQL Server ao alterar as definições de cache para um disco de VM do Azure.<br/><br/> -Vários discos de dados do Azure para obter maior débito de e/s do stripe.<br/><br/> -Formato com tamanhos de alocação documentado. <br/><br/> -Local TempDB em SSD local para o SQL Server cargas de trabalho críticas (depois de escolher o tamanho VM correto). |
 | [I/O](#io-guidance) |-Ative a compressão de página da base de dados.<br/><br/> -Permitir a inicialização instantânea de arquivo para ficheiros de dados.<br/><br/> -Limite o aumento automático da base de dados.<br/><br/> -Desative o início do encolhimento automático da base de dados.<br/><br/> -Mova todas as bases de dados para discos de dados, incluindo bases de dados do sistema.<br/><br/> -Mova o SQL Server erro log e rastreamento de diretórios de arquivos para discos de dados.<br/><br/> -Configure localizações de ficheiros de cópia de segurança e a base de dados predefinidas.<br/><br/> -Permitir páginas bloqueadas.<br/><br/> -Aplica correções de desempenho do SQL Server. |
 | [Específicos de funcionalidades](#feature-specific-guidance) | -Cópia de segurança diretamente ao armazenamento de Blobs. |
 
@@ -59,10 +59,10 @@ Para aplicações confidenciais de desempenho, é recomendado que utilize o segu
 
 ## <a name="storage-guidance"></a>Orientações do armazenamento
 
-Suporte de VMs de série DS (juntamente com a série DSv2 e série GS) [o armazenamento Premium](../premium-storage.md). Para todas as cargas de trabalho de produção, recomenda-se o armazenamento Premium.
+Suporte de VMs de série DS (juntamente com a série DSv2 e série GS) [premium SSDs](../disks-types.md). SSD Premium é recomendado para todas as cargas de trabalho de produção.
 
 > [!WARNING]
-> Armazenamento standard tem largura de banda e latências variados e só é recomendado para cargas de trabalho de programador/teste. Isto inclui o novo armazenamento Standard SSD. Cargas de trabalho de produção, devem utilizar o armazenamento Premium.
+> Padrão HDDs e SSDs têm latências extremamente variáveis e largura de banda e só são recomendados para cargas de trabalho de programador/teste. Cargas de trabalho de produção, devem utilizar premium SSDs.
 
 Além disso, recomendamos que crie a sua conta de armazenamento do Azure no mesmo centro de dados como suas máquinas virtuais do SQL Server para reduzir os atrasos de transferência. Ao criar uma conta de armazenamento, desative replicação geográfica como a ordem de escrita consistente em vários discos não é garantida. Em vez disso, considere configurar uma tecnologia de recuperação de desastres do SQL Server entre dois datacenters do Azure. Para obter mais informações, consulte [elevada disponibilidade e recuperação após desastre para SQL Server em máquinas de virtuais do Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -88,13 +88,15 @@ A unidade de armazenamento temporário, identificada como a **1!d**: unidade, n�
 
 Para a série D, série Dv2 e VMs de série G, a unidade temporária nestas VMs é baseado em SSD. Se a sua carga de trabalho faz uso intensivo de TempDB (por exemplo, objetos temporários ou associações complexas), armazenamento de TempDB no **1!d** unidade poderia resultar num maior débito de TempDB e menor latência de TempDB. Para um cenário de exemplo, consulte a discussão de TempDB na mensagem de blogue seguinte: [Diretrizes de configuração de armazenamento para o SQL Server na VM do Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm).
 
-Para as VMs que suportam o armazenamento Premium (séries DS, série DSv2 e série GS), recomendamos o armazenamento de TempDB num disco que suporta o armazenamento Premium com cache de leitura ativado. 
+<<<<<<< HEAD para VMs que suportam o SSDs premium (séries DS, série DSv2 e série GS), recomendamos o armazenamento de TempDB num disco que suporte o premium SSDs com cache de leitura ativado. Há uma exceção para esta recomendação; Se a utilização de TempDB está escrita intensiva, pode alcançar um desempenho mais elevado por meio do armazenamento TempDB no local **1!d** unidade, o que também é baseado em SSD nestes tamanhos de máquina.
+=== Para as VMs que suportam o armazenamento Premium (séries DS, série DSv2 e série GS), recomendamos o armazenamento de TempDB num disco que suporta o armazenamento Premium com cache de leitura ativado. 
 
 Há uma exceção para esta recomendação: _se a utilização de TempDB está escrita intensiva, pode alcançar um desempenho mais elevado por meio do armazenamento TempDB no local **1!d** unidade, o que também é baseado em SSD nestes tamanhos de máquina._ 
+>>>>>>> 4326ed494fad7ef7be29e2f4ba3301ec496acf76
 
 ### <a name="data-disks"></a>Discos de dados
 
-* **Utilizar discos de dados para ficheiros de registo e dados**: Se não estiver a utilizar a repartição de disco, utilize o armazenamento Premium dois [P30 discos](../premium-storage.md#scalability-and-performance-targets) em que um disco contém os ficheiros de registo e a outra contém os dados e ficheiros de TempDB. Cada disco de armazenamento Premium fornece um número de IOPs e largura de banda (MB/s) dependendo de seu tamanho, conforme descrito no artigo, [utilizando o armazenamento Premium para discos](../premium-storage.md). Se estiver a utilizar uma técnica de repartição de disco, tais como espaços de armazenamento, obter um desempenho ideal fazendo dois pools, um para o ficheiro de registo (s) e outro para os ficheiros de dados. No entanto, se planeja usar instâncias de Cluster (FCI) do SQL Server ativação pós-falha, tem de configurar um conjunto.
+* **Utilizar discos de dados para ficheiros de registo e dados**: Se não estiver a utilizar a repartição de disco, utilize dois discos de SSD P30 premium em que um disco contém os ficheiros de registo e a outra contém os dados e ficheiros de TempDB. Cada premium SSD fornece um número de IOPs e largura de banda (MB/s) dependendo de seu tamanho, conforme descrito no artigo [selecionar um tipo de disco](../disks-types.md). Se estiver a utilizar uma técnica de repartição de disco, tais como espaços de armazenamento, obter um desempenho ideal fazendo dois pools, um para o ficheiro de registo (s) e outro para os ficheiros de dados. No entanto, se planeja usar instâncias de Cluster (FCI) do SQL Server ativação pós-falha, tem de configurar um conjunto.
 
    > [!TIP]
    > - Para obter os resultados de teste em várias configurações de disco e a carga de trabalho, consulte a seguinte mensagem de blogue: [Diretrizes de configuração de armazenamento para o SQL Server na VM do Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
@@ -125,7 +127,7 @@ Há uma exceção para esta recomendação: _se a utilização de TempDB está e
 
   * Determine o número de discos associados com o agrupamento de armazenamento com base em suas expectativas de carga. Tenha em atenção que os diferentes tamanhos de VM permitem números diferentes de discos de dados anexados. Para obter mais informações, consulte [tamanhos de máquinas virtuais](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-  * Se não estiver a utilizar o armazenamento Premium (cenários de desenvolvimento/teste), a recomendação é adicionar o número máximo de discos de dados suportados pela sua [tamanho da VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e utilize a repartição de disco.
+  * Se não estiver a utilizar o premium SSDs (cenários de desenvolvimento/teste), a recomendação é adicionar o número máximo de discos de dados suportados pela sua [tamanho da VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e utilize a repartição de disco.
 
 * **Política de colocação em cache**: Tenha em atenção as seguintes recomendações para colocar em cache da política consoante a configuração de armazenamento.
 
@@ -133,7 +135,7 @@ Há uma exceção para esta recomendação: _se a utilização de TempDB está e
 
   * Se estiver a utilizar a repartição de disco num agrupamento de armazenamento único, a maioria das cargas de trabalho se beneficiarão da colocação em cache de leitura. Se tiver agrupamentos de armazenamento separada para os ficheiros de dados e de registo, ative a colocação em cache de leitura apenas no agrupamento de armazenamento para os ficheiros de dados. Em determinadas cargas de trabalho pesadas de escrita, um melhor desempenho pode ser obtido sem cache. Só pode ser determinada por meio do teste.
 
-  * As recomendações anteriores se aplica aos discos de armazenamento Premium. Se não estiver a utilizar o armazenamento Premium, não permitem o armazenamento em cache em qualquer discos de dados.
+  * As recomendações anteriores aplicam-se para o premium SSDs. Se não estiver a utilizar o premium SSDs, não permitem o armazenamento em cache em qualquer discos de dados.
 
   * Para obter instruções sobre como configurar a colocação em cache do disco, consulte os artigos seguintes. Para o clássico (ASM) Consulte modelo de implementação: [Conjunto AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) e [conjunto AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para o Azure Resource Manager deployment model, veja: [Conjunto AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) e [conjunto AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1).
 
@@ -150,7 +152,7 @@ Há uma exceção para esta recomendação: _se a utilização de TempDB está e
 
 ## <a name="io-guidance"></a>Orientações de e/s
 
-* Os melhores resultados com o armazenamento Premium são alcançados ao executar em paralelo a sua aplicação e os pedidos. O armazenamento Premium destina-se a cenários em que a profundidade de fila de e/s é superior a 1, verá pouca ou nenhuma ganhos de desempenho para um único thread pedidos seriais (mesmo que estejam intensivas em termos de armazenamento). Por exemplo, isto poderia afetar os resultados do teste de thread único de ferramentas de análise de desempenho, como SQLIO.
+* Os melhores resultados com premium SSDs são alcançados ao executar em paralelo a sua aplicação e os pedidos. SSD Premium destinam-se para cenários em que a profundidade de fila de e/s é superior a 1, verá pouca ou nenhuma ganhos de desempenho para um único thread pedidos seriais (mesmo que estejam intensivas em termos de armazenamento). Por exemplo, isto poderia afetar os resultados do teste de thread único de ferramentas de análise de desempenho, como SQLIO.
 
 * Considere a utilização [compactação page de base de dados](https://msdn.microsoft.com/library/cc280449.aspx) como o pode ajudar a melhorar o desempenho de cargas de trabalho intensivas de e/s. No entanto, a compressão de dados pode aumentar o consumo da CPU no servidor de base de dados.
 

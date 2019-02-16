@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e533f3db8a9d40ee062e65d96fa9bf33a366e3a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5a995fd93fa8d538cd1a686ecc12fa69c718758c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206360"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313505"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Registos de atividades do Azure AD no Azure Monitor (pré-visualização)
 
@@ -106,37 +106,37 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 
 **A**: Os registos de auditoria e registos de atividades de início de sessão estão disponíveis para encaminhamento através desta funcionalidade, embora os eventos de auditoria relacionados com o B2C atualmente não estão incluídos. Para conhecer os tipos de registos e que registos baseados na funcionalidade são atualmente suportados, veja [Audit log schema](reference-azure-monitor-audit-log-schema.md) (Esquema de registos de auditoria) e [Sign-in log schema](reference-azure-monitor-sign-ins-log-schema.md) (Esquema de registo de inícios de sessão). 
 
----
+-----
 
 **P: Como logo após uma ação os registos correspondentes aparecerá no meu hub de eventos?**
 
 **A**: Os registos de devem aparecer no seu hub de eventos dentro de dois a cinco minutos depois da ação é realizada. Para obter mais informações sobre os Hubs de Eventos, veja [O que são os Hubs de Eventos do Azure?](../../event-hubs/event-hubs-about.md)
 
----
+-----
 
 **P: Como logo após uma ação os registos correspondentes aparecerá na minha conta de armazenamento?**
 
 **A**: Para contas de armazenamento do Azure, a latência for em qualquer lugar de 5 a 15 minutos após a ação é executada.
 
----
+-----
 
 **P: O que acontece se um administrador alterar o período de retenção de uma definição de diagnóstico?**
 
 **A**: A nova política de retenção será aplicada aos registos recolhidos após a alteração. Registos recolhidos antes da alteração de política não serão afetada.
 
----
+-----
 
 **P: Quanto ele custará para armazenar meus dados?**
 
 **A**: Os custos de armazenamento dependem ambos os o tamanho dos seus registos e o período de retenção que escolher. Para obter uma lista dos custos estimados para os inquilinos, que dependerão do volume de registos gerados, veja a secção [Tamanho do armazenamento para os registos de atividades](#storage-size-for-activity-logs).
 
----
+-----
 
 **P: Quanto ele custará para transmitir dados para um hub de eventos?**
 
 **A**: Os custos de transmissão em fluxo dependem do número de mensagens a que receber por minuto. Este artigo mostra como é que os custos são calculados e apresenta uma lista das estimativas de custos, que têm por base o número de mensagens. 
 
----
+-----
 
 **P: Como integrar o Azure AD registos de atividades no meu sistema SIEM?**
 
@@ -146,31 +146,31 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 
 - Utilize a [Graph API de Relatórios](concept-reporting-api.md) para aceder aos dados e, em seguida, envie-os para o sistema SIEM através dos seus próprios scripts.
 
----
+-----
 
 **P: Que ferramentas SIEM atualmente são suportadas?** 
 
 **A**: Atualmente, o Azure Monitor é suportado pelo [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar, e [Sumo lógica](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Para obter mais informações sobre como funcionam os conectores, veja [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) (Transmitir em fluxo dados de monitorização do Azure para um hub de eventos, para consumo por uma ferramenta externa).
 
----
+-----
 
 **P: Como integrar o Azure AD registos de atividades com minha instância Splunk?**
 
 **A**: Primeiro, [registos de atividade de rota do Azure AD para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md), em seguida, siga os passos para [integrar registos de atividade com Splunk](tutorial-integrate-activity-logs-with-splunk.md).
 
----
+-----
 
 **P: Como integrar o Azure AD registos de atividades com a lógica do Sumo?** 
 
 **A**: Primeiro, [registos de atividade de rota do Azure AD para um hub de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), em seguida, siga os passos para [instalar a aplicação do Azure AD e ver os dashboards no SumoLogic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
 
----
+-----
 
 **P: Posso acessar os dados de um hub de eventos sem usar uma ferramenta externa de SIEM?** 
 
 **A**: Sim. Pode utilizar a [API dos Hub de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) para aceder aos registos da sua aplicação personalizada. 
 
----
+-----
 
 
 ## <a name="next-steps"></a>Passos Seguintes

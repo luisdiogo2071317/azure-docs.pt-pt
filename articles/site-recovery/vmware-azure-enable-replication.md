@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822787"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329955"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
 
@@ -88,7 +88,7 @@ Em seguida, verifique as propriedades da máquina de origem. Lembre-se de que o 
 2. Em **Propriedades**, pode ver as informações de replicação e de ativação pós-falha da VM.
 3. Na **computação e rede** > **propriedades de computação**, pode alterar vários propoerties VM:
 * VM do Azure nome - modificar o nome para atender aos requisitos do Azure, se necessário
-* Tamanho de VM de destino ou tipo - a predefinição de tamanho da VM é escolhido com base na origem de tamanho da VM. Pode selecionar um tamanho VM diferente com base na necessidade de qualquer altura antes da ativação pós-falha. Tenha em atenção que o tamanho de disco da VM também se baseia no tamanho do disco de origem e apenas pode ser alterado após a ativação pós-falha. Obter mais informações sobre [padrão](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) e [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) IOPS e tamanhos de disco.
+* Tamanho de VM de destino ou tipo - a predefinição de tamanho da VM é escolhido com base na origem de tamanho da VM. Pode selecionar um tamanho VM diferente com base na necessidade de qualquer altura antes da ativação pós-falha. Tenha em atenção que o tamanho de disco da VM também se baseia no tamanho do disco de origem e apenas pode ser alterado após a ativação pós-falha. Saiba mais sobre tamanhos de disco e IOPS em nosso [destinos de escalabilidade para discos](../virtual-machines/windows/disk-scalability-targets.md) artigo.
 
     ![Propriedades da rede e computação](./media/vmware-azure-enable-replication/vmproperties.png)
 

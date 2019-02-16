@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686267"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308728"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Lidar com erros e exceções no Azure Logic Apps
 
@@ -29,12 +29,12 @@ Para a exceção de forma mais básica e o tratamento de erros, pode utilizar um
 
 Aqui estão os tipos de política de repetição: 
 
-| Tipo | Descrição | 
+| Type | Descrição | 
 |------|-------------| 
-| [**Padrão**](#default-retry) | Esta política envia as repetições até quatro [ *aumentar exponencialmente* ](#exponential-retry) intervalos, que dimensione o 7.5 segundos, mas estão colocados entre 5 e 45 segundos. | 
-| [**Intervalo exponencial**](#exponential-retry)  | Esta política aguarda num intervalo aleatório selecionado a partir de um intervalo de exponencialmente crescente antes de enviar o pedido seguinte. | 
-| [**Intervalo fixo**](#fixed-retry)  | Esta política tem de aguardar o intervalo especificado antes de enviar o pedido seguinte. | 
-| [**Nenhum**](#no-retry)  | Não reenvie o pedido. | 
+| **Predefinição** | Esta política envia as repetições até quatro *aumentar exponencialmente* intervalos, que dimensione o 7.5 segundos, mas estão colocados entre 5 e 45 segundos. | 
+| **Intervalo exponencial**  | Esta política aguarda num intervalo aleatório selecionado a partir de um intervalo de exponencialmente crescente antes de enviar o pedido seguinte. | 
+| **Intervalo fixo**  | Esta política tem de aguardar o intervalo especificado antes de enviar o pedido seguinte. | 
+| **Nenhum**  | Não reenvie o pedido. | 
 ||| 
 
 Para obter informações sobre os limites de política de repetição, consulte [Logic Apps limites e configuração](../logic-apps/logic-apps-limits-and-config.md#request-limits). 
@@ -71,19 +71,19 @@ Em alternativa, pode especificar manualmente a política de repetição no `inpu
 
 *Necessário*
 
-| Valor | Tipo | Descrição |
+| Value | Type | Descrição |
 |-------|------|-------------|
-| <*tipo de política de repetição*> | Cadeia | O tipo de política de repetição que pretende utilizar: `default`, `none`, `fixed`, ou `exponential` | 
-| <*intervalo entre tentativas*> | Cadeia | O intervalo entre tentativas em que o valor tem de utilizar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D`. Quando utiliza a política de intervalo exponencial, pode especificar diferentes valores mínimos e máximos. | 
-| <*tentativas de repetição*> | Número inteiro | O número de tentativas de repetição, o que deve ser entre 1 e 90 | 
+| <*retry-policy-type*> | String | O tipo de política de repetição que pretende utilizar: `default`, `none`, `fixed`, ou `exponential` | 
+| <*retry-interval*> | String | O intervalo entre tentativas em que o valor tem de utilizar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D`. Quando utiliza a política de intervalo exponencial, pode especificar diferentes valores mínimos e máximos. | 
+| <*retry-attempts*> | Número inteiro | O número de tentativas de repetição, o que deve ser entre 1 e 90 | 
 ||||
 
 *Opcional*
 
-| Valor | Tipo | Descrição |
+| Value | Type | Descrição |
 |-------|------|-------------|
-| <*intervalo mínimo*> | Cadeia | Para a política de intervalo exponencial, o intervalo menor para o intervalo selecionado aleatoriamente em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*intervalo máximo*> | Cadeia | Para a política de intervalo exponencial, o intervalo maior para o intervalo selecionado aleatoriamente em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | Para a política de intervalo exponencial, o intervalo menor para o intervalo selecionado aleatoriamente em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | String | Para a política de intervalo exponencial, o intervalo maior para o intervalo selecionado aleatoriamente em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Aqui estão mais algumas informações sobre os tipos de política diferente.

@@ -8,42 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 06/25/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: d1384e22d5a036002d59c30755a8a0e5de648102
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 752f15fd730f1244f44ba3749bff3c5bb85ca02b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882969"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312604"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Início rápido: Detetar rostos numa imagem usando a REST API e Go
 
-Neste início rápido, irá detetar rostos humanos numa imagem com a API Face.
+Neste início rápido, irá utilizar a API de REST de Face do Azure com o Go para detetar rostos humanos numa imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição para executar o exemplo. Pode obter chaves de subscrição de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
+- Um editor de código, tais como [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Rosto – Pedido de deteção
+## <a name="write-the-script"></a>Escrever o script
 
-Utilize o método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Rosto – Detetar) para detetar rostos numa imagem e devolver atributos, incluindo:
-
-* Face ID: ID exclusivo utilizado em vários cenários de Face API.
-* Retângulo de rostos: À esquerda, superior, largura e altura que indica a localização de rosto na imagem.
-* Pontos de referência: Uma matriz de pontos de referência de face de ponto de 27 a apontar para as posições importantes dos componentes de rostos.
-* Atributos faciais, como a idade, o sexo, a intensidade do sorriso, a posição da cabeça e os pelos faciais.
-
-Para executar o exemplo, siga os seguintes passos:
-
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uriBase` para a localização na qual obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere o valor `imageUrl` para a imagem que pretende analisar.
-1. Guarde o ficheiro com uma extensão `.go`.
-1. Abra uma linha de comandos num computador com o Go instalado.
-1. Crie o ficheiro, por exemplo: `go build detect-face.go`.
-1. Execute o ficheiro, por exemplo: `detect-face`.
+Criar um novo arquivo _faceDetection.go_e adicione o seguinte código. Isso chama a API Face de um URL de imagem específica.
 
 ```go
 package main
@@ -115,9 +100,25 @@ func main() {
 }
 ```
 
-## <a name="face---detect-response"></a>Rosto – Resposta da deteção
+Terá de atualizar o `subscriptionKey` valor com a chave de subscrição e poderá ter de alterar o `uriBase` , para que ele contém o identificador de região correto de cadeias de caracteres (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região) . 
 
-É devolvida uma resposta com êxito em JSON, por exemplo:
+Também pode pretender alterar o `imageUrl` campo para apontar para a sua própria imagem de entrada. Também pode pretender chang o `returnFaceAttributes` campo, que especifica qual face deve atributos para recuperar.
+
+## <a name="run-the-script"></a>Executar o script
+
+Abra um prompt de comando e criar o programa com o seguinte comando:
+
+```shell
+go build faceDetection.go
+```
+
+Em seguida, execute o programa:
+
+```shell
+detect-face
+```
+
+Deverá ver uma cadeia de caracteres do JSON de dados de rostos detetados impressos no console. Segue-se um exemplo de uma resposta JSON com êxito.
 
 ```json
 [
@@ -300,7 +301,7 @@ func main() {
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Explore as API Face utilizadas para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos, como a idade e o sexo.
+Neste início rápido, Escrevi um script de Ruby que chama a API de rostos do Azure para detetar rostos numa imagem e retornar seus atributos. Em seguida, explore a documentação de referência da Face API para saber mais.
 
 > [!div class="nextstepaction"]
-> [APIs Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

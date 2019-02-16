@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 62d6dce4ccb5d4badbcf9b02cbbcda576ee63212
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: add526d8c09d2aa557ddd645e9016cb9c3b225a3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869256"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328202"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e eliminar os dados dos clientes na compreensão de idiomas (LUIS) nos serviços cognitivos
 
@@ -30,7 +30,7 @@ Conteúdo de cliente é armazenado encriptada no armazenamento do Microsoft regi
 - Conteúdo de conta de utilizador recolhidas no registo
 - Dados de treinamento necessários para criar modelos (ou seja, intenções e entidades)
 - Consultas de utilizador com sessão iniciadas no tempo de execução para ajudar a melhorar os modelos de utilizador
-  - Os utilizadores podem desativar o registo de consultas, acrescentando `&log=false` para o pedido, detalhes [aqui](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)
+  - Os utilizadores podem desativar o registo de consultas, acrescentando `&log=false` para o pedido, detalhes [aqui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>A eliminação de dados do cliente
 Os utilizadores de LUIS tem controlo total para eliminar qualquer conteúdo de utilizador, através do portal web do LUIS ou as APIs de programação do LUIS. A tabela seguinte apresenta links ajudá-lo com ambos:

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1ca2b032497298bab5bedbf8ddc73987fa08c7df
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822413"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313556"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -1369,13 +1369,13 @@ As funções matemáticas realizar um cálculo, com base nos valores de entrada 
 | CEILING (num_expr) | Devolve o menor valor de número inteiro maior que ou igual a, a expressão numérica especificada. |
 | FLOOR (num_expr) | Devolve o maior número inteiro menor ou igual a expressão numérica especificada. |
 | EXP (num_expr) | Devolve o expoente da expressão especificada numérico. |
-| [REGISTO (num_expr [, base])](#bk_log) | Devolve o logaritmo natural da expressão numérica especificada ou o logaritmo com a base especificada |
+| LOG (num_expr ,base) | Devolve o logaritmo natural da expressão numérica especificada ou o logaritmo com a base especificada |
 | LOG10 (num_expr) | Devolve o valor de base 10 logarítmico da expressão especificada numérico. |
 | ROUND (num_expr) | Devolve um valor numérico, arredondado para o valor de número inteiro mais próximo. |
 | TRUNC (num_expr) | Devolve um valor numérico, truncado para o valor de número inteiro mais próximo. |
 | SQRT (num_expr) | Devolve a raiz quadrada da expressão especificada numérico. |
 | SQUARE (num_expr) | Devolve o quadrado da expressão especificada numérico. |
-| [POWER (num_expr, num_expr)](#bk_power) | Devolve o poder da expressão numérica especificada para o valor especificado. |
+| POWER (num_expr, num_expr) | Devolve o poder da expressão numérica especificada para o valor especificado. |
 | SIGN (num_expr) | Devolve o valor de início de sessão (-1, 0, 1) da expressão especificada numérico. |
 | ACOS (num_expr) | Devolve o ângulo em radianos, cujo co-seno é a expressão numérica especificada; Também chamado de arco de cosseno. |
 | ASIN (num_expr) | Devolve o ângulo em radianos, cujo seno é a expressão numérica especificada. Esta função também é denominada o arco de seno. |

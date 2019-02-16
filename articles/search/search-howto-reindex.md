@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 1d9dffe9d311674aeb043fcc4c35110775f420af
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 907ab5cd3272a3d3f64dcfd7c9628a609f4db2f4
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300810"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327651"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Como reconstruir um índice da Azure Search
 
@@ -29,22 +29,23 @@ Em contraste com recompilações colocar offline um índice *atualização de da
 | Condição | Descrição |
 |-----------|-------------|
 | Alterar uma definição de campo | A revisão de um nome de campo, tipo de dados ou específicos [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) (pesquisável, filtrável, ordenável, facetável) requer uma reconstrução completa. |
-| Adicionar um analisador para um campo | [Analisadores](search-analyzers.md) são definidos num índice e, em seguida, são atribuídas a campos. Pode adicionar um analisador para um índice em qualquer altura, mas só pode atribuir um analisador quando o campo é criado. Isso é verdadeiro para ambos os **analisador** e **indexAnalyzer** propriedades. O **searchAnalyzer** propriedade é uma exceção.
+| Adicionar um analisador para um campo | [Analisadores](search-analyzers.md) são definidos num índice e, em seguida, são atribuídas a campos. Pode adicionar um novo analisador para um índice em qualquer altura, mas só é possível *atribuir* um analisador quando o campo é criado. Isso é verdadeiro para ambos os **analisador** e **indexAnalyzer** propriedades. O **searchAnalyzer** propriedade é uma exceção. |
+| A atualizar ou eliminar uma construção de analisador | Não é possível eliminar ou alterar os componentes de análise existentes (analisador, tokenizer, filtro de token ou filtro de char), a menos que reconstrua o índice de inteiro. |
 | Adicionar um campo para um sugestor | Se já existe um campo e pretende adicioná-lo para um [Sugestores](index-add-suggesters.md) construir, tem de reconstruir o índice. |
-| A eliminar um campo | Para remover fisicamente todos os rastreios de um campo, terá de recriar o índice. Quando uma reconstrução imediata não é prática, a maioria dos desenvolvedores modificar o código de aplicação para desativar o acesso ao campo "eliminado". Fisicamente, a definição de campo e o conteúdo permanece no índice até a recompilação de seguinte, usando um esquema que omite o campo em questão. |
+| A eliminar um campo | Para remover fisicamente todos os rastreios de um campo, terá de recriar o índice. Quando uma reconstrução imediata não for possível, é possível modificar o código da aplicação para desativar o acesso ao campo "eliminado". Fisicamente, a definição de campo e o conteúdo permanece no índice até a recompilação de seguinte, usando um esquema que omite o campo em questão. |
 | Alternância de camadas | Se necessitar de mais capacidade, não existe nenhuma atualização no local. É criado um novo serviço no ponto de nova capacidade e índices devem ser criados a partir do zero no novo serviço. |
 
-Qualquer modificação de outra pode ser feita sem afetar as estruturas físicas existentes. Especificamente, as seguintes alterações fazer *não* indicar uma recompilação de índice:
+Qualquer modificação de outra pode ser feita sem afetar as estruturas físicas existentes. Especificamente, as seguintes alterações fazer *não* exigem uma recompilação de índice:
 
 + Adicionar um novo campo
 + Definir o **recuperável** atributo num campo existente
 + Definir um **searchAnalyzer** num campo existente
-+ Adicionar, atualizar ou eliminar uma construção de analisador num índice
++ Adicionar uma nova construção de analisador num índice
 + Adicionar, atualizar ou eliminar perfis de classificação
 + Adicionar, atualizar ou eliminar definições de CORS
 + Adicionar, atualizar ou eliminar synonymMaps
 
-Quando adiciona um novo campo, documentos indexados existentes tem um valor nulo para o novo campo. Numa atualização de dados futuros, valores dos dados de origem externa substituem os valores nulos adicionados pelo Azure Search.
+Quando adiciona um novo campo, documentos indexados existentes tem um valor nulo para o novo campo. Numa atualização de dados futuros, valores dos dados de origem externa substituem os valores nulos adicionados pelo Azure Search. Para obter mais informações sobre como atualizar o conteúdo de índice, consulte [adicionar, atualizar ou eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="partial-or-incremental-indexing"></a>Parcial ou incrementais de indexação
 
