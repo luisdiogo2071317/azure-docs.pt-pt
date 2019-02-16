@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: e983ae549664abf46de256e987e09191a2a44c0f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728525"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327377"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar a VM do Linux no Azure
 A criação de uma máquina virtual (VM) do Linux é fácil fazê-lo na linha de comando ou a partir do portal. Este tutorial mostra como Certifique-se de que o configurou para otimizar o desempenho na plataforma Microsoft Azure. Este tópico utiliza uma VM do Ubuntu Server, mas também pode criar a máquina virtual do Linux utilizar [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ Este tópico pressupõe que já tem uma subscrição do Azure ([inscrição na a
 Depois de criar uma VM do Linux no Azure, ela tem dois discos associados a ele. **/ desenvolvimento/sda** é o seu disco de SO **/desenvolvimento/sdb** é o seu disco temporário.  Não utilize o disco do SO principal (**/desenvolvimento/sda**) para qualquer coisa, exceto o sistema operativo como ele está otimizado para rápido tempo de arranque da VM e não oferecer um bom desempenho para cargas de trabalho. Pretende anexar um ou mais discos para a VM para obter persistente e otimizados de armazenamento para os seus dados. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adicionar discos para destinos do tamanho e o desempenho
-Com base no tamanho VM, pode anexar até 16 discos adicionais numa série a, 32 discos numa série de D e a máquina de 64 discos numa série G - cada até 1 TB de tamanho. Adicione discos Extras conforme necessário por seus requisitos de IOps e um espaço. Cada disco tem um destino de desempenho de 500 IOps para armazenamento Standard e até 5000 IOps por disco para armazenamento Premium.  Para obter mais informações sobre os discos de armazenamento Premium, consulte [o armazenamento Premium: Armazenamento de elevado desempenho para VMs do Azure](../windows/premium-storage.md)
+Com base no tamanho VM, pode anexar até 16 discos adicionais numa série a, 32 discos numa série de D e a máquina de 64 discos numa série G - cada até 1 TB de tamanho. Adicione discos Extras conforme necessário por seus requisitos de IOps e um espaço. Cada disco tem um destino de desempenho de 500 IOps para armazenamento Standard e até 5000 IOps por disco para armazenamento Premium.
 
 Para atingir o IOps mais alto em discos de armazenamento Premium em que as definições de cache foram definidas para o **só de leitura** ou **None**, tem de desativar **barreiras** ao montagem o sistema de ficheiros no Linux. Não é necessário barreiras, uma vez que as gravações para discos de armazenamento Premium suportado são duráveis para estas definições de cache.
 
@@ -131,9 +131,8 @@ Se as cargas de trabalho exigem mais IOps, que pode fornecer um único disco, te
 ## <a name="next-steps"></a>Próximos Passos
 Lembre-se, como com todas as discussões de otimização, tiver de realizar testes antes e após cada alteração para medir o impacto da alteração.  Otimização é um processo passo a passo com resultados diferentes em diferentes computadores no seu ambiente.  O que funciona para uma configuração pode não funcionar para outras pessoas.
 
-Alguns links úteis para recursos adicionais: 
+Alguns links úteis para recursos adicionais:
 
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads (Armazenamento Premium: Armazenamento de Elevado Desempenho para Cargas de Trabalho de Máquinas Virtuais do Azure)](premium-storage.md)
 * [Guia de utilizador do agente Linux do Azure](../extensions/agent-linux.md)
 * [Otimizar o desempenho do MySQL em VMs do Linux do Azure](classic/optimize-mysql.md)
 * [Configurar o RAID de Software no Linux](configure-raid.md)

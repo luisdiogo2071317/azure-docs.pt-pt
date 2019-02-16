@@ -16,21 +16,17 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e9c3e10f9b48bfe2efa5396c9e64d3d87be3d826
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467922"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330652"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs do Azure para discos geridos no Azure
 
 Managed Disks do Azure simplifica a gestão de armazenamento, eliminando a necessidade de gerir separadamente contas de armazenamento.  Também pode migrar as VMs do Azure existentes para os Managed Disks para beneficiar de confiabilidade de VMs num conjunto de disponibilidade. Ele garante que os discos de VMs diferentes no conjunto de disponibilidade é suficientemente isolados uns dos outros para evitar único ponto de falhas. Coloca automaticamente discos de VMs diferentes no conjunto de disponibilidade em unidades de escala de armazenamento diferentes (carimbos de data /) que limita o impacto das falhas de unidade de escala de armazenamento únicas provocadas por hardware e de falhas de software.
-Com base nas suas necessidades, pode escolher entre dois tipos de opções de armazenamento:
-
-- [Premium Managed Disks](premium-storage.md) são a unidade de estado sólido (SSD) com base em mídias de armazenamento que fornecem elevado desempenho, suporte de disco de baixa latência para máquinas virtuais que executam cargas de trabalho de e/S intensivas. Pode tirar partido da velocidade e o desempenho destes discos ao migrar para Premium Managed Disks.
-
-- [Standard Managed Disks](standard-storage.md) utilizar suportes de dados de armazenamento de unidade de disco rígido (HDD) com base e são mais adequadas para programação/teste e outras cargas de trabalho de acesso pouco frequente menos sensíveis à variabilidade de desempenho.
+Com base nas suas necessidades, pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponível, consulte nosso artigo [selecione um tipo de disco](disks-types.md)
 
 Pode migrar para Managed Disks nos seguintes cenários:
 

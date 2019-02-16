@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ae421ac3f87a16fc6fd2e5f3e89c13fcae50dbf8
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872651"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311635"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
-Serviço de visão do computador do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processar imagens e informações de devolução. Para analisar uma imagem, pode carregar uma imagem ou especificar um URL de imagem. As imagens de algoritmos de processamento podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visual que está interessado. Por exemplo, de imagem digitalizada pode determinar se uma imagem contém conteúdo adultos, ou pode encontrar todos os rostos humanos numa imagem.
+Serviço de visão do computador do Azure fornece aos desenvolvedores acesso a algoritmos avançados que processar imagens e retornar informações. Para analisar uma imagem, pode carregar uma imagem ou especificar um URL de imagem. As imagens de algoritmos de processamento podem analisar o conteúdo de várias maneiras diferentes, dependendo dos recursos visual que está interessado. Por exemplo, de imagem digitalizada pode determinar se uma imagem contém conteúdo adultos, ou pode encontrar todos os rostos humanos numa imagem.
 
 Pode utilizar de imagem digitalizada na sua aplicação utilizando um SDK nativo ou invocar a API REST diretamente. Esta página aborda amplamente o que pode fazer com a visão do computador.
 

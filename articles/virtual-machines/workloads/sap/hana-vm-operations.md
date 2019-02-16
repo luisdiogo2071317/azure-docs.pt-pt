@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c85d405502890253bcdb80c652ed53f58546de9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747055"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328848"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações de infraestrutura de SAP HANA e operações no Azure
 Este documento fornece orientações para configurar a infraestrutura do Azure e operar sistemas SAP HANA que estão implementados em máquinas de virtuais (VMs) nativas do Azure. O documento também inclui informações de configuração para o SAP HANA aumentar horizontalmente para o SKU de VM M128s. Este documento não se destina a substituir a documentação de SAP padrão, o que inclui o seguinte conteúdo:
@@ -68,10 +68,10 @@ Implemente as VMs no Azure ao utilizar:
 Também pode implementar uma plataforma completa de SAP HANA instalada nos serviços de VM do Azure através da [plataforma na Cloud de SAP](https://cal.sap.com/). O processo de instalação é descrito em [SAP implementar S/4HANA ou BW/4HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) ou com a automação lançado [aqui](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### <a name="choose-azure-storage-type"></a>Escolha o tipo de armazenamento do Azure
-O Azure fornece dois tipos de armazenamento que são adequados para as VMs do Azure que estejam a executar o SAP HANA:
+O Azure fornece dois tipos de armazenamento que são adequados para as VMs do Azure que estejam a executar o SAP HANA: Unidades de disco rígido Standard (HDD) e unidades de estado sólido (SSD) do premium. Para saber mais sobre estes tipos de discos, consulte nosso artigo [selecione um tipo de disco](../../windows/disks-types.md)
 
-- [Armazenamento Standard do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Armazenamento Premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Unidades de disco rígido Standard (HDD)
+- Unidades de estado sólido (SSD) do Premium
 
 O Azure oferece dois métodos de implantação para VHDs no padrão do Azure e o armazenamento Premium. Se o cenário geral permite, aproveitar [disco gerido do Azure](https://azure.microsoft.com/services/managed-disks/) implementações.
 
@@ -408,7 +408,7 @@ De acordo com diretrizes de práticas recomendadas DT 2.0, o débito de e/s do d
 
 É necessário para anexar vários discos do Azure para a VM de 2.0 DT e criar um raid de software (repartição) no nível do SO para atingir o limite máximo de débito de disco por VM. Um único disco do Azure não é possível fornecer o débito para atingir o limite máximo de VM nesse aspecto. Armazenamento Premium do Azure é obrigatório para executar DT 2.0. 
 
-- Pode encontrar detalhes sobre os tipos de disco do Azure disponível [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Pode encontrar detalhes sobre os tipos de disco do Azure disponível [aqui](../../windows/disks-types.md)
 - Pode encontrar detalhes sobre a criação de raid de software por meio de mdadm [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - Detalhes sobre como configurar LVM para criar um volume repartido para débito máximo que pode ser encontrado [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 

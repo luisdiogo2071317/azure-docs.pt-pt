@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 23c04f85c994a8b300ffec23b4660d3d431ef69b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740430"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329619"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
 Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem-lhe criar e gerir um grupo de VMs idênticas, com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou a uma agenda definida. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
@@ -47,7 +47,7 @@ Os conjuntos de dimensionamento de máquinas virtuais fornecem as capacidades de
 
 - **Funciona em grande escala**
     - Os conjuntos de dimensionamento suportam até 1000 instâncias de VMs. Se criar e carregar as suas próprias imagens de VM personalizadas, o limite é 300 instâncias de VMs.
-    - Para obter o melhor desempenho com cargas de trabalho de produção, utilize o [Managed Disks do Azure](../virtual-machines/windows/managed-disks-overview.md) e [Armazenamento Premium](../virtual-machines/windows/premium-storage.md).
+    - Para obter o melhor desempenho com cargas de trabalho de produção, utilize [Managed Disks do Azure](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Diferenças entre máquinas virtuais e conjuntos de dimensionamento
@@ -63,7 +63,7 @@ Os conjuntos de dimensionamento são criados a partir de máquinas virtuais. Nos
 Os conjuntos de dimensionamento não têm custos adicionais. Só tem de pagar os recursos de computação subjacentes, como as instâncias de VMs, o balanceador de carga ou o armazenamento de Discos Geridos. As funcionalidades de gestão e automatização, como o dimensionamento automático e a redundância, não implicam custos adicionais pela utilização de VMs.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para começar, crie o seu primeiro conjunto de dimensionamento de máquinas virtuais no portal do Azure.
 
 > [!div class="nextstepaction"]

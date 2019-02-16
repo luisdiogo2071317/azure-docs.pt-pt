@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 023f0e560900aa582be1f28e553358adb0c87b1e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 36b49002a5e947f2803e00974f242e49eb26d45b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118477"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309255"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controlo de acesso no Application Insights
 
@@ -86,7 +86,7 @@ Sempre que aplicável criamos uma ligação para a documentação de referência
 | [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Pode ver, mas não altera nada. |
 | [Snapshot Debugger do Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Fornece a permissão de utilizador para utilizar as funcionalidades do Snapshot Debugger do Application Insights. Tenha em atenção que esta função está incluída nas funções de nem o proprietário nem contribuinte. |
 | Contribuinte de Gestão de Versões de Implementação de Serviço do Azure | Função de Contribuidor para serviços de implantação através de implementação de serviço do Azure. |
-| [Purger de dados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Função especial para remover dados pessoais. Consulte nossos [documentação de orientação para os dados pessoais](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) para obter mais informações.   |
+| [Data Purger](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Função especial para remover dados pessoais. Consulte nossos [documentação de orientação para os dados pessoais](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) para obter mais informações.   |
 | Administrador do ExpressRoute | Pode criar o eliminar e gerir as rotas express.|
 | [Contribuidor do log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Contribuidor do log Analytics pode ler todos os dados de monitorização e editar as definições de monitorização. Editar definições de monitorização inclui adicionar a extensão VM para VMs; ler as chaves de conta de armazenamento para poder configurar a recolha de registos do armazenamento do Azure; criar e configurar contas de automatização; Adicionar soluções; e configurar os diagnósticos do Azure em todos os recursos do Azure.  |
 | [Leitor do log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | O Leitor do Log Analytics pode visualizar e procurar todos os dados de monitorização assim como visualizar as definições de monitorização, incluindo a visualização da configuração de diagnósticos Azure em todos os recursos do Azure. |
@@ -113,6 +113,32 @@ Se o utilizador que pretende não estiver no diretório, pode convidar qualquer 
 ## <a name="related-content"></a>Conteúdo relacionado
 
 * [Controlo de acesso no Azure baseado em funções](../../role-based-access-control/role-assignments-portal.md)
+
+## <a name="powershell-query-to-determine-role-membership"></a>Consulta de PowerShell para determinar a associação de função
+
+Uma vez que algumas funções podem ser associadas a notificações e alertas de email pode ser útil ser capaz de gerar uma lista de utilizadores que pertencem a uma determinada função. Para ajudar a gerar esses tipos de listas que oferecemos os seguintes exemplos de consultas que podem ser ajustados de acordo com as suas necessidades específicas:
+
+### <a name="query-entire-subscription-for-admin-roles--contributor-roles"></a>Consulta a subscrição completa para funções de administrador + funções de contribuinte
+
+```powershell
+(Get-AzureRmRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
+### <a name="query-within-the-context-of-a-specific-application-insights-resource-for-owners-and-contributors"></a>Consultar dentro do contexto de um recurso específico do Application Insights para os proprietários e contribuintes
+
+```powershell
+$resourceGroup = “RGNAME”
+$resourceName = “AppInsightsName”
+$resourceType = “microsoft.insights/components”
+(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
+### <a name="query-within-the-context-of-a-specific-resource-group-for-owners-and-contributors"></a>Consultar dentro do contexto de um grupo de recursos específicos para os proprietários e contribuintes
+
+```powershell
+$resourceGroup = “RGNAME”
+(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
 
 <!--Link references-->
 

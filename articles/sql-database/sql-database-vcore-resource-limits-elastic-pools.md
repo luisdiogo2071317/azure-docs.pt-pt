@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 1040c2018e7e18ed2d2bb401dd0052c6851fa544
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270475"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328678"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para conjuntos elásticos com os limites de compra modelo baseado em vCore
 
@@ -59,7 +59,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/A|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
-\* Para os máximos atuais workers (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md)
+\* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Escalão de serviço de fins geral: Plataforma de computação de geração 4 (parte 2)
 
@@ -85,7 +85,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/A|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
-\* Para os máximos atuais workers (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md)
+\* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Escalão de serviço de fins geral: Plataforma de computação de geração 5 (parte 1)
 
@@ -111,7 +111,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
-\* Para os máximos atuais workers (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md)
+\* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Escalão de serviço de fins geral: Plataforma de computação de geração 5 (parte 2)
 
@@ -136,7 +136,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
-\* Para os máximos atuais workers (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md)
+\* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Camada de negócio críticos de serviço: Tamanhos de armazenamento e tamanhos de computação
 
@@ -164,7 +164,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
-\* Para os máximos atuais workers (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md)
+\* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Camada de negócio críticos de serviço: Plataforma de computação de geração 4 (parte 2)
 
@@ -190,7 +190,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
-\* Para os máximos atuais workers (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md)
+\* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Camada de negócio críticos de serviço: Plataforma de computação de geração 5 (parte 1)
 
@@ -216,7 +216,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
-\* Para os máximos atuais workers (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md)
+\* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Camada de negócio críticos de serviço: Plataforma de computação de geração 5 (parte 2)
 
@@ -242,7 +242,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 
-\* Para os máximos atuais workers (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md)
+\* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 Se todos os vCores de um conjunto elástico está ocupados, cada base de dados no conjunto recebe uma quantidade igual de recursos de computação para processar consultas. O serviço Base de Dados SQL fornece equidade de partilha de recursos entre bases de dados, garantindo frações iguais de tempo de computação. Recurso de conjunto elástico equidade de partilha é qualquer quantidade de recursos garantido de outro modo para cada base de dados quando o mínimo de vCore por base de dados está definido como um valor diferente de zero.
 

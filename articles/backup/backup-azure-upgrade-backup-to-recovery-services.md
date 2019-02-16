@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880051"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313365"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação
 
@@ -37,9 +37,9 @@ Consulte as referências de cmdlets do PowerShell para o [modelo de implementaç
 
 Verifique os seguintes problemas antes de atualizar os cofres de cópia de segurança para cofres de serviços de recuperação.
 
-- **Versão de agente mínima**: para atualizar o seu Cofre, certifique-se de que o agente dos serviços de recuperação do Azure (MARS) da Microsoft é, pelo menos, versão 2.0.9083.0. Se o agente de MARS é mais antigo que 2.0.9083.0, atualize o agente antes de iniciar o processo de atualização.
-- **Modelo de faturação com base na instância**: cofres de serviços de recuperação só suportam o modelo de faturação com base na instância. Se tiver um cofre de cópia de segurança que está a utilizar o modelo de faturação baseada no armazenamento mais antigo, converta o modelo de faturação durante a atualização.
-- **Não existem operações de configuração de cópia de segurança em curso**: durante a atualização, o acesso ao plano de gestão é restrito. Conclua todas as ações de plano de gestão e, em seguida, iniciar a atualização.
+- **Versão de agente mínima**: Para atualizar o seu Cofre, certifique-se de que o agente dos serviços de recuperação do Azure (MARS) da Microsoft é, pelo menos, versão 2.0.9083.0. Se o agente de MARS é mais antigo que 2.0.9083.0, atualize o agente antes de iniciar o processo de atualização.
+- **Modelo de faturação com base na instância**: Os cofres dos serviços de recuperação só suportam o modelo de faturação com base na instância. Se tiver um cofre de cópia de segurança que está a utilizar o modelo de faturação baseada no armazenamento mais antigo, converta o modelo de faturação durante a atualização.
+- **Não existem operações de configuração de cópia de segurança em curso**: Durante a atualização, o acesso ao plano de gestão é restrito. Conclua todas as ações de plano de gestão e, em seguida, iniciar a atualização.
 
 ## <a name="using-powershell-scripts-to-upgrade-your-vaults"></a>Utilizar scripts do PowerShell para atualizar os cofres
 
@@ -53,7 +53,7 @@ Pode utilizar scripts do PowerShell para atualizar os cofres de cópia de segura
 
 Utilize o seguinte script para atualizar os cofres. O seguinte script de exemplo tem explicações dos parâmetros.
 
-RecoveryServicesVaultUpgrade 1.0.2.ps1 **- SubscriptionID** `<subscriptionID>` **- VaultName** `<vaultname>` **-localização** `<location>` **- ResourceType** `BackupVault` **- TargetResourceGroupName** `<rgname>`
+RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID** -o número de ID de subscrição do cofre que está a ser atualizado.<br/>
 **VaultName** -o nome do Cofre de cópia de segurança que está a ser atualizado.<br/>
@@ -81,8 +81,8 @@ O script do PowerShell pede-lhe para introduzir as suas credenciais. Introduza a
 Depois de introduzir as credenciais do Azure, Azure verifica se o seu ambiente cumpre os seguintes pré-requisitos:
 
 - **Versão de agente mínima** -atualizar os cofres de cópia de segurança para cofres dos serviços de recuperação requer que o agente de MARS ser, pelo menos, versão 2.0.9083.0. Se tiver registados para um cofre de cópia de segurança com um agente anteriores ao 2.0.9083.0 de itens, a verificação de pré-requisitos falha. Se falhar a verificação de pré-requisitos, atualize o agente e tente atualizar novamente o cofre. Pode baixar a versão mais recente do agente do [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
-- **Tarefas de configuração em curso**: se alguém está a configurar as tarefas de um cofre de cópia de segurança definido para ser atualizado ou registrar-se um item, a verificação de pré-requisitos falha. Concluir a configuração, ou concluir a registar o item e, em seguida, inicie o processo de atualização do cofre.
-- **Modelo de faturação baseada no armazenamento**: cofres dos serviços de recuperação suportam o modelo de faturação com base na instância. Se executar a atualização do cofre num cofre de cópia de segurança que utiliza o modelo de faturação baseada no armazenamento, lhe for pedido para atualizar o modelo de faturação, juntamente com o cofre. Caso contrário, pode atualizar o modelo de faturação em primeiro lugar, e, em seguida, executar a atualização do cofre.
+- **Tarefas de configuração em curso**: Se alguém está a configurar as tarefas de um cofre de cópia de segurança definido para ser atualizado ou registrar-se um item, a verificação de pré-requisitos falha. Concluir a configuração, ou concluir a registar o item e, em seguida, inicie o processo de atualização do cofre.
+- **Modelo de faturação baseada no armazenamento**: Os cofres dos serviços de recuperação suportam o modelo de faturação com base na instância. Se executar a atualização do cofre num cofre de cópia de segurança que utiliza o modelo de faturação baseada no armazenamento, lhe for pedido para atualizar o modelo de faturação, juntamente com o cofre. Caso contrário, pode atualizar o modelo de faturação em primeiro lugar, e, em seguida, executar a atualização do cofre.
 - Identifica um grupo de recursos para o Cofre dos serviços de recuperação. Para tirar partido das funcionalidades de implementação do Resource Manager, tem de colocar um cofre dos serviços de recuperação num grupo de recursos. Se não sabe qual grupo de recursos para utilizar, indique um nome e o processo de atualização cria o grupo de recursos para. O processo de atualização também associa o Cofre novo grupo de recursos.
 
 Quando o processo de atualização concluir a verificação de pré-requisitos, o processo solicita que iniciar a atualização do cofre. Depois de confirmar, o processo de atualização normalmente, demora cerca de 15 a 20 minutos a concluir, consoante o tamanho do seu cofre. Se tiver um cofre de grandes dimensões, a atualização pode demorar até 90 minutos.
@@ -98,13 +98,13 @@ O segundo ecrã mostra a ajuda de ligações disponíveis para ajudá-lo a come�
 ![ligações de ajuda, no painel início rápido](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>Passos pós-atualização
-Cofre dos Recovery Services suporta a especificação de informações de fuso horário na política de cópia de segurança. Após a atualização com êxito do cofre, vá para políticas de cópia de segurança no menu de definições do cofre e atualizar as informações de fuso horário para cada uma das políticas configuradas no cofre. Este ecrã já mostra o tempo de agenda de cópia de segurança especificado como por fuso horário local utilizado quando criou a política. 
+Cofre dos Recovery Services suporta a especificação de informações de fuso horário na política de cópia de segurança. Após a atualização com êxito do cofre, vá para políticas de cópia de segurança no menu de definições do cofre e atualizar as informações de fuso horário para cada uma das políticas configuradas no cofre. Este ecrã já mostra o tempo de agenda de cópia de segurança especificado como por fuso horário local utilizado quando criou a política.
 
-## <a name="enhanced-security"></a>Segurança melhorada
+## <a name="enhanced-security"></a>Segurança avançada
 
-Quando um cofre de cópia de segurança é atualizado para um cofre dos serviços de recuperação, as definições de segurança para esse cofre automaticamente são ativadas. Quando as definições de segurança estão em determinadas operações como a eliminar as cópias de segurança ou alterar uma frase de acesso necessitar de um [multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN. Para obter mais informações sobre a segurança avançada, consulte o artigo [recursos de segurança para proteger cópias de segurança híbridas](backup-azure-security-feature.md). 
+Quando um cofre de cópia de segurança é atualizado para um cofre dos serviços de recuperação, as definições de segurança para esse cofre automaticamente são ativadas. Quando as definições de segurança estão em determinadas operações como a eliminar as cópias de segurança ou alterar uma frase de acesso necessitar de um [multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN. Para obter mais informações sobre a segurança avançada, consulte o artigo [recursos de segurança para proteger cópias de segurança híbridas](backup-azure-security-feature.md).
 
-Quando a segurança avançada estiver ativada, os dados são mantidos até 14 dias após as informações de ponto de recuperação foi eliminadas do cofre. Os clientes são faturados para o armazenamento destes dados de segurança. Retenção de dados de segurança se aplica a pontos de recuperação direcionados para o agente de cópia de segurança do Azure, Azure Backup Server e System Center Data Protection Manager. 
+Quando a segurança avançada estiver ativada, os dados são mantidos até 14 dias após as informações de ponto de recuperação foi eliminadas do cofre. Os clientes são faturados para o armazenamento destes dados de segurança. Retenção de dados de segurança se aplica a pontos de recuperação direcionados para o agente de cópia de segurança do Azure, Azure Backup Server e System Center Data Protection Manager.
 
 ## <a name="gather-data-on-your-vault"></a>Recolher dados do seu Cofre
 
@@ -112,38 +112,38 @@ Depois de atualizar para um cofre dos serviços de recuperação, configure rela
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**O plano de atualização afeta a minha cópias de segurança em curso?**</br>
+### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>O plano de atualização afeta a minha cópias de segurança em curso?
 Não. As cópias de segurança em curso continuam sem interrupções durante e após a atualização.
 
-**Se não pretender atualizar em breve, o que acontece aos meus cofres?**</br>
+### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>Se não pretender atualizar em breve, o que acontece aos meus cofres?
 Uma vez que todos os novos recursos aplicam-se apenas a cofres dos serviços de recuperação, recomendamos vivamente que Atualize os cofres. A partir de 1 de Setembro de 2017, a Microsoft começará o cofres de cópia de segurança-atualizar de automático para cofres dos serviços de recuperação. Depois de Novembro 30,2017, já não pode criar cofres de cópia de segurança com o PowerShell. O Cofre pode ser atualizado automaticamente sempre que entre. A Microsoft recomenda a que atualizar o seu Cofre logo que possível.
 
-**O que isto significa atualização para minhas ferramentas existentes?**</br>
-Atualize a sua ferramenta para o modelo de implementação do Resource Manager. Serviços de recuperação cofres que foram criados para utilizam no modelo de implementação do Resource Manager. Planejamento para o modelo de implementação do Resource Manager e gestão de contas para a diferença nos seus cofres são importante. 
+### <a name="what-does-this-upgrade-mean-for-my-existing-tooling"></a>O que isto significa atualização para minhas ferramentas existentes?
+Atualize a sua ferramenta para o modelo de implementação do Resource Manager. Serviços de recuperação cofres que foram criados para utilizam no modelo de implementação do Resource Manager. Planejamento para o modelo de implementação do Resource Manager e gestão de contas para a diferença nos seus cofres são importante.
 
-**Durante a atualização, há muito tempo de inatividade?**</br>
+### <a name="during-the-upgrade-is-there-much-downtime"></a>Durante a atualização, há muito tempo de inatividade?
 Depende do número de recursos que estão a ser atualizado. Para implementações mais pequenas (algumas dezenas de instâncias protegidas), a atualização completa deve demorar menos de 20 minutos. Para implementações maiores, deve demorar um máximo de uma hora.
 
-**Posso reverter após a atualização?**</br>
+### <a name="can-i-roll-back-after-upgrading"></a>Posso reverter após a atualização?
 Não. Reversão não é suportada depois dos recursos foram atualizados com êxito.
 
-**Pode validar a minha subscrição ou recursos para ver se eles são capazes de atualização?**</br>
+### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>Pode validar a minha subscrição ou recursos para ver se eles são capazes de atualização?
 Sim. A primeira etapa na atualização valida que os recursos são capazes de atualização. No caso de falha de validação de pré-requisitos, recebe mensagens com todos os motivos pelos quais que a atualização não pode ser concluída.
 
-**Posso atualizar o meu Cofre de cópia de segurança baseada no CSP?**</br>
+### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>Posso atualizar o meu Cofre de cópia de segurança baseada no CSP?
 Não. Atualmente, não é possível atualizar os cofres de cópia de segurança com base CSP. Vamos adicionar suporte para a atualização de cofres de cópia de segurança baseada em CSP nas versões seguintes.
 
-**Pode ver meu cofre clássico depois da atualização?**</br>
+### <a name="can-i-view-my-classic-vault-post-upgrade"></a>Pode ver meu cofre clássico depois da atualização?
 Não. Não é possível ver ou gerir o seu Cofre clássico depois da atualização. Só poderá utilizar o novo portal do Azure para todas as ações de gestão no cofre.
 
-**Falha ao atualizar o meu, mas a máquina que mantidos o agente que requerem a atualização, não existe mais. O que fazer nesse caso?**</br>
+### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>Falha ao atualizar o meu, mas a máquina que mantidos o agente que requerem a atualização, não existe mais. O que fazer nesse caso?
 Se precisar de utilizar o arquivo, as cópias de segurança desta máquina para retenção de longa duração, em seguida, não será capazes de atualizar o cofre. Em versões futuras, adicionaremos suporte para atualizar um cofre dos.
 Se não for preciso armazenar as cópias de segurança desta máquina deixa de poder, em seguida,. anular o registo nesta máquina a partir do cofre e repita a atualização.
 
-**Por que motivo não vejo as informações de tarefas para os meus recursos após a atualização?**</br>
+### <a name="why-cant-i-see-the-jobs-information-for-my-resources-after-upgrade"></a>Por que motivo não vejo as informações de tarefas para os meus recursos após a atualização?
 Monitorização de cópias de segurança (agente MARS e IaaS) é uma nova funcionalidade que obtém quando atualizar o seu Cofre de cópia de segurança para cofre dos serviços de recuperação. As informações de monitorização demora até 12 horas para sincronizar com o serviço.
 
-**Como posso comunicar um problema?**</br>
+### <a name="how-do-i-report-an-issue"></a>Como posso comunicar problemas?
 Se qualquer parte da atualização do cofre falhar, tenha em atenção que o OperationId listados no erro. Microsoft Support proativamente funcionará para resolver o problema. Pode contactar o suporte ou envie um e-mail para rsvaultupgrade@service.microsoft.com com o ID de subscrição, nome do cofre e OperationId. Vamos tentar resolver o problema mais depressa possível. Não repita a operação, a menos que explicitamente instruído para fazê-lo pela Microsoft.
 
 

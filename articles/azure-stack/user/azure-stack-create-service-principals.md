@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813165"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312859"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Conceder acesso de aplicações para recursos do Azure Stack através da criação de principais de serviço
 
@@ -50,7 +50,7 @@ A forma como tiver configurado o Active Directory para o Azure Stack determina c
 * Criar um serviço principal para [do Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Criar um serviço principal para [serviços de Federação do Active Directory (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-Os passos para atribuir um principal de serviço a uma função o mesmo para o Azure AD e AD FS. Depois de criar o principal de serviço, poderá [delegar permissões](azure-stack-create-service-principals.md#assign-role-to-service-principal) ao atribuí-lo a uma função.
+Os passos para atribuir um principal de serviço a uma função o mesmo para o Azure AD e AD FS. Depois de criar o principal de serviço, poderá [delegar permissões](azure-stack-create-service-principals.md) ao atribuí-lo a uma função.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Criar principal de serviço para o Azure AD
 
@@ -85,7 +85,7 @@ Depois de guardar a chave, a chave **valor** é apresentado. Anote este valor, p
 
 ![Aviso de chave-valor para a chave guardada.](./media/azure-stack-create-service-principal/image15.png)
 
-A etapa final é [atribuir uma função de seu aplicativo](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+A etapa final é [atribuir uma função de seu aplicativo](azure-stack-create-service-principals.md).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Criar principal de serviço para o AD FS
 

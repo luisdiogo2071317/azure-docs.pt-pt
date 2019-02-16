@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 70a109b9aee46e6b6b65a9a5c139abdf1aa9bab9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387689"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330601"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementar e gerir uma StorSimple Cloud Appliance no Azure (Atualização 3 e posterior)
 
@@ -45,7 +45,7 @@ O StorSimple Cloud Appliance está disponível em dois modelos, um 8010 convenci
 | **Capacidade máxima** |30 TB |64 TB |
 | **VM do Azure** |Standard_A3 (4 núcleos, 7 GB de memória)| Standard_DS3 (4 núcleos, 14 GB de memória)|
 | **Disponibilidade por regiões** |Todas as regiões do Azure |As regiões do Azure que suportam o Armazenamento Premium e VMs DS3 do Azure<br></br>Utilize [esta lista](https://azure.microsoft.com/regions/services/) para ver se ambas as **Máquinas Virtuais > série DS** e o **Armazenamento > Armazenamento em Disco** estão disponíveis na sua região. |
-| **Tipo de armazenamento** |Utiliza o armazenamento padrão do Azure para discos locais<br></br> Saiba como [criar uma conta do Storage padrão](../storage/common/storage-create-storage-account.md) |Utiliza o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br>Saiba como [criar uma conta de Premium Storage](../virtual-machines/windows/premium-storage.md) |
+| **Tipo de armazenamento** |Utiliza o armazenamento padrão do Azure para discos locais<br></br> Saiba como [criar uma conta do Storage padrão](../storage/common/storage-create-storage-account.md) |Utiliza o Armazenamento Premium do Azure para discos locais<sup>2</sup> <br></br> |
 | **Orientações para a carga de trabalho** |Obtenção ao nível de item dos ficheiros a partir de cópias de segurança |Cenários de desenvolvimento e teste da cloud <br></br>Baixa latência e cargas de trabalho de desempenho superior<br></br>Dispositivo secundário para a recuperação após desastre |
 
 <sup>1</sup> *Anteriormente conhecido como 1100*.
@@ -63,7 +63,7 @@ A tabela seguinte mostra algumas diferenças fundamentais entre a StorSimple Clo
 |  | Dispositivo físico | Aplicação da cloud |
 | --- | --- | --- |
 | **Localização** |Reside no datacenter. |É executado no Azure. |
-| **Interfaces de rede** |Possui seis interfaces de rede: de DADOS 0 a DADOS 5. |Possui apenas uma interface de rede: DADOS 0. |
+| **Interfaces de rede** |Possui seis interfaces de rede: DADOS 0 a 5 de dados. |Tem apenas uma interface de rede: DADOS 0. |
 | **Registo** |Registado durante o passo de configuração inicial. |O registo é uma tarefa separada. |
 | **Chave de encriptação dos dados do serviço** |Volte a gerá-la no dispositivo físico e, em seguida, atualize a aplicação da cloud com a nova chave. |Não é possível voltar a gerar a chave a partir da aplicação da cloud. |
 | **Tipos de volume suportados** |Suporta volumes afixados localmente e escalonados. |Suporta apenas volumes escalonados. |
@@ -94,7 +94,7 @@ Antes de aprovisionar a aplicação da cloud, terá de efetuar os seguintes prep
 Efetue as seguintes atualizações no serviço Gestor de Dispositivos do StorSimple antes de criar uma aplicação da cloud:
 
 * Adicionar [registos de controlo de acesso](storsimple-8000-manage-acrs.md) para as VMs que serão servidores de anfitrião para a aplicação da cloud.
-* Utilizar uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região da aplicação da cloud. As contas do Storage em regiões diferentes poderão ter um fraco desempenho. Pode utilizar uma conta de armazenamento Standard ou Premium com a aplicação da cloud. Pode obter mais informações sobre como criar uma [Conta do Storage Standard](../storage/common/storage-create-storage-account.md) ou uma [conta do Premium Storage](../virtual-machines/windows/premium-storage.md)
+* Utilizar uma [conta de armazenamento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) na mesma região da aplicação da cloud. As contas do Storage em regiões diferentes poderão ter um fraco desempenho. Pode utilizar uma conta de armazenamento Standard ou Premium com a aplicação da cloud. Obter mais informações sobre como criar uma [conta de armazenamento Standard](../storage/common/storage-create-storage-account.md).
 * Utilize uma conta de armazenamento diferente para a criação da aplicação da cloud a partir da conta utilizada para os seus dados. Com a mesma conta do Storage, poderá obter um fraco desempenho.
 
 Certifique-se de que tem as seguintes informações antes de começar:
@@ -124,7 +124,7 @@ Execute os seguintes passos para configurar e registar a StorSimple Cloud Applia
 
 [!INCLUDE [Configure and register a cloud appliance](../../includes/storsimple-8000-configure-register-cloud-appliance.md)]
 
-### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Passo 3: (opcional) Modificar as definições de configuração do dispositivo
+### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Passo 3: (Opcional) Modificar as definições de configuração do dispositivo
 
 A seguinte secção descreve as definições de configuração do dispositivo necessárias para a StorSimple Cloud Appliance se pretender utilizar o CHAP, o Snapshot Manager do StorSimple ou alterar a palavra-passe de administrador de dispositivos.
 
@@ -166,7 +166,7 @@ Execute os seguintes passos para configurar a gestão remota da StorSimple Cloud
 
 [!INCLUDE [Configure remote management via HTTP for cloud appliance](../../includes/storsimple-8000-configure-remote-management-http-device.md)]
 
-### <a name="step-2-remotely-access-the-cloud-appliance"></a>Passo 2: Aceder remotamente à aplicação da cloud
+### <a name="step-2-remotely-access-the-cloud-appliance"></a>Passo 2: Aceder remotamente a aplicação da cloud
 
 Depois de ativar a gestão remota na aplicação da cloud, utilize a comunicação remota do Windows PowerShell para ligar à aplicação a partir de outra máquina virtual dentro da mesma rede virtual. Por exemplo, pode ligar a partir da VM de anfitrião que configurou e utilizou para estabelecer ligação a iSCSI. Na maioria das implementações, irá abrir um ponto final público para aceder à VM do anfitrião que pode utilizar para aceder à aplicação da cloud.
 
@@ -274,6 +274,6 @@ Durante a criação de uma aplicação da cloud, se não existir conectividade �
 5. Se `nslookup` falhar, significa que a falha de conectividade Internet está a impedir a aplicação da cloud de se registar no serviço Gestor de Dispositivos do StorSimple.
 6. Faça as alterações necessárias à rede virtual para se certificar de que a aplicação da cloud é capaz de aceder a sites do Azure, como _windows.net_.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saber como [utilizar o serviço Gestor de Dispositivos do StorSimple para gerir uma aplicação da cloud](storsimple-8000-manager-service-administration.md).
 * Compreender como [restaurar um volume StorSimple a partir de um conjunto de cópias de segurança](storsimple-8000-restore-from-backup-set-u2.md).

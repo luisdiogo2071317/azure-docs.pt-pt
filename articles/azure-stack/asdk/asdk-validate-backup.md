@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 6fdec992b19a5615a35955a46fd90102890cde16
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965329"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329358"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utilize o ASDK para validar uma cópia de segurança do Azure Stack
 Depois de implementar o Azure Stack e o aprovisionamento de recursos de utilizador, tais como ofertas, planos, quotas e subscrições, deve [ativar cópia de segurança do Azure Stack infraestrutura](../azure-stack-backup-enable-backup-console.md). Agendamento e execução de cópias de segurança da infraestrutura regular irão garantir que os dados de gestão de infraestrutura não são perdidos se ocorrer uma falha de serviço ou de hardware de catastrófico.
@@ -52,11 +52,11 @@ Antes de iniciar uma implementação de recuperação na cloud do ASDK, certifiq
 
 |Pré-requisito|Descrição|
 |-----|-----|
-|Caminho da partilha de cópia de segurança.|O UNC partilha caminho da cópia de segurança mais recente do Azure Stack que será utilizada para recuperar informações de infraestrutura do Azure Stack. Esta partilha local será criada durante o processo de implementação de recuperação na cloud.|
-|Chave de encriptação de cópia de segurança.|A chave de encriptação que foi utilizada para agendar cópia de segurança de infraestrutura para executar com o portal de administração do Azure Stack.|
-|ID da cópia de segurança para restaurar.|O ID de cópia de segurança, sob a forma de alfanumérico de "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", que identifica a cópia de segurança para serem restaurados durante a recuperação de nuvem.|
-|IP do servidor de tempo.|Um IP de servidor de hora válido, como 132.163.97.2, é necessário para implementação do Azure Stack.|
-|Palavra-passe do certificado externo.|A palavra-passe para o certificado externo utilizado pelo Azure Stack. A cópia de segurança de AC contém certificados externos que precisam ser restaurados com esta palavra-passe.|
+|Caminho da partilha de cópia de segurança|O UNC partilha caminho da cópia de segurança mais recente do Azure Stack que será utilizada para recuperar informações de infraestrutura do Azure Stack. Esta partilha local será criada durante o processo de implementação de recuperação na cloud.|
+|Chave de encriptação de cópia de segurança|Opcional. Apenas necessário se tiver atualizado para a versão do Azure Stack 1901 ou posterior de uma versão anterior do Azure Stack com cópia de segurança ativada.|
+|ID da cópia de segurança para restaurar|O ID de cópia de segurança, sob a forma de alfanumérico de "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", que identifica a cópia de segurança para serem restaurados durante a recuperação de nuvem.|
+|IP do servidor de tempo|Um IP de servidor de hora válido, como 132.163.97.2, é necessário para implementação do Azure Stack.|
+|Palavra-passe do certificado externo|A palavra-passe para chave privada o certificado autoassinado (. pfx) que foi utilizado para proteger a cópia de segurança.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>Preparar o computador anfitrião 
@@ -133,11 +133,12 @@ $certPass = Read-Host -AsSecureString
 ## <a name="restore-infrastructure-data-from-backup"></a>Restaurar dados de infraestrutura de cópia de segurança
 Após uma implementação de recuperação da cloud com êxito, tem de concluir o restauro utilizando o **AzureStack restauro** cmdlet. 
 
-Depois de iniciar sessão como o operador de Azure Stack [instalar o Azure Stack do PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) e, em seguida, substituindo o seu ID de cópia de segurança para o `Name` parâmetro, execute o seguinte comando:
+Depois de iniciar sessão como o operador de Azure Stack [instalar o Azure Stack do PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) e execute os seguintes comandos para especificar o certificado e a palavra-passe a utilizar ao restaurar a partir da cópia de segurança:
 
 ```powershell
 Restore-AzsBackup -Name "<BackupID>"
 ```
+
 Aguarde 60 minutos após chamar este cmdlet para iniciar a verificação de dados de cópia de segurança na cloud recuperado ASDK.
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -10,21 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 2903228a3257abe9c454c6e0720a1e228b905290
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 94e5f5b29e93409df2373cf6c56e8185dc5373a2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300045"
+ms.locfileid: "56312979"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Especifique um grupo de recursos para máquinas virtuais do laboratório no Azure DevTest Labs
-Como proprietário de um laboratório, pode configurar as máquinas virtuais do laboratório ser criado num grupo de recursos específico. Utilize esta funcionalidade para que o recurso não atingir os limites de grupo na sua subscrição do Azure. Esta funcionalidade permite-lhe consolidar todos os recursos do laboratório dentro de um grupo de recursos. Também simplifica controlar esses recursos e aplicar [políticas](../governance/policy/overview.md) geri-los ao nível do grupo de recursos.
+Como proprietário de um laboratório, pode configurar as máquinas virtuais do laboratório ser criado num grupo de recursos específico. Esta funcionalidade ajuda-o nos seguintes cenários: 
+
+- Tiver menos grupos de recursos criados por laboratórios na sua subscrição.
+- Ter os laboratórios de operar dentro de um conjunto fixo de grupos de recursos configurada por si
+- Contornar as restrições e aprovações requeridas para a criação de grupos de recursos na sua subscrição do Azure.
+- Consolidar todos os recursos do laboratório dentro de um grupo de recursos único para simplificar a controlar esses recursos e aplicar [políticas](../governance/policy/overview.md) geri-los ao nível do grupo de recursos.
 
 Com esta funcionalidade, pode utilizar um script para especificar um novo ou um grupo de recursos existente na sua subscrição do Azure para todos os seu laboratório VMs. Atualmente, o DevTest Labs suporta esta funcionalidade através de uma API. 
 
-## <a name="api-to-configure-a-resource-group-for-labs-vms"></a>API para configurar um grupo de recursos para laboratórios de VMS
+## <a name="api-to-configure-a-resource-group-for-lab-virtual-machines"></a>API para configurar um grupo de recursos para máquinas virtuais do laboratório
 Agora vamos examinar as opções que tem como proprietário de um laboratório ao utilizar esta API: 
 
 - Pode escolher o **grupo de recursos do laboratório** todas as máquinas virtuais.
@@ -86,7 +91,7 @@ Se estiver a utilizar o modelo Azure Resource Manager para criar um laboratório
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
             },
             "dependsOn": []
         },

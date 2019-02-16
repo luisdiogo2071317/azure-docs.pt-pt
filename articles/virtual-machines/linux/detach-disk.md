@@ -16,21 +16,19 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: df50f1ad4fc12926016b3e22669be474f4aa995f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b6fda5d16b3f694cb1d0a1a9407cda5c2a73fcbc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461381"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330635"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual do Linux
 
 Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Isso remove o disco da máquina virtual, mas não o remove do armazenamento. Neste artigo, estamos a trabalhar com uma distribuição de Ubuntu LTS 16.04. Se estiver a utilizar uma distribuição diferente, as instruções para desmontar o disco podem ser diferentes.
 
 > [!WARNING]
-> Se desligar um disco que não é eliminado automaticamente. Se tiver inscrito para o armazenamento Premium, continuará a incorrer em custos de armazenamento para o disco. Para obter mais informações, consulte [preços e faturação quando utiliza o armazenamento Premium](../windows/premium-storage.md#pricing-and-billing). 
-> 
-> 
+> Se desligar um disco que não é eliminado automaticamente. Se tiver inscrito para o armazenamento Premium, continuará a incorrer em custos de armazenamento para o disco. Para obter mais informações, consulte [preços e faturação quando utiliza o armazenamento Premium](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá-lo à mesma máquina virtual ou a outra.  
 

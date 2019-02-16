@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5ab0a9a92297c46a4090583d41f22f2035bd310c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 19a0e7f3317a5c4a87b2622de170b0fc2cc137be
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816191"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326828"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Resolver erros de eliminação de recursos de armazenamento
 
@@ -28,7 +28,7 @@ Em determinados cenários, pode encontrar um dos seguintes erros ocorrem enquant
 
 >**Falha ao eliminar o # fora de blobs de #:<br>BlobName.vhd: Atualmente, existe uma concessão no blob e nenhum ID de concessão foi especificado no pedido.**
 
-Os VHDs utilizados em VMs do Azure são ficheiros. vhd armazenados como blobs de páginas numa conta de armazenamento standard ou premium no Azure. Para obter mais informações acerca dos discos do Azure, consulte [cerca geridos e não geridos armazenamento em disco para VMs de Linux do Microsoft Azure](../linux/about-disks-and-vhds.md). 
+Os VHDs utilizados em VMs do Azure são ficheiros. vhd armazenados como blobs de páginas numa conta de armazenamento standard ou premium no Azure. Para obter mais informações acerca dos discos do Azure, consulte nosso [introdução aos discos geridos](../linux/managed-disks-overview.md).
 
 Azure impede a eliminação de um disco que está ligado a uma VM para evitar danos. Ele também impede a eliminação de contentores e contas de armazenamento que têm um blob de página que está ligado a uma VM. 
 

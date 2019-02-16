@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: d24dcc6f12347c66abc033f4c8b25c3b49870a44
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d5dd916f7e4434640db6dae6f8c5a73d1ff2d3e0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895776"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327964"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilizar o portal para anexar um disco de dados a uma VM do Linux 
 Este artigo mostra-lhe como anexar discos de novos e existentes para máquinas virtuais do Linux através do portal do Azure. Também pode [anexar um disco de dados a uma VM do Windows no portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -29,8 +29,7 @@ Este artigo mostra-lhe como anexar discos de novos e existentes para máquinas v
 Antes de anexar discos à sua VM, reveja estas dicas:
 
 * O tamanho da máquina virtual controla quantos discos de dados, pode anexar. Para obter detalhes, consulte [tamanhos de máquinas virtuais](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Para utilizar o armazenamento Premium, terá de uma máquina virtual de série DS ou série GS. Pode utilizar tanto disks Premium e Standard com estas máquinas virtuais. Armazenamento Premium está disponível em determinadas regiões. Para obter detalhes, consulte [o armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure](../windows/premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Os discos anexados a máquinas virtuais são, na verdade, os ficheiros. vhd armazenados no Azure. Para obter detalhes, consulte [acerca dos discos e VHDs para máquinas virtuais](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Os discos anexados a máquinas virtuais são, na verdade, os ficheiros. vhd armazenados no Azure. Para obter detalhes, consulte nosso [introdução aos discos geridos](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Depois de anexar o disco, precisa [ligar à VM do Linux para montar o disco novo](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 

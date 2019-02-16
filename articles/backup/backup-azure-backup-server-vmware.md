@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: ee7ebb151653b611c652c072b8cb4c07754d9b68
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5e5a6f32eeac674a6527d333b981bbdac20a9958
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269707"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309766"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer uma cópia de segurança de VMs de VMware no servidor de cópia de segurança do Azure
 
@@ -39,7 +39,7 @@ Por predefinição, o servidor de cópia de segurança do Azure comunica com ser
 
 ### <a name="before-you-start"></a>Antes de começar
 
-- Se não pretender utilizar HTTPS, pode [desativar a definição predefinida](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol).
+- Se não pretender utilizar HTTPS, pode [desativar a definição predefinida](backup-azure-backup-server-vmware.md).
 - Normalmente, ligar a partir de um browser no computador do servidor de cópia de segurança do Azure para o servidor do vCenter/ESXi usando o vSphere Web Client. Na primeira vez, fazê-lo a ligação não é segura e irá mostrar o seguinte.
 - É importante compreender a forma como o servidor de cópia de segurança do Azure processa as cópias de segurança.
     - Como primeiro passo servidor de cópia de segurança do Azure cria uma cópia de segurança de dados para o armazenamento de disco local. O servidor de cópia de segurança do Azure utiliza um agrupamento de armazenamento, um conjunto de discos e volumes nos quais o servidor de cópia de segurança do Azure armazena pontos de recuperação de disco para os respetivos dados protegidos. O agrupamento de armazenamento pode ser ligado diretamente ao armazenamento (DAS), um dispositivo de armazenamento de iSCSI ou SAN de canal de Fibra ou SAN. É importante certificar-se de que tem armazenamento suficiente na cópia local de cópia de segurança dos seus dados de VM de VMware.
@@ -52,7 +52,7 @@ Configure um canal seguro da seguinte forma:
 
 1. No browser no servidor de cópia de segurança do Azure, introduza o URL de cliente da Web do vSphere. Se a página de início de sessão não aparecer, verifique as definições de proxy de ligação e o navegador.
 
-    ![vSphere Web cliente](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
+    ![vSphere Web Client](./media/backup-azure-backup-server-vmware/vsphere-web-client.png)
 
 2. Na página de início de sessão do cliente Web do vSphere, clique em **Download fidedigna de certificados de AC de raiz**. 
 
@@ -245,7 +245,7 @@ Adicione o vCenter Server para o servidor de cópia de segurança do Azure.
 
      ![Assistente de adição do servidor de produção](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
-3. Na **selecionar computadores****servidor de nome/endereço IP**, especifique o endereço IP ou FQDN do servidor VMware.   Se todos os servidores do ESXi são geridos pelo mesmo vCenter, especifique o nome do vCenter. Caso contrário, adicione o anfitrião ESXi.
+3. Na **selecionar computadores****servidor de nome/endereço IP**, especifique o endereço IP ou FQDN do servidor VMware. Se todos os servidores do ESXi são geridos pelo mesmo vCenter, especifique o nome do vCenter. Caso contrário, adicione o anfitrião ESXi.
 
     ![Especifique o servidor VMware](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 

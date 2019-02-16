@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abf0c88c356ba695e2f9905f77bf5fd193821712
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a55839550b57da2ae346e66f4908da39e78b76f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461853"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328298"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expanda os discos rígidos virtuais numa VM do Linux com a CLI do Azure
 
@@ -64,7 +64,7 @@ Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo como *myReso
     ```
 
     > [!NOTE]
-    > Ao expandir um disco gerido, o tamanho atualizado é arredondado para o tamanho de disco gerido mais próximo. Para uma tabela dos escalões e tamanhos de disco gerido disponíveis, consulte [Managed Disks descrição geral do Azure - preços e faturação](../windows/managed-disks-overview.md#pricing-and-billing).
+    > Ao expandir um disco gerido, o tamanho atualizado é arredondado para o tamanho de disco gerido mais próximo. Para uma tabela dos escalões e tamanhos de disco gerido disponíveis, consulte [Managed Disks descrição geral do Azure - preços e faturação](../windows/managed-disks-overview.md).
 
 1. Inicie a VM com [início de vm de az](/cli/azure/vm#az-vm-start). O exemplo seguinte inicia a VM com o nome *myVM* no grupo de recursos com o nome *myResourceGroup*:
 

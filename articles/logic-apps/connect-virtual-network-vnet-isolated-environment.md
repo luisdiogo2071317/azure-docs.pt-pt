@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176208"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311907"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
 
@@ -67,9 +67,10 @@ Para controlar o tráfego de entrada e saído entre sub-redes da rede virtual on
 | Comunicação com o Azure Logic Apps <br>Comunicação a partir do Azure Logic Apps | Entrada <br>Saída | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
 | Azure Active Directory | Saída | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Dependência de armazenamento do Azure | Saída | * <br>80 & 443 | VIRTUAL_NETWORK <br>Armazenamento |
+| Histórico de execução da sua aplicação lógica | Entrada | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
 | Gerenciamento de conexões | Saída | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
 | Publicar os registos de diagnóstico e métricas | Saída | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Estruturador de aplicações lógicas - propriedades dinâmicas <br>Histórico de execução da sua aplicação lógica <br>Implementação do conector <br>Ponto final de Acionador de pedido | Entrada | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Estruturador de aplicações lógicas - propriedades dinâmicas <br>Implementação do conector <br>Ponto final de Acionador de pedido | Entrada | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
 | Dependência de aplicação do serviço de gestão | Entrada | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | Gestão de API - ponto final de gestão | Entrada | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | Dependência do registo para a política do Hub de eventos e o agente de monitorização | Saída | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |

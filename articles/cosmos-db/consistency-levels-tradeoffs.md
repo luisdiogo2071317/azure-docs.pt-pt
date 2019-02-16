@@ -4,15 +4,15 @@ description: Desvantagens de desempenho e disponibilidade para vários níveis d
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113758"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309205"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
 
@@ -44,22 +44,23 @@ A latência RTT exata é uma função de distância de velocidade de luz e a top
 
 - Para um determinado tipo de operação de escrita, por exemplo, inserir, substituir, upsert e eliminação, o débito de escrita para unidades de pedido é idêntico para todos os níveis de consistência.
 
-## <a name="consistency-levels-and-data-durability"></a>Durabilidade de dados e níveis de consistência
+## <a id="rto"></a>Durabilidade de dados e níveis de consistência
 
-Dentro de um ambiente de base de dados globalmente distribuída existe uma relação direta entre a durabilidade de dados e de nível de consistência na presença de uma interrupção de toda a região. A tabela define a relação entre a relação entre a durabilidade de dados e o modelo de consistência na presença de indisponibilidade ampla de região. É importante observar que, num sistema distribuído, mesmo com consistência forte, é impossível ter uma base de dados distribuída com e RPO e RTO de zero devido a Teorema CAP. Para saber mais sobre por que, veja [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
+Dentro de um ambiente de base de dados globalmente distribuída existe uma relação direta entre a durabilidade de dados e de nível de consistência na presença de uma interrupção de toda a região. Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após um evento problemático. O tempo necessário para uma aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes, a aplicação pode tolerar perder ao recuperar após um evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO).
+
+A tabela define a relação entre a relação entre a durabilidade de dados e o modelo de consistência na presença de indisponibilidade ampla de região. É importante observar que, num sistema distribuído, mesmo com consistência forte, é impossível ter uma base de dados distribuída com um RPO e RTO de zero devido a Teorema CAP. Para saber mais sobre por que, veja [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
 
 |**Regiões**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< A 240 minutos|< 1 semana|
 |>1|Único do controlador|Sessão, prefixo consistente, Eventual|< a 15 minutos|< a 15 minutos|
-|>1|Único do controlador|Estagnação Limitada|K E T *|< a 15 minutos|
+|>1|Único do controlador|Estagnação Limitada|K E T|< a 15 minutos|
 |>1|Com vários mestres|Sessão, prefixo consistente, Eventual|< a 15 minutos|0|
-|>1|Com vários mestres|Estagnação Limitada|K E T *|0|
+|>1|Com vários mestres|Estagnação Limitada|K E T|0|
 |>1|Único ou vários mestres|Forte|0|< a 15 minutos|
 
-* K e T = o número de versões de "K" (atualizações) de um item. Ou intervalo de tempo de "T".
-
-
+K = o número de versões de "K" (atualizações) de um item.
+T = intervalo de tempo de tempo "T" desde a última atualização.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

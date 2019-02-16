@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055563"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326931"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série StorSimple 8000: uma solução de armazenamento na cloud híbrida
 ## <a name="overview"></a>Descrição geral
@@ -92,7 +92,7 @@ A aplicação da cloud tem as seguintes funcionalidades:
 * Pode criar um número ilimitado de aplicações na cloud na cloud e transformá-los e desativar o conforme necessário.
 * Ele pode ajudar a simular ambientes no local em cenários de teste, desenvolvimento e recuperação após desastre e pode ajudar na obtenção ao nível do item a partir de cópias de segurança.
 
-A StorSimple Cloud Appliance está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo de 1100) e o dispositivo 8020. O dispositivo 8010 tem a capacidade máxima de 30 TB. O dispositivo 8020, o que tira partido do armazenamento premium do Azure, tem a capacidade máxima de 64 TB. (Em camadas locais, o armazenamento premium do Azure armazena dados em SSDs, ao passo que o armazenamento standard armazena dados em HDDs.) Tenha em atenção que tem de ter uma conta de armazenamento premium do Azure para utilizar o armazenamento premium. Para obter mais informações sobre o armazenamento premium, aceda a [o armazenamento Premium: armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual de Azure](../virtual-machines/windows/premium-storage.md).
+A StorSimple Cloud Appliance está disponível em dois modelos: o dispositivo 8010 (anteriormente conhecido como o modelo de 1100) e o dispositivo 8020. O dispositivo 8010 tem a capacidade máxima de 30 TB. O dispositivo 8020, o que tira partido do armazenamento premium do Azure, tem a capacidade máxima de 64 TB. (Em camadas locais, o armazenamento premium do Azure armazena dados em SSDs, ao passo que o armazenamento standard armazena dados em HDDs.) Tenha em atenção que tem de ter uma conta de armazenamento premium do Azure para utilizar o armazenamento premium.
 
 Para obter mais informações sobre o StorSimple Cloud Appliance, aceda a [implementar e gerir uma StorSimple Cloud Appliance no Azure](storsimple-8000-cloud-appliance-u2.md).
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830299"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328032"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Rede de consórcio Hyperledger recursos de infraestrutura
 
@@ -113,7 +113,7 @@ Na **configuração de recursos de infraestrutura**, configure o tamanho de rede
 | Nome do Parâmetro | Descrição | Valores permitidos |
 |---|---|---|
 **Tipo de dimensionamento**|O tipo de implementação de uma única máquina virtual com vários contentores ou várias máquinas virtuais num modelo de escalamento horizontal.|VM única ou várias VM |
-**Tipo de disco da VM**|O tipo de armazenamento de segurança cada um de nós implementados. <br/> Para saber mais sobre o armazenamento, visite [introdução ao armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) e [o armazenamento Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|SSD Standard <br/> SSD Premium |
+**Tipo de disco da VM**|O tipo de armazenamento de segurança cada um de nós implementados. <br/> Para saber mais sobre os tipos de disco disponível, visite [selecionar um tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Implementação de várias VMS (configurações adicionais)
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 6b39d01266cdde0316d1a660429d5ccab546dac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd6f533bcd32a307facc781c3b2207a337fc8a34
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873636"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309170"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
 
@@ -95,6 +95,11 @@ Nesta secção irá carregar e marque manualmente as imagens para ajudar a trein
     ![A barra de progresso mostra todas as tarefas concluídas.](./media/getting-started-build-a-classifier/add-images04.png)
 
 Para carregar outro conjunto de imagens, regresse à parte superior desta secção e repita os passos. Em algum momento no seu projeto, poderá ter de adicionar _negativo exemplos_ para ajudar a tornar o seu classificador mais precisas. Exemplos negativos são aqueles que não correspondam a qualquer uma das outras etiquetas. Ao carregar estas imagens, aplicam-se especial **negativo** Etiquetar às mesmas.
+
+> [!NOTE]
+> O serviço de visão personalizada oferece suporte a alguns manipulação de imagem negativo automática. Por exemplo, se estiver criando um grape versus classificador banana e enviar uma imagem de um calçado para predição, o classificador deve classificar essa imagem como próximo de 0% para grape e banana.
+
+> Por outro lado, nos casos em que as imagens negativas são apenas uma variação das imagens utilizadas na formação, é provável que o modelo classifica as imagens negativas como uma classe etiquetada devido às semelhanças excelentes. Por exemplo, se tiver uma cor de laranja versus classificador grapefruit e alimentar numa imagem de um clementine, ele pode classificar o clementine como uma cor de laranja porque muitos recursos do clementine assemelhar-se do laranjas. Se as imagens negativas dessa natureza, é recomendável criar uma ou mais etiquetas adicionais (como **outros**) e identificar as imagens negativas com esta etiqueta durante o treinamento para permitir que o modelo para melhor distinção entre essas classes .
 
 ## <a name="train-the-classifier"></a>Preparar o classificador
 

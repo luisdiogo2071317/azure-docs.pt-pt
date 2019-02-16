@@ -4,17 +4,17 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c9c52c5cda258908ac8463dd06044e244c75ee2
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735901"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327927"
 ---
 Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual (VM), pode desligá-lo facilmente. Quando desligar um disco da VM, o disco não é removido do armazenamento. Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá-lo à mesma VM ou a outra.  
 
 > [!NOTE]
-> Uma VM no Azure utiliza diferentes tipos de discos - um disco de sistema operativo, um disco local temporário e discos de dados opcionais. Para obter detalhes, veja [Acerca dos Discos e VHDs para Máquinas Virtuais](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Não é possível desligar um disco de sistema operativo, a menos que elimine também a VM.
+> Uma VM no Azure utiliza diferentes tipos de discos - um disco de sistema operativo, um disco local temporário e discos de dados opcionais. Para obter detalhes, veja [Acerca dos Discos e VHDs para Máquinas Virtuais](../articles/virtual-machines/linux/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Não é possível desligar um disco de sistema operativo, a menos que elimine também a VM.
 
 ## <a name="find-the-disk"></a>Localizar o disco
 Para poder desligar um disco de uma VM, precisa de saber o número do LUN, que é um identificador para o disco que vai ser ligado. Para tal, siga estes passos:

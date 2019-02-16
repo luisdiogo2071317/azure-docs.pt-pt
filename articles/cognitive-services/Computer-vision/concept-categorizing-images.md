@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1967ba60088cae2b946cfcfe1467c2de5aebccdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879956"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308864"
 ---
-# <a name="image-categorization-with-computer-vision"></a>Categorização de imagem com imagem digitalizada
+# <a name="categorize-images"></a>Categorizar imagens
 
-Para além das etiquetas e descrições, imagem digitalizada devolve as categorias com base em taxonomia definidas nas versões anteriores. Estas categorias são organizadas como uma taxonomia com hierarquias hereditárias principais/subordinadas. Todas as categorias estão em inglês. Eles podem ser usados isoladamente ou com a nossa nova marcação de modelos.
+Para além das etiquetas e uma descrição, imagem digitalizada devolve as categorias baseada em taxonomia, detetadas numa imagem. Ao contrário das etiquetas, categorias estão organizadas numa hierarquia de hereditary pai/filho e existirem menos um deles (86, em vez de milhares de etiquetas). Todos os nomes de categoria estão em inglês. Categorização pode ser feita por si só ou em conjunto com o modelo de etiquetas mais recente.
 
 ## <a name="the-86-category-concept"></a>O conceito de 86 categorias
 
-Com base numa lista de 86 conceitos ilustrado no diagrama seguinte, uma imagem pode ser categorizada desde o amplo até específico. Para obter a taxonomia completa no formato de texto, veja [Taxonomia de 86 Categorias](category-taxonomy.md).
+Imagem digitalizada pode categorizar uma imagem amplamente ou especificamente, utilizando a lista de 86 categroies no diagrama seguinte. Para obter a taxonomia completa no formato de texto, veja [Taxonomia de 86 Categorias](category-taxonomy.md).
 
 ![listas agrupadas de todas as categorias a taxonomia da categoria](./Images/analyze_categories-v2.png)
 

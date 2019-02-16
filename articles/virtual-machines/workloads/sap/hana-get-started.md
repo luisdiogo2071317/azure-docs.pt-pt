@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976907"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328728"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início rápido: Instalação manual de instância única SAP HANA em VMs do Azure
 ## <a name="introduction"></a>Introdução
@@ -75,7 +75,7 @@ Para obter documentação de SAP adicional sobre o SAP HANA diferentes sistemas 
 * [Nota SAP de suporte #1984787 - SUSE Linux Enterprise Server 12:  Observações de instalação](https://launchpad.support.sap.com/#/notes/1984787)
 * [Suporte a nota SAP #1391070 - soluções do UUID do Linux](https://launchpad.support.sap.com/#/notes/1391070)
 * [SAP suporte Nota #2009879 - SAP HANA diretrizes para o sistema operativo do Red Hat Enterprise Linux (RHEL)](https://launchpad.support.sap.com/#/notes/2009879)
-* [2292690 - BD DO SAP HANA: Definições de sistema operacional recomendadas para RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
+* [2292690 - SAP HANA DB: Definições de sistema operacional recomendadas para RHEL 7](https://launchpad.support.sap.com/#/notes/2292690/E)
 
 ### <a name="sap-monitoring-in-azure"></a>SAP monitorização no Azure
 Para obter informações sobre o SAP monitorização no Azure, consulte:
@@ -191,11 +191,11 @@ O sistema de ficheiros de raiz numa VM do Linux no Azure tem um limite de tamanh
 
 Com base na [requisitos de armazenamento do SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), é aconselhável a seguinte configuração de armazenamento Premium do Azure: 
 
-| SKU DE VM | RAM |  / hana/dados e/hana/do registo <br /> repartidos com LVM ou MDADM | / hana/partilhado | volume de /Root | / usr/sap |
+| SKU DE VM | RAM |  / hana/dados e/hana/do registo <br /> repartidos com LVM ou MDADM | /hana/shared | volume de /Root | /usr/sap |
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-A configuração do disco sugeridas, o volume de dados do HANA e o volume de registo são colocados no mesmo conjunto de discos de armazenamento premium do Azure que são distribuídos com LVM ou MDADM. Não é necessário definir qualquer nível de redundância RAID, porque o armazenamento Premium do Azure mantém três imagens dos discos para redundância. Para certificar-se de que configure o armazenamento suficiente, consulte a [requisitos de armazenamento TDI do SAP HANA](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) e [guia de atualização e de instalação do servidor do SAP HANA](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Considere também os volumes de débito de disco rígido virtual (VHD) diferente dos discos de armazenamento premium do Azure diferente conforme documentado [High-performance Premium Storage e os discos geridos para VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage). 
+A configuração do disco sugeridas, o volume de dados do HANA e o volume de registo são colocados no mesmo conjunto de discos de armazenamento premium do Azure que são distribuídos com LVM ou MDADM. Não é necessário definir qualquer nível de redundância RAID, porque o armazenamento Premium do Azure mantém três imagens dos discos para redundância. Para certificar-se de que configure o armazenamento suficiente, consulte a [requisitos de armazenamento TDI do SAP HANA](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) e [guia de atualização e de instalação do servidor do SAP HANA](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Considere também os volumes de débito de disco rígido virtual (VHD) diferente dos discos de armazenamento premium do Azure diferente conforme documentado [High-performance Premium Storage e os discos geridos para VMs](../../windows/disks-types.md). 
 
 Pode adicionar mais discos de armazenamento premium para as VMs do HANA DBMS para armazenar cópias de segurança da base de dados ou a transação de registo.
 
@@ -206,9 +206,7 @@ Para obter mais informações sobre as duas ferramentas principais utilizado par
 
 Para obter mais informações sobre a anexar discos para VMs do Azure com o Linux como um SO convidado, consulte [adicionar um disco a uma VM do Linux](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Armazenamento Premium do Azure permite-lhe definir modos da colocação em cache. Para o conjunto repartido reter /hana/data e /hana/log, colocação em cache do disco deve ser desativada. Para os outros volumes (discos), o modo de colocação em cache deve ser definido como **só de leitura**.
-
-Para obter mais informações, consulte [o armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure](../../windows/premium-storage.md).
+Premium do Azure SSDs permite-lhe definir modos da colocação em cache. Para o conjunto repartido reter /hana/data e /hana/log, colocação em cache do disco deve ser desativada. Para os outros volumes (discos), o modo de colocação em cache deve ser definido como **só de leitura**.
 
 Para encontrar modelos de JSON de exemplo para criar VMs, aceda a [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 O modelo de vm-simples-sles é um modelo básico. Ele inclui uma seção de armazenamento, com um disco de dados de 100 GB adicionais. Este modelo pode ser utilizado como base. Pode adaptar o modelo para a configuração específica.

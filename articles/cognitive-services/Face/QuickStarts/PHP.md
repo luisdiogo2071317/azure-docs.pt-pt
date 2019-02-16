@@ -8,47 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c75745452ee819dbda75f7420c93a5629cef4e08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 93e3d9fa67cfb941abf97476e03f44a4b16e94e7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860395"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313165"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: Detetar rostos numa imagem usando a REST API e PHP
 
-Neste início rápido, irá detetar rostos humanos numa imagem com a API Face.
+Neste início rápido, irá utilizar a API de REST de Face do Azure com o PHP para detetar rostos humanos numa imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição para executar o exemplo. Pode obter chaves de subscrição de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
+- Um editor de código, tais como [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Rosto – Pedido de deteção
+## <a name="initialize-the-html-file"></a>Inicializar o arquivo HTML
 
-Utilize o método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Rosto – Detetar) para detetar rostos numa imagem e devolver atributos, incluindo:
+Crie um novo ficheiro HTML, *detectFaces.html*e adicione o seguinte código.
 
-* Face ID: ID exclusivo utilizado em vários cenários de Face API.
-* Retângulo de rostos: À esquerda, superior, largura e altura que indica a localização de rosto na imagem.
-* Pontos de referência: Uma matriz de pontos de referência de face de ponto de 27 a apontar para as posições importantes dos componentes de rostos.
-* Atributos faciais, como a idade, o sexo, a intensidade do sorriso, a posição da cabeça e os pelos faciais.
+```html
+<html>
+    <head>
+        <title>Face Detect Sample</title>
+    </head>
+    <body></body>
+</html>
+```
 
-Para executar o exemplo, siga os seguintes passos:
+## <a name="write-the-php-script"></a>Escrever o script do PHP
 
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere `uriBase` para utilizar a localização na qual obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, defina `imageUrl` para a imagem que pretende analisar.
-1. Guarde o ficheiro com uma extensão `.php`.
-1. Abra o ficheiro numa janela do browser com suporte do PHP.
+Adicione o seguinte código dentro do `body` elemento do documento. Esta ação configura uma interface de utilizador básico com um campo de URL, uma **analise rostos** botão, um painel de resposta e um painel de apresentação de imagem.
 
 ```php
-<html>
-<head>
-    <title>Face Detect Sample</title>
-</head>
-<body>
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
@@ -102,13 +97,13 @@ catch (HttpException $ex)
     echo "<pre>" . $ex . "</pre>";
 }
 ?>
-</body>
-</html>
 ```
 
-## <a name="face---detect-response"></a>Rosto – Detetar a resposta
+Terá de atualizar o `subscriptionKey` campo com o valor da sua chave de assinatura e poderá ter de alterar o `uriBase` , para que ele contém o identificador de região correto de cadeias de caracteres (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todas as regiões pontos de extremidade). O `returnFaceAttributes` campo especifica atributos de qual face deve obter; talvez deseje alterar essa cadeia de caracteres consoante o uso pretendido.
 
-É devolvida uma resposta com êxito em JSON, por exemplo:
+## <a name="run-the-script"></a>Executar o script
+
+Abra o ficheiro num navegador da web habilitados para PHP. Deve obter uma cadeia de caracteres do JSON de dados de rostos, semelhante ao seguinte.
 
 ```json
 [

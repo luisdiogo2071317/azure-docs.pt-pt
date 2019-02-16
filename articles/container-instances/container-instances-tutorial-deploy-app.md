@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191113"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326744"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementar uma aplicação de contentor no Azure Container Instances
 
@@ -36,26 +36,20 @@ Nesta secção, vai utilizar a CLI do Azure para implementar a imagem criada no 
 
 ### <a name="get-registry-credentials"></a>Obter as credenciais do registo
 
-Quando implementa uma imagem que está alojada num registo de contentor privado como o criado no [segundo tutorial](container-instances-tutorial-prepare-acr.md), tem de fornecer as credenciais do registo.
+Quando implementa uma imagem que está alojada no registo de contentor privado como o criado no [segundo tutorial](container-instances-tutorial-prepare-acr.md), tem de fornecer credenciais para aceder ao registo. Conforme mostrado na [autenticar com o Azure Container Registry do Azure Container Instances](../container-registry/container-registry-auth-aci.md), é recomendado para muitos cenários criar e configurar um principal de serviço do Azure Active Directory com *pull*permissões para o seu registo. Consulte o artigo para scripts de exemplo criar um serviço principal com as permissões necessárias. Anote o ID de principal de serviço e a palavra-passe principal de serviço. Utilize estas credenciais quando implementar o contentor.
 
-Em primeiro lugar, obtenha o nome completo do servidor de início de sessão do registo de contentor (substitua `<acrName>` pelo nome do seu registo):
+Também precisa que o nome completo do servidor de início de sessão do registo de contentor (substitua `<acrName>` com o nome do seu registo):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Em seguida, obtenha a palavra-passe do registo de contentor:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
 ### <a name="deploy-container"></a>Implementar o contentor
 
-Agora, utilize o comando [az container create][az-container-create] para implementar o contentor. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos a com os dois comandos anteriores. Substitua `<acrName>` com o nome do seu registo de contentor e `<aciDnsLabel>` com o nome DNS pretendido.
+Agora, utilize o comando [az container create][az-container-create] para implementar o contentor. Substitua `<acrLoginServer>` com o valor obtido a partir do comando anterior. Substitua `<service-principal-ID>` e `<service-principal-password>` com o ID de principal de serviço e a palavra-passe que criou para aceder ao registo. Substitua `<aciDnsLabel>` com um nome DNS pretendido.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Dentro de alguns segundos, deverá receber uma resposta inicial do Azure. O valor `--dns-name-label` tem de ser exclusivo na região do Azure em que cria a instância de contentor. Modifique o valor no comando anterior se receber uma mensagem de erro de **Etiqueta de nome DNS** quando executar o comando.

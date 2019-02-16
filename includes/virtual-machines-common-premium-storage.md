@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9f0dbc549600ef2b931ee99a36c60cae57cc7a67
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247092"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56331388"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 
@@ -98,8 +98,6 @@ Estes são alguns dos recursos suportados no premium armazenamento ativado VMs:
 
     > [!NOTE]
     > Se da faixa de discos de dados de armazenamento premium, utilizando [espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx), configurar espaços de armazenamento com 1 coluna para cada disco que utiliza. Caso contrário, o desempenho geral do volume repartido pode ser mais baixo de que o esperado devido a distribuição desigual de tráfego em todos os discos. Por predefinição, no Gestor de servidores, pode configurar colunas para até 8 discos. Se tiver mais de 8 discos, utilize o PowerShell para criar o volume. Especifique o número de colunas manualmente. Caso contrário, a IU do Gestor de servidor continua a utilizar 8 colunas, mesmo que tenha mais discos. Por exemplo, se tiver 32 discos num conjunto único stripe, especifica colunas de 32. Para especificar o número de colunas, além do disco virtual utiliza a [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) cmdlet do PowerShell, utilize o *NumberOfColumns* parâmetro. Para obter mais informações, consulte [descrição geral dos espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx) e [FAQs de espaços de armazenamento](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Cache**
 

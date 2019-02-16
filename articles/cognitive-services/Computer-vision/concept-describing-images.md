@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864286"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312196"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descrever as imagens com linguagem legível por humanos
 
-Algoritmos do imagem digitalizada analisam o conteúdo numa imagem. Esta análise é a base de uma "descrição" apresentada como um idioma legível por humanos em frases completas. A descrição resume o que é encontrado na imagem. Algoritmos do imagem digitalizada geram vários descrições com base nos recursos visual identificados na imagem. Descrição de cada é avaliada e uma pontuação de confiança gerado. Em seguida, é devolvida uma lista ordenada da pontuação de confiança mais alta para a mais baixa.
+Imagem digitalizada pode analisar uma imagem e gerar uma sentença legível por humanos, que descreve o respetivo conteúdo. O algoritmo, na verdade, retruns vários descrições com base em diferentes recursos do visual e cada descrição de recebe uma pontuação de confiança. O resultado final é uma lista de descrições ordenados do mais alto de confiança de mais baixa.
 
 ## <a name="image-description-example"></a>Exemplo de descrição de imagem
 

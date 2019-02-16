@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657030"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311568"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como utilizar identidades geridas com o Azure Container Instances
 
@@ -27,6 +27,9 @@ Neste artigo, aprender mais sobre identidades geridas no Azure Container Instanc
 > * Utilizar a identidade gerida para aceder a um cofre de chaves a partir de um contentor em execução
 
 Adapte os exemplos para ativar e utilizar as identidades no Azure Container Instances para aceder a outros serviços do Azure. Esses exemplos são interativos. No entanto, na prática as imagens de contentor iria executar código para acessar serviços do Azure.
+
+> [!NOTE]
+> Atualmente não é possível utilizar uma identidade gerida num grupo de contentores implementado numa rede virtual.
 
 ## <a name="why-use-a-managed-identity"></a>Por que usar uma identidade gerida?
 

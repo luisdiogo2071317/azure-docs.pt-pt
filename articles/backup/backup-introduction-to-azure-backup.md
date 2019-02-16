@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 72a5946aa5b27d1c4d4bb2beaebde67d3e7a0f32
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487885"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328168"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Descrição geral das funcionalidades do Azure Backup
 O Azure Backup é o serviço baseado no Azure que pode utilizar para criar cópias de segurança (ou proteger) e restaurar os dados na nuvem Microsoft. O Azure Backup substitui a solução de cópia de segurança no local ou fora das instalações por uma solução baseada na nuvem que é fiável, segura e competitiva em termos de custos. O Azure Backup oferece vários componentes que são transferidos e implementados no computador ou servidor adequado, ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes do Azure Backup (independentemente de estar a proteger dados no local ou na cloud) podem ser utilizados para criar cópias de segurança para um cofre dos Serviços de Recuperação do Azure. Veja a [tabela de componentes do Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais à frente neste artigo) para obter informações sobre os componentes a utilizar para proteger dados, aplicações ou cargas de trabalho específicos.
@@ -87,18 +87,18 @@ System Center DPM | Cópia de segurança consistente com ficheiros de VMs de Con
 Servidor do Backup do Azure | Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/><br/> Restaurar a VM de Hyper-V e VMs de convidado de Linux do VMWare</br></br> Cópia de segurança consistente com ficheiros não está disponível para VMs do Azure 
 Cópia de segurança da VM do IaaS do Azure | Cópia de segurança consistente com a aplicação a utilizar o [framework do script prévio e o script posterior](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperação ao nível do ficheiro](backup-azure-restore-files-from-vm.md)<br/><br/> [Criar uma VM a partir de um disco restaurado](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Criar uma VM a partir de um ponto de recuperação](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
-## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilizar VMs de Armazenamento Premium com o Azure Backup
-O Azure Backup protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é o armazenamento baseado numa unidade de estado sólido (SSD), concebido para suportar cargas de trabalho de E/S intensivas. O Armazenamento Premium é apelativo para cargas de trabalho de máquina virtual (VM). Para obter mais informações sobre o armazenamento Premium, consulte o artigo, [o armazenamento Premium: Armazenamento de elevado desempenho para cargas de trabalho de Máquina Virtual do Azure](../virtual-machines/windows/premium-storage.md).
+## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilizar o premium storage VMs com o Azure Backup
+O Azure Backup protege VMs do premium storage. Armazenamento premium do Azure é a unidade de estado sólido (SSD)-concebida para suportar cargas de trabalho de e/S intensivas. O Armazenamento Premium é apelativo para cargas de trabalho de máquina virtual (VM). Para obter mais informações sobre o armazenamento Premium e outros tipos de disco, consulte o artigo [selecionar um tipo de disco](../virtual-machines/windows/disks-types.md).
 
-### <a name="back-up-premium-storage-vms"></a>Criar cópia de segurança das VMs do Premium Storage
-Durante a cópia de segurança das VMs do Armazenamento Premium, o serviço de Cópia de Segurança cria uma localização de transição temporária, com o nome "AzureBackup-", na conta do Armazenamento Premium. O tamanho da localização de transição é igual ao tamanho do instantâneo do ponto de recuperação. Certifique-se de que a conta de Armazenamento Premium tem espaço livre para acomodar a localização de transição temporária. Para obter mais informações, veja o artigo [Premium Storage Limitations (Limitações do Armazenamento Premium)](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Depois de a tarefa de cópia de segurança estar concluída, a localização de transição é eliminada. O preço do armazenamento utilizado para a localização de transição é consistente com todos os [Preços do Premium Storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+### <a name="back-up-premium-storage-vms"></a>Fazer cópias de segurança de VMs do premium storage
+Enquanto o backup das VMs do Premium Storage, o serviço de cópia de segurança cria uma localização de transição temporária, com o nome "AzureBackup-", na conta de armazenamento premium. O tamanho da localização de transição é igual ao tamanho do instantâneo do ponto de recuperação. Certifique-se de que a conta de armazenamento premium tem espaço livre para acomodar a localização de transição temporária. Para obter mais informações, consulte o artigo sobre [metas de escalabilidade do armazenamento do Azure](../storage/common/storage-scalability-targets.md). Depois de a tarefa de cópia de segurança estar concluída, a localização de transição é eliminada. O preço do armazenamento utilizado para a localização de transição é consistente com todos os [Preços do Premium Storage](../virtual-machines/windows/disks-types.md).
 
 > [!NOTE]
 > Não modifique ou edite a localização de transição.
 >
 >
 
-### <a name="restore-premium-storage-vms"></a>Restaurar VMs do Premium Storage
+### <a name="restore-premium-storage-vms"></a>Restaurar VMs do premium storage
 Pode restaurar VMs de Armazenamento Premium para o Armazenamento Premium ou para o Armazenamento Standard. Restaurar o ponto de recuperação de uma VM de Armazenamento Premium novamente para o Armazenamento Premium é o processo normal. No entanto, pode ser rentável restaurar o ponto de recuperação de uma VM de Armazenamento Premium para o Armazenamento Standard se necessitar de um subconjunto de ficheiros da VM.
 
 ## <a name="using-managed-disk-vms-with-azure-backup"></a>Utilizar VMs de disco gerido com o Azure Backup

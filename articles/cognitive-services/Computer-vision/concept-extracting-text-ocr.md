@@ -1,5 +1,5 @@
 ---
-title: Extrair texto com o OCR - o de imagem digitalizada
+title: Extrair texto com reconhecimento ótico de carateres (OCR) - de imagem digitalizada
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados a extração de texto com reconhecimento ótico de carateres (OCR) usando a API de imagem digitalizada.
 services: cognitive-services
@@ -8,39 +8,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0f43724218994818908e87834ed1b70f4bca330b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: deb73eb9fdd6879a5fbe1fed820bf92b2d627b65
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873807"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310445"
 ---
-# <a name="extracting-text-with-optical-character-recognition"></a>Extrair texto com reconhecimento Ótico de carateres
+# <a name="extract-text-with-optical-character-recognition"></a>Extrair texto com reconhecimento ótico de carateres
 
-Tecnologia de reconhecimento ótico de carateres (OCR) na imagem digitalizada Deteta o conteúdo de texto numa imagem e extrai o texto identificado para um fluxo de carateres legível por máquina. Pode utilizar o resultado para pesquisa e inúmeras outras finalidades, como registos médicos, segurança e atividades bancárias. O OCR deteta automaticamente o idioma. O OCR poupa tempo e é mais cómodo para os utilizadores ao permitir tirar fotografias do texto em vez de o transcrever.
+Funcionalidade de reconhecimento ótico de carateres (OCR) do imagem digitalizada Deteta o conteúdo de texto numa imagem e converte o texto identificado num fluxo de carateres legível por máquina. Pode usar o resultado para muitas finalidades, como pesquisa, registros médicos, segurança e banca. 
 
-O OCR suporta 25 idiomas. Essas linguagens são: Árabe, chinês simplificado, chinês tradicional, checo, dinamarquês, Holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polaco, português, romeno, russo, Sérvio (Cirílico e Latim), eslovaco, espanhol, Sueco e turco.
+OCR suporta 25 idiomas: Árabe, chinês simplificado, chinês tradicional, checo, dinamarquês, Holandês, inglês, finlandês, francês, alemão, grego, húngaro, italiano, japonês, coreano, norueguês, polaco, português, romeno, russo, Sérvio (Cirílico e Latim), eslovaco, espanhol, Sueco e turco. OCR Deteta automaticamente o idioma do texto detetado.
 
-Se for necessário, o OCR corrige a rotação do texto reconhecido, em graus, à volta do eixo de imagem horizontal. OCR fornece as coordenadas de quadro de cada palavra, como mostrado na ilustração seguinte.
+Se necessário, OCR corrige a rotação do texto reconhecido, retornando o deslocamento de rotação em graus sobre o eixo horizontal de imagem. OCR também fornece as coordenadas de quadro de cada palavra, como mostrado na ilustração seguinte.
 
 ![Diagrama a ilustrar uma imagem a ser girada e o texto a ser lido e delimitado](./Images/vision-overview-ocr.png)
 
-## <a name="ocr-requirements"></a>Requisitos de OCR
+## <a name="image-requirements"></a>Requisitos de imagem
 
 Imagem digitalizada pode extrair texto usando OCR a partir de imagens que cumprem os requisitos seguintes:
 
 * A imagem tem de ser apresentada no formato JPEG, PNG, GIF ou BMP
 * O tamanho da imagem de entrada deve ser entre 50 x 50 e 4200 x 4200 pixels
-
-
-A imagem de entrada pode ser rodada qualquer múltiplo de 90 graus além de um ângulo pequeno de até 40 graus.
+* O texto na imagem pode ser girado pelo qualquer múltiplo de 90 graus, mais um pequeno ângulo de até 40 graus.
 
 ## <a name="improving-ocr-accuracy"></a>Melhorar a precisão de OCR
 
-A precisão de reconhecimento do texto depende da qualidade da imagem. As seguintes situações podem causar uma leitura incorreta:
+A precisão de reconhecimento do texto depende da qualidade da imagem. Uma leitura incorreta pode ser causada pelo seguinte:
 
 * Imagens desfocadas.
 * Texto manuscrito ou cursivo.
@@ -52,8 +50,8 @@ A precisão de reconhecimento do texto depende da qualidade da imagem. As seguin
 
 ### <a name="ocr-limitations"></a>Limitações de OCR
 
-Em fotografias em que o texto é dominante, os falsos positivos podem ser provenientes de palavras parcialmente reconhecidas. Em alguns fotografias, especialmente as fotos sem qualquer texto muito precisão pode variar consoante o tipo de imagem.
+Nas imagens em que o texto é dominante, os falsos positivos podem ser provenientes de palavras parcialmente reconhecidas. Em algumas imagens, especialmente as fotos sem qualquer texto, muita precisão pode variar consoante o tipo de imagem.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Conheça os conceitos [reconhecer texto impresso e manuscritos](concept-recognizing-text.md).
+Consulte a [documentação de referência de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) para saber mais.

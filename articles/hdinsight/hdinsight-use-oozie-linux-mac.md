@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: aca64ce3d965d03ecc6fe6da0f372f355a48bed5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994390"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311873"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight do Azure baseado em Linux
 
@@ -25,7 +25,7 @@ Saiba como utilizar o Apache Oozie com o Apache Hadoop no HDInsight do Azure. Oo
 * Apache Hadoop MapReduce
 * Apache Pig
 * Apache Hive
-* O Apache Sqoop
+* Apache Sqoop
 
 Também pode utilizar o Oozie para agendar tarefas que são específicas para um sistema, como programas de Java ou scripts de shell.
 
@@ -301,7 +301,7 @@ A definição de tarefa descreve onde encontrar o workflow.xml. Também descreve
     ```
 
     > [!NOTE]  
-    > Se o cluster de HDInsight utiliza o armazenamento do Azure como armazenamento predefinido, o `<value>` conteúdo de elemento de começar por `wasb://`. Se o armazenamento do Azure Data Lake é utilizado em vez disso, ele começa com `adl://`.
+    > Se o cluster de HDInsight utiliza o armazenamento do Azure como armazenamento predefinido, o `<value>` conteúdo de elemento de começar por `wasb://`. Se a geração 1 de armazenamento do Azure Data Lake é utilizado em vez disso, ele começa com `adl://`.
 
     Salvar o conteúdo do `<value>` elemento, como ele é usado nos passos seguintes.
 
@@ -683,7 +683,7 @@ Seguem-se erros específicos que podem surgir e como resolvê-los.
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Causa**: Os endereços de armazenamento de Blobs do Azure utilizados no **job.xml** ficheiro não contém o contentor de armazenamento ou o nome de conta de armazenamento. O formato de endereço do armazenamento de BLOBs tem de ser `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Motivo**: Os endereços de armazenamento de Blobs do Azure utilizados no **job.xml** ficheiro não contém o contentor de armazenamento ou o nome de conta de armazenamento. O formato de endereço do armazenamento de BLOBs tem de ser `wasb://containername@storageaccountname.blob.core.windows.net`.
 
 **Resolução**: Altere os endereços de armazenamento de BLOBs que utiliza a tarefa.
 
@@ -693,7 +693,7 @@ Seguem-se erros específicos que podem surgir e como resolvê-los.
 
     JA002: User: oozie is not allowed to impersonate <USER>
 
-**Causa**: As definições de permissão atuais não permitem Oozie representar a conta de utilizador especificado.
+**Motivo**: As definições de permissão atuais não permitem Oozie representar a conta de utilizador especificado.
 
 **Resolução**: Oozie pode representar os utilizadores a **utilizadores** grupo. Utilize o `groups USERNAME` para ver os grupos de que a conta de utilizador é membro. Se o utilizador não é um membro do **utilizadores** grupo, utilize o seguinte comando para adicionar o utilizador ao grupo:
 
@@ -708,7 +708,7 @@ Seguem-se erros específicos que podem surgir e como resolvê-los.
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
-**Causa**: Sqoop não consegue carregar o driver de base de dados necessário para acessar o banco de dados.
+**Motivo**: Sqoop não consegue carregar o driver de base de dados necessário para acessar o banco de dados.
 
 **Resolução**: Quando utilizar o Sqoop a partir de uma tarefa de Oozie, tem de incluir o controlador de base de dados com os outros recursos, como o workflow.xml, as utilizações de tarefa. Além disso, o arquivo que contém o driver de base de dados a partir de referência a `<sqoop>...</sqoop>` seção o workflow.xml.
 

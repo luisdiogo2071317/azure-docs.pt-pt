@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdc7ef8ee991719153f6daed01fbb76f945a7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e233de6f0909477e5033d2a0104f9165e86a9077
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194943"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Active Directory do Azure com a área de trabalho pelo Facebook
 
@@ -143,31 +143,38 @@ Para configurar o Azure AD início de sessão único à área de trabalho pelo F
 
 1. Numa janela do browser web diferente, início de sessão à sua área de trabalho por site de empresa do Facebook como administrador.
   
-   > [!NOTE]
-   > Como parte do processo de autenticação SAML, à área de trabalho pode utilizar cadeias de caracteres de consulta de até 2,5 quilobytes de tamanho para passar parâmetros para o Azure AD.
+    > [!NOTE]
+    > Como parte do processo de autenticação SAML, à área de trabalho pode utilizar cadeias de caracteres de consulta de até 2,5 quilobytes de tamanho para passar parâmetros para o Azure AD.
 
-2. Na **painel de administração**, aceda ao **Security** separador, em seguida, **autenticação**.
+2. Na **painel de administração**, aceda ao **segurança** separador.
 
-3. Sob **autenticação SAML**, selecione **SSO apenas** na lista pendente.
+    ![Painel de administração](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. Os valores copiados a partir de entrada **à área de trabalho pela configuração do Facebook** seção do portal do Azure nos campos correspondentes:
+3. Sob **autenticação** separador, selecione **início de sessão único (SSO)** e execute os seguintes passos:
 
-    * Na **URL de SAML** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
-    * Na **caixa de texto do URL de emissor de SAML**, cole o valor de **Azure Ad identificador**, que copiou do portal do Azure.
-    * Na **redirecionamento de fim de sessão de SAML** (opcional), cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
-    * Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado SAML** caixa de texto.
+    ![Separador de autenticação](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. Poderá ter de introduzir o URL de público-alvo, o URL de destinatário, e o ACS (serviço de consumidor de asserção) URL listado sob os **configuração básica de SAML** secção.
+    a. Na **URL de SAML** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
 
-6. Desloque para baixo da seção e clique nas **SSO de teste** botão. O resultado é uma janela de pop-up que aparece com página de início de sessão do Azure AD apresentados. Introduza as credenciais em como normal para autenticar.
+    b. Na **caixa de texto do URI de emissor de SAML**, cole o valor de **Azure Ad identificador**, que copiou do portal do Azure.
+
+    c. Na **redirecionamento de fim de sessão de SAML** (opcional), cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
+
+    d. Abra sua **certificado com codificação base 64** no bloco de notas transferido a partir do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado SAML** caixa de texto.
+
+    e. Cópia a **URL de público-alvo** para a sua instância e cole-o na **identificador (ID de entidade)** caixa de texto no **configuração básica de SAML** secção no portal do Azure.
+
+    f. Cópia a **URL de destinatário** para a sua instância e cole-o na **iniciar sessão no URL** caixa de texto no **configuração básica de SAML** secção no portal do Azure.
+
+    g. Desloque para baixo da seção e clique nas **SSO de teste** botão. O resultado é uma janela de pop-up que aparece com página de início de sessão do Azure AD apresentados. Introduza as credenciais em como normal para autenticar.
 
     **Resolução de problemas:** Certifique-se de que o endereço de e-mail a ser devolvido do Azure AD é o mesmo que tiver iniciado sessão com a conta de área de trabalho.
 
-7. Quando o teste estiver concluído com êxito, desloque-se para a parte inferior da página e clique nas **guardar** botão.
+    h. Quando o teste estiver concluído com êxito, desloque-se para a parte inferior da página e clique nas **guardar** botão.
 
-8. Todos os utilizadores usem à área de trabalho serão agora apresentados com página de início de sessão do Azure AD para autenticação.
+    i. Todos os utilizadores usem à área de trabalho serão agora apresentados com página de início de sessão do Azure AD para autenticação.
 
-9. **Redirecionamento de fim de sessão de SAML (opcional)** -
+4. **Redirecionamento de fim de sessão de SAML (opcional)** -
 
     Pode optar por configurar, opcionalmente, um Url de fim de sessão SAML, que podem ser usados para apontar para a página de fim de sessão do Azure AD. Quando esta definição está ativada e configurada, o utilizador já não será direcionado para a página de fim de sessão de área de trabalho. Em vez disso, o utilizador será redirecionado para o url que foi adicionado na definição de redirecionamento de fim de sessão de SAML.
 

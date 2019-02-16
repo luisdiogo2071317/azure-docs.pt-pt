@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: effe6fa942ce0cabace08e72dba90baf8646680e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56119288"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312145"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-in-azure-cosmos-db"></a>Como configurar múltiplos principais nas suas aplicações no Azure Cosmos DB
+# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Como configurar vários mestres em seus aplicativos que utilizam o Azure Cosmos DB
 
-Para utilizar as funcionalidades de vários mestres em seus aplicativos, que terá de ativar gravações de várias regiões na sua aplicação e configurar a capacidade em multihoming, definindo a região atual a aplicação é implementada em.
+Para utilizar as funcionalidades de vários mestres em seus aplicativos terá de ativar a escrita de várias regiões e configurar a capacidade em multihoming. Multihoming é configurada ao definir a região atual em que a aplicação é implementada.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-Para ativar múltiplos principais no seu conjunto de aplicativos `UseMultipleWriteLocations` true e configurar `SetCurrentLocation` para a região em que o aplicativo está sendo implantado e Cosmos DB é replicado.
+Para ativar múltiplos principais no seu conjunto de aplicativos `UseMultipleWriteLocations` true e configurar `SetCurrentLocation` para a região em que o aplicativo está sendo implantado e é replicado do Azure Cosmos DB.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy

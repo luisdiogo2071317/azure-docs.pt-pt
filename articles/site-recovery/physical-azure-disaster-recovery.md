@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 9c5f998470d3bf2a66d7de43bd54d5da4db57608
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221757"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329222"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação após desastre para o Azure para servidores físicos no local
 
@@ -78,9 +78,6 @@ Configurar uma [conta de armazenamento do Azure](../storage/common/storage-quick
 
 - O site Recovery replica as máquinas no local para o armazenamento do Azure. VMs do Azure são criadas a partir do armazenamento após a ocorrência da ativação pós-falha.
 - A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
-- A conta de armazenamento pode ser standard ou [premium](../virtual-machines/windows/premium-storage.md).
-- Se configurar uma conta de premium, também terá uma conta standard adicional para dados de registo.
-
 
 
 ### <a name="prepare-an-account-for-mobility-service-installation"></a>Preparar uma conta para a instalação do serviço de Mobilidade
