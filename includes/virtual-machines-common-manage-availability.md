@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084060"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334003"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem conduzir a máquina virtual no Azure a ser afetado: manutenção de hardware não planeada, o período de indisponibilidade inesperado e a manutenção planeada.
@@ -41,7 +41,7 @@ Para reduzir o impacto do período de indisponibilidade devido a um ou mais dest
 Para fornecer redundância à aplicação, é recomendável agrupar duas ou mais máquinas virtuais num conjunto de disponibilidade. Esta configuração num Data Center assegura que durante a um evento de manutenção planeada ou, pelo menos uma máquina virtual está disponível e que cumpre 99,95% do SLA do Azure. Para obter mais informações, veja [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 > [!IMPORTANT]
-> Evite deixar isolada uma máquina virtual de instância única num conjunto de disponibilidade. As VMs nesta configuração não se qualificam para uma garantia SLA e passam por um período de indisponibilidade durante eventos de manutenção planeada do Azure, exceto quando uma VM única está a utilizar [Armazenamento Premium do Azure](../articles/virtual-machines/windows/premium-storage.md). Para VMs únicas que utilizam o armazenamento premium, aplica-se o SLA do Azure.
+> Evite deixar isolada uma máquina virtual de instância única num conjunto de disponibilidade. As VMs nesta configuração não se qualificar para uma garantia de SLA e enfrentam o período de indisponibilidade durante eventos de manutenção planeada do Azure, exceto quando está a utilizar uma única VM [premium do Azure SSDs](../articles/virtual-machines/windows/disks-types.md#premium-ssd). Para VMs únicas que utilizam o SSD premium, aplica-se o SLA do Azure.
 
 A cada máquina virtual no seu conjunto de disponibilidade é atribuído um **domínio de atualização** e um **domínio de falha** pela plataforma Azure subjacente. Para um conjunto de disponibilidade especificado, cinco domínios de atualização não configuráveis pelo utilizador são atribuídos por predefinição (as implementações do Resource Manager podem então ser aumentadas para fornecer até 20 domínios de atualização), para indicar os grupos de máquinas virtuais e o hardware físico subjacente que podem ser reiniciados ao mesmo tempo. Quando são configuradas mais de cinco máquinas virtuais num conjunto de disponibilidade único, a sexta máquina virtual é colocada no mesmo domínio de atualização da primeira máquina virtual, a sétima no mesmo domínio de atualização da segunda máquina virtual, e assim sucessivamente. A ordem dos domínios de atualização que estão a ser reiniciados não pode continuar sequencialmente durante a manutenção planeada, sendo que apenas um domínio de atualização é reiniciado de cada vez. Um domínio de atualização reiniciado dispõe de 30 minutos para realizar a recuperação antes de a manutenção ser iniciada num domínio de atualização diferente.
 
@@ -60,7 +60,7 @@ Os [discos geridos](../articles/virtual-machines/windows/managed-disks-overview.
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-Se planeia utilizar as VMs com [discos não geridos](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks), siga as melhores práticas indicadas abaixo para as Contas de armazenamento nas quais os discos rígidos virtuais (VHDs) das VMs são armazenados como [blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
+Se planeja usar VMs com discos não geridos, siga melhores práticas para contas de armazenamento onde os discos rígidos virtuais (VHDs) das VMs são armazenados como abaixo [blobs de páginas](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 
 1. **Manter todos os discos (SO e dados) associados a uma VM na mesma conta de armazenamento**
 2. **Rever os [limites](../articles/storage/common/storage-scalability-targets.md) do número de discos não geridos numa Conta de armazenamento**  antes de adicionar mais VHDs a uma conta de armazenamento

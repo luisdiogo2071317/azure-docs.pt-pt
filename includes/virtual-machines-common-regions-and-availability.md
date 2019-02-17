@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476342"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333883"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regiões e disponibilidade para máquinas virtuais no Azure
 O Azure funciona em vários datacenters em todo o mundo. Estes datacenters são agrupados por regiões geográficas, dando-lhe a flexibilidade de escolher onde pretende criar as suas aplicações. É importante compreender como e onde as suas máquinas virtuais (VMs) funcionam no Azure, juntamente com as opções para maximizar o desempenho, a disponibilidade e a redundância. Este artigo fornece-lhe uma descrição geral das funcionalidades de disponibilidade e redundância do Azure.
@@ -61,7 +61,7 @@ Compreender as regiões e as geografias do Azure ganha importância ao considera
 **Discos com base na conta de armazenamento**
 * Armazenamento localmente redundante (LRS)
   * Replica os dados três vezes na região em que criou a sua conta de armazenamento.
-* Armazenamento com redundância de zona (ZRS)
+* Armazenamento com redundância entre zonas (ZRS)
   * Replica os dados três vezes em dois ou três locais, numa única região ou em duas regiões.
 * Armazenamento georredundante (GRS)
   * Replica os dados numa região secundária a centenas de quilómetros de distância da região primária.
@@ -92,7 +92,7 @@ Os preços podem variar consoante o tipo de armazenamento e disponibilidade que 
 Veja [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre os preços para tipos de armazenamento e opções de disponibilidade diferentes.
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
-Um conjunto de disponibilidade é um agrupamento lógico de VMs num centro de dados que permite ao Azure compreender como a sua aplicação é criada para fornecer redundância e disponibilidade. Recomendamos que duas ou mais VMs são criadas dentro de um conjunto para fornecer uma aplicação de elevada disponibilidade e para atender de disponibilidade do [99,95% do SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Não existe nenhum custo para o conjunto de disponibilidade em si, paga apenas para cada instância VM que criar. Quando uma única VM estiver a utilizar o [Armazenamento Premium do Azure](../articles/virtual-machines/windows/premium-storage.md), o SLA do Azure aplica-se para eventos de manutenção não planeada. 
+Um conjunto de disponibilidade é um agrupamento lógico de VMs num centro de dados que permite ao Azure compreender como a sua aplicação é criada para fornecer redundância e disponibilidade. Recomendamos que duas ou mais VMs são criadas dentro de um conjunto para fornecer uma aplicação de elevada disponibilidade e para atender de disponibilidade do [99,95% do SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Não existe nenhum custo para o conjunto de disponibilidade em si, paga apenas para cada instância VM que criar. Quando está a utilizar uma única VM [premium do Azure SSDs](../articles/virtual-machines/windows/disks-types.md#premium-ssd), o SLA do Azure aplica-se para eventos de manutenção não planeada.
 
 Um conjunto de disponibilidade é composta por dois agrupamentos adicionais que proteger contra falhas de hardware e permitem atualizações com segurança ser aplicado-domínios de falha (FDs) e domínios de atualização (UDs). Pode ler mais sobre como gerir a disponibilidade de [VMs do Linux](../articles/virtual-machines/linux/manage-availability.md) ou [VMs do Windows](../articles/virtual-machines/windows/manage-availability.md).
 
