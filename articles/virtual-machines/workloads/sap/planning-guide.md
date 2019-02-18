@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ac55d14f864698506610301ae46bd4b6573d4f92
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118297"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330669"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 
@@ -248,7 +248,7 @@ ms.locfileid: "56118297"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -870,7 +870,7 @@ Requisitos ao preparar o seu próprio disco de VM do Azure são:
 
 * Originalmente, o VHD que contém o sistema operacional pode ter um tamanho máximo de 127GB apenas. Esta limitação foi eliminada no final de Março de 2015. Agora o VHD que contém o sistema operativo pode ser até 1TB de tamanho como qualquer outro armazenamento do Azure alojada VHD também.
 * Ele precisa estar no formato VHD fixo. Os VHDs ou VHDs no formato VHDx dinâmica ainda não são suportadas no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
-* VHDs, que estão montados para a VM e devem ser montados novamente no Azure para a necessidade VM para estar num formato VHD fixo. Leia [deste artigo (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) e [este artigo (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) para limites de tamanho de discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
+* VHDs, que estão montados para a VM e devem ser montados novamente no Azure para a necessidade VM para estar num formato VHD fixo. Leia [deste artigo (Linux)](../../linux/managed-disks-overview.md) e [este artigo (Windows)](../../windows/managed-disks-overview.md)) para limites de tamanho de discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
 * Adicione outra conta local com privilégios de administrador, que pode ser utilizada pelo suporte da Microsoft ou que podem ser atribuído como contexto para serviços e aplicações sejam executadas em até que a VM é implementada e os utilizadores mais adequados pode ser utilizada.
 * Adicione outras contas locais, como aqueles podem ser necessários para o cenário de implantação específicos.
 
@@ -897,7 +897,7 @@ Requisitos ao preparar a sua própria imagem de VM do Azure são:
 
 * Originalmente, o VHD que contém o sistema operacional pode ter um tamanho máximo de 127GB apenas. Esta limitação foi eliminada no final de Março de 2015. Agora o VHD que contém o sistema operativo pode ser até 1TB de tamanho como qualquer outro armazenamento do Azure alojada VHD também.
 * Ele precisa estar no formato VHD fixo. Os VHDs ou VHDs no formato VHDx dinâmica ainda não são suportadas no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
-* VHDs, que estão montados para a VM e devem ser montados novamente no Azure para a necessidade VM para estar num formato VHD fixo. Leia [deste artigo (Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux) e [este artigo (Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows) para limites de tamanho de discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
+* VHDs, que estão montados para a VM e devem ser montados novamente no Azure para a necessidade VM para estar num formato VHD fixo. Leia [deste artigo (Linux)](../../windows/managed-disks-overview.md) e [este artigo (Windows)](../../linux/managed-disks-overview.md) para limites de tamanho de discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos ao carregar o VHD com commandlets do PowerShell ou CLI
 * Adicione outras contas locais, como aqueles podem ser necessários para o cenário de implantação específicos.
 * Se a imagem tiver uma instalação do SAP NetWeaver e mudar o nome do nome do anfitrião, o nome original no ponto da implementação do Azure, é provável que, é recomendado para copiar as versões mais recentes do DVD do Gestor de SAP de aprovisionamento de Software para o modelo. Isso permitirá que facilmente usar a funcionalidade de mudança de nome de SAP fornecido para adaptar o nome de anfitrião foi alterado e/ou alterar o SID do sistema SAP dentro da imagem VM implementada assim que uma nova cópia é iniciada.
 
