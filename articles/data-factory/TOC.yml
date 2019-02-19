@@ -125,24 +125,26 @@ items:
       href: concepts-data-flow-overview.md
     - name: Conjuntos de dados de fluxo de dados
       href: concepts-data-flow-datasets.md
-    - name: Modo de Depuração
+    - name: Modo de depuração
       href: concepts-data-flow-debug-mode.md
-    - name: Desvio do Esquema
+    - name: Desvio do esquema
       href: concepts-data-flow-schema-drift.md
-    - name: Painel de Inspeção
+    - name: Painel de inspeção
       href: concepts-data-flow-inspect-pane.md
-    - name: Padrões de Coluna
+    - name: Padrões de coluna
       href: concepts-data-flow-column-pattern.md
-    - name: Monitorização de Fluxo de Dados
+    - name: Monitorização de fluxo de dados
       href: concepts-data-flow-monitoring.md
-    - name: Mover Nós
+    - name: Mover nós
       href: concepts-data-flow-move-nodes.md
     - name: Otimizar o separador
       href: concepts-data-flow-optimize-tab.md
-    - name: Construtor de Expressões
+    - name: Construtor de expressões
       href: concepts-data-flow-expression-builder.md
-    - name: Nós de Referência
+    - name: Nós de referência
       href: concepts-data-flow-reference-node.md
+    - name: Expressão de idioma
+      href: data-flow-expression-functions.md
   - name: Funções e permissões
     href: concepts-roles-permissions.md
   - name: Compreender os preços
@@ -568,9 +570,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 848833c7e5524d8bad46150d4c3a8c560e2ef790
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 19193a4bcd00a0f4e96dc465d0130b3ec96a7ca2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330533"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408464"

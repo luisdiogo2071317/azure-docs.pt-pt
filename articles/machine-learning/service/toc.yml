@@ -59,7 +59,11 @@ items:
 - name: Guias de procedimentos
   items:
   - name: Gerir áreas de trabalho
-    href: how-to-manage-workspace.md
+    items:
+    - name: Utilizar o portal para áreas de trabalho
+      href: how-to-manage-workspace.md
+    - name: Utilizar um modelo do Resource Manager
+      href: how-to-create-workspace-template.md
   - name: Configurar o ambiente de desenvolvimento 
     items:
     - name: Configurar ambientes de desenvolvimento
@@ -119,8 +123,6 @@ items:
       href: how-to-deploy-fpga-web-service.md
     - name: Resolução de problemas
       href: how-to-troubleshoot-deployment.md
-    - name: Proteja os serviços Web com SSL
-      href: how-to-secure-web-service.md
   - name: Consumir os serviços web
     items:
     - name: Consumir em tempo real
@@ -136,25 +138,27 @@ items:
       href: how-to-enable-data-collection.md
     - name: Monitorizar com o Application Insights
       href: how-to-enable-app-insights.md
+  - name: Segurança
+    items:
+    - name: Utilizar redes virtuais
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Proteja os serviços Web com SSL
+      href: how-to-secure-web-service.md
   - name: Criar o seu primeiro pipeline
     href: how-to-create-your-first-pipeline.md
+  - name: Ativar registo
+    displayName: logging
+    href: how-to-enable-logging.md
   - name: Gerir quotas de recursos
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Proteger com redes virtuais
-    displayName: vnet
-    href: how-to-enable-virtual-network.md
   - name: Utilizar a CLI de Aprendizagem Automática
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Exportar e eliminar dados
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: Utilizar um modelo do Resource Manager
-    href: how-to-create-workspace-template.md
-  - name: Ativar registo
-    displayName: logging
-    href: how-to-enable-logging.md
 - name: Referência
   items:
   - name: SDK de Aprendizagem automática
@@ -166,8 +170,6 @@ items:
   - name: Monitorizar SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Modelo do Resource Manager
-    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: Recursos
   items:
   - name: Roteiro do Azure
@@ -183,9 +185,9 @@ items:
     href: support-for-aml-services.md
   - name: Comparar os nossos produtos de ML
     href: overview-more-machine-learning.md
-ms.openlocfilehash: eb803b44bbe72b80f4414a4de66bce519591dea7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268826"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338098"

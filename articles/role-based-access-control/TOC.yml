@@ -1,5 +1,5 @@
 items:
-- name: Documentação do controlo de acesso baseado em funções
+- name: Documentação do RBAC para os recursos do Azure
   href: index.yml
 - name: Descrição geral
   items:
@@ -9,7 +9,7 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: Inícios rápidos
   items:
-  - name: Ver funções de um utilizador
+  - name: Ver o acesso de um utilizador
     href: check-access.md
 - name: Tutoriais
   items:
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: Compreender as atribuições de negação
     href: deny-assignments.md
-  - name: Privileged Identity Management (PIM) para o Azure
+  - name: PIM para os recursos do Azure
     href: pim-azure-resource.md
   - name: Acesso condicional para a gestão do Azure
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: Desenvolva as suas competências com o Microsoft Learn
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099212"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408770"

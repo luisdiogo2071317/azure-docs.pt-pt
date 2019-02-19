@@ -1,6 +1,6 @@
 ---
-title: Organizar recursos com os grupos de gestão do Azure
-description: Saiba mais sobre os grupos de gestão e como utilizá-los.
+title: Organizar recursos com os grupos de gestão do Azure - Governação do Azure
+description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
 author: rthorn17
 manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584611"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339292"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -105,7 +105,7 @@ A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos
 |Contribuidor de Política de Recursos |        |        |      |        |               | X             |       |
 |Administrador de Acesso de Utilizador   |        |        |      |        | X             |               |       |
 
-*: As funções Contribuidor MG e Leitor MG apenas permitem aos utilizadores realizar essas ações no âmbito do grupo de gestão.  
+*: As funções de Contribuinte MG e Leitor MG apenas permitem aos utilizadores realizar essas ações no âmbito do grupo de gestão.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Atribuição e Definição de Funções RBAC Personalizadas
 
@@ -118,7 +118,7 @@ Para monitorizar os grupos de gestão através desta API, utilize a [API do Regi
 1. Como administrador do inquilino do Azure AD, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md) e, em seguida, atribua uma função de Leitor ao utilizador de auditoria no âmbito `/providers/microsoft.insights/eventtypes/management`.
 1. Como utilizador de auditoria, chame a [API do Registo de Atividades do Inquilino](/rest/api/monitor/tenantactivitylogs) para ver as atividades dos grupos de gestão. Vai querer filtrar pelo Fornecedor de Recursos **Microsoft.Management** para todas as atividades dos grupos de gestão.  Exemplo:
 
-```
+```http
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 
