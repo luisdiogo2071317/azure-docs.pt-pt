@@ -1,6 +1,6 @@
 ---
 title: Exemplo - aplicar etiqueta e respetivo valor predefinido
-description: Esta política de exemplo acrescentara um nome de etiqueta e um valor especificados se essa etiqueta não for disponibilizada.
+description: Esta definição de política de exemplo acrescenta um nome de etiqueta especificada e um valor, se marca não fornecido.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: ef044d5ccba706ebc0c7102414cb1e2b42b537cb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 989d09b3e4b576fa21156ec71485c54422c643b7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242163"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338229"
 ---
-# <a name="apply-tag-and-its-default-value"></a>Aplicar etiqueta e o respetivo valor predefinido
+# <a name="sample---apply-tag-and-its-default-value"></a>Exemplo - aplicar etiqueta e respetivo valor predefinido
 
 Esta política acrescenta um nome de etiqueta e um valor especificado, se essa etiqueta não for fornecida. Especifica o nome de etiqueta e o valor a aplicar.
 

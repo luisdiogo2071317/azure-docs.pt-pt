@@ -1,6 +1,6 @@
 ---
 title: Exemplo - deteção de ameaças de nível de auditoria DB definição
-description: Esta política de exemplo fará uma auditoria às políticas de alerta de segurança da base de dados SQL se as políticas não estiverem definidas para o estado especificado.
+description: Esta definição de política de exemplo auditorias a políticas de alerta de segurança do SQL da base de dados se essas políticas não estão definidas para o estado especificado.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2ef0e83f73a30b0510ec728cd5c2a88845821dc9
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 73f9300d2948337b8e397f544e1dde2d5d09ed0b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241670"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342360"
 ---
-# <a name="audit-db-level-threat-detection-setting"></a>Auditar a definição de deteção de ameaças do nível de BD
+# <a name="sample---audit-db-level-threat-detection-setting"></a>Exemplo - deteção de ameaças de nível de auditoria DB definição
 
 Esta política faz uma auditoria às políticas de alerta de segurança da base de dados SQL se as políticas não estiverem definidas para o estado especificado. Especifica um valor que indica se a deteção de ameaças está ativada ou desativada.
 

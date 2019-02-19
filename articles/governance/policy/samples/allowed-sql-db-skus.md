@@ -1,6 +1,6 @@
 ---
 title: Exemplo - SQL DB SKUs permitido
-description: Este exemplo de política exige que as bases de dados SQL utilizem um SKU aprovado.
+description: Esta definição de política de exemplo requer bases de dados SQL para utilizar um SKU de aprovados.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc9d068bab17c2780d81c5626620228fd8fc6469
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5506821dd7c3061594b9e4365980677f8322139e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242656"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341271"
 ---
-# <a name="allowed-sql-db-skus"></a>SKUs de BD SQL permitidos
+# <a name="sample---allowed-sql-db-skus"></a>Exemplo - SQL DB SKUs permitido
 
 Esta política requer que as bases de dados SQL utilizem um SKU aprovado. Especifica uma matriz de IDs ou nomes de SKUs permitidos.
 

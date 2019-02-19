@@ -1,6 +1,6 @@
 ---
 title: Exemplo - auditar o disco gerido de VM não utilizar
-description: Este exemplo de json faz uma auditoria quando é criada uma máquina virtual que não utiliza discos geridos.
+description: Esta definição de json de exemplo audita quando é criada uma máquina virtual que não utilizam discos geridos.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 30f143fa4ad8bd7e90cfafca8ea6eb276e70e28c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c2bdfb5bc855467be61065e93a932838b5782bee
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243438"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337106"
 ---
-# <a name="audit-when-vm-does-not-use-managed-disk"></a>Auditar quando a VM não utiliza discos geridos
+# <a name="sample---audit-when-vm-does-not-use-managed-disk"></a>Exemplo - auditoria quando não utiliza a VM de disco gerido
 
 Faz uma auditoria quando é criada uma máquina virtual que não utiliza discos geridos.
 

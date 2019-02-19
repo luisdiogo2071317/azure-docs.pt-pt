@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso através do RBAC e portal do Azure | Microsoft Docs
-description: Saiba como gerir o acesso para utilizadores, grupos, os principais de serviço e identidades geridas, com o controlo de acesso baseado em funções (RBAC) e o portal do Azure. Isto inclui como listar, conceder e remover acesso.
+title: Gerir o acesso ao Azure resoruces utilizando o RBAC e o portal do Azure | Documentos da Microsoft
+description: Saiba como gerir o acesso aos recursos do Azure para utilizadores, grupos, os principais de serviço e identidades geridas com o controlo de acesso baseado em funções (RBAC) e o portal do Azure. Isto inclui como listar, conceder e remover acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412313"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342342"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gerir o acesso através do RBAC e portal do Azure
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure
 
-[O controlo de acesso baseado em funções (RBAC)](overview.md) é a forma de gerir o acesso a recursos no Azure. Este artigo descreve como gerir o acesso para utilizadores, grupos, os principais de serviço e identidades geridas utilizando o RBAC e o portal do Azure.
+[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Este artigo descreve como gerir o acesso para utilizadores, grupos, os principais de serviço e identidades geridas utilizando o RBAC e o portal do Azure.
 
 ## <a name="open-access-control-iam"></a>Abra o controlo de acesso (IAM)
 
@@ -41,7 +41,7 @@ O **controlo de acesso (IAM)** é apresentado o painel, também conhecido como g
 
 ## <a name="view-roles-and-permissions"></a>Ver funções e permissões
 
-Uma definição de função é uma coleção de permissões que é utilizada para atribuições de funções. O Azure tem mais de 70 [funções incorporadas](built-in-roles.md). Siga estes passos para ver as funções e permissões que podem ser executadas na gestão e plano de dados.
+Uma definição de função é uma coleção de permissões que é utilizada para atribuições de funções. O Azure tem mais de 70 [funções incorporadas para recursos do Azure](built-in-roles.md). Siga estes passos para ver as funções e permissões que podem ser executadas na gestão e plano de dados.
 
 1. Open **controlo de acesso (IAM)** num âmbito, como o grupo de gestão, subscrição, grupo de recursos ou recurso, em que pretende ver funções e permissões.
 
@@ -165,7 +165,7 @@ No RBAC, para remover o acesso, remova uma atribuição de função. Siga estes 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Tutorial: Conceder acesso de utilizador utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
-* [Tutorial: Conceder acesso de utilizador utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Resolver problemas relacionados com o RBAC no Azure](troubleshooting.md)
-* [Organizar os recursos com grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md)
+* [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
+* [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Resolver problemas relacionados com o RBAC para recursos do Azure](troubleshooting.md)
+* [Organizar os recursos com grupos de gestão do Azure](../governance/management-groups/index.md)

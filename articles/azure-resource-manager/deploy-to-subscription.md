@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744403"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343039"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível da subscrição
 
 Normalmente, implementa recursos do Azure para um grupo de recursos na sua subscrição do Azure. No entanto, também pode criar grupos de recursos do Azure e criar recursos do Azure ao nível da subscrição. Para implementar modelos ao nível da subscrição, pode utilizar o CLI do Azure e o Azure PowerShell. O portal do Azure não suporta a implementação no nível da subscrição.
 
-Para criar um grupo de recursos num modelo Azure Resource Manager, defina uma [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions) recurso com um nome e local para o grupo de recursos. Pode criar um grupo de recursos e implementar recursos no grupo de recursos no mesmo modelo. Os recursos que pode implementar ao nível da subscrição incluem: [As políticas](../azure-policy/azure-policy-introduction.md), e [controlo de acesso baseado em funções](../role-based-access-control/overview.md).
+Para criar um grupo de recursos num modelo Azure Resource Manager, defina uma [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions) recurso com um nome e local para o grupo de recursos. Pode criar um grupo de recursos e implementar recursos no grupo de recursos no mesmo modelo. Os recursos que pode implementar ao nível da subscrição incluem: [As políticas](../governance/policy/overview.md), e [controlo de acesso baseado em funções](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>Definir e atribuir política
 
-Pode [definir](../azure-policy/policy-definition.md) e atribuir uma política no modelo do mesmo.
+Pode [definir](../governance/policy/concepts/definition-structure.md) e atribuir uma política no modelo do mesmo.
 
 ```json
 {

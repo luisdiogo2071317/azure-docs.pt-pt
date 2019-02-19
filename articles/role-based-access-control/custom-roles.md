@@ -1,6 +1,6 @@
 ---
-title: Funções personalizadas no Azure | Documentos da Microsoft
-description: Saiba como definir funções personalizadas com controlo de acesso baseado em função do Azure (RBAC) para gestão de acessos detalhada de recursos no Azure.
+title: Funções personalizadas para recursos do Azure | Documentos da Microsoft
+description: Saiba como criar funções personalizadas com controlo de acesso baseado em funções (RBAC) para a gestão de acesso detalhado dos recursos do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697139"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339333"
 ---
-# <a name="custom-roles-in-azure"></a>Funções personalizadas no Azure
+# <a name="custom-roles-for-azure-resources"></a>Funções personalizadas para recursos do Azure
 
-Se as [funções incorporadas](built-in-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas. Tal como funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e principais de serviço na subscrição, grupo de recursos e os âmbitos de recursos. Funções personalizadas são armazenadas num diretório do Azure Active Directory (Azure AD) e podem ser partilhadas entre subscrições. Cada diretório pode ter até 2000 de funções personalizadas. Funções personalizadas podem ser criadas com o Azure PowerShell, CLI do Azure ou a API REST.
+Se o [funções incorporadas para recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Tal como funções incorporadas, pode atribuir funções personalizadas a utilizadores, grupos e principais de serviço na subscrição, grupo de recursos e os âmbitos de recursos. Funções personalizadas são armazenadas num diretório do Azure Active Directory (Azure AD) e podem ser partilhadas entre subscrições. Cada diretório pode ter até 2000 de funções personalizadas. Funções personalizadas podem ser criadas com o Azure PowerShell, CLI do Azure ou a API REST.
 
 ## <a name="custom-role-example"></a>Exemplo de função personalizada
 
@@ -107,7 +107,7 @@ Tal como funções incorporadas, o `AssignableScopes` propriedade especifica os 
 | Ver uma função personalizada | `Microsoft.Authorization/ roleDefinition/read` | Os utilizadores que são concedidos esta operação com um âmbito podem ver as funções personalizadas que estão disponíveis para atribuição nesse âmbito. Todas as funções incorporadas que funções personalizadas estar disponível para atribuição. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Create custom roles using Azure PowerShell](custom-roles-powershell.md) (Criar funções personalizadas com o Azure PowerShell)
-- [Criar funções personalizadas com a CLI do Azure](custom-roles-cli.md)
-- [Compreender as definições de função](role-definitions.md)
-- [Resolver problemas relacionados com o RBAC no Azure](troubleshooting.md)
+- [Criar funções personalizadas para recursos do Azure com o Azure PowerShell](custom-roles-powershell.md)
+- [Criar funções personalizadas para recursos do Azure com a CLI do Azure](custom-roles-cli.md)
+- [Compreender as definições de funções para recursos do Azure](role-definitions.md)
+- [Resolver problemas relacionados com o RBAC para recursos do Azure](troubleshooting.md)

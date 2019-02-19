@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354625"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340183"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -39,15 +39,21 @@ O serviço de gestão de dados do Explorador de dados do Azure, que é responsá
 
 O Explorador de dados do Azure suporta vários métodos de ingestão, cada um com seus próprios cenários de destino, as vantagens e desvantagens. O Explorador de dados do Azure oferece os pipelines e dos conectores para serviços comuns, ingestão programática utilizar SDKs e acesso direto para o mecanismo para fins de exploração.
 
-### <a name="ingestion-using-pipelines"></a>Com pipelines de ingestão
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Com o plug-ins, conectores e pipelines de ingestão
 
-O Explorador de dados do Azure suporta, atualmente, o pipeline de Hub de eventos, que pode ser gerido com o Assistente de gestão no portal do Azure. Para obter mais informações, consulte [início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md).
+O Explorador de dados do Azure suporta atualmente:
 
-### <a name="ingestion-using-connectors-and-plugins"></a>Utilizar conectores e plug-ins de ingestão
+* Pipeline grelha de eventos, que pode ser gerido com o Assistente de gestão no portal do Azure. Para obter mais informações, consulte [ingerir os Blobs do Azure no Explorador de dados do Azure](ingest-data-event-grid.md).
 
-* O Explorador de dados do Azure suporta o plug-in do Logstash. Para obter mais informações, consulte [Plug-in do Logstash saída para o Explorador de dados do Azure](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+* Pipeline Hub de eventos, que pode ser gerido com o Assistente de gestão no portal do Azure. Para obter mais informações, consulte [ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md).
 
-* O Explorador de dados do Azure suporta o conector do Kafka. Para obter mais informações, consulte [início rápido: Ingerir dados do Kafka no Explorador de dados do Azure](ingest-data-kafka.md)
+* Plug-in do Logstash, consulte [ingerir dados a partir do Logstash ao Azure Data Explorer](ingest-data-logstash.md).
+
+* Conector do Kafka, consulte [ingerir dados do Kafka no Explorador de dados do Azure](ingest-data-kafka.md).
+
+### <a name="ingestion-using-integration-services"></a>Ingestão de uso do integration services
+
+* O Azure Data Factory (ADF), um serviço de integração de dados totalmente gerido para análise cargas de trabalho no Azure, para copiar dados para e partir do Explorador de dados do Azure. Para obter mais informações, consulte [copiar dados para ou a partir do Explorador de dados do Azure com o Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Ingestão programática
 
@@ -131,21 +137,27 @@ Para a ingestão de todos os métodos diferentes de ingestão de consulta, forma
 Mapeamento de esquema ajuda a vincular os campos de dados de origem a colunas da tabela de destino.
 
 * [Mapeamento de CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (opcional) funciona com todos os formatos baseados em ordinal. Isso pode ser executado usando o parâmetro de comando de ingestão ou [criados previamente na tabela](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) e referenciado do parâmetro de comando de ingestão.
-* [Mapeamento de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e [Avro mapeamento](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) pode ser efetuado utilizando o parâmetro de comando de ingestão ou [previamente criado na tabela](/azure/kusto/management/tables#create-ingestion-mapping) e referenciado do comando de ingestão parâmetro.
+* [Mapeamento de JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obrigatório) e [Avro mapeamento](/azure/kusto/management/mappings?branch=master#avro-mapping) (obrigatório) pode ser efetuado utilizando o parâmetro de comando de ingestão. Eles também podem ser [criados previamente na tabela](/azure/kusto/management/tables#create-ingestion-mapping) e referenciado do parâmetro de comando de ingestão.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md)
+> [Ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingerir dados do Kafka no Explorador de dados do Azure](ingest-data-kafka.md)
+> [Ingestão de dados com a subscrição do Event Grid no Explorador de dados do Azure](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)
+> [Ingerir dados do Kafka no Explorador de dados do Azure](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingestão de dados usando a biblioteca de nó de Explorador de dados do Azure](node-ingest-data.md)
+> [Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)](net-standard-ingest-data.md)
+> [Ingestão de dados usando a biblioteca de nó de Explorador de dados do Azure](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingestão de dados com o SDK do Azure Data Explorer .NET Standard (pré-visualização)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingestão de dados do Logstash para o Explorador de dados do Azure](ingest-data-logstash.md)

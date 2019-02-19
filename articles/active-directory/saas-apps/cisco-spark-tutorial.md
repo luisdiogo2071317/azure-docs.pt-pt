@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Cisco Spark | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Cisco Spark.
+title: 'Tutorial: Integração do Active Directory do Azure com o Cisco Webex | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87161c79bc58387d97863581675bb49f1e09160f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a1460fba4d6897dfcc6bf40b6e02ab856ffe8456
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191559"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340483"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Tutorial: Integração do Active Directory do Azure com o Cisco Spark
+# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: Integração do Active Directory do Azure com o Cisco Webex
 
-Neste tutorial, saiba como integrar o Cisco Spark no Azure Active Directory (Azure AD).
-Integrar o Cisco Spark no Azure AD fornece as seguintes vantagens:
+Neste tutorial, saiba como integrar o Cisco Webex com o Azure Active Directory (Azure AD).
+Integrar o Cisco Webex no Azure AD fornece as seguintes vantagens:
 
-* Pode controlar no Azure AD que tenha acesso ao Cisco Spark.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada ao Spark Cisco (Single Sign-On) com as suas contas do Azure AD.
+* Pode controlar no Azure AD que tenha acesso ao Cisco Webex.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Cisco Webex (Single Sign-On) com as suas contas do Azure AD.
 * Pode gerir as suas contas num local central – portal do Azure.
 
 Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o Cisco Spark, terá dos seguintes itens:
+Para configurar a integração do Azure AD com o Cisco Webex, terá dos seguintes itens:
 
 * Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Cisco Spark logon único habilitado subscrição
+* Cisco Webex logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-* O Spark Cisco suporta **SP** iniciada SSO
+* Suporta Cisco Webex **SP** iniciada SSO
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Adicionar Cisco Spark a partir da Galeria
+## <a name="adding-cisco-webex-from-the-gallery"></a>Adicionando Cisco Webex da Galeria
 
-Para configurar a integração do Cisco Spark no Azure AD, terá de adicionar Cisco Spark a partir da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do Cisco Webex com o Azure AD, terá de adicionar Cisco Webex a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Cisco Spark a partir da galeria, execute os seguintes passos:**
+**Para adicionar Cisco Webex a partir da galeria, execute os seguintes passos:**
 
 1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
@@ -65,31 +65,31 @@ Para configurar a integração do Cisco Spark no Azure AD, terá de adicionar Ci
 
     ![O novo botão de aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Cisco Spark**, selecione **Cisco Spark** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Cisco Webex**, selecione **Cisco Webex** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![Cisco Spark na lista de resultados](common/search-new-app.png)
+     ![Cisco Webex na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com o Spark Cisco, com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Cisco Spark deve ser estabelecido.
+Nesta secção, configure e teste do Azure AD início de sessão único com o Cisco Webex com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na Cisco Webex deve ser estabelecido.
 
-Para configurar e testar o Azure AD início de sessão único com o Cisco Spark, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com o Cisco Webex, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Cisco Spark início de sessão único](#configure-cisco-spark-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+2. **[Configurar Cisco Webex início de sessão único](#configure-cisco-webex-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste do Cisco Spark](#create-cisco-spark-test-user)**  - para ter um equivalente da Eduarda Almeida no Spark, Cisco que está ligada à representação de utilizador do Azure AD.
+5. **[Criar utilizador de teste do Cisco Webex](#create-cisco-webex-test-user)**  - para ter um equivalente da Eduarda Almeida na Cisco Webex que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
 Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com o Cisco Spark, execute os seguintes passos:
+Para configurar o Azure AD início de sessão único com o Cisco Webex, execute os seguintes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Cisco Spark** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Cisco Webex** página de integração de aplicações, selecione **início de sessão único**.
 
     ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
@@ -103,24 +103,24 @@ Para configurar o Azure AD início de sessão único com o Cisco Spark, execute 
 
 4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    ![Cisco Spark domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
+    ![Cisco Webex domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL como: `https://web.ciscospark.com/#/signin`
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://idbroker.webex.com/<companyname>`
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
-    > Este valor de identificador não é real. Atualize este valor com o identificador real. Contacte [equipa de suporte de cliente do Cisco Spark](https://support.ciscospark.com/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Este valor de identificador não é real. Atualize este valor com o identificador real. Se tiver de metadados do fornecedor de serviço, carregue-o do **configuração básica de SAML** secção, em seguida, o **identificador (ID de entidade)** valor obtém automaticamente preenchido automaticamente.
 
-5. Aplicação de Spark do Cisco espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+5. Aplicação do Cisco Webex espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para adicionar os atributos.
 
     ![image](common/edit-attribute.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+6. Além disso, anteriormente, a aplicação Cisco Webex espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
     
     | Name |  Atributo de origem|
     | ---------------|--------- |
-    | uid | user.userprincipalname |
+    | UID | user.userprincipalname |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -144,7 +144,7 @@ Para configurar o Azure AD início de sessão único com o Cisco Spark, execute 
 
     ![O link de download de certificado](common/metadataxml.png)
 
-8. Sobre o **configurar Cisco Spark** secção, copie os URLs apropriados de acordo com seus requisitos.
+8. Sobre o **configurar Cisco Webex** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
@@ -154,7 +154,7 @@ Para configurar o Azure AD início de sessão único com o Cisco Spark, execute 
 
     c. URL de fim de sessão
 
-### <a name="configure-cisco-spark-single-sign-on"></a>Configurar Cisco Spark início de sessão único
+### <a name="configure-cisco-webex-single-sign-on"></a>Configurar Cisco Webex Single Sign-On
 
 1. Inicie sessão no [gerenciamento de colaboração de nuvem do Cisco](https://admin.ciscospark.com/) com as suas credenciais de administrador completo.
 
@@ -199,15 +199,15 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao Cisco Spark.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para Cisco Webex.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Cisco Spark**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Cisco Webex**.
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Cisco Spark**.
+2. Na lista de aplicações, selecione **Cisco Webex**.
 
-    ![A ligação de Spark do Cisco, na lista de aplicações](common/all-applications.png)
+    ![A ligação de Cisco Webex na lista de aplicações](common/all-applications.png)
 
 3. No menu à esquerda, selecione **utilizadores e grupos**.
 
@@ -223,9 +223,9 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-### <a name="create-cisco-spark-test-user"></a>Criar utilizador de teste do Cisco Spark
+### <a name="create-cisco-webex-test-user"></a>Criar utilizador de teste do Cisco Webex
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Cisco Spark. Nesta secção, vai criar um usuário chamado Eduarda Almeida no Cisco Spark.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida na Cisco Webex. Nesta secção, vai criar um usuário chamado Eduarda Almeida na Cisco Webex.
 
 1. Vá para o [gerenciamento de colaboração de nuvem do Cisco](https://admin.ciscospark.com/) com as suas credenciais de administrador completo.
 
@@ -253,7 +253,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Cisco Spark. Ne
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de Spark do Cisco, no painel de acesso, deve ser automaticamente conectado para o Spark Cisco para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando clica no mosaico de Cisco Webex no painel de acesso, deve ser automaticamente conectado para o Cisco Webex para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

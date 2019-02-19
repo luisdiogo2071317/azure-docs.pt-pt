@@ -1,6 +1,6 @@
 ---
-title: Vista de negar atribuições com o portal do Azure | Documentos da Microsoft
-description: Saiba como ver os utilizadores, grupos, principais de serviço e de identidades geridas que foram negou o acesso a ações específicas num âmbito específico com o portal do Azure.
+title: Vista de negar atribuições para recursos do Azure no portal do Azure | Documentos da Microsoft
+description: Saiba como ver os utilizadores, grupos, principais de serviço e de identidades geridas que quais foi negadas o acesso a ações de recursos do Azure específica num âmbito específico com o portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642810"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343243"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Vista de negar atribuições com o portal do Azure
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Vista de negar atribuições para recursos do Azure no portal do Azure
 
-[Negar atribuições](deny-assignments.md) impedir que os utilizadores a efetuar ações específicas, mesmo se uma atribuição de função lhes concede acesso. Mesmo que não é possível criar o seu próprio negar atribuições, terá de conseguir ver negar atribuições porque eles podem afetar as suas permissões geral. Para obter informações sobre uma atribuição de negação, tem de ter a permissão `Microsoft.Authorization/denyAssignments/read`, que está incluída na maioria das [funções incorporadas](built-in-roles.md).
+[Negar atribuições](deny-assignments.md) impedir que os utilizadores a efetuar ações de recursos do Azure específica, mesmo se uma atribuição de função lhes concede acesso. Mesmo que não é possível criar o seu próprio negar atribuições, terá de conseguir ver negar atribuições porque eles podem afetar as suas permissões geral. Para obter informações sobre uma atribuição de negar, tem de ter o `Microsoft.Authorization/denyAssignments/read` permissão, o que está incluído na maioria [funções incorporadas para recursos do Azure](built-in-roles.md).
 
 Este artigo descreve como utilizar o portal do Azure para ver as atribuições de negação.
 
@@ -89,7 +89,7 @@ Siga estes passos para ver detalhes adicionais sobre uma atribuição de negaç�
     | Tipo de ação | Descrição |
     | --- | --- |
     | **Ações**  | Negado operações de gestão. |
-    | **notActions** | Operações de gestão excluídas da operação de gestão negado. |
+    | **NotActions** | Operações de gestão excluídas da operação de gestão negado. |
     | **DataActions**  | Negado operações de dados. |
     | **NotDataActions** | Operações de dados excluídas negado a operação de dados. |
 
@@ -105,5 +105,5 @@ Siga estes passos para ver detalhes adicionais sobre uma atribuição de negaç�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Compreender as atribuições de negação](deny-assignments.md)
-* [Lista negar atribuições com o RBAC e a API REST](deny-assignments-rest.md)
+* [Compreender negar atribuições para recursos do Azure](deny-assignments.md)
+* [Lista de atribuições para recursos do Azure com a API REST de negação](deny-assignments-rest.md)

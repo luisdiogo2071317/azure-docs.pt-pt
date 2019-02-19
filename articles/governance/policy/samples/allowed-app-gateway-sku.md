@@ -1,6 +1,6 @@
 ---
 title: Exemplo - permitido SKUs de gateway de aplicação
-description: Esta política de exemplo requer que os gateways de aplicação utilizem um SKU aprovado.
+description: Esta definição de política de exemplo requer que os gateways de aplicação usar um SKU de aprovados.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: db38c51a936b475b26b607cf873b25e46b894e25
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8bc1d9fc7622b4fad68b26836ce1ff3b96e02885
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242095"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343430"
 ---
-# <a name="allowed-application-gateway-skus"></a>SKUs de gateways de aplicação permitidos
+# <a name="sample---allowed-application-gateway-skus"></a>Exemplo - permitido SKUs de gateway de aplicação
 
 Esta política requer que os gateways de aplicação utilizem um SKU aprovado. Especifica uma matriz de SKUs aprovados.
 

@@ -1,6 +1,6 @@
 ---
 title: Exemplo - auditoria se a extensão não existe
-description: Esta política de exemplo faz uma auditoria se uma extensão não estiver implementada numa máquina virtual.
+description: Esta definição de política de exemplo audita se uma extensão não é implementada com uma máquina virtual.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7e5f396bb4acfdef0d49d38019b6c4d19661d9ae
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0c0f41c01d33add81508d828259ddcdd48d0cbc8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244186"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340880"
 ---
-# <a name="audit-if-extension-does-not-exist"></a>Auditar se a extensão não existir
+# <a name="sample---audit-if-extension-does-not-exist"></a>Exemplo - auditoria se a extensão não existe
 
 Esta política faz uma auditoria se uma extensão não estiver implementada numa máquina virtual. Especifica o publicador da extensão e o tipo para verificar se foi implementada.
 

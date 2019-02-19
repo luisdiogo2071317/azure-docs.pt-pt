@@ -1,5 +1,5 @@
 ---
-title: Criar uma política para identificar recursos incompatíveis com o Azure PowerShell
+title: Criar uma política para recursos não compatíveis com o Azure PowerShell
 description: Utilize o Azure PowerShell para criar uma atribuição de política do Azure para identificar recursos incompatíveis.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b5f4306fc1627e679f8f59a92bae4124a48cbd42
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: de8192ee0f0dad1ccc385aa28892a3ef4f5c4a86
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856473"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338738"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Criar uma atribuição de política para identificar recursos incompatíveis com o Azure PowerShell
 
@@ -72,7 +72,7 @@ Para obter mais informações sobre IDs de atribuição de política, consulte [
 
 Em seguida, execute o seguinte comando para obter os ID dos recursos que não estão em conformidade produzidos num ficheiro de JSON:
 
-```
+```console
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 

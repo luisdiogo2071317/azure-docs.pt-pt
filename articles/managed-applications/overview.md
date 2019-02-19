@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800949"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341960"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
@@ -41,7 +41,7 @@ Pode publicar a sua aplicação gerida externa ou internamente.
 
 ### <a name="service-catalog"></a>Catálogo de serviços
 
-O catálogo de serviços é um catálogo interno de soluções aprovadas para os utilizadores de uma organização. Utiliza o catálogo para cumprir as normas da organização, ao mesmo tempo que disponibiliza soluções para a organização. Os funcionários utilizam o catálogo para localizar facilmente aplicações que são recomendadas e aprovadas pelos departamentos de TI. Veem as aplicações geridas que as outras pessoas da organização partilham com eles.
+O catálogo de serviços é um catálogo interno de soluções aprovadas para os utilizadores de uma organização. Utilize o catálogo para cumprir as normas da organização, ao mesmo tempo que disponibiliza soluções para a organização. Os funcionários utilizam o catálogo para localizar facilmente aplicações que são recomendadas e aprovadas pelos departamentos de TI. Veem as aplicações geridas que as outras pessoas da organização partilham com eles.
 
 Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar uma aplicação do Catálogo de Serviços](publish-service-catalog-app.md).
 
@@ -55,7 +55,7 @@ Para obter informações sobre a publicação de aplicações geridas no Marketp
 
 Normalmente, os recursos das aplicações geridas residirem em dois grupos de recursos. O consumidor gere um grupo de recursos e o editor gere o outro. Ao definir a aplicação gerida, o editor especifica os níveis de acesso. A restrição do acesso das [operações de dados](../role-based-access-control/role-definitions.md) não é atualmente suportada para todos os fornecedores de dados no Azure.
 
-A imagem seguinte mostra um cenário em que o editor pede a função de proprietário para o grupo de recursos gerido. O editor aplicou um bloqueio de só de leitura neste grupo de recursos para o consumidor. As identidades do publicador que têm acesso ao grupo de recursos gerido estão isentas do bloqueio.
+A imagem seguinte mostra um cenário em que o editor pede a função de proprietário para o grupo de recursos gerido. O editor aplicou um bloqueio de só de leitura neste grupo de recursos para o consumidor. As identidades do editor que têm acesso ao grupo de recursos gerido estão isentas do bloqueio.
 
 ![Acesso ao grupo de recursos](./media/overview/access.png)
 
@@ -73,11 +73,11 @@ Quando o consumidor elimina a aplicação gerida, o grupo de recursos gerido tam
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Pode aplicar uma [Azure Policy](../azure-policy/azure-policy-introduction.md) à sua aplicação gerida. Aplique políticas para garantir que as instâncias implementadas da sua aplicação gerida cumprem os requisitos de dados e segurança. Se a sua aplicação interagir com dados confidenciais, confirme que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com dados do Office 365, aplique uma política para garantir que a encriptação de dados está ativada.
+Pode aplicar uma [Azure Policy](../governance/policy/overview.md) à sua aplicação gerida. Aplique políticas para garantir que as instâncias implementadas da sua aplicação gerida cumprem os requisitos de dados e segurança. Se a sua aplicação interagir com dados confidenciais, confirme que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com dados do Office 365, aplique uma política para garantir que a encriptação de dados está ativada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre os benefícios da utilização de aplicações geridas. Aceda ao artigo seguinte para criar uma definição da aplicação gerida.
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Publicar uma definição de uma aplicação gerida do Azure](publish-managed-app-definition-quickstart.md)
+> [Quickstart: Publicar um Azure definição da aplicação gerida](publish-managed-app-definition-quickstart.md)

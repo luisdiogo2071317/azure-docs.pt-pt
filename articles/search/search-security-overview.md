@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 02/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c0f824e2be0215192ca4ca1a722e814cbf299b7a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311716"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342427"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Dados de segurança e privacidade no Azure Search
 
@@ -60,14 +60,16 @@ Todos os serviços do Azure suportam controlos de acesso baseado em funções (R
 
 ## <a name="service-access-and-authentication"></a>Autenticação e acesso de serviço
 
-Enquanto o Azure Search herda as salvaguardas de segurança da plataforma do Azure, também fornece sua própria autenticação baseada em chave. Uma chave de api é uma cadeia de caracteres composta por letras e números gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. Envio de uma chave válida é considerado uma prova do pedido provém de uma entidade fidedigna. Dois tipos de chaves são utilizados para aceder ao seu serviço de pesquisa:
+Enquanto o Azure Search herda as salvaguardas de segurança da plataforma do Azure, também fornece sua própria autenticação baseada em chave. Uma chave de api é uma cadeia de caracteres composta por letras e números gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. Envio de uma chave válida é considerado uma prova do pedido provém de uma entidade fidedigna. 
 
-* Administração (válida por qualquer operação de leitura / escrita para o serviço)
-* Consulta (válida para operações só de leitura, como consultas em relação a um índice)
+Existem dois níveis de acesso ao seu serviço de pesquisa, ativado por dois tipos de chaves:
 
-Chaves de administração são criadas quando o serviço é aprovisionado. Existem duas chaves de administração, designadas como *primário* e *secundário* para mantê-los diretamente, mas na verdade eles são intercambiáveis. Cada serviço tem duas chaves administrativas para que pode implementá-um sem perderem o acesso ao seu serviço. Pode voltar a gerar a chave de administrador, mas não é possível adicionar a contagem de chave de administrador total. Há um máximo de duas chaves de administração por serviço de pesquisa.
+* Acesso de administrador (válido por qualquer operação de leitura / escrita para o serviço)
+* Acesso de consulta (válido para operações só de leitura, como consultas em relação a um índice)
 
-Chaves de consulta são criadas conforme necessário e foram concebidas para as aplicações de cliente que chamam diretamente a pesquisa. Pode criar até 50 chaves de consulta. No código da aplicação, especifique o URL de pesquisa e uma chave de api de consulta para permitir o acesso só de leitura para o serviço. O código da aplicação também especifica o índice utilizado pela sua aplicação. Juntos, o ponto final, uma chave de api para acesso só de leitura e um índice de destino definem o nível de acesso e o âmbito da ligação da sua aplicação de cliente.
+*Chaves de administração* são criadas quando o serviço é aprovisionado. Existem duas chaves de administração, designadas como *primário* e *secundário* para mantê-los diretamente, mas na verdade eles são intercambiáveis. Cada serviço tem duas chaves administrativas para que pode implementá-um sem perderem o acesso ao seu serviço. Pode voltar a gerar a chave de administrador, mas não é possível adicionar a contagem de chave de administrador total. Há um máximo de duas chaves de administração por serviço de pesquisa.
+
+*Chaves de consulta* são criadas conforme necessário e foram projetados para aplicativos de cliente que chamam diretamente a pesquisa. Pode criar até 50 chaves de consulta. No código da aplicação, especifique o URL de pesquisa e uma chave de api de consulta para permitir o acesso só de leitura para o serviço. O código da aplicação também especifica o índice utilizado pela sua aplicação. Juntos, o ponto final, uma chave de api para acesso só de leitura e um índice de destino definem o nível de acesso e o âmbito da ligação da sua aplicação de cliente.
 
 Autenticação é necessária em cada pedido, em que cada solicitação é composta por uma chave obrigatória, uma operação e um objeto. Quando encadeadas, os dois níveis de permissão (completos ou somente leitura) e o contexto (por exemplo, uma operação de consulta num índice) é suficiente para fornecer segurança de espectro completo sobre as operações de serviço. Para obter mais informações sobre chaves, consulte [criar e gerir as chaves de api](search-security-api-keys.md).
 
@@ -93,7 +95,9 @@ Para obter informações sobre a estruturação de um pedido no Azure Search, co
 
 ## <a name="user-access-to-index-content"></a>Acesso de utilizador para indexar conteúdo
 
-Acesso por utilizador para o conteúdo de um índice é implementado por meio de filtros de segurança em suas consultas, retornando documentos associados com uma identidade de segurança especificado. Em vez de funções predefinidas e as atribuições de funções, controle de acesso com base na identidade é implementado como um filtro que torta pesquisa resultados de documentos e conteúdo com base em identidades. A tabela seguinte descreve as duas abordagens para os resultados da pesquisa de remoção de conteúdo não autorizado.
+Por predefinição, o acesso de utilizador para um índice é determinado pela chave de acesso na solicitação de consulta. A maioria dos desenvolvedores criar e atribuir [ *chaves de consulta* ](search-security-api-keys.md) para pedidos de pesquisa do lado do cliente. Uma chave de consulta concede acesso de leitura a todos os conteúdos no índice.
+
+Se necessitar de granular, por utilizador controlo sobre o conteúdo, pode criar filtros de segurança em suas consultas, retornando documentos associados com uma identidade de segurança especificado. Em vez de funções predefinidas e as atribuições de funções, controle de acesso com base na identidade é implementado como um *filtro* que torta os resultados de documentos e conteúdo da pesquisa com base em identidades. A tabela seguinte descreve as duas abordagens para os resultados da pesquisa de remoção de conteúdo não autorizado.
 
 | Abordagem | Descrição |
 |----------|-------------|

@@ -1,6 +1,6 @@
 ---
 title: Criar um plano gráfico com a REST API
-description: Utilize o Azure Blueprints para criar, definir e implementar artefactos.
+description: Utilize planos gráficos do Azure para criar, definir e implementar artefactos com a API REST.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989971"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338432"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -394,7 +394,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-   - Atribuído ao utilizador a identidade gerida
+   - Identidade gerida atribuída pelo utilizador
 
      Uma atribuição do esquema também pode utilizar um [atribuído ao utilizador a identidade gerida](../../active-directory/managed-identities-azure-resources/overview.md). Neste caso, o **identidade** parte do corpo do pedido é alterado da seguinte forma.  Substitua `{yourRG}` e `{userIdentity}` com seu recurso agrupar nome e o nome da sua identidade gerida atribuído ao utilizador, respectivamente.
 

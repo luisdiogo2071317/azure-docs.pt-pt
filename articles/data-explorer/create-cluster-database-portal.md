@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer'
+title: 'Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados'
 description: Neste início rápido, aprenderá a criar um cluster e uma base de dados do Azure Data Explorer, e dados para ingerir (carregar).
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214822"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408838"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para utilizar o Azure Data Explorer, primeiro crie um *cluster* e crie uma ou mais *bases de dados* nesse cluster. Em seguida, *ingira* (carregue) os dados para uma base de dados, de modo a poder executar consultas neles. Neste início rápido, irá criar um cluster e uma base de dados. Nos artigos subsequentes, vamos mostrar-lhe como ingerir dados.
 
@@ -77,8 +77,8 @@ Está agora pronto para o segundo passo do processo: a criação da base de dado
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome da base de dados | *TestDatabase* | O nome da base de dados tem de ser exclusivo dentro do cluster.
-    | Período de retenção | *3650* | O intervalo de tempo no qual é garantido que os dados são mantidos disponíveis para consulta. O intervalo de tempo é medido desde o momento em que os dados são ingeridos.
-    | Período de colocação em cache | *31* | O intervalo de tempo no qual se devem manter os dados consultados frequentemente disponíveis em armazenamento SSD ou RAM, em vez de num armazenamento a longo prazo.
+    | Período de retenção | *3650* | O intervalo de tempo (em dias) para o qual é garantido que os dados são mantidos disponíveis para consulta. O intervalo de tempo é medido desde o momento em que os dados são ingeridos.
+    | Período de colocação em cache | *31* | O tempo de span (em dias) para o qual a manter o frequentemente consultado dados disponíveis no armazenamento SSD ou RAM, em vez de no armazenamento de longo prazo.
     | | | |
 
 1. Selecione **Guardar** para criar a base de dados. Normalmente, a criação demora menos de um minuto. Quando o processo estiver concluído, volta ao separador **Descrição Geral** do cluster.
@@ -127,9 +127,9 @@ Se tenciona seguir os nossos inícios rápidos e tutoriais, mantenha os recursos
 
 1. Na nova janela, escreva o nome do grupo de recursos a eliminar (*test-resource-group*) e, em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Início Rápido: ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
+> [Quickstart: Ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md)
 
 

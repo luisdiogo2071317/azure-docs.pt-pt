@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005527"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342988"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como o trabalho de alertas de métrica no Azure Monitor
 
-Alertas de métricas no Azure Monitor trabalham no topo de métricas multidimensionais. Estas métricas podem ser métricas de plataforma, [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [registos populares do Azure Monitor convertido em métricas](../../azure-monitor/platform/alerts-metric-logs.md), métricas padrão do Application Insights. Alertas de métricas avaliar em intervalos regulares para verificar se a condições de métrica de um ou mais séries de tempo são verdadeiros e notificá-lo quando são cumpridas das avaliações. Alertas de métricas com monitoração de estado, ou seja, eles apenas enviam notificações quando o estado é alterado.
+Alertas de métricas no Azure Monitor trabalham no topo de métricas multidimensionais. Estas métricas podem ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [registos populares do Azure Monitor convertido em métricas](../../azure-monitor/platform/alerts-metric-logs.md) e métricas do Application Insights. Alertas de métricas avaliar em intervalos regulares para verificar se a condições de métrica de um ou mais séries de tempo são verdadeiros e notificá-lo quando são cumpridas das avaliações. Alertas de métricas com monitoração de estado, ou seja, eles apenas enviam notificações quando o estado é alterado.
 
 ## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas de métricas?
 
@@ -65,8 +65,6 @@ Digamos que a utilização no "myVM" continua a estar acima do limiar em verific
 Após algum tempo, se a utilização no "myVM" volta e para baixo para normal ou seja, fica abaixo do limiar. A regra de alerta monitoriza a condição para mais duas vezes, para enviar uma notificação resolvido. A regra de alerta envia uma mensagem resolvido/desativada quando a condição do alerta não for cumprida para três pontos finais consecutivos reduzir o ruído em caso de em oscilação condições.
 
 Como a notificação resolvida é enviada através de webhooks ou e-mail, o estado da instância do alerta (chamado de estado do monitor) no portal do Azure é também definido como resolvido.
-
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitorização em escala com alertas de métricas no Azure Monitor
 
 ### <a name="using-dimensions"></a>Usando dimensões
 
@@ -123,9 +121,9 @@ Esta regra monitoriza se a utilização média da CPU nos últimos 5 minutos exc
 
 Aumentar a períodos de repetição de aparência e o número de violações de também pode permitir a filtragem de alertas para apenas o alerta em sua definição de um desvio significativo. [Saiba mais sobre opções avançadas de limiares dinâmicos](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Monitoramento de vários recursos com alertas de métricas
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Monitorização em escala com alertas de métricas no Azure Monitor
 
-Como já foi mencionado na secção anterior, é possível ter uma única regra de alerta métrica que monitoriza cada combinação de dimensão individuais (ou seja uma série de tempo de métrica). Anteriormente, mas continua a ser limitada para fazê-lo um recurso de cada vez. Monitor do Azure também suporta a monitorização de vários recursos com uma regra de alerta de métrica. Esta funcionalidade é atualmente suportadas apenas em máquinas de virtuais e de pré-visualização. Além disso, um alerta de métrica único pode monitorizar os recursos numa região do Azure.
+Até agora, viu como um alerta de métrica único poderia ser usado para monitorar a métrica de uma ou mais séries de tempo relacionado com um único recurso do Azure. Muitas vezes, é aconselhável a mesma regra de alerta aplicada a muitos recursos. Monitor do Azure também suporta a monitorização de vários recursos com uma regra de alerta de métrica. Esta funcionalidade é atualmente suportada apenas em máquinas virtuais. Além disso, um alerta de métrica único pode monitorizar os recursos numa região do Azure.
 
 Pode especificar o âmbito da monitorização, um alerta de métrica único de uma das três formas:
 
@@ -133,7 +131,7 @@ Pode especificar o âmbito da monitorização, um alerta de métrica único de u
 - todas as máquinas virtuais (numa região do Azure) num ou mais grupos de recursos numa subscrição
 - todas as máquinas virtuais (numa região do Azure) numa subscrição
 
-Criação de regras de alerta de métrica que monitorizam os vários recursos não é atualmente suportada através do portal do Azure. Pode criar estas regras através de [modelos Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Receberá notificações individuais para cada máquina virtual.
+A criação de regras de alerta de métrica que monitorizam os vários recursos é como [criar qualquer alerta de métrica](alerts-metric.md) que monitoriza um único recurso. Apenas a diferença é que deve selecionar todos os recursos que pretende monitorizar. Também pode criar estas regras através de [modelos Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). Receberá notificações individuais para cada máquina virtual.
 
 ## <a name="typical-latency"></a>Latência típica
 
@@ -149,7 +147,7 @@ Se estiver a utilizam atualmente os alertas de métricas clássicas e estiver à
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | Sim |
 | Microsoft.Batch/batchAccounts| Sim|
-|Microsoft.Cache/redis| Sim
+|Microsoft.Cache/redis| Sim |
 |Microsoft.ClassicCompute/virtualMachines | Não |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Não|
 |Microsoft.CognitiveServices/accounts | Não |
@@ -160,7 +158,7 @@ Se estiver a utilizam atualmente os alertas de métricas clássicas e estiver à
 |Microsoft.DBforMySQL/servers| Sim|
 |Microsoft.DBforPostgreSQL/servers| Sim|
 |Microsoft.Devices/IotHubs | Não|
-|Microsoft.DocumentDB/databaseAccounts| Não|
+|Microsoft.DocumentDB/databaseAccounts| Sim|
 |Microsoft.EventHub/namespaces | Sim|
 |Microsoft.Logic/workflows | Sim|
 |Microsoft.Network/loadBalancers |Sim|
@@ -168,16 +166,16 @@ Se estiver a utilizam atualmente os alertas de métricas clássicas e estiver à
 |Microsoft.Network/applicationGateways| Sim|
 |Microsoft.Network/expressRouteCircuits| Sim|
 |Microsoft.Network/trafficManagerProfiles | Sim|
-|Microsoft.Search/searchServices | Não|
-|Microsoft.ServiceBus/namespaces| Não|
+|Microsoft.Search/searchServices | Sim|
+|Microsoft.ServiceBus/namespaces| Sim |
 |Microsoft.Storage/storageAccounts | Sim|
 |Microsoft.StreamAnalytics/streamingjobs| Sim|
 |Microsoft.TimeSeriesInsights/environments | Sim|
 |Microsoft. Web/serverfarms | Sim |
 |Microsoft. / Sites da Web (excluindo as funções) | Sim|
 |Microsoft. Web/hostingEnvironments/multiRolePools | Não|
-|Microsoft. Web/hostingEnvironments/workerPools| Não
-|Microsoft.SQL/Servers | Não|
+|Microsoft. Web/hostingEnvironments/workerPools| Não |
+|Microsoft.SQL/Servers | Não |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

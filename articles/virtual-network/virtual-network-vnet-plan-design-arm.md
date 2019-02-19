@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820798"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339521"
 ---
 # <a name="plan-virtual-networks"></a>Planear as redes virtuais
 
@@ -113,7 +113,7 @@ Utiliza o Azure [controlo de acesso baseado em funções](../role-based-access-c
 
 O Azure Policy permite-lhe criar, atribuir e gerir definições de política. Definições de política impõem diferentes regras aos recursos, para que os recursos esteja em conformidade com os seus padrões organizacionais e contratos de nível de serviço. O Azure Policy realiza uma avaliação dos seus recursos, a análise de recursos que não estão em conformidade com as definições de política que existentes. Por exemplo, pode definir e aplicar uma política que permite a criação de redes virtuais em apenas um grupo de recursos específico ou a região. Outra política pode exigir que todas as sub-redes tem um grupo de segurança de rede associado à mesma. As políticas, em seguida, são avaliadas quando cria e atualiza recursos.
 
-As políticas são aplicadas para a hierarquia seguinte: Subscrição, o grupo de gestão e o grupo de recursos. Saiba mais sobre [o Azure policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implementar alguma rede virtual [modelo de política](policy-samples.md) exemplos.
+As políticas são aplicadas para a hierarquia seguinte: Subscrição, o grupo de gestão e o grupo de recursos. Saiba mais sobre [o Azure policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implementar alguma rede virtual [modelo de política](policy-samples.md) exemplos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

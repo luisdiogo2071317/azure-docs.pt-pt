@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5049a5a829ce8e94b62409c9d3b1439e8431fb1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 3274d753d33c759efa06b899a5511daf53aa9ec9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101200"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338653"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássica do Azure
 
-A Microsoft recomenda que gerencie o acesso a recursos através de controlo de acesso baseado em funções (RBAC). No entanto, se ainda estiver a utilizar o modelo de implementação clássica, terá de utilizar uma função de administrador de subscrição clássica: Administrador de serviços e Coadministrador. Para obter mais informações, consulte [vs. de implementação clássica do Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
+A Microsoft recomenda que gerencie o acesso aos recursos do Azure com o controlo de acesso baseado em funções (RBAC). No entanto, se ainda estiver a utilizar o modelo de implementação clássica, terá de utilizar uma função de administrador de subscrição clássica: Administrador de serviços e Coadministrador. Para obter mais informações, consulte [vs. de implementação clássica do Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Este artigo descreve como adicionar ou alterar as funções de Coadministrador e administrador de serviços e como visualizar o administrador de conta.
 
@@ -155,4 +155,4 @@ Siga estes passos para ver o administrador de conta.
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Compreender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Gerir o acesso através do RBAC e do portal do Azure](../role-based-access-control/role-assignments-portal.md)
+* [Gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md)

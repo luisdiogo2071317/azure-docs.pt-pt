@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435315"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342928"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Utilize C# com o MapReduce de transmissão em fluxo no Apache Hadoop no HDInsight
 
@@ -175,7 +175,13 @@ Depois de criar a aplicação, crie-o para produzir o `/bin/Debug/reducer.exe` f
 
 2. Utilize um dos seguintes comandos para iniciar a tarefa de MapReduce:
 
-    * Se utilizar __armazenamento do Data Lake__ como armazenamento predefinido:
+    * Se utilizar __geração 2 de armazenamento do Data Lake__ como armazenamento predefinido:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * Se utilizar __geração 1 de armazenamento do Data Lake__ como armazenamento predefinido:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ Depois de criar a aplicação, crie-o para produzir o `/bin/Debug/reducer.exe` f
     A lista seguinte descreve o que faz cada parâmetro:
 
     * `hadoop-streaming.jar`: O ficheiro jar que contém a funcionalidade de MapReduce de transmissão em fluxo.
-    * `-files`: Adiciona os `mapper.exe` e `reducer.exe` ficheiros para esta tarefa. O `adl:///` ou `wasb:///` antes de cada arquivo é o caminho para a raiz do armazenamento de predefinido para o cluster.
+    * `-files`: Adiciona os `mapper.exe` e `reducer.exe` ficheiros para esta tarefa. O `abfs:///`,`adl:///` ou `wasb:///` antes de cada arquivo é o caminho para a raiz do armazenamento de predefinido para o cluster.
     * `-mapper`: Especifica qual arquivo implementa o mapeador de pontos.
     * `-reducer`: Especifica qual arquivo implementa a reducer.
     * `-input`: Os dados de entrada.

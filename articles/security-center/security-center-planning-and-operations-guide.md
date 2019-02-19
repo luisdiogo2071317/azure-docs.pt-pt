@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1532c863a7906e7f3c1e0bc98d2080513263b9f8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7419baf99e4c508806361b408968dbf851a7f76c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105099"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343328"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança de informações e administradores de nuvem cujas organizações estejam a planear utilizar o Centro de Segurança do Azure.
@@ -126,7 +126,7 @@ As políticas de segurança definem a configuração pretendida para as suas car
 
 As políticas do Centro de Segurança contêm os componentes seguintes:
 - [Recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): aprovisionamento de agente e definições de recolha de dados.
-- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): um [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) que determina que controlos são monitorizados e recomendados pelo centro de segurança ou da utilização do Azure Policy para criar definições novas, definir políticas adicionais e atribuir políticas vários grupos de gestão.
+- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): um [Azure Policy](../governance/policy/overview.md) que determina que controlos são monitorizados e recomendados pelo centro de segurança ou da utilização do Azure Policy para criar definições novas, definir políticas adicionais e atribuir políticas vários grupos de gestão.
 - [Notificações por e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contactos de segurança e definições de notificação.
 - [Escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing): seleção de preço gratuito ou standard, que determina quais as funcionalidades do Centro de Segurança que estão disponíveis para os recursos no âmbito (pode ser especificado para subscrições, grupos de recursos e áreas de trabalho).
 

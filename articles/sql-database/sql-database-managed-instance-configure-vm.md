@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 02/18/2019
+ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410070"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408804"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: Configurar a VM do Azure para ligar a uma instância de gerida de base de dados do Azure SQL
 
@@ -97,7 +97,8 @@ Uma vez que a instância gerida SQL é colocada na sua rede Virtual privada, tem
 4. Selecione **Compra** para implementar a VM do Azure na sua rede.
 5. Selecione o **notificações** ícone para ver o estado da implementação.
 
-Não continue até que seja criada a máquina virtual do Azure. 
+> [!IMPORTANT]
+> Não continue até cerca de 15 minutos, depois da máquina virtual é criada para dar tempo para os scripts de pós-criação instalar o SQL Server Management Studio.
 
 ## <a name="connect-to-virtual-machine"></a>Conectar à máquina virtual
 

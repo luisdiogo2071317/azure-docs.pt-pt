@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccb593e198e4dff8f30bddfe26071523ea7a893d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a160c604050f567f3fc0f77ca20a22349f07fd9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179234"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Active Directory do Azure com o Adobe Creative Cloud
 
@@ -45,7 +45,7 @@ Para configurar a integração do Azure AD com o Adobe Creative Cloud, terá dos
 
 Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-* Adobe Creative Cloud suporta **SP e IDP** iniciada SSO
+* Adobe Creative Cloud suporta **SP** iniciada SSO
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Adicionar o Adobe Creative Cloud a partir da Galeria
 
@@ -67,7 +67,7 @@ Para configurar a integração do Adobe Creative Cloud no Azure AD, terá de adi
 
 4. Na caixa de pesquisa, escreva **Adobe Creative Cloud**, selecione **Adobe Creative Cloud** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![Adobe Creative Cloud na lista de resultados](common/search-new-app.png)
+    ![Adobe Creative Cloud na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -101,29 +101,23 @@ Para configurar o Azure AD início de sessão único com o Adobe Creative Cloud,
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, se pretender configurar no **IDP** intiated modo execute os seguintes passos:
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    ![Adobe Creative Cloud domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
+    ![Adobe Creative Cloud domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://www.okta.com/saml2/service-provider/<token>`
+    a. Na **URL de início de sessão** texto, escreva o valor como: `https://adobe.com`.
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, o URL de resposta. Contacte [equipa de suporte de cliente do Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor do identificador não é real. Atualize este valor com o identificador real. Contacte [equipa de suporte de cliente do Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) para obter este valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
-
-    Na **URL de início de sessão** texto, escreva o valor como: `https://adobe.com`.
-
-    ![Adobe Creative Cloud domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
-
-6. Aplicação do Adobe Creative Cloud espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+5. Aplicação do Adobe Creative Cloud espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 
-7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
- 
+6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+
     | Name | Atributo de origem|
     |----- | --------- |
     | FirstName | user.givenname |
@@ -151,11 +145,11 @@ Para configurar o Azure AD início de sessão único com o Adobe Creative Cloud,
     > [!NOTE]
     > Os utilizadores tem de ter uma licença válida do ExO do Office 365 para e-mail valor deve ser preenchida na resposta SAML da afirmação.
 
-8. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
     ![O link de download de certificado](common/certificatebase64.png)
 
-9. Sobre o **configurar o Adobe Creative Cloud** secção, copie os URLs apropriados de acordo com seus requisitos.
+8. Sobre o **configurar o Adobe Creative Cloud** secção, copie os URLs apropriados de acordo com seus requisitos.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 

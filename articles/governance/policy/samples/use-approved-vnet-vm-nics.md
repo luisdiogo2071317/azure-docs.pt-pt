@@ -1,6 +1,6 @@
 ---
 title: Exemplo - uso aprovado vNet para interfaces de rede VM
-description: Esta política de exemplo requer que as interfaces de rede utilizem uma rede virtual aprovada.
+description: Esta definição de política de exemplo requer que as interfaces de rede utilizam uma rede virtual aprovada.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 812ba3e5b8be19230f0a51820b28b279ede4a064
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 107074f6c173b33ce485aaaecf61ec50fb0d428b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243166"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341136"
 ---
-# <a name="use-approved-vnet-for-vm-network-interfaces"></a>Utilizar vNet aprovada para interfaces de rede de VM
+# <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>Exemplo - uso aprovado vNet para interfaces de rede VM
 
 Esta política requer que as interfaces de rede utilizem uma rede virtual aprovada. Especifica o ID da rede virtual aprovada.
 

@@ -15,20 +15,22 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c49e521e9bf7e04eeda47c6b27c0b63cca653006
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699268"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340857"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
-[Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
 
-As funções incorporadas estão sempre a evoluir. Para obter as definições de função mais recentes, utilize [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list).
+[Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias funções incorporadas para recursos do Azure que pode atribuir aos utilizadores, grupos, os principais de serviço e identidades geridas. Atribuições de funções são a forma de controlar o acesso aos recursos do Azure. Se as funções incorporadas não atenderem às necessidades específicas da sua organização, pode criar a sua própria [funções personalizadas para recursos do Azure](custom-roles.md).
+
+Este artigo lista as funções incorporadas para recursos do Azure, que estão sempre a evoluir. Para obter as funções mais recente, utilize [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list). Se estiver procurando por funções de administrador do Azure Active Directory, veja [permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="built-in-role-descriptions"></a>Descrições de função incorporada
-A tabela seguinte fornece breves descrições das funções incorporadas. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions`, e `NotDataActions` para cada função.
+
+A tabela seguinte fornece uma breve descrição de cada função incorporada. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions`, e `NotDataActions` para cada função. Para obter informações sobre o que significa que estas ações e como eles se aplicam para os planos de gestão e os dados, consulte [compreender as definições de funções para recursos do Azure](role-definitions.md).
 
 
 | Função incorporada | Descrição |
@@ -139,6 +141,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | **Ações** |  |
 > | * | Criar e gerir recursos de todos os tipos |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="contributor"></a>Contribuinte
 > [!div class="mx-tableFixed"]
@@ -154,6 +162,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/elevateAccess/Action | Garante ao chamador Administrador de Acesso dos Utilizadores acesso ao âmbito do inquilino |
 > | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar artefactos de esquema |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Eliminar quaisquer artefactos de esquema |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="reader"></a>Leitor
 > [!div class="mx-tableFixed"]
@@ -163,6 +175,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Ações** |  |
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="acrimagesigner"></a>AcrImageSigner
 > [!div class="mx-tableFixed"]
@@ -172,6 +190,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Ações** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull metadados de confiança de conteúdo para um registo de contentor. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="acrpull"></a>AcrPull
 > [!div class="mx-tableFixed"]
@@ -181,6 +205,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | **Ações** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Solicitar ou obter imagens a partir de um registo de contentor. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="acrpush"></a>AcrPush
 > [!div class="mx-tableFixed"]
@@ -191,6 +221,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Solicitar ou obter imagens a partir de um registo de contentor. |
 > | Microsoft.ContainerRegistry/registries/push/write | Push ou escrever as imagens para um registo de contentor. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -200,6 +236,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Ações** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Solicitar ou obter imagens em quarentena do container registry |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -210,6 +252,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Solicitar ou obter imagens em quarentena do container registry |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Escrita/modificar o estado de quarentena de imagens em quarentena |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="api-management-service-contributor"></a>Contribuinte de Serviços de Gestão de API
 > [!div class="mx-tableFixed"]
@@ -225,6 +273,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="api-management-service-operator-role"></a>Função de Operador de Serviço de Gestão de API
 > [!div class="mx-tableFixed"]
@@ -250,6 +304,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obter lista de chaves de utilizador |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="api-management-service-reader-role"></a>Função do Leitor do Serviço de Gestão de API do Serviço de Gestão de API
 > [!div class="mx-tableFixed"]
@@ -268,6 +326,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Obter lista de chaves de utilizador |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="application-insights-component-contributor"></a>Contribuinte de Componentes do Application Insights
 > [!div class="mx-tableFixed"]
@@ -284,6 +346,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="application-insights-snapshot-debugger"></a>Snapshot Debugger do Application Insights
 > [!div class="mx-tableFixed"]
@@ -298,6 +366,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="automation-job-operator"></a>Operador de Tarefas de Automatização
 > [!div class="mx-tableFixed"]
@@ -319,6 +393,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="automation-operator"></a>Operador de Automatização
 > [!div class="mx-tableFixed"]
@@ -348,6 +428,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Obtém o resultado de uma tarefa |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="automation-runbook-operator"></a>Operador de Runbook de Automatização
 > [!div class="mx-tableFixed"]
@@ -362,6 +448,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Função de Administrador do Cluster do Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -371,6 +463,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Ações** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial clusterAdmin de um cluster gerido |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Função de Utilizador do Cluster do Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
@@ -380,6 +478,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Ações** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial clusterUser de um cluster gerido |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="azure-stack-registration-owner"></a>Proprietário do Registo do Azure Stack
 > [!div class="mx-tableFixed"]
@@ -391,6 +495,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Obtém estendido detalhes para um produto do Azure Stack Marketplace |
 > | Microsoft.AzureStack/registrations/products/read | Obtém as propriedades de um produto do Azure Stack Marketplace |
 > | Microsoft.AzureStack/registrations/read | Obtém as propriedades de um registo do Azure Stack |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="backup-contributor"></a>Contribuidor de Cópia de Segurança
 > [!div class="mx-tableFixed"]
@@ -442,6 +552,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o estado da operação a uma determinada operação |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista de todos os objetivos de proteção de cópia de segurança |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="backup-operator"></a>Operador de Cópia de Segurança
 > [!div class="mx-tableFixed"]
@@ -508,6 +624,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o estado da operação a uma determinada operação |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista de todos os objetivos de proteção de cópia de segurança |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="backup-reader"></a>Leitor de Cópia de Segurança
 > [!div class="mx-tableFixed"]
@@ -555,6 +677,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o estado da operação a uma determinada operação |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista de todos os objetivos de proteção de cópia de segurança |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização de um Cofre de Serviços de Recuperação. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="billing-reader"></a>Leitor de Faturação
 > [!div class="mx-tableFixed"]
@@ -570,6 +698,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="biztalk-contributor"></a>Contribuinte do BizTalk
 > [!div class="mx-tableFixed"]
@@ -585,6 +719,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cdn-endpoint-contributor"></a>Contribuidor de Ponto Final de CDN
 > [!div class="mx-tableFixed"]
@@ -601,6 +741,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cdn-endpoint-reader"></a>Leitor do Ponto Final de CDN
 > [!div class="mx-tableFixed"]
@@ -617,6 +763,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cdn-profile-contributor"></a>Contribuidor de Perfil de CDN
 > [!div class="mx-tableFixed"]
@@ -633,6 +785,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cdn-profile-reader"></a>Leitor de Perfil de CDN
 > [!div class="mx-tableFixed"]
@@ -649,6 +807,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="classic-network-contributor"></a>Contribuinte de Rede Clássica
 > [!div class="mx-tableFixed"]
@@ -664,6 +828,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="classic-storage-account-contributor"></a>Contribuinte de Conta de Armazenamento Clássica
 > [!div class="mx-tableFixed"]
@@ -679,6 +849,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="classic-storage-account-key-operator-service-role"></a>Função do Serviço de Operador de Chave da Conta de Armazenamento Clássica
 > [!div class="mx-tableFixed"]
@@ -689,6 +865,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Lista as chaves de acesso para as contas de armazenamento. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Volta a gerar as chaves de acesso existentes para a conta de armazenamento. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="classic-virtual-machine-contributor"></a>Contribuinte de Máquina Virtual Clássica
 > [!div class="mx-tableFixed"]
@@ -714,6 +896,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cognitive-services-contributor"></a>Contribuidor de Serviços Cognitivos
 > [!div class="mx-tableFixed"]
@@ -739,6 +927,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cognitive-services-user"></a>Utilizador de Serviços Cognitivos
 > [!div class="mx-tableFixed"]
@@ -760,6 +954,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cosmos-db-account-reader-role"></a>Função do Leitor da Conta do Cosmos DB
 > [!div class="mx-tableFixed"]
@@ -775,6 +975,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Insights/Metrics/read | Ler métricas |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
@@ -785,6 +991,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Submeter um pedido para configurar a cópia de segurança |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Submeter um pedido de restauro |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cost-management-contributor"></a>Contribuidor da Gestão de Custos
 > [!div class="mx-tableFixed"]
@@ -799,6 +1011,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="cost-management-reader"></a>Leitor da Gestão de Custos
 > [!div class="mx-tableFixed"]
@@ -813,6 +1031,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="data-box-contributor"></a>Contribuidor de Data Box
 > [!div class="mx-tableFixed"]
@@ -827,6 +1051,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.Databox/* |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="data-box-reader"></a>Leitor de Data Box
 > [!div class="mx-tableFixed"]
@@ -842,6 +1072,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Databox/locations/availableSkus/action | Este método devolve a lista de SKUs disponíveis. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="data-factory-contributor"></a>Contribuinte do Data Factory
 > [!div class="mx-tableFixed"]
@@ -858,6 +1094,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="data-lake-analytics-developer"></a>Programador do Data Lake Analytics
 > [!div class="mx-tableFixed"]
@@ -889,6 +1131,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Delete | Elimine uma regra de firewall. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Criar ou atualizar uma política de computação. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Elimine uma política de computação. |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="data-purger"></a>Eliminação de Dados
 > [!div class="mx-tableFixed"]
@@ -901,6 +1147,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Insights/components/purge/action | A remover os dados do Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Eliminar dados especificados a partir da área de trabalho |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="devtest-labs-user"></a>Utilizador do DevTest Labs
 > [!div class="mx-tableFixed"]
@@ -941,6 +1193,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Lista os tamanhos disponíveis para os quais a máquina virtual pode ser atualizada |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="dns-zone-contributor"></a>Contribuidor da Zona DNS
 > [!div class="mx-tableFixed"]
@@ -956,6 +1212,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="documentdb-account-contributor"></a>Contribuidor de Conta do DocumentDB
 > [!div class="mx-tableFixed"]
@@ -971,6 +1233,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="eventgrid-eventsubscription-contributor"></a>Contribuinte de EventSubscription EventGrid
 > [!div class="mx-tableFixed"]
@@ -988,6 +1256,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="eventgrid-eventsubscription-reader"></a>Leitor de EventSubscription EventGrid
 > [!div class="mx-tableFixed"]
@@ -1002,6 +1276,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | Subscrições de eventos regionais de lista |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Subscrições de eventos regionais de lista por topictype |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="hdinsight-domain-services-contributor"></a>Contribuidor de Serviços de Domínio HDInsight
 > [!div class="mx-tableFixed"]
@@ -1013,6 +1293,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Contribuinte de Conta de Sistemas Inteligentes
 > [!div class="mx-tableFixed"]
@@ -1028,6 +1314,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="key-vault-contributor"></a>Contribuidor do Key Vault
 > [!div class="mx-tableFixed"]
@@ -1045,6 +1337,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Remover um cofre de chaves eliminado de forma recuperável |
 > | Microsoft.KeyVault/hsmPools/* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="lab-creator"></a>Criador do Laboratório
 > [!div class="mx-tableFixed"]
@@ -1060,6 +1356,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Obtenha informações de disponibilidade regional para cada categoria de tamanho configurada com uma conta de laboratório |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="log-analytics-contributor"></a>Contribuidor do Log Analytics
 > [!div class="mx-tableFixed"]
@@ -1081,6 +1383,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="log-analytics-reader"></a>Leitor do Log Analytics
 > [!div class="mx-tableFixed"]
@@ -1095,6 +1403,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Obtém as chaves partilhadas para a área de trabalho. Estas chaves são utilizadas para ligar os agentes de informações operacionais da Microsoft à área de trabalho. |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="logic-app-contributor"></a>Contribuidor da Aplicação Lógica
 > [!div class="mx-tableFixed"]
@@ -1123,6 +1435,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Obter as propriedades num plano do serviço de aplicações |
 > | Microsoft.Web/sites/functions/listSecrets/action | Funções de aplicações de Web de segredos de lista. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="logic-app-operator"></a>Operador de Aplicação Lógica
 > [!div class="mx-tableFixed"]
@@ -1147,6 +1465,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Web/connections/*/read | Ligações de leitura. |
 > | Microsoft.Web/customApis/*/read | Leia a API personalizada. |
 > | Microsoft.Web/serverFarms/read | Obter as propriedades num plano do serviço de aplicações |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="managed-application-operator-role"></a>Função de Operador de Aplicações Geridas
 > [!div class="mx-tableFixed"]
@@ -1157,6 +1481,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Solutions/applications/read | Obtém uma lista de aplicações. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="managed-applications-reader"></a>Leitor de Aplicações Geridas
 > [!div class="mx-tableFixed"]
@@ -1168,6 +1498,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Solutions/jitRequests/* |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="managed-identity-contributor"></a>Contribuidor de Identidade Gerida
 > [!div class="mx-tableFixed"]
@@ -1184,6 +1520,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="managed-identity-operator"></a>Operador de Identidade Gerida
 > [!div class="mx-tableFixed"]
@@ -1199,6 +1541,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="management-group-contributor"></a>Contribuidor do Grupo de Gestão
 > [!div class="mx-tableFixed"]
@@ -1212,6 +1560,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Management/managementGroups/subscriptions/delete | Associa anular a subscrição do grupo de gestão. |
 > | Microsoft.Management/managementGroups/subscriptions/write | Associa existente subscrição com o grupo de gestão. |
 > | Microsoft.Management/managementGroups/write | Criar ou atualizar um grupo de gestão. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="management-group-reader"></a>Leitor de Grupo de Gestão
 > [!div class="mx-tableFixed"]
@@ -1221,6 +1575,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
 > | **Ações** |  |
 > | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="monitoring-contributor"></a>Contribuidor de Monitorização
 > [!div class="mx-tableFixed"]
@@ -1253,6 +1613,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Publicador de Métricas de Monitorização
 > [!div class="mx-tableFixed"]
@@ -1264,8 +1630,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Insights/Register/Action | Registar o fornecedor do Microsoft Insights |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Escrever métricas |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="monitoring-reader"></a>Leitor de Monitorização
 > [!div class="mx-tableFixed"]
@@ -1277,6 +1647,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="network-contributor"></a>Contribuinte de Rede
 > [!div class="mx-tableFixed"]
@@ -1292,6 +1668,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="new-relic-apm-account-contributor"></a>Contribuidor de Conta APM do New Relic
 > [!div class="mx-tableFixed"]
@@ -1307,6 +1689,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | NewRelic.APM/accounts/* |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="reader-and-data-access"></a>Acesso de Dados e Leitor
 > [!div class="mx-tableFixed"]
@@ -1317,6 +1705,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="redis-cache-contributor"></a>Contribuinte de Cache de Redis
 > [!div class="mx-tableFixed"]
@@ -1332,6 +1726,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="resource-policy-contributor-preview"></a>Contribuinte da Política de Recursos (pré-visualização)
 > [!div class="mx-tableFixed"]
@@ -1346,6 +1746,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/policysetdefinitions/* | Criar e gerir conjuntos de políticas |
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="scheduler-job-collections-contributor"></a>Contribuinte de Coleções de Tarefas do Agendador
 > [!div class="mx-tableFixed"]
@@ -1361,6 +1767,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Scheduler/jobcollections/* | Criar e gerir coleções de tarefas |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="search-service-contributor"></a>Contribuinte de Serviços de Pesquisa
 > [!div class="mx-tableFixed"]
@@ -1376,6 +1788,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Search/searchServices/* | Criar e gerir os serviços de pesquisa |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="security-admin"></a>Administrador de Segurança
 > [!div class="mx-tableFixed"]
@@ -1405,6 +1823,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Security/securityContacts/write | Atualiza o contacto de segurança |
 > | Microsoft.Security/InformationProtectionPolicies/write | As políticas de proteção de informações para o recurso de atualizações |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="security-manager-legacy"></a>Gestor de Segurança (Legado)
 > [!div class="mx-tableFixed"]
@@ -1423,6 +1847,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Security/* | Criar e gerir os componentes de segurança e políticas |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="security-reader"></a>Leitor de Segurança
 > [!div class="mx-tableFixed"]
@@ -1439,6 +1869,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Security/*/read | Componentes de segurança de leitura e de políticas |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="site-recovery-contributor"></a>Contribuidor do Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1474,6 +1910,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="site-recovery-operator"></a>Operador do Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1539,6 +1981,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="site-recovery-reader"></a>Leitor do Site Recovery
 > [!div class="mx-tableFixed"]
@@ -1578,6 +2026,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização de um Cofre de Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação de Token de cofre pode ser utilizada para obter o Token de cofre para operações de back-end ao nível do cofre. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="sql-db-contributor"></a>Contribuinte de Base de Dados SQL
 > [!div class="mx-tableFixed"]
@@ -1614,6 +2068,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="sql-security-manager"></a>Gestor de Segurança SQL
 > [!div class="mx-tableFixed"]
@@ -1655,6 +2113,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Criar e gerir políticas de alerta de segurança do SQL server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="sql-server-contributor"></a>Contribuinte do SQL Server
 > [!div class="mx-tableFixed"]
@@ -1694,6 +2158,10 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Editar as políticas de alerta de segurança do SQL server |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="storage-account-contributor"></a>Contribuinte de Conta de Armazenamento
 > [!div class="mx-tableFixed"]
@@ -1711,6 +2179,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/* | Criar e gerir contas de armazenamento |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="storage-account-key-operator-service-role"></a>Função do Serviço de Operador de Chave da Conta de Armazenamento
 > [!div class="mx-tableFixed"]
@@ -1721,6 +2195,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenera as chaves de acesso da conta de armazenamento especificada. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="storage-blob-data-contributor-preview"></a>Contribuinte de Dados do Armazenamento de Blobs (Pré-visualização)
 > [!div class="mx-tableFixed"]
@@ -1732,10 +2212,14 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Devolve o resultado da eliminação de um contentor |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devolve a lista de contentores |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Devolve o resultado do contentor de BLOBs colocado |
+> | **NotActions** |  |
+> | *Nenhum* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Devolve o resultado da eliminação de um blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devolve um blob ou uma lista de blobs |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Devolve o resultado de escrever um blob |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="storage-blob-data-owner-preview"></a>Proprietário dos Dados de Armazenamento de Blobs (Pré-visualização)
 > [!div class="mx-tableFixed"]
@@ -1745,8 +2229,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>Leitor de Dados do Armazenamento de Blobs (Pré-visualização)
 > [!div class="mx-tableFixed"]
@@ -1756,8 +2244,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Devolve a lista de contentores |
+> | **NotActions** |  |
+> | *Nenhum* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devolve um blob ou uma lista de blobs |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="storage-queue-data-contributor-preview"></a>Contribuinte de Dados do Armazenamento de Filas (Pré-visualização)
 > [!div class="mx-tableFixed"]
@@ -1769,10 +2261,14 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Devolve o resultado da eliminação de uma fila |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devolve uma fila ou uma lista de filas. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Devolve o resultado da escrita de uma fila |
+> | **NotActions** |  |
+> | *Nenhum* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Devolve o resultado da eliminação de uma mensagem |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devolve uma mensagem |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Devolve o resultado de escrever uma mensagem |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="storage-queue-data-reader-preview"></a>Leitor de Dados do Armazenamento de Filas (Pré-visualização)
 > [!div class="mx-tableFixed"]
@@ -1782,8 +2278,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Devolve uma fila ou uma lista de filas. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Devolve uma mensagem |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="support-request-contributor"></a>Contribuidor de Pedido de Suporte
 > [!div class="mx-tableFixed"]
@@ -1795,6 +2295,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/*/read | Autorização de leitura |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="traffic-manager-contributor"></a>Contribuidor do Gestor de Tráfego
 > [!div class="mx-tableFixed"]
@@ -1810,6 +2316,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="user-access-administrator"></a>Administrador de Acesso de Utilizador
 > [!div class="mx-tableFixed"]
@@ -1821,6 +2333,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Authorization/* | Gerir a autorização |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="virtual-machine-administrator-login"></a>Início de Sessão de Administrador na Máquina Virtual
 > [!div class="mx-tableFixed"]
@@ -1834,9 +2352,13 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Network/loadBalancers/read | Obtém uma definição de Balanceador de carga |
 > | Microsoft.Network/networkInterfaces/read | Obtém uma definição de interface de rede.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Iniciar sessão numa máquina virtual como um utilizador normal |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Inicie sessão para uma máquina virtual com o administrador do Windows ou privilégios de utilizador de raiz do Linux |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="virtual-machine-contributor"></a>Contribuinte de Máquina Virtual
 > [!div class="mx-tableFixed"]
@@ -1883,6 +2405,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="virtual-machine-user-login"></a>Início de Sessão de Utilizador de Máquina Virtual
 > [!div class="mx-tableFixed"]
@@ -1896,8 +2424,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Network/loadBalancers/read | Obtém uma definição de Balanceador de carga |
 > | Microsoft.Network/networkInterfaces/read | Obtém uma definição de interface de rede.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Iniciar sessão numa máquina virtual como um utilizador normal |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="web-plan-contributor"></a>Contribuinte de Plano Web
 > [!div class="mx-tableFixed"]
@@ -1913,6 +2445,12 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.Web/serverFarms/* | Criar e gerir os farms de servidores |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="website-contributor"></a>Contribuinte de Web site
 > [!div class="mx-tableFixed"]
@@ -1933,9 +2471,15 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Obter as propriedades num plano do serviço de aplicações |
 > | Microsoft.Web/sites/* | Criar e gerir Web sites (criação de site também requer permissões de escrita para o plano de serviço de aplicações associado) |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Funções personalizadas](custom-roles.md)
-- [Gerir atribuições de funções no portal do Azure](role-assignments-portal.md)
+- [Funções personalizadas para recursos do Azure](custom-roles.md)
+- [Gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure](role-assignments-portal.md)
 - [Permissões no Centro de segurança do Azure](../security-center/security-center-permissions.md)

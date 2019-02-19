@@ -7,13 +7,13 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/24/2019
-ms.openlocfilehash: 0ec682ea852f3c6da6248f3c16b539725ca18c0f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/15/2019
+ms.openlocfilehash: 83d1b4737e15239532f8b751d2018d5e6f783562
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895810"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342767"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados de geração 2 de armazenamento do Azure Data Lake ao utilizar o Azure Databricks
 
@@ -25,27 +25,17 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de armazenamento com o Data Lake Storage Gen2 ativado](data-lake-storage-quickstart-create-account.md)
+* Crie uma conta de armazenamento de geração 2 do Data Lake. Consulte [início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-account.md)
 
-<a id="config"/>
+  Cole o nome da conta de armazenamento num arquivo de texto. Precisará dela em breve.
 
-## <a name="get-the-name-of-your-storage-account"></a>Obter o nome da sua conta de armazenamento
+*  Crie um principal de serviço. Consulte [como: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-Para obter o nome da conta de armazenamento no portal do Azure, escolha **todos os serviços** e filtre o termo *armazenamento*. Em seguida, selecione **contas de armazenamento** e localize a sua conta de armazenamento.
+   Há duas coisas específicas que terá que fazer à medida que efetua os passos nesse artigo.
 
-Cole esse nome num arquivo de texto. Precisará dela em breve.
+   :heavy_check_mark: Quando realizar os passos no [atribuir a aplicação a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção do artigo, lembre-se de que atribuir a **função de contribuinte do armazenamento de BLOBs** ao principal de serviço no âmbito do Data Lake Conta de armazenamento de geração 2 de armazenamento.
 
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Criar um principal de serviço
-
-Crie um principal de serviço ao seguir as orientações neste tópico: [How to: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Há duas coisas específicas que terá que fazer à medida que efetua os passos nesse artigo.
-
-:heavy_check_mark: Quando realizar os passos no [atribuir a aplicação a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção do artigo, lembre-se de que atribuir a sua aplicação para o **função de contribuinte do armazenamento de BLOBs**.
-
-:heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e valores de chave de autenticação para um ficheiro de texto. Precisará aqueles em breve.
+   :heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e valores de chave de autenticação para um ficheiro de texto. Precisará aqueles em breve.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -126,11 +116,11 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
- 
+
     > [!NOTE]
     > Este bloco de código acede diretamente o ponto de extremidade de geração 2 do Data Lake ao utilizar OAuth, mas existem outras formas de ligar a área de trabalho do Databricks à sua conta de geração 2 de armazenamento do Data Lake. Por exemplo, pode montar o sistema de ficheiros ao utilizar o OAuth ou utilize um acesso direto com a chave partilhada. <br>Para ver exemplos dessas abordagens, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no Web site do Azure Databricks.
 
-5. Este bloco de código, substitua a `storage-account-name`, `application-id`, `authentication-id`, e `tenant-id` valores de marcador de posição este bloco de código com os valores que recolheu quando concluído os passos a [obter o nome da sua conta de armazenamento ](#config) e [criar um principal de serviço](#service-principal) seções deste artigo.  Definir o `file-system-name` valor do marcador de posição para tudo o que nome pretende dar ao sistema de ficheiros.
+5. Este bloco de código, substitua a `storage-account-name`, `application-id`, `authentication-id`, e `tenant-id` valores de marcador de posição este bloco de código com os valores que recolheu quando criou o principal de serviço. Definir o `file-system-name` valor do marcador de posição para tudo o que nome pretende dar ao sistema de ficheiros.
 
 6. Prima a **SHIFT + ENTER** chaves para executar o código nesse bloco.
 

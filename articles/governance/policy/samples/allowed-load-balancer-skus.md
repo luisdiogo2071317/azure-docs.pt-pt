@@ -1,6 +1,6 @@
 ---
 title: Exemplo - SKUs de Balanceador de carga permitidos
-description: Esta política de exemplo exige que os balanceadores de carga utilizem um SKU aprovado.
+description: Esta definição de política de exemplo requer que os balanceadores de carga usam um SKU de aprovados.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 6adebea6a6cce1844e413e460a06fd1a7eeb3a2a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b65761d0c325f46a54fc64d39c20f9d1e10ec412
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241959"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341884"
 ---
-# <a name="allowed-load-balancer-skus"></a>SKUs de balanceadores de carga permitido
+# <a name="sample---allowed-load-balancer-skus"></a>Exemplo - SKUs de Balanceador de carga permitidos
 
 Esta política requer que os balanceadores de carga utilizem um SKU aprovado. Especifica uma matriz de SKUs permitidos.
 

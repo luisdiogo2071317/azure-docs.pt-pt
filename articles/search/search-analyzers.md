@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: a3f782cdd34f2a45c58e6a98d013f949767589cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328015"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343277"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores de processamento no Azure Search de texto
 
@@ -69,7 +69,7 @@ O melhor momento para adicionar e atribuir analisadores é durante o desenvolvim
 
 Como uma definição de índice solidifies, pode acrescentar novas construções de análise para um índice, mas tem de passar os **allowIndexDowntime** sinalizador para [atualização índice](https://docs.microsoft.com/rest/api/searchservice/update-index) se quiser evitar este erro:
 
-*Não permitida porque iria provocar períodos de indisponibilidade de atualização de índice. Para adicionar novos analisadores, tokenizers, filtros de token ou filtros de caractere a um índice existente, defina o parâmetro de consulta 'allowIndexDowntime' como 'true' no pedido de atualização de índice. Tenha em atenção que esta operação irá colocar o seu índice offline para, pelo menos, alguns segundos, fazendo com que a indexação e consulta de pedidos a falhar. Disponibilidade de desempenho e de escrita do índice pode ser afetada durante vários minutos, depois do índice é atualizado ou mais índices muito grandes.*
+*"Não permitida porque iria provocar períodos de indisponibilidade de atualização de índice. Para adicionar novos analisadores, tokenizers, filtros de token ou filtros de caractere a um índice existente, defina o parâmetro de consulta 'allowIndexDowntime' como 'true' no pedido de atualização de índice. Tenha em atenção que esta operação irá colocar o seu índice offline para, pelo menos, alguns segundos, fazendo com que a indexação e consulta de pedidos a falhar. Disponibilidade de desempenho e de escrita do índice pode ser afetada durante vários minutos, depois do índice é atualizado ou mais índices muito grandes."*
 
 O mesmo se aplica ao atribuir um analisador para um campo. Um analisador é uma parte integral da definição do campo, para que possa adicionar apenas quando o campo é criado. Se pretender adicionar os analisadores de campos existentes, terá [de remover e recriar](search-howto-reindex.md) o índice, ou adicionar um novo campo com o analisador que pretende.
 

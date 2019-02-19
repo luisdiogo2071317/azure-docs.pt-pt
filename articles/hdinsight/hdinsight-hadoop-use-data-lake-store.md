@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 9dabf3fd37c591525625969ac0af1873477b84d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: fe195ba485e6653cee4a45f4a33067bf536334ad
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311436"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338619"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utilizar a geração 1 do Data Lake armazenamento com clusters do HDInsight do Azure
 
@@ -56,11 +56,7 @@ Com a geração 1 de armazenamento do Data Lake como uma conta de armazenamento 
 
 ## <a name="use-data-lake-storage-gen1-as-default-storage"></a>Utilizar o Data Lake Storage Gen1 como armazenamento predefinido
 
-Quando o HDInsight é implementado com o Data Lake Storage Gen1 como armazenamento predefinido, os ficheiros relacionados com o cluster são armazenados na seguinte localização:
-
-    adl://mydatalakestore/<cluster_root_path>/
-
-onde `<cluster_root_path>` é o nome de uma pasta que criar no armazenamento do Data Lake. Ao especificar um caminho de raiz para cada cluster, pode utilizar a mesma conta de armazenamento do Data Lake para mais de um cluster. Por isso, pode ter uma configuração em que:
+Quando o HDInsight é implementado com o Data Lake Storage Gen1 como armazenamento predefinido, os ficheiros relacionados com o cluster são armazenados no `adl://mydatalakestore/<cluster_root_path>/`, onde `<cluster_root_path>` é o nome de uma pasta que criar no armazenamento do Data Lake. Ao especificar um caminho de raiz para cada cluster, pode utilizar a mesma conta de armazenamento do Data Lake para mais de um cluster. Por isso, pode ter uma configuração em que:
 
 * Cluster1 pode utilizar o caminho `adl://mydatalakestore/cluster1storage`
 * Cluster2 pode utilizar o caminho `adl://mydatalakestore/cluster2storage`

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3e7a03f1235dab7eefd63b6611890897285d86ea
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 61674cc5551fb0d1be184de0ff0ed659cc56bbbe
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332341"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340251"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configurar registos de fluxo do grupo de segurança da rede com o CLI do Azure
 
@@ -32,9 +32,6 @@ ms.locfileid: "54332341"
 Os registos de fluxo do grupo de segurança de rede são uma funcionalidade do observador de rede permite-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Estes registos de fluxo são escritos no formato json e Mostrar fluxos de saída e entrados numa base por regra, o NIC que o fluxo de mensagens em fila aplica-se a informações de 5 cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo), e se o tráfego foi permitido ou negado.
 
 Para efetuar os passos neste artigo, precisa [instale a interface de linha de comandos do Azure para Mac, Linux e Windows (CLI)](/cli/azure/install-azure-cli).
-
-> [!NOTE] 
-> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
 
 ## <a name="register-insights-provider"></a>Registar o fornecedor do Insights
 

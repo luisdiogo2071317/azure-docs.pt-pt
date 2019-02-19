@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 45fb1cbf57f54f040f9dfbc522c22a2e0884d6db
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116509"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341221"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho de IaaS no Azure
 
@@ -39,7 +39,7 @@ As melhores práticas baseiam-se um consenso de opinião, e trabalhar com recurs
 O primeiro passo para proteger as suas VMs é garantir que os utilizadores autorizados apenas pode configurar novas VMs e acesso de VMs.
 
 **Melhor prática**: Controlar o acesso VM.   
-**Detalhe**: Uso [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer as convenções para recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas para recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). As VMs que pertencem a um grupo de recursos herdam suas diretivas.
+**Detalhe**: Uso [políticas do Azure](../governance/policy/overview.md) para estabelecer as convenções para recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas para recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). As VMs que pertencem a um grupo de recursos herdam suas diretivas.
 
 Se sua organização tiver várias subscrições, poderá ter uma forma de gerenciar com eficiência o acesso, políticas e conformidade para nessas subscrições. [Grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md) fornecer um nível de âmbito acima subscrições. Organizar subscrições para grupos de gestão (contentores) e aplicar suas condições de governação a esses grupos. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
 

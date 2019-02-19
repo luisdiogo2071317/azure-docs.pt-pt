@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ac06200766f37c64252599ec8a4dddb6846ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175409"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340115"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o dia de trabalho para aprovisionamento automático de utilizadores
 
@@ -261,7 +261,7 @@ Neste passo, irá criar um grupo de segurança do sistema de integração restri
     * **Restrita:** Todos os membros do grupo de segurança podem aceder a todas as instâncias de dados protegidas pelo grupo de segurança.
     * **Restrita:** Todos os membros do grupo de segurança têm acesso contextual a um subconjunto de instâncias de dados (linhas) que o grupo de segurança pode aceder.
   * Entre em contacto com seu parceiro de integração do Workday para selecionar o tipo de grupo de segurança adequados para a integração.
-  * Sabe o tipo de grupo, selecione **grupo de segurança de sistema de integração (Unconstrained)** ou **grupo de segurança de sistema de integração (Unconstrained)** partir o **inquilinos tipo de segurança Grupo** lista pendente.
+  * Sabe o tipo de grupo, selecione **grupo de segurança de sistema de integração (Unconstrained)** ou **grupo de segurança de sistema de integração (Constrained)** partir o **tipo de inquilinos grupo de segurança**  lista pendente.
 
     ![Grupo de CreateSecurity](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity grupo")
 

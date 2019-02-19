@@ -1,6 +1,6 @@
 ---
-title: Início rápido - funções de exibição atribuídos a um utilizador com o portal do Azure | Documentos da Microsoft
-description: Saiba como ver as permissões de controlo (RBAC) de acesso baseado em funções atribuídas a um utilizador, o grupo, o principal de serviço ou a identidade gerida no portal do Azure.
+title: Início rápido - vista o acesso a um utilizador tem de recursos do Azure | Documentos da Microsoft
+description: Saiba como ver o acesso um utilizador ou de outra entidade de segurança tem de recursos do Azure com o controlo de acesso baseado em funções (RBAC) e o portal do Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b755dd6223c21084cafea82a1c8857f9f54b03b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638653"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337950"
 ---
-# <a name="quickstart-view-roles-assigned-to-a-user-using-the-azure-portal"></a>Início rápido: Ver funções atribuídas a um utilizador com o portal do Azure
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Início rápido: Ver o acesso que um utilizador tem de recursos do Azure
 
-Pode utilizar o **controlo de acesso (IAM)** painel no [controlo de acesso baseado em funções (RBAC)](overview.md) ver as atribuições de funções para vários utilizadores, grupos e principais de serviço e identidades geridas, mas, às vezes, Basta ver rapidamente as atribuições de funções para um único utilizador, o grupo, o principal de serviço ou a identidade gerida. A maneira mais fácil de fazê-lo é utilizar o **verificar acesso** recurso no portal do Azure.
+Pode utilizar o **controlo de acesso (IAM)** painel no [controlo de acesso baseado em funções (RBAC)](overview.md) para ver o acesso um utilizador ou de outra entidade de segurança tem de recursos do Azure. No entanto, algumas vezes é preciso ver rapidamente o acesso a um único utilizador ou de outra entidade de segurança. A maneira mais fácil de fazê-lo é utilizar o **verificar acesso** recurso no portal do Azure.
 
-## <a name="view-role-assignments"></a>Atribuições de funções da vista
+## <a name="view-role-assignments"></a>Ver atribuições de funções
 
-Siga estes passos para ver as atribuições de funções para um único utilizador, grupo, principal de serviço ou uma identidade gerida no âmbito da subscrição.
+ A maneira como exibir o acesso para um utilizador é listar as suas atribuições de funções. Siga estes passos para ver as atribuições de funções para um único utilizador, grupo, principal de serviço ou uma identidade gerida no âmbito da subscrição.
 
 1. No portal do Azure, clique em **todos os serviços** e, em seguida **subscrições**.
 
@@ -54,4 +54,4 @@ Siga estes passos para ver as atribuições de funções para um único utilizad
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder acesso de utilizador utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)
+> [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure](quickstart-assign-role-user-portal.md)

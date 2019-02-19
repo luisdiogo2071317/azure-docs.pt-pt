@@ -8,13 +8,13 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: aca64ce3d965d03ecc6fe6da0f372f355a48bed5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 02/15/2019
+ms.openlocfilehash: b77f87ef922d2f759fd8d72505effa3d8e96c403
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311873"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339434"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight do Azure baseado em Linux
 
@@ -301,7 +301,7 @@ A definição de tarefa descreve onde encontrar o workflow.xml. Também descreve
     ```
 
     > [!NOTE]  
-    > Se o cluster de HDInsight utiliza o armazenamento do Azure como armazenamento predefinido, o `<value>` conteúdo de elemento de começar por `wasb://`. Se a geração 1 de armazenamento do Azure Data Lake é utilizado em vez disso, ele começa com `adl://`.
+    > Se o cluster de HDInsight utiliza o armazenamento do Azure como armazenamento predefinido, o `<value>` conteúdo de elemento de começar por `wasb://`. Se a geração 1 de armazenamento do Azure Data Lake é utilizado em vez disso, ele começa com `adl://`. Se for utilizada a geração 2 de armazenamento do Azure Data Lake, ele começa com `abfs://`.
 
     Salvar o conteúdo do `<value>` elemento, como ele é usado nos passos seguintes.
 

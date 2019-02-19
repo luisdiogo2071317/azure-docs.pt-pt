@@ -1,6 +1,6 @@
 ---
 title: Exemplo - apenas permitir que uma determinada imagem de plataforma VM
-description: Este exemplo de política exige que as máquinas virtuais utilizem uma versão específica do UbuntuServer.
+description: Esta definição de política de exemplo requer que as máquinas virtuais utilizam uma versão específica do UbuntuServer.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f585995cd948c16f576cae8c67bf37ab07a5575f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a2268dfe0ee696c675c069c9770f66c7ba0b1fa9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241534"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342750"
 ---
-# <a name="only-allow-a-certain-vm-platform-image"></a>Permitir apenas uma determinada imagem da plataforma de VM
+# <a name="sample---only-allow-a-certain-vm-platform-image"></a>Exemplo - apenas permitir que uma determinada imagem de plataforma VM
 
 Requer que as máquinas virtuais utilizem uma versão específica do UbuntuServer.
 

@@ -1,7 +1,7 @@
 ---
 title: Experimente gratuitamente os serviços de voz
 titleSuffix: Azure Cognitive Services
-description: Começar a utilizar com o serviço de voz é fácil e económica. Uma avaliação gratuita de 30 dias permite-lhe detetar o que o serviço pode fazer e decidir se é adequada para as necessidades da sua aplicação.
+description: Começar a utilizar com os serviços de voz é fácil e económica. Uma avaliação gratuita de 30 dias permite-lhe detetar o que o serviço pode fazer e decidir se é adequada para as necessidades da sua aplicação.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 203cb07c9450a590b45caa66092fe0199d985058
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978158"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342682"
 ---
-# <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
+# <a name="try-speech-services-for-free"></a>Experimente gratuitamente os serviços de voz
 
-Começar a utilizar com o serviço de voz é fácil e económica. Uma avaliação gratuita de 30 dias permite-lhe detetar o que o serviço pode fazer e decidir se é adequada para as necessidades da sua aplicação.
+Começar a utilizar com os serviços de voz é fácil e económica. Uma avaliação gratuita de 30 dias permite-lhe detetar o que o serviço pode fazer e decidir se é adequada para as necessidades da sua aplicação.
 
-Se precisar de mais tempo, inscreva-se para uma conta do Microsoft Azure — ele vem com 200 $ em crédito de serviço que pode aplicar no sentido de uma subscrição do serviço de voz paga durante 30 dias.
+Se precisar de mais tempo, inscreva-se para uma conta do Microsoft Azure — ele vem com 200 $ em crédito de serviço que pode aplicar no sentido de uma subscrição paga do serviços de voz durante 30 dias.
 
-Por fim, o serviço de voz oferece um escalão gratuito de baixo volume que é adequado para o desenvolvimento de aplicativos. Pode manter esta subscrição gratuita mesmo depois de expira o seu crédito de serviço.
+Por fim, os serviços de voz oferece um escalão gratuito de baixo volume que é adequado para o desenvolvimento de aplicativos. Pode manter esta subscrição gratuita mesmo depois de expira o seu crédito de serviço.
 
 ## <a name="free-trial"></a>Avaliação gratuita
 
@@ -57,17 +57,17 @@ Depois de iniciar sessão para experimentar os serviços cognitivos, começa a s
 
 ## <a name="new-azure-account"></a>Nova conta do Azure
 
-Novas contas do Azure recebem um crédito de serviço de US $200 que está disponível até 30 dias. Pode utilizar este crédito para explorar ainda mais o serviço de voz ou para iniciar o desenvolvimento de aplicativos.
+Novas contas do Azure recebem um crédito de serviço de US $200 que está disponível até 30 dias. Pode utilizar este crédito para explorar melhor os serviços de voz ou para iniciar o desenvolvimento de aplicativos.
 
 Para se inscrever para uma nova conta do Azure, vá para o [página de inscrição do Azure](https://azure.microsoft.com/free/ai/), clique em **começar gratuitamente,** e criar uma nova conta do Azure com a sua conta Microsoft.
 
 Pode inscrever-se numa conta gratuita do Microsoft com o [portal de contas Microsoft](https://account.microsoft.com/account). Para começar a utilizar, clique em **iniciar sessão com a Microsoft** e, em seguida, quando lhe for pedido para iniciar sessão, clique em **criá-lo.** Siga os passos para criar e certifique-se a sua nova conta Microsoft.
 
-Depois de criar a sua conta do Azure, siga os passos na secção seguinte para iniciar uma subscrição para o serviço de voz.
+Depois de criar a sua conta do Azure, siga os passos na secção seguinte para iniciar uma subscrição para os serviços de voz.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Criar um recurso de fala no Azure
 
-Para adicionar um recurso de serviço de voz (escalão gratuito ou pago) à sua conta do Azure:
+Para adicionar um recurso de serviços de voz (escalão gratuito ou pago) à sua conta do Azure:
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com a sua conta Microsoft.
 
@@ -89,7 +89,7 @@ Para adicionar um recurso de serviço de voz (escalão gratuito ou pago) à sua 
 
     * Um nome para o novo recurso. O nome auxilia a distinguir entre várias subscrições para o mesmo serviço.
     * Escolha a subscrição do Azure que o novo recurso está associado para determinar como são cobradas as taxas.
-    * Selecione a região onde o recurso será utilizado. Atualmente, o serviço de voz está disponível nas regiões E.U.A. oeste, Europa do Norte e Ásia Oriental.
+    * Selecione a região onde o recurso será utilizado. Atualmente, os serviços de voz está disponível nas regiões E.U.A. oeste, Europa do Norte e Ásia Oriental.
     * Escolha a um escalão de preço gratuito ou pago. Clique em **vista de detalhes de preço completos** para obter informações completas sobre as quotas de utilização e de preços para cada camada.
     * Criar um novo grupo de recursos para esta subscrição de voz ou o atribuir a subscrição a um grupo de recursos existente. Os grupos de recursos ajudam a que manter suas várias subscrições do Azure, organizadas.
     * Para obter acesso conveniente a sua subscrição no futuro, selecione o **afixar ao dashboard** caixa de verificação.
@@ -114,7 +114,7 @@ Para mudar de uma subscrição para outro, por exemplo, quando a avaliação gra
 > As chaves de avaliação gratuitas são criadas no Oeste dos E.U.A. (`westus`) região. Uma subscrição criada através do dashboard do Azure pode ser em alguma outra região, se assim o desejar.
 
 * Se o aplicativo usar um [SDK de voz](speech-sdk.md), indique o código de região, como `westus`, ao criar uma configuração de voz.
-* Se seu aplicativo usa um do serviço de voz [REST APIs](rest-apis.md), a região é a parte do ponto final do URI a utilizar quando são efetuados pedidos.
+* Se seu aplicativo usa um dos serviços de voz [REST APIs](rest-apis.md), a região é a parte do ponto final do URI a utilizar quando são efetuados pedidos.
 
 Criado para uma região de chaves são válidas apenas nessa região. A tentar usá-los com outras regiões irá resultar em erros de autenticação.
 

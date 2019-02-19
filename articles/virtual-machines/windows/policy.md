@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 42b62c819fd3d26c6ea944f968e0d5956a7f055e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 654c23474ebc96a6873f82f51f969da5c7d2d20c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987463"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343260"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Aplicar políticas às VMs do Windows com o Azure Resource Manager
 Ao utilizar políticas, uma organização pode impor várias convenções e regras em toda a empresa. Imposição do comportamento desejado pode ajudar a mitigar o risco ao mesmo tempo que contribuem para o sucesso da organização. Neste artigo, descrevemos como pode utilizar políticas do Azure Resource Manager para definir o comportamento desejado para máquinas de virtuais de sua organização.
 
-Para obter uma introdução às políticas, consulte [o que é o Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+Para obter uma introdução às políticas, consulte [o que é o Azure Policy?](../../governance/policy/overview.md).
 
 ## <a name="permitted-virtual-machines"></a>Máquinas de virtuais permitidas
 Para garantir que as máquinas virtuais para a sua organização são compatíveis com uma aplicação, pode restringir os sistemas de operativos permitidos. No seguinte exemplo de política, permitir apenas Windows Server 2012 R2 Datacenter as máquinas virtuais a ser criado:
@@ -251,6 +251,6 @@ Quando tiver uma licença de acesso no local, pode salvar o valor da licença na
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), terá de criar a definição de política e atribuí-lo a um âmbito. O âmbito pode ser uma subscrição, grupo de recursos ou recurso. Para atribuir políticas, veja [portal do Azure de utilização para atribuir e gerir políticas de recursos](../../azure-policy/assign-policy-definition.md), [utilize o PowerShell para atribuir políticas](../../azure-policy/assign-policy-definition-ps.md), ou [CLI do Azure de utilização para atribuir políticas](../../azure-policy/assign-policy-definition-cli.md).
-* Para obter uma introdução às políticas de recursos, consulte [o que é o Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+* Depois de definir uma regra de política (conforme mostrado nos exemplos anteriores), terá de criar a definição de política e atribuí-lo a um âmbito. O âmbito pode ser uma subscrição, grupo de recursos ou recurso. Para atribuir políticas, veja [portal do Azure de utilização para atribuir e gerir políticas de recursos](../../governance/policy/assign-policy-portal.md), [utilize o PowerShell para atribuir políticas](../../governance/policy/assign-policy-powershell.md), ou [CLI do Azure de utilização para atribuir políticas](../../governance/policy/assign-policy-azurecli.md).
+* Para obter uma introdução às políticas de recursos, consulte [o que é o Azure Policy?](../../governance/policy/overview.md).
 * Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

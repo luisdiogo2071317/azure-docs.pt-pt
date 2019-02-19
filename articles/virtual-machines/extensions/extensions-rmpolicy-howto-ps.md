@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980878"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341662"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Utilizar a política do Azure para restringir a instalação de extensões em VMs do Windows
 
@@ -30,7 +30,7 @@ Este tutorial utiliza o Azure PowerShell no Cloud Shell, que é constantemente a
 
 ## <a name="create-a-rules-file"></a>Crie um ficheiro de regras
 
-Para restringir que extensões podem ser instalados, tem de ter uma [regra](/azure/azure-policy/policy-definition#policy-rule) para fornecer a lógica para identificar a extensão.
+Para restringir que extensões podem ser instalados, tem de ter uma [regra](../../governance/policy/concepts/definition-structure.md#policy-rule) para fornecer a lógica para identificar a extensão.
 
 Este exemplo mostra como negar extensões publicadas pela "Microsoft. Compute" através da criação de um arquivo de regras no Azure Cloud Shell, mas se estiver a trabalhar no PowerShell localmente, também pode criar um ficheiro local e substituir o caminho ($home/clouddrive) com o caminho para o ficheiro local no seu computador.
 
@@ -70,7 +70,7 @@ Quando tiver terminado, prima a **Ctrl + S** e, em seguida **Enter** para guarda
 
 ## <a name="create-a-parameters-file"></a>Crie um ficheiro de parâmetros
 
-Também é necessário um [parâmetros](/azure/azure-policy/policy-definition#parameters) ficheiro que cria uma estrutura para que possa utilizar para passar numa lista das extensões para bloquear. 
+Também é necessário um [parâmetros](../../governance/policy/concepts/definition-structure.md#parameters) ficheiro que cria uma estrutura para que possa utilizar para passar numa lista das extensões para bloquear. 
 
 Este exemplo mostra como criar um ficheiro de parâmetros para as VMs no Cloud Shell, mas se estiver a trabalhar no PowerShell localmente, também pode criar um ficheiro local e substituir o caminho ($home/clouddrive) com o caminho para o arquivo local no seu computador.
 
@@ -166,4 +166,4 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte [do Azure Policy](../../azure-policy/azure-policy-introduction.md).
+Para obter mais informações, consulte [do Azure Policy](../../governance/policy/overview.md).

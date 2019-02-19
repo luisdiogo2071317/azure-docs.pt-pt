@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234667"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339792"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -43,8 +43,11 @@ Pode utilizar a auditoria de base de dados SQL para:
 > [!IMPORTANT]
 > Registos de auditoria são escritos **Blobs de acréscimo** no armazenamento de Blobs do Azure na sua subscrição do Azure.
 >
-> - **O armazenamento Premium** está atualmente **nepodporuje** por Blobs de acréscimo.
+> - Todos os tipos de armazenamento (v1, v2, blob) são suportados.
+> - Todas as configurações de replicação de armazenamento são suportadas.
+> - **O armazenamento Premium** está atualmente **nepodporuje**.
 > - **Armazenamento na VNet** está atualmente **nepodporuje**.
+> - **Armazenamento protegido por uma Firewall** está atualmente **não suportado**
 
 ## <a id="subheading-8"></a>Definir o nível de servidor vs. a política de auditoria ao nível do banco de dados
 

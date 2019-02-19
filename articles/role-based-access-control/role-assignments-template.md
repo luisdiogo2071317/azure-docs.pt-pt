@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso através de modelos RBAC e do Azure Resource Manager | Documentos da Microsoft
-description: Saiba como gerir o acesso para utilizadores, grupos e aplicações que utilizam o controlo de acesso baseado em funções (RBAC) e os modelos Azure Resource Manager.
+title: Gerir o acesso aos recursos do Azure com modelos RBAC e do Azure Resource Manager | Documentos da Microsoft
+description: Saiba como gerir o acesso aos recursos do Azure para utilizadores, grupos e aplicações que utilizam o controlo de acesso baseado em funções (RBAC) e os modelos Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696902"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337208"
 ---
-# <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>Gerir o acesso através de modelos RBAC e do Azure Resource Manager
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerir o acesso aos recursos do Azure com modelos RBAC e do Azure Resource Manager
 
-[O controlo de acesso baseado em funções (RBAC)](overview.md) é a forma de gerir o acesso a recursos no Azure. Além de utilizar o Azure PowerShell ou a CLI do Azure, pode gerir o acesso aos recursos do Azure através do RBAC e [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Modelos podem ser útil se precisar de implementar recursos de forma consistente e repetida. Este artigo descreve como pode gerir o acesso com RBAC e modelos.
+[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Além de utilizar o Azure PowerShell ou a CLI do Azure, pode gerir o acesso aos recursos do Azure através do RBAC e [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Modelos podem ser útil se precisar de implementar recursos de forma consistente e repetida. Este artigo descreve como pode gerir o acesso com RBAC e modelos.
 
 ## <a name="example-template-to-create-a-role-assignment"></a>Modelo de exemplo para criar uma atribuição de função
 
@@ -251,6 +251,6 @@ Para implementar o modelo anterior com a CLI do Azure, siga estes passos.
     
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar e implementar o seu primeiro modelo do Azure Resource Manager](../azure-resource-manager/resource-manager-create-first-template.md)
+- [Quickstart: Criar e implementar modelos Azure Resource Manager com o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

@@ -1,6 +1,6 @@
 ---
-title: Ver os registos de atividade para alterações RBAC no Azure | Documentos da Microsoft
-description: Ver registos de atividades para controlo de acesso baseado em funções (RBAC) alterações nos últimos 90 dias.
+title: Ver registos de atividades de RBAC muda para recursos do Azure | Documentos da Microsoft
+description: Ver registos de atividades para controlo de acesso baseado em funções (RBAC) alterações aos recursos do Azure nos últimos 90 dias.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117653"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338821"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>Ver registos de atividade para alterações RBAC
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Ver registos de atividade para alterações RBAC para recursos do Azure
 
-Por vezes, precisa de informações sobre as alterações (RBAC) do controlo de acesso baseado em funções, como para auditoria ou fins de resolução de problemas. Sempre que alguém faz alterações a atribuições de funções ou definições de funções nas suas subscrições, as alterações de fazer logon [registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
+Às vezes, precisa de informações sobre as alterações de controlo (RBAC) de acesso baseado em funções aos recursos do Azure, tal como para auditoria ou fins de resolução de problemas. Sempre que alguém faz alterações a atribuições de funções ou definições de funções nas suas subscrições, as alterações de fazer logon [registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md). Pode ver os registos de atividade para ver todas as alterações RBAC nos últimos 90 dias.
 
 ## <a name="operations-that-are-logged"></a>Operações que têm sessão iniciadas
 

@@ -7,22 +7,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ccf4273489d739bb9b0d802b79944efefcd02ff4
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 36ca5e07adf79de77ac4ab4149ff8e96a1dece8d
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331290"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408753"
 ---
 # <a name="mapping-data-flow-datasets"></a>Conjuntos de dados de fluxo de dados de mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Conjuntos de dados são uma construção de fábrica de dados que definem a forma dos dados que está a trabalhar no seu pipeline. No fluxo de dados, os dados de nível de coluna e linha requerem uma definição de muito mais escalados detalhamento que é necessário pelos conjuntos de dados dentro do fluxo de controlo do pipeline.
+Conjuntos de dados são uma construção de fábrica de dados que definem a forma dos dados que está a trabalhar no seu pipeline. No fluxo de dados, os dados de nível de coluna e linha requerem uma definição de conjunto de dados escalados refinado. Conjuntos de dados utilizados em pipelines de fluxo de controle não exigem a mesma profundidade de compreensão de dados.
 
-Utilize conjuntos de dados na origem de fluxo de dados e transformações de Sink para definir o esquema de dados básicos. Se não tiver esquema nos seus dados, pode definir os Descompassos de esquema para a sua origem e Sink. Com o esquema definido do conjunto de dados, terá os tipos de dados relacionados, formatos de dados, localização do ficheiro e informações de ligação do serviço ligado associados.
+Conjuntos de dados na origem de fluxo de dados e transformações de Sink são utilizados para definir o esquema de dados básicos. Se não tiver esquema nos seus dados, pode definir os Descompassos de esquema para a sua origem e Sink. Com o esquema definido do conjunto de dados, terá os tipos de dados relacionados, formatos de dados, localização do ficheiro e informações de ligação do serviço ligado associados.
 
-Atualmente no fluxo de dados, encontrará quatro conjuntos de dados:
+## <a name="dataset-types"></a>Tipos de conjunto de dados
+
+Atualmente no fluxo de dados, encontrará quatro tipos de conjunto de dados:
 
 * BD SQL do Azure
 * Azure SQL DW
@@ -33,9 +35,11 @@ Separam os conjuntos de dados de fluxo de dados de origem *tipo* do tipo de liga
 
 ![Opções de transformação de origem](media/data-flow/dataset1.png "origens")
 
+## <a name="data-flow-compatible-datasets"></a>Conjuntos de dados compatíveis do fluxo de dados
+
 Ao criar um novo conjunto de dados, há uma caixa de seleção rotulada como "Dados de fluxo compatível" no canto superior direito do painel. Ao clicar nesse botão irá filtrar apenas os conjuntos de dados que podem ser utilizados com fluxos de dados. 
 
-Importar esquemas
+## <a name="import-schemas"></a>Importar esquemas
 
-Ao importar o esquema de conjuntos de dados de fluxo de dados, verá um botão importar esquema. Ao clicar nesse botão irá apresentar-lhe duas opções: Importar da origem ou importar a partir de um ficheiro local. Na maioria dos casos, irá importar o esquema diretamente da fonte. No entanto, se tiver um ficheiro de esquema existente, pode apontar para esse ficheiro local e o Data Factory irá definir o esquema com base nesse ficheiro de esquema.
+Ao importar o esquema de conjuntos de dados de fluxo de dados, verá um botão importar esquema. Ao clicar nesse botão irá apresentar-lhe duas opções: Importar da origem ou importar a partir de um ficheiro local. Na maioria dos casos, irá importar o esquema diretamente da fonte. No entanto, se tiver um ficheiro de esquema existente (ficheiro Parquet ou CSV com cabeçalhos), pode apontar para ficheiro local e o Data Factory irão definir o esquema com base nesse ficheiro de esquema.
 

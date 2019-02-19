@@ -1,6 +1,6 @@
 ---
-title: Tutorial - conceder acesso de utilizador utilizando o RBAC e o portal do Azure | Documentos da Microsoft
-description: Utilize o controlo de acesso baseado em funções (RBAC) para conceder permissões a um utilizador ao atribuir uma função no portal do Azure.
+title: Tutorial - conceder acesso de um utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure | Documentos da Microsoft
+description: Saiba como conceder um acesso de utilizador aos recursos do Azure com o controlo de acesso baseado em funções (RBAC) no portal do Azure.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 8caa5c3b33ac1b483429251e0c1256636c4ece1a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634477"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341305"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Tutorial: Conceder acesso de utilizador utilizando o RBAC e o portal do Azure
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure
 
-[O controlo de acesso baseado em funções (RBAC)](overview.md) é a forma de gerir o acesso a recursos no Azure. Neste tutorial, pode conceder um acesso de utilizador para criar e gerir máquinas virtuais num grupo de recursos.
+[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Neste tutorial, pode conceder um acesso de utilizador para criar e gerir máquinas virtuais num grupo de recursos.
 
 Neste tutorial, ficará a saber como:
 
@@ -113,5 +113,5 @@ No RBAC, para remover o acesso, remova uma atribuição de função.
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder acesso a um utilizador com o RBAC e o PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 

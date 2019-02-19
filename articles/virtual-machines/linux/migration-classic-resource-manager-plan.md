@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 40e0c8c91c44e67c2c409d2efb1e917fdbe0bf33
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ff3fdec2f427e095c748e4a47079d783fa83802d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562101"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341339"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planear a migração de recursos de IaaS do clássico para o Azure Resource Manager
 Enquanto o Azure Resource Manager oferece uma série de recursos incríveis, é fundamental planejar seu percurso de migração para o fazer se as coisas a serem executados corretamente. Gastando tempo no planejamento irá garantir que não encontrar problemas durante a execução de atividades de migração. 
@@ -45,7 +45,7 @@ Consoante o tamanho de requisitos técnicos, geografias e práticas operacionais
 5. Suas equipes operacionais agora suportará aplicações/VMs no Azure Resource Manager e clássico?
 6. Como (se houver) do Azure Resource Manager se altera a implementação de VM, gestão, monitorização e relatórios processos?  Os scripts de implementação precisam de ser atualizados?
 7. O que é que as comunicações planear alertar os outros intervenientes (os utilizadores finais, os proprietários do aplicativo e proprietários de infraestruturas)?
-8. Dependendo da complexidade do ambiente, deve haver um período de manutenção em que a aplicação não está disponível para os utilizadores finais e para os proprietários do aplicativo?  Se assim for, durante quanto tempo?
+8. Dependendo da complexidade do ambiente, deve haver um período de manutenção em que a aplicação não está disponível para os utilizadores finais e para os proprietários do aplicativo?  Se sim, durante quanto tempo?
 9. O que é o plano de treinamento para garantir que os intervenientes são bem informadas e proficientes no Azure Resource Manager?
 10. O que é o gerenciamento do programa ou o plano de gerenciamento de projeto para a migração?
 11. Quais são as linhas cronológicas para a migração do Azure Resource Manager e outros relacionados com os mapas tecnologia?  São eles corretamente alinhados?
@@ -196,7 +196,7 @@ Ser intencional em que serviços pretende agora ativar no Azure Resource Manager
 - [Modelos do Azure Resource Manager para a implantação mais fácil e mais controlada](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Controlo de atividade](../../azure-resource-manager/resource-group-audit.md)
-- [Políticas do Azure](../../azure-policy/azure-policy-introduction.md)
+- [Políticas do Azure](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>Armadilhas a serem evitadas
 

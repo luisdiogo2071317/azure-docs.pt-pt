@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497422"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341407"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolver erros de registo do fornecedor de recursos
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 A mensagem de erro deverá dar-lhe sugestões para as localizações suportadas e versões de API. Pode alterar o modelo para um dos valores sugeridos. A maioria dos fornecedores são registrados automaticamente pelo portal do Azure ou a interface de linha de comandos que está a utilizar, mas não todos. Se ainda não utilizou um fornecedor de recursos específico antes, se pretender registar esse fornecedor.
 
+Em alternativa, ao desabilitar o encerramento automático para máquinas virtuais, poderá receber uma mensagem de erro semelhante a:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>Causa
 
-Receber estes erros para um dos três motivos:
+Receber estes erros para um dos seguintes motivos:
 
-* O fornecedor de recursos não foi registado para a sua subscrição
+* O fornecedor de recursos necessária não foi registado para a sua subscrição
 * Versão de API não suportada para o tipo de recurso
 * Localização não é suportada para o tipo de recurso
+* Para o encerramento automático de VMs, tem de estar registado o fornecedor de recursos de Microsoft.DevTestLab.
 
 ## <a name="solution-1---powershell"></a>Solução 1 - PowerShell
 

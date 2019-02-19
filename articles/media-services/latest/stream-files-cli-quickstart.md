@@ -10,17 +10,17 @@ keywords: serviços de multimédia do azure, transmitir
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 02/13/2019
+ms.custom: ''
+ms.date: 02/15/2019
 ms.author: juliako
-ms.openlocfilehash: 6de90e6be322d5bac008adc44a4b81dfa18eba0a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c0b1f3fb854f4ca553d24ed601749cf91c2b5f28
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331119"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339809"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>Início rápido: Ficheiros de vídeo do Stream - CLI
+# <a name="quickstart-stream-video-files---cli"></a>Início rápido: Transmitir ficheiros de vídeo - CLI
 
 Este início rápido mostra como é fácil codificar e começar a transmitir vídeos numa ampla variedade de browsers e dispositivos com os Serviços de Multimédia do Azure. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
 O exemplo neste tópico codifica o conteúdo que torna acessível através de um URL HTTPS. Atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
@@ -33,7 +33,9 @@ No final do início rápido, será capaz de transmitir um vídeo.
 
 ## <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
 
-Para começar a utilizar os serviços de multimédia, terá de criar uma conta de Media Services. No momento em que cria uma conta de Media Services, também cria uma conta de armazenamento associado.
+Para começar a encriptar, codificação, analisar, gerir e transmissão em fluxo conteúdo de multimédia do Azure, terá de criar uma conta de Media Services. Conta de Media Services tem de estar associado a uma ou mais contas de armazenamento.
+
+A conta de Media Services e todas as contas de armazenamento associado tem de ser na mesma subscrição do Azure. É vivamente recomendado para utilizar contas de armazenamento na mesma localização que a conta de serviços de multimédia para evitar custos de saída de latência e dados adicionais.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

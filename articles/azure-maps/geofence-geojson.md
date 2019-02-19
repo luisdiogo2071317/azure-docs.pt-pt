@@ -3,21 +3,21 @@ title: Formato de dados do perímetro geográfico GeoJSON no Azure Maps | Docume
 description: Saiba mais sobre o formato de dados do perímetro geográfico GeoJSON no Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2018
+ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa39661c8ecc4b594478def7d0cc9be3006294c4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008252"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339639"
 ---
 # <a name="geofencing-geojson-data"></a>Dados de barreira geográfica GeoJSON
 
-O Azure Maps [obter perímetro geográfico](https://docs.microsoft.com/rest/api/map/spatial/getgeofencepreview) e [perímetro geográfico de POSTAGEM](https://docs.microsoft.com/rest/api/map/spatial/postgeofencepreview) APIs permitem-lhe obter proximidade de uma coordenada em relação a um perímetro geográfico fornecido ou conjunto de limites. Este artigo fornece detalhes sobre como preparar os dados do perímetro geográfico que podem ser utilizados na introdução do Azure Maps e API de publicação.
+O Azure Maps [obter perímetro geográfico](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) e [perímetro geográfico de POSTAGEM](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) APIs permitem-lhe obter proximidade de uma coordenada em relação a um perímetro geográfico fornecido ou conjunto de limites. Este artigo fornece detalhes sobre como preparar os dados do perímetro geográfico que podem ser utilizados na introdução do Azure Maps e API de publicação.
 
 Os dados para o perímetro geográfico ou conjunto de perímetros geográficos são representados por `Feature` objeto e `FeatureCollection` objeto `GeoJSON` formato, o que é definido no [rfc7946](https://tools.ietf.org/html/rfc7946). Além de que:
 

@@ -1,6 +1,6 @@
 ---
-title: Exemplo - Cofre de chaves de auditoria cofres para não existem pontos finais de rede virtual
-description: Esta política de exemplo audita cofres do Key Vault para detetar instâncias que tenham sem pontos finais de serviço de rede virtual.
+title: Exemplo - cofres de chaves de auditoria para não existem pontos finais de rede virtual
+description: Esta definição de política de exemplo audita cofres do Key Vault para detetar instâncias que tenham sem pontos finais de serviço de rede virtual.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: c9a5359303c1feecfbc905099a1bed2fc10fa52d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6b53c94787cfcabae1072f9879f14e0d890e967c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245801"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341535"
 ---
-# <a name="key-vault-vaults-with-no-virtual-network-endpoints"></a>Cofres de Key Vault com não existem pontos de extremidade de rede virtual
+# <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exemplo - cofres do Key Vault com não existem pontos de extremidade de rede virtual
 
 Esta política audita para os cofres de Cofre de chaves que não existem pontos finais de rede virtual. Utilize para impor os requisitos de segurança. Para obter mais informações, consulte [pontos finais de serviço de rede virtual no Cofre de chaves](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 

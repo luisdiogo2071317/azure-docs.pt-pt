@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Criar uma função personalizada com o Azure PowerShell| Microsoft Docs
-description: Começar a criar uma função personalizada com o Azure PowerShell.
+title: Tutorial - criar uma função personalizada para recursos do Azure com o Azure PowerShell | Documentos da Microsoft
+description: Introdução à criação de uma função personalizada para recursos do Azure com o Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 9dddef43e1ac5f3bcedcc08b313eea300436ea61
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106434"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339163"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutorial: Criar uma função personalizada com o Azure PowerShell
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Criar uma função personalizada para recursos do Azure com o Azure PowerShell
 
-Se as [funções incorporadas](built-in-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com o Azure PowerShell. A função personalizada permite ao utilizador ver tudo na subscrição e abrir pedidos de suporte.
+Se o [funções incorporadas para recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Neste tutorial vai criar uma função personalizada com o nome Pedidos de Suporte do Leitor com o Azure PowerShell. A função personalizada permite ao utilizador ver tudo na subscrição e abrir pedidos de suporte.
 
 Neste tutorial, ficará a saber como:
 
@@ -277,4 +277,4 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar funções personalizadas com o PowerShell](custom-roles-powershell.md)
+> [Criar funções personalizadas para recursos do Azure com o Azure PowerShell](custom-roles-powershell.md)

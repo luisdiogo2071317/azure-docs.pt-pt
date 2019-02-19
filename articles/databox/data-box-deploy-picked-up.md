@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 4398f16e0b8179242b6bcd9a69955460291310e7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267364"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341594"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -42,9 +42,7 @@ Antes de começar, certifique-se:
 ## <a name="ship-data-box-back"></a>Enviar o Data Box de volta
 
 1. Certifique-se de que o dispositivo está desligado e os cabos são removidos. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
-2. Se o dispositivo for enviado nos EUA, confirme que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a etiqueta está danificada ou perdida ou não é apresentada no ecrã do E-tinta, contacte o suporte da Microsoft. Se recomenda a suporte, em seguida, aceda a **descrição geral > Download etiqueta de envio** no portal do Azure. Transfira a etiqueta de envio e affix no dispositivo.
-
-    Se o dispositivo for enviado na Europa, o ecrã de tinta eletrónica não mostrará a etiqueta de envio. Em vez disso, a etiqueta de envio de devolução estará incluída na bolsa transparente sob a etiqueta de envio de encaminhamento. Remova a etiqueta de envio antiga e confirme que a etiqueta de envio está claramente visível.
+2. Certifique-se de que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a etiqueta está danificada ou perdida ou não é apresentada no ecrã do E-tinta, contacte o Support da Microsoft. Se o suporte sugere, então pode ir para **descrição geral > Download etiqueta de envio** no portal do Azure. Transfira a etiqueta de envio e affix no dispositivo.
     
 3. Agende uma recolha com UPS se retornando o dispositivo. Para agendar uma recolha, chamar no-BREAK local (número gratuito de incidir específico do país) ou entregar a caixa de dados no local de entrega mais próximo.
 

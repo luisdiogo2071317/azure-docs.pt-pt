@@ -15,12 +15,12 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633287"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339095"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
 
@@ -31,7 +31,7 @@ Se não estiver familiarizado com o Azure, pode ser um pouco difícil compreende
 
 ## <a name="how-the-roles-are-related"></a>De que forma estão relacionadas as funções
 
-Para compreender melhor as funções no Azure, ajuda conhecer alguma da história. Quando o Azure foi lançado inicialmente, o acesso aos recursos era gerido com apenas três funções de administrador: Administrador de Conta, Administrador de Serviços e Coadministrador. Mais tarde, foi adicionado o controlo de acesso baseado em funções (RBAC) para os recursos do Azure. O RBAC do Azure é um sistema de autorização mais recente que fornece gestão pormenorizada de acesso para recursos do Azure. O RBAC inclui muitas funções incorporadas, pode ser atribuído a âmbitos diferentes e permite-lhe criar as suas próprias funções personalizadas. Para gerir recursos no Azure AD, como utilizadores, grupos e domínios, existem várias funções de administrador do Azure AD.
+Para compreender melhor as funções no Azure, ajuda conhecer alguma da história. Quando o Azure foi inicialmente lançado, o acesso aos recursos foi gerido com apenas três funções de administrador: Administrador de conta, administrador de serviços e Coadministrador. Mais tarde, foi adicionado o controlo de acesso baseado em funções (RBAC) para os recursos do Azure. O RBAC do Azure é um sistema de autorização mais recente que fornece gestão pormenorizada de acesso para recursos do Azure. O RBAC inclui muitas funções incorporadas, pode ser atribuído a âmbitos diferentes e permite-lhe criar as suas próprias funções personalizadas. Para gerir recursos no Azure AD, como utilizadores, grupos e domínios, existem várias funções de administrador do Azure AD.
 
 O diagrama seguinte é uma visão geral da forma como estão relacionadas as funções de administrador de subscrição clássica, as funções de RBAC do Azure e as funções de administrador do Azure AD.
 
@@ -73,7 +73,7 @@ O RBAC do Azure é um sistema de autorização criado com base no [Azure Resourc
 | [Leitor](built-in-roles.md#reader) | <ul><li>Ver os recursos do Azure</li></ul> | Aplica-se a todos os tipos de recursos. |
 | [Administrador de Acesso de Utilizador](built-in-roles.md#user-access-administrator) | <ul><li>Gerir o acesso de utilizador aos recursos do Azure</li></ul> |  |
 
-As restantes funções incorporadas permitem a gestão de recursos específicos do Azure. Por exemplo, a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite ao utilizador criar e gerir máquinas virtuais. Para obter uma lista de todas as funções incorporadas, veja [Funções incorporadas](built-in-roles.md).
+As restantes funções incorporadas permitem a gestão de recursos específicos do Azure. Por exemplo, a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite ao utilizador criar e gerir máquinas virtuais. Para obter uma lista de todas as funções incorporadas, consulte [funções incorporadas para recursos do Azure](built-in-roles.md).
 
 Apenas o portal do Azure e as APIs do Azure Resource Manager suportam o RBAC. Os utilizadores, grupos e aplicações com funções RBAC atribuídas não podem utilizar as [APIs do modelo de implementação clássica do Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
@@ -95,7 +95,7 @@ As funções Administrador do AD Azure são utilizadas para gerir os recursos do
 | [Administrador de Utilizadores](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Criar e gerir todos os aspetos de utilizadores e grupos</li><li>Gerir pedidos de suporte</li><li>Monitorizar o estado de funcionamento do serviço</li><li>Alterar palavras-passe para utilizadores, administradores de suporte técnico e outros Administradores de Utilizadores</li></ul> |  |
 | [Administrador de Faturação](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Efetuar compras</li><li>Gerir subscrições</li><li>Gerir pedidos de suporte</li><li>Monitoriza o estado de funcionamento do serviço</li></ul> |  |
 
-Para obter uma lista de todas as funções de administrador do Azure AD, veja [Atribuir funções de administrador no Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+Para obter uma lista de todas as funções de administrador do Azure AD, consulte [permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 No portal do Azure, pode ver a lista de funções de administrador do Azure AD no painel **Funções e administradores**.
 
@@ -122,6 +122,6 @@ Várias funções de administrador do Azure AD expandem-se ao Azure AD e ao Micr
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [O que é o controlo de acesso baseado em funções (RBAC)?](overview.md)
-- [Atribuir funções de administrador no Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Adicionar ou alterar administradores de subscrição do Azure](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [O que é o controlo de acesso baseado em funções (RBAC) para recursos do Azure?](overview.md)
+- [Permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Adicionar ou alterar administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md)

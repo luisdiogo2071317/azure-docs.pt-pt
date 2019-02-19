@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097653"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341050"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo do fluxo para grupos de segurança de rede
 
@@ -72,8 +72,6 @@ Os registos de fluxo incluem as seguintes propriedades:
                     * **Bytes enviados - destino para origem - versão 2 apenas** o número total de bytes de pacotes TCP e UDP enviadas do destino para origem, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload.
 
 ## <a name="nsg-flow-logs-version-2"></a>Versão 2 de registos de fluxo NSG
-> [!NOTE] 
-> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
 
 Versão 2 dos logs de apresenta o estado do fluxo. Pode configurar qual é a versão dos registos de fluxo de recebe. Para saber como ativar os registos de fluxo, veja [registo do fluxo do NSG ativar](network-watcher-nsg-flow-logging-portal.md).
 

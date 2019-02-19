@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183841"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339028"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>FAQ e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory
 
@@ -33,6 +33,8 @@ ms.locfileid: "56183841"
 
 
 **Dispensar o risco de utilizador** Identity Protection (atualizadas) define o ator no histórico de risco do utilizador no Identity Protection (atualizadas) para **\<nome do administrador com um hiperlink que aponta para o painel do utilizador\>**.
+
+Existe um problema conhecido atual, fazendo com que latências no fluxo de exoneração do risco de utilizador. Se tiver uma "política de risco do utilizador", esta política irá deixar de aplicar-se aos utilizadores ignorados dentro de minutos de clicar em "Dispensar o risco de utilizador". No entanto, são conhecidos atrasos com a experiência do Usuário atualizando o "Estado de risco" de utilizadores ignorados. Como solução, atualize a página no nível do navegador para ver o utilizador mais recente "Estado de risco".
 
 
 ## <a name="risky-users-report"></a>Relatório dos utilizadores de risco

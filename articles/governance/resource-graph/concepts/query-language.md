@@ -1,6 +1,6 @@
 ---
 title: Compreender a linguagem de consulta
-description: Descreve como funciona a linguagem de consulta para o gráfico de recursos do Azure.
+description: Descreve como funciona a linguagem de consulta de Kusto utilizada pelo gráfico de recursos do Azure.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 62f61bfea3896fd3828253f5ec16cc38fe3ca007
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cc792d27890b5d994b62784eaa511df990f9b5ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316679"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339979"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do gráfico de recursos do Azure
 
@@ -27,32 +27,32 @@ A melhor forma de saber mais sobre a linguagem de consulta usada pelo gráfico d
 Eis a lista de operadores tabulares suportados no gráfico de recursos:
 
 - [count](/azure/kusto/query/countoperator)
-- [Distintos](/azure/kusto/query/distinctoperator)
-- [Expandir](/azure/kusto/query/extendoperator)
-- [Limite](/azure/kusto/query/limitoperator)
+- [distinct](/azure/kusto/query/distinctoperator)
+- [extend](/azure/kusto/query/extendoperator)
+- [limit](/azure/kusto/query/limitoperator)
 - [Ordenar por](/azure/kusto/query/orderoperator)
-- [Projeto](/azure/kusto/query/projectoperator)
-- [fora do projeto](/azure/kusto/query/projectawayoperator)
-- [Exemplo](/azure/kusto/query/sampleoperator)
-- [exemplo-distintos](/azure/kusto/query/sampledistinctoperator)
+- [project](/azure/kusto/query/projectoperator)
+- [project-away](/azure/kusto/query/projectawayoperator)
+- [sample](/azure/kusto/query/sampleoperator)
+- [sample-distinct](/azure/kusto/query/sampledistinctoperator)
 - [Ordenar por](/azure/kusto/query/sortoperator)
-- [resumir](/azure/kusto/query/summarizeoperator)
-- [tirar](/azure/kusto/query/takeoperator)
-- [parte superior](/azure/kusto/query/topoperator)
-- [superior-nested.](/azure/kusto/query/topnestedoperator)
-- [Top-hitters](/azure/kusto/query/tophittersoperator)
-- [onde](/azure/kusto/query/whereoperator)
+- [summarize](/azure/kusto/query/summarizeoperator)
+- [take](/azure/kusto/query/takeoperator)
+- [top](/azure/kusto/query/topoperator)
+- [top-nested](/azure/kusto/query/topnestedoperator)
+- [top-hitters](/azure/kusto/query/tophittersoperator)
+- [where](/azure/kusto/query/whereoperator)
 
 ## <a name="supported-functions"></a>Funções suportadas
 
 Eis a lista de funções no gráfico de recursos:
 
-- [Ago()](/azure/kusto/query/agofunction)
+- [ago()](/azure/kusto/query/agofunction)
 - [buildschema()](/azure/kusto/query/buildschema-aggfunction)
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
-- [ToString)](/azure/kusto/query/tostringfunction)
-- [ZIP()](/azure/kusto/query/zipfunction)
+- [tostring()](/azure/kusto/query/tostringfunction)
+- [zip()](/azure/kusto/query/zipfunction)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

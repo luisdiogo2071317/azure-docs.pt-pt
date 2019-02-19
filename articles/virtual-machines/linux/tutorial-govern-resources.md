@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 040f073cc410911ea88112b3206623e90cece0ca
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d3182c51ca80a26159e962a6354a53b5283326a2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756178"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343073"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Saiba mais sobre a governação de máquina virtual do Linux com a CLI do Azure
 
@@ -71,7 +71,7 @@ Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribu
 
 ## <a name="azure-policy"></a>Azure Policy
 
-O [Azure Policy](../../azure-policy/azure-policy-introduction.md) ajuda-o a certificar-se de que todos os recursos na subscrição cumprem os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize o comando [az policy definition list](/cli/azure/policy/definition):
+O [Azure Policy](../../governance/policy/overview.md) ajuda-o a certificar-se de que todos os recursos na subscrição cumprem os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize o comando [az policy definition list](/cli/azure/policy/definition):
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table

@@ -1,6 +1,6 @@
 ---
-title: Como alterar, eliminar ou gerir os seus grupos de gestão no Azure
-description: Aprenda a manter e atualizar a hierarquia de grupo de gestão.
+title: Como alterar, eliminar ou gerir os seus grupos de gestão no Azure - governação do Azure
+description: Saiba como ver, manter, atualizar e eliminar a hierarquia de grupo de gestão.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582422"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342600"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão
 
@@ -39,11 +39,11 @@ Pode alterar o nome do grupo de gestão, utilizando o portal, o PowerShell ou a 
 
 1. Selecione o **mudança de nome de grupo** opção na parte superior da página.
 
-   ![Mudar o Nome do Grupo](./media/detail_action_small.png)
+   ![Opção de mudança de nome de grupo](./media/detail_action_small.png)
 
 1. Quando abre o menu, introduza o novo nome que gostaria de ter apresentado.
 
-   ![Mudar o Nome do Grupo](./media/rename_context.png)
+   ![Painel de mudança de nome de grupo](./media/rename_context.png)
 
 1. Selecione **Guardar**.
 
@@ -87,11 +87,11 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 
    - Se o ícone estiver desabilitado, passar o rato seu Seletor de mouse sobre o ícone mostra-lhe o motivo.
 
-   ![Eliminar grupo](./media/delete.png)
+   ![Eliminar a opção de grupo](./media/delete.png)
 
 1. Há uma janela que abre-se de confirmar que pretende eliminar o grupo de gestão.
 
-   ![Eliminar grupo](./media/delete_confirm.png)
+   ![Eliminar a janela de confirmação de grupo](./media/delete_confirm.png)
 
 1. Selecione **Sim**.
 
@@ -195,13 +195,13 @@ Para ver quais as permissões que tem, selecione o grupo de gestão e, em seguid
 
 1. Selecione as reticências no final da linha para a subscrição na lista que pretende mover.
 
-   ![Mover](./media/move_small.png)
+   ![Opção de movimentação](./media/move_small.png)
 
 1. Selecione **mover**.
 
 1. No menu que se abre, selecione o **grupo de gestão principal**.
 
-   ![Mover](./media/move_small_context.png)
+   ![Mover o painel](./media/move_small_context.png)
 
 1. Selecione **Guardar**.
 
@@ -272,19 +272,19 @@ Utilize o comando de atualização para mover um grupo de gestão com a CLI do A
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
-## <a name="audit-management-groups-using-activity-logs"></a>Grupos de gestão de auditoria com os registos de atividade
+## <a name="audit-management-groups-using-activity-logs"></a>Auditar os grupos de gestão que utilizam registos de atividades
 
-Para controlar os grupos de gestão através desta API, utilize o [API do Log de atividade de inquilino](/rest/api/monitor/tenantactivitylogs). Atualmente não é possível utilizar o PowerShell, CLI ou o portal do Azure para monitorizar a atividade de grupos de gestão.
+Para monitorizar os grupos de gestão através desta API, utilize a [API do Registo de Atividades do Inquilino](/rest/api/monitor/tenantactivitylogs). Atualmente, não é possível utilizar o PowerShell, a CLI ou o portal do Azure para monitorizar a atividade dos grupos de gestão.
 
-1. Como administrador de inquilinos do inquilino do Azure AD, [elevar o acesso](../../role-based-access-control/elevate-access-global-admin.md) , em seguida, atribuir uma função de leitor ao utilizador auditoria sobre o âmbito `/providers/microsoft.insights/eventtypes/management`.
-1. Como o utilizador de auditoria, chamar o [API do Log de atividade de inquilino](/rest/api/monitor/tenantactivitylogs) para ver as atividades de grupo de gestão. Vai querer filtrar pelo fornecedor de recursos **Microsoft.Management** para todas as atividades de grupo de gestão.  Exemplo:
+1. Como administrador do inquilino do Azure AD, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md) e, em seguida, atribua uma função de Leitor ao utilizador de auditoria no âmbito `/providers/microsoft.insights/eventtypes/management`.
+1. Como utilizador de auditoria, chame a [API do Registo de Atividades do Inquilino](/rest/api/monitor/tenantactivitylogs) para ver as atividades dos grupos de gestão. Vai querer filtrar pelo Fornecedor de Recursos **Microsoft.Management** para todas as atividades dos grupos de gestão.  Exemplo:
 
 ```xml
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 
 > [!NOTE]
-> Convenientemente chamar esta API a partir da linha de comandos, experimente [ARMClient](https://github.com/projectkudu/ARMClient).
+> Para chamar convenientemente esta API a partir da linha de comandos, experimente [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -292,6 +292,6 @@ Para saber mais sobre os grupos de gestão, veja:
 
 - [Criar grupos de gestão para organizar recursos do Azure](create.md)
 - [Como alterar, eliminar ou gerir os seus grupos de gestão](manage.md)
-- [Reveja os grupos de gestão no módulo de recursos do Azure PowerShell](https://aka.ms/mgPSdocs)
-- [Reveja os grupos de gestão na REST API](https://aka.ms/mgAPIdocs)
-- [Reveja os grupos de gestão na CLI do Azure](https://aka.ms/mgclidoc)
+- [Rever os grupos de gestão no Módulo de Recursos do Azure PowerShell](https://aka.ms/mgPSdocs)
+- [Rever os grupos de gestão na API REST](https://aka.ms/mgAPIdocs)
+- [Rever os grupos de gestão na CLI do Azure](https://aka.ms/mgclidoc)

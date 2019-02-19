@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 5e19f7cd2aa249e1c9587963e005e8114eacbdb0
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327169"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342055"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)
 
@@ -242,6 +242,9 @@ spec:
           role: frontend
 ```
 
+> [!NOTE]
+> Esta política de rede utiliza uma *namespaceSelector* e uma *podSelector* elemento para a regra de entrada. A sintaxe YAML é importante para as regras de entrada ser aditiva ou não. Neste exemplo, ambos os elementos têm de corresponder para a regra de entrada a ser aplicado. Kubernetes versões anteriores ao *1.12* não pode interpretar corretamente esses elementos e restringir o tráfego de rede conforme o esperado. Para obter mais informações, consulte [comportamento de e para seletores][policy-rules].
+
 Aplicar a política de rede atualizado através da [kubectl aplicam-se] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
@@ -442,6 +445,7 @@ Para saber mais sobre como utilizar políticas, consulte [as políticas de rede 
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

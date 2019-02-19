@@ -8,13 +8,13 @@ ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 02/15/2019
+ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436284"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343294"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Execute Apache Oozie no Hadoop do HDInsight clusters com o Enterprise Security Package
 
@@ -22,7 +22,7 @@ Apache Oozie é um sistema de fluxo de trabalho e a coordenação que gere as ta
 - Apache MapReduce
 - Apache Pig
 - Apache Hive
-- O Apache Sqoop
+- Apache Sqoop
 
 Também pode utilizar o Oozie para agendar tarefas que são específicas para um sistema, como programas de Java ou scripts de shell.
 
@@ -217,11 +217,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-   a. Substitua `domainuser` com seu nome de utilizador para o domínio.  
-   b. Substitua `ClusterShortName` com o nome abreviado para o cluster. Por exemplo, se o nome do cluster é https:// *[link de exemplo]* sechadoopcontoso.azurehdisnight.net, o `clustershortname` é os primeiro de seis carateres do cluster: **sechad**.  
-   c. Substitua `jdbcurlvalue` com o URL de JDBC da configuração do Hive. Um exemplo é jdbc:hive2: / / headnodehost:10001 /; transportMode = http.      
-   d. Para guardar o ficheiro, selecione Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.
+
+   * Utilize o `adl://home` URI para o `nameNode` propriedade se tiver Gen1 de armazenamento do Azure Data Lake como o armazenamento de cluster principal. Se estiver a utilizar o armazenamento de Blobs do Azure, em seguida, altere esta opção para `wasb://home`. Se estiver a utilizar Gen2 de armazenamento do Azure Data Lake, em seguida, alterar essa opção para `abfs://home`.
+   * Substitua `domainuser` com seu nome de utilizador para o domínio.  
+   * Substitua `ClusterShortName` com o nome abreviado para o cluster. Por exemplo, se o nome do cluster é https:// *[link de exemplo]* sechadoopcontoso.azurehdisnight.net, o `clustershortname` é os primeiro de seis carateres do cluster: **sechad**.  
+   * Substitua `jdbcurlvalue` com o URL de JDBC da configuração do Hive. Um exemplo é jdbc:hive2: / / headnodehost:10001 /; transportMode = http.      
+   * Para guardar o ficheiro, selecione Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.
 
    Este ficheiro de propriedades tem de existir localmente ao executar os trabalhos de Oozie.
 

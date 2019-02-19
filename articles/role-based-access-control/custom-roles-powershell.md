@@ -1,6 +1,6 @@
 ---
-title: Criar funções personalizadas com o Azure PowerShell | Documentos da Microsoft
-description: Saiba como criar funções personalizadas para controlo de acesso baseado em funções (RBAC) com o Azure PowerShell. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
+title: Criar funções personalizadas para recursos do Azure com o Azure PowerShell | Documentos da Microsoft
+description: Saiba como criar funções personalizadas com controlo de acesso baseado em funções (RBAC) para recursos do Azure com o Azure PowerShell. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 26e5b33504ff543e8442108e4368ce3b04f25df4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92c061a7f854b46ab5aee07aa5e648ace8f9ae52
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696766"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343847"
 ---
-# <a name="create-custom-roles-using-azure-powershell"></a>Criar funções personalizadas com o Azure PowerShell
+# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Criar funções personalizadas para recursos do Azure com o Azure PowerShell
 
-Se as [funções incorporadas](built-in-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com o Azure PowerShell.
+Se o [funções incorporadas para recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com o Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Tutorial: Criar uma função personalizada com o Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Custom roles in Azure](custom-roles.md) (Funções personalizadas no Azure)
+- [Tutorial: Criar uma função personalizada para recursos do Azure com o Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)

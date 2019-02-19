@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: aff57e58ffd247bcc697908f2f25cbf17ff9b91a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c5514a43602106cf045b575d289e02b591468359
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244135"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338466"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governação da infraestrutura do Azure DevTest Labs - recursos
 Este artigo aborda o alinhamento e a gestão de recursos para laboratórios Dev/Test na sua organização. 
@@ -56,7 +56,7 @@ Como posso manter uma convenção de nomenclatura em meu ambiente de laboratóri
 ### <a name="answer"></a>Resposta
 Talvez queira estender atual convenções de nomenclatura de enterprise para operações do Azure e torná-las consistentes em todo o ambiente do DevTest Labs.
 
-Ao implementar o DevTest Labs, recomendamos que tenha políticas específicas de partida. Implemente estas políticas por um script central e modelos JSON para impor a consistência. Políticas de atribuição de nomes pode ser implementada através de políticas do Azure aplicadas-se ao nível da subscrição. Para exemplos JSON para o Azure Policy, veja [exemplos do Azure Policy](../azure-policy/json-samples.md).
+Ao implementar o DevTest Labs, recomendamos que tenha políticas específicas de partida. Implemente estas políticas por um script central e modelos JSON para impor a consistência. Políticas de atribuição de nomes pode ser implementada através de políticas do Azure aplicadas-se ao nível da subscrição. Para exemplos JSON para o Azure Policy, veja [exemplos do Azure Policy](../governance/policy/samples/index.md).
 
 ## <a name="number-of-users-per-lab-and-labs-per-organization"></a>Número de utilizadores por laboratório e laboratórios por organização
 

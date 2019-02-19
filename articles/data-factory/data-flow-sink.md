@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 795b8072bbd9b248f982d061d699f490b1b63b17
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 381dc2f9f6d3a074af00ba047472719c086f5811
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56272115"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408413"
 ---
-# <a name="azure-data-factory-mapping-data-flow-sink-transformation"></a>Mapeamento de transformação de Sink de fluxo de dados de fábrica de dados do Azure
+# <a name="mapping-data-flow-sink-transformation"></a>Transformação de Sink de fluxo de dados de mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ![Opções de sink](media/data-flow/windows1.png "sink 1")
 
-Após a conclusão da sua transformação de fluxo de dados, pode sink os dados transformados num conjunto de dados de destino. A transformação de Sink, pode escolher a definição de conjunto de dados que deseja usar para os dados de saída de destino.
+Após a conclusão da sua transformação de fluxo de dados, pode sink os dados transformados num conjunto de dados de destino. A transformação de Sink, pode escolher a definição de conjunto de dados que deseja usar para os dados de saída de destino. Pode ter tantos de Sink de transformação, à medida que necessita do seu fluxo de dados.
 
 É uma prática comum para levar em conta a alteração de dados de entrada e levar em conta os descompassos de esquema para os dados de saída de sink para uma pasta sem um esquema definido no conjunto de dados de saída. Pode além em conta todas as alterações de coluna em suas origens ao selecionar "Permitir Descompassos de esquema" na origem e, em seguida, automap todos os campos no coletor.
 
@@ -35,24 +35,7 @@ Para tipos de sink do Blob de armazenamento do Azure ou o Data Lake, produzirá 
 
 ![Opções de sink](media/data-flow/opt001.png "opções de sink")
 
-## <a name="blob-storage-folder"></a>Pasta de armazenamento de BLOBs
-Quando Afundando até as transformações de dados para BLOBs Store, escolha um blob *pasta* como seu caminho de pasta de destino, não é um ficheiro. O fluxo de dados do ADF irá gerar os ficheiros de saída para nessa pasta.
-
-![Caminho da pasta](media/data-flow/folderpath.png "caminho da pasta")
-
-## <a name="optional-azure-sql-data-warehouse-sink"></a>Sink de armazém de dados SQL do Azure opcional
-
-Vamos lançar um versão beta anterior do ADW Sink conjunto de dados para o fluxo de dados. Isso permitirá que parar os dados transformados diretamente para o Azure SQL DW dentro do fluxo de dados sem a necessidade de adicionar uma atividade de cópia no seu pipeline.
-
-Comece por criar um conjunto de dados ADW, tal como faria para qualquer outro pipeline do ADF, com um serviço ligado que inclua as suas credenciais ADW e selecione a base de dados que deseja se conectar. O nome de tabela, selecione uma tabela existente ou digite o nome da tabela que gostaria de ter o fluxo de dados para criar automaticamente para si a partir nos campos de entrada.
-
-![Opções de sink](media/data-flow/adw3.png "sink 3")
-
-Novamente no tranformation Sink (ADW está atualmente apenas suportado como Sink) irá escolher o conjunto de dados de ADW que criou, bem como a conta de armazenamento que pretende utilizar para os dados para o Polybase carregar para ADW de preparação. O campo de caminho é o formato: "containername/foldername".
-
-![Opções de sink](media/data-flow/adw1.png "sink 4")
-
-### <a name="save-policy"></a>Guardar política
+### <a name="output-settings"></a>Definições de saída
 
 Substituir irá truncar a tabela se existir, em seguida, recriá-lo e carregar os dados. Acrescentar irá inserir novas linhas. Se a tabela a partir do nome de tabela do conjunto de dados não existe nenhuma no destino ADW, fluxo de dados irá criar a tabela, em seguida, carregue os dados.
 
@@ -60,8 +43,46 @@ Se desmarcar "Mapear automática", pode mapear os campos à sua tabela de destin
 
 ![Opções de ADW de sink](media/data-flow/adw2.png "adw sink")
 
-### <a name="max-concurrent-connections"></a>Ligações simultâneas máx.
+#### <a name="field-mapping"></a>Mapeamento de campos
 
-Pode definir o número máximo de ligações simultâneo a transformação de Sink ao escrever os dados para uma ligação de base de dados do Azure.
+No separador de mapeamento da sua transformação de Sink, pode mapear as colunas de entrada (lado esquerdo) para o destino (lado direito). Quando fluxos de dados de sink para ficheiros, o ADF sempre escreve novos ficheiros para uma pasta. Quando mapear para um conjunto de dados do banco de dados, pode optar por gerar uma nova tabela com esse esquema (definido guardar a política de "substituir") ou inserir novas linhas para um existente uma tabela e mapeiam os campos para o esquema existente.
 
-![Opções de ligação](media/data-flow/maxcon.png "ligações")
+Pode utilizar seleção múltipla na tabela de mapeamento para ligar a várias colunas com um só clique, Delink várias colunas ou mapear várias linhas para o mesmo nome de coluna.
+
+![Mapeamento de campo](media/data-flow/multi1.png "várias opções")
+
+Se pretende repor os mapeamentos de colunas, prima o botão "Mapear novamente" para repor os mapeamentos.
+
+![Ligações](media/data-flow/maxcon.png "ligações")
+
+### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>Atualizações para o Sink de transformação para a versão de disponibilidade geral do ADF V2
+
+![Opções de sink](media/data-flow/sink1.png "um Sink")
+
+![Opções de sink](media/data-flow/sink2.png "Coletores de")
+
+* Permitir que as opções de esquema Descompassos e validar esquema estão agora disponíveis no Sink. Isso permitirá que instruir o ADF para totalmente aceite as definições de esquema flexível (esquema Descompassos) ou falhar o Sink se o esquema for alterado (validar esquema).
+
+* Limpe a pasta. ADF irá truncar o conteúdo da pasta sink antes de gravar os ficheiros de destino nessa pasta de destino.
+
+* Opções de nome de ficheiro
+
+   * Predefinição: Permitir que o Spark para nomear arquivos com base nas predefinições de parte
+   * Pattern: Introduza um nome para os seus ficheiros de saída
+   * Por partição: Introduza um nome de ficheiro por partição
+   * Como os dados na coluna: Definir o ficheiro de saída para o valor de uma coluna
+
+> [!NOTE]
+> Operações de arquivo só serão executado quando estiver a executar a atividade executar fluxo de dados, não enquanto estiver no modo de dados de fluxo de depuração
+
+Com os tipos de sink do SQL, pode definir:
+
+* Truncar a tabela
+* Recrie a tabela (executa drop/criar)
+* Tamanho do lote para grandes cargas de dados. Introduza um número a escritas de bucket em segmentos.
+
+![Mapeamento de campos](media/data-flow/sql001.png "opções de SQL")
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Agora que criou o fluxo de dados, adicione uma [atividade de executar o fluxo de dados para o seu pipeline](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).

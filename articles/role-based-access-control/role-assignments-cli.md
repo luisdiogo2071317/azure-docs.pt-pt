@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso com RBAC e a CLI do Azure | Documentos da Microsoft
-description: Saiba como gerir o acesso para utilizadores, grupos e aplicações, com controlo de acesso baseado em funções (RBAC) e a CLI do Azure. Isto inclui como lista de acesso, conceder acesso e remover o acesso.
+title: Gerir o acesso aos recursos do Azure através do RBAC e CLI do Azure | Documentos da Microsoft
+description: Saiba como gerir o acesso aos recursos do Azure para utilizadores, grupos e aplicações que utilizam o controlo de acesso baseado em funções (RBAC) e a CLI do Azure. Isto inclui como listar, conceder e remover acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437104"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341724"
 ---
-# <a name="manage-access-using-rbac-and-azure-cli"></a>Gerir o acesso com RBAC e a CLI do Azure
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gerir o acesso aos recursos do Azure através do RBAC e CLI do Azure
 
-[O controlo de acesso baseado em funções (RBAC)](overview.md) é a forma de gerir o acesso a recursos no Azure. Este artigo descreve como gerir o acesso para utilizadores, grupos e aplicações através do RBAC e CLI do Azure.
+[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Este artigo descreve como gerir o acesso para utilizadores, grupos e aplicações através do RBAC e CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -311,5 +311,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Tutorial: Criar uma função personalizada com a CLI do Azure](tutorial-custom-role-cli.md)
-- [Utilizar a CLI do Azure para gerir recursos do Azure e grupos de recursos](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+- [Tutorial: Criar uma função personalizada para recursos do Azure com a CLI do Azure](tutorial-custom-role-cli.md)
+- [Utilizar a CLI do Azure para gerir recursos do Azure e grupos de recursos](../azure-resource-manager/cli-azure-resource-manager.md)

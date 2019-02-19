@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: e84f74fe4678a65a33c9cc728f290e7c905b2261
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d93e0de48fd10677ad30e002390dc2e8177cf2eb
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743740"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408481"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Tarefas
  
@@ -27,6 +27,10 @@ A operação de atualização no [transformar](https://docs.microsoft.com/rest/a
 R [tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os serviços de multimédia do Azure para aplicar a **transformar** para um determinado conteúdo vídeo ou áudio de entrada. Quando a transformação tiver sido criada, pode submeter trabalhos com APIs de serviços de suporte de dados ou qualquer um dos SDKs publicados. O **tarefa** Especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização da sua utilização vídeo entrada: URLs HTTPS, URLs SAS, ou [ativos](https://docs.microsoft.com/rest/api/media/assets). O progresso e o estado das tarefas podem ser obtidos através da monitorização de eventos com o Event Grid. Para obter mais informações, consulte [monitorar eventos usando EventGrid](job-state-events-cli-how-to.md).
 
 A operação de atualização no [tarefa](https://docs.microsoft.com/rest/api/media/jobs) entidade pode ser usada para modificar a *Descrição*e o *prioridade* propriedades depois da tarefa foi submetida. Uma alteração para o *prioridade* propriedade é eficaz apenas se a tarefa ainda estiver num Estado em fila. Se a tarefa foi iniciada processamento ou foi concluída, a alteração de prioridade não tem qualquer efeito.
+
+O diagrama seguinte mostra as tarefas de transformações/fluxo de trabalho.
+
+![Transformações](./media/encoding/transforms-jobs.png)
 
 > [!NOTE]
 > Propriedades de **transformar** e **tarefa** que são de Datetime tipo são sempre em formato UTC.

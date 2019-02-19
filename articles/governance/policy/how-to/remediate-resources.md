@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 054ce3d3483c3515e89c36eafc5d9a771e8e608d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844148"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342121"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não compatíveis com o Azure Policy
 
@@ -72,7 +72,7 @@ Ao criar uma atribuição através do portal, política gera a identidade gerida
 Para criar uma identidade gerida durante a atribuição da política **localização** tem de ser definido e **AssignIdentity** utilizado. O exemplo seguinte obtém a definição da política incorporada **encriptação de dados transparente de implementar o SQL DB**, define o grupo de recursos de destino e, em seguida, cria a atribuição.
 
 ```azurepowershell-interactive
-# Login first with Connect-Azccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
 $policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
@@ -117,7 +117,7 @@ Para adicionar uma função a identidade gerida da atribuição, siga estes pass
 
 1. Encontrar o **ID de atribuição** propriedade na página de edição. O ID de atribuição será algo como:
 
-   ```
+   ```output
    /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
    ```
 

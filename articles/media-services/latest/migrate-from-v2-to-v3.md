@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744177"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340353"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -45,11 +45,11 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 
 * Para o trabalho baseados em ficheiros de processamento, pode utilizar um URL de HTTP (S) como entrada.<br/>Não é necessário ter o conteúdo já armazenado no Azure, nem precisa criar recursos.
 * Apresenta o conceito de [transforma](transforms-jobs-concept.md) para processamento de tarefas baseada em ficheiros. Uma transformação pode ser utilizada para configurações de compilação reutilizáveis, para criar modelos do Azure Resource Manager e isolar as definições de processamento entre vários clientes ou inquilinos.
-* Um elemento pode ter vários [localizadores de transmissão em fluxo](streaming-locators-concept.md) cada uma com diferentes configurações de empacotamento dinâmico e a encriptação dinâmica.
+* Um elemento pode ter vários [localizadores de transmissão em fluxo](streaming-locators-concept.md) cada uma com diferentes [empacotamento dinâmico](dynamic-packaging-overview.md) e definições de encriptação dinâmica.
 * [Proteção de conteúdo](content-key-policy-concept.md) oferece suporte a recursos com múltiplos principais.
 * Pode transmitir em fluxo eventos em direto, que são até 24 horas longas quando utilizar os serviços de mídia à transcodificação uma contribuição de velocidade de transmissão única para alimentar num fluxo de saída que tenha múltiplas velocidades de transmissão.
 * Novo baixa latência em direto a suporte de transmissão em fluxo eventos em direto. Para obter mais informações, consulte [latência](live-event-latency.md).
-* A visualização dinâmica do evento suporta o empacotamento dinâmico e a encriptação dinâmica. Isto permite que a proteção de conteúdo no empacotamento de pré-visualização, bem como DASH e HLS.
+* Suporta a visualização de eventos do Live [empacotamento dinâmico](dynamic-packaging-overview.md) e a encriptação dinâmica. Isto permite que a proteção de conteúdo no empacotamento de pré-visualização, bem como DASH e HLS.
 * Saída em direto é mais simples de usar do que a entidade de programa nas v2 APIs. 
 * Suporte RTMP aprimorado (maior estabilidade e mais suporte do codificador de origem).
 * Ingerir RTMPS seguro.<br/>Quando cria um evento em direto, obtém 4 URLs de inserção. O 4 ingerir URLs são quase idênticos, ter o mesmo token de transmissão em fluxo (AppId), apenas a parte do número de porta é diferente. Dois dos URLs são principais e cópia de segurança para RTMPS.   

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 2e39aaae7b873174db032c5e1dda516c9a998d31
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 66d7a2ce5833729d601ae896f0903a17a40fc8a3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301915"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339504"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilizar a geração 2 de armazenamento do Azure Data Lake para requisitos de grandes volumes de dados
 
@@ -73,7 +73,7 @@ Esta tabela mostra como pode conceder acesso para cada serviço do Azure ou a fe
 |Apache DistCp | Atribuir uma função para uma identidade gerida atribuído ao utilizador | [Criar um cluster do HDInsight com geração 2 de armazenamento do Data Lake](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
 |Azure Data Factory| Atribuir uma função para uma identidade atribuída-gerida pelo utilizador<br>**ou**<br> Atribuir uma função para um principal de serviço<br>**ou**<br> Utilizar uma chave de conta de armazenamento | [Propriedades do serviço ligado](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Atribuir uma função para uma identidade gerida atribuído ao utilizador | [Criar um cluster do HDInsight com geração 2 de armazenamento do Data Lake](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
-|Azure Databricks| Atribuir uma função para um principal de serviço | [Criar um principal de serviço](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-service-principal)|
+|Azure Databricks| Atribuir uma função para um principal de serviço | [How to: Utilizar o portal para criar uma aplicação do Azure AD e principal de serviço que pode aceder aos recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Para conceder acesso a pastas e ficheiros específicos, veja estes artigos.
 

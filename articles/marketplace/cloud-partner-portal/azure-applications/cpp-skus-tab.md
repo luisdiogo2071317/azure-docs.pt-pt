@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890904"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342546"
 ---
 # <a name="azure-application-skus-tab"></a>Separador de SKUs de aplicação do Azure
 
@@ -139,7 +139,7 @@ Adicione o Azure Active Directory do identificador de utilizador, grupo ou aplic
 
 #### <a name="policy-settings"></a>Definições de política
 
-Adicione as políticas que a aplicação gerida está em conformidade com. Saiba mais sobre as políticas de recursos do Azure, consulte [o que é o Azure Policy?](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) 
+Adicione as políticas que a aplicação gerida está em conformidade com. Saiba mais sobre as políticas de recursos do Azure, consulte [o que é o Azure Policy?](../../../governance/policy/overview.md)
 
 
    ![Definições de autorização e a política para uma aplicação gerida](./media/azureapp-sku-details-managedapp-auth-policy.png)

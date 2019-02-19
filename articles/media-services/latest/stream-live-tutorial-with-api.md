@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894178"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338602"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Stream em direto com serviços de multimédia v3 através do .NET
 
@@ -126,7 +126,7 @@ Início de saídas após a criação do Live e param quando eliminado. Ao elimin
 #### <a name="create-a-streaming-locator"></a>Criar um localizador de transmissão em fluxo
 
 > [!NOTE]
-> Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
+> Quando a conta dos Serviços de Multimédia é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à mesma, no estado **Parado**. Para iniciar o seu conteúdo de transmissão em fluxo e tirar partido das [empacotamento dinâmico](dynamic-packaging-overview.md) e a encriptação dinâmica, o ponto final de transmissão em fluxo do qual pretende transmitir conteúdo tem de estar no **em execução** estado. 
 
 Quando publica o elemento de saída em direto com um localizador de transmissão em fluxo, o evento em direto (até o tamanho de janela DVR) irá continuar a ser visualizado até expiração o localizador de transmissão em fluxo ou eliminação, o que ocorrer primeiro.
 

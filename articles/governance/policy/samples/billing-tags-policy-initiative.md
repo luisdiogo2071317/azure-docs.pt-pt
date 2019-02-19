@@ -1,6 +1,6 @@
 ---
 title: Exemplo - iniciativa de política de etiquetas de faturação
-description: Este conjunto de políticas de exemplo exige valores de etiqueta especificados para o nome do produto e o centro de custos.
+description: Este conjunto de definição de política de exemplo requer os valores de etiqueta especificados para o nome de produto e o Centro de custo.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4592ac63561a59bfc0e4351cc5ad83f138955370
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242860"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337610"
 ---
-# <a name="billing-tags-policy-initiative"></a>Iniciativa de política de etiquetas de faturação
+# <a name="sample---billing-tags-policy-initiative"></a>Exemplo - iniciativa de política de etiquetas de faturação
 
 Este conjunto de políticas exige valores de etiqueta especificados para o nome do produto e o centro de custos. Utiliza políticas incorporadas para aplicar e impor etiquetas necessárias. O utilizador especifica os valores necessários para as etiquetas.
 

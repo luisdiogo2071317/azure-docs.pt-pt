@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456226"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342309"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
 
@@ -74,10 +74,13 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
     ![Painel de navegação][8]
 
     > [!IMPORTANT]
-    > Registos de auditoria ao nível do servidor são escritos **Blobs de acréscimo** num armazenamento de Blobs do Azure na sua subscrição do Azure.
+    > Registos de auditoria são escritos **Blobs de acréscimo** no armazenamento de Blobs do Azure na sua subscrição do Azure.
     >
-    > * **O armazenamento Premium** está atualmente **nepodporuje** por Blobs de acréscimo.
-    > * **Armazenamento na VNet** está atualmente **nepodporuje**.
+    > - Todos os tipos de armazenamento (v1, v2, blob) são suportados.
+    > - Todas as configurações de replicação de armazenamento são suportadas.
+    > - **O armazenamento Premium** está atualmente **nepodporuje**.
+    > - **Armazenamento na VNet** está atualmente **nepodporuje**.
+    > - **Armazenamento protegido por uma Firewall** está atualmente **não suportado**
 
 8. Clique em **Guardar**.
 

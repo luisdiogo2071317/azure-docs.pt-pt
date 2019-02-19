@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989791"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343966"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 
@@ -64,9 +64,9 @@ A oferta de uma aplicação gerida corresponde a uma classe de oferta de produto
 
 Os campos do formulário **Definições da Oferta** são:
 
-* **ID da Oferta**: este identificador exclusivo identifica a oferta num perfil de editor. Este ID é visível nos URLs do produto, nos modelos do Resource Manager e nos relatórios de faturação. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um hífen. Está limitado a um máximo de 50 carateres. Depois da publicação de uma oferta, este campo fica bloqueado.
-* **ID do Editor**: utilize esta lista pendente para escolher o perfil de editor onde quer publicar esta oferta. Depois da publicação de uma oferta, este campo fica bloqueado.
-* **Nome**: este nome a apresentar da sua oferta aparece no Marketplace e no portal. Pode ter um máximo de 50 carateres. Inclua um nome de marca reconhecível para o produto. Não inclua o nome da sua empresa aqui, a menos que seja como está comercializado. Se estiver a comercializar esta oferta no seu próprio site, certifique-se de que o nome é exatamente como aparece no seu site.
+* **ID da oferta**: Este identificador exclusivo identifica a oferta de um perfil do publicador. Este ID é visível nos URLs do produto, nos modelos do Resource Manager e nos relatórios de faturação. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um hífen. Está limitado a um máximo de 50 carateres. Depois da publicação de uma oferta, este campo fica bloqueado.
+* **ID de publicador**: Utilize esta lista pendente para escolher o perfil do publicador que pretende publicar esta oferta em. Depois da publicação de uma oferta, este campo fica bloqueado.
+* **Nome**: Este nome a apresentar para a sua oferta será exibido no Marketplace e no portal. Pode ter um máximo de 50 carateres. Inclua um nome de marca reconhecível para o produto. Não inclua o nome da sua empresa aqui, a menos que seja como está comercializado. Se estiver a comercializar esta oferta no seu próprio site, certifique-se de que o nome é exatamente como aparece no seu site.
 
 Quando terminar, selecione **Guardar** para guardar o seu progresso.
 
@@ -90,22 +90,22 @@ Um SKU aparece na oferta principal no marketplace. É apresentado como a sua pr�
 
    Preencha os seguintes campos:
 
-   * **Título**: introduza um título para o SKU. Este título é apresentado na galeria deste item.
-   * **Resumo**: introduza um breve resumo para o SKU. Este texto é apresentado abaixo do título.
-   * **Descrição**: introduza uma descrição detalhada do SKU.
-   * **Tipo de SKU**: os valores permitidos são *Aplicação Gerida* e *Modelos de Solução*. Neste caso, selecione *Aplicação Gerida*.
-   * **Disponibilidade do país/região**: selecione os países onde a aplicação gerida está disponível.
-   * **Preços**: forneça um preço para a gestão da aplicação. Selecione os países disponíveis antes de definir o preço.
+   * **Título**: Introduza um título para este SKU. Este título é apresentado na galeria deste item.
+   * **Resumo**: Introduza um breve resumo para este SKU. Este texto é apresentado abaixo do título.
+   * **Descrição**: Introduza uma descrição detalhada sobre o SKU.
+   * **Tipo de SKU**: Os valores permitidos são *Managed Application* e *modelos de soluções*. Neste caso, selecione *Aplicação Gerida*.
+   * **Disponibilidade de país/região**: Selecione os países onde a aplicação gerida está disponível.
+   * **Preços**: Forneça um preço para a gestão da aplicação. Selecione os países disponíveis antes de definir o preço.
 
 1. Adicione um novo pacote. Preencha a secção **Detalhes do Pacote** no seguinte formulário:
 
    Preencha os seguintes campos:
 
    * **Versão**: Introduza uma versão para o pacote que carrega. Deverá estar no formato `{number}.{number}.{number}{number}`.
-   * **Ficheiro de pacote(.zip)**: Este pacote contém dois ficheiros necessários comprimidos num pacote .zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
-   * **PrincipalId**: esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, grupo de utilizadores ou aplicação com acesso concedido aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
-   * **Definição de Função**: esta propriedade é uma lista de todas as funções de Controlo de Acesso Baseado em Funções (RBAC) incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
-   * **Definições de Política**: Aplicar uma [Azure Policy](../azure-policy/azure-policy-introduction.md) à sua aplicação gerida para especificar os requisitos de conformidade para as soluções implementadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../azure-policy/json-samples.md).
+   * **Ficheiro de pacote (. zip)**: Este pacote contém ficheiros necessários dois compactados num pacote. zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
+   * **PrincipalId**: Esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, o grupo de utilizadores ou a aplicação que é concedida acesso aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
+   * **Definição de função**: Esta propriedade é uma lista de todos os as controlo de acesso baseado em funções (RBAC) funções incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
+   * **Definições de política**: Aplicar uma [do Azure Policy](../governance/policy/overview.md) para seu aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implementadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../governance/policy/samples/index.md).
 
 Pode adicionar várias autorizações. Recomendamos que crie um grupo de utilizadores do AD e especifique o respetivo ID em **PrincipalId**. Desta forma, pode adicionar mais utilizadores ao grupo de utilizadores sem a necessidade de atualizar o SKU.
 
@@ -176,7 +176,7 @@ Preencha o formulário de **Suporte** com contactos de suporte da sua empresa. E
 
 Depois de preencher todas as secções, selecione **Publicar** para iniciar o processo que disponibiliza a oferta aos clientes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar e publicar uma aplicação gerida do Catálogo de Serviços](publish-service-catalog-app.md).

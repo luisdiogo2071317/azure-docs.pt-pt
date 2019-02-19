@@ -1,6 +1,6 @@
 ---
-title: Criar funções personalizadas com a API REST - Azure | Documentos da Microsoft
-description: Saiba como criar funções personalizadas para controlo de acesso baseado em funções (RBAC) com a API REST. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
+title: Criar funções personalizadas para recursos do Azure com a API REST - Azure | Documentos da Microsoft
+description: Saiba como criar funções personalizadas com controlo de acesso baseado em funções (RBAC) para recursos do Azure com a API REST. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: cfcb7ef2a4fc02932f9d03c277b105c4b1e0ff3a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436067"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338772"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>Criar funções personalizadas com a API REST
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar funções personalizadas para recursos do Azure com a API REST
 
-Se o [funções incorporadas](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com a API REST.
+Se o [funções incorporadas para recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com a API REST.
 
 ## <a name="list-roles"></a>Listar funções
 
@@ -38,7 +38,7 @@ Para listar todas as funções ou obter informações sobre uma única função 
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as funções.
 
-    | Âmbito | Tipo |
+    | Âmbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -67,7 +67,7 @@ Para obter informações sobre uma única função utilizando o seu nome de exib
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as funções.
 
-    | Âmbito | Tipo |
+    | Âmbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -115,7 +115,7 @@ Para criar uma função personalizada, utilize o [definições de funções – 
 
 1. No URI, substitua *{âmbito}* com o primeiro `assignableScopes` da função personalizada.
 
-    | Âmbito | Tipo |
+    | Âmbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -179,7 +179,7 @@ Para atualizar uma função personalizada, utilize o [definições de funções 
 
 1. No URI, substitua *{âmbito}* com o primeiro `assignableScopes` da função personalizada.
 
-    | Âmbito | Tipo |
+    | Âmbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -262,7 +262,7 @@ Para eliminar uma função personalizada, utilize o [definições de funções �
 
 1. No URI, substitua *{âmbito}* com o âmbito de que pretende eliminar a função personalizada.
 
-    | Âmbito | Tipo |
+    | Âmbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -272,6 +272,6 @@ Para eliminar uma função personalizada, utilize o [definições de funções �
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Funções personalizadas no Azure](custom-roles.md)
-- [Gerir o acesso com RBAC e a API REST](role-assignments-rest.md)
-- [Referência da API REST do Azure](/rest/api/azure/)
+- [Funções personalizadas para recursos do Azure](custom-roles.md)
+- [Gerir o acesso aos recursos do Azure através do RBAC e a API REST](role-assignments-rest.md)
+- [Referência à API REST do Azure](/rest/api/azure/)

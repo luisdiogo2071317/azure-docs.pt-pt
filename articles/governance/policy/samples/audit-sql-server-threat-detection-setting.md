@@ -1,6 +1,6 @@
 ---
 title: Exemplo - deteção de ameaças de nível de servidor de auditoria definir
-description: Esta política de exemplo fará uma auditoria às políticas de alerta de segurança da base de dados SQL se as políticas não estiverem definidas para o estado especificado.
+description: Esta definição de política de exemplo auditorias a políticas de alerta de segurança do SQL server se essas políticas não estão definidas para o estado especificado.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9e0ea3b65a4c442358c357e9603d607d8464c21b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ba694618bf86ef8e97241c955a40790960be2f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242180"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341373"
 ---
-# <a name="audit-server-level-threat-detection-setting"></a>Auditar a definição de deteção de ameaças do nível do servidor
+# <a name="sample---audit-server-level-threat-detection-setting"></a>Exemplo - deteção de ameaças de nível de servidor de auditoria definir
 
-Esta política faz uma auditoria às políticas de alerta de segurança da base de dados SQL se as políticas não estiverem definidas para o estado especificado. Especifica um valor que indica se a deteção de ameaças está ativada ou desativada.
+Esta política audita políticas de alerta de segurança do SQL server se essas políticas não estão definidas para o estado especificado. Especifica um valor que indica se a deteção de ameaças está ativada ou desativada.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

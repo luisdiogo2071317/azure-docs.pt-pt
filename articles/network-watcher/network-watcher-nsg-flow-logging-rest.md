@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 58486ab821b6b01f531f62445a9d4ade1336569a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 565b5bcce114ab5ebd2169ece11a958013cf2ee5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332018"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338908"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Registos de fluxo de configurar o grupo de segurança de rede com a REST API
 
@@ -30,9 +30,6 @@ ms.locfileid: "54332018"
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Os registos de fluxo do grupo de segurança de rede são uma funcionalidade do observador de rede permite-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Estes registos de fluxo são escritos no formato json e Mostrar fluxos de saída e entrados numa base por regra, o NIC que o fluxo de mensagens em fila aplica-se a informações de 5 cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo), e se o tráfego foi permitido ou negado.
-
-> [!NOTE] 
-> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

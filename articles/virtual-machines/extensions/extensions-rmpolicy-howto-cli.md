@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1f71276c25e3ec1e5791d9b35f89aa95190c6afd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770589"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341969"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Utilizar a política do Azure para restringir a instalação de extensões em VMs do Linux
 
@@ -28,7 +28,7 @@ Este tutorial utiliza a CLI do Azure Cloud Shell, que é constantemente atualiza
 
 ## <a name="create-a-rules-file"></a>Crie um ficheiro de regras
 
-Para restringir que extensões podem ser instalados, tem de ter uma [regra](/azure/azure-policy/policy-definition#policy-rule) para fornecer a lógica para identificar a extensão.
+Para restringir que extensões podem ser instalados, tem de ter uma [regra](../../governance/policy/concepts/definition-structure.md#policy-rule) para fornecer a lógica para identificar a extensão.
 
 Este exemplo mostra como negar a instalação de extensões publicadas por "Microsoft.OSTCExtensions" através da criação de um arquivo de regras no Azure Cloud Shell, mas se estiver a trabalhar na CLI localmente, também pode criar um ficheiro local e substituir o caminho (~/clouddrive) com o caminho para o ficheiro local no seu computador.
 
@@ -69,7 +69,7 @@ Quando tiver terminado, prima a **Esc** da chave e, em seguida, escreva **: wq**
 
 ## <a name="create-a-parameters-file"></a>Crie um ficheiro de parâmetros
 
-Também é necessário um [parâmetros](/azure/azure-policy/policy-definition#parameters) ficheiro que cria uma estrutura para que possa utilizar para passar numa lista das extensões para bloquear. 
+Também é necessário um [parâmetros](../../governance/policy/concepts/definition-structure.md#parameters) ficheiro que cria uma estrutura para que possa utilizar para passar numa lista das extensões para bloquear. 
 
 Este exemplo mostra como criar um ficheiro de parâmetros para VMs do Linux no Cloud Shell, mas se estiver a trabalhar na CLI localmente, também pode criar um ficheiro local e substituir o caminho (~/clouddrive) com o caminho para o arquivo local no seu computador.
 
@@ -171,6 +171,6 @@ az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-gr
 az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
-
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte [do Azure Policy](../../azure-policy/azure-policy-introduction.md).
+
+Para obter mais informações, consulte [do Azure Policy](../../governance/policy/overview.md).

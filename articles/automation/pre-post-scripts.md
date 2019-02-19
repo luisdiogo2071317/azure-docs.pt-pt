@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3010f4ec86b25c51fae2ce8f64238ec8815adca8
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236010"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408685"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
 
@@ -52,7 +52,19 @@ Ao clicar em executar a implementação da atualização, é-lhe fornecido detal
 
 ## <a name="passing-parameters"></a>Passando parâmetros
 
-Quando configurar o pré e post scripts, pode passar parâmetros, assim como agendar um runbook. Os parâmetros são definidos no momento da criação de implementação de atualização. Scripts de pré e Post exigem parâmetro seja do tipo `String`. Se precisar de outro tipo de objeto, pode convertê-lo para outro e tipo usando `[System.Convert]` ou processá-la com a sua própria lógica.
+Quando configurar o pré e post scripts, pode passar parâmetros, assim como agendar um runbook. Os parâmetros são definidos no momento da criação de implementação de atualização. Scripts de pré e Post suportam os seguintes tipos:
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [único]
+* [double]
+* [DateTime]
+* [string]
+
+Se precisar de outro tipo de objeto, pode convertê-lo a outro tipo com a sua própria lógica no runbook.
 
 Além dos parâmetros do runbook padrão, é fornecido um parâmetro adicional. Este parâmetro é **SoftwareUpdateConfigurationRunContext**. Este parâmetro é uma cadeia de caracteres do JSON e, se definir o parâmetro no script anterior ou post, é automaticamente passado pela implementação de atualizações. O parâmetro contém informações sobre a implementação da atualização, que é um subconjunto de informações retornado pelos [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) a tabela seguinte mostra as propriedades que são fornecidas na variável:
 

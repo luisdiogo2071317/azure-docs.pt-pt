@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 9cd43172fc57443cc89f238e1d4ffaae45301936
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: addc1a0d7356cf1ba536c7ab47e376a48621e2d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330567"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342495"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Criar um índice básico no Azure Search
 
@@ -26,9 +26,29 @@ Pode criar um índice no portal, [REST API](search-create-index-rest-api.md), ou
 
 ## <a name="recommended-workflow"></a>Fluxo de trabalho recomendado
 
-Como estruturas físicas são criadas durante a indexação, será necessário para [remover e recriar índices](search-howto-reindex.md) sempre que fizer alterações materiais a uma definição de campo existente. Isso significa que durante o desenvolvimento, deve planejar a recompilações frequentes. Pode optar por trabalhar com um subconjunto dos seus dados para tornar recria ir mais rápido. 
+A chegar ao design à direita é geralmente obtida por meio de várias iterações. Utilizando uma combinação de APIs e ferramentas pode ajudá-lo a finalize a estrutura rapidamente.
 
-Código em vez de indexação portal também é recomendado. Se contar com o portal para a definição de índice, terá de preencher a definição do índice em cada reconstrução. Como alternativa, usando uma ferramenta como [Postman e a API REST](search-fiddler.md) são úteis para quando os projetos de desenvolvimento ainda se encontram em fases iniciais de teste de prova de conceito. Pode fazer as alterações incrementais para uma definição de índice no corpo do pedido, enviar o pedido para o seu serviço para recriar um índice com um esquema atualizado.
+1. Determinar se pode usar uma [indexador](search-indexer-overview.md#supported-data-sources). Se os dados externos são uma das origens de dados suportadas, pode protótipo e carregar um índice com o [ **importar dados** ](search-import-data-portal.md) assistente.
+
+2. Se não pode usar **importar dados**, ainda pode [criar um índice inicial no portal do](search-create-index-portal.md), adição de campos, tipos de dados e a atribuição de atributos usando controles no **Adicionar índice** página. O portal mostra quais atributos estão disponíveis para diferentes tipos de dados. Se estiver familiarizado com a estrutura de índice, isso é útil.
+
+   ![Página de índice de adicionar atributos pelo tipo de dados a mostrar](media/search-create-index-portal/field-attributes.png "Adicionar página de índice que mostra os atributos pelo tipo de dados")
+  
+   Quando clica em **criar**, todas as estruturas físicas que suporta o seu índice são criadas no seu serviço de pesquisa.
+
+3. Transferir o esquema de índice utilizando [obter API REST do índice](https://docs.microsoft.com/rest/api/searchservice/get-index) e a ferramenta, como de teste de uma web [Postman](search-fiddler.md). Agora tem uma representação JSON do índice que criou no portal. 
+
+   São mudar para uma abordagem baseada em código neste momento. O portal não é adequado para a iteração porque não é possível editar um índice que já foi criado. Mas pode utilizar o Postman e REST para as tarefas restantes.
+
+4. [Carregar seu índice com dados](search-what-is-data-import.md). O Azure Search aceita documentos JSON. Para carregar os dados por meio de programação, pode utilizar o Postman com documentos JSON no payload de pedido. Se seus dados não é facilmente expressados como JSON, este passo será mais trabalho com utilização intensiva.
+
+5. Consultar o índice, examinar os resultados e iterar ainda mais o esquema do índice até começar a ver os resultados esperados. Pode usar [ **Explorador de pesquisa** ](search-explorer.md) ou o Postman para consultar o índice.
+
+6. Continue a utilizar o código para iterar o design.  
+
+Porque estruturas físicas são criadas no serviço, [remover e recriar índices](search-howto-reindex.md) é necessário sempre que fizer alterações materiais à definição de campo existente ab. Isso significa que durante o desenvolvimento, deve planejar a recompilações frequentes. Pode optar por trabalhar com um subconjunto dos seus dados para tornar recria ir mais rápido. 
+
+Código, em vez de uma abordagem de portal, recomenda-se para o projeto iterativo. Se contar com o portal para a definição de índice, terá de preencher a definição do índice em cada reconstrução. Como alternativa, ferramentas como o [Postman e a API REST](search-fiddler.md) são úteis para quando os projetos de desenvolvimento ainda se encontram em fases iniciais de teste de prova de conceito. Pode efetuar alterações incrementais para uma definição de índice num corpo de pedido e, em seguida, enviar a solicitação ao seu serviço para recriar um índice com um esquema atualizado.
 
 ## <a name="components-of-an-index"></a>Componentes de um índice
 
@@ -119,13 +139,13 @@ Na definição do esquema, tem de especificar o nome, o tipo e os atributos de c
 ### <a name="data-types"></a>Tipos de dados
 | Type | Descrição |
 | --- | --- |
-| *Edm.String* |Texto que pode, opcionalmente, ser atomizado para pesquisa em texto completo (separação de palavras, lematização, etc.). |
+| *Edm.String* |Texto que pode, opcionalmente, ser atomizado para pesquisa em texto completo (separação de palavras, Lematização e assim por diante). |
 | *Collection(Edm.String)* |Uma lista de cadeias que pode, opcionalmente, ser atomizada para pesquisa em texto completo. Não existe um limite superior teórico do número de itens numa coleção, contudo, o limite superior de 16 MB de tamanho de payload aplica-se às coleções. |
 | *Edm.Boolean* |Contém valores verdadeiro/falso. |
 | *Edm.Int32* |Valores inteiros de 32 bits. |
 | *Edm.Int64* |Valores inteiros de 64 bits. |
 | *Edm.Double* |Dados numéricos de dupla precisão. |
-| *Edm.DateTimeOffset* |Valores de data/hora representados no formato OData V4 (por ex. `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.DateTimeOffset* |Data de valores de hora representados no formato OData V4 (por exemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Um ponto que representa uma localização geográfica no mundo. |
 
 Pode encontrar mais informações detalhadas sobre os [tipos de dados suportados aqui](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) do Azure Search.
@@ -144,32 +164,33 @@ Pode encontrar mais informações detalhadas sobre os [atributos de índice aqui
 
 ## <a name="storage-implications"></a>Implicações de armazenamento
 
-Os atributos que selecionar tem um impacto no armazenamento. Captura de ecrã seguinte é uma ilustração de padrões de armazenamento de índice resultante de várias combinações de atributos. O índice baseia-se no [exemplo de realestate incorporada](search-get-started-portal.md) fonte de dados, o que permite-lhe indexar e consultas no portal.
+Os atributos que selecionar tem um impacto no armazenamento. Captura de ecrã seguinte ilustra os padrões de armazenamento de índice resultante de várias combinações de atributos.
 
-Filtrar e ordenar a consulta de operações em correspondências exatas para que os documentos são armazenados intacto. Campos pesquisáveis ative a pesquisa difusa e de texto completo. Invertida índices são criados para campos pesquisáveis e preenchidos com os termos com token. Não marcar um campo como um campo recuperável tem nenhum impacto considerável no tamanho do índice.
+O índice baseia-se no [exemplo de realestate incorporada](search-get-started-portal.md) fonte de dados, o que permite-lhe indexar e consultas no portal. Embora os esquemas de índice não são apresentados, pode inferir os atributos com base no nome do índice. Por exemplo, *realestate-pesquisável* índice tem o **pesquisável** atributo selecionado e nada mais, *realestate-recuperável* índice tem o  **recuperável** atributo selecionado e nada mais e assim por diante.
 
 ![Tamanho com base na seleção de atributos de índice](./media/search-what-is-an-index/realestate-index-size.png "tamanho com base na seleção de atributos de índice")
 
-Vários dessas combinações são artificial, útil para que esclarecem de que um ponto, mas não iria resultar num índice viável. Na prática, nunca seria adicionar cada campo único para um sugestor ou criar um índice pesquisável, mas não recuperável.
+Embora essas variantes de índice são artificiais, podemos possa consultá-las para comparações ampla de como atributos de afetam o armazenamento. Faz a definição **recuperável** aumentar o tamanho do índice? Não. Faz a adição de campos para um **Sugestor** aumentar o tamanho do índice? Sim.
 
-Arquitetura de armazenamento é considerada um detalhe de implementação do Azure Search e pode ser alteradas sem aviso prévio. Não é garantido que o comportamento atual serão mantidas no futuro.
+Os índices que suportam a filtrar e ordenar são proporcionalmente maiores do que os índices que oferecem suporte a pesquisa em texto completo apenas. O motivo é essa consulta de filtrar e ordenar em correspondências exatas para que os documentos são armazenados intacto. Por outro lado, os campos pesquisáveis suporte de texto completo e difusa índices de pesquisa utilização invertido, que são preenchidos com termos com token que consomem menos espaço que documentos inteiros.
+
+> [!Note]
+> Arquitetura de armazenamento é considerada um detalhe de implementação do Azure Search e pode ser alteradas sem aviso prévio. Não é garantido que o comportamento atual serão mantidas no futuro.
 
 ## <a name="suggesters"></a>Sugestões
-Um sugestor é uma seção do esquema que define os campos num índice são usados para oferecer suporte a consultas de conclusão automática ou antecipada em pesquisas. Normalmente, cadeias de procura parciais são enviadas para as sugestões (API do REST de serviço de pesquisa do Azure) enquanto o usuário está digitando uma consulta de pesquisa e a API devolve um conjunto de expressões sugeridas. 
+Um sugestor é uma seção do esquema que define os campos num índice são usados para oferecer suporte a consultas de conclusão automática ou antecipada em pesquisas. Normalmente, as cadeias de procura parciais são enviadas para o [sugestões (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API devolve um conjunto de expressões sugeridas. 
 
-Um sugestor que definir no índice determina quais os campos são utilizados para criar os termos de pesquisa antecipada. Para obter mais informações, consulte [adicionar sugestores](index-add-suggesters.md) para obter detalhes de configuração.
+Campos adicionados a um sugestor são utilizados para criar os termos de pesquisa antecipada. Todos os termos de pesquisa são criados durante a indexação e armazenados separadamente. Para obter mais informações sobre como criar uma estrutura de sugestor, consulte [adicionar sugestores](index-add-suggesters.md).
 
 ## <a name="scoring-profiles"></a>Perfis de classificação
 
-Um perfil de classificação é uma seção do esquema que define a classificação comportamentos personalizados que permitem-lhe influenciar os itens apareçam mais em cima nos resultados da pesquisa. Perfis de classificação são constituídos por peso de campo e funções. Para usá-los, especifique um perfil de por nome na seqüência de consulta.
+R [perfil de classificação](index-add-scoring-profiles.md) é uma seção do esquema que define a custom classificação comportamentos que permitem que influenciar os itens apareçam mais em cima nos resultados da pesquisa. Perfis de classificação são constituídos por peso de campo e funções. Para usá-los, especifique um perfil de por nome na seqüência de consulta.
 
-Um padrão de perfil de classificação funciona em segundo plano para computar uma pontuação de pesquisa para todos os itens num conjunto de resultados. Pode usar interno, sem nome de perfil de classificação. Em alternativa, defina defaultScoringProfile para utilizar um perfil personalizado como padrão, invocado sempre que um perfil personalizado não é especificado na cadeia de consulta.
-
-Para obter mais informações, consulte [adicionar perfis de classificação](index-add-scoring-profiles.md).
+Um padrão de perfil de classificação funciona em segundo plano para computar uma pontuação de pesquisa para todos os itens num conjunto de resultados. Pode usar interno, sem nome de perfil de classificação. Em alternativa, defina **defaultScoringProfile** utilizar um perfil personalizado como padrão, invocado sempre que um perfil personalizado não é especificado na cadeia de consulta.
 
 ## <a name="analyzers"></a>Analisadores
 
-O elemento de analisadores define o nome do analisador de idioma a utilizar para o campo. Para o conjunto permitido de valores, consulte [analisadores de idiomas no Azure Search](index-add-language-analyzers.md). Esta opção pode ser utilizada apenas com campos pesquisáveis e não pode ser definido em conjunto com um **searchAnalyzer** ou **indexAnalyzer**. Depois do analyzer for escolhido, não pode ser alterado para o campo.
+O elemento de analisadores define o nome do analisador de idioma a utilizar para o campo. Para obter mais informações sobre a variedade de analisadores disponíveis para si, consulte [adicionando analisadores para um índice da Azure Search](search-analyzers.md). Analisadores só podem ser utilizados com campos pesquisáveis. Assim que o analisador está atribuído a um campo, não pode ser alterado, a menos que reconstrua o índice.
 
 ## <a name="cors"></a>CORS
 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 71e88c06dcfe935f712af473c7f496d9165107a7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267551"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344000"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão da v3 de serviços de multimédia do Azure
 
@@ -44,7 +44,7 @@ Serviços de multimédia v3 já está upported em clouds nacionais do Azure. Nem
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Ficheiros Media Encoder Standard e MPI 
 
-Ao codificar com o Media Encoder Standard para produzir ficheiros MP4, um novo ficheiro de .mpi é gerado e adicionado à saída de ativo. Este ficheiro MPI destina-se para melhorar o desempenho de empacotamento dinâmico e cenários de transmissão em fluxo.
+Ao codificar com o Media Encoder Standard para produzir ficheiros MP4, um novo ficheiro de .mpi é gerado e adicionado à saída de ativo. Este ficheiro MPI destina-se para melhorar o desempenho para [empacotamento dinâmico](dynamic-packaging-overview.md) e cenários de transmissão em fluxo.
 
 Não deve modificar ou remover o arquivo MPI ou fazer qualquer dependência no seu serviço na existência (ou não) de um arquivo desse tipo.
 

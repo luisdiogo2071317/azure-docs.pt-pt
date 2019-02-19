@@ -1,6 +1,6 @@
 ---
-title: Lista negar atribuições com o RBAC e a API de REST - Azure | Documentos da Microsoft
-description: Saiba como listar atribuições de utilizadores, grupos e aplicações, com controlo de acesso baseado em funções (RBAC) e a API REST de negação.
+title: Lista negar atribuições para recursos do Azure com a API REST - Azure | Documentos da Microsoft
+description: Saiba como listar atribuições de utilizadores, grupos e aplicações, com controlo de acesso baseado em funções (RBAC) para recursos do Azure e a API REST de negação.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975591"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341628"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>Lista negar atribuições com o RBAC e a API REST
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lista de atribuições para recursos do Azure com a API REST de negação
 
-Atualmente, negar atribuições são **só de leitura** e só pode ser definido pelo Azure. Mesmo que não é possível criar o seu próprio negar atribuições, pode listar atribuições de negação porque elas poderiam afetar as suas permissões em vigor. Este artigo descreve como negar que para listar atribuições com o RBAC e a API REST.
+Atualmente, as atribuições de negação são **só de leitura** e só podem ser definidas pelo Azure. Apesar de não ser possível criar as suas próprias atribuições de negação, pode listar atribuições de negação, porque elas poderiam afetar as suas permissões em vigor. Este artigo descreve como negar que para listar atribuições com o RBAC e a API REST.
 
 ## <a name="list-a-single-deny-assignment"></a>Lista de um único negar atribuição
 
@@ -36,7 +36,7 @@ Atualmente, negar atribuições são **só de leitura** e só pode ser definido 
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de negação.
 
-    | Âmbito | Tipo |
+    | Âmbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -60,7 +60,7 @@ Atualmente, negar atribuições são **só de leitura** e só pode ser definido 
 
 1. No URI, substitua *{âmbito}* com o âmbito para o qual pretende listar as atribuições de negação.
 
-    | Âmbito | Tipo |
+    | Âmbito | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscrição |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupo de recursos |
@@ -95,6 +95,6 @@ Atualmente, negar atribuições são **só de leitura** e só pode ser definido 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Compreender as atribuições de negação](deny-assignments.md)
-- [Elevar o acesso de Administrador Global no Azure Active Directory](elevate-access-global-admin.md)
+- [Compreender negar atribuições para recursos do Azure](deny-assignments.md)
+- [Elevate access for a Global Administrator in Azure Active Directory](elevate-access-global-admin.md) (Elevar o acesso para um Administrador Global no Azure Active Directory)
 - [Referência à API REST do Azure](/rest/api/azure/)

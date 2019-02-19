@@ -1,6 +1,6 @@
 ---
 title: Exemplo - impor o padrão de correspondência de etiqueta
-description: Esta política de exemplo requer que os recursos cumpram o padrão de correspondência do valor da etiqueta.
+description: Esta definição de política de exemplo requer que os recursos cumprem o padrão de correspondência para o valor da etiqueta.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f3e4246141a9d9de1a7d6451422e1e55a4c3545f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9510bb147a8eb9687e074191e8fcc404c847dc0a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244424"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342665"
 ---
-# <a name="enforce-tag-match-pattern-for-tag-values"></a>Impor o padrão de correspondência da etiqueta para valores de etiqueta
+# <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>Exemplo - impor o padrão de correspondência de etiqueta para valores de etiqueta
 
 Requer que um valor de etiqueta cumpra um padrão de correspondência. Especifica o padrão permitido na regra de política.
 

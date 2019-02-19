@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 10/23/2018
+ms.date: 02/15/2019
 ms.topic: hub-page
-ms.openlocfilehash: ceb5bb59f65e0f01d04d1aa9726b2494384b4a67
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 12957121d386afdc911bb0be954c0066d580e83e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998956"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338041"
 ---
 <h1>Documentação dos Serviços Cognitivos do Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Aprenda a criar algoritmos inteligentes em aplicações, websites e bots para que possam ver, ouvir, falar, compreender e interpretar as necessidades dos utilizadores através de métodos naturais de comunicação. Os tutoriais, inícios rápidos, referências de API e exemplos mostram-lhe como.</p>
@@ -133,7 +133,7 @@ ms.locfileid: "55998956"
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">Utilizar C#</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Utilizar o Java</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Utilizar o Node.js</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze">Utilizar o Python</a></p>
+                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk#analyze-an-image">Utilizar o Python</a></p>
                     </div>
                 </div>
             </div>
@@ -301,7 +301,6 @@ ms.locfileid: "55998956"
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Serviço de Visão Personalizada&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">API Face</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
-                        <p><a href="/azure/cognitive-services/emotion/home"><span>API de Emoções&nbsp;<sup style="font-size:70%">A DESCONTINUAR</sup></span></a></p>
                     </div>
                 </div>
             </div>
@@ -385,7 +384,7 @@ ms.locfileid: "55998956"
                         <p><a href="/azure/cognitive-services/labs/url-preview/overview">Projeto de Pré-visualização de URL</a></p>
                         <p><a href="/azure/cognitive-services/labs/answer-search/overview">Projeto de Pesquisa de Respostas</a></p>
                         <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">Projeto de Explorador de Anomalias</a></p>
-                        <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">Projeto de Aprendiz de Conversação</a></p>
+                        <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">Projeto de Conversation Learner</a></p>
                         <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Projeto Acoustics</a></p>
                         <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Serviço de Decisão Personalizada&nbsp;<sup style="font-size:70%">PRÉ-VISUALIZAÇÃO</sup></span></a></p>
                     </div>

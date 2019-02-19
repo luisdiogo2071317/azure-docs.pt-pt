@@ -1,6 +1,6 @@
 ---
 title: Exemplo - impor etiqueta e respetivo valor em grupos de recursos
-description: Esta política de exemplo exige uma etiqueta e um valor num grupo de recursos.
+description: Esta definição de política de exemplo requer uma etiqueta e um valor num grupo de recursos.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8fd9ba2e6e5eae43476102c8928c67d6015ec2eb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 73990de30525dff4e3a0981ebca96368f56845fe
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245665"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339078"
 ---
-# <a name="enforce-tag-and-its-value-on-resource-groups"></a>Impor a etiqueta e o respetivo valor em grupos de recursos
+# <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemplo - impor etiqueta e respetivo valor em grupos de recursos
 
 Esta política requer uma etiqueta e um valor num grupo de recursos. Especifica o nome de etiqueta e o valor necessário.
 

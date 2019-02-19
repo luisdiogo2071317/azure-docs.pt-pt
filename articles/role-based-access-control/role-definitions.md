@@ -1,6 +1,6 @@
 ---
-title: Compreender as definições de funções no RBAC do Azure | Documentos da Microsoft
-description: Conheça a definições de funções no controlo de acesso baseado em funções (RBAC) para gestão de acessos detalhada de recursos no Azure.
+title: Compreender as definições de funções no RBAC para recursos do Azure | Documentos da Microsoft
+description: Conheça a definições de funções no controlo de acesso baseado em funções (RBAC) para gestão de acessos detalhada dos recursos do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991366"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342784"
 ---
-# <a name="understand-role-definitions"></a>Compreender as definições de função
+# <a name="understand-role-definitions-for-azure-resources"></a>Compreender as definições de funções para recursos do Azure
 
-Se estiver a tentar entender como funciona uma função ou se estiver a criar sua própria [função personalizada](custom-roles.md), é útil compreender como as funções são definidas. Este artigo descreve os detalhes das definições de funções e fornece alguns exemplos.
+Se estiver a tentar entender como funciona uma função ou se estiver a criar sua própria [função personalizada para recursos do Azure](custom-roles.md), é útil compreender como as funções são definidas. Este artigo descreve os detalhes das definições de funções e fornece alguns exemplos.
 
 ## <a name="role-definition-structure"></a>Estrutura de definição de função
 
@@ -151,6 +151,8 @@ Uma vez que a Alice tem um caráter universal (`*`) ação num âmbito de subscr
 
 Permissões de Bob estão limitadas a apenas o `Actions` e `DataActions` especificado na [contribuinte de dados de Blob de armazenamento (pré-visualização)](built-in-roles.md#storage-blob-data-contributor-preview) função. Com base na função, Bob pode executar gerenciamento e operações de dados. Por exemplo, Bob poderá ler, escrever e eliminar os contentores na conta de armazenamento especificada e também ele pode ler, escrever e eliminar os blobs.
 
+Para obter mais informações sobre a gestão e segurança de plano de dados de armazenamento, consulte a [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md).
+
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Que ferramentas de suporte através do RBAC para operações de dados?
 
 Para visualizar e trabalhar com operações de dados, tem de ter as versões corretas do ferramentas ou SDKs:
@@ -225,10 +227,10 @@ Funções incorporadas têm `AssignableScopes` definido como o âmbito de raiz (
 | Função está disponível para atribuição apenas no grupo de recursos de rede | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Função está disponível para atribuição em todos os âmbitos | `"/"` |
 
-Para obter informações sobre `AssignableScopes` para funções personalizadas, consulte [funções personalizadas](custom-roles.md).
+Para obter informações sobre `AssignableScopes` para funções personalizadas, consulte [funções personalizadas para recursos do Azure](custom-roles.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Funções incorporadas](built-in-roles.md)
-* [Funções personalizadas](custom-roles.md)
+* [Built-in roles for Azure resources](built-in-roles.md) (Funções incorporadas para recursos do Azure)
+* [Funções personalizadas para recursos do Azure](custom-roles.md)
 * [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)

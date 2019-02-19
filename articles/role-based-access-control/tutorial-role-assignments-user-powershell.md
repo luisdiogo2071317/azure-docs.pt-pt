@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Conceder acesso a um utilizador com o RBAC e o Azure PowerShell | Microsoft Docs
-description: Utilize o controlo de acesso baseado em funções (RBAC) para conceder um utilizador de acesso para ver tudo numa subscrição e gerir tudo num grupo de recursos com o Azure PowerShell.
+title: Tutorial - conceder acesso de um utilizador aos recursos do Azure utilizando o RBAC e o Azure PowerShell | Documentos da Microsoft
+description: Saiba como conceder um acesso de utilizador aos recursos do Azure com o controlo de acesso baseado em funções (RBAC) e o Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109032"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343481"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Tutorial: Conceder acesso de utilizador utilizando o RBAC e o Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o Azure PowerShell
 
-[O controlo de acesso baseado em funções (RBAC)](overview.md) é a forma de gerir o acesso a recursos no Azure. Neste tutorial irá conceder acesso a um utilizador para ver tudo numa subscrição e gerir tudo num grupo de recursos com o Azure PowerShell.
+[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Neste tutorial irá conceder acesso a um utilizador para ver tudo numa subscrição e gerir tudo num grupo de recursos com o Azure PowerShell.
 
 Neste tutorial, ficará a saber como:
 
@@ -279,4 +279,4 @@ Para limpar os recursos criados por este tutorial, elimine o grupo de recursos e
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Gerir acesso através do PowerShell e do RBAC](role-assignments-powershell.md)
+> [Gerir o acesso aos recursos do Azure através do RBAC e o Azure PowerShell](role-assignments-powershell.md)

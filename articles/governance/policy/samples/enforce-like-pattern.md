@@ -1,6 +1,6 @@
 ---
 title: Exemplo - impor como padrão
-description: Esta política de exemplo exige que os recursos cumpram o padrão like para convenções de nomenclatura.
+description: Esta definição de política de exemplo requer que os recursos cumprem o padrão como para as convenções de nomenclatura.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7bc7624cdcc6676d3f622f30e9549a2e444c1d6f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6ff890773a045220b7e2f343d86434fe9109ef1a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243050"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338483"
 ---
-# <a name="enforce-like-pattern-for-naming-conventions"></a>Impor padrão like para convenções de nomenclatura
+# <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Exemplo - impor como padrão para as convenções de nomenclatura
 
 Requer que os nomes de recursos cumpram um padrão like para convenções de nomenclatura. Especifique o padrão like permitido como parâmetro.
 

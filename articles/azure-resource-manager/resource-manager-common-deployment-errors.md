@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 600b79ec0b34d6b79b1b56719dd800bbe8ec803a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487154"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339268"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -36,7 +36,7 @@ Este artigo descreve alguns erros comuns de implementação do Azure e fornece i
 | AccountPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não suporta o tamanho da VM pedida. Repita o pedido mais tarde, ou peça um tamanho VM diferente. | [Problemas de aprovisionamento e de alocação para Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problemas de aprovisionamento e de alocação para Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) e [resolver problemas de falhas de alocação](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Aguarde pela conclusão da operação em simultâneo. | |
-| AuthorizationFailed | Sua conta ou o principal de serviço não tem acesso suficiente para concluir a implementação. Verifique a sua conta pertencer a função e o acesso para o escopo da implantação. | [Controlo de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md) |
+| AuthorizationFailed | Sua conta ou o principal de serviço não tem acesso suficiente para concluir a implementação. Verifique a sua conta pertencer a função e o acesso para o escopo da implantação.<br><br>Poderá receber este erro quando não estiver registado um fornecedor de recursos necessários. | [Controlo de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registo](resource-manager-register-provider-errors.md) |
 | BadRequest | Enviou valores de implementação que não correspondem o que é esperado pelo Resource Manager. Consulte a mensagem de estado interna para obter ajuda na resolução de problemas. | [Referência de modelo](/azure/templates/) e [suportado localizações](resource-manager-templates-resources.md#location) |
 | Conflito | Está a pedir uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento do disco é permitido apenas quando criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde até a implantação simultânea para este grupo de recursos para concluir. | |

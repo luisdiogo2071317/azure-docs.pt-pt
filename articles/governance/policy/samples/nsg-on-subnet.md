@@ -1,6 +1,6 @@
 ---
 title: Exemplo - NSG x em cada sub-rede
-description: Esta polícia de exemplo requer a utilização de um grupo de segurança de rede específico em cada sub-rede virtual.
+description: Esta definição de política de exemplo requer que um grupo de segurança de rede específica é utilizado com todas as sub-redes virtuais.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: bf02e0df860b677ed1766e083834f894251f6b63
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1183a403c81dd71f123406991755157a4a4a1d26
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242843"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338551"
 ---
-# <a name="nsg-x-on-every-subnet"></a>NSG x em cada sub-rede
+# <a name="sample---network-security-group-x-on-every-subnet"></a>Exemplo - grupo de segurança de rede x em cada sub-rede
 
 Esta polícia requer a utilização de um grupo de segurança de rede específico em cada sub-rede virtual. Especifica o ID do grupo de segurança de rede a utilizar.
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: ab1b68b8ca8339389a27d1c09aa8752cfdaec0d5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1c99c680371d9d9601637ebeb52d9299de71b0ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851798"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338817"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
@@ -128,4 +128,4 @@ Para começar a utilizar as mensagens do Service Bus, consulte os seguintes arti
 * [Comparar serviços de mensagens do Azure](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * Obtenha mais informações sobre os escalões [Standard e Premium](https://azure.microsoft.com/pricing/details/service-bus/) do Azure Service Bus e os respetivos preços
 * [Desempenho e Latência do escalão Premium do Azure Service Bus](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
-* Experimente os inícios rápidos sobre [.NET](service-bus-quickstart-powershell.md), [Java](service-bus-quickstart-powershell.md) ou [JMS](service-bus-quickstart-powershell.md)
+* Experimente os inícios rápidos sobre [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) ou [JMS](service-bus-java-how-to-use-jms-api-amqp.md)

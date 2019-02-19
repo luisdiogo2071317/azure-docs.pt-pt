@@ -1,6 +1,6 @@
 ---
 title: Exemplo - definições de auditoria de auditoria SQL Server
-description: Esta política de exemplo audita as definições de auditoria do SQL Server.
+description: Esta definição de política de exemplo Audita as definições de auditoria do SQL server com auditIfNotExists.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 761cef1421f8a0dca84f4142c6ae9ae1b45f33c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1e0731de5ce2a12fee6b203f245e42aa4bc67d6e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242027"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338177"
 ---
-# <a name="audit-sql-server-audit-settings"></a>Auditar as definições de auditoria do SQL Server
+# <a name="sample---audit-sql-server-audit-settings"></a>Exemplo – auditoria definições de auditoria do SQL server
 
 Esta política incorporada fará uma auditoria ao SQL Server para verificar se as definições de auditoria estão ativadas.
 

@@ -1,6 +1,6 @@
 ---
 title: Exemplo - localizações permitido
-description: Esta política de exemplo exige que todos os recursos sejam implementados nas localizações aprovadas.
+description: Esta definição de política de exemplo requer que todos os recursos são implementados para as localizações aprovadas.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a13f181e90f0435f23e22a7c4db42976bd0afb44
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 70e1b2b20c4846626121dec190dff220a154b81b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243557"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341356"
 ---
-# <a name="allowed-locations"></a>Localizações permitidas
+# <a name="sample---allowed-region-locations"></a>Exemplo - região localizações permitido
 
 Esta política permite-lhe restringir as localizações de que sua organização pode especificar durante a implantação de recursos. Utilize para impor os requisitos de geoconformidade. Exclui grupos de recursos, Microsoft.AzureActiveDirectory/b2cDirectories e recursos que utilizem a região "global". Especifique uma matriz de localizações permitidas.
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001928"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339233"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -92,7 +92,7 @@ Para obter mais informações, consulte a [portas utilizadas pelos serviços do 
 Ficheiros relacionados com o Hadoop podem ser encontrados em nós de cluster em `/usr/hdp`. Esse diretório contém os subdiretórios do seguintes:
 
 * **2.2.4.9-1**: O nome do diretório é a versão da plataforma de dados Hortonworks utilizado pelo HDInsight. O número do seu cluster pode ser diferente dos listados aqui.
-* **atual**: Este diretório contém links para os subdiretórios abaixo a **2.2.4.9-1** diretório. Este diretório existe para que não precisa se lembrar o número de versão.
+* **current**: Este diretório contém links para os subdiretórios abaixo a **2.2.4.9-1** diretório. Este diretório existe para que não precisa se lembrar o número de versão.
 
 Dados de exemplo e ficheiros JAR podem ser encontrados no Hadoop sistema de ficheiros distribuído no `/example` e `/HdiSamples`.
 
@@ -126,7 +126,15 @@ Ao usar __armazenamento do Azure__, utilize um dos esquemas URI seguintes:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Utilizado quando estão a comunicar com uma conta de armazenamento não predefinido. Por exemplo, se tiver uma conta de armazenamento adicional ou quando aceder aos dados armazenados numa conta de armazenamento acessível publicamente.
 
-Ao usar __armazenamento do Data Lake__, utilize um dos esquemas URI seguintes:
+Ao usar __geração 2 de armazenamento do Azure Data Lake__, utilize um dos esquemas URI seguintes:
+
+* `abfs:///`: Aceder ao armazenamento de predefinido com comunicação desencriptada.
+
+* `abfss:///`: Armazenamento de padrão de acesso através da comunicação criptografada.  O esquema de abfss é suportado apenas a partir do HDInsight versão 3.6 ou posterior.
+
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Utilizado quando estão a comunicar com uma conta de armazenamento não predefinido. Por exemplo, se tiver uma conta de armazenamento adicional ou quando aceder aos dados armazenados numa conta de armazenamento acessível publicamente.
+
+Ao usar __Gen1 de armazenamento do Azure Data Lake__, utilize um dos esquemas URI seguintes:
 
 * `adl:///`: Acesso a predefinição de armazenamento do Data Lake para o cluster.
 
@@ -177,7 +185,7 @@ Há uma várias formas de aceder a dados a partir de fora do cluster do HDInsigh
 Se utilizar __armazenamento do Azure__, consulte as seguintes ligações para formas que pode aceder aos seus dados:
 
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): Comandos de interface de linha de comandos para trabalhar com o Azure. Depois de instalar, utilizar o `az storage` comando para obter ajuda sobre como utilizar o armazenamento, ou `az storage blob` para comandos específicos de Blobs.
-* [blobxfer.PY](https://github.com/Azure/blobxfer): Um script de python para trabalhar com blobs no armazenamento do Azure.
+* [blobxfer.py](https://github.com/Azure/blobxfer): Um script de python para trabalhar com blobs no armazenamento do Azure.
 * Vários SDKs:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -247,7 +255,7 @@ HDInsight é um serviço gerido. Se o Azure detetar um problema com o cluster, p
 
 Ações de script são scripts de Bash. Os scripts são executados durante a criação do cluster e são utilizados para instalar e configurar componentes adicionais. Scripts de exemplo são fornecidos para instalar os seguintes componentes:
 
-* [O Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Para obter informações sobre o desenvolvimento das suas próprias Ações de Script, consulte [Desenvolvimento de Ações de Script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 5f304c36c2e7ec0ea61aa63a976942d0de1ca042
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332477"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343498"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar tráfego de rede de e para uma máquina virtual utilizando o portal do Azure
 
@@ -37,9 +37,6 @@ Um grupo de segurança de rede (NSG) permite filtrar o tráfego de entrada e o t
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-> [!NOTE] 
-> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
-
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
@@ -48,7 +45,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     |Definição|Valor|
     |---|---|
-    |Nome|myVm|
+    |Name|myVm|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
@@ -91,7 +88,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
     | Definição        | Valor                                                        |
     | ---            | ---   |
-    | Nome           | 3 a 24 carateres de comprimento, só pode conter letras minúsculas e números e tem de ser exclusivo em todas as contas de Armazenamento do Microsoft Azure.                                                               |
+    | Name           | 3 a 24 carateres de comprimento, só pode conter letras minúsculas e números e tem de ser exclusivo em todas as contas de Armazenamento do Microsoft Azure.                                                               |
     | Localização       | Selecione **E.U.A. Leste**                                           |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
 

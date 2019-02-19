@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: f5efeabf3cf6d52f74aa2d064dc4c67c877d34e5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751927"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341727"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Documentação de orientação de ligações de Internet fidedigna
 
@@ -198,7 +198,7 @@ O Azure disponibiliza ferramentas nativas da cloud para ajudar a garantir que te
 
 ### <a name="azure-policy"></a>Azure Policy
 
-[O Azure Policy](https://azure.microsoft.com/services/azure-policy/) é um serviço do Azure que fornece a sua organização com melhor capacidade de auditoria e impor as iniciativas de conformidade. O Azure Policy está atualmente disponível em pré-visualização pública em serviços do Azure que estão disponíveis comercialmente. Política do Azure ainda não está disponível no Azure Government. Os clientes podem planear e testar as suas regras de política do Azure agora para garantir a conformidade de classificação TIC futura. 
+[O Azure Policy](../../governance/policy/overview.md) é um serviço do Azure que fornece a sua organização com melhor capacidade de auditoria e impor as iniciativas de conformidade. Os clientes podem planear e testar as suas regras de política do Azure agora para garantir a conformidade de classificação TIC futura.
 
 Política do Azure destina-se ao nível da subscrição. O serviço fornece uma interface centralizada, onde pode realizar tarefas de conformidade, incluindo:
 - Gerir iniciativas
@@ -213,13 +213,13 @@ As políticas de exemplo seguintes podem ser utilizadas para cenários de confor
 
 |Política  |Cenário de exemplo  |Modelo  |
 |---------|---------|---------|
-|Impor a tabela de rotas definidas pelo utilizador. | Certifique-se de que a rota padrão em todas as redes virtuais aponta para um gateway de rede virtual aprovados para o encaminhamento para o local.    | Introdução a isso [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
-|Se o observador de rede não está ativado para uma região de auditoria.  | Certifique-se de que o observador de rede está ativado para todas as regiões de utilizada.  | Introdução a isso [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
-|NSG x em cada sub-rede.  | Certifique-se de que um NSG (ou um conjunto de NSGs aprovados) com o tráfego de internet bloqueado é aplicado a todas as sub-redes em cada rede virtual. | Introdução a isso [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
-|NSG x em cada NIC. | Certifique-se de que um NSG com tráfego de internet bloqueado é aplicado a todos os NICs em todas as máquinas virtuais. | Introdução a isso [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
-|Utilize uma rede virtual aprovada para interfaces de rede de máquina virtual.  | Certifique-se de que todas as NICs estão numa rede virtual aprovada. | Introdução a isso [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
-|Localizações permitidas. | Certifique-se de que todos os recursos são implementados em regiões com redes virtuais em conformidade e a configuração de observador de rede.  | Introdução a isso [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
-|Não permitido tipos de recursos, como **PublicIPs**. | Proibir a implementação de tipos de recursos que não tenha um plano de conformidade. Utilize esta política para proibir a implementação de recursos de endereço IP público. Enquanto as regras do NSG podem ser utilizadas para bloquear o tráfego de internet de entrada com eficiência, evitar o uso de IPs públicos ainda mais reduz a superfície de ataque.   | Introdução a isso [modelo](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
+|Impor a tabela de rotas definidas pelo utilizador. | Certifique-se de que a rota padrão em todas as redes virtuais aponta para um gateway de rede virtual aprovados para o encaminhamento para o local.    | Introdução a isso [modelo](../../governance/policy/samples/no-user-defined-route-table.md). |
+|Se o observador de rede não está ativado para uma região de auditoria.  | Certifique-se de que o observador de rede está ativado para todas as regiões de utilizada.  | Introdução a isso [modelo](../../governance/policy/samples/network-watcher-not-enabled.md). |
+|NSG x em cada sub-rede.  | Certifique-se de que um NSG (ou um conjunto de NSGs aprovados) com o tráfego de internet bloqueado é aplicado a todas as sub-redes em cada rede virtual. | Introdução a isso [modelo](../../governance/policy/samples/nsg-on-subnet.md). |
+|NSG x em cada NIC. | Certifique-se de que um NSG com tráfego de internet bloqueado é aplicado a todos os NICs em todas as máquinas virtuais. | Introdução a isso [modelo](../../governance/policy/samples/nsg-on-nic.md). |
+|Utilize uma rede virtual aprovada para interfaces de rede de máquina virtual.  | Certifique-se de que todas as NICs estão numa rede virtual aprovada. | Introdução a isso [modelo](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
+|Localizações permitidas. | Certifique-se de que todos os recursos são implementados em regiões com redes virtuais em conformidade e a configuração de observador de rede.  | Introdução a isso [modelo](../../governance/policy/samples/allowed-locations.md). |
+|Não permitido tipos de recursos, como **PublicIPs**. | Proibir a implementação de tipos de recursos que não tenha um plano de conformidade. Utilize esta política para proibir a implementação de recursos de endereço IP público. Enquanto as regras do NSG podem ser utilizadas para bloquear o tráfego de internet de entrada com eficiência, evitar o uso de IPs públicos ainda mais reduz a superfície de ataque.   | Introdução a isso [modelo](../../governance/policy/samples/not-allowed-resource-types.md).  |
 
 ### <a name="network-watcher-traffic-analytics"></a>Análise de tráfego do observador de rede
 

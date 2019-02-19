@@ -1,6 +1,6 @@
 ---
-title: Criar funções personalizadas com a CLI do Azure | Documentos da Microsoft
-description: Saiba como criar funções personalizadas para controlo de acesso baseado em funções (RBAC) com a CLI do Azure. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
+title: Criar funções personalizadas para recursos do Azure com a CLI do Azure | Documentos da Microsoft
+description: Saiba como criar funções personalizadas com controlo de acesso baseado em funções (RBAC) para recursos do Azure com a CLI do Azure. Isto inclui como listar, criar, atualizar e eliminar funções personalizadas.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,25 +14,25 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437261"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338143"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>Criar funções personalizadas com a CLI do Azure
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Criar funções personalizadas para recursos do Azure com a CLI do Azure
 
-Se o [funções incorporadas](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com a CLI do Azure.
+Se o [funções incorporadas para recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas da sua organização, pode criar suas próprias funções personalizadas. Este artigo descreve como criar e gerir funções personalizadas com a CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para criar funções personalizadas, terá de:
 
-- Permissões para criar funções personalizadas, tal como [proprietário](built-in-roles.md#owner) ou [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator)
-- [CLI do Azure](/cli/azure/install-azure-cli) instalado localmente
+- Permissões para criar funções personalizadas, como [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Utilizador](built-in-roles.md#user-access-administrator)
+- [CLI do Azure](/cli/azure/install-azure-cli) instalada localmente
 
-## <a name="list-custom-roles"></a>Lista de funções personalizadas
+## <a name="list-custom-roles"></a>Listar funções personalizadas
 
 Para listar as funções personalizadas que estão disponíveis para atribuição, utilize [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list). Os exemplos a seguir listam todas as funções personalizadas na subscrição atual.
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Tutorial: Criar uma função personalizada com a CLI do Azure](tutorial-custom-role-cli.md)
-- [Funções personalizadas no Azure](custom-roles.md)
+- [Tutorial: Criar uma função personalizada para recursos do Azure com a CLI do Azure](tutorial-custom-role-cli.md)
+- [Funções personalizadas para recursos do Azure](custom-roles.md)
 - [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)
