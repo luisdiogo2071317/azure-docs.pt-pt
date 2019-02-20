@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3bf3dd325af48f99e109f651628883d8f946fdc8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 24b08bb843b4f1a0eb9f2471cb17b81f2c8ac4d0
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512487"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417538"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do Gateway de VPN
 
@@ -20,13 +20,15 @@ Um gateway de VPN é um tipo de gateway de rede virtual que envia o tráfego enc
 
 Uma ligação de gateway VPN depende da configuração de vários recursos, cada um deles contém definições configuráveis. As secções neste artigo abordam os recursos e as definições relacionadas com a um gateway VPN para uma rede virtual criada no modelo de implementação do Resource Manager. Encontrará descrições e diagramas de topologia para cada solução de ligação no [sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md) artigo.
 
->[!NOTE]
-> Os valores neste artigo aplicam-se a gateways de VPN (gateways de rede virtual que utilizam - GatewayType Vpn). Este artigo não abrange todos os tipos de gateway ou gateways com redundância de zona.
->
->* Para valores que se aplicam ao - GatewayType "ExpressRoute", consulte [Gateways de rede Virtual para o ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
->* Para gateways com redundância de zona, veja [sobre os gateways com redundância de zona](about-zone-redundant-vnet-gateways.md).
->* Para o Virtual WAN, consulte [sobre a WAN Virtual](../virtual-wan/virtual-wan-about.md). 
->
+Os valores neste artigo aplicam-se a gateways de VPN (gateways de rede virtual que utilizam - GatewayType Vpn). Este artigo não abrange todos os tipos de gateway ou gateways com redundância de zona.
+
+* Para valores que se aplicam ao - GatewayType "ExpressRoute", consulte [Gateways de rede Virtual para o ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
+
+* Para gateways com redundância de zona, veja [sobre os gateways com redundância de zona](about-zone-redundant-vnet-gateways.md).
+
+* Para o Virtual WAN, consulte [sobre a WAN Virtual](../virtual-wan/virtual-wan-about.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gwtype"></a>Tipos de gateway
 
@@ -42,7 +44,7 @@ Requer um gateway de VPN a `-GatewayType` *Vpn*.
 Exemplo:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
@@ -62,7 +64,7 @@ Se utilizar o portal do Azure para criar um gateway de rede virtual do Resource 
 O exemplo de PowerShell seguinte especifica o `-GatewaySku` como VpnGw1. Quando utilizar o PowerShell para criar um gateway, é preciso primeiro criar a configuração de IP, em seguida utilizar uma variável para fazer referência a ele. Neste exemplo, a variável de configuração é $gwipconfig.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -101,7 +103,7 @@ No modelo de implementação do Resource Manager, cada configuração exige um t
 O exemplo do PowerShell seguinte, vamos criar uma ligação de S2S, que requer que o tipo de ligação *IPsec*.
 
 ```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
@@ -119,7 +121,7 @@ Assim que tiver sido criado um gateway de rede virtual, não é possível altera
 O exemplo de PowerShell seguinte especifica os `-VpnType` como *RouteBased*. Quando estiver a criar um gateway, tem de confirmar se o -VpnType está correto para a sua configuração.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -141,21 +143,21 @@ Quando cria a sub-rede do gateway, especifica o número de endereços IP que a s
 O exemplo de PowerShell do Resource Manager seguinte mostra uma sub-rede de gateway com o nome GatewaySubnet. Pode ver que a notação CIDR Especifica/27, que permite endereços IP suficientes na maioria das configurações que existem atualmente.
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="lng"></a>Gateways de rede local
 
-Ao criar uma configuração de gateway VPN, o gateway de rede local representa, muitas vezes, sua localização no local. No modelo de implementação clássica, o gateway de rede local foi referido como Site Local. 
+ Um gateway de rede local é diferente de um gateway de rede virtual. Ao criar uma configuração de gateway VPN, o gateway de rede local representa, normalmente, sua localização no local. No modelo de implementação clássica, o gateway de rede local foi referido como Site Local.
 
 Dê um nome, o endereço IP público do dispositivo VPN no local, ao gateway de rede local e especificar os prefixos de endereços que se encontram na localização no local. O Azure analisa os prefixos de endereço de destino para tráfego de rede, consulta a configuração especificada para o seu gateway de rede local e encaminha os pacotes em conformidade. Também especificar gateways de rede local para as configurações de VNet a VNet que utilizem uma ligação de gateway VPN.
 
 O exemplo de PowerShell seguinte cria um novo gateway de rede local:
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -167,7 +169,7 @@ Para recursos técnicos adicionais e requisitos de sintaxe específica ao utiliz
 
 | **Clássico** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
+| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |
 | Não suportado | [CLI do Azure](/cli/azure/network/vnet-gateway)|
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbfffa94c76de2c7c4e9f4f2e67c9744e52f22c7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39659df99951850ced07be14f81348ae9c1c1be5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194194"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428607"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como requerer verificação de dois passos para um utilizador
 
@@ -96,7 +96,7 @@ Instale o módulo em primeiro lugar, com:
 > Não se esqueça de ligar pela primeira vez com **Connect-MsolService**
 
 
-Com o PowerShell é uma boa opção quando precisa ativar utilizadores em massa. Crie um script do PowerShell que executa um loop através de uma lista de utilizadores e ativa-as:
+ Neste exemplo de script do PowerShell permite que o MFA para um usuário individual:
 
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -105,7 +105,7 @@ Com o PowerShell é uma boa opção quando precisa ativar utilizadores em massa.
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-O script seguinte é um exemplo:
+Com o PowerShell é uma boa opção quando precisa em massa permitir que os utilizadores. Por exemplo, o script a seguir faz um loop através de uma lista de utilizadores e permite que a MFA nas respetivas contas:
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -117,11 +117,11 @@ O script seguinte é um exemplo:
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
     
-A MFA desativado, utilizados este script:
+Para desativar a MFA, utilize este script:
 
     Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
     
-em alternativa, também é possível reduzir para:
+Também pode ser baixou que para:
 
     Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 

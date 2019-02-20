@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413677"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417335"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger a sua API 
 
@@ -41,8 +41,8 @@ Neste tutorial, ficará a saber como:
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Compreender o [conceito das políticas da Gestão de API do Azure](api-management-howto-policies.md).
-+ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
-+ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
++ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
++ Além disso, conclua o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -126,9 +126,10 @@ Esta secção mostra como adicionar proteção à API de back-end através da co
 1. Selecione **API da Conferência de Demonstração**.
 2. Selecione **Todas as operações**.
 3. Na parte superior do ecrã, selecione o separador **Design**.
-4. Na secção **Processamento de entrada**, clique no ícone**</>**.5. Posicione o cursor no interior do elemento **&lt;entrada&gt;**.
-5. Na janela direita, em **Políticas de restrição de acesso**, clique em **+ Limitar taxa de chamadas por chave**.
-6. Modifique o código **rate-limit-by-key** (no elemento de **\<entrada\>**) para o seguinte código:
+4. Na **processamento de entrada** secção, clique nas **</>** ícone.
+5. Posicione o cursor no interior do elemento **&lt;entrada&gt;**.
+6. Na janela direita, em **Políticas de restrição de acesso**, clique em **+ Limitar taxa de chamadas por chave**.
+7. Modifique o código **rate-limit-by-key** (no elemento de **\<entrada\>**) para o seguinte código:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
@@ -196,7 +197,7 @@ O resto desta secção testa as transformações de política que definiu neste 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

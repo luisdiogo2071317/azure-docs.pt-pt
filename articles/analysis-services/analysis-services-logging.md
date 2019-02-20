@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4d5c7c592bae32586922531781803db6622e6515
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310751"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428997"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
 
@@ -158,7 +158,7 @@ Para ver os dados de diagnóstico, na área de trabalho do Log Analytics, abra *
 
 ![Opções de pesquisa de registo no portal do Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. AzureDiagnostics inclui o mecanismo e eventos de serviço. Tenha em atenção que é criada uma consulta em tempo real. A registar\_campo s contém nomes de xEvent, que podem parecer familiares se já usou xEvents para iniciar sessão no local. Clique em **registar\_s** ou um dos nomes de eventos e do Log Analytics continua a construir uma consulta. Certifique-se de que guardar as suas consultas para reutilização posterior.
+No construtor de consultas, expanda **LogManagement** > **AzureDiagnostics**. AzureDiagnostics inclui o mecanismo e eventos de serviço. Tenha em atenção que é criada uma consulta em tempo real. A registar\_campo s contém nomes de xEvent, que podem parecer familiares se já usou xEvents para iniciar sessão no local. Clique em **registar\_s** ou um dos nomes de eventos e área de trabalho do Log Analytics continua a construir uma consulta. Certifique-se de que guardar as suas consultas para reutilização posterior.
 
 ### <a name="example-query"></a>Consulta de exemplo
 Esta consulta calcula e devolve a CPU para cada evento de final de fim/atualização de consulta para uma base de dados do modelo e o servidor:

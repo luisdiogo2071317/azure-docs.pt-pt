@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 66d7a2ce5833729d601ae896f0903a17a40fc8a3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 09514e37d1d40c489eda483980237d26e4a08730
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339504"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417927"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilizar a geração 2 de armazenamento do Azure Data Lake para requisitos de grandes volumes de dados
 
@@ -81,7 +81,7 @@ Para conceder acesso a pastas e ficheiros específicos, veja estes artigos.
 
 * [Listas de controlo de acesso em arquivos e diretórios](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
-Para saber mais sobre como configurar outros aspectos de segurança, veja [guia de segurança de geração 2 de armazenamento do Azure Data Lake](https://review.docs.microsoft.com/en-us/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para saber mais sobre como configurar outros aspectos de segurança, veja [guia de segurança de geração 2 de armazenamento do Azure Data Lake](https://review.docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="ingest-the-data"></a>Incorporar os dados
 

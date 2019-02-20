@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: b8d13377b2fb1545ecf88645a5e19bf5eab24c74
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6b14f5e8967567030ce854d05c53a8d26027e9a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238140"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428844"
 ---
 # <a name="start-and-stop-azure-stack"></a>Iniciar e parar o Azure Stack
-Deve seguir os procedimentos neste artigo corretamente encerrar e reiniciar serviços do Azure Stack. Encerramento fisicamente irá desligar todo o ambiente do Azure Stack. Arranque alimenta em todas as funções de infraestrutura e retorna os recursos de inquilino para o estado de energia que eles estavam antes do desligamento.
+Deve seguir os procedimentos neste artigo corretamente encerrar e reiniciar serviços do Azure Stack. Encerramento fisicamente irá desligar todo o ambiente do Azure Stack. Iniciar ativa a todas as funções de infraestrutura e devolve recursos para o estado de energia que eles estavam antes do Desligamento de inquilino.
 
 ## <a name="stop-azure-stack"></a>Parar o Azure Stack 
 

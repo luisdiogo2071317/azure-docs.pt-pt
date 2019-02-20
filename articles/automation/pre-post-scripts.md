@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3010f4ec86b25c51fae2ce8f64238ec8815adca8
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408685"
+ms.locfileid: "56416790"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
 
@@ -22,7 +22,7 @@ Scripts de pré e post permitem executar runbooks do PowerShell na sua conta de 
 
 ## <a name="runbook-requirements"></a>Requisitos do Runbook
 
-Para um runbook a ser utilizado como um script de pré ou post, o runbook tem de ser importados para a sua conta de automatização e publicado. Para saber mais sobre este processo, veja [publicar um runbook](automation-creating-importing-runbook.md#publishing-a-runbook).
+Para um runbook a ser utilizado como um script de pré ou post, o runbook tem de ser importados para a sua conta de automatização e publicado. Para saber mais sobre este processo, veja [publicar um runbook](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="using-a-prepost-script"></a>Usando um script de pré/pós
 

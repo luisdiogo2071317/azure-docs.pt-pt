@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422973"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417436"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks subordinados na automatização do Azure
 
@@ -28,7 +28,7 @@ Quando invoca um runbook inline, ele é executado na mesma tarefa que o runbook 
 
 Quando um runbook é publicado, todos os runbooks subordinados que aquele invoque já tem de ser publicados. Isto acontece porque a automatização do Azure cria uma associação com todos os runbooks subordinados quando um runbook é compilado. Se não forem, o runbook principal parece ter sido publicado corretamente, mas gerará uma exceção quando é iniciada. Se isto acontecer, pode voltar a publicar o runbook de principal para referenciar adequadamente os runbooks subordinados. Não é necessário voltar a publicar o runbook principal se qualquer um dos runbooks subordinados forem alterados, porque a associação já foi criada.
 
-Os parâmetros de um runbook subordinado invocado inline podem ser qualquer tipo de dados, incluindo objetos complexos. Não existe nenhuma [serialização JSON](automation-starting-a-runbook.md#runbook-parameters) porque não existe quando iniciar o runbook no portal do Azure ou com o cmdlet Start-AzureRmAutomationRunbook.
+Os parâmetros de um runbook subordinado invocado inline podem ser qualquer tipo de dados, incluindo objetos complexos. Não existe nenhuma [serialização JSON](start-runbooks.md#runbook-parameters) porque não existe quando iniciar o runbook no portal do Azure ou com o cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipos de runbooks
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Se está a invocar um runbook subordinado com o `Start-AzureRmAutomationRunbook` cmdlet com o `-Wait` comutador e os resultados do runbook subordinado é um objeto, poderá encontrar erros. Para contornar o erro, consulte [runbooks subordinados com a saída do objeto](troubleshoot/runbooks.md#child-runbook-object) para saber como implementar a lógica para consultar os resultados e usar o [Get AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-Pode utilizar o [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet para iniciar um runbook, conforme descrito na [para iniciar um runbook com o Windows PowerShell](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Existem dois modos de utilização para este cmdlet.  Num modo, o cmdlet devolve o id da tarefa quando a tarefa subordinada é criada para o runbook subordinado.  No outro modo, que permitem ao especificar que o **-aguardar** parâmetro, o cmdlet espera até que a tarefa filho é concluído e devolve o resultado do runbook subordinado.
+Pode utilizar o [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet para iniciar um runbook, conforme descrito na [para iniciar um runbook com o Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Existem dois modos de utilização para este cmdlet.  Num modo, o cmdlet devolve o id da tarefa quando a tarefa subordinada é criada para o runbook subordinado.  No outro modo, que permitem ao especificar que o **-aguardar** parâmetro, o cmdlet espera até que a tarefa filho é concluído e devolve o resultado do runbook subordinado.
 
 A tarefa a partir de um runbook subordinado iniciado com um cmdlet é executado num trabalho separado do runbook principal. Este comportamento resulta em mais tarefas do que a iniciar o runbook inline e torna mais difícil de controlar. O principal pode iniciar mais do que um runbook de subordinado forma assíncrona, sem aguardar a conclusão de cada. Para esse mesmo tipo de execução paralela de invocar os runbooks subordinados inline, o runbook principal seria necessário usar a [palavra-chave paralela](automation-powershell-workflow.md#parallel-processing).
 
@@ -73,7 +73,7 @@ A saída de runbooks subordinados não são devolvidos para o runbook principal 
 
 Se não pretender que o runbook principal até ser bloqueado em espera, pode iniciar o runbook subordinado com `Start-AzureRmAutomationRunbook` cmdlet sem o `-Wait` mudar. Em seguida, seria necessário usar `Get-AzureRmAutomationJob` a aguardar pela conclusão da tarefa, e `Get-AzureRmAutomationJobOutput` e `Get-AzureRmAutomationJobOutputRecord` para recuperar os resultados.
 
-Parâmetros para um runbook subordinado iniciado com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [parâmetros do Runbook](automation-starting-a-runbook.md#runbook-parameters). Apenas os tipos de dados simples podem ser utilizados. Se o runbook tem um parâmetro com um tipo de dados complexos, em seguida, tem de ser chamado inline.
+Parâmetros para um runbook subordinado iniciado com um cmdlet são fornecidos como uma tabela de hash, conforme descrito em [parâmetros do Runbook](start-runbooks.md#runbook-parameters). Apenas os tipos de dados simples podem ser utilizados. Se o runbook tem um parâmetro com um tipo de dados complexos, em seguida, tem de ser chamado inline.
 
 O contexto da subscrição poderão perder-se ao iniciar runbooks subordinados como tarefas separadas. Por ordem para o runbook subordinado executar os cmdlets do Azure RM em relação a uma subscrição do Azure específica, o runbook subordinado tem de ser autenticado para esta subscrição, independentemente do runbook principal.
 
@@ -120,6 +120,6 @@ A tabela seguinte resume as diferenças entre os dois métodos para chamar um ru
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Iniciar um runbook na automatização do Azure](automation-starting-a-runbook.md)
+* [Iniciar um runbook na automatização do Azure](start-runbooks.md)
 * [Resultado do Runbook e mensagens na automatização do Azure](automation-runbook-output-and-messages.md)
 

@@ -4,15 +4,15 @@ description: Fornece informações sobre as atualizações para a aplicação de
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 02/19/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: 88077ac965b2abb69be145f29cbadca2ff1128d6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f29556c8f2a5aa727ce80632eaccf5e1ed6d7c1a
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836649"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415549"
 ---
 # <a name="collector-update-release-history"></a>Histórico de lançamento de atualização do recoletor
 
@@ -20,11 +20,11 @@ Este artigo resume as informações de atualização para a aplicação de Recol
 
 Recoletor do Azure Migrate é uma aplicação simples que é utilizada para detetar um ambiente no local do vCenter, para fins de avaliação antes da migração para o Azure. [Saiba mais](concepts-collector.md).
 
-## <a name="continuous-discovery-upgrade-versions"></a>Deteção contínua: atualizar versões
+## <a name="continuous-discovery-upgrade-versions"></a>Deteção contínua: Versões de atualização
 
 Nenhuma atualização para a aplicação de deteção contínua ainda está disponível.
 
-## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Deteção única (agora preterida): as versões de atualização anteriores
+## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Deteção única (agora preterida): Versões de atualização anteriores
 
 > [!NOTE]
 > A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.
@@ -71,7 +71,7 @@ Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA novament
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    Exemplo: **c:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
+    Exemplo: **C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
 3. Copie o ficheiro zip para a aplicação Recoletora VM.
 4. Com o botão direito no ficheiro zip > **extrair tudo**.
 5. Com o botão direito no **Setup.ps1** > **executar com o PowerShell**e siga as instruções de instalação.

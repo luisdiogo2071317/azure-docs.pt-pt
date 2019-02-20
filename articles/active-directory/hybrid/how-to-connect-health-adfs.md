@@ -16,12 +16,12 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4714a4ee5f90194a3be47b1e5878dfa8e230f42b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d239d372a514b24a4e022f62ceec2dfee94d187
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173492"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430408"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorizar o AD FS utilizando o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre a monitorização do Azure AD Connect (Sincronização) com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health para Sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre a monitorização dos Serviços de Domínio do Active Directory com o Azure AD Connect Health, consulte [Utilizar Azure AD Connect Health com AD DS](how-to-connect-health-adds.md).
@@ -199,7 +199,7 @@ Os endereços IP privados (<i>10.x.x.x, 172.x.x.x e 192.168.x.x</i>) e os endere
 Se vir endereços IP do balanceador de carga, é altamente provável que o seu balanceador de carga externo não esteja a enviar o endereço IP cliente quando transmite o pedido para o servidor Proxy de Aplicação Web. Configure o seu balanceador de carga corretamente para o reencaminhamento do endereço IP do cliente. 
 
 3. Como posso bloquear o endereço IP?  <br />
-Deve adicionar um endereço IP malicioso identificado à firewall ou bloqueá-lo no Exchange.   <br />
+Deve adicionar um endereço IP malicioso identificado à firewall ou bloqueá-lo no Exchange. Para o AD FS 2016, pode bloquear o endereço IP diretamente a partir de propriedades do IP excluídos. [Ler mais](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection#banned-ip-addresses)   <br />
 
 4. Por que razão não vejo nenhum item neste relatório? <br />
    - As atividades de início de sessão falhadas não estão a exceder as definições de limiar. 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6493da0cfc86560fac8e69f4329804c628942806
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328723"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415906"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server em máquinas de virtuais do Azure
 
@@ -88,11 +88,9 @@ A unidade de armazenamento temporário, identificada como a **1!d**: unidade, n�
 
 Para a série D, série Dv2 e VMs de série G, a unidade temporária nestas VMs é baseado em SSD. Se a sua carga de trabalho faz uso intensivo de TempDB (por exemplo, objetos temporários ou associações complexas), armazenamento de TempDB no **1!d** unidade poderia resultar num maior débito de TempDB e menor latência de TempDB. Para um cenário de exemplo, consulte a discussão de TempDB na mensagem de blogue seguinte: [Diretrizes de configuração de armazenamento para o SQL Server na VM do Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm).
 
-<<<<<<< HEAD para VMs que suportam o SSDs premium (séries DS, série DSv2 e série GS), recomendamos o armazenamento de TempDB num disco que suporte o premium SSDs com cache de leitura ativado. Há uma exceção para esta recomendação; Se a utilização de TempDB está escrita intensiva, pode alcançar um desempenho mais elevado por meio do armazenamento TempDB no local **1!d** unidade, o que também é baseado em SSD nestes tamanhos de máquina.
-=== Para as VMs que suportam o armazenamento Premium (séries DS, série DSv2 e série GS), recomendamos o armazenamento de TempDB num disco que suporta o armazenamento Premium com cache de leitura ativado. 
+Para as VMs que suportam o SSDs premium (séries DS, série DSv2 e série GS), recomendamos o armazenamento de TempDB num disco que suporte o premium SSDs com cache de leitura ativado.
 
-Há uma exceção para esta recomendação: _se a utilização de TempDB está escrita intensiva, pode alcançar um desempenho mais elevado por meio do armazenamento TempDB no local **1!d** unidade, o que também é baseado em SSD nestes tamanhos de máquina._ 
->>>>>>> 4326ed494fad7ef7be29e2f4ba3301ec496acf76
+Há uma exceção para esta recomendação: _se a utilização de TempDB está escrita intensiva, pode alcançar um desempenho mais elevado por meio do armazenamento TempDB no local **1!d** unidade, o que também é baseado em SSD nestes tamanhos de máquina._
 
 ### <a name="data-disks"></a>Discos de dados
 

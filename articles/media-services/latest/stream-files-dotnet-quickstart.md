@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d50bb6ca67d7d09525013b65d0635e8e16b4cb4e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162723"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417283"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Início rápido: Ficheiros de vídeo do Stream - .NET
+# <a name="quickstart-stream-video-files---net"></a>Início rápido: Transmitir ficheiros de vídeo - .NET
 
 Este início rápido mostra como é fácil codificar e começar a transmitir vídeos numa ampla variedade de browsers e dispositivos com os Serviços de Multimédia do Azure. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
 O exemplo neste tópico codifica o conteúdo que torna acessível através de um URL HTTPS. Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
@@ -81,6 +81,8 @@ Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure
 
 1. Abra um browser e navegue para [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. Na caixa **URL:**, cole um dos valores do URL de transmissão que recebeu quando executou a aplicação. 
+ 
+     Pode colar o URL HLS, traço, ou formato uniforme e leitor de multimédia do Azure irão mudar para um protocolo de transmissão em fluxo apropriado para reprodução em seu dispositivo automaticamente.
 3. Prima **Atualizar Leitor**.
 
 O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não deve ser utilizado num ambiente de produção. 
@@ -100,6 +102,10 @@ az group delete --name amsResourceGroup
 Para obter uma explicação sobre o que faz cada função no exemplo, examine o código e observe os comentários [neste ficheiro de origem](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 O tutorial [Upload, encode, and stream files](stream-files-tutorial-with-api.md) (Carregar, codificar e transmitir ficheiros) dá-lhe um exemplo mais avançado de transmissão com explicações detalhadas. 
+
+### <a name="job-error-codes"></a>Códigos de erro da tarefa
+
+Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="multithreading"></a>Multithreading
 

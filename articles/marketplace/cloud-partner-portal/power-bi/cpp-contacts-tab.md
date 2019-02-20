@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6ece83fe3011c4e94416e12231a3d093af79704e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 191f58252aadf776465bb097207a7e76c0f92003
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666703"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415175"
 ---
-# <a name="power-bi-apps-contacts-tab"></a>Separador do Power BI contactos de aplicações
+# <a name="power-bi-app-contacts-tab"></a>Separador do Power BI contactos de aplicação
 
 Utilize o **contactos** separador da **nova oferta** página para fornecer técnicas e de utilizador recursos de suporte para a sua oferta. Ele é dividido em duas seções: **Engenharia** e **suporte ao cliente**.
 
@@ -30,20 +30,20 @@ Utilize o **contactos** separador da **nova oferta** página para fornecer técn
 
 ## <a name="contacts-fields"></a>Campos de contactos 
 
-A tabela seguinte descreve o nome e a finalidade desses campos. 
+A tabela seguinte descreve a finalidade de cada campo: 
 
 |   Campo               |   Descrição                                                            |
 |-----------------------|--------------------------------------------------------------------------|
-| *Contacto de engenharia* | Serve como um contacto técnico entre AppSource e a sua organização    |
-| **Nome**              | Nome da pessoa ou grupo que funciona como o suporte técnico/engenharia |
-| **E-mail**             | Endereço de e-mail deste contacto técnico                                  |
-| **telefone**             | Número de telefone para obter suporte técnico                                       |
-| *Contacto de suporte*     | Recebe pedidos de suporte abertos por parte dos clientes no AppSource            |
-| **Nome**              | Nome da pessoa ou grupo que funciona como o suporte ao cliente              |
-| **E-mail**             | Endereço de e-mail do suporte ao cliente                                        |
+| *Contacto de engenharia* | Serve como um contacto técnico entre AppSource e a sua organização.    |
+| **Nome**              | O nome da pessoa ou grupo que funciona como o suporte técnico ou de engenharia. |
+| **E-mail**             | O endereço de e-mail deste contacto técnico.                                  |
+| **telefone**             | O número de telefone de suporte técnico.                                       |
+| *Contacto de suporte*     | Recebe pedidos de suporte abertos por parte dos clientes no AppSource.            |
+| **Nome**              | O nome da pessoa ou grupo que funciona como o suporte ao cliente.              |
+| **E-mail**             | O endereço de e-mail do suporte ao cliente.                                        |
 |  |  |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de concluir a oferta de aplicação do Power BI, deve confirmar que criou todos os associada [ativos técnicos](./cpp-create-technical-assets.md) para esta oferta.
+Depois de concluir a sua oferta de aplicação do Power BI, confirme que criou todos os associada [ativos técnicos](./cpp-create-technical-assets.md) para a oferta.

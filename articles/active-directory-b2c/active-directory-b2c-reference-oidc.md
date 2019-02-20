@@ -1,5 +1,5 @@
 ---
-title: Web início de sessão com OpenID Connect no Azure Active Directory B2C | Documentos da Microsoft
+title: Web início de sessão com OpenID Connect - Azure Active Directory B2C | Documentos da Microsoft
 description: Criação de aplicativos web, utilizando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect.
 services: active-directory-b2c
 author: davidmu1
@@ -7,24 +7,25 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bd7ecf273d4e842909d88eeaa3683203d8d9e841
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107315"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429170"
 ---
-# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Início de sessão Web com OpenID Connect
-OpenID Connect é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores aplicações web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação do OpenID Connect, que possa terceirizar a inscrição, início de sessão e experiências de outro gestão de identidades nas suas aplicações web ao Azure Active Directory (Azure AD). Este guia mostra-lhe como fazê-lo de forma independente de idioma. Ele descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de código-fonte aberto.
+# <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Sessão Web com OpenID Connect no Azure Active Directory B2C
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) expande o OAuth 2.0 *autorização* protocolo para utilização como um *autenticação* protocolo. Isto permite-lhe efetuar o início de sessão único com o OAuth. Ele introduz o conceito de um *token de ID*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador e obter informações de perfil básicas sobre o utilizador.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores aplicações web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação do OpenID Connect, que possa terceirizar a inscrição, início de sessão e experiências de outro gestão de identidades nas suas aplicações web ao Azure Active Directory (Azure AD). Este guia mostra-lhe como fazê-lo de forma independente de idioma. Ele descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de código-fonte aberto.
 
-Uma vez que expande o OAuth 2.0, também permite aplicações com segurança adquirir *tokens de acesso*. Pode usar access_tokens para aceder aos recursos que estão protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md#the-basics). É recomendável OpenID Connect se estiver a criar uma aplicação web que é alojada num servidor e acedida através de um browser. Se pretender adicionar o gerenciamento de identidades às suas aplicações móveis ou ambiente de trabalho utilizando o Azure AD B2C, deve usar [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) em vez de OpenID Connect.
+OpenID Connect expande o OAuth 2.0 *autorização* protocolo para utilização como um *autenticação* protocolo. Isto permite-lhe efetuar o início de sessão único com o OAuth. Ele introduz o conceito de um *token de ID*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador e obter informações de perfil básicas sobre o utilizador.
 
-O Azure AD B2C expande o protocolo OpenID Connect padrão para fazer mais do que a autenticação e autorização simples. Ele introduz o [parâmetro de fluxo de utilizador](active-directory-b2c-reference-policies.md), que permite-lhe utilizar o OpenID Connect para adicionar experiências de usuário – como inscrição, início de sessão e gestão de perfis, para a sua aplicação. Aqui, mostraremos como usar os fluxos de utilizador e OpenID Connect para implementar cada um destas experiências nas suas aplicações web. Também mostraremos como obter os tokens de acesso para aceder a web APIs.
+Uma vez que expande o OAuth 2.0, também permite aplicações com segurança adquirir *tokens de acesso*. Pode utilizar tokens de acesso para aceder a recursos que estão protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md#the-basics). É recomendável OpenID Connect se estiver a criar uma aplicação web que é alojada num servidor e acedida através de um browser. Se pretender adicionar o gerenciamento de identidades às suas aplicações móveis ou ambiente de trabalho utilizando o Azure AD B2C, deve usar [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) em vez de OpenID Connect.
+
+O Azure AD B2C expande o protocolo OpenID Connect padrão para fazer mais do que a autenticação e autorização simples. Ele introduz o [parâmetro de fluxo de utilizador](active-directory-b2c-reference-policies.md), que permite-lhe utilizar o OpenID Connect para adicionar experiências de utilizador, tais como inscrição, início de sessão e gestão de perfis para a sua aplicação. Fornecedores de identidade que utilizam o protocolo OpenID Connect incluem [conta Microsoft](active-directory-b2c-setup-msa-app.md) e outras [fornecedores de ligação do OpenID](active-directory-b2c-setup-oidc-idp.md).
 
 Os pedidos HTTP de exemplo na secção seguinte utilizam o nosso diretório de B2C de exemplo, fabrikamb2c.onmicrosoft.com, bem como nosso aplicativo de exemplo, https://aadb2cplayground.azurewebsites.nete fluxos de utilizador. Tem liberdade para experimentar as solicitações por conta própria, utilizando estes valores, ou pode substituí-los com os seus próprios.
 Saiba como [obter seus próprios fluxos de utilizador, aplicação e inquilino de B2C](#use-your-own-b2c-tenant).

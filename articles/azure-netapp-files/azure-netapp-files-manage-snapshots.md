@@ -1,6 +1,6 @@
 ---
 title: Gerir instantâneos com ficheiros de NetApp do Azure | Documentos da Microsoft
-description: Descreve como criar um instantâneo de sob demanda para um volume ou o restauro a partir de um instantâneo para um novo volume através de ficheiros do Azure NetApp.
+description: Descreve como criar instantâneos para um volume ou o restauro a partir de um instantâneo para um novo volume através de ficheiros do Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,39 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 3c69cb076b3b23cd5149e05f1b6ee9ae1ba170a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412943"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430204"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com ficheiros de NetApp do Azure
+
 Pode utilizar ficheiros de NetApp do Azure para criar um instantâneo de sob demanda para um volume ou restaurar a partir de um instantâneo para um novo volume.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Criar um instantâneo de sob demanda para um volume
-Pode criar instantâneos apenas sob demanda.  Políticas de instantâneos não são atualmente suportadas.  
-1.  No painel do Volume de gerir, clique em **instantâneos**, em seguida, clique em **+ adicionar instantâneo** para criar um instantâneo de sob demanda para um volume.
 
-2.  Na janela novo instantâneo, forneça um nome para o novo instantâneo que está a criar.   
+Pode criar instantâneos apenas sob demanda. Políticas de instantâneos não são atualmente suportadas.
 
-3. Clique em **OK**. 
+1.  No painel do Volume, clique em **instantâneos**.
 
+    ![Navegue para instantâneos](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+
+2.  Clique em **+ adicionar instantâneo** para criar um instantâneo de sob demanda para um volume.
+
+    ![Adicionar instantâneo](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+
+3.  Na janela novo instantâneo, forneça um nome para o novo instantâneo que está a criar.   
+
+    ![Novo instantâneo](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+
+4. Clique em **OK**. 
 
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restaurar um instantâneo para um novo volume
+
 Atualmente, pode restaurar um instantâneo apenas para um novo volume. 
 1. Vá para o **gerir instantâneos** painel a partir do painel para apresentar a lista de instantâneo do Volume. 
 2. Selecione um instantâneo para restaurar.  
@@ -61,7 +72,7 @@ Atualmente, pode restaurar um instantâneo apenas para um novo volume.
 
     *   **Rede virtual**  
         Especifique a rede virtual do Azure (Vnet) a partir da qual pretende aceder ao volume.  
-        A Vnet que especificar tem de ter uma sub-rede de delegado ao serviço ficheiros do Azure NetApp. O serviço de ficheiros do Azure NetApp pode ser acedido apenas a partir da mesma Vnet ou de uma Vnet que está na mesma região que o volume através de Vnet peering. Também pode acessar o volume a partir da sua rede no local através de Express Route. 
+        A Vnet que especificar tem de ter uma sub-rede de delegado ao serviço ficheiros do Azure NetApp. Pode aceder a ficheiros do Azure NetApp apenas a partir da mesma Vnet ou de uma Vnet que está na mesma região que o volume através de Vnet peering. Pode acessar o volume a partir da rede no local através de Express Route. 
 
     * **Sub-rede**  
         Especifique a sub-rede que pretende utilizar para o volume.  
@@ -73,3 +84,6 @@ Atualmente, pode restaurar um instantâneo apenas para um novo volume.
 5. Clique em **OK**.   
     O novo volume para que o instantâneo é restaurado aparece no painel do Volumes.
 
+## <a name="next-steps"></a>Passos Seguintes
+
+[Compreender a hierarquia de armazenamento de ficheiros do Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)

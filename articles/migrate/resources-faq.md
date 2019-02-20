@@ -4,14 +4,14 @@ description: Endereços de perguntas mais frequentes sobre o Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746324"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416195"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -118,6 +118,10 @@ Os dados coletados pela aplicação recoletora são armazenados na localização
 
 Para a visualização de dependência, se instalar agentes nas VMs, os dados recolhidos pelos agentes do dependência são armazenados nos EUA numa área de trabalho do Log Analytics criada na subscrição do utilizador. Estes dados são eliminados quando eliminar a área de trabalho do Log Analytics na sua subscrição. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>O que é o volume de dados que são carregados pelo Azure Migrate, no caso de criação de perfis contínua?
+
+O volume de dados que são enviados para o Azure Migrate seria variam consoante vários parâmetros. Para dar um indicador número, um projeto com dez máquinas (cada ter um disco e uma NIC), enviaria cerca de 50 MB por dia. Este é um valor aproximado e seria mudar com base no número de pontos de dados para os NICs e os discos (os dados enviados seria não-lineares se aumentar o número de máquinas, NICs ou discos). 
+
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são encriptados em descanso e em trânsito?
 
 Sim, os dados recolhidos são encriptados em inatividade tanto em trânsito. Os metadados recolhidos pela aplicação da são enviados de forma segura para o serviço Azure Migrate pela internet através de https. Os metadados recolhidos são armazenados na [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) e, na [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) numa subscrição Microsoft e são encriptados em descanso.
@@ -130,7 +134,7 @@ A aplicação recoletor liga-se ao vCenter Server (porta 443) utilizando as cred
 
 ### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>Pode ligar a aplicação recoletora mesmo para vários servidores vCenter?
 
-Sim, uma aplicação de recoletor único pode ser utilizada para detetar o vCenter vários servidores, mas não em simultâneo. Terá de executar as deteções um após o outro.
+Sim, uma aplicação de recoletor único pode ser utilizada para detetar o vCenter vários servidores, mas não em simultâneo. Terá de executar a deteção de um após o outro.
 
 ### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>O modelo de OVA utilizado pelo Site Recovery é integrado com o OVA utilizado pelo Azure Migrate?
 

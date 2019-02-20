@@ -2,25 +2,17 @@
 title: Repor um gateway de VPN do Azure para restabelecer túneis IPsec | Documentos da Microsoft
 description: Este artigo explica como repor o Gateway de VPN do Azure para restabelecer túneis IPsec. O artigo aplica-se aos gateways de VPN no clássica e os modelos de implementação do Resource Manager.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8db17b92208bd956bd5f9b855249f03ecd5e2c59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756704"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414938"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 
@@ -62,11 +54,13 @@ Pode repor um gateway de VPN do Resource Manager com o portal do Azure. Se prete
 
 ### <a name="resource-manager-deployment-model"></a>Modelo de implementação Resource Manager
 
-O cmdlet para repor um gateway é **reposição-AzureRmVirtualNetworkGateway**. Antes de executar uma reposição, certifique-se de que tem a versão mais recente do [cmdlets do PowerShell do Resource Manager](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0). O exemplo seguinte repõe um gateway de rede virtual com o nome VNet1GW no grupo de recursos de TestRG1:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+O cmdlet para repor um gateway é **reposição-AzVirtualNetworkGateway**. Antes de executar uma reposição, certifique-se de que tem a versão mais recente do [cmdlets do PowerShell do Resource Manager](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0). O exemplo seguinte repõe um gateway de rede virtual com o nome VNet1GW no grupo de recursos de TestRG1:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+$gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
 Resultado:

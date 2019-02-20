@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c27c32f19dac4e5394ca5e2f3e3722eccffb49b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165115"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415872"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação pass-through do Azure Active Directory: Início rápido
 
@@ -54,7 +54,7 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos.
 3. Identificar um ou mais servidores adicionais (com o Windows Server 2012 R2 ou posterior, com TLS 1.2, ativado) onde é possível executar agentes de autenticação autónomo. Estes servidores adicionais são necessários para garantir a disponibilidade elevada de pedidos para iniciar sessão. Adicione os servidores à mesma floresta do Active Directory que os utilizadores cujas palavras-passe tem de validar.
 
     >[!IMPORTANT]
-    >Em ambientes de produção, recomendamos que tenha um mínimo de 3 de autenticação de agentes em execução no seu inquilino. Existe um limite de sistema de 12 agentes de autenticação por inquilino. E como melhor prática, tratar todos os servidores com agentes de autenticação, como sistemas de 0 (consulte [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+    >Em ambientes de produção, recomendamos que tenha um mínimo de 3 de autenticação de agentes em execução no seu inquilino. Existe um limite de sistema de 40 agentes de autenticação por inquilino. E como melhor prática, tratar todos os servidores com agentes de autenticação, como sistemas de 0 (consulte [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 4. Se existir uma firewall entre os servidores e do Azure AD, configure os seguintes itens:
    - Certifique-se de que os agentes de autenticação podem efetuar *saída* pedidos para o Azure AD sobre as seguintes portas:
@@ -109,7 +109,7 @@ Nesta fase, os utilizadores de todos os domínios geridos no seu inquilino podem
 Se planeia implementar autenticação pass-through num ambiente de produção, deve instalar agentes de autenticação adicional autónomo. Instalar estes agentes de autenticação no servidor (es) _outros_ que um AD Connect do Azure em execução. Esta configuração fornece elevada disponibilidade para pedidos de início de sessão do utilizador.
 
 >[!IMPORTANT]
->Em ambientes de produção, recomendamos que tenha um mínimo de 3 de autenticação de agentes em execução no seu inquilino. Existe um limite de sistema de 12 agentes de autenticação por inquilino. E como melhor prática, tratar todos os servidores com agentes de autenticação, como sistemas de 0 (consulte [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>Em ambientes de produção, recomendamos que tenha um mínimo de 3 de autenticação de agentes em execução no seu inquilino. Existe um limite de sistema de 40 agentes de autenticação por inquilino. E como melhor prática, tratar todos os servidores com agentes de autenticação, como sistemas de 0 (consulte [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Siga estas instruções para transferir o software do agente de autenticação:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109322"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428642"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança de cluster do Service Fabric
 Um cluster do Azure Service Fabric é um recurso que é proprietário. É da responsabilidade do cliente para proteger os seus clusters para ajudar a impedir que os utilizadores não autorizados a ligar aos mesmos. Um cluster seguro é especialmente importante quando estiver a executar cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se o cluster expõe os pontos finais de gestão para a internet pública, usuários anônimos podem ligar à mesma. Sem segurança de clusters não é suportado para cargas de trabalho de produção. 
@@ -73,7 +73,12 @@ Um cluster do Service Fabric oferece vários pontos de entrada para sua funciona
 Para clusters em execução no Azure, também pode proteger o acesso aos pontos finais de gestão com o Azure Active Directory (Azure AD). Para saber como criar necessários artefactos do Azure AD e como preenchê-los quando criar o cluster, consulte [configurar o Azure AD para autenticar clientes](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Recomendações de segurança
-Para os clusters do Azure, para segurança de nó para nó, recomendamos que utilize a segurança do Azure AD para autenticar clientes e certificados.
+Para clusters do Service Fabric implementados numa rede pública alojada no Azure, a recomendação para autenticação mútua do nó de cliente é:
+*   Utilizar o Azure Active Directory para a identidade de cliente
+*   Um certificado para encriptação SSL de comunicação http e de identidade do servidor
+
+Para clusters do Service Fabric implementados numa rede pública alojada no Azure, a recomendação de segurança de nó para nó é utilizar um certificado de Cluster para autenticar nós. 
+
 
 Para clusters do Windows Server de autónomos, se tiver o Windows Server 2012 R2 e do Active Directory do Windows, recomendamos que utilize a segurança do Windows com contas de serviço geridas de grupo. Caso contrário, utilize a segurança do Windows com contas do Windows.
 

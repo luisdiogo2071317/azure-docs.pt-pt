@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: e1bf51697425cca5074b5801c2286c7449132a17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 71fb289f03467147acb2ef254ab87a2c753bc75c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330918"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416552"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
 
@@ -248,7 +248,7 @@ Se estiver a utilizar o Azure Bot Service e o problema é que o **teste na Web C
 
 #### <a name="resolve-issue-while-debugging-on-local-machine-with-bot-framework"></a>Resolva o problema durante a depuração na máquina local com o Bot Framework. 
 
-Para saber mais sobre a depuração local de um bot, veja [depurar um bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+Para saber mais sobre a depuração local de um bot, veja [depurar um bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## <a name="integrating-luis"></a>Integrar o LUIS
 

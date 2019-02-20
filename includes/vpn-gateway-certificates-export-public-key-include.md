@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3c6485406c67bf84b9e0fdfb9f4683abe5062d6c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444307"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418114"
 ---
 Depois de criar um certificado de raiz autoassinado, exporte o ficheiro. cer de chave pública do certificado de raiz (não a chave privada). Mais tarde irá carregar o ficheiro para o Azure. Os passos seguintes ajudam-na exportar o ficheiro. cer para o seu certificado de raiz autoassinado:
 
-1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado de raiz autoassinado, normalmente em ''Certificates - Current User\Personal\Certificates'', e clique com o botão direito do rato. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se não é possível localizar o certificado em User\Personal\Certificates atual pode ser que abriu o Gestor de certificados para os certificados de computador local (título será "Certificados – Local computador" como em vez de "Certificados – utilizador atual"). Para abrir o Gestor de certificados no atual âmbito de utilizador inicie-o do PowerShell mesmo em que os certificados foram criados, escrevendo ```certmgr```.
+1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado de raiz autoassinado, normalmente em ''Certificates - Current User\Personal\Certificates'', e clique com o botão direito do rato. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se não encontrar o certificado em User\Personal\Certificates atual, pode ter abriu acidentalmente "Certificados – Local computador", em vez de "Certificados – utilizador atual"). Se quiser abrir o Gestor de certificados no âmbito do utilizador atual com o PowerShell, que escreve *certmgr* na janela da consola.
 
    ![Exportar](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. No Assistente, clique em **Seguinte**.

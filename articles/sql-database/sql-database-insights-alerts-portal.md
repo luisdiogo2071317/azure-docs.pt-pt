@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e53d77c4faea5b9461395a0098261866bdf6252f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156907"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430438"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Criar alertas para o Azure SQL Database e o armazém de dados com o portal do Azure
 
@@ -106,7 +106,6 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 ||||||               
 | SQL data warehouse | cpu_percent | Percentagem de CPU | Média | 10 minutos |
 | SQL data warehouse | physical_data_read_percent | Percentagem de ES de Dados | Média | 10 minutos |
-| SQL data warehouse | armazenamento | Tamanho total da base de dados | Máximo | 10 minutos |
 | SQL data warehouse | connection_successful | Ligações com êxito | Total | 10 minutos |
 | SQL data warehouse | connection_failed | Ligações com Falhas | Total | 10 minutos |
 | SQL data warehouse | blocked_by_firewall | Bloqueado pela Firewall | Total | 10 minutos |

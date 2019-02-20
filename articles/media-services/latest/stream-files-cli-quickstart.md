@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/15/2019
 ms.author: juliako
-ms.openlocfilehash: c0b1f3fb854f4ca553d24ed601749cf91c2b5f28
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: be1f65b291613997466d9c82782256dc28a5590f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339809"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417402"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Início rápido: Transmitir ficheiros de vídeo - CLI
 
@@ -181,12 +181,15 @@ Obter uma resposta semelhante ao seguinte:
 
 Em serviços de multimédia v3, quando submete tarefas para processar os seus vídeos, terá de informar os serviços de multimédia onde encontrar o vídeo de entrada. Uma das opções é especificar um URL HTTPS como uma tarefa de entrada (como mostrado neste exemplo). 
 
+Quando executa `az ams job start`, pode definir uma etiqueta de saída da tarefa. A etiqueta mais tarde pode ser utilizada para identificar o que este recurso de saída destina-se. 
+
+- Se atribuir um valor para a etiqueta, defina '--recursos de saída para "assetname = etiqueta"
+- Se não atribuir um valor para a etiqueta, defina '--recursos de saída para "assetname =".
+  Observe que adicione "=" para o `output-assets`. 
+
 ```azurecli
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
 ```
-
-> [!TIP]
-> Tenha em atenção que é necessário adicionar o "=" para o nome de ativos de saída, mesmo se não definir a propriedade label na tarefa de saídas.
 
 Obter uma resposta semelhante ao seguinte:
 
@@ -318,7 +321,7 @@ Copiar o `hostName` valor. Neste caso: `amsaccount-usw22.streaming.media.azure.n
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
-## <a name="play-back-with-azure-media-player"></a>Reproduzir com leitor de multimédia do Azure
+## <a name="test-playback-with-azure-media-player"></a>Reprodução de teste com o Azure Media Player
 
 Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure. 
 
@@ -327,6 +330,8 @@ Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure
 
 1. Abra um browser e navegue para [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. Na **URL:** caixa, cole o URL que criou na secção anterior. 
+
+  Pode colar o URL HLS, traço, ou formato uniforme e leitor de multimédia do Azure irão mudar para um protocolo de transmissão em fluxo apropriado para reprodução em seu dispositivo automaticamente.
 3. Prima **Atualizar Leitor**.
 
 O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não deve ser utilizado num ambiente de produção. 
@@ -340,6 +345,11 @@ Execute o seguinte comando da CLI:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="see-also"></a>Consulte também
+
+Ver [códigos de erro da tarefa](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,23 +14,23 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d0545d7285289c7081faf51c6e3ea09071f55a51
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f3d6466ced6efdb4047f9531329b70477911bf21
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666696"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414769"
 ---
-# <a name="create-power-bi-app-technical-assets"></a>Criar ativos técnicos da aplicação do Power BI
+# <a name="create-power-bi-app-offer-technical-assets"></a>Criar oferta de aplicação do Power BI ativos técnicos
 
-O recurso técnico primário será necessário para este tipo de oferta é uma aplicação do Power BI, que é uma coleção de um conjunto de dados primária, relatório e dashboard e opcionais serviços ligados e conjuntos de dados incorporados (ou). (Aplicações do power BI são uma evolução do tipo de recurso, anteriormente conhecido como [pacotes de conteúdos](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction).)  Para obter informações completas sobre o desenvolvimento desses aplicativos, consulte [aplicações do Power BI](https://go.microsoft.com/fwlink/?linkid=2028636).
+O recurso técnico principal que precisa para este tipo de oferta é uma aplicação do Power BI. Uma aplicação do Power BI é uma coleção de conjuntos de dados primários, relatórios ou dashboards e opcionais serviços ligados e conjuntos de dados incorporados. Ele evoluiu a partir de um tipo de recurso conhecido anteriormente como um [pacote de conteúdos](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). Para obter mais informações sobre como desenvolver este tipo de aplicação, consulte [o que são aplicações de modelo do Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
-## <a name="obtaining-an-installation-url"></a>Obter um URL de instalação
+## <a name="obtain-an-installation-url"></a>Obter um URL de instalação
 
-Criar aplicação do Power BI em apenas disponíveis dentro do [serviço Power BI](https://powerbi.microsoft.com/) e requer que iniciam sessão utilizando uma [licença do Power BI Pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). Quando a aplicação do serviço é criado e testado no Power BI, guarde o URL de instalação de aplicativo que gera o Power BI.  Tem de fornecer este URL na [separador de informações técnicas](./cpp-technical-info-tab.md) do formulário de submissão de Portal de parceiros da Cloud.
+Pode criar uma aplicação do Power BI apenas dentro de [serviço Power BI](https://powerbi.microsoft.com/). Para começar, inicie sessão com uma [licença do Power BI Pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). Depois de criar e testar a aplicação de serviço no Power BI, guarde o URL de instalação da aplicação Power BI gera. Por fim, forneça o URL no [informações técnicas](./cpp-technical-info-tab.md) separador do formulário de submissão de Portal de parceiros da Cloud.
  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de ter criado e testado a sua aplicação do Power BI e criado a oferta associada, poderá [publicar a oferta do Power BI](./cpp-publish-offer.md).  
+Depois de ter criado e testado a sua aplicação do Power BI e que criou a oferta associada, poderá [publicar a oferta de aplicação do Power BI](./cpp-publish-offer.md). 

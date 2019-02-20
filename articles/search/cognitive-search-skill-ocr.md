@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 485837d6235f4868665df2907c01fa1bd26db357
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6fa316452b5b9f56c33de00b96c2cf57c40edfcc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766372"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429660"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade de cognitiva OCR
 
@@ -53,7 +53,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| image         | Tipo complexo. Atualmente, só funciona com o campo de "/ documento/normalized_images", produzido pelo indexador Blob do Azure quando ```imageAction``` está definido como ```generateNormalizedImages```. Consulte a [exemplo](#sample-output) para obter mais informações.|
+| image         | Tipo complexo. Atualmente, só funciona com o campo de "/ documento/normalized_images", produzido pelo indexador Blob do Azure quando ```imageAction``` está definido como um valor diferente de ```none```. Consulte a [exemplo](#sample-output) para obter mais informações.|
 
 
 ## <a name="skill-outputs"></a>Saídas de habilidades

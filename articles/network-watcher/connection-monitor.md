@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093045"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429252"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais no portal do Azure
 
 A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, como outra VM, pode ser fundamental para a sua organização. Por vezes, são introduzidas alterações de configuração que podem interromper a comunicação. Neste tutorial, ficará a saber como:
 
@@ -51,7 +51,7 @@ Crie duas VMs.
 
     |Definição|Valor|
     |---|---|
-    |Nome|myVm1|
+    |Name|myVm1|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
@@ -71,13 +71,13 @@ Crie duas VMs.
 
 Execute novamente os passos em [Criar a primeira VM](#create-the-first-vm), com as seguintes alterações:
 
-|Passo|Definição|Valor|
+|Passo|Definição|Value|
 |---|---|---|
-| 1 | Selecione **VM com Ubuntu Server 17.10** |                                                                         |
-| 3 | Nome                              | myVm2                                                                   |
-| 3 | Tipo de autenticação               | Cole a chave pública SSH ou selecione **Palavra-passe** e introduza uma palavra-passe. |
-| 3 | Grupo de recursos                    | Selecione **Utilizar existente** e selecione **myResourceGroup**.                 |
-| 6 | Extensões                        | **Agente de Rede para Linux**                                             |
+| 1 | Selecione uma versão do **Ubuntu Server** |                                                                         |
+| 3 | Name                                  | myVm2                                                                   |
+| 3 | Tipo de autenticação                   | Cole a chave pública SSH ou selecione **Palavra-passe** e introduza uma palavra-passe. |
+| 3 | Grupo de recursos                        | Selecione **Utilizar existente** e selecione **myResourceGroup**.                 |
+| 6 | Extensões                            | **Agente de Rede para Linux**                                             |
 
 A implementação da VM demora alguns minutos. Aguarde que a VM conclua a implementação antes de continuar com os restantes passos.
 
@@ -93,7 +93,7 @@ Crie um monitor de ligação para monitorizar a comunicação através da porta 
 
     | Definição                  | Valor               |
     | ---------                | ---------           |
-    | Nome                     | myVm1-myVm2(22)     |
+    | Name                     | myVm1-myVm2(22)     |
     | Origem                   |                     |
     | Máquina virtual          | myVm1               |
     | Destino              |                     |
@@ -115,7 +115,7 @@ Crie um monitor de ligação para monitorizar a comunicação através da porta 
 
     Tenha em atenção as seguintes informações:
 
-    | Item                     | Valor                      | Detalhes                                                     |
+    | Item                     | Value                      | Detalhes                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Estado                   | Acessível                  | Permite-lhe saber se o ponto final está acessível ou não.|
     | AVG. ROUND-TRIP          | Permite-lhe saber o tempo de ida e volta para estabelecer a ligação, em milissegundos. O monitor de ligação sonda a ligação a cada 60 segundos, para que possa monitorizar a latência ao longo do tempo.                                         |
@@ -147,12 +147,12 @@ Por predefinição, o Azure permite a comunicação através de todas as portas 
 
 4. A regra predefinida que permite a comunicação entre todas as VMs numa rede virtual é a regra com o nome **AllowVnetInBound**. Crie uma regra com uma prioridade mais alta (número mais baixo) que a regra **AllowVnetInBound** que nega a comunicação de entrada através da porta 22. Selecione ou introduza as seguintes informações, aceite as predefinições restantes e selecione **Adicionar**:
 
-    | Definição                 | Valor          |
+    | Definição                 | Value          |
     | ---                     | ---            |
     | Intervalos de portas de destino | 22             |
     | Ação                  | Negar           |
     | Prioridade                | 100            |
-    | Nome                    | DenySshInbound |
+    | Name                    | DenySshInbound |
 
 5. Como o monitor de ligação sonda em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, **Monitor de ligação** e, em seguida, selecione novamente o monitor **myVm1-myVm2(22)**. Os resultados são diferentes agora, conforme mostra a imagem seguinte:
 
@@ -160,7 +160,7 @@ Por predefinição, o Azure permite a comunicação através de todas as portas 
 
     Pode ver que há um ícone de exclamação vermelho na coluna de estado relativa à interface de rede **myvm2529**.
 
-6. Para saber por que motivo o estado mudou, selecione 10.0.0.5, na imagem anterior. O monitor de ligação informa que o motivo da falha de comunicação é: *Tráfego bloqueado devido à seguinte regra do grupo de segurança de rede: UserRule_DenySshInbound*.
+6. Para saber por que motivo o estado mudou, selecione 10.0.0.5, na imagem anterior. Monitor de ligação informa-o de que o motivo da falha de comunicação é: *Tráfego bloqueado devido a regra de grupo de segurança de rede seguinte: UserRule_DenySshInbound*.
 
     Se não sabia que alguém tinha implementado a regra de segurança que criou no passo 4, saberia através do monitor de ligação que a regra está a causar o problema de comunicação. Em seguida, poderia alterar, substituir ou remover a regra, para restaurar a comunicação entre as VMs.
 
@@ -172,7 +172,7 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a monitorizar uma ligação entre duas VMs. Aprendeu que uma regra do grupo de segurança de rede impediu a comunicação para uma VM. Para saber mais sobre todas as diferentes respostas que o monitor de ligação pode devolver, veja [tipos de resposta](network-watcher-connectivity-overview.md#response). Também pode monitorizar uma ligação entre uma VM, um nome de domínio completamente qualificado, um identificador de recurso uniforme ou um endereço IP.
 

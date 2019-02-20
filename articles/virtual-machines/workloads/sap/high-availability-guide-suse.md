@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 472041aaef0817aae278fed6ef632aadda3466a3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f65a6a0f9564eafda36b8a8f4988e064e39a3bb1
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119038"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430612"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicações de SAP
 
@@ -44,6 +44,7 @@ ms.locfileid: "54119038"
 
 [suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -76,6 +77,7 @@ Leia as seguintes notas de SAP e documentos pela primeira vez
 * [Implementação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
 * [Implementação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
 * [SUSE SAP HA guias das melhores práticas] [ suse-ha-guide] os guias contêm todas as informações necessárias para configurar a HA do Netweaver e SAP HANA System Replication no local. Utilize estes guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
+* [Notas de versão do SP3 de extensão 12 do SUSE elevada disponibilidade][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Descrição geral
 
@@ -85,14 +87,14 @@ Para assegurar elevada disponibilidade, o SAP NetWeaver requer um servidor NFS. 
 
 O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados do SAP HANA utilizam o nome de anfitrião virtual e endereços IP virtuais. No Azure, um balanceador de carga é necessário utilizar um endereço IP virtual. A lista seguinte mostra a configuração do (A) SCS e ERS Balanceador de carga.
 
-### <a name="ascs"></a>(A) SCS
+### <a name="ascs"></a>(A)SCS
 
 * Configuração de front-end
   * Endereço IP 10.0.0.7
 * Configuração de back-end
   * Ligado a interfaces de rede primário de todas as máquinas virtuais que devem fazer parte do (A) cluster SCS/ERS
 * Porta de sonda
-  * Porta 620**&lt;nr&gt;**
+  * Port 620**&lt;nr&gt;**
 * Regras de balanceamento de carga
   * 32**&lt;nr&gt;** TCP
   * 36**&lt;nr&gt;** TCP
@@ -109,7 +111,7 @@ O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a bas
 * Configuração de back-end
   * Ligado a interfaces de rede primário de todas as máquinas virtuais que devem fazer parte do (A) cluster SCS/ERS
 * Porta de sonda
-  * Porta 621**&lt;nr&gt;**
+  * Port 621**&lt;nr&gt;**
 * Regras de balanceamento de carga
   * 33**&lt;nr&gt;** TCP
   * 5**&lt;nr&gt;** 13 TCP
@@ -386,7 +388,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    </code></pre>
 
-1. **[1]**  Instalar ASCS do SAP NetWeaver  
+1. **[1]** Install SAP NetWeaver ASCS  
 
    Instalar o SAP NetWeaver ASCS como raiz no primeiro nó com um nome de anfitrião virtual que mapeia para o endereço IP da configuração de front-end de Balanceador de carga para ASCS, por exemplo <b>nw1 ascs</b>, <b>10.0.0.7</b> e o número que utilizou para a sonda do Balanceador de carga, por exemplo de instâncias <b>00</b>.
 

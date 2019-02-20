@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508339"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417978"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o portal
 
@@ -30,6 +30,8 @@ Ligar uma VNet clássica a uma VNet do Resource Manager é semelhante à ligaç�
 Se ainda não tiver um gateway de rede virtual e não pretender criar uma, pode querer em vez disso, considere ligar às VNets utilização o VNet Peering. O VNet peering não utiliza um gateway de VPN. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Antes de começar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Estes passos partem do princípio de que ambas as VNets já foram criadas. Se estiver a utilizar este artigo como um exercício e não tiver VNets, existem ligações nos passos que o ajudarão a criá-los.
 * Certifique-se de que os intervalos de endereços para as VNets não se sobrepõem entre si, ou se sobrepõe a qualquer um dos intervalos de outras ligações que os gateways podem ser ligados a.
@@ -226,19 +228,19 @@ Estes passos, irá configurar a ligação entre a VNet clássica para a VNet do 
 Abra a consola do PowerShell com direitos elevados e inicie sessão sua conta do Azure. Após iniciar sessão, as definições da conta são transferidas para que fiquem disponíveis para o Azure PowerShell. O seguinte cmdlet pede-lhe as credenciais de início de sessão para a sua conta do Azure para o modelo de implementação do Resource Manager:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Obtenha uma lista das suas subscrições do Azure.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Se tiver mais de uma subscrição, especifique a subscrição que pretende utilizar.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Em seguida, inicie sessão para utilizar os cmdlets do PowerShell Clássicos (gestão de serviço). Utilize o seguinte comando para adicionar a sua conta do Azure para o modelo de implementação clássica:

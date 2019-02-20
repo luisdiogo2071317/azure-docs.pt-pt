@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/18/2019
+ms.date: 2/19/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: dce158e600d3bf5dbcc552aff82959208d7b47f8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0319445f946a53ace5718dce1ad593d0a8225ecc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249066"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428521"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-No Azure Stack, é possível disponibilizar imagens de máquinas virtuais aos seus utilizadores. Estas imagens podem ser referenciadas por modelos Azure Resource Manager, ou pode adicioná-los na interface do usuário do Azure Marketplace como um item do mercado. Pode utilizar qualquer um de um formulário com imagem global do Azure Marketplace ou adicionar sua própria imagem personalizada. Pode adicionar uma VM com o portal ou o Windows PowerShell.
+No Azure Stack, é possível disponibilizar imagens de máquinas virtuais aos seus utilizadores. Estas imagens podem ser utilizadas por modelos Azure Resource Manager. Também pode adicioná-los na interface do usuário do Azure Marketplace como um item do mercado. Utilize um formulário com imagem global do Azure Marketplace ou sua própria imagem personalizada. A imagem pode ser adicionada com o portal ou o Windows PowerShell.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Adicionar uma imagem de VM através do portal
 

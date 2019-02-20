@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
 ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057410"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430872"
 ---
 ## <a name="defining-a-backup-policy"></a>Definir uma política de cópia de segurança
 Uma política de cópia de segurança define uma matriz de quando os instantâneos de dados são executados e quanto tempo os instantâneos são retidos. Ao definir uma política para a cópia de segurança de uma VM, pode acionar uma tarefa de cópia de segurança *uma vez por dia*. Quando cria uma nova política, esta é aplicada ao cofre. A interface da política de cópia de segurança tem o seguinte aspeto:

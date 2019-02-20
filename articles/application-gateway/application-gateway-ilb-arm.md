@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Gateway de aplicação do Azure com o Balanceador de carga interno - PowerShell | Microsoft Docs
+title: Utilizar o Gateway de aplicação do Azure com o Balanceador de carga interno – PowerShell | Documentos da Microsoft
 description: Esta página fornece instruções para criar, configurar, iniciar e eliminar um gateway de aplicação do Azure com o balanceador de carga interno (ILB) do Azure Resource Manager
 documentationcenter: na
 services: application-gateway
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: b9bdc3f4a0f7eb20b1c0cbc33fb257577da08c26
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92d0e079f9fafbb6c000c6b1746f37a16add4cf7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598492"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417352"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um gateway de aplicação com um balanceador de carga interno (ILB)
 
@@ -35,11 +35,11 @@ Este artigo descreve os passos para configurar um gateway de aplicação com um 
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>O que é necessário para criar um gateway de aplicação?
 
-* **Conjunto de servidores de back-end:** a lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à rede virtual, mas numa sub-rede diferente para o gateway de aplicação, ou ser um IP/VIP público.
-* **Definições do conjunto de servidores de back-end:** cada conjunto tem definições como a porta, o protocolo e a afinidade com base em cookies. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
-* **Porta de front-end:** esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
-* **Serviço de escuta:** o serviço de escuta possui uma porta de front-end, um protocolo (Http ou Https, sensível às maiúsculas e minúsculas) e o nome do certificado SSL (se configurar a descarga de SSL).
-* **Regra:** a regra vincula o serviço de escuta e o conjunto de servidores de back-end e define para que conjunto de servidores de back-end o tráfego deve ser direcionado ao chegar a um determinado serviço de escuta. Atualmente, apenas é suportada a regra *básica*. A regra *básica* refere-se à distribuição de carga round robin.
+* **Agrupamento de servidores de back-end:** A lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à rede virtual, mas numa sub-rede diferente para o gateway de aplicação, ou ser um IP/VIP público.
+* **Definições de agrupamento de servidores de back-end:** Cada conjunto tem definições como a porta, protocolo e a afinidade com base no cookie. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
+* **Porta de front-end:** Esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
+* **Serviço de escuta:** O serviço de escuta possui uma porta de front-end, um protocolo (Http ou Https, estes são maiúsculas e minúsculas) e o nome do certificado SSL (se configurar o SSL de descarga).
+* **Regra:** A regra vincula o serviço de escuta e o conjunto de servidores de back-end e define para que conjunto de servidores de back-end o tráfego deve ser direcionado ao chegar a um determinado serviço de escuta. Atualmente, apenas é suportada a regra *básica*. A regra *básica* refere-se à distribuição de carga round robin.
 
 ## <a name="create-an-application-gateway"></a>Para criar um gateway de aplicação
 
@@ -111,7 +111,7 @@ Este passo atribui o endereço intervalo 10.0.0.0/24 a uma variável de sub-rede
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
-Este passo cria uma rede virtual com o nome "appgwvnet" no grupo de recursos "appgw-rg" para a região EUA Oeste utilizando o prefixo 10.0.0.0/16 com 10.0.0.0/24 sub-rede.
+Este passo cria uma rede virtual denominada "appgwvnet" no grupo de recursos "appgw-rg" para a região EUA Oeste utilizando o prefixo 10.0.0.0/16 com sub-rede 10.0.0.0/24.
 
 ### <a name="step-3"></a>Passo 3
 
@@ -119,7 +119,7 @@ Este passo cria uma rede virtual com o nome "appgwvnet" no grupo de recursos "ap
 $subnet = $vnet.subnets[0]
 ```
 
-Este passo atribui o objeto de sub-rede à variável $subnet para conhecer os passos seguintes.
+Este passo atribui o objeto de sub-rede à variável $subnet para os passos seguintes.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway de aplicação
 
@@ -137,7 +137,7 @@ Este passo cria uma configuração de IP do gateway de aplicação com o nome "g
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-Este passo configura o conjunto de endereços IP back-end com o nome "pool01" com o IP endereços "10.1.1.8 10.1.1.9, 10.1.1.10". Estes endereços são os endereços IP que irão receber o tráfego de rede do ponto final do IP de front-end. Deve substituir os endereços IP acima para adicionar os seus próprios pontos finais do endereço IP da aplicação.
+Este passo configura o conjunto de endereços IP de back-end com o nome "pool01" com o IP endereços "10.1.1.8, 10.1.1.9, 10.1.1.10". Estes endereços são os endereços IP que irão receber o tráfego de rede do ponto final do IP de front-end. Deve substituir os endereços IP acima para adicionar os seus próprios pontos finais do endereço IP da aplicação.
 
 ### <a name="step-3"></a>Passo 3
 
@@ -145,7 +145,7 @@ Este passo configura o conjunto de endereços IP back-end com o nome "pool01" co
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-Este passo configura o tráfego de rede do gateway definição "poolsetting01" para o tipo de carga com balanceamento de aplicação no conjunto de back-end.
+Este passo configura o tráfego de rede de definição do gateway "poolsetting01" para a carga balanceada do aplicativo no conjunto de back-end.
 
 ### <a name="step-4"></a>Passo 4
 
@@ -161,7 +161,7 @@ Este passo configura a porta IP de front-end com o nome "frontendport01" para o 
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-Este passo cria a configuração de IP Front-end denominada "fipconfig01" e associa-o com um IP privado a partir da atual sub-rede de rede virtual.
+Este passo cria a configuração de IP de front-end denominada "fipconfig01" e associa-à um IP privado a partir da sub-rede de rede virtual atual.
 
 ### <a name="step-6"></a>Passo 6
 
@@ -169,7 +169,7 @@ Este passo cria a configuração de IP Front-end denominada "fipconfig01" e asso
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-Este passo cria o serviço de escuta chamado "listener01" e associa a porta de front-end à configuração de IP Front-end.
+Este passo cria o nome "listener01" do serviço de escuta e associa a porta de front-end à configuração de IP Front-end.
 
 ### <a name="step-7"></a>Passo 7
 
@@ -177,7 +177,7 @@ Este passo cria o serviço de escuta chamado "listener01" e associa a porta de f
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-Este passo cria a regra encaminhamento de Balanceador de carga chamada "rule01", que configura o comportamento do Balanceador de carga.
+Este passo cria a regra encaminhamento de Balanceador de carga denominada "rule01", que configura o comportamento do Balanceador de carga.
 
 ### <a name="step-8"></a>Passo 8
 
@@ -185,10 +185,10 @@ Este passo cria a regra encaminhamento de Balanceador de carga chamada "rule01",
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-Este passo configura o tamanho da instância do gateway de aplicação.
+Este passo configura o tamanho da instância de gateway de aplicação.
 
 > [!NOTE]
-> O valor predefinido para *InstanceCount* é 2, com um valor máximo de 10. O valor predefinido para *GatewaySize* é Médio. Pode escolher entre Standard_Small, Standard_Medium e Standard_Large.
+> O valor predefinido para a capacidade é 2. Para o nome de Sku, pode escolher entre Standard_Small, Standard_Medium e Standard_Large.
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>Criar um gateway de aplicação com o New-AzureApplicationGateway
 

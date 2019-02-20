@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246039"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429867"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -189,6 +189,8 @@ Uma análise é executada em três horas para cada computador Linux gerido.
 
 Pode demorar entre 30 minutos e 6 horas para o dashboard apresentar os dados atualizados dos computadores gerenciados.
 
+A média de utilização de dados do Log Analytics para uma máquina com o gerenciamento de atualizações é aproximadamente 25MB por mês. Este valor é apenas uma aproximação e está sujeitas a alterações com base no seu ambiente. Recomenda-se que monitorizar o seu ambiente para ver a utilização de exata que precisa.
+
 ## <a name="viewing-update-assessments"></a>Ver avaliações de atualização
 
 Na sua conta de automatização, selecione **gestão de atualizações** para ver o estado das suas máquinas.
@@ -335,7 +337,7 @@ Para obter mais informações sobre as portas que requer a função de trabalho 
 
 É recomendado para utilizar os endereços listados quando definir exceções. Para endereços IP, pode baixar o [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e reflete os intervalos implementados atualmente e as alterações futuras para os intervalos de IP.
 
-## <a name="search-logs"></a>Registos de pesquisa
+## <a name="search-logs"></a>Pesquisar registos
 
 Além dos detalhes que são fornecidos no portal do Azure, pode fazer pesquisas contra os registos. Nas páginas de solução, selecione **do Log Analytics**. O **pesquisa de registos** painel abre-se.
 

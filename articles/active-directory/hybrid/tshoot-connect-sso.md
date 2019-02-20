@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9eebd695cbbc1e29ea7d2647b5955bcc2e3cfe4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175919"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415651"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolver problemas relacionados com o Azure Active Directory totalmente integrada início de sessão único
 
@@ -82,8 +82,8 @@ Utilize a lista de verificação seguinte para resolver problemas de SSO totalme
 - Certifique-se de que a conta de utilizador está numa floresta do Active Directory onde o SSO totalmente integrado tiver sido configurada.
 - Certifique-se de que o dispositivo está ligado à rede empresarial.
 - Certifique-se de que a hora do dispositivo está sincronizada com a hora no Active Directory e os controladores de domínio e que estão dentro de cinco minutos entre si.
-- Certifique-se de que o `AZUREADSSOACCT` conta de computador está presente e ativado em cada floresta do AD que pretende que o SSO totalmente integrado ativada. Se a conta de computador foi eliminada ou está em falta, pode usar [cmdlets do PowerShell](#manual-reset-of-the-feature) para voltar a criá-los.
-- Listar os tíquetes Kerberos existentes no dispositivo utilizando o `klist` comando numa linha de comandos. Certifique-se de que as permissões emitidas para o `AZUREADSSOACCT` conta de computador estão presentes. Permissões de Kerberos dos utilizadores são normalmente válidos durante 10 horas. Pode ter diferentes configurações no Active Directory.
+- Certifique-se de que o `AZUREADSSOACC` conta de computador está presente e ativado em cada floresta do AD que pretende que o SSO totalmente integrado ativada. Se a conta de computador foi eliminada ou está em falta, pode usar [cmdlets do PowerShell](#manual-reset-of-the-feature) para voltar a criá-los.
+- Listar os tíquetes Kerberos existentes no dispositivo utilizando o `klist` comando numa linha de comandos. Certifique-se de que as permissões emitidas para o `AZUREADSSOACC` conta de computador estão presentes. Permissões de Kerberos dos utilizadores são normalmente válidos durante 10 horas. Pode ter diferentes configurações no Active Directory.
 - Se desativado e reativada SSO totalmente integrado no seu inquilino, os utilizadores não receberão a experiência de início de sessão única até que os respetivos bilhetes Kerberos em cache expiraram.
 - Remover permissões de Kerberos existentes do dispositivo utilizando o `klist purge` de comandos e tente novamente.
 - Para determinar se existem problemas relacionados com o JavaScript, reveja os registos de consola do browser (sob **ferramentas de programação**).
@@ -123,7 +123,7 @@ Se a resolução de problemas não o ajudaram, pode repor manualmente a funciona
     >[!NOTE]
     >Utilizamos o nome de utilizador do administrador de domínio, fornecido em nomes de Principal utilizador (UPN) (johndoe@contoso.com) formato ou o domínio sam conta qualificado (contoso\diogoandrade ou com\johndoe) formato de nome, para localizar a floresta de AD pretendida. Se utilizar o nome qualificado de sam conta de domínio, usamos a parte do nome de utilizador de domínio [localizar o controlador de domínio, o administrador de domínio através de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se utilizar o UPN em vez disso, podemos [traduzi-la para um nome de sam conta qualificado do domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriadas.
 
-2. Chamar `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove o `AZUREADSSOACCT` conta de computador do controlador de domínio no local para esta floresta do Active Directory específico.
+2. Chamar `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove o `AZUREADSSOACC` conta de computador do controlador de domínio no local para esta floresta do Active Directory específico.
 3. Repita os passos anteriores para cada floresta do Active Directory onde configurou a funcionalidade.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Passo 4: Ativar o SSO totalmente integrado para cada floresta do Active Directory

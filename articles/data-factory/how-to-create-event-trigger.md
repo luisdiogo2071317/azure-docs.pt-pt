@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: fdbae70718ad62f96dda85e2d9574c7ec2d5ef23
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: fd7355c342a075f7b0c2e1173717c0345f1f94ba
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561098"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428555"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
 
@@ -87,7 +87,7 @@ Esta secção fornece exemplos de definições do acionador baseado em evento.
 | **Caminho do blob começa com** | `/containername/blobs/foldername/` | Recebe eventos para os blobs existentes no `containername` contentor e `foldername` pasta. |
 | **Caminho do blob começa com** | `/containername/blobs/foldername/subfoldername/` | Também pode referenciar uma subpasta. |
 | **Caminho do blob começa com** | `/containername/blobs/foldername/file.txt` | Recebe eventos para um blob com o nome `file.txt` no `foldername` pasta sob o `containername` contentor. |
-| **Caminho do blob termina com** | `file.txt` | Recebe eventos para um blob com o nome `file.txt` eu qualquer caminho. |
+| **Caminho do blob termina com** | `file.txt` | Recebe eventos para um blob com o nome `file.txt` em qualquer caminho. |
 | **Caminho do blob termina com** | `/containername/blobs/file.txt` | Recebe eventos para um blob com o nome `file.txt` no contentor `containername`. |
 | **Caminho do blob termina com** | `foldername/file.txt` | Recebe eventos para um blob com o nome `file.txt` em `foldername` pasta em qualquer contentor. |
 

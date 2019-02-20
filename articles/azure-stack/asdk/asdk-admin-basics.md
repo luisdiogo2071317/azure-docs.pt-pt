@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a07a829aac9659ac7ab8d04b64a1ea1a9a2de78
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248168"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428062"
 ---
 # <a name="asdk-administration-basics"></a>Noções básicas de administração de ASDK 
 Há várias coisas que precisa saber se estiver familiarizado com a administração do Azure Stack Development Kit (ASDK). Esta orientação fornece uma descrição geral da sua função como um operador do Azure Stack no ambiente de avaliação e como garantir que os utilizadores de teste pode tornar-se produtivos rapidamente.
@@ -37,7 +37,7 @@ Existem algumas considerações de conta que deve estar atento ao gerir o Azure 
 |-----|-----|-----|
 |Administrador local (. \Administrator)|Administrador de anfitrião ASDK|Administrador de anfitrião ASDK|
 |AzureStack\AzureStackAdmin|Administrador de anfitrião ASDK<br><br>Pode ser utilizado para iniciar sessão no portal de administração do Azure Stack<br><br>Acesso para ver e administrar anéis do Service Fabric|Administrador de anfitrião ASDK<br><br>Sem acesso ao portal de administração do Azure Stack<br><br>Acesso para ver e administrar anéis do Service Fabric<br><br>Já não é proprietário da subscrição de fornecedor predefinido (DPS)|
-|AzureStack\CloudAdmin|Pode aceder e executar comandos permitidos no ponto de extremidade com privilégios|Pode aceder e executar comandos permitidos no ponto de extremidade com privilégios<br><br>Não pode iniciar sessão no anfitrião ASDK<br><br>Proprietário da subscrição do fornecedor padrão (DPS)|
+|AzureStack\CloudAdmin|Pode aceder e executar comandos permitidos no ponto de extremidade com privilégios|Pode aceder e executar comandos permitidos no ponto de extremidade com privilégios<br><br>Não consigo iniciar sessão para o anfitrião ASDK<br><br>Proprietário da subscrição do fornecedor padrão (DPS)|
 |Administrador Global do Azure AD|Usados durante a instalação<br><br>Proprietário da subscrição do fornecedor padrão (DPS)|Não aplicável|
 |
 

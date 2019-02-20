@@ -4,17 +4,17 @@ description: Descreve como a definição de política de recurso do Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 5a16edcb702db21b357c437b920e870a65fb155a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9dc6407a222adb06f4139d9973c168911e0faca8
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270169"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429677"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -80,7 +80,7 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 
 Recomendamos que defina **modo** para `all` na maioria dos casos. Todas as definições de política criadas através da utilização de portal a `all` modo. Se utilizar o PowerShell ou da CLI do Azure, pode especificar a **modo** parâmetro manualmente. Se a definição de política não inclui um **modo** valor, assume como predefinição `all` no Azure PowerShell e, a `null` na CLI do Azure. R `null` modo de é igual a utilizar `indexed` para suportar a compatibilidade com versões anteriores.
 
-`indexed` deve ser usado durante a criação de políticas que aplicar etiquetas ou localizações. Embora não seja necessário, impede que os recursos que não suportam etiquetas e localizações de aparecer como não conformes nos resultados de compatibilidade. A exceção é **grupos de recursos**. Devem definir políticas que impõem a localização ou etiquetas num grupo de recursos **modo** ao `all` e o destino especificamente o `Microsoft.Resources/subscriptions/resourceGroup` tipo. Por exemplo, veja [impor etiquetas do grupo de recursos](../samples/enforce-tag-rg.md).
+`indexed` deve ser usado durante a criação de políticas que aplicar etiquetas ou localizações. Embora não seja necessário, impede que os recursos que não suportam etiquetas e localizações de aparecer como não conformes nos resultados de compatibilidade. A exceção é **grupos de recursos**. Devem definir políticas que impõem a localização ou etiquetas num grupo de recursos **modo** ao `all` e o destino especificamente o `Microsoft.Resources/subscriptions/resourceGroups` tipo. Por exemplo, veja [impor etiquetas do grupo de recursos](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -245,15 +245,41 @@ São suportados os seguintes campos:
 - `identity.type`
   - Devolve o tipo de [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md) ativada no recurso.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - Essa sintaxe de colchete suporta nomes de etiqueta com a pontuação, como um hífen, ponto ou espaço.
   - Em que **\<tagName\>** é o nome da etiqueta para validar a condição para.
-  - Exemplo: `tags.CostCenter` em que **Centrodecustos** é o nome da etiqueta.
-- `tags[<tagName>]`
-  - Essa sintaxe de colchete suporta nomes de etiqueta têm um período.
-  - Em que **\<tagName\>** é o nome da etiqueta para validar a condição para.
-  - Exemplo: `tags[Acct.CostCenter]` em que **Acct.CostCenter** é o nome da etiqueta.
-
+  - Exemplos: `tags['Acct.CostCenter']` em que **Acct.CostCenter** é o nome da etiqueta.
+- `tags['''<tagName>''']`
+  - Essa sintaxe de colchete suporta nomes de etiquetas que tenham apóstrofos ao Escapadelas com apóstrofos duplos.
+  - Em que **'\<tagName\>'** é o nome da etiqueta para validar a condição para.
+  - Exemplo: `tags['''My.Apostrophe.Tag''']` em que **'\<tagName\>'** é o nome da etiqueta.
 - aliases de propriedade - para obter uma lista, consulte [Aliases](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]`, e `tags[tag.with.dots]` ainda aceitável formas de declaração de um campo de etiquetas.
+> No entanto, as expressões preferenciais são aqueles listados acima.
+
+#### <a name="use-tags-with-parameters"></a>Utilizar etiquetas com parâmetros
+
+Um valor de parâmetro pode ser passado para um campo de etiqueta. Passar um parâmetro para um campo de etiqueta aumenta a flexibilidade de definição de política durante a atribuição de política.
+
+No exemplo a seguir `concat` é utilizado para criar uma pesquisa de campo de etiquetas para a marca com o nome do valor da **tagName** parâmetro. Se essa marca não existir, o **acrescentar** efeito é usado para adicionar a marca usando o valor da mesma etiqueta nomeado, definir sobre o grupo de recursos do principal de recursos auditada com o `resourcegroup()` função de pesquisa.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>Value
 
@@ -353,7 +379,7 @@ Todos os [funções de modelo do Resource Manager](../../../azure-resource-manag
 
 Além disso, o `field` função está disponível para as regras de política. `field` é utilizado principalmente com **AuditIfNotExists** e **DeployIfNotExists** aos campos de referência no recurso que estão a ser avaliados. Um exemplo desta utilização pode ser visto na [DeployIfNotExists exemplo](effects.md#deployifnotexists-example).
 
-#### <a name="policy-function-examples"></a>Exemplos de função de política
+#### <a name="policy-function-example"></a>Exemplo de política de função
 
 Este exemplo de regra de política utiliza o `resourceGroup` função de recursos para obter o **nome** propriedade, combinada com o `concat` matriz e objeto de função para criar um `like` condição que impõe o nome do recurso para começar com o nome do grupo de recursos.
 
@@ -367,24 +393,6 @@ Este exemplo de regra de política utiliza o `resourceGroup` função de recurso
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-Este exemplo de regra de política utiliza o `resourceGroup` função de recursos para obter o **etiquetas** valor de propriedade de matriz da **Centrodecustos** etiqueta no grupo de recursos e acrescentá-lo para o **Centrodecustos**  Etiquetar no novo recurso.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

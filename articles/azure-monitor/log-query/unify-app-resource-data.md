@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237676"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429521"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Uniformizar a vários recursos do Azure Monitor Application Insights 
 Este artigo descreve como consultar e ver todos os Application Insights log dados da sua aplicação num único lugar, mesmo quando eles estão em diferentes subscrições do Azure, como um substituto para a descontinuação do conector do Application Insights. O número de recursos que podem ser incluídos numa única consulta recursos do Application Insights está limitado a 100.  
@@ -68,6 +68,9 @@ O alias de função devolve a União dos pedidos de todos os aplicativos definid
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Consultar em recursos do Application Insights e área de trabalho de dados 
 Quando parar o conector e a necessidade de executar consultas através de um intervalo de tempo foi reduzido pela retenção de dados do Application Insights (90 dias), terá de efetuar [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) na área de trabalho e no Application Insights recursos para um período intermédio. Isso é até que os seus dados de aplicativos acumulem pela retenção de dados do Application Insights novo mencionada acima. A consulta requer alguns manipulações, uma vez que os esquemas no Application Insights e a área de trabalho são diferentes. Consulte a tabela mais tarde nesta secção, realçando as diferenças de esquema. 
+
+>[!NOTE]
+>[Entre recursos consulta](../log-query/cross-workspace-query.md) no registo de alertas é suportado no novo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza o [herdados API de alerta do Log Analytics](../platform/api-alerts.md) para a criação de novo log de regras de alerta no portal do Azure, a menos que alternar do [API herdada de alertas de registo](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API se tornará o padrão de novas regras de alerta no portal do Azure e permite-lhe criar regras de alertas do log de consulta de entre recursos. Pode criar [entre recursos consulta](../log-query/cross-workspace-query.md) regras de alerta de registo sem fazer o comutador, utilizando o [modelo ARM para scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, mas esta regra de alerta é gerenciável no entanto [ scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não no portal do Azure.
 
 Por exemplo, se o conector parado trabalhando em 2018-11-01, quando consultar os registos em todos os dados de aplicações e recursos do Application Insights na área de trabalho, seria possível construir a consulta semelhante ao seguinte exemplo:
 

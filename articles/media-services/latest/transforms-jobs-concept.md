@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: d93e0de48fd10677ad30e002390dc2e8177cf2eb
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: fd93b84c251a0b2346550c79bcb8796161cb9116
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408481"
+ms.locfileid: "56417876"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Tarefas
  
@@ -52,6 +52,10 @@ Suponha que quisesse extrair o primeiro quadro de todos os seus vídeos como uma
     2. Onde gravar a imagem em miniatura de saída. 
 
 R **transformar** ajuda-o a criar uma vez a receita (passo 1) e submeter tarefas usando essa receita (etapa 2).
+
+## <a name="job-error-codes"></a>Códigos de erro da tarefa
+
+Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="paging"></a>Paginação
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 4885be7547d404505b50c563036f260166cbc2cc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6b980ae7539642e67609be802b2e31b287d09f72
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833827"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415277"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Grupos de segurança de rede com o Azure Site Recovery
 
@@ -45,7 +45,7 @@ Quando configurar essas configurações de NSG, certifique-se de que as priorida
 
 O Azure Site Recovery permite a recuperação após desastre e migração para o Azure para on-premises [máquinas de virtuais de Hyper-V](hyper-v-azure-architecture.md), [máquinas virtuais VMware](vmware-azure-architecture.md), e [servidores físicos](physical-azure-architecture.md). Para todos os locais para cenários do Azure, os dados de replicação são enviados e armazenados numa conta de armazenamento do Azure. Durante a replicação, não tenha despesas quaisquer custos de máquina virtual. Quando executar uma ativação pós-falha para o Azure, o Site Recovery cria automaticamente máquinas de virtuais de IaaS do Azure.
 
-Assim que as VMs foram criadas após a ativação pós-falha para o Azure, podem ser utilizados NSGs para limitar o tráfego de rede para a rede virtual e VMs. Recuperação de sites não cria NSGs como parte da operação de ativação pós-falha. Recomendamos que crie o NGSs do Azure necessários antes de iniciar a ativação pós-falha. Pode, em seguida, associar NSGs para efetuar a ativação pós-falha de VMs automaticamente durante a ativação pós-falha, através de scripts de automatização com o Site Recovery poderosas [planos de recuperação](site-recovery-create-recovery-plans.md).
+Assim que as VMs foram criadas após a ativação pós-falha para o Azure, podem ser utilizados NSGs para limitar o tráfego de rede para a rede virtual e VMs. Recuperação de sites não cria NSGs como parte da operação de ativação pós-falha. Recomendamos que crie os NSGs necessários do Azure antes de iniciar a ativação pós-falha. Pode, em seguida, associar NSGs para efetuar a ativação pós-falha de VMs automaticamente durante a ativação pós-falha, através de scripts de automatização com o Site Recovery poderosas [planos de recuperação](site-recovery-create-recovery-plans.md).
 
 Por exemplo, se a configuração da VM após a ativação pós-falha é semelhante para o [cenário de exemplo](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) detalhado acima:
 -   Pode criar **Contoso VNet** e **Contoso sub-rede** como parte do planejamento no destino região do Azure de DR.
@@ -61,7 +61,7 @@ O Azure Site Recovery permite a recuperação após desastre de [máquinas virtu
 
 Para a replicação de VM do Azure, certifique-se de que as regras do NSG na origem da região do Azure permitem [conectividade de saída](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) para o tráfego de replicação. Também pode testar e verifique se estas regras necessárias através deste [exemplo de configuração de NSG](azure-to-azure-about-networking.md#example-nsg-configuration).
 
-Recuperação de sites não criam nem replicar NSGs como parte da operação de ativação pós-falha. Recomendamos que crie os NGSs necessárias no destino região do Azure antes de iniciar a ativação pós-falha. Pode, em seguida, associar NSGs para efetuar a ativação pós-falha de VMs automaticamente durante a ativação pós-falha, através de scripts de automatização com o Site Recovery poderosas [planos de recuperação](site-recovery-create-recovery-plans.md).
+Recuperação de sites não criam nem replicar NSGs como parte da operação de ativação pós-falha. Recomendamos que crie os NSGs necessários no destino região do Azure antes de iniciar a ativação pós-falha. Pode, em seguida, associar NSGs para efetuar a ativação pós-falha de VMs automaticamente durante a ativação pós-falha, através de scripts de automatização com o Site Recovery poderosas [planos de recuperação](site-recovery-create-recovery-plans.md).
 
 Considerando a [cenário de exemplo](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) descrito anteriormente:
 -   Recuperação de sites pode criar réplicas dos **Contoso VNet** e **Contoso sub-rede** sobre a região do Azure quando a replicação está ativada para a VM de destino.

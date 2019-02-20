@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: 05432097ee80a01458a1f2e95c48123bf7f05d57
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 43cb73784806358bccb9758be2923d3df5e9badd
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309578"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414886"
 ---
 # <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Como implementar personalizado de sincronização para otimizar para elevada disponibilidade e desempenho
 
-O Azure Cosmos DB oferece cinco níveis de consistência bem definidos para a sua escolha para equilibrar o compromisso entre disponibilidade, desempenho e consistência. Consistência forte garante que os dados são replicados de forma síncrona e durabilidade persistentes em cada região em que a conta do Cosmos do Azure está disponível. No entanto, esta configuração fornece ao nível mais elevado de durabilidade impacta o desempenho e disponibilidade. Se um aplicativo quiser a durabilidade de dados de acordo com a necessidade de aplicativo sem comprometer a disponibilidade de controlo/relaxe, podem ser empregadas personalizado de sincronização na camada da aplicação para alcançar o nível desejado de durabilidade.
+O Azure Cosmos DB oferece cinco níveis de consistência bem definidos para a sua escolha para equilibrar o compromisso entre disponibilidade, desempenho e consistência. Consistência forte garante que os dados são replicados de forma síncrona e mantidos de maneira duradoura em cada região em que a conta do Cosmos do Azure está disponível. Esta configuração, ao mesmo tempo, o nível mais elevado de durabilidade, é fornecido ao custo de desempenho e disponibilidade. Se um aplicativo quiser a durabilidade de dados de acordo com a necessidade de aplicativo sem comprometer a disponibilidade de controlo/relaxe, podem ser empregadas personalizado de sincronização na camada da aplicação para alcançar o nível desejado de durabilidade.
 
 O diagrama abaixo descreve visualmente o modelo personalizado de sincronização.
 

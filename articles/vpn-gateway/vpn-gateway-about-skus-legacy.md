@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: efce8379ecafe6e8e044b654a3c5b392ca8e9cea
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 5a9e3f63a484069bf8cd39f8a545d7c37f05c63c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506367"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417317"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabalhar com o gateway de rede virtual SKUs (SKUs legados)
 
@@ -40,6 +40,8 @@ Este artigo contém informações sobre o gateway de rede virtual (antigos) SKUs
 
 ## <a name="resize"></a>Redimensionar um gateway
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Pode redimensionar o gateway de um SKU de gateway dentro da mesma família SKU. Por exemplo, se tiver um SKU Standard, pode redimensionar para um SKU HighPerformance. No entanto, não pode redimensionar o gateway de VPN entre os SKU antigos e as novas famílias SKU. Por exemplo, não pode ir de um SKU Standard para um SKU de VpnGw2 ou para uma SKU básico para VpnGw1.
 
 Para redimensionar um gateway para o modelo de implementação clássica, utilize o seguinte comando:
@@ -51,8 +53,8 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 Para redimensionar um gateway para o modelo de implementação do Resource Manager com o PowerShell, utilize o seguinte comando:
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
+$gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
 Também pode redimensionar um gateway no portal do Azure.
 

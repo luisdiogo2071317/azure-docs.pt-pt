@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979178"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416280"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* GA direto.
+* Conectividade de modo direto está agora geralmente Available(GA). Para obter um exemplo que utiliza a conectividade de modo direto, veja [java do azure-cosmos DB](https://github.com/Azure/azure-cosmosdb-java) repositório do GitHub.
 * Foi adicionado suporte para QueryMetrics.
-* Alterar as APIs aceitar java.util.Collection para o qual a ordem é importante para aceitar java.util.List em vez disso.
-  Agora ConnectionPolicy#getPreferredLocations() JsonSerialization e PartitionKey(.) aceitarem uma lista.
+* Alterar as APIs aceitar java.util.Collection para o qual a ordem é importante para aceitar java.util.List em vez disso. Agora ConnectionPolicy#getPreferredLocations() JsonSerialization e PartitionKey(.) aceitarem uma lista.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Foi adicionado suporte para o Direct.
+* Foi adicionado suporte para a conectividade de modo direto.
 * Alterar as APIs aceitar java.util.Collection para o qual a ordem é importante para aceitar java.util.List em vez disso.
   Agora ConnectionPolicy#getPreferredLocations() JsonSerialization e PartitionKey(.) aceitarem uma lista.
 * Foi corrigido um erro de sessão para a consulta de documentos no modo de gateway.

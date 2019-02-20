@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: fa64d24d74a71981e3273fbdf5fa96b386a34685
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342444"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414749"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -29,10 +29,10 @@ O artigo mostra como utilizar a API [Carregar vídeo](https://api-portal.videoin
 Assim que o seu vídeo foi carregado, o indexador de vídeos, codifica opcionalmente o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer que está [ligada à sua subscrição do Azure e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
 
 ## <a name="uploading-considerations"></a>Considerações de carregamento
-    
+
 - Ao carregar o seu vídeo com base no URL (preferencial), o ponto final tem de estar protegido por TLS 1.2 (ou posterior)
 - O tamanho de carregamento com a opção de URL está limitado a 25GB
-- O tamanho de carregamento com a opção de matriz de bytes é limitado a 2GB 
+- O tamanho de carregamento com a opção de matriz de bytes é limitado a 2GB
 - A opção de matriz de bytes expira após 30 minutos
 - O URL fornecido no parâmetro `videoURL` tem de ser codificado
 

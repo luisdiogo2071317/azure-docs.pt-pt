@@ -1,6 +1,6 @@
 ---
 title: Limites de recursos para ficheiros de NetApp do Azure | Documentos da Microsoft
-description: Descreve os limites de recursos de ficheiros de NetApp do Azure, incluindo limites para conjuntos de capacidade, volumes e a sub-rede do delegado.
+description: Descreve os limites de recursos de ficheiros de NetApp do Azure, incluindo limites de contas, conjuntos de capacidade, volumes, instantâneos e a sub-rede do delegado NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -11,33 +11,29 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
-ms.date: 01/03/2019
+ms.topic: concepts
+ms.date: 02/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f34afb1df2ae38353f29a80bfb6798c16856dbeb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 196d85917e0a9900e141d58bff171beeb8540409
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057160"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430018"
 ---
-# <a name="resource-limits-for-azure-netapp-files"></a>Limites de recursos para os ficheiros do Azure NetApp
+# <a name="resource-limits-for-azure-netapp-files"></a>Limites de recurso para os Azure NetApp Files
+
 Compreender limites de recursos para ficheiros de NetApp do Azure ajuda-o a gerir os seus volumes.
 
-## <a name="capacity_pools"></a>Conjuntos de capacidade
-
+- Cada subscrição do Azure pode ter um máximo de 10 contas de NetApp.
+- Cada conta de NetApp pode ter um máximo de 25 conjuntos de capacidade.
+- Cada conjunto de capacidade pode pertencer a apenas uma conta de NetApp.  
 - O tamanho mínimo para um conjunto único de capacidade é 4 TiB e o tamanho máximo é 500 TiB. 
-- Cada conjunto de capacidade pode pertencer a apenas uma conta de NetApp. No entanto, pode ter múltiplos conjuntos de capacidade numa conta do NetApp.  
-
-## <a name="volumes"></a>Volumes
-
+- Cada conjunto de capacidade pode ter um máximo de 500 volumes.
 - O tamanho mínimo de um único volume é 100 GiB e o tamanho máximo é 92 TiB.
-- Pode ter um máximo de 100 volumes por subscrição do Azure por região.  
+- Cada volume pode ter um máximo de 255 instantâneos.
+- Cada rede Virtual do Azure (Vnet) pode ter apenas uma sub-rede de delegado ao serviço ficheiros do Azure NetApp.
 
-## <a name="delegated_subnet"></a>Sub-rede delegado 
-
-Cada rede Virtual do Azure (Vnet), apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.
-
-## <a name="next-steps"></a>Passos Seguintes
+**Passos seguintes?**
 
 [Compreender a hierarquia de armazenamento de ficheiros do Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)

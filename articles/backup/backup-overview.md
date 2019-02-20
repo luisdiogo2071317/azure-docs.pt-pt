@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 298c9fabca9d1994e0b952fdf8b48b70370c3ec2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 79a53c1b11a1bac0ea83afdd1333423aff4d6aa6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490675"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428471"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -25,17 +25,19 @@ O serviço de cópia de segurança do Azure faz o backup de dados para a cloud d
 
 O Azure Backup fornece estas principais vantagens:
 
-- **A descarga de cópia de segurança no local**: O Azure Backup oferece uma solução simple para cópia de segurança de seus recursos no local para a cloud. Obtenha cópia de segurança de curta e longo prazo, sem a necessidade de implementar complexas soluções no local cópia de segurança. Elimine a necessidade de banda ou uma cópia de segurança externa.
+- **A descarga de cópia de segurança no local**: O Azure Backup oferece uma solução simple para cópia de segurança de seus recursos no local para a cloud. Obtenha cópia de segurança de curta e longo prazo, sem a necessidade de implementar complexas soluções no local cópia de segurança. 
 - **Cópia de segurança de VMs IaaS do Azure**: O Azure Backup fornece cópias de segurança de forma independentes e isoladas para proteger contra destruição acidental de dados originais. As cópias de segurança são armazenadas num cofre dos serviços de recuperação com interna gerenciada de pontos de recuperação. Configuração e a escalabilidade é simples, as cópias de segurança são otimizadas e pode facilmente restaurar conforme necessário.
-- **Dimensione facilmente** - cópia de segurança do Azure utiliza o poder subjacente e o dimensionamento ilimitado da nuvem do Azure para fornecer elevada disponibilidade - com nenhuma manutenção ou monitorização sobrecarga. Pode configurar alertas para fornecer informações sobre eventos, mas não precisa de se preocupar com a elevada disponibilidade dos seus dados na nuvem.
-- **Obter a transferência de dados ilimitada** - cópia de segurança do Azure não limita a quantidade de entrada ou saídos de transferência de dados. O Azure Backup também não cobra por dados que sejam transferidos. No entanto, se utilizar o serviço Importar/Exportar do Azure para importar grandes quantidades de dados, existe um custo associado aos dados de entrada. Para mais informações sobre este custo, veja [Fluxo de trabalho de cópia de segurança offline no Azure Backup](backup-azure-backup-import-export.md). Os dados de saída são os dados transferidos a partir de um cofre dos Serviços de Recuperação durante uma operação de restauro.
+- **Dimensione facilmente** -cópia de segurança do Azure utiliza o poder subjacente e o dimensionamento ilimitado da nuvem do Azure para fornecer elevada disponibilidade com nenhuma manutenção ou monitorização sobrecarga. 
+- **Obter a transferência de dados ilimitada** - cópia de segurança do Azure não limita a quantidade de entrada ou dados de saída transfira ou cobra por dados que são transferidos.
+    - Os dados de saída são os dados transferidos a partir de um cofre dos Serviços de Recuperação durante uma operação de restauro.
+    - Se efetuar uma cópia de segurança inicial offline usando o serviço importar/exportar do Azure para importar grandes quantidades de dados, há um custo associado a dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md). 
 - **Manter os dados seguros**: Encriptação de dados permite a transmissão segura e o armazenamento dos seus dados na cloud pública. A frase de acesso de encriptação é armazenada por si localmente, e nunca é transmitida ou armazenada no Azure. Se for necessário restaurar quaisquer dados, é o único a ter a frase de acesso ou a chave de encriptação.
 - **Obter cópias de segurança consistente com a aplicação**: Uma cópia de segurança consistentes com aplicações significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de segurança. O Azure Backup fornece cópias de segurança consistentes com as aplicações, o que garante que não são necessárias correções adicionais para restaurar os dados. Restaurar dados consistentes com as aplicações reduz o tempo de restauro, permitindo-lhe voltar rapidamente a um estado de execução.
-- **Obter a retenção de curta e longo prazo**: **Retenção a longo prazo** – Pode utilizar os cofres dos Serviços de Recuperação para a retenção de dados a curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Pode manter os dados num cofre o tempo que pretender. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida. Consulte a secção [Backup and retention (Cópia de segurança e retenção)](backup-introduction-to-azure-backup.md#backup-and-retention) neste artigo para obter uma explicação sobre como este limite pode afetar as suas necessidades de cópia de segurança.
-- **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com o Azure Backup, não existe nenhum custo para a utilização de dispositivos de armazenamento no local. O Azure Backup atribui automaticamente e gere o armazenamento de cópia de segurança, e utiliza um modelo de pagamento enquanto utiliza. O pagamento enquanto utiliza significa que paga apenas pelo armazenamento que consumir. Para mais informações, veja o artigo [Preços do Azure](https://azure.microsoft.com/pricing/details/backup).
-- **Várias opções de armazenamento** - um aspeto de elevada disponibilidade é a replicação do armazenamento. O Azure Backup oferece dois tipos de replicação: [armazenamento localmente redundante](../storage/common/storage-redundancy-lrs.md) e [armazenamento georredundante](../storage/common/storage-redundancy-grs.md). Escolha a opção de armazenamento de cópia de segurança com base na necessidade:
-    - O armazenamento localmente redundante (LRS) replica os seus dados três vezes (cria três cópias dos dados) numa unidade de escala de armazenamento de um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
-    - O armazenamento georredundante (GRS) é a predefinição e a opção de replicação recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). O GRS custa mais do que o LRS, mas o GRS proporciona um nível mais elevado de durabilidade aos seus dados, mesmo se ocorrer uma indisponibilidade regional.
+- **Manter os dados de curtos e longo prazo**: Pode utilizar cofres dos serviços de recuperação para a retenção de dados de curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Puderem mantê-lo para o tempo que pretender. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida. [Saiba mais](backup-introduction-to-azure-backup.md#backup-and-retention)sobre como este limite afeta a suas necessidades de cópia de segurança.
+- **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com o Azure Backup, não existe nenhum custo para a utilização de dispositivos de armazenamento no local. O Azure Backup atribui automaticamente e gere o armazenamento de cópia de segurança e utiliza um modelo de pay-as que use, para que só paga o armazenamento que consumir. [Saiba mais](https://azure.microsoft.com/pricing/details/backup) sobre os preços.
+- **Várias opções de armazenamento** -cópia de segurança do Azure oferece dois tipos de replicação para manter os seus dados/armazenamento altamente disponíveis.
+    - [Armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy-lrs.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num Data Center. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
+    - [Armazenamento georredundante (GRS)](../storage/common/storage-redundancy-grs.md) é o padrão e a opção de replicação recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). O GRS custa mais do que o LRS, mas o GRS proporciona um nível mais elevado de durabilidade aos seus dados, mesmo se ocorrer uma indisponibilidade regional.
 
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>O que é a diferença entre a cópia de segurança do Azure e o Azure Site Recovery?
@@ -64,52 +66,53 @@ Cópia de segurança do Azure pode fazer uma cópia de segurança de máquinas n
 
 **Machine** | **Criar cópias de segurança cenário**
 --- | ---
-**Máquinas no local (físicos/virtuais)** |  Pode criar cópias de segurança individuais máquinas no local.<br/><br/>Pode fazer uma cópia de segurança de máquinas no local que estão protegidas pelo System Center Data Protection Manager (DPM)<br/><br/> Pode fazer backup de máquinas no local protegidas pelo Microsoft Azure Backup Server (MABS)....
-**VMs do Azure** | Pode fazer backup de VMs do Azure individuais.<br/><br/> Pode fazer uma cópia de segurança de VMs do Azure protegidos pelo DPM ou MABS.
+**Cópia de segurança no local** |  1) execute o agente de cópia de segurança Microsoft Azure Recovery dos serviços Azure (MARS) no local máquinas do Windows para fazer backup de arquivos individuais e o estado do sistema. <br/><br/>2) cópia de segurança de máquinas no local para um servidor de cópia de segurança (System Center Data Protection Manager (DPM) ou Microsoft Azure Backup Server (MABS)) e, em seguida, configure o servidor de backup para cópia de segurança para um cofre dos serviços de recuperação de cópia de segurança do Azure no Azure.
+**VMs do Azure** | 1) ative cópia de segurança para VMs do Azure individuais. Quando ativa a cópia de segurança, o Azure Backup instala uma extensão para o agente de VM do Azure que está em execução na VM. O agente faz o backup de toda a VM.<br/><br/> 2) execute o agente de MARS numa VM do Azure. Isto é útil se pretender efetuar cópias de segurança de ficheiros e pastas individuais na VM.<br/><br/> 3) cópia de segurança de uma VM do Azure para um servidor DPM ou MABS em execução no Azure. Em seguida, criar cópias de segurança do servidor DPM/MABS para um cofre de cópia de segurança do Azure a utilizar. 
 
-### <a name="back-up-servers"></a>Fazer backup de servidores
 
-Pode querer servidores no local e cargas de trabalho, ou VMs do Azure e as cargas de trabalho, cópia de segurança pela primeira vez a um servidor de cópia de segurança e, em seguida, para dos serviços de recuperação cofre. 
+## <a name="why-use-a-backup-server"></a>Por que usar um servidor de cópia de segurança?
 
-**Servidor de cópia de segurança** | **Detalhes**
---- | ---
-**O System Center Data Protection Manager (DPM)** | Pode utilizar o Azure Backup para fazer backup de dados protegidos pelo DPM:<br/><br/> – O DPM pode estar em execução no local (físico ou virtual) ou no Azure.<br/><br/> -Pode proteger diferentes tipos de dados em execução em máquinas no local e VMs do Azure através de segurança os dados para o servidor do DPM.<br/><br/> Por sua vez o servidor do DPM pode ser copiado para um cofre de serviços de recuperação utilizando o serviço de cópia de segurança do Azure.<br/><br/> O servidor DPM e as máquinas que protege tem de ser na mesma rede. As máquinas no local só podem ser protegidas por um servidor do DPM no local. Da mesma forma, as VMs do Azure só pode ser protegidas pelo DPM em execução no Azure.
-**Servidor de cópia de segurança do Microsoft Azure (MABS)** | Pode utilizar o Azure Backup para fazer uma cópia dos dados protegidos pelo MABS:<br/><br/> -MABS pode estar em execução no local (físico ou virtual) ou no Azure.<br/><br/> -É proteger diferentes tipos de dados em execução em máquinas no local e VMs do Azure através de segurança de dados até MABS.<br/><br/> -Por sua vez MABS podem ser copiadas para um cofre de serviços de recuperação utilizando o serviço de cópia de segurança do Azure.<br/><br/> -MABS fornece uma funcionalidade semelhante ao DPM, exceto pelo fato de não é possível criar cópias de segurança em banda com o MABS. MABS não requer uma licença do System Center.<br/><br/> Como o DPM, as máquinas no local só podem ser protegidas por um MABS no local. VMs do Azure só podem ser protegidas por um MABS no Azure.
 
-As vantagens de fazer cópias de segurança primeiro para o DPM/MABS e, em seguida, para um cofre são os seguintes:
 
-- O backup em DPM/MAB fornece cópias de segurança com suporte para a aplicação otimizadas para aplicações comuns, como o SQL Server, Exchange e SharePoint, no adicionais para cópias de segurança do ficheiro/pasta/volume e backups de estado do computador (bare-metal, o estado do sistema).
-- Não precisa de instalar o agente de cópia de segurança do Azure em cada máquina que pretende criar cópias de segurança. Cada máquinas executa o agente de proteção do DPM/MABS e o agente de serviços de recuperação do Azure Backup Microsoft Azure é executado sobre o DPM server/MABS apenas.
+
+As vantagens da cópia de segurança de máquinas e aplicações para o armazenamento do MABS/DPM e, em seguida, cópia de segurança de armazenamento do DPM/MABS para um cofre são os seguintes:
+
+- O backup em MABS/DPM fornece cópias de segurança com suporte para a aplicação otimizadas para aplicações comuns, como o SQL Server, Exchange e SharePoint, no adicionais para cópias de segurança do ficheiro/pasta/volume e backups de estado do computador (bare-metal, o estado do sistema).
+- Para mahines no local, não terá de instalar o agente de MARS em cada máquina que pretende criar cópias de segurança. Cada máquinas executa o agente de proteção do DPM/MABS e o agente de MARS é executado no MABS/DPM apenas.
 - Tem mais flexibilidade e opções de agendamento granulares para a execução de cópias de segurança.
 - Pode gerir as cópias de segurança para várias máquinas que agrupa em grupos de proteção numa única consola. Isto é particularmente útil quando as aplicações são dispostos em camadas através de várias máquinas e pretende que o backup deles em conjunto.
 
-## <a name="what-can-be-backed-up"></a>O que pode ser uma cópia de segurança?
+Saiba mais sobre [funciona como cópia de segurança](backup-architecture.md#architecture-back-up-to-dpmmabs) ao utilizar um servidor de cópia de segurança e o [suportar requisitos](backup-support-matrix-mabs-dpm.md) para servidores de cópia de segurança.
 
-**Machine** | **Servidor de cópia de segurança** | **Fazer cópia de segurança**
+## <a name="what-can-i-back-up"></a>O que posso criar cópias de segurança?
+
+**Machine** | **Método de cópia de segurança** | **Fazer cópia de segurança**
 --- | --- | ---
-VMs do Windows no local | Não uma cópia de segurança para DPM ou MABS | Cópia de segurança de ficheiros, pastas, estado do sistema.
-VMs do Azure (Windows e Linux) | Não uma cópia de segurança para DPM ou MABS | Cópia de segurança de ficheiros, pastas, estado do sistema.<br/><br/> As cópias de segurança são aplicações com suporte para máquinas Windows e arquivo com suporte para máquinas do Linux.
-VMs do VMs/Azure no local | Protegidos pelo DPM | Cópia de segurança tudo o que é protegido pelo DPM, incluindo ficheiros/pastas/partilhas/volumes e dados específicos da aplicação. [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) o que o DPM pode criar cópias de segurança.
-VMs do VMs/Azure no local | Protegido pelo MABS | Cópia de segurança tudo o que é protegido pelo MABS, incluindo ficheiros/pastas/partilhas/volumes e dados específicos da aplicação. [Saiba](backup-mabs-protection-matrix.md) o MABS pode criar cópias de segurança.
+**VMs do Windows no local** | Execute o agente MARS | Cópia de segurança de ficheiros, pastas, estado do sistema.<br/><br/> Máquinas do Linux não suportadas.
+**Máquinas no local** | Cópia de segurança para DPM/MABS | Cópia de segurança tudo o que é protegido pelo [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) ou [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), incluindo ficheiros/pastas/partilhas/volumes e dados específicos da aplicação. 
+**VMs do Azure** | Extensão execução de cópia de segurança do agente VM do Azure | Criar cópias de segurança VM inteira
+**VMs do Azure** | Execute o agente MARS | Cópia de segurança de ficheiros, pastas, estado do sistema.<br/><br/> Máquinas do Linux não suportadas.
+**VMs do Azure** | Criar cópias de segurança para o MABS/DPM em execução no Azure | Cópia de segurança tudo o que é protegido pelo [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) ou [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) incluindo dados de ficheiros/pastas/partilhas/volumes e específicos da aplicação.
 
 ## <a name="what-backup-agents-do-i-need"></a>Os agentes de cópia de segurança é necessário?
-**Cenário** | **Agente** | **Detalhes**
---- | --- | ---
-(Nenhum servidor de cópia de segurança) de máquinas no local | Agente de serviços de recuperação do Azure (MARS) da Microsoft é executado na máquina do Windows. | Transfira e instale o agente de MARS durante a implementação de cópia de segurança do Azure.<br/><br/> Suporte para apenas a máquinas do Windows.
-VMs do Azure (nenhum servidor de cópia de segurança) | Nenhum agente explícito obrigado. Extensão VM do Azure para cópia de segurança é executado na VM do Azure. | A extensão está instalada ao executar a primeira cópia de segurança de VM do Azure.<br/><br/> Suporte para o suporte do Windows e Linux.
-VMs no local máquinas/Azure protegidas pelo DPM. | O agente de MARS é executado no servidor do DPM. | Não é necessário o agente de MARS em máquinas individuais.<br/><br/> Quando implementar o DPM, o agente de proteção do DPM está instalado em cada máquina que protege. 
-Fazer uma cópia de segurança de máquinas no local e VMs do Azure protegidos pelo MABS | O agente de MARS é executado sobre o MABS. | Não é necessário o agente de MARS em máquinas individuais.<br/><br/> Quando implementa o MABS, o agente de proteção do MABS é instalado em cada máquina que protege. 
 
+**Cenário** | **Agente** 
+--- | --- 
+**Fazer cópia de segurança de VMs do Azure** | Nenhum agente necessário. Extensão VM do Azure para cópia de segurança está instalado na VM do Azure ao executar a primeira cópia de segurança de VM do Azure.<br/><br/> Suporte para o suporte do Windows e Linux.
+**Cópia de segurança de máquinas do Windows no local** | Transferir, instalar e executar o agente de MARS diretamente na máquina. 
+**VMs de cópia de segurança do Azure com o agente MARS** | Transferir, instalar e executar o agente de MARS diretamente na máquina. O agente de MARS pode ser executado em conjunto com a extensão de cópia de segurança.
+**Cópia de segurança de máquinas no local e VMs do Azure para o DPM/MABS** | O agente de proteção do DPM ou MABS é executado nas máquinas que pretende proteger. O agente de MARS é executado no servidor do DPM/MABS para criar cópias de segurança para o Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>O agente de cópia de segurança devo utilizar?
 
 **Cópia de segurança** | **Solução** | **Limitação**
 --- | --- | ---
-Eu quero fazer cópias de máquinas do Windows no local. As máquinas não estão protegidas pelo DPM ou MABS | Instale o agente de MARS na máquina. | Pode fazer backup de arquivos, pastas e estado do sistema para o Azure. As cópias de segurança não têm consciência de aplicação.
-Eu quero fazer cópias de segurança de máquinas do Linux no local. As máquinas não estão protegidas pelo DPM ou MABS. | Precisa implantar o DPM ou MABS para criar cópias de segurança para o Azure.
-Eu quero fazer cópias de segurança de aplicações em execução em máquinas do Windows no local | Para cópias de segurança de aplicação com suporte para máquinas Windows têm de ser protegidas pelo DPM ou MABS.
-Eu quero fazer uma cópia de segurança de VMs do Azure | Execute uma cópia de segurança com o Azure Backup. A extensão de cópia de segurança serão automaticamente configurada no Windows ou VM do Linux do Azure. | Os discos VM são uma cópia de segurança.<br/><br/> Para VMs do Windows, a cópia de segurança é consistente com a aplicação. para Linux, a cópia de segurança é consistente com ficheiros. Se precisar de com suporte para a aplicação terá de configurar esta opção com scripts personalizados.
-Eu quero fazer cópias de segurança de VMs do Azure com flexibilidade granular das definições de cópia de segurança e recuperação | Protege VMs do Azure com o DPM ou MABS em execução no Azure para flexibilidade adicional para o agendamento de cópia de segurança e total flexibilidade para proteger e restaurar ficheiros, pastas, volumes, aplicações e estado do sistema.
+**Eu quero fazer cópias de segurança de uma VM inteira do Azure** | Ative cópia de segurança para a VM. A extensão de cópia de segurança serão automaticamente configurada no Windows ou VM do Linux do Azure. | VM inteira é uma cópia de segurança <br/><br/> Para VMs do Windows, a cópia de segurança é consistente com a aplicação. para Linux, a cópia de segurança é consistente com ficheiros. Se precisar com suporte para a aplicação para VMs do Linux tem de configurar esta com scripts personalizados.
+**Eu quero fazer cópias de segurança de ficheiros/pastas específicas numa VM do Azure** | Implemente o agente de MARS na VM.
+**Desejo fazer diretamente a máquinas do Windows no local** | Instale o agente de MARS na máquina. | Pode fazer backup de arquivos, pastas e estado do sistema para o Azure. As cópias de segurança não têm consciência de aplicação.
+**Quero diretamente fazer cópias de segurança de máquinas do Linux no local** | Precisa implantar o DPM ou MABS para criar cópias de segurança para o Azure.
+**Eu quero fazer cópias de segurança de aplicações em execução no local** | Para cópias de segurança de aplicação com suporte para máquinas têm de ser protegidas pelo DPM ou MABS.
+**Quero granulares e flexíveis cópia de segurança e recuperação definições para as VMs do Azure** | Protege VMs do Azure com o MABS/DPM em execução no Azure para flexibilidade adicional de agendamento de cópia de segurança e total flexibilidade para proteger e restaurar ficheiros, pastas, volumes, aplicações e estado do sistema.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

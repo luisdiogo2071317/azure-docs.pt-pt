@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 62683aaf7dda048b5828e9494ba8cafe6c8b8f9f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849178"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417944"
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -58,7 +58,7 @@ Windows Server 2012 R2 e SPs todos os | O Azure fornece suporte completo. | Prep
 Windows Server 2012 e SPs todos os | O Azure fornece suporte completo. | Preparado para o Azure
 Windows Server 2008 R2 com todos os SPs | O Azure fornece suporte completo.| Preparado para o Azure
 Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte completo. | Preparado para o Azure
-2003, do Windows Server 2003 R2 | Esses sistemas operacionais tenham passado o fim do suporte data e a necessidade de um [contrato de suporte personalizado (CSA)](https://aka.ms/WSosstatement) para suporte no Azure. | Condicionalmente preparado para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
+Windows Server 2003, 2003 R2 | Esses sistemas operacionais tenham passado o fim do suporte data e a necessidade de um [contrato de suporte personalizado (CSA)](https://aka.ms/WSosstatement) para suporte no Azure. | Condicionalmente preparado para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Estes sistemas operativos passaram a sua data de fim de suporte, a máquina pode arrancar no Azure, mas não existe suporte de SO é fornecida pelo Azure. | Condicionalmente preparado para o Azure, recomenda-se para atualizar o sistema operacional antes de migrar para o Azure.
 Cliente do Windows 7, 8 e 10 | O Azure fornece suporte com [apenas a subscrição do Visual Studio.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Condicionalmente preparado para o Azure
 Ambiente de trabalho do Windows 10 Pro | O Azure fornece suporte com [direitos de alojamento multi-inquilino.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Condicionalmente preparado para o Azure
@@ -78,7 +78,7 @@ Se não pretender considerar o histórico de desempenho para o dimensionamento d
 
 Para o dimensionamento baseado no desempenho, do Azure Migrate começa com os discos ligados à VM, seguido de adaptadores de rede e, em seguida, mapas de uma VM do Azure com base nos requisitos de computação da VM no local.
 
-- **Armazenamento**: Azure Migrate tenta mapear cada disco ligado à máquina para um disco no Azure.
+- **Armazenamento**: O Azure Migrate tenta mapear cada disco ligado à máquina para um disco no Azure.
 
     > [!NOTE]
     > O Azure Migrate suporta apenas os discos para a avaliação de geridos.
@@ -89,12 +89,12 @@ Para o dimensionamento baseado no desempenho, do Azure Migrate começa com os di
     - Se existirem vários discos elegíveis, seleciona aquele com o custo mais baixo.
     - Se os dados de desempenho para discos no indisponível, todos os discos estão mapeados para os discos standard no Azure.
 
-- **Rede**: Azure Migrate tenta localizar uma VM do Azure que pode suportar o número de adaptadores de rede ligados à máquina no local e o desempenho necessário por estas placas de rede.
+- **Rede**: O Azure Migrate tenta localizar uma VM do Azure que pode suportar o número de adaptadores de rede ligados à máquina no local e o desempenho necessário por estas placas de rede.
     - Para obter o desempenho de rede em vigor a partir da VM no local, Azure Migrate agrega os dados transmitidos por segundo (MBps) fora da máquina (rede de saída), em todos os adaptadores de rede e aplica-se o fator de conforto. Este número é utilizado para localizar uma VM do Azure que pode suportar o desempenho de rede necessária.
     - Juntamente com o desempenho da rede, também considera se a VM do Azure pode suportar necessários o número de adaptadores de rede.
     - Se não existem dados de desempenho de rede estiverem disponíveis, é considerada apenas a contagem de adaptadores de rede para o dimensionamento de VM.
 
-- **Computação**: depois dos requisitos de armazenamento e rede são calculados, do Azure Migrate considera os requisitos de CPU e memória para encontrar um tamanho VM adequado no Azure.
+- **Computação**: Depois dos requisitos de armazenamento e rede são calculados, o Azure Migrate considera os requisitos de CPU e memória para encontrar um tamanho VM adequado no Azure.
     - O Azure Migrate analisa as utilizados núcleos e memória e aplica o fator de conforto, para obter o eficaz núcleos e memória. Com base no número, ele tenta encontrar um tamanho VM adequado no Azure.
     - Se não for encontrado nenhum tamanho adequado, a máquina está marcada como não são adequados para o Azure.
     - Se não for encontrado um tamanho adequado, do Azure Migrate aplica-se os cálculos de armazenamento e rede. Aplica-se, em seguida, localização e as definições do escalão, para a recomendação de tamanho VM final de preços.
@@ -131,8 +131,8 @@ Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados d
 
 Depois de concluir as recomendações de dimensionamento, o Azure Migrate calcula os custos de computação e armazenamento de pós-migração.
 
-- **Custo de computação**: utilizar o tamanho recomendado da VM do Azure, Azure Migrate utiliza a API de faturação para calcular o custo mensal para a VM. O cálculo leva o sistema operativo, do software assurance, instâncias reservadas, a VM de tempo de atividade, localização e as configurações de moeda em conta. Agrega o custo em todas as máquinas, para calcular o custo de computação mensal total.
-- **Custo de armazenamento**: O custo para uma máquina é calculada ao agregar o custo mensal de todos os discos de armazenamento mensal anexado à máquina. O Azure Migrate calcula os custos de armazenamento mensal total ao agregar os custos de armazenamento de todas as máquinas. Atualmente, o cálculo não tire oferece especificado nas definições de avaliação em conta.
+- **Custo de computação**: Utilizar o tamanho recomendado da VM do Azure, Azure Migrate utiliza a API de faturação para calcular o custo mensal para a VM. O cálculo leva o sistema operativo, do software assurance, instâncias reservadas, a VM de tempo de atividade, localização e as configurações de moeda em conta. Agrega o custo em todas as máquinas, para calcular o custo de computação mensal total.
+- **Custo de armazenamento**: O custo de armazenamento mensal de uma máquina é calculado ao agregar o custo mensal de todos os discos ligados à máquina. O Azure Migrate calcula os custos de armazenamento mensal total ao agregar os custos de armazenamento de todas as máquinas. Atualmente, o cálculo não tire oferece especificado nas definições de avaliação em conta.
 
 Os custos são exibidos na moeda especificada nas definições de avaliação.
 

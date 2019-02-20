@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312617"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430272"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários de pesquisa cognitiva
 
@@ -34,7 +34,7 @@ Não é possível desativar a normalização de imagem. As competências que ite
 
 | Parâmetro de configuração | Descrição |
 |--------------------|-------------|
-| imageAction   | Definido como "none" se nenhuma ação deve ser realizada quando são encontrados imagens incorporadas ou arquivos de imagem. <br/>Definido como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da abertura do documento. Estas imagens vão ser expostas no *normalized_images* campo. <br/>A predefinição é "none". Esta configuração apenas é pertinente para o blob de origens de dados, quando "dataToExtract" está definida como "contentAndMetadata." |
+| imageAction   | Definido como "none" se nenhuma ação deve ser realizada quando são encontrados imagens incorporadas ou arquivos de imagem. <br/>Definido como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da abertura do documento.<br/>Definido como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas onde para PDFs na sua origem de dados, cada página é processada para uma imagem de saída.  A funcionalidade é igual a "generateNormalizedImages" para tipos de ficheiro não PDF.<br/>Para qualquer opção que não é "none", as imagens vão ser expostas no *normalized_images* campo. <br/>A predefinição é "none". Esta configuração apenas é pertinente para o blob de origens de dados, quando "dataToExtract" está definida como "contentAndMetadata." |
 |  normalizedImageMaxWidth | A largura máxima (em pixéis) de normalizado imagens geradas. A predefinição é 2000.|
 |  normalizedImageMaxHeight | A altura máxima (em pixéis) para imagens normalizadas geradas. A predefinição é 2000.|
 
@@ -62,7 +62,7 @@ Especificar o imageAction no seu [definição de indexador](https://docs.microso
 }
 ```
 
-Quando o *imageAction* está definida como "generateNormalizedImages", a nova *normalized_images* campo irá conter uma matriz de imagens. As imagens são um tipo complexo que tem os seguintes membros:
+Quando o *imageAction* está definido como um valor de outros, em seguida, "none", a nova *normalized_images* campo irá conter uma matriz de imagens. As imagens são um tipo complexo que tem os seguintes membros:
 
 | Membro de imagem       | Descrição                             |
 |--------------------|-----------------------------------------|
@@ -220,7 +220,7 @@ Como um auxiliar, se tiver de transformar as coordenadas normalizadas para o esp
 ## <a name="see-also"></a>Consulte também
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Analisar a habilidade de imagem](cognitive-search-skill-image-analysis.md)
-+ [Habilidade de OCR](cognitive-search-skill-ocr.md)
++ [OCR skill](cognitive-search-skill-ocr.md)
 + [Habilidade de intercalação de texto](cognitive-search-skill-textmerger.md)
 + [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Como mapear campos plena](cognitive-search-output-field-mapping.md)

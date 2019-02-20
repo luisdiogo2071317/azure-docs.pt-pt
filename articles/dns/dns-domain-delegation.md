@@ -4,14 +4,14 @@ description: Compreenda como alterar a delegação de domínios e utilizar servi
 services: dns
 author: vhorne
 ms.service: dns
-ms.date: 1/22/2019
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85f7318ac584e324f58d2ad470dc896e79e416d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461038"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417893"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegação de zonas DNS com o DNS do Azure
 
@@ -27,7 +27,7 @@ O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia come
 
 **Entidade de registo de domínios** - uma entidade de registo de domínios é uma empresa que pode fornecer nomes de domínios de Internet. Esta entidade irá verificar se o domínio da Internet que pretende utilizar está disponível e permite-lhe que o compre. Assim que o nome de domínio estiver registado, será o proprietário legal do mesmo. Se já tiver um domínio da Internet, irá utilizar a entidade de registo de domínios atual para delegar ao DNS do Azure.
 
-Para saber mais informações sobre quem é o proprietário de um determinado nome de domínio ou para obter informações sobre como comprar um domínio, consulte [Gestão de domínios da Internet no Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
+Para obter mais informações sobre entidades de registo do domínio acreditada, consulte [ICANN-Accredited entidades de registo](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ### <a name="resolution-and-delegation"></a>Resolução e delegação
 

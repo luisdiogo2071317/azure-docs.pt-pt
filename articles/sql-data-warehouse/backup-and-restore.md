@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c9435ba10d69130a634e56992179f11399604fae
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 254d1faf0d846cc6a0e165b68db11ac0314eab33
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747497"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430578"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
-Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilizar dados do armazém de instantâneos para recuperação ou copie o seu armazém de dados para um ponto de restauro anterior na região primária. As cópias de segurança georredundante para restaurar para uma região geográfica diferente do armazém de dados de utilização. 
+Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilize pontos de restauro do armazém de dados para recuperar ou copiar o armazém de dados para um estado anterior na região primária. As cópias de segurança georredundante para restaurar para uma região geográfica diferente do armazém de dados de utilização. 
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>O que é um instantâneo do armazém de dados?
 R *instantâneo de armazém de dados* cria um ponto de restauro que pode aproveitar para recuperar ou cópia do armazém de dados para um estado anterior.  Uma vez que o SQL Data Warehouse é um sistema distribuído, um instantâneo do armazém de dados consiste em muitos ficheiros que estão localizados no armazenamento do Azure. Instantâneos capturam as alterações incrementais dos dados armazenados no seu armazém de dados.

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: c3671df61eea5c826227706106cbb48dc70ad55f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 82d8a8085ca285c95a550678cdc534e586a4faa7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157760"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415969"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Tutorial: Carregar, codificar e transmitir vídeos com .NET
 
@@ -125,6 +125,10 @@ O Event Grid foi concebido para ter uma elevada disponibilidade, um desempenho c
 O **tarefa** normalmente atravessa os seguintes Estados: **Agendado**, **em fila**, **processamento**, **concluído** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver prestes a ser cancelada, obterá **A cancelar** e **Cancelada** quando terminar.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
+
+### <a name="job-error-codes"></a>Códigos de erro da tarefa
+
+Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="get-a-streaming-locator"></a>Obter um localizador de transmissão em fluxo
 

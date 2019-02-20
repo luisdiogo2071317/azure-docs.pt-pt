@@ -12,26 +12,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 55a1d16ce1617ecf7bc28c7c62de8557ceeea311
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: af3738849382317eeddf8bce3d2f87e38e0fb583
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412916"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427800"
 ---
 # <a name="set-up-a-capacity-pool"></a>Configurar um conjunto de capacidade
+
 Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.  
 
 ## <a name="before-you-begin"></a>Antes de começar 
+
 É necessário que já tenha criado uma conta NetApp.   
 
 [Criar uma conta NetApp](azure-netapp-files-create-netapp-account.md)
 
 ## <a name="steps"></a>Passos 
 
-1. Aceda ao painel de gestão da sua conta NetApp e, em seguida, no painel de navegação, selecione **Conjuntos de capacidade**.
+1. Aceda ao painel de gestão para a sua conta de NetApp e, em seguida, no painel de navegação, clique em **conjuntos de capacidade**.  
+    
+    ![Navegue para o conjunto de capacidade](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
 2. Clique em **+ Adicionar conjuntos** para criar um novo conjunto de capacidade.   
     É apresentada a janela Novo Conjunto de Capacidade.
@@ -43,18 +47,18 @@ Configurar um conjunto de capacidade permite-lhe criar volumes no mesmo.
 
   * **Nível de serviço**   
     Este campo mostra o objetivo de desempenho do conjunto de capacidade.  
-    Atualmente, apenas está disponível o nível de serviço Premium. 
+    Especifica o nível de serviço para o conjunto de capacidade: [**Premium** ](azure-netapp-files-service-levels.md#Premium) ou [ **padrão**](azure-netapp-files-service-levels.md#Standard).
 
-  *  **Tamanho**     
-      Especifique o tamanho do conjunto de capacidade que está a comprar.        
-      O tamanho mínimo do conjunto de capacidade é 4 TiB. Pode criar um conjunto com um tamanho que seja um múltiplo de 4 TiB.   
+  * **Tamanho**     
+    Especifique o tamanho do conjunto de capacidade que está a comprar.        
+    O tamanho mínimo do conjunto de capacidade é 4 TiB. Pode criar um conjunto com um tamanho que seja um múltiplo de 4 TiB.   
       
-      ![Novo conjunto de capacidade](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+    ![Novo conjunto de capacidade](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. Clique em **OK**.
 
 ## <a name="next-steps"></a>Passos Seguintes 
 
-[Delegar uma sub-rede para ficheiros do Azure NetApp](azure-netapp-files-delegate-subnet.md)
-
-
+- [Níveis de serviço para os ficheiros do Azure NetApp](azure-netapp-files-service-levels.md)
+- Consulte a [ficheiros do Azure NetApp página de preços](https://azure.microsoft.com/pricing/details/storage/netapp/) pelo preço de níveis de serviço diferentes
+- [Delegar uma sub-rede para ficheiros do Azure NetApp](azure-netapp-files-delegate-subnet.md)

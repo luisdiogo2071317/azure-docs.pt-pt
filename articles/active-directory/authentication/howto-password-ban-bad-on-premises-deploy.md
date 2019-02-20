@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204377"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417214"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Pré-visualização: Implementar a proteção de palavras-passe do AD do Azure
 
@@ -53,15 +53,18 @@ Preferencialmente, isto é conseguido ao corrigir totalmente a máquina através
     |`https://login.microsoftonline.com`|Pedidos de autenticação|
     |`https://enterpriseregistration.windows.net`|Funcionalidade de proteção de palavra-passe do AD do Azure|
 
+* Todas as máquinas que aloja o serviço de Proxy de proteção de palavra-passe do Azure AD tem de ser configuradas para permitir tráfego de saída HTTP do TLS 1.2.
 * Uma conta de administrador global para registar o serviço de Proxy de proteção de palavra-passe do Azure AD e a floresta com o Azure AD.
 * Uma conta com privilégios de administrador de domínio do Active Directory no domínio de raiz de floresta para registar a floresta do Active Directory do Windows Server com o Azure AD.
 * Qualquer domínio do Active Directory, o controlador de domínio a executar software do serviço de agente tem de utilizar DFSR para a replicação de sysvol.
 
 ## <a name="single-forest-deployment"></a>Implementação de floresta única
 
-O diagrama seguinte mostra como os componentes básicos de proteção de palavra-passe do Azure AD funcionam em conjunto num ambiente do Active Directory no local.  
+O diagrama seguinte mostra como os componentes básicos de proteção de palavra-passe do Azure AD funcionam em conjunto num ambiente do Active Directory no local.
 
 ![Como os componentes de proteção de palavra-passe do Azure AD funcionam em conjunto](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Antes da implantação é uma boa idéia para rever como funciona o software; Veja [descrição geral Conceptual de proteção de palavra-passe do Azure AD](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>Transferir o software
 

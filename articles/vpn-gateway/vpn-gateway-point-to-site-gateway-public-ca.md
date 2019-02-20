@@ -5,20 +5,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: b89ba054040229d9925b9dbbc64d27eed171613e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e5a75826730219adc643d7c6ca300a38c8640006
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339877"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428369"
 ---
-# <a name="transition-from-self-signed-to-public-ca-certificates-for-p2s-gateways"></a>Transição de auto-assinado para certificados de AC públicos para gateways de P2S
+# <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transição para um certificado de gateway de AC público para P2S
 
 O Gateway de VPN do Azure já não emite certificados autoassinados do nível do Azure com seus gateways para ligações P2S. Certificados emitidos agora são assinados por um certificado de autoridade (autoridade de certificação pública). No entanto, alguns dos gateways mais antigos podem ainda utilizar certificados autoassinados. Estes certificados autoassinados são quase respetivas datas de expiração e devem fazer a transição para certificados de AC públicos.
 
 Os certificados neste contexto são um certificado de nível de Azure adicional. Não são as cadeias de certificados que utiliza ao gerar seus próprios certificados de raiz autoassinados e certificados de cliente para autenticação. Esses certificados não são afetados e irão expirar nas datas gerado-los para fazer isso.
+
+>[!NOTE]
+> Utilizado para autenticação de cliente de P2S os certificados autoassinados não são afetados por esta alteração de certificado de nível do Azure. Pode continuar a emitir e utilizar certificados autoassinados como habitualmente.
+>
 
 Anteriormente, um certificado autoassinado para o gateway (emitido em segundo plano pelo Azure) necessário para ser atualizado a cada 18 meses. Ficheiros de configuração de cliente VPN, em seguida, tinham que ser gerado e reimplantada em todos os clientes de P2S. Mover para certificados de AC públicos elimina essa limitação. Além da transição para certificados, esta alteração também fornece aprimoramentos de plataforma, métricas melhor e maior estabilidade.
 

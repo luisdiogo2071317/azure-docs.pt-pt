@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657421"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430289"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução numa função de trabalho de Runbook híbrida
 
 Não existe nenhuma diferença na estrutura de runbooks executados na automatização do Azure e de runbooks executados numa função de trabalho de Runbook híbrida. Os Runbooks que utiliza com cada um provavelmente diferir significativamente. Essa diferença é porque os runbooks direcionados para uma função de trabalho de Runbook híbrida, normalmente, gerir os recursos no computador local em si, ou em relação a recursos no ambiente local em que é implementada. Os Runbooks na automatização do Azure, normalmente, gerir os recursos na cloud do Azure.
 
-Quando criar runbooks para executar numa função de trabalho de Runbook híbrida, deve editar e testar runbooks dentro da máquina que aloja a função de trabalho híbrida. A máquina de anfitrião tem todos os módulos do PowerShell e o acesso à rede que tem de gerir e aceder os recursos locais. Depois de um runbook é testado no computador de trabalho híbrida, em seguida, pode carregá-lo para o ambiente de automatização do Azure onde está disponível para ser executada na função de trabalho híbrida. É importante saber que as tarefas que a conta Sistema Local de execução para Windows ou uma conta de utilizador especial **nxautomation** no Linux. Esse comportamento pode introduzir diferenças sutis durante a criação de runbooks para uma função de trabalho de Runbook híbrida. Estas alterações devem ser revistas ao escrever seus runbooks.
+Quando criar runbooks para executar numa função de trabalho de Runbook híbrida, deve editar e testar runbooks dentro da máquina que aloja a função de trabalho híbrida. A máquina de anfitrião tem todos os módulos do PowerShell e o acesso à rede que tem de gerir e aceder os recursos locais. Depois de um runbook é testado no computador de trabalho híbrida, em seguida, pode carregá-lo para o ambiente de automatização do Azure onde está disponível para ser executada na função de trabalho híbrida. É importante saber que as tarefas que a conta Sistema Local de execução para Windows ou uma conta de utilizador especial `nxautomation` no Linux. Esse comportamento pode introduzir diferenças sutis durante a criação de runbooks para uma função de trabalho de Runbook híbrida. Estas alterações devem ser revistas ao escrever seus runbooks.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Iniciar um runbook no Runbook Worker híbrido
 
@@ -44,7 +44,7 @@ Runbooks em execução numa função de trabalho de Runbook híbrida não pode u
 
 ### <a name="runbook-authentication"></a>Autenticação de Runbook
 
-Por predefinição, os runbooks são executados no contexto da conta do sistema Local para o Windows e uma conta de utilizador especial **nxautomation** para Linux no computador no local, portanto, devem fornecer sua própria autenticação a recursos que acedem a .
+Por predefinição, os runbooks são executados no contexto da conta do sistema Local para o Windows e uma conta de utilizador especial `nxautomation` para Linux no computador no local, portanto, devem fornecer sua própria autenticação para recursos que acedem.
 
 Pode usar [credencial](automation-credentials.md) e [certificado](automation-certificates.md) ativos no seu runbook com cmdlets que permitem-lhe especificar as credenciais para se autenticar em recursos diferentes. O exemplo seguinte mostra uma parte de um runbook que reinicia um computador. Ele obtém credenciais de um recurso de credencial e o nome do computador de um recurso de variável e, em seguida, usa esses valores com o cmdlet Restart-Computer.
 
@@ -59,7 +59,7 @@ Também pode utilizar [InlineScript](automation-powershell-workflow.md#inlinescr
 
 ### <a name="runas-account"></a>Conta RunAs
 
-Por predefinição a função de trabalho de Runbook híbrida utiliza o sistema Local para o Windows e uma conta de utilizador especial **nxautomation** para Linux executar runbooks. Em vez de precisar fornecer sua própria autenticação a recursos locais de runbooks, pode especificar uma **RunAs** de conta para um grupo de trabalho híbrida. Especifica um [recurso de credencial](automation-credentials.md) que tem acesso a recursos locais e execute todos os runbooks com estas credenciais, quando em execução numa função de trabalho de Runbook híbrida no grupo.
+Por predefinição a função de trabalho de Runbook híbrida utiliza o sistema Local para o Windows e uma conta de utilizador especial `nxautomation` para Linux executar runbooks. Em vez de precisar fornecer sua própria autenticação a recursos locais de runbooks, pode especificar uma **RunAs** de conta para um grupo de trabalho híbrida. Especifica um [recurso de credencial](automation-credentials.md) que tem acesso a recursos locais e execute todos os runbooks com estas credenciais, quando em execução numa função de trabalho de Runbook híbrida no grupo.
 
 O nome de utilizador para a credencial tem de ser um dos seguintes formatos:
 
@@ -247,7 +247,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Quando o runbook foi assinado, tem de ser importado para a sua conta de automatização e publicada com o bloco de assinaturas. Para saber como importar runbooks, consulte [importar um runbook a partir de um ficheiro para automatização do Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+Quando o runbook foi assinado, tem de ser importado para a sua conta de automatização e publicada com o bloco de assinaturas. Para saber como importar runbooks, consulte [importar um runbook a partir de um ficheiro para automatização do Azure](manage-runbooks.md#import-a-runbook).
 
 ### <a name="linux-hybrid-runbook-worker"></a>Runbook Worker híbrido Linux
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG irá guiá-lo pelos passos para criar o par de chaves. Terá de fornecer um nome, um endereço de e-mail, hora de expiração, frase de acesso e aguarde pela suficiente entropia no computador para a chave a ser gerado.
 
-Uma vez que o diretório GPG foi gerado com sudo, terá de alterar o respetivo proprietário para nxautomation. 
+Uma vez que o diretório GPG foi gerado com sudo, tem de alterar o proprietário para `nxautomation`. 
 
 Execute o seguinte comando para alterar o proprietário.
 
@@ -289,7 +289,7 @@ gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
 
 #### <a name="verify-signature-validation-is-on"></a>Verifique se a validação de assinatura está ativada
 
-Se a validação da assinatura foi desabilitada no computador, terá de ativá-la. Execute o seguinte comando para ativar a validação de assinatura. Substituir `<LogAnalyticsworkspaceId>` sua área de trabalho do ID.
+Se a validação da assinatura foi desabilitada no computador, terá de ativá-la. Execute o seguinte comando para ativar a validação de assinatura. Substituir `<LogAnalyticsworkspaceId>` com o ID de área de trabalho.
 
 ```bash
 sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
@@ -300,7 +300,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 Assim que a validação da assinatura estiver configurada, pode utilizar o seguinte comando para iniciar um runbook:
 
 ```bash
-gpg –clear-sign <runbook name>
+gpg –-clear-sign <runbook name>
 ```
 
 O runbook assinado terá o nome `<runbook name>.asc`.

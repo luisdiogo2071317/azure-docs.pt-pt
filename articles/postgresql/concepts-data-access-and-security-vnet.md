@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 2f26c4ae352ea5385886abcaecba5f50d30c530a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537227"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417487"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure para PostgreSQL
 
@@ -23,6 +23,7 @@ Para criar uma regra de rede virtual, tem primeiro de existir uma [rede virtual]
 
 > [!NOTE]
 > Esta funcionalidade está disponível em todas as regiões de cloud pública do Azure em que a base de dados do Azure para PostgreSQL é implementada para os servidores de fins gerais e memória otimizada.
+> Em caso de VNet peering, se o tráfego flui através de um Gateway de VNet comuns com pontos finais de serviço e deve ser enviados para o elemento de rede, crie uma regra ACL/VNet para permitir a máquinas virtuais do Azure na VNet de Gateway para acessar o banco de dados do Azure para o servidor PostgreSQL.
 
 <a name="anch-terminology-and-description-82f" />
 

@@ -1,5 +1,5 @@
 ---
-title: Fluxo de código de autorização no Azure Active Directory B2C | Documentos da Microsoft
+title: Fluxo de código de autorização - Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba como criar aplicações web utilizando o protocolo de autenticação do Azure AD B2C e o OpenID Connect.
 services: active-directory-b2c
 author: davidmu1
@@ -7,17 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f1f372cd8fc5ea1e64fbe195fd15790cd0535347
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ee67f07965036a71151d7b6a5092b9a76d94999
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164032"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428691"
 ---
-# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: Fluxo de código de autorização do OAuth 2.0
+# <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização de OAuth 2.0 no Azure Active Directory B2C
+
 Pode utilizar a concessão de código de autorização de OAuth 2.0 nas aplicações instaladas num dispositivo para obter acesso a recursos protegidos, como as APIs web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação do OAuth 2.0, pode adicionar inscrição, início de sessão, e as tarefas de outra gestão de identidades às suas aplicações móveis e de Desktops. Este artigo é independente de idioma. Neste artigo, descrevemos como enviar e receber mensagens HTTP sem utilizar quaisquer bibliotecas de código-fonte aberto.
 
 O fluxo de código de autorização de OAuth 2.0 é descrito em [secção 4.1 da especificação de OAuth 2.0](https://tools.ietf.org/html/rfc6749). Pode usá-lo para autenticação e autorização na maioria [tipos de aplicativos](active-directory-b2c-apps.md), incluindo aplicações web e aplicativos instalados nativamente. Pode utilizar o fluxo de código de autorização de OAuth 2.0 para adquirir os tokens de acesso e tokens de atualização para as suas aplicações, que podem ser utilizadas para aceder a recursos que são protegidos com segurança uma [servidor de autorização](active-directory-b2c-reference-protocols.md).  O token de atualização permite ao cliente adquirir acesso nova (e atualizar) tokens assim que o token de acesso expira, normalmente, depois de uma hora.
@@ -27,7 +28,7 @@ Este artigo enfoca a **os clientes públicos** fluxo de código de autorização
 > [!NOTE]
 > Para adicionar gerenciamento de identidade para uma aplicação web com o Azure AD B2C, utilize [OpenID Connect](active-directory-b2c-reference-oidc.md) em vez de OAuth 2.0.
 
-O Azure AD B2C estende o padrão de que fluxos do OAuth 2.0 para fazer mais do que a autenticação e autorização simples. Ele introduz o [parâmetro de fluxo de utilizador](active-directory-b2c-reference-policies.md). Com fluxos de utilizador, pode utilizar o OAuth 2.0 para adicionar experiências de utilizador à sua aplicação, tais como inscrição, início de sessão e gestão de perfis. Neste artigo, vamos mostrar como utilizar fluxos de utilizador e de OAuth 2.0 para implementar cada um destas experiências nas suas aplicações nativas. Também lhe mostramos como obter os tokens de acesso para aceder a web APIs.
+O Azure AD B2C estende o padrão de que fluxos do OAuth 2.0 para fazer mais do que a autenticação e autorização simples. Ele introduz o [parâmetro de fluxo de utilizador](active-directory-b2c-reference-policies.md). Com fluxos de utilizador, pode utilizar o OAuth 2.0 para adicionar experiências de utilizador à sua aplicação, tais como inscrição, início de sessão e gestão de perfis. Fornecedores de identidade que utilizam o protocolo de OAuth 2.0 incluem [Amazon](active-directory-b2c-setup-amzn-app.md), [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md), [Facebook](active-directory-b2c-setup-fb-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [ Google](active-directory-b2c-setup-goog-app.md), e [LinkedIn](active-directory-b2c-setup-li-app.md).
 
 Os pedidos HTTP de exemplo neste artigo, utilizamos o nosso diretório do Azure AD B2C de exemplo, **fabrikamb2c.onmicrosoft.com**. Também utilizamos nossos fluxos de utilizador e a aplicação de exemplo. Pode experimentar os pedidos utilizando estes valores, ou pode substituí-los com seus próprios valores.
 Saiba como [obter seus próprios fluxos de utilizador, aplicação e diretório do Azure AD B2C](#use-your-own-azure-ad-b2c-directory).

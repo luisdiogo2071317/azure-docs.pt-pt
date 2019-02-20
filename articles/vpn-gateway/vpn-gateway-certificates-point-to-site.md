@@ -1,5 +1,5 @@
 ---
-title: 'Gerar e exportar certificados para ligações ponto a Site: PowerShell: Azure | Documentos da Microsoft'
+title: 'Gerar e exportar certificados para ligações ponto a Site: PowerShell: Azure | Microsoft Docs'
 description: Criar um certificado de raiz autoassinado, exportar a chave pública e gerar certificados de cliente com o PowerShell no Windows 10 ou Windows Server 2016.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850963"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415370"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Gerar e exportar certificados para ligações ponto a Site com o PowerShell
 
@@ -47,7 +47,7 @@ Os exemplos utilizam o cmdlet New-SelfSignedCertificate para gerar um certificad
 
 ### <a name="example-1"></a>Exemplo 1
 
-Este exemplo utiliza a variável '$cert' declarado da secção anterior. Se fechar a consola do PowerShell depois de criar o certificado de raiz autoassinado ou estiver a criar cliente adicionais certificados numa nova sessão de consola do PowerShell, utilize os passos em [exemplo 2](#ex2).
+Utilize este exemplo, caso não tenha fechado a consola do PowerShell depois de criar o certificado de raiz autoassinado. Neste exemplo continua da secção anterior e utiliza a variável '$cert' declarado. Se fechar a consola do PowerShell depois de criar o certificado de raiz autoassinado ou estiver a criar cliente adicionais certificados numa nova sessão de consola do PowerShell, utilize os passos em [exemplo 2](#ex2).
 
 Modificar e execute o exemplo para gerar um certificado de cliente. Se executar o exemplo seguinte sem modificá-la, o resultado é um certificado de cliente com o nome 'P2SChildCert'.  Se quiser nomear o certificado de subordinados outra coisa, modifique o valor CN. Não altere o TextExtension ao executar este exemplo. O certificado de cliente que irá gerar é instalado automaticamente em 'Certificates - user\personal\certificates atual' ' no seu computador.
 

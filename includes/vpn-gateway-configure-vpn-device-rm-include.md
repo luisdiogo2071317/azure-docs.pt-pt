@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: 886fa6c088f2fbabb3d3ba1cd0b15bbc488784f3
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30198116"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418309"
 ---
 **Para transferir os scripts de configuração do dispositivo VPN**
 
@@ -27,7 +27,7 @@ Consoante o dispositivo VPN que tiver, poderá transferir um script de configura
 
 - Para ver as ligações para as definições de configuração de dispositivo, consulte [Validated VPN Devices (Dispositivos VPN Validados)](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). As ligações para a configuração do dispositivo são fornecidas numa base de melhor esforço. É sempre melhor verificar com o fabricante do dispositivo para obter as mais recentes informações de configuração. A lista mostra as versões que testamos. Se o seu SO não está nesta lista, é possível que a versão seja compatível. Contacte o fabricante do dispositivo para verificar se a versão do SO para o dispositivo VPN é compatível.
 
-- Para obter uma descrição geral da configuração de dispositivo VPN, veja [Overview of 3rd party VPN device configurations](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md) (Descrição geral das configurações de dispositivo VPN de terceiros).
+- Para uma descrição geral da configuração do dispositivo VPN, consulte [descrição geral de configuração do dispositivo VPN](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 
 - Para obter informações sobre a edição de amostras de configuração do dispositivo, consulte [Editing samples (Editar amostras)](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing).
 

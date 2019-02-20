@@ -1,5 +1,5 @@
 ---
-title: 'Configurar ligações de VPN de Site a Site e ExpressRoute - coexistir: PowerShell: Azure | Documentos da Microsoft'
+title: 'Configurar ligações de VPN de Site a Site e ExpressRoute - coexistir: PowerShell: Azure | Microsoft Docs'
 description: Configure o ExpressRoute e uma ligação de VPN de Site a Site que pode coexistir para o modelo do Resource Manager com o PowerShell.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5242f31ff35e367211d48157fd4953751d1bb148
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103320"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416297"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar ligações coexistentes ExpressRoute e de Site a Site com o PowerShell
 > [!div class="op_single_selector"]
@@ -81,9 +81,9 @@ Existem dois conjuntos de procedimentos diferentes à escolha. O procedimento de
 ## <a name="new"></a>Para criar uma nova rede virtual e ligações coexistentes
 Este procedimento orienta-o ao longo da criação de uma VNet e de ligações ExpressRoute e de Rede de VPNs que vão coexistir.
 
-1. Instale a versão mais recente dos cmdlets do Azure PowerShell. Para obter mais informações sobre como instalar os cmdlets do PowerShell, veja [How to install and configure Azure PowerShell](/powershell/azure/overview) (Como instalar e configurar o Azure PowerShell). Os cmdlets que vai utilizar para esta configuração podem ser ligeiramente diferentes do que poderá estar familiarizado. Confirme que utiliza os cmdlets especificados nestas instruções.
+1. Instale a versão mais recente dos cmdlets do Azure PowerShell. Para obter mais informações sobre como instalar os cmdlets do PowerShell, veja [How to install and configure Azure PowerShell](/powershell/azure/azurerm/overview) (Como instalar e configurar o Azure PowerShell). Os cmdlets que vai utilizar para esta configuração podem ser ligeiramente diferentes do que poderá estar familiarizado. Confirme que utiliza os cmdlets especificados nestas instruções.
 
-2. Inicie sessão na sua conta e configure o ambiente.
+1. Inicie sessão na sua conta e configure o ambiente.
 
   ```powershell
   Connect-AzureRmAccount

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ac52e3b824efdbd5277982a7f1939e8aa0deeeb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201793"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416722"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referência de serviço de cópia de segurança de infra-estrutura
 
@@ -108,6 +108,23 @@ Controlador de cópia de segurança de infra-estrutura faz a cópia de seguranç
 > [!Note]  
 > Não existem portas de entrada tem de ser aberto.
 
+### <a name="encryption-requirements"></a>Requisitos de encriptação
+
+A partir de 1901, o serviço de cópia de segurança da infraestrutura irá utilizar um certificado com uma chave pública (. CER) para encriptar os dados de cópia de segurança e um certificado com a chave privada (. PFX) para desencriptar os dados de cópia de segurança durante a recuperação de nuvem.   
+ - O certificado é utilizado para o transporte de chaves e não é utilizado para estabelecer uma comunicação segura autenticada. Por esse motivo, o certificado pode ser um certificado autoassinado. O Azure Stack não é necessário verificar a fidedignidade para este certificado de raiz ou para acesso externo à internet não é necessária.
+ 
+O certificado autoassinado possui duas partes, uma com a chave pública e uma com a chave privada:
+ - Encripte dados da cópia de segurança: Certificado com a chave pública (exportada para. Ficheiro CER) é utilizado para encriptar dados da cópia de segurança
+ - Desencriptar os dados de cópia de segurança: Certificado com a chave privada (exportada para. Ficheiro PFX) é utilizado para desencriptar os dados de cópia de segurança
+
+O certificado com a chave pública (. CER) não é gerido pelo rotação secreta interna. Para girar o certificado, terá de criar um novo certificado autoassinado e atualizar as definições de cópia de segurança com o novo ficheiro (. CER).  
+ - Todas as cópias de segurança existentes permanecem encriptadas utilizando a chave pública anterior. Novas cópias de segurança irão utilizar a nova chave pública. 
+ 
+O certificado utilizado durante a recuperação da cloud com a chave privada (. PFX) não é mantido pela pilha do Azure por motivos de segurança. Este ficheiro tem de ser fornecida explicitamente durante a recuperação de nuvem.  
+
+**Efeitos modo de compatibilidade** a partir de 1901, o suporte de chave de encriptação foi preterido e será removido numa versão futura. Se atualizou a partir 1811 com cópia de segurança já ativada com uma chave de encriptação, Azure Stack vão continuar a utilizar a chave de encriptação. Com versões anteriores modo de compatibilidade será suportado, pelo menos, 3 de versão. Após esse tempo, será necessário um certificado. 
+ * A atualizar a partir da chave de encriptação para o certificado é uma operação unidirecional.  
+ * Todas as cópias de segurança existentes permanecerão encriptadas com a chave de encriptação. Novas cópias de segurança irão utilizar o certificado. 
 
 ## <a name="infrastructure-backup-limits"></a>Limites de cópia de segurança de infra-estrutura
 

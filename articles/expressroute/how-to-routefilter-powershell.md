@@ -1,5 +1,5 @@
 ---
-title: 'Configurar filtros de rota para peering da Microsoft - ExpressRoute: PowerShell: Azure | Documentos da Microsoft'
+title: 'Configurar filtros de rota para peering da Microsoft - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Este artigo descreve como configurar filtros de rota para Peering da Microsoft com o PowerShell
 documentationcenter: na
 services: expressroute
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fc2cfcce57ad15d2bbad3242351492e184e7fd33
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096301"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415301"
 ---
-# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurar filtros de rota para peering da Microsoft: PowerShell
+# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configure filtros de rota para peering da Microsoft: PowerShell
 > [!div class="op_single_selector"]
 > * [Portal do Azure](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
@@ -25,7 +25,7 @@ ms.locfileid: "53096301"
 
 Os filtros de rota são uma forma de consumir um subconjunto de serviços suportados através do peering da Microsoft. Os passos neste artigo ajudam-na configurar e gerir filtros de rota para circuitos do ExpressRoute.
 
-Serviços do Dynamics 365 e serviços do Office 365 como o Exchange Online, SharePoint Online e Skype para empresas e serviços público do Azure, como o armazenamento e BD SQL estão acessíveis através do peering da Microsoft. Serviços público do Azure são selecionáveis numa base por região e não pode ser definidos por serviço público. 
+Serviços do Dynamics 365 e serviços do Office 365 como o Exchange Online, SharePoint Online e Skype para empresas e serviços público do Azure, como o armazenamento e BD SQL estão acessíveis através do peering da Microsoft. Serviços público do Azure são selecionáveis numa base por região e não pode ser definidos por serviço público.
 
 Quando o peering da Microsoft está configurado num circuito do ExpressRoute e está ligado um filtro de rota, todos os prefixos estão selecionados para estes serviços são anunciados através as sessões de BGP estabelecidas. Está anexado um valor da comunidade BGP a cada prefixo para identificar o serviço oferecido através do prefixo. Para obter uma lista de valores das Comunidades do BGP e os serviços podem ser mapeados para, consulte [Comunidades do BGP](expressroute-routing.md#bgp).
 
@@ -142,7 +142,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>Passo 3: Ligar o filtro de rota para um circuito do ExpressRoute
+## <a name="attach"></a>Passo 3: Anexar o filtro de rota para um circuito do ExpressRoute
 
 Execute o seguinte comando para anexar o filtro de rota ao circuito do ExpressRoute, pressupondo que tenha apenas peering da Microsoft:
 

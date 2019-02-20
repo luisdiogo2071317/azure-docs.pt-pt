@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7435a1879963b90bb05b6f1a617e9d1bc3de27a5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9a1bd45b9724c2533cfefd1e4b5d89f314177ba8
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203713"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417623"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C
 
@@ -169,7 +169,7 @@ Abra um browser e navegue para o URL. Certifique-se de que digite a URL correta 
 
     | Attrubute LDAP | Tipo de afirmação de saída |
     | -------------- | ------------------- |
-    | User-Principal-Name | userPricipalName |
+    | User-Principal-Name | userPrincipalName |
     | Apelido | family_name |
     | Fornecido nome | given_name |
     | Endereço do correio electrónico | e-mail |

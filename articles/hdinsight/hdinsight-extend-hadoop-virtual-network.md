@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dbb94e0dbcb1dccf8ecbc60bca47b2cc3533297c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169977"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429745"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -220,8 +220,6 @@ Tráfego de rede num redes virtuais do Azure pode ser controlado através dos se
 * **Aplicações virtuais de rede** replicar a funcionalidade dos dispositivos, tais como firewalls e roteadores. Para obter mais informações, consulte a [aplicações de rede](https://azure.microsoft.com/solutions/network-appliances) documento.
 
 Como um serviço gerido, HDInsight requer acesso sem restrições para o estado de funcionamento do HDinsight e dos serviços de gestão para o tráfego de entrada e saído da VNET. Ao utilizar NSGs e as UDRs, certifique-se de que esses serviços ainda consegue comunicar com o cluster do HDInsight.
-
-HDInsight expõe serviços em várias portas. Quando utilizar uma firewall de aplicação virtual, tem de permitir tráfego nas portas utilizadas para estes serviços. Para obter mais informações, consulte a secção de [as portas necessárias].
 
 ### <a id="hdinsight-ip"></a> HDInsight com grupos de segurança de rede e as rotas definidas pelo utilizador
 

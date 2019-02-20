@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660923"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415736"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Pacote de Segurança Enterprise mediante a utilização do Azure Active Directory Domain Services
 
@@ -95,6 +95,10 @@ Deve certificar-se de que todos os [necessárias portas](https://docs.microsoft.
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>Criar um cluster do HDInsight com ESP
 
 Depois de configurar as etapas anteriores corretamente, a próxima etapa é criar o cluster do HDInsight com ESP ativado. Quando cria um cluster do HDInsight, pode ativar o Enterprise Security Package no **personalizado** separador. Se preferir usar um modelo Azure Resource Manager para a implementação, utilize a experiência do portal de uma vez e transfira o modelo preenchido previamente na última página "Resumo" para futura reutilização.
+
+> [!NOTE]  
+> Os primeiro seis caracteres de nomes de cluster ESP tem de ser exclusivos no seu ambiente. Por exemplo, se tiver vários clusters do ESP em VNETs diferentes, deve escolher uma nomenclatura convension que garante que o primeiro de seis caracteres nos nomes de cluster são exclusivos.
+
 
 ![Validação do domínio de pacote de segurança do Azure HDInsight Enterprise](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 

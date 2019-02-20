@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9d265ec7f0ce2030874f38b99b07343f1d4a3f4d
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: bc3f97c798f5e040908e8103c00d3f015f8c824d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408651"
+ms.locfileid: "56415339"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Gerir o aumento vertical de cluster para acomodar a pedido de alteração
 
@@ -30,10 +30,7 @@ Dimensionar um cluster adequadamente é essencial para o desempenho do Explorado
 1. Para alterar o SKU, selecione o SKU que pretende e prima a **selecione** botão.
 
 > [!NOTE]
-> O processo de dimensionamento pode demorar alguns minutos. Durante esse tempo, o cluster será suspensa.
->
-> Reduzir verticalmente, pode prejudicar o desempenho do seu cluster.
->
+> O processo de dimensionamento pode demorar alguns minutos e, durante esse período o cluster será suspensa. Tenha em atenção que a reduzir verticalmente pode prejudicar o desempenho do seu cluster.
 
 Agora já realizou uma operação de aumentar ou reduzir verticalmente para o seu cluster do Explorador de dados do Azure. Também é possível fazer [Escalamento horizontal do cluster](manage-cluster-scale-out.md), também conhecido como o dimensionamento automático, para dimensionar de forma dinâmica com base em métricas que especificar.
 

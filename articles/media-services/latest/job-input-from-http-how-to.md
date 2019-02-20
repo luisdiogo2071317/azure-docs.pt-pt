@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 1760c63bee6bc1b0a631499a8875bedb34e71afd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5e301a671551ee65e8dc56ca6f86e273fe2f6241
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308847"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417181"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Criar uma entrada da tarefa a partir de um URL HTTPS
 
@@ -27,6 +27,10 @@ Em serviços de multimédia v3, quando submete tarefas para processar os seus v�
 O código a seguir mostra como criar uma tarefa com um URL HTTPS de entrada.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-quickstarts/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs#SubmitJob)]
+
+## <a name="job-error-codes"></a>Códigos de erro da tarefa
+
+Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

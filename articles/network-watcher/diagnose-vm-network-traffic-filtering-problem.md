@@ -17,16 +17,16 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 1802df4e6cbe77b4bc7ee2ee49f24d8dc51de015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180526"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429235"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guia de Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual com o portal do Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Início rápido: Diagnosticar um problema de filtragem do tráfego do máquina virtual rede com o portal do Azure
 
-Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Determine a causa de uma falha de comunicação e como pode resolvê-la.
+Neste guia de início rápido, implemente uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL e de um endereço IP. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,17 +37,17 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 ## <a name="create-a-vm"></a>Criar uma VM
 
 1. Selecione **+ Criar um recurso**, disponível no canto superior esquerdo do Portal do Azure.
-2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter** ou **VM do Ubuntu Server 17.10**.
+2. Selecione **computação**e, em seguida, selecione **do Windows Server 2016 Datacenter** ou uma versão de **Ubuntu Server**.
 3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
 
     |Definição|Valor|
     |---|---|
-    |Nome|myVm|
+    |Name|myVm|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Localização| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, aceite todas as predefinições e selecione **OK**.
@@ -70,13 +70,13 @@ Se já tiver um observador de rede ativado em pelo menos uma região, avance par
 
 ### <a name="use-ip-flow-verify"></a>Utilizar a verificação do fluxo IP
 
-Se criar uma VM, o Azure permite e recusa tráfego de rede de e para a VM, por predefinição. Posteriormente, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos de tráfego adicionais.
+Quando cria uma VM, o Azure permite e recusa o tráfego de rede de e para a VM, por predefinição. Posteriormente, poderá substituir as predefinições do Azure, ao permitir ou recusar tipos de tráfego adicionais.
 
 1. No portal, selecione **Todos os serviços**. Na caixa **Todos os serviços**, *Filtro*, introduza *Observador de Rede*. Quando a opção **Observador de Rede** aparecer nos resultados, selecione-a.
 2. Selecione **Verificação do fluxo de IP**, em **FERRAMENTAS DE DIAGNÓSTICO DE REDE**.
 3. Selecione a sua subscrição, introduza ou selecione os seguintes valores e, em seguida, selecione **Verificar**, conforme apresentado na imagem que se segue:
 
-    |Definição            |Valor                                                                                              |
+    |Definição            |Value                                                                                              |
     |---------          |---------                                                                                          |
     | Grupo de recursos    | Selecionar myResourceGroup                                                                            |
     | Máquina virtual   | Selecionar myVm                                                                                       |
@@ -112,7 +112,7 @@ Agora que sabe quais as regras de segurança que estão a permitir ou a recusar 
 4. Quando executou a verificação de saída para 172.131.0.100 no passo 4 para [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), aprendeu que a regra **DefaultOutboundDenyAll** recusou a comunicação. Essa regra equivale à regra **DenyAllOutBound** apresentada na imagem no passo 2, que especifica **0.0.0.0/0** como o **DESTINO**. Esta regra recusa a comunicação de saída para 172.131.0.100, porque o endereço não se encontra dentro do **DESTINO** de qualquer uma das outras **Regras de saída** apresentadas na imagem. Para permitir a comunicação de saída, pode adicionar uma regra de segurança com uma prioridade mais elevada, que permite o tráfego de saída para a porta 80 para o endereço 172.131.0.100.
 5. Quando executou a verificação de entrada de 172.131.0.100 no passo 5 de [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), aprendeu que a regra **DefaultInboundDenyAll** recusou a comunicação. Essa regra equivale à regra **DenyAllInBound** apresentada na imagem no passo 2. A regra **DenyAllInBound** é imposta porque não existe nenhuma outra regra de prioridade superior que permita a entrada da porta 80 para a VM de 172.31.0.100. Para permitir a comunicação de entrada, pode adicionar uma regra de segurança com uma prioridade superior que permita a entrada da porta 80 de 172.31.0.100.
 
-As verificações neste guia de início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou recusar comunicação.
+As verificações neste guia de início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou a recusar a comunicação.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -122,7 +122,7 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, criou uma VM e diagnosticou filtros de tráfego de rede de entrada e saída. Aprendeu que as regras do grupo de segurança de rede permitem ou recusam tráfego de e para uma VM. Saiba mais sobre [regras de segurança](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar regras de segurança](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
