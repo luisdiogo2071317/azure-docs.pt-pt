@@ -34,20 +34,30 @@ items:
     href: backup-rm-template-samples.md
 - name: Conceitos
   items:
+  - name: Matrizes de suporte
+    items:
+    - name: Matriz de suporte do Azure Backup
+      href: backup-support-matrix.md
+    - name: Matriz de suporte de cópia de segurança de VMs do Azure
+      href: backup-support-matrix-iaas.md
+    - name: Matriz de suporte do DPM/Azure Backup Server (MABS)
+      href: backup-support-matrix-mabs-dpm.md
+    - name: Matriz de suporte do agente MARS
+      href: backup-support-matrix-mars-agent.md
+  - name: Perguntas Mais Frequentes (FAQ)
+    items:
+    - name: FAQ - Cofres dos Serviços de Recuperação
+      href: backup-azure-backup-faq.md
+    - name: FAQ - Cópia de segurança de VMs do Azure
+      href: backup-azure-vm-backup-faq.md
+    - name: FAQ - Agente MARS
+      href: backup-azure-file-folder-backup-faq.md
+    - name: FAQ - Fazer cópias de segurança de Ficheiros do Azure
+      href: backup-azure-files-faq.md
+    - name: FAQ - Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
+      href: faq-backup-sql-server.md
   - name: Arquitetura da cópia de segurança
     href: backup-architecture.md
-  - name: Matriz de suporte da cópia de segurança
-    href: backup-support-matrix.md
-  - name: FAQ
-    items:
-    - name: FAQ sobre o cofre dos Serviços de Recuperação
-      href: backup-azure-backup-faq.md
-    - name: FAQ sobre as cópias de segurança de VMs do Azure
-      href: backup-azure-vm-backup-faq.md
-    - name: FAQ sobre a criação de cópias de segurança de pastas e ficheiros mediante a utilização do agente do Azure Backup
-      href: backup-azure-file-folder-backup-faq.md
-    - name: FAQ sobre a atualização automática do cofre da cópia de segurança
-      href: backup-upgrade-backup-vault.md
   - name: Controlo de Acesso Baseado em Funções
     href: backup-rbac-rs-vault.md
   - name: Segurança para cópias de segurança híbridas
@@ -104,45 +114,39 @@ items:
     items:
     - name: Fazer uma cópia de segurança das partilhas de Ficheiros do Azure
       href: backup-azure-files.md
-    - name: FAQ de como fazer uma cópia de segurança das partilhas de Ficheiros do Azure
-      href: backup-azure-files-faq.md
-  - name: VMs do Azure
+  - name: Fazer uma cópia de segurança de VMs do Azure
     items:
-    - name: Preparar a VM
+    - name: Acerca das cópias de segurança de VMs do Azure
+      href: backup-azure-vms-introduction.md
+    - name: Fazer cópias de segurança e restaurar VMs do Azure com o Restauro Instantâneo do Azure Backup
+      href: backup-instant-restore-capability.md
+    - name: Fazer uma cópia de segurança de VMs do Azure
       items:
-      - name: Preparar as VMs implementadas pelo Resource Manager
-        href: backup-azure-arm-vms-prepare.md
-      - name: Cópias de segurança de VMs do Linux consistentes com a aplicação
-        href: backup-azure-linux-app-consistent.md
-    - name: Planear o ambiente
-      items:
-      - name: Planear a infraestrutura de cópias de segurança de VMs
-        href: backup-azure-vms-introduction.md
-    - name: Fazer cópias de segurança de VMs
-      items:
-      - name: Fazer cópia de segurança de VMs do Azure para cofre dos Serviços de Recuperação
-        href: backup-azure-vms-first-look-arm.md
-      - name: Fazer cópia de segurança de VMs encriptadas
-        href: backup-azure-vms-encryption.md
-      - name: Ativar a cópia de segurança de VM durante a criação de VM
+      - name: Ativar a cópia de segurança quando cria uma VM do Azure
         href: backup-during-vm-creation.md
-    - name: Gerir e monitorizar VMs
+      - name: Fazer cópias de segurança de uma VM do Azure a partir das definições da VM
+        href: backup-azure-vms-first-look-arm.md
+      - name: Configurar um cofre e ativar a cópia de segurança para VMs do Azure
+        href: backup-azure-arm-vms-prepare.md
+      - name: Fazer cópias de segurança de VMs do Azure encriptadas
+        href: backup-azure-vms-encryption.md
+      - name: Configurar cópias de segurança consistentes com a aplicação de VMs do Azure em execução no Linux
+        href: backup-azure-linux-app-consistent.md
+    - name: Gerir e monitorizar as cópias de segurança de VMs do Azure
       items:
-      - name: Gerir cópias de segurança de VMs do Azure no Portal do Azure
+      - name: Gerir as cópias de segurança de VMs do Azure
         href: backup-azure-manage-vms.md
       - name: Monitorizar alertas para cópias de segurança de VMs do Azure
         href: backup-azure-monitor-vms.md
-    - name: Restaurar dados a partir de VMs
+    - name: Restaurar as VMs do Azure
       items:
+      - name: Restaurar VMs do Azure no portal
+        href: backup-azure-arm-restore-vms.md
       - name: Recuperar ficheiros a partir de cópias de segurança de VM do Azure
         href: backup-azure-restore-files-from-vm.md
-      - name: Restaurar VMs do Azure no portal do Azure
-        href: backup-azure-arm-restore-vms.md
-      - name: Funcionalidade de Restauro Instantâneo
-        href: backup-instant-restore-capability.md
       - name: Restaurar VMs encriptadas
         href: backup-azure-vms-encryption.md
-      - name: Restaurar a chave e o segredo do Key Vault para VMs encriptadas
+      - name: Restaurar chaves e o segredo para VMs encriptadas
         href: backup-azure-restore-key-secret.md
   - name: Configurar relatórios do Azure Backup
     items:
@@ -188,10 +192,14 @@ items:
       href: backup-azure-arm-userestapi-restoreazurevms.md
     - name: Gerir as tarefas do Azure Backup
       href: backup-azure-arm-userestapi-managejobs.md
-  - name: SQL em VMs do Azure
+  - name: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
     items:
-    - name: Fazer cópia de segurança da base de dados SQL no Azure
+    - name: Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
       href: backup-azure-sql-database.md
+    - name: Restaurar bases de dados do SQL Server guardadas na cópia de segurança
+      href: restore-sql-database-azure-vm.md
+    - name: Gerir bases de dados do SQL Server guardadas na cópia de segurança
+      href: manage-monitor-sql-database-backup.md
   - name: Windows Server
     items:
     - name: Fazer cópias de segurança de ficheiros e pastas do Windows Server
@@ -262,9 +270,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: ce83f8b6b1a0c7ccd9f00672f9aaf9bb33152fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 77f6bf8c4dd12c31f7461b273322b4ce41e3c58d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997239"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428300"
