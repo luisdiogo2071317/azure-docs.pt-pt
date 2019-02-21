@@ -23,26 +23,6 @@ items:
     href: active-directory-passwords-reset-register.md
   - name: Repor a palavra-passe
     href: user-help-reset-password.md
-- name: Ajuda de informações de segurança (pré-visualização)
-  items:
-  - name: Descrição geral
-    href: user-help-security-info-overview.md
-  - name: Configurar uma aplicação de autenticação
-    href: security-info-setup-auth-app.md
-  - name: Configurar mensagens de texto
-    href: security-info-setup-text-msg.md
-  - name: Configurar chamadas telefónicas
-    href: security-info-setup-phone-number.md
-  - name: Configurar e-mail
-    href: security-info-setup-email.md
-  - name: Configurar as perguntas de segurança
-    href: security-info-setup-questions.md
-  - name: Gerir as palavras-passe de aplicação
-    href: security-info-app-passwords.md
-  - name: Gerir as suas informações de segurança
-    href: security-info-manage-settings.md
-  - name: Como iniciar a sessão
-    href: user-help-sign-in.md?toc=./toc.json
 - name: Ajuda da aplicação do Microsoft Authenticator
   items:
   - name: Descrição geral
@@ -60,21 +40,49 @@ items:
       href: user-help-auth-app-add-non-ms-account.md
     - name: Adicionar manualmente uma conta
       href: user-help-auth-app-add-account-manual.md
-    expanded: true
   - name: Iniciar sessão utilizando a aplicação Microsoft Authenticator
     href: user-help-auth-app-sign-in.md
   - name: Efetuar cópia de segurança e recuperar as suas contas
     href: user-help-auth-app-backup-recovery.md
   - name: FAQ
     href: user-help-auth-app-faq.md
-- name: Ajuda do portal das Minhas Aplicações
+- name: Ajuda do portal O Meu Perfil (pré-visualização)
   items:
   - name: Descrição geral
-    href: user-help-my-apps-overview.md
-  - name: O que é o portal As minhas Aplicações?
-    href: active-directory-saas-access-panel-introduction.md
-  - name: Resolver problemas
-    href: active-directory-saas-access-panel-user-help.md
+    href: myprofile-portal-overview.md
+  - name: Gerir as suas informações de segurança
+    href: user-help-security-info-overview.md
+  - name: Ver a sua atividade de início de sessão
+    href: myprofile-portal-recent-activity-page.md
+  - name: Gerir as suas organizações
+    href: myprofile-portal-organizations-page.md
+  - name: Gerir os seus dispositivos ligados
+    href: myprofile-portal-devices-page.md
+  - name: Ver as suas informações relacionadas com a privacidade
+    href: myprofile-portal-privacy-page.md
+- name: Ajuda de informações de segurança (pré-visualização)
+  items:
+  - name: Descrição geral
+    href: user-help-security-info-overview.md
+  - name: Adicionar informações de segurança durante o início de sessão
+    href: security-info-setup-signin.md
+  - name: Adicionar ou atualizar a descrição geral dos métodos das informações de segurança
+    href: security-info-add-update-methods-overview.md
+    items:
+    - name: Configurar uma aplicação de autenticação
+      href: security-info-setup-auth-app.md
+    - name: Configurar mensagens de texto
+      href: security-info-setup-text-msg.md
+    - name: Configurar chamadas telefónicas
+      href: security-info-setup-phone-number.md
+    - name: Configurar e-mail
+      href: security-info-setup-email.md
+    - name: Configurar as perguntas de segurança
+      href: security-info-setup-questions.md
+  - name: Gerir as palavras-passe de aplicação
+    href: security-info-app-passwords.md
+  - name: Como iniciar a sessão
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Ajuda a gerir dispositivos
   items:
   - name: Descrição geral
@@ -85,9 +93,17 @@ items:
     href: user-help-register-device-on-network.md
   - name: Resolução de problemas de mensagem "Não consegue chegar lá"
     href: user-help-device-remediation.md
-ms.openlocfilehash: 604b2c204f893bf0abaaec86f85e2159c17a8656
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+- name: Ajuda do portal das Minhas Aplicações
+  items:
+  - name: Descrição geral
+    href: user-help-my-apps-overview.md
+  - name: O que é o portal As minhas Aplicações?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Resolver problemas
+    href: active-directory-saas-access-panel-user-help.md
+ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816055"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452579"
