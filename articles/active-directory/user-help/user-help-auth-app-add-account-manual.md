@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0d46fc8a152c4426832669ce22d4aa78ac640e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173947"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454655"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar manualmente uma conta para a aplicação
 Se a câmara não consegue capturar o código QR, pode adicionar manualmente as informações da sua conta para a aplicação Microsoft Authenticator para verificação de dois fatores. Isto funciona para contas escolar ou profissional e contas de não-Microsoft.
@@ -29,7 +29,7 @@ Os códigos de fornecido para as suas contas não são maiúsculas e minúsculas
 
 ## <a name="add-your-work-or-school-account"></a>Adicionar a sua conta escolar ou profissional
 
-1. No seu PC, tenha em atenção a **código** e **Url** informações sobre o **aplicação móvel de configurar** página. Mantenha esta página aberta para que possa ver o código e URL.
+1. No seu computador, tenha em atenção a **código** e **Url** informações sobre o **aplicação móvel de configurar** página. Mantenha esta página aberta para que possa ver o código e URL.
     
     ![Ecrã que fornece o código QR](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
@@ -47,7 +47,7 @@ Os códigos de fornecido para as suas contas não são maiúsculas e minúsculas
 
 ## <a name="add-your-google-account"></a>Adicionar a sua conta do Google
 
-1. No seu PC, selecione **não é possível analisar TI** partir a **configurar Authenticator** página com o código QR.
+1. No seu computador, selecione **não é possível analisar TI** partir do **configurar Authenticator** página com o código QR.
 
     O **não é possível ler o código de barras** é apresentada a página com o código secreto. Mantenha esta página aberta para que possa ver o código secreto.
 
@@ -55,7 +55,7 @@ Os códigos de fornecido para as suas contas não são maiúsculas e minúsculas
 
 3. Introduza um **nome da conta** (por exemplo, o Google) e escreva o **chave secreta** do passo 1 e, em seguida, selecione **concluir**.
 
-4. Sobre o **configurar Authenticator** página no seu PC, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do Google e, em seguida, selecione **Verifique se**.
+4. Sobre o **configurar Authenticator** página no seu computador, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do Google e, em seguida, selecione **Verifique se**.
 
     O **contas** ecrã da aplicação mostra-lhe o nome da conta e um código de verificação de seis dígitos. Para segurança adicional, as alterações de código de verificação a cada 30 segundos a impedir que alguém usando um código várias vezes.
 
@@ -70,7 +70,7 @@ Os códigos de fornecido para as suas contas não são maiúsculas e minúsculas
 
 3. Introduza um **nome da conta** (por exemplo, o Facebook) e escreva o **chave secreta** do passo 1 e, em seguida, selecione **concluir**.
 
-4. Sobre o **autenticação de dois fatores** página no seu PC, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do Facebook e, em seguida, selecione **Verifique se**.
+4. Sobre o **autenticação de dois fatores** página no seu computador, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do Facebook e, em seguida, selecione **Verifique se**.
 
     O **contas** ecrã da aplicação mostra-lhe o nome da conta e um código de verificação de seis dígitos. Para segurança adicional, as alterações de código de verificação a cada 30 segundos a impedir que alguém usando um código várias vezes.
 
@@ -80,7 +80,7 @@ Os códigos de fornecido para as suas contas não são maiúsculas e minúsculas
 ## <a name="add-your-amazon-account"></a>Adicionar a sua conta Amazon
 Pode adicionar sua conta Amazon, a ativação da verificação de dois fatores e, em seguida, adicionar a conta para a aplicação.
 
-1. No seu PC, selecione **não é possível ler o código de barras** partir a **escolha como vai receber códigos** página com o código QR.
+1. No seu computador, selecione **não é possível ler o código de barras** partir a **escolha como vai receber códigos** página com o código QR.
 
     O **não é possível ler o código de barras** é apresentada uma mensagem com o código secreto. Mantenha esta mensagem aberta para que possa ver o código secreto.
 
@@ -90,9 +90,9 @@ Pode adicionar sua conta Amazon, a ativação da verificação de dois fatores e
 
 4. Concluir o processo de inscrição, incluindo a adição de um método de verificação de cópia de segurança, como uma mensagem de texto e, em seguida, selecione **enviar código**.
 
-5. Sobre o **adicionar um método de verificação de cópia de segurança** página no seu PC, escreva o código de verificação de seis dígitos fornecido pelo seu método de verificação de cópia de segurança para a sua conta Amazon e, em seguida, selecione **verificar o código e continuar**.
+5. Sobre o **adicionar um método de verificação de cópia de segurança** página no seu computador, escreva o código de verificação de seis dígitos fornecido pelo seu método de verificação de cópia de segurança para a sua conta Amazon e, em seguida, selecione **verificar o código e continuar**.
 
-6. O Almost página, e decida se pretende tornar seu PC fidedigno do dispositivo e, em seguida, selecione **o tem. Ativar a verificação de dois passos em**.
+6. O Almost página, e decida se pretende que o seu computador um dispositivo fidedigno e, em seguida, selecione **o tem. Ativar a verificação de dois passos em**.
 
     O **definições de segurança avançadas** é apresentada a página, que mostra os detalhes de verificação de dois fatores atualizado.
 
