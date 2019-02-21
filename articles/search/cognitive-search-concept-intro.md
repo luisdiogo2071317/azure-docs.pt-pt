@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808209"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447332"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" no Azure Search?
 
@@ -96,18 +96,24 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 
 + EUA Centro-Oeste
 + EUA Centro-Sul
++ EUA Centro-Norte
 + EUA Leste
 + EUA Leste 2
 + EUA Oeste
 + EUA Oeste 2
++ EUA Central
 + Canadá Central
 + Europa Ocidental
-+ Reino Unido Sul
 + Europa do Norte
++ Reino Unido Sul
++ França Central
 + Sul do Brasil
 + Ásia Oriental
 + Sudeste Asiático
 + Índia Central
++ Oeste do Japão
++ Leste do Japão
++ Coreia do Sul Central
 + Leste da Austrália
 
 **Passo 2: Experiência prática para dominar o fluxo de trabalho**
@@ -122,7 +128,7 @@ Atualmente, são fornecidas apenas as APIs de REST. Utilize `api-version=2017-11
 
 | API REST | Descrição |
 |-----|-------------|
-| [Criar origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso de identificação de uma origem de dados externa a fornecer os dados de origem utilizados para criar documentos plena.  |
+| [Criar Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso de identificação de uma origem de dados externa a fornecer os dados de origem utilizados para criar documentos plena.  |
 | [Criar conjunto de capacidades (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso de coordenar o uso de [predefinidos habilidades](cognitive-search-predefined-skills.md) e [personalizadas capacidades cognitivas](cognitive-search-custom-skill-interface.md) usado num pipeline de enriquecimento durante a indexação. |
 | [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema de expressar um índice da Azure Search. Campos no índice mapeiam para campos numa origem de dados ou para campos fabricados durante a fase de melhoria (por exemplo, um campo para nomes de organização criado pelo reconhecimento de entidades). |
 | [Criar indexador (api-version = 2017-11-11-pré-visualização)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso definindo componentes utilizados durante a indexação: incluindo uma origem de dados, um conjunto de capacidades, associações de campo da origem e de estruturas de dados intermédios ao índice de destino e o índice em si. É o acionador para ingestão de dados e enriquecimento de executar o indexador. O resultado é um corpo de pesquisa com base no esquema de índice, preenchido com dados de origem, enriquecidos através de conjuntos de competências.  |

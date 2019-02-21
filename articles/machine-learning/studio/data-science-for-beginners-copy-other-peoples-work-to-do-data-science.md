@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241449"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456831"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciência de dados para a série de iniciantes
@@ -52,7 +52,7 @@ Um dos segredos comerciais da ciência de dados é obter a outras pessoas para f
 
 A Microsoft tem um serviço baseado na nuvem chamado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que está bem-vindo ao experimentar gratuitamente. Ele fornece uma área de trabalho em que pode experimentar com algoritmos de aprendizagem diferente e, quando tem sua solução esmiuçada, pode iniciá-lo como um serviço web.
 
-Parte deste serviço é algo chamado de  **[Galeria de IA do Azure](https://gallery.azure.ai/)**. Contém recursos, incluindo uma coleção de experiências do Azure Machine Learning ou de modelos, o que as pessoas tenham criado e contribuiu para utilização de terceiros. Estas experiências são uma excelente forma de aproveitar a reflexão e o trabalho pesado de outras pessoas para começar a usar em suas próprias soluções. Todas as pessoas são bem-vindo ao navegar por ele.
+Parte deste serviço é algo chamado de  **[Galeria de IA do Azure](https://gallery.azure.ai/)**. Contém recursos, incluindo uma coleção de experiências do Azure Machine Learning Studio, ou como modelos, o que as pessoas tenham criado e contribuiu para utilização de terceiros. Estas experiências são uma excelente forma de aproveitar a reflexão e o trabalho pesado de outras pessoas para começar a usar em suas próprias soluções. Todas as pessoas são bem-vindo ao navegar por ele.
 
 ![Galeria de IA do Azure](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -88,8 +88,8 @@ Existem outras experiências de [Galeria de IA do Azure](https://gallery.azure.a
 
 [Galeria de IA do Azure](https://gallery.azure.ai) é um lugar para procurar experimentações de trabalho que pode utilizar como ponto de partida para as suas próprias soluções.
 
-Certifique-se de que consulta outros vídeos em "Dados ciência para principiantes" do Microsoft Azure Machine Learning.
+Certifique-se de que consulta outros vídeos em "Dados ciência para principiantes" do Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Experimente a sua primeira experimentação de ciência de dados com o Azure Machine Learning](create-experiment.md)
+* [Experimente a sua primeira experimentação de ciência de dados com o Azure Machine Learning Studio](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](what-is-machine-learning.md)

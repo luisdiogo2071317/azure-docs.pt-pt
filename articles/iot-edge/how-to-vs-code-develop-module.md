@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245757"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456712"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos do Azure IoT Edge
 
@@ -49,7 +49,7 @@ Também precisará instalar algumas ferramentas adicionais, específicos de ling
     pip install --upgrade --user cookiecutter
     ```
 
-- NODE. js: [Node.js](https://nodejs.org). Também vai querer instalar [Yeoman](https://www.npmjs.com/package/yo) e o [gerador de módulo de node. js do Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module).
+- Node.js: [Node.js](https://nodejs.org). Também vai querer instalar [Yeoman](https://www.npmjs.com/package/yo) e o [gerador de módulo de node. js do Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
 - Java: [Kit de desenvolvimento Sudeste do Java 10](https://aka.ms/azure-jdks) e [Maven](https://maven.apache.org/). Precisará [defina o `JAVA_HOME` variável de ambiente](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a instalação do JDK.
 
@@ -262,6 +262,7 @@ Quando os módulos depuração através deste método, os módulos estão em exe
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - Adicione a seguinte linha única de código para o retorno de chamada que deseja depurar:
 
       ```python
@@ -339,7 +340,7 @@ Pode ignorar esta secção se seus módulos em execução no mesmo computador qu
 
    - **Função do Azure (C#)**: Adicionar o seu ponto de interrupção para o ficheiro `<your module name>.cs`.
    - **C#**: Adicionar o seu ponto de interrupção para o ficheiro `Program.cs`.
-   - **NODE. js**: Adicionar o seu ponto de interrupção para o ficheiro `app.js`.
+   - **Node.js**: Adicionar o seu ponto de interrupção para o ficheiro `app.js`.
    - **Java**: Adicionar o seu ponto de interrupção para o ficheiro `App.java`.
    - **Python**: Adicionar o seu ponto de interrupção no ficheiro `main.py`o método de retorno de chamada onde adicionou o `ptvsd.break_into_debugger()` linha.
    - **C**: Adicionar o seu ponto de interrupção para o ficheiro `main.c`.
@@ -350,6 +351,12 @@ Pode ignorar esta secção se seus módulos em execução no mesmo computador qu
 
 > [!NOTE]
 > O exemplo anterior mostra como depurar os módulos do IoT Edge em contentores. Ele adicionado portas expostas ao contentor do seu módulo `createOptions` definições. Depois de concluir os módulos de depuração, recomendamos que remova estas portas expostas de módulos do IoT Edge prontos para produção.
+
+## <a name="build-and-debug-a-module-remotely"></a>Criar e depurar remotamente um módulo
+
+Com as alterações recentes em mecanismos de Docker e Moby para suportar ligações SSH e uma nova definição em ferramentas de IoT do Azure que permite a injeção de definições de ambiente para a paleta de comandos do Visual Studio Code e terminais de Azure IoT Edge, que agora pode criar e depurar módulos em dispositivos remotos.
+
+Ver isso [entrada de blogue para programadores de IoT](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para obter mais informações e instruções passo a passo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

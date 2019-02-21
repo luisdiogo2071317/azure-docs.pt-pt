@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/08/2019
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ae421ac3f87a16fc6fd2e5f3e89c13fcae50dbf8
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311635"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453057"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -45,17 +45,17 @@ Pode analisar imagens para detetar e fornecem informações sobre seus recursos 
 
 ## <a name="extract-text-from-images"></a>Extrair texto de imagens
 
-Pode utilizar a Imagem Digitalizada para [extrair texto com o OCR](concept-extracting-text-ocr.md) de uma imagem para um fluxo de carateres legível por computador. Se for necessário, o OCR corrige a rotação do texto reconhecido, em graus, à volta do eixo de imagem horizontal e fornece as coordenadas de fotograma de cada palavra. O OCR suporta 25 idiomas e deteta automaticamente o idioma de texto extraído.
+Pode usar para imagem digitalizada [extrair texto usando o reconhecimento ótico de carateres (OCR)](concept-extracting-text-ocr.md) partir de uma imagem para um fluxo de carateres legível por máquina. Se for necessário, OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. OCR suporta 25 idiomas e Deteta automaticamente o idioma do texto reconhecido.
 
-Também pode [reconhecer texto impresso e manuscrito](concept-recognizing-text.md) a partir de uma imagem. A Imagem Digitalizada pode detetar e extrair texto impresso e manuscrito de imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, cartas e quadros. Atualmente, o reconhecimento de texto impresso e manuscrito está em pré-visualização e o inglês é o único idioma suportado.  
+Também pode [reconhecer texto impresso e manuscritos](concept-recognizing-text.md) numa imagem. A Imagem Digitalizada pode detetar e extrair texto impresso e manuscrito de imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, cartas e quadros. Atualmente, o reconhecimento de manuscrito e impressas texto está em pré-visualização e o inglês é o único idioma suportado. 
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 
-Pode utilizar a Imagem Digitalizada para [detetar conteúdo para adultos e profano](concept-detecting-adult-content.md) numa imagem, classificar a probabilidade de a imagem conter conteúdo para adultos ou profano e gerar uma pontuação de confiança para ambos. O filtro para a deteção de conteúdo para adultos ou profano pode ser definido numa escala móvel para se adaptar às suas preferências.
+Pode usar para imagem digitalizada [detetar conteúdos para adultos](concept-detecting-adult-content.md) numa imagem e devolver uma confiança de pontuação para ambos. O filtro para a deteção de conteúdo para adultos ou profano pode ser definido numa escala móvel para se adaptar às suas preferências.
 
 ## <a name="use-containers"></a>Utilizar contentores
 
-[Utilize contentores de imagem digitalizada](computer-vision-how-to-install-containers.md) reconhecer texto impresso e manuscritos localmente, mediante a instalação de um contentor Docker padronizado mais perto aos seus dados.
+[Utilize contentores de imagem digitalizada](computer-vision-how-to-install-containers.md) reconhecer texto impresso e manuscritos localmente ao instalar um contentor Docker padronizado mais perto aos seus dados.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 

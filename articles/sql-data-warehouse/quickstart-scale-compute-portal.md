@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 31ec1537a0075f486130a3bcf1017d35b47e499d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.reviewer: jrasnick
+ms.openlocfilehash: 2e3bb00cee679671ed382ee46690fc4dff8bddfb
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463655"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453890"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Dimensionar a computação do Azure SQL Data Warehouse no portal do Azure
 
@@ -29,11 +29,14 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Pode dimensionar um armazém de dados que já tem ou utilizar o [Início Rápido: criar e Ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados com o nome **mySampleDataWarehouse**.  Este início rápido dimensiona **mySampleDataWarehouse**.
+Pode dimensionar um armazém de dados que já tem, ou utilize [início rápido: criar e ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados com o nome **mySampleDataWarehouse**.  Este início rápido dimensiona **mySampleDataWarehouse**.
+
+>[!Note]
+>O armazém de dados tem de estar online para dimensionamento. 
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-No SQL Data Warehouse, pode aumentar ou diminuir os recursos de computação ao ajustar unidades do data warehouse. O [Criar e Ligar - portal](create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
+Recursos de computação do SQL Data Warehouse podem ser dimensionados mediante aumenta ou reduz as unidades do data warehouse. O [criar e ligar - portal] quickstart(create-data-warehouse-portal.md) criada **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
 Para alterar as unidades do data warehouse:
 
@@ -54,7 +57,7 @@ Para alterar as unidades do data warehouse:
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora já aprendeu como dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
+Agora já aprendeu a dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
 >[Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: a040991ca4b3a08dec90f4fc6944b006ebea2135
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5f132dce2a0a868de8607581935325d48e1520a1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487851"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456763"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Executar scripts de machine learning em Python no Azure Machine Learning Studio
 
-Este tópico descreve os princípios de design subjacente o suporte atual para scripts do Python no Azure Machine Learning. As principais capacidades fornecidas também são descritas, incluindo:
+Este tópico descreve os princípios de design subjacente o suporte atual para scripts do Python no Azure Machine Learning Studio. As principais capacidades fornecidas também são descritas, incluindo:
 
 - executar cenários de utilização básica
 - classificar uma experimentação num serviço web
@@ -61,11 +61,11 @@ Figura 1. O **executar Script do Python** módulo.
 O [executar Script do Python] [ execute-python-script] módulo no Azure ML Studio aceita até três entradas e produz até duas saídas (discutidas na seção a seguir), como o respetivo analógico de R, o [executar R Script] [ execute-r-script] módulo. O código de Python a ser executado é inserido na caixa de parâmetro especialmente nomeado como ponto de entrada de função chamada `azureml_main`. Aqui estão os princípios de design principais usados para implementar este módulo:
 
 1. *Tem de ser idiomático para usuários de Python.* A maioria dos usuários de Python fatorar seu código, como funções dentro de módulos. Então, colocar muito instruções executáveis num módulo de nível superior é relativamente raro. Como resultado, a caixa de script também usa uma função de Python especialmente nomeada em vez de uma seqüência de instruções. Os objetos expostos na função são tipos de biblioteca de Python padrão, tal como [Pandas](http://pandas.pydata.org/) quadros de dados e [NumPy](http://www.numpy.org/) matrizes.
-2. *Tem de ter alta-fidelidade entre o local e na cloud de execuções.* O back-end utilizado para executar o código de Python se baseia [Anaconda](https://store.continuum.io/cshop/anaconda/), um amplamente utilizadas distribuição da Python científica para várias plataformas. Ele vem com quase 200 os pacotes de Python mais comuns. Por conseguinte, os cientistas de dados podem depurar e qualificar seu código no seu ambiente do Azure Machine Learning compatível com Anaconda local. Em seguida, utilizar um ambiente de desenvolvimento existente, como [IPython](http://ipython.org/) bloco de notas ou [ferramentas do Python para Visual Studio](https://aka.ms/ptvs), executá-lo como parte de uma experimentação do Azure ML. O `azureml_main` ponto de entrada é uma função de Python baunilha e, portanto, *** podem ser criadas sem código específico do ML do Azure ou o SDK instalado.
-3. *Tem de ser facilmente compostos com outros módulos do Azure Machine Learning.* O [executar Script do Python] [ execute-python-script] módulo aceita, como entradas e saídas, conjuntos de dados do Azure Machine Learning standard. A estrutura subjacente forma transparente e eficiente preenche os tempos de execução do Azure ML e Python. Portanto, o Python pode ser utilizado em conjunto com o Azure ML fluxos de trabalho existentes, incluindo os que chamar R e SQLite. Consequentemente, cientista de dados pode compor fluxos de trabalho que:
+2. *Tem de ter alta-fidelidade entre o local e na cloud de execuções.* O back-end utilizado para executar o código de Python se baseia [Anaconda](https://store.continuum.io/cshop/anaconda/), um amplamente utilizadas distribuição da Python científica para várias plataformas. Ele vem com quase 200 os pacotes de Python mais comuns. Por conseguinte, os cientistas de dados podem depurar e qualificar seu código no seu ambiente do Azure Machine Learning Studio compatível com Anaconda local. Em seguida, utilizar um ambiente de desenvolvimento existente, como [IPython](http://ipython.org/) bloco de notas ou [ferramentas do Python para Visual Studio](https://aka.ms/ptvs), executá-lo como parte de uma experimentação do Azure ML. O `azureml_main` ponto de entrada é uma função de Python baunilha e, portanto, *** podem ser criadas sem código específico do ML do Azure ou o SDK instalado.
+3. *Tem de ser facilmente compostos com outros módulos do Azure Machine Learning Studio.* O [executar Script do Python] [ execute-python-script] módulo aceita, como entradas e saídas, conjuntos de dados do Azure Machine Learning Studio padrão. A estrutura subjacente forma transparente e eficiente preenche os tempos de execução do Azure ML e Python. Portanto, o Python pode ser utilizado em conjunto com o Azure ML fluxos de trabalho existentes, incluindo os que chamar R e SQLite. Consequentemente, cientista de dados pode compor fluxos de trabalho que:
    * utilizar o Python e Pandas para dados de pré-processamento e a limpeza
    * Feed de dados para uma transformação de SQL, associar vários conjuntos de dados às funcionalidades de formulário
-   * utilizar modelos com os algoritmos no Azure Machine Learning 
+   * utilizar modelos com os algoritmos no Azure Machine Learning Studio 
    * avaliar e pós-processamento os resultados com o R.
 
 
@@ -149,7 +149,7 @@ Figura 7. Função definida pelo utilizador em utilização dentro do [executar 
 
 ## <a name="working-with-visualizations"></a>Trabalhar com visualizações
 
-Gráficos criados com o MatplotLib, que pode ser visualizado no navegador podem ser devolvidos pela [executar Script do Python][execute-python-script]. Mas os gráficos não for redirecionados automaticamente para imagens conforme forem ao utilizar o R. Portanto, o utilizador tem explicitamente de guardar quaisquer gráficos para ficheiros PNG se eles devem ser devolvidos ao Azure Machine Learning. 
+Gráficos criados com o MatplotLib, que pode ser visualizado no navegador podem ser devolvidos pela [executar Script do Python][execute-python-script]. Mas os gráficos não for redirecionados automaticamente para imagens conforme forem ao utilizar o R. Portanto, o utilizador tem explicitamente de guardar quaisquer gráficos para ficheiros PNG se eles devem ser devolvidos ao Azure Machine Learning Studio. 
 
 Para gerar imagens de MatplotLib, tem de concluir o procedimento a seguir:
 
@@ -172,12 +172,12 @@ Figura 9 mostra uma experimentação que utiliza o script mostrado anteriormente
 
 Figura 9. Visualização de gráficos gerados a partir do código de Python.
 
-É possível devolver vários valores por salvá-los em imagens diferentes, o tempo de execução do Azure Machine Learning seleciona todas as imagens e concatena-os para visualização.
+É possível retornar vários valores por salvá-los em imagens diferentes, o tempo de execução do Azure Machine Learning Studio seleciona todas as imagens e concatena-os para visualização.
 
 
 ## <a name="advanced-examples"></a>Exemplos avançados
 
-O ambiente de Anaconda instalado no Azure Machine Learning contém pacotes comuns, como NumPy, SciPy e Scikits de aprender. Esses pacotes podem ser usados com eficiência para várias tarefas de processamento de dados num pipeline de aprendizagem automática. Por exemplo, a experimentação seguinte e o script ilustram o uso de aprendizes ensemble no Scikits de aprender para calcular as pontuações de importância de funcionalidade para um conjunto de dados. As pontuações podem ser utilizadas para efetuar a seleção de funcionalidades supervisionado antes de a ser inserida em outro modelo de ML.
+O ambiente de Anaconda instalado no Azure Machine Learning Studio contém pacotes comuns, como NumPy, SciPy e Scikits de aprender. Esses pacotes podem ser usados com eficiência para várias tarefas de processamento de dados num pipeline de aprendizagem automática. Por exemplo, a experimentação seguinte e o script ilustram o uso de aprendizes ensemble no Scikits de aprender para calcular as pontuações de importância de funcionalidade para um conjunto de dados. As pontuações podem ser utilizadas para efetuar a seleção de funcionalidades supervisionado antes de a ser inserida em outro modelo de ML.
 
 Segue-se a função de Python utilizada para calcular as pontuações de importância e os recursos com base nas pontuações de ordem:
 
@@ -185,7 +185,7 @@ Segue-se a função de Python utilizada para calcular as pontuações de import�
 
 Figura 10. A função de recursos de classificação por pontuações.
  
-Experimentação seguinte, em seguida, calcula e devolve as pontuações de importância dos recursos no conjunto de dados "Pima Rúpia Diabetes" no Azure Machine Learning:
+Experimentação seguinte, em seguida, calcula e devolve as pontuações de importância dos recursos no conjunto de dados "Pima Rúpia Diabetes" no Azure Machine Learning Studio:
 
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    
@@ -197,11 +197,11 @@ O [executar Script do Python] [ execute-python-script] atualmente tem as seguint
 
 1. *Execução em área restrita.* O tempo de execução do Python é atualmente restrita e, consequentemente, não permite o acesso à rede ou para o sistema de arquivos local de forma persistente. Todos os ficheiros guardados localmente são isolados e eliminados depois do módulo for concluída. O código de Python não é possível aceder a maioria dos diretórios na máquina que é executada, a exceção que está a ser o diretório atual e de seus subdiretórios.
 2. *Falta de desenvolvimento sofisticado e a depuração de suporte.* O módulo de Python não suporta atualmente recursos do IDE, como o intellisense e depuração. Além disso, se o módulo falhar em tempo de execução, o rastreio de pilha de Python completo está disponível. Mas tem de ser visualizado no registo de saída para o módulo. Atualmente, é recomendável que desenvolve e depurar scripts do Python num ambiente, como o IPython e, em seguida, importar o código para o módulo.
-3. *Saída do quadro de dados individual.* O ponto de entrada de Python apenas é permitido para retornar um quadro de dados única como saída. Não é atualmente possível devolver objetos arbitrários de Python, tais como modelos de formação diretamente ao tempo de execução do Azure Machine Learning. Como [executar Script R][execute-r-script], que tem a mesma limitação, é possível em muitos casos pickle objetos numa matriz de bytes e, em seguida, retornará essa dentro de um quadro de dados.
+3. *Saída do quadro de dados individual.* O ponto de entrada de Python apenas é permitido para retornar um quadro de dados única como saída. Não é atualmente possível devolver objetos arbitrários de Python, tais como modelos de formação diretamente ao tempo de execução do Azure Machine Learning Studio. Como [executar Script R][execute-r-script], que tem a mesma limitação, é possível em muitos casos pickle objetos numa matriz de bytes e, em seguida, retornará essa dentro de um quadro de dados.
 4. *Incapacidade de personalizar a instalação do Python*. Atualmente, a única forma de adicionar módulos personalizados do Python é por meio do mecanismo de arquivo zip descrito anteriormente. Embora isso seja viável para pequenos módulos, torna-se complexo para módulos grandes (especialmente aqueles com DLLs nativas) ou um grande número de módulos. 
 
 ## <a name="conclusions"></a>Conclusões
-O [executar Script do Python] [ execute-python-script] módulo permite que um cientista de dados incorporar código de Python existente em fluxos de trabalho de aprendizagem alojado na cloud no Azure Machine Learning e de forma totalmente integrada operacionalize-os como parte de um serviço web. O módulo de script de Python naturalmente interopera com outros módulos no Azure Machine Learning. O módulo pode ser utilizado para uma variedade de tarefas de exploração de dados para processamento prévio de padrões e a extração de funcionalidade e, em seguida, para avaliação e pós-processamento dos resultados. O tempo de execução de back-end utilizado para a execução se baseia em Anaconda, uma distribuição de Python bem testada e amplamente utilizada. Este back-end torna simples para acumular ativos de código existentes para a cloud.
+O [executar Script do Python] [ execute-python-script] módulo permite que um cientista de dados para incorporar o código de Python existente em fluxos de trabalho de aprendizagem na cloud alojado no Azure Machine Learning Studio e, a forma totalmente integrada operacionalize-os como parte de um serviço web. O módulo de script de Python naturalmente interopera com outros módulos no Azure Machine Learning Studio. O módulo pode ser utilizado para uma variedade de tarefas de exploração de dados para processamento prévio de padrões e a extração de funcionalidade e, em seguida, para avaliação e pós-processamento dos resultados. O tempo de execução de back-end utilizado para a execução se baseia em Anaconda, uma distribuição de Python bem testada e amplamente utilizada. Este back-end torna simples para acumular ativos de código existentes para a cloud.
 
 Esperamos que fornecer funcionalidade adicional para o [executar Script do Python] [ execute-python-script] módulo, como a capacidade de dar formação e operacionalizar modelos em Python e para adicionar um suporte melhor para o desenvolvimento e depuração de código no Azure Machine Learning Studio.
 

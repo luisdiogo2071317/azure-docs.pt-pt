@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859547"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447122"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para Python
 
@@ -26,16 +26,16 @@ Este artigo mostra como utilizar o serviço de voz através do SDK de voz para P
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
-* [Python 3.5 ou posterior](https://www.python.org/downloads/), 64 bits.
+* [Python 3.5 ou posterior](https://www.python.org/downloads/).
 * O pacote do Python SDK de voz está disponível para estes sistemas operativos: 
-    * Windows: x64.
+    * Windows: x64 e x86.
     * MAC: versão do macOS X 10.12 ou posterior.
     * Linux: Ubuntu 16.04 ou 18.04 em x64.
 * No Ubuntu, execute estes comandos para instalar os pacotes necessários:
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
   ```
 
 * No Windows, também terá do [Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma.

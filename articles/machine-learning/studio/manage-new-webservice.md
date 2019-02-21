@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 0ffa917aa6bcfb642cd672d0a51a70b13f041635
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267568"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453873"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gerir um serviço web com o portal de serviços Web do Azure Machine Learning Studio
 Pode gerenciar seu novo do Machine Learning e serviços Web clássicos com o portal do Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web clássicos e serviços Web novos baseiam-se nos diferentes tecnologias subjacentes, tem funcionalidades de gestão ligeiramente diferente para cada uma delas.
@@ -39,7 +39,7 @@ Se o utilizador não tem as permissões corretas para aceder a recursos no porta
 
 *Falha na implementação do serviço Web. Esta conta não tem acesso suficiente para a subscrição do Azure que contém a área de trabalho. Para poder implementar um serviço Web para o Azure, a mesma conta têm de ser convidada para a área de trabalho e obter acesso à subscrição do Azure que contém a área de trabalho.*
 
-Para obter mais informações sobre como criar uma área de trabalho, consulte [criar e partilhar uma área de trabalho do Azure Machine Learning](create-workspace.md).
+Para obter mais informações sobre como criar uma área de trabalho, consulte [criar e partilhar uma área de trabalho do Azure Machine Learning Studio](create-workspace.md).
 
 Para obter mais informações sobre a definição de permissões de acesso, consulte [gerir o acesso com RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -108,7 +108,7 @@ O dashboard de plano fornece as seguintes informações:
 
 ## <a name="manage-classic-web-services"></a>Gerir serviços Web clássicos
 > [!NOTE]
-> Os procedimentos nesta secção são relevantes para a gestão de serviços da web clássico através do portal do Azure Machine Learning Web Services. Para obter informações sobre o gerenciamento de serviços Web clássicos através de Machine Learning Studio e o portal do Azure, consulte [gerir uma área de trabalho do Azure Machine Learning](manage-workspace.md).
+> Os procedimentos nesta secção são relevantes para a gestão de serviços da web clássico através do portal do Azure Machine Learning Web Services. Para obter informações sobre o gerenciamento de serviços Web clássicos através de Machine Learning Studio e o portal do Azure, consulte [gerir uma área de trabalho do Azure Machine Learning Studio](manage-workspace.md).
 > 
 > 
 

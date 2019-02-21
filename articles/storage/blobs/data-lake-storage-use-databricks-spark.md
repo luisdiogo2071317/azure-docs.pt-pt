@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891662"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452613"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Aceder a dados de geração 2 de armazenamento do Data Lake com o Azure Databricks com o Spark
 
@@ -38,6 +38,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Instale v10 de AzCopy. Consulte [transferir dados com AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
+*  Crie um principal de serviço. Consulte [como: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Há duas coisas específicas que terá que fazer à medida que efetua os passos nesse artigo.
+
+   :heavy_check_mark: Quando realizar os passos no [atribuir a aplicação a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção do artigo, lembre-se de que atribuir a **contribuinte de dados de Blob de armazenamento** função ao principal de serviço.
+
+   > [!IMPORTANT]
+   > Certifique-se atribuir a função no âmbito da conta de armazenamento de geração 2 de armazenamento do Data Lake. Pode atribuir uma função para o grupo de recursos de principal ou uma subscrição, mas irá receber erros relacionados com as permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
+
+   :heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e valores de chave de autenticação para um ficheiro de texto. Precisará aqueles em breve.
+
 ### <a name="download-the-flight-data"></a>Transferir os dados de voos
 
 Este tutorial utiliza dados de voo do Bureau de estatísticas de transporte para demonstrar como realizar uma operação de ETL. Tem de transferir estes dados para concluir o tutorial.
@@ -49,24 +60,6 @@ Este tutorial utiliza dados de voo do Bureau de estatísticas de transporte para
 3. Selecione o **transferir** botão e guardar os resultados para o seu computador. 
 
 4. Descompacte o conteúdo do arquivo zipado e tome nota do nome do ficheiro e caminho do ficheiro. Precisa estas informações num passo posterior.
-
-## <a name="get-your-storage-account-name"></a>Obter o nome da sua conta de armazenamento
-
-Terá o nome da conta de armazenamento. Para obtê-lo, inicie sessão para o [portal do Azure](https://portal.azure.com/), escolha **todos os serviços** e filtra o termo *armazenamento*. Em seguida, selecione **contas de armazenamento** e localize a sua conta de armazenamento.
-
-Cole o nome de um arquivo de texto. Precisará dela em breve.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Criar um principal de serviço
-
-Crie um principal de serviço ao seguir as orientações neste tópico: [How to: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Há algumas coisas que terá que fazer à medida que efetua os passos nesse artigo.
-
-:heavy_check_mark: Quando realizar os passos no [atribuir a aplicação a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção do artigo, lembre-se de que atribuir a sua aplicação para o **função de contribuinte do armazenamento de BLOBs**.
-
-:heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e valores de chave de autenticação para um ficheiro de texto. Precisará aqueles em breve.
 
 ## <a name="create-an-azure-databricks-service"></a>Criar um serviço do Azure Databricks
 
@@ -145,9 +138,16 @@ Nesta secção, irá criar um sistema de ficheiros e uma pasta na sua conta de a
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. Este bloco de código, substitua a `storage-account-name`, `application-id`, `authentication-id`, e `tenant-id` valores de marcador de posição este bloco de código com os valores que recolheu quando concluído os passos de configuração de conta de armazenamento do conjunto aside e o [Criar um principal de serviço](#service-principal) seções deste artigo. Substitua o `file-system-name` marcador de posição com qualquer nome que pretende dar o seu sistema de ficheiros.
 
-19. Prima a **SHIFT + ENTER** chaves para executar o código nesse bloco. 
+18. Este bloco de código, substitua a `application-id`, `authentication-id`, `tenant-id`, e `storage-account-name` valores de marcador de posição este bloco de código com os valores que reuniu ao concluir os pré-requisitos deste tutorial. Substitua o `file-system-name` valor do marcador de posição com qualquer nome pretende dar ao sistema de ficheiros.
+
+   * O `application-id`, e `authentication-id` são a partir da aplicação que registou no active directory como parte da criação de um principal de serviço.
+
+   * O `tenant-id` é da sua subscrição.
+
+   * O `storage-account-name` é o nome da conta de armazenamento de geração 2 de armazenamento do Azure Data Lake.
+
+19. Prima a **SHIFT + ENTER** chaves para executar o código nesse bloco.
 
     Mantenha este bloco de notas aberto, como irá adicionar comandos a ele mais tarde.
 

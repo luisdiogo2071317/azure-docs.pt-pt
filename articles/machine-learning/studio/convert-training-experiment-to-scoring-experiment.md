@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001702"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455114"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Como preparar o seu modelo para a implementação no Azure Machine Learning Studio
 
@@ -50,11 +50,11 @@ Depois de executar a experimentação (clique em **execute** na parte inferior d
 
 Por exemplo, a experimentação seguinte prepara um modelo de árvore de decisões elevada de duas classes com dados de censo de exemplo:
 
-![Experimentação de preparação][figure1]
+![Experimentação de preparação](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 Os módulos Nesse experimento executam basicamente quatro funções diferentes:
 
-![Funções de módulo][figure2]
+![Funções de módulo](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 Quando converter esta experimentação de preparação para uma experimentação preditiva, alguns destes módulos já não são necessários, ou que agora servem um objetivo diferente:
 
@@ -70,7 +70,7 @@ Quando converter esta experimentação de preparação para uma experimentação
 
 Eis o aspeto do nosso exemplo depois de clicar em **no serviço de Web**:
 
-![Converter a experimentação preditiva][figure3]
+![Converter a experimentação preditiva](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 O trabalho realizado pelo **no serviço de Web** pode ser suficiente para preparar a sua experimentação para ser implementado como um serviço web. No entanto, pode querer fazer algum trabalho adicional específico à sua experimentação.
 
@@ -79,7 +79,7 @@ Na sua experimentação de preparação, utilizou um conjunto de dados de treina
 
 Por exemplo, por predefinição **segurança de serviço Web** coloca o **entrada do serviço da Web** módulo na parte superior do seu fluxo de dados, conforme mostrado na figura acima. Mas podemos manualmente posicionar os **entrada de serviço da Web** anteriores os módulos de processamento de dados:
 
-![Mover a entrada do serviço web][figure4]
+![Mover a entrada do serviço web](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 Os dados de entrada fornecidos através do serviço web agora passará diretamente para o módulo de modelo de pontuação sem qualquer tipo de pré-processamento.
 
@@ -88,14 +88,14 @@ No entanto, se desejar retornar algo diferente, em seguida, pode adicionar módu
 
 Por exemplo, para devolver apenas os resultados de classificação e não o vetor de inteiro de dados de entrada, adicione uma [Select Columns in Dataset] [ select-columns] módulo para excluir todas as colunas, exceto os resultados de classificação. Em seguida, mova o **saída de serviço da Web** módulo à saída do [Select Columns in Dataset] [ select-columns] módulo. A experimentação tem esta aparência:
 
-![Mover a saída do serviço web][figure5]
+![Mover a saída do serviço web](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Adicionar ou remover módulos de processamento de dados adicionais
 Se existirem mais módulos na experimentação que sabe que não serão necessários durante a classificação, estes podem ser removidos. Por exemplo, porque passamos a **entrada do serviço da Web** módulo para um ponto depois dos módulos de processamento de dados, podemos remover o [Clean Missing Data] [ clean-missing-data] módulo a partir do experimentação preditiva.
 
 Nosso experimentação preditiva agora esta aparência:
 
-![Remover o módulo adicional][figure6]
+![Remover o módulo adicional](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>Adicionar parâmetros do serviço Web opcional
@@ -116,16 +116,6 @@ Agora que a experimentação preditiva foi suficientemente preparada, pode imple
 Para obter mais informações sobre o processo de implantação completa, consulte [implementar um serviço web do Azure Machine Learning][deploy]
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

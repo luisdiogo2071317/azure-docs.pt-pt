@@ -1,6 +1,6 @@
 ---
-title: Analisar registos de atividades do Azure Active Directory com o Log Analytics (pré-visualização) | Documentos da Microsoft
-description: Saiba como analisar registos de atividades do Azure Active Directory com o Log Analytics (pré-visualização)
+title: Analisar registos de atividades do Azure Active Directory através de registos do Azure Monitor (pré-visualização) | Documentos da Microsoft
+description: Saiba como analisar registos de atividades do Azure Active Directory através de registos do Azure Monitor (pré-visualização)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea13d08af924427b9e7dc5def72c19d560525b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188261"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454763"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Azure AD de analisar os registos de atividades com o Log Analytics (pré-visualização)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Azure AD de analisar os registos de atividades com os registos do Azure Monitor (pré-visualização)
 
-Depois de [integrar o Azure AD registos de atividades com o Log Analytics](howto-integrate-activity-logs-with-log-analytics.md), pode utilizar o poder da análise de registo para obter informações sobre o seu ambiente. Também pode instalar o [registos de modos de exibição do Log Analytics para a atividade do Azure AD](howto-install-use-log-analytics-views.md) para obter acesso aos relatórios criados previamente em torno de auditoria e eventos de início de sessão no seu ambiente.
+Depois de [integrar o Azure AD registos de atividades com os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), pode utilizar o poder do Azure Monitor registos para obter informações sobre o seu ambiente. Também pode instalar o [vistas de análise para a atividade do Azure AD de registo registos](howto-install-use-log-analytics-views.md) para obter acesso aos relatórios criados previamente em torno de auditoria e eventos de início de sessão no seu ambiente.
 
 Neste artigo, irá aprender a analisar o Azure registos de atividades do AD no seu espaço de trabalho do Log Analytics. 
 
@@ -78,10 +78,12 @@ AuditLogs
 
 Também pode configurar alertas em sua consulta. Por exemplo, para configurar um alerta quando mais de 10 aplicações foram utilizadas na última semana:
 
-1. Na área de trabalho, selecione **definir alerta** para abrir o **criar regra** página. 
+1. Na área de trabalho, selecione **definir alerta** para abrir o **criar regra** página.
+
     ![Definir alerta](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
-2. Selecione a predefinição **critérios de alerta** criado no alerta e na atualização a **limiar** na métrica predefinida para o 10. 
+2. Selecione a predefinição **critérios de alerta** criado no alerta e na atualização a **limiar** na métrica predefinida para o 10.
+
     ![Critérios de alerta](./media/howto-analyze-activity-logs-log-analytics/alertcriteria.png)
 
 3. Introduza um nome e uma descrição do alerta e escolha o nível de gravidade. No nosso exemplo, podemos pode defini-lo **informativo**.
@@ -92,17 +94,17 @@ Também pode configurar alertas em sua consulta. Por exemplo, para configurar um
 
 ## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Instalar e utilizar vistas previamente criadas para a atividade do Azure AD registos
 
-As vistas do Log Analytics pré-criados para a atividade do Azure AD também pode transferir registos. As vistas fornecem vários relatórios relacionados aos cenários comuns que envolvem a auditoria e eventos de início de sessão. Pode também alertar em qualquer um dos dados fornecidos nos relatórios, utilizando os passos descritos na secção anterior.
+As vistas de análise de registo criados previamente para a atividade do Azure AD também pode transferir registos. As vistas fornecem vários relatórios relacionados aos cenários comuns que envolvem a auditoria e eventos de início de sessão. Pode também alertar em qualquer um dos dados fornecidos nos relatórios, utilizando os passos descritos na secção anterior.
 
 * **Conta do AD FS eventos de aprovisionamento**: Esta vista mostra relatórios relacionados com a auditoria de atividade de aprovisionamento, como o número de novos utilizadores aprovisionado e falhas de aprovisionamento, o número de utilizadores atualizados e atualizar falhas e o número de utilizadores desconfigurados e falhas correspondentes.    
 * **Eventos de inícios de sessão**: Esta vista mostra os relatórios mais relevantes relacionada com a monitorização da atividade de entrada, tais como inícios de sessão por aplicação, utilizador, dispositivo, bem como uma vista de resumo de controlo o número de inícios de sessão ao longo do tempo.
 * **Os utilizadores consentir**: Esta vista mostra os relatórios relacionados com o consentimento do utilizador, como o consentimento concede por utilizador, inícios de sessão por utilizadores que autoriza, bem como inícios de sessão por aplicação para todos os aplicativos baseados no consentimento. 
 
-Saiba como [instalar e utilizar vistas do Log Analytics para registos de atividades do Azure AD](howto-install-use-log-analytics-views.md). 
+Saiba como [instalar e utilizar os modos de exibição do log analytics para a atividade do Azure AD registos](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Introdução às consultas no Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+* [Introdução às consultas nos registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Criar e gerir grupos de alertas no portal do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Instalar e utilizar as vistas do Log Analytics do Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Instalar e utilizar os modos de exibição do log analytics do Azure Active Directory](howto-install-use-log-analytics-views.md)

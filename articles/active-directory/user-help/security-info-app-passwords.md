@@ -1,6 +1,6 @@
 ---
-title: Configurar palavras-passe de aplicação utilizando as informações de segurança - Azure Active Directory | Documentos da Microsoft
-description: Configurar gerado automaticamente palavras-passe (palavras-passe de aplicação) para utilizar com cada aplicação não baseada no browser, separar a partir de uma palavra-passe normal, com informações de segurança.
+title: Configurar palavras-passe de aplicação a partir da página de informações (pré-visualização) de segurança - Azure Active Directory | Documentos da Microsoft
+description: Configure gerado automaticamente palavras-passe (palavras-passe de aplicação) para utilizar com todas as aplicações não baseadas no browser ou qualquer aplicação que não suporta a verificação de dois fatores, na sua organização. Esta palavra-passe de aplicação está separado de uma palavra-passe normal e pode ser definida partir da página de informações de segurança.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,21 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62dcdfe3aef40942dd61fe604e179b61dbdd747c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211891"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456814"
 ---
-# <a name="manage-app-passwords-using-security-info-preview"></a>Gerir palavras-passe de aplicação utilizando as informações de segurança (pré-visualização)
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerir palavras-passe de aplicação a partir da sua página de informações (pré-visualização) de segurança
+Certas aplicações, como o Outlook 2010, não oferecem suporte a verificação de dois passos. Essa falta de suporte significa que, se estiver usando a verificação de dois passos na sua organização, a aplicação não funcionará. Para resolver este problema, pode criar uma palavra-passe gerada automaticamente para utilizar com cada aplicação de fora do browser separada da sua palavra-passe normal.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Determinadas aplicações não baseadas no browser, tais como o Outlook 2010, não suporta a verificação de dois passos. Essa falta de suporte significa que, se estiver usando a verificação de dois passos, a aplicação não funcionará. Para resolver este problema, pode criar uma palavra-passe gerada automaticamente para utilizar com cada aplicação de fora do browser separada da sua palavra-passe normal.
+>[!Important]
+>O administrador pode não permitir a utilização de palavras-passe de aplicação. Se não vir **palavras-passe de aplicação** como opção, eles não estão disponíveis na sua organização.
 
 Ao utilizar as palavras-passe de aplicação, é importante lembrar-se:
 
@@ -36,52 +38,48 @@ Ao utilizar as palavras-passe de aplicação, é importante lembrar-se:
     >[!Note]
     >Novos protocolos de autenticação de suporte de clientes do Office 2013 (incluindo Outlook) e pode ser utilizado com verificação de dois passos. Esse suporte significa que após a verificação de dois passos está ativada, já não terá de palavras-passe de aplicação para clientes do Office 2013. Para obter mais informações, consulte a [como a autenticação moderna funciona para aplicações de cliente do Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) artigo.
 
-## <a name="create-and-delete-app-passwords-using-security-info"></a>Criar e eliminar as palavras-passe de aplicação utilizando as informações de segurança
+## <a name="create-new-app-passwords"></a>Criar novas palavras-passe de aplicação
+Se usar a verificação de dois passos com a sua conta escolar ou profissional e o administrador tiver ativado a experiência de informações de segurança, pode criar e eliminar as palavras-passe de aplicação com o **informações de segurança** página.
 
-Se usar a verificação de dois passos com o seu trabalho ou a conta da instituição de ensino e o administrador tiver ativado a experiência de informações de segurança, pode criar e eliminar as palavras-passe de aplicação com o portal as minhas aplicações.
+>[!Note]
+>Se o administrador não tenha ativado a experiência de informações de segurança, tem de seguir as instruções e informações da [gerir palavras-passe de aplicação para a verificação de](multi-factor-authentication-end-user-app-passwords.md) secção.
 
-Se o administrador não tenha ativado a experiência de informações de segurança, tem de seguir as instruções e informações da [gerir palavras-passe de aplicação para a verificação de](multi-factor-authentication-end-user-app-passwords.md) secção.
+### <a name="to-create-a-new-app-password"></a>Para criar uma nova palavra-passe de aplicação
+1. Inicie sessão na sua conta escolar ou profissional e, em seguida, aceda ao seu https://myprofile.microsoft.com/ página.
 
-### <a name="to-create-app-passwords-using-the-my-apps-portal"></a>Para criar palavras-passe de aplicação com o portal as minhas aplicações
+    ![Minha página de perfil, que apresenta ligações de informações de segurança realçadas](media/security-info/securityinfo-myprofile.png)
 
-1. Inicie sessão na sua conta escolar ou profissional.
+2. Selecione **informações de segurança** no painel de navegação esquerdo ou na ligação presente o **informações de segurança** bloquear e, em seguida, selecione **Adicionar método** do **informações de segurança**  página.
 
-2. Vá para myapps.microsoft.com, selecione o seu nome no canto superior direito da página e, em seguida, selecione **perfil**.
+    ![Página de informações de segurança com a opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod.png)
 
-3. Na **gerir a conta** área, selecione **editar as informações de segurança**.
+3. Sobre o **adicione um método** página, selecione **palavra-passe de aplicação** na lista pendente e, em seguida, selecione **Add**.
 
-    ![Ecrã de perfil com a ligação de informações de segurança de editar realçada](media/security-info/security-info-profile.png)
+    ![Adicionar a caixa de método, com a palavra-passe de aplicações selecionado](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. Na **manter a sua conta segura** ecrã, selecione **adicione informações de segurança**.
+4. Escreva o nome da aplicação que requer a palavra-passe de aplicação e, em seguida, selecione **seguinte**.
 
-    ![Ecrã de informações de segurança com informações existentes, editável](media/security-info/security-info-edit-add-info.png)
+    ![Página de palavra-passe de aplicação, com o nome da aplicação](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. Na **adicionar informações de segurança** ecrã, selecione **palavra-passe de aplicação**.
+5. Copie o texto dos **palavra-passe** caixa, cole a palavra-passe na área de palavra-passe da aplicação (neste exemplo, o Outlook 2010) e, em seguida, selecione **feito**.
 
-6. Na **criar a sua palavra-passe de aplicação** ecrã, escreva um nome para a sua palavra-passe de aplicação e, em seguida, selecione **próxima**.
-
-    ![Ecrã onde nomeia a palavra-passe de aplicação](media/security-info/security-info-name-app-password.png)
-
-7. Selecione **cópia** para copiar a palavra-passe para a área de transferência e, em seguida, selecione **próxima**.
-
-    ![Ecrã com a palavra-passe de aplicação para copiar](media/security-info/security-info-create-app-password.png)
+    ![Página de palavra-passe de aplicação, com o nome da aplicação](media/security-info/securityinfo-myprofile-password-copytext.png)
     
-8. Certifique-se de que a palavra-passe de aplicação aparece no **manter a sua conta segura** ecrã.
+    A palavra-passe é adicionada e pode iniciar sessão com êxito à sua aplicação no futuro.
 
-    ![Manter o ecrã seguro, com a palavra-passe de aplicação](media/security-info/security-info-keep-secure-app-password.png)
+## <a name="delete-your-app-passwords"></a>Eliminar as palavras-passe de aplicação
+Se já não precisar de utilizar uma aplicação que requer uma palavra-passe de aplicação, pode eliminar a palavra-passe de aplicação associada. A eliminar a palavra-passe de aplicação liberta a um dos pontos de palavra-passe de aplicação disponível para utilização no futuro.
 
-### <a name="to-delete-app-passwords-using-the-my-apps-portal"></a>Para eliminar as palavras-passe de aplicação com o portal as minhas aplicações
+>[!Important]
+>Se eliminar uma palavra-passe de aplicação por engano, não é possível-lo. Terá que criar uma nova palavra-passe de aplicação e volte a introduzir na aplicação, seguindo os passos a [criar novas palavras-passe de aplicação](#create-new-app-passwords) seção deste artigo.
 
-1. Sobre o **manter a sua conta segura** ecrã, selecione a **X** junto a palavra-passe de aplicação para eliminar.
+### <a name="to-delete-an-app-password"></a>Para eliminar uma palavra-passe de aplicação
 
-    ![Manter a tela segura, elimine a palavra-passe de aplicação](media/security-info/security-info-keep-secure-delete-app-password.png)
+1. Sobre o **informações de segurança** página, selecione a **eliminar** ligação junto ao **palavra-passe de aplicação** opção para a aplicação específica.
 
-2. Na **palavra-passe de aplicação de eliminação** ecrã, selecione **eliminar**.
+    ![Ligação para eliminar o método de palavra-passe de aplicação a partir de informações de segurança](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-    ![Eliminar ecrã de palavra-passe de aplicação](media/security-info/security-info-keep-secure-delete-app-password2.png)
+2. Selecione **Sim** na caixa de confirmação para eliminar a **palavra-passe de aplicação**. Depois da palavra-passe de aplicação é eliminada, este é removido do suas informações de segurança e, este desaparece dos **informações de segurança** página.
 
-## <a name="next-steps"></a>Passos Seguintes
-
-- Se precisar de atualizar as suas informações de segurança, siga as instruções no [gerir as suas informações de segurança](security-info-manage-settings.md) artigo.
-
-- Para obter informações mais gerais sobre informações de segurança e o que pode fazer, consulte [descrição geral de informações de segurança](user-help-security-info-overview.md) 
+## <a name="for-more-information"></a>Para obter mais informações:
+- Para obter mais informações sobre o **informações de segurança** página e como configurá-lo, consulte [descrição geral de informações de segurança](user-help-security-info-overview.md)

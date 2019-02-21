@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95f7eb971f7da229c7d66d586598697ab0a2d8b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2aca321ac0902d115f4fc7622992d29183c1d35c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209403"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452604"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicie sessão utilizando as informações de segurança ou de verificação de dois passos
-
 Depois de configurar a verificação de dois passos ou informações de segurança, poderá iniciar sessão na sua conta com o seu método de autenticação especificado.
 
 >[!Note]
->Se ainda estiver a utilizar a experiência de verificação de dois passos, terá de configurar os métodos de autenticação ao seguir as instruções no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo. Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação com estes guias passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
+>Se ainda estiver a utilizar a experiência de verificação de dois passos, terá de configurar os métodos de autenticação ao seguir as instruções no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo.
+
+>Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação usando estes artigos passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Inicie sessão com uma notificação de aplicação de autenticador no seu dispositivo móvel
 
@@ -55,9 +56,6 @@ Depois de configurar a verificação de dois passos ou informações de seguran�
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-- Editar as informações de segurança para adicionar ou alterar seus métodos de verificação no [gerir as suas informações de segurança](security-info-manage-settings.md) artigo. 
-
 - Saiba mais sobre as informações de segurança do [descrição geral de informações (pré-visualização) de segurança](user-help-security-info-overview.md) artigo.
 
 - Saiba mais sobre a verificação de dois passos no [descrição geral de verificação de dois passos](user-help-two-step-verification-overview.md) artigo. 

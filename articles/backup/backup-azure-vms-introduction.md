@@ -1,5 +1,5 @@
 ---
-title: Sobre a cópia de segurança de VM do Azure
+title: Acerca das cópias de segurança de VMs do Azure
 description: Saiba mais sobre a cópia de segurança de VM do Azure e tenha em atenção algumas práticas recomendadas.
 services: backup
 author: rayne-wiselman
@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: c331c3617f421c913abbc3554aa5ba17e86cb978
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: c38c457bbf428d7252cf57168685201a2ca227ba
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429184"
+ms.locfileid: "56446805"
 ---
-# <a name="about-azure-vm-backup"></a>Sobre a cópia de segurança de VM do Azure
+# <a name="about-azure-vm-backup"></a>Acerca das cópias de segurança de VMs do Azure
 
 Este artigo descreve como o [serviço de cópia de segurança do Azure](backup-introduction-to-azure-backup.md) efetua uma cópia de segurança de VMs do Azure.
 
@@ -48,7 +48,7 @@ Quando cria cópias de segurança de VMs do Azure com o Azure Backup, as VMs sã
 
 **Encriptação** | **Detalhes** | **Suporte**
 --- | --- | ---
-**ADE** | ADE encripta encripta os dados e SO de discos para VMs do Azure.<br/><br/> ADE integra-se com chaves de encriptação de disco BitLocker (BEK), guardados de forma segura num cofre de chaves como segredos, ou com chaves de encriptação de chave do Azure Key Vault (KEK). | O Azure Backup suporta a cópia de segurança de VMs do Azure geridos e não geridos encriptados com a BEK apenas, ou com a BEK juntamente com KEK.<br/><br/> Ambos os BEK e e uma cópia de segurança e encriptados.<br/><br/> Uma vez que a KEK e BEK são uma cópia de segurança, se for necessário os utilizadores com permissões pode restaurar as chaves e segredos para o Cofre de chaves e recuperar a VM encriptada.<br/><br/> Não não possível ler encriptadas chaves e segredos por utilizadores não autorizados ou pelo Azure.
+**ADE** | ADE encripta os dados e SO de discos para VMs do Azure.<br/><br/> ADE integra-se com chaves de encriptação de disco BitLocker (BEK), guardados de forma segura num cofre de chaves como segredos, ou com chaves de encriptação de chave do Azure Key Vault (KEK). | O Azure Backup suporta a cópia de segurança de VMs do Azure geridos e não geridos encriptados com a BEK apenas, ou com a BEK juntamente com KEK.<br/><br/> Ambos os BEK e uma cópia de segurança e encriptados.<br/><br/> Uma vez que a KEK e BEK são uma cópia de segurança, se for necessário os utilizadores com permissões pode restaurar as chaves e segredos para o Cofre de chaves e recuperar a VM encriptada.<br/><br/> Não não possível ler encriptadas chaves e segredos por utilizadores não autorizados ou pelo Azure.
 **SSE** | E o SSE, o armazenamento do Azure fornece encriptação em repouso, criptografando automaticamente os dados antes de os armazenar e descriptografa-a antes de obtenção. | O Azure Backup utiliza o SSE para encriptação de inativos de VMs do Azure.
 
 - Cópia de segurança de VMs encriptadas com BitLocker encriptação de chave (BEK) apenas e BEK em conjunto com a chave de encriptação Key(KEK) é suportada, geridos e das VMs do Azure.

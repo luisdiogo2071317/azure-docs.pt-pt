@@ -4,57 +4,48 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1ef8db71a6a9765eac4ec6ac8cae1d731e296b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 143c214e13d3a603b9d417c68acd7b74dd342040
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205890"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Tutorial: Integração do Active Directory do Azure com o Software de Halogen
 
 Neste tutorial, saiba como integrar o Software de Halogen com o Azure Active Directory (Azure AD).
-
 Integrar o Software de Halogen no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Halogen Software
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para o Software de Halogen (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
+* Pode controlar no Azure AD que tenha acesso ao Halogen Software.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para o Software de Halogen (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Software de Halogen, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um Software de Halogen logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Halogen Software logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
-1. Adicionar Halogen Software a partir da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+* Oferece suporte a halogen Software **SP** iniciada SSO
 
 ## <a name="adding-halogen-software-from-the-gallery"></a>Adicionar Halogen Software a partir da Galeria
 
@@ -62,142 +53,168 @@ Para configurar a integração de Halogen Software com o Azure AD, terá de adic
 
 **Para adicionar Halogen Software a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **Halogen Software**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/halogen-software-tutorial/tutorial_halogensoftware_search.png)
+4. Na caixa de pesquisa, escreva **Halogen Software**, selecione **Halogen Software** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. No painel de resultados, selecione **Halogen Software**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+     ![Software de halogen na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/halogen-software-tutorial/tutorial_halogensoftware_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com o Software de Halogen com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Halogen Software a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Halogen Software deve ser estabelecido.
-
-Em Halogen Software, atribuir o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com o Software de Halogen com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Halogen Software deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com o Software de Halogen, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de Halogen Software](#creating-a-halogen-software-test-user)**  - para ter um equivalente da Eduarda Almeida na Halogen Software que está ligado à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar Halogen Software início de sessão único](#configure-halogen-software-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de Halogen Software](#create-halogen-software-test-user)**  - para ter um equivalente da Eduarda Almeida na Halogen Software que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de Halogen Software.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com o Software de Halogen, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com o Software de Halogen, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **Halogen Software** página de integração de aplicativo, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Halogen Software** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/halogen-software-tutorial/tutorial_halogensoftware_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **Halogen Software domínio e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/halogen-software-tutorial/tutorial_halogensoftware_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://global.hgncloud.com/<companyname>`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://global.halogensoftware.com/<companyname>`, `https://global.hgncloud.com/<companyname>`
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de Software Halogen](https://support.halogensoftware.com/) obter esses valores. 
- 
+    ![Halogen Software domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://global.hgncloud.com/<companyname>`
 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
 
-    ![Configurar o início de sessão único](./media/halogen-software-tutorial/tutorial_halogensoftware_certificate.png) 
+    | |
+    |--|
+    | `https://global.halogensoftware.com/<companyname>`|
+    | `https://global.hgncloud.com/<companyname>`|
+    | |
 
-1. Clique em **guardar** botão.
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente de Software Halogen](https://support.halogensoftware.com/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-    ![Configurar o início de sessão único](./media/halogen-software-tutorial/tutorial_general_400.png)
+4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+
+    ![O link de download de certificado](common/metadataxml.png)
+
+6. Sobre o **configurar Halogen Software** secção, copie os URLs apropriados de acordo com seus requisitos.
+
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-halogen-software-single-sign-on"></a>Configurar Halogen Software início de sessão único
 
 1. Numa janela do browser diferente, início de sessão na sua **Halogen Software** como um administrador.
 
-1. Clique nas **opções** separador. 
-   
-    ![O que é o Azure AD Connect][12]
-
-1. No painel de navegação esquerdo, clique em **configuração SAML do**. 
-   
-    ![O que é o Azure AD Connect][13]
-
-1. Sobre o **configuração SAML do** página, execute os seguintes passos: 
-
-    ![O que é o Azure AD Connect][14]
-
-     a. Como **Identificador exclusivo**, selecione **NameID**.
-
-     b. Como **exclusivo mapas do identificador a para**, selecione **Username**.
+2. Clique nas **opções** separador.
   
-     c. Para carregar o ficheiro de metadados baixado, clique em **navegue** para selecionar o ficheiro e, em seguida **carregar o ficheiro**.
- 
-     d. Para testar a configuração, clique em **executar teste**. 
-    
-    >[!NOTE]
-    >Terá de aguardar que a mensagem "*o teste SAML estiver concluído. Feche esta janela*". Em seguida, feche a janela do browser aberta. O **ativar SAML** caixa de verificação só está ativada se o teste for concluído. 
-     
-     e. Selecione **ativar SAML**.
-    
-     f. Clique em **guardar alterações**. 
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_12.png)
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
+3. No painel de navegação esquerdo, clique em **configuração SAML do**.
+  
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_13.png)
 
+4. Sobre o **configuração SAML do** página, execute os seguintes passos:
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_14.png)
+
+    a. Como **Identificador exclusivo**, selecione **NameID**.
+
+    b. Como **exclusivo mapas do identificador a para**, selecione **Username**.
+  
+    c. Para carregar o ficheiro de metadados baixado, clique em **navegue** para selecionar o ficheiro e, em seguida **carregar o ficheiro**.
+
+    d. Para testar a configuração, clique em **executar teste**.
+
+    > [!NOTE]
+    > Terá de aguardar que a mensagem "*o teste SAML estiver concluído. Feche esta janela*". Em seguida, feche a janela do browser aberta. O **ativar SAML** caixa de verificação só está ativada se o teste for concluído.
+
+    e. Selecione **ativar SAML**.
+
+    f. Clique em **guardar alterações**.
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar utilizador do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](./media/halogen-software-tutorial/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/halogen-software-tutorial/create_aaduser_02.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/halogen-software-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/halogen-software-tutorial/create_aaduser_04.png) 
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na **Name** caixa de texto, nome do tipo **BrittaSimon**.
-
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-halogen-software-test-user"></a>Criar um utilizador de teste de Halogen Software
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao Halogen Software.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Halogen Software**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **Halogen Software**.
+
+    ![A ligação de Halogen Software na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-halogen-software-test-user"></a>Criar utilizador de teste de Halogen Software
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Halogen Software.
 
@@ -205,87 +222,34 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Haloge
 
 1. Inicie sessão no seu **Halogen Software** como um administrador.
 
-1. Clique nas **Centro de utilizador** separador e, em seguida, clique em **Create User**.
-   
-    ![O que é o Azure AD Connect][300]  
+2. Clique nas **Centro de utilizador** separador e, em seguida, clique em **Create User**.
 
-1. Sobre o **novo utilizador** caixa de diálogo página, execute os seguintes passos:
-   
-    ![O que é o Azure AD Connect][301]
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_300.png)  
+
+3. Sobre o **novo utilizador** caixa de diálogo página, execute os seguintes passos:
+
+    ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_301.png)
 
     a. Na **nome próprio** caixa de texto, nome do utilizador, como o tipo **Eduarda**.
-    
-    b. Na **sobrenome** caixa de texto, último nome de tipo do utilizador, como **Simon**. 
+
+    b. Na **sobrenome** caixa de texto, último nome de tipo do utilizador, como **Simon**.
 
     c. Na **nome de utilizador** caixa de texto, tipo **Eduarda Almeida**, o nome de utilizador como no portal do Azure.
 
     d. Na **palavra-passe** caixa de texto, digite uma senha para Eduarda.
-    
+
     e. Clique em **Guardar**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso ao Halogen Software.
+Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-![Atribuir utilizador][200] 
+Quando clica no mosaico de Halogen Software no painel de acesso, deve ser automaticamente conectado para o Software de Halogen para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-**Para atribuir a Eduarda Almeida a Halogen Software, execute os seguintes passos:**
+## <a name="additional-resources"></a>Recursos Adicionais
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-    ![Atribuir utilizador][201] 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-1. Na lista de aplicações, selecione **Halogen Software**.
-
-    ![Configurar o início de sessão único](./media/halogen-software-tutorial/tutorial_halogensoftware_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
-
-O objetivo desta secção consiste em testar a configuração de SSO do Azure AD através do painel de acesso.
-
-Quando clica no mosaico de Halogen Software no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de Halogen Software.
-
-## <a name="additional-resources"></a>Recursos adicionais
-
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-
-
-<!--Image references-->
-
-[1]: ./media/halogen-software-tutorial/tutorial_general_01.png
-[2]: ./media/halogen-software-tutorial/tutorial_general_02.png
-[3]: ./media/halogen-software-tutorial/tutorial_general_03.png
-[4]: ./media/halogen-software-tutorial/tutorial_general_04.png
-
-[12]: ./media/halogen-software-tutorial/tutorial_halogen_12.png
-
-[13]: ./media/halogen-software-tutorial/tutorial_halogen_13.png
-
-[14]: ./media/halogen-software-tutorial/tutorial_halogen_14.png
-
-[100]: ./media/halogen-software-tutorial/tutorial_general_100.png
-
-[200]: ./media/halogen-software-tutorial/tutorial_general_200.png
-[201]: ./media/halogen-software-tutorial/tutorial_general_201.png
-[202]: ./media/halogen-software-tutorial/tutorial_general_202.png
-[203]: ./media/halogen-software-tutorial/tutorial_general_203.png
-
-[300]: ./media/halogen-software-tutorial/tutorial_halogen_300.png
-
-[301]: ./media/halogen-software-tutorial/tutorial_halogen_301.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

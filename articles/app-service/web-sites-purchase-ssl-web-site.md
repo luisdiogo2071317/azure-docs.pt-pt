@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820789"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446754"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de aplicações do Azure
 
-Este tutorial mostra-lhe como proteger a sua aplicação web através da criação (compra de) um certificado de serviço de aplicações no [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) e, em seguida, vincule-a uma aplicação de serviço de aplicações.
+Este tutorial mostra-lhe como proteger seus [aplicação de serviço de aplicações](https://docs.microsoft.com/azure/app-service/) ou [aplicação de funções](https://docs.microsoft.com/azure/azure-functions/) através da criação (compra) um certificado de serviço de aplicações no [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) e, em seguida, vinculá-lo para um Aplicação de serviço de aplicações.
 
 > [!TIP]
 > Certificados de serviço de aplicações pode ser usado para qualquer do Azure ou serviços do Azure e não está limitados a serviços de aplicações. Para tal, terá de criar uma cópia PFX local de um certificado de serviço de aplicações que pode usá-lo em qualquer lugar que desejar. Para obter mais informações, consulte [criar uma cópia PFX local de um certificado de serviço de aplicações](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
@@ -35,7 +35,7 @@ Este tutorial mostra-lhe como proteger a sua aplicação web através da criaç�
 Para seguir este guia de procedimentos:
 
 - [Criar uma aplicação do Serviço de Aplicações](/azure/app-service/)
-- [Mapear um nome de domínio para a sua aplicação web](app-service-web-tutorial-custom-domain.md) ou [comprar e configurá-la no Azure](manage-custom-dns-buy-domain.md)
+- [Mapear um nome de domínio para a aplicação](app-service-web-tutorial-custom-domain.md) ou [comprar e configurá-la no Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -49,7 +49,7 @@ Utilize a tabela seguinte para ajudar a configurar o certificado. Quando termina
 
 | Definição | Descrição |
 |-|-|
-| Nome | Um nome amigável para o seu certificado de serviço de aplicações. |
+| Name | Um nome amigável para o seu certificado de serviço de aplicações. |
 | Nome do Anfitrião do Domínio sem "www" | Se especificar o domínio raiz aqui, obtém um certificado que protege *ambos* o domínio de raiz e o `www` subdomínio. Para proteger qualquer subdomínio apenas, especifique o nome de domínio completamente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com`). |
 | Subscrição | O centro de dados onde o a aplicação Web está alojada. |
 | Grupo de recursos | O grupo de recursos que contém o certificado. Pode utilizar um grupo de recursos ou selecione o mesmo grupo de recursos que a sua aplicação de serviço de aplicações, por exemplo. |
@@ -70,12 +70,12 @@ Na **estado do Key Vault** página, clique em **repositório do Key Vault** para
 
 | Definição | Descrição |
 |-|-|
-| Nome | Um nome exclusivo que consiste em para carateres alfanuméricos e travessões. |
+| Name | Um nome exclusivo que consiste em para carateres alfanuméricos e travessões. |
 | Grupo de recursos | Como uma recomendação, selecione o mesmo grupo de recursos como o certificado de serviço de aplicações. |
 | Localização | Selecione a mesma localização que a sua aplicação de serviço de aplicações. |
 | Escalão de preço | Para obter informações, consulte [os detalhes dos preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define as aplicações e de ter permissão para aceder aos recursos do cofre. Pode configurá-lo mais tarde, seguindo os passos indicados em [conceder acesso de aplicações de vários para um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Acesso de Rede Virtual | Restringir o acesso do cofre para determinadas redes virtuais do Azure. Pode configurá-lo mais tarde, seguindo os passos indicados em [configurar o Azure Key Vault Firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
+| Acesso à rede virtual | Restringir o acesso do cofre para determinadas redes virtuais do Azure. Pode configurá-lo mais tarde, seguindo os passos indicados em [configurar o Azure Key Vault Firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
 
 Depois de selecionar o cofre, feche o **repositório do Key Vault** página. O **Store** opção deve mostrar uma marca de verificação verde para o sucesso. Mantenha a página aberta para a próxima etapa.
 

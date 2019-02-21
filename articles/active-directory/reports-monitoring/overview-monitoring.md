@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 228d54f1b2b438c05779b96025d3ad03a7757beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 961f7bf85ed8bb67c8284edea1846e96895d7f46
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165098"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452853"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>O que é a monitorização do Azure Active Directory? (pré-visualização)
 
@@ -57,14 +57,14 @@ Ao encaminhar os registos para uma conta de armazenamento do Azure, pode mantê-
 
 O encaminhamento de registos para um hub de eventos do Azure permite-lhe integrar com ferramentas SIEM de terceiros, como o Sumologic e o Splunk. Esta integração permite-lhe combinar dados de registo de atividade do Azure AD com outros dados geridos pelo seu SIEM, para fornecer informações mais ricas sobre o seu ambiente. Saiba como [transmitir registos a um hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-## <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
+## <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para os registos do Azure Monitor
 
-O [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é uma solução que consolida a monitorização de dados de diferentes origens e fornece uma linguagem de consulta e um mecanismo de análise que permitem obter informações sobre o funcionamento das suas aplicações e recursos. Através do envio de registos de atividades do Azure AD para o Log Analytics, pode obter, monitorizar e alertar rapidamente sobre os dados recolhidos. Saiba como [enviar dados para o Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+[Registos de Monitor do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é uma solução que consolida os dados de diferentes origens de monitorização e oferece um mecanismo de análise e linguagem de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Através do envio do Azure AD registos de atividade para os registos do Azure Monitor, pode rapidamente obter, monitorizar e alertar relativamente dados recolhidos. Saiba como [enviar dados para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
-Também pode instalar as vistas pré-criadas para os registos de atividades do Azure AD para monitorizar cenários comuns que envolvem inícios de sessão e eventos de auditoria. Saiba como [instalar e utilizar vistas do Log Analytics para registos de atividades do Azure AD](howto-install-use-log-analytics-views.md).
+Também pode instalar as vistas pré-criadas para os registos de atividades do Azure AD para monitorizar cenários comuns que envolvem inícios de sessão e eventos de auditoria. Saiba como [instalar e utilizar os modos de exibição do log analytics para a atividade do Azure AD registos](howto-install-use-log-analytics-views.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Registos de atividades no Azure Monitor](concept-activity-logs-azure-monitor.md)
 * [Transmitir registos ao hub de eventos](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Enviar registos para o Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
+* [Enviar registos para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

@@ -2,24 +2,18 @@
 title: Utilizar o PowerShell para criar e configurar uma área de trabalho do Log Analytics | Documentos da Microsoft
 description: Log Analytics utiliza dados de servidores no seu local ou a infraestrutura na cloud. Pode recolher dados de máquina de armazenamento do Azure quando gerados pelo diagnóstico do Azure.
 services: log-analytics
-documentationcenter: ''
 author: richrundmsft
-manager: jochan
-editor: ''
-ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: e34d45d2d7c81ec5f15a5441ce2bb0f082c65155
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5b64ecbb82e88b43546946ef30bf3107874af170
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884117"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446482"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerir o Log Analytics com o PowerShell
 Pode utilizar o [cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para executar várias funções no Log Analytics numa linha de comandos ou como parte de um script.  Exemplos das tarefas que pode efetuar com o PowerShell:
@@ -63,7 +57,7 @@ O script de exemplo seguinte ilustra como:
 11. Recolher contador de desempenho de memória utilizada em Mbytes disponíveis a partir de computadores Windows
 12. Recolher um registo personalizado 
 
-```
+```PowerShell
 
 $ResourceGroup = "oms-example"
 $WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
@@ -184,23 +178,22 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 
 # Custom Logs
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
-
 ```
 No exemplo acima regexDelimiter foi definida como "\\n" para a nova linha. O delimitador de registo também pode ser um carimbo.  Estes são os formatos suportados:
 
 | Formato | Formato de JSON RegEx usa dois \\ para cada \ num padrão RegEx por isso, se o teste num aplicativo de RegEx reduzir \\ para \ |
 | --- | --- |
-| HH: MM: DE AAAA-MM-DD | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
-| M/AAAA HH: MM: SS AM/PM | (([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm) |
-| MMM/dd/aaaa hh: mm: | ((([0-3]\\\\1!d)\|(\\\\1!d)) / (Jan\|Fevereiro\|Mar\|Maio\|Abr\|Jul\|Jun\|Ago\|Oct\|Sep\|Nov\|Dec\|jan\|Fevereiro\|mar\|pode\|Abr\|jul\|jun\|Ago\|oct\|sep\|nov\|dez) / ((\\\\1!d{2})\|(\\\\1!d{4})) \\ \\s ((\\\\1!d)\|([0-1]\\\\1!d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
-| MMM dd aaaa hh: mm: | (((?: Jan(?:uary)? \|Feb(?:ruary)? \|Mar(?:ch)? \|Apr(?:il)? \|Poderá\|Jun(?:e)?\| Jul(?:y)? \|Aug(?:ust)? \|Sep(?:tember)? \|Setembro\|Oct(?:o ero)? \|Nov(?:ember)? \|Dec(?:ember)?)). *? ((?: (?: [0 2]? \\ \\1!d{1})\|(?: [3] [01]{1}))) (?! [\\\\1!d]).* ? ((?: (?: [1]{1}\\\\1!d{1}\\\\1!d{1}\\\\1!d{1})\|(?: [2]{1} \\ \\1!d{3}))) (?! [\\\\1!d]). *? ((?: (?: [0-1][0-9])\|(?: [2][0-3])\|(?: [0-9])):(?:[0-5][0-9])(?::[0-5][0-9])? (?:\\\\s? (?: am\|AM\|pm\|PM))?)) |
-| yyMMdd hh: mm: | ([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
-| ddMMyy hh: mm: | (([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
-| MMM 1!d hh: mm: | (Jan\|Fevereiro\|Mar\|Abr\|pode\|Jun\|Jul\|Ago\|Sep\|Oct\|Nov\|dez)\\ \\s\\\\s? ( [0]? [1 a 9] \|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0-1]? [ 0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
-| MMM 1!d hh: mm:<br> dois espaços após MMM | (Jan\|Fevereiro\|Mar\|Abr\|pode\|Jun\|Jul\|Ago\|Sep\|Oct\|Nov\|dez)\\ \\s\\\\s ([0]? [ 1 a 9]\|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
-| MMM 1!d hh: mm: | (Jan\|Fevereiro\|Mar\|Abr\|pode\|Jun\|Jul\|Ago\|Sep\|Oct\|Nov\|dez)\\ \\s ([0]? [ 1 a 9]\|[1 – 2] [0-9]\|[3][0-1])\\\\s ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
-| dd/MMM/yyyy:HH:mm:ss + zzzz<br> onde + é + ou a -<br> onde zzzz tempo de deslocamento | (([0-2] [1 a 9]\|[3][0-1])\\\\/ (Jan\|Fevereiro\|Mar\|Abr\|Maio\|Jun\|Jul\|Ago\|Sep \|Oct\|Nov\|dez)\\\\/((19\|20) [0-9] [0-9]): ([0] [0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\ \\s [\\\\+\|\\\\-] [0-9]{4}) |
-| aaaa-MM-ddTHH<br> O T é uma literal letra T | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
+| `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` |
+| `dd/MMM/yyyy HH:MM:SS` | `((([0-3]\\\\d)\` |`(\\\\d))/(Jan\|Feb\|Mar\|May\|Apr\|Jul\|Jun\|Aug\|Oct\|Sep\|Nov\|Dec\|jan\|feb\|mar\|may\|apr\|jul\|jun\|aug\|oct\|sep\|nov\|dec)/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\` | `([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9])` |
+| `MMM dd yyyy HH:MM:SS` | `(((?:Jan(?:uary)?\|Feb(?:ruary)?\|Mar(?:ch)?\|Apr(?:il)?\|May\|Jun(?:e)?\|Jul(?:y)?\|Aug(?:ust)?\|Sep(?:tember)?\|Sept\|Oct(?:ober)?\|Nov(?:ember)?\|Dec(?:ember)?)).*?((?:(?:[0-2]?\\\\d{1})\|(?:[3][01]{1})))(?![\\\\d]).*?((?:(?:[1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?:[2]{1}\\\\d{3})))(?![\\\\d]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?))` |
+| `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` |
+| `ddMMyy HH:mm:ss` | `(([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` |
+| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9])` |
+| `MMM  d HH:mm:ss` <br> dois espaços após MMM | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` |
+| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` |
+| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> onde + é + ou a - <br> onde zzzz tempo de deslocamento | `(([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4})` |
+| `yyyy-MM-ddTHH:mm:ss` <br> O T é uma literal letra T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configurar o Log Analytics para indexar o diagnóstico do Azure
 Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o diagnóstico do Azure ativada e configurada para gravar numa área de trabalho do Log Analytics. Esta abordagem envia dados diretamente para o Log Analytics e não necessita de dados a ser escritos para uma conta de armazenamento. Os recursos suportados incluem:
@@ -230,7 +223,7 @@ Para obter os detalhes das métricas disponíveis, consulte [suportado métricas
 
 Para obter os detalhes dos registos disponíveis, consulte [suportada serviços e o esquema para os registos de diagnóstico](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
-```
+```PowerShell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
@@ -238,7 +231,7 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Também pode utilizar o cmdlet anterior para recolher registos de recursos que estão em subscrições diferentes. O cmdlet é capaz de trabalhar em várias subscrições, uma vez que está a fornecer o id do recurso a criar registos e os registos são enviados para a área de trabalho.
+Também pode utilizar o cmdlet anterior para recolher registos de recursos que estão em subscrições diferentes. O cmdlet é capaz de trabalhar em várias subscrições, uma vez que está fornecendo o ID do recurso a criar registos e os registos são enviados para a área de trabalho.
 
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Configurar o Log Analytics para o diagnóstico do Azure do armazenamento de índice
@@ -254,7 +247,7 @@ A exemplo a seguir mostra como:
 3. Atualizar a configuração do recentemente criada para dados de índice a partir de localizações adicionais
 4. Eliminar a configuração criada recentemente
 
-```
+```PowerShell
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
 $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
@@ -276,7 +269,7 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 ```
 
-Também pode utilizar o script anterior para recolher registos de contas de armazenamento em subscrições diferentes. O script é capaz de trabalhar em várias subscrições, uma vez que está a fornecer o id de recurso de conta de armazenamento e uma chave de acesso correspondente. Quando alterar a chave de acesso, tem de atualizar a informação de armazenamento para que a nova chave.
+Também pode utilizar o script anterior para recolher registos de contas de armazenamento em subscrições diferentes. O script é capaz de trabalhar em várias subscrições, uma vez que está a fornecer o ID de recurso de conta de armazenamento e uma chave de acesso correspondente. Quando alterar a chave de acesso, tem de atualizar a informação de armazenamento para que a nova chave.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

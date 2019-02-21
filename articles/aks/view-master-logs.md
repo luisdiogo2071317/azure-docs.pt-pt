@@ -7,34 +7,34 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230599"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455998"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever o Kubernetes no Azure Kubernetes Service (AKS) de registos de nó principal
 
-Com o Azure Kubernetes Service (AKS), os componentes principais, tais como o *kube apiserver* e *Gestor de controladores de kube* são fornecidos como um serviço gerido. Criar e gerir os nós que executam o *kubelet* e tempo de execução do contentor e implementar as suas aplicações através do servidor de API do Kubernetes gerido. Para ajudar a resolver problemas de seus aplicativos e serviços, poderá ver os registos gerados por esses componentes mestres. Este artigo mostra-lhe como utilizar o Log Analytics do Azure para ativar e consultar os registos dos componentes de mestres de Kubernetes.
+Com o Azure Kubernetes Service (AKS), os componentes principais, tais como o *kube apiserver* e *Gestor de controladores de kube* são fornecidos como um serviço gerido. Criar e gerir os nós que executam o *kubelet* e tempo de execução do contentor e implementar as suas aplicações através do servidor de API do Kubernetes gerido. Para ajudar a resolver problemas de seus aplicativos e serviços, poderá ver os registos gerados por esses componentes mestres. Este artigo mostra-lhe como utilizar os registos do Azure Monitor para ativar e consultar os registos dos componentes de mestres de Kubernetes.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer a um cluster do AKS existente em execução na sua conta do Azure. Se ainda não tiver um cluster do AKS, crie uma utilizando o [CLI do Azure] [ cli-quickstart] ou [portal do Azure][portal-quickstart]. O log Analytics funciona com ambas as RBAC e não-RBAC ativado clusters do AKS.
+Este artigo requer a um cluster do AKS existente em execução na sua conta do Azure. Se ainda não tiver um cluster do AKS, crie uma utilizando o [CLI do Azure] [ cli-quickstart] ou [portal do Azure][portal-quickstart]. O Azure Monitor registos funciona com ambas as RBAC e não-RBAC ativado clusters do AKS.
 
 ## <a name="enable-diagnostics-logs"></a>Ativar registos de diagnóstico
 
-Para ajudar a recolher e analisar dados de várias origens, o Log Analytics fornece um mecanismo de análise e linguagem de consulta que fornece informações para o seu ambiente. Uma área de trabalho é utilizada para agrupar e analisar os dados e pode ser integrado com outros serviços do Azure como o Application Insights e o Centro de segurança. Utilizar uma plataforma diferente para analisar os registos, em vez disso, pode optar por enviar registos de diagnóstico para um hub de evento ou a conta de armazenamento do Azure. Para obter mais informações, consulte [o que é o Azure Log Analytics?] [log-analytics-overview].
+Para ajudar a recolher e analisar dados de várias origens, os registos do Azure Monitor fornece um mecanismo de análise e linguagem de consulta que fornece informações para o seu ambiente. Uma área de trabalho é utilizada para agrupar e analisar os dados e pode ser integrado com outros serviços do Azure como o Application Insights e o Centro de segurança. Utilizar uma plataforma diferente para analisar os registos, em vez disso, pode optar por enviar registos de diagnóstico para um hub de evento ou a conta de armazenamento do Azure. Para obter mais informações, consulte [o que é o Azure Monitor registos?] [log-analytics-overview].
 
-Log Analytics é ativado e gerenciado no portal do Azure. Para ativar a recolha de registos para os componentes de mestres de Kubernetes no seu cluster do AKS, abra o portal do Azure num navegador da web e conclua os seguintes passos:
+Registos de Monitor do Azure está ativada e gerida no portal do Azure. Para ativar a recolha de registos para os componentes de mestres de Kubernetes no seu cluster do AKS, abra o portal do Azure num navegador da web e conclua os seguintes passos:
 
 1. Selecione o grupo de recursos para o seu cluster do AKS, como *myResourceGroup*. Não selecione o grupo de recursos que contém os recursos de cluster do AKS individuais, como *MC_myResourceGroup_myAKSCluster_eastus*.
 1. No lado esquerdo, selecione **das definições de diagnóstico**.
 1. Selecione o seu cluster do AKS, como *myAKSCluster*, em seguida, optar por **ativar diagnósticos**.
-1. Introduza um nome, tal como *myAKSClusterLogs*, em seguida, selecione a opção de **enviar para o Log Analytics**.
-    * Optar por *configurar* Log Analytics, em seguida, selecione uma área de trabalho existente ou **criar nova área de trabalho**.
+1. Introduza um nome, tal como *myAKSClusterLogs*, em seguida, selecione a opção de **enviar para área de trabalho do Log Analytics**.
+    * Optar por *configurar* área de trabalho do Log Analytics, em seguida, selecione uma área de trabalho existente ou **criar nova área de trabalho**.
     * Se precisar de criar uma área de trabalho, forneça um nome, um grupo de recursos e uma localização.
-1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Por predefinição, o *kube apiserver*, *Gestor de controladores de kube*, e *kube scheduler* registos estão ativados. Pode ativar os registos adicionais, como *kube auditoria* e *dimensionamento automático do cluster*. Pode regressar e alterar os registos recolhidos depois de ativar o Log Analytics.
+1. Na lista de registos disponíveis, selecione os registos que pretende ativar. Por predefinição, o *kube apiserver*, *Gestor de controladores de kube*, e *kube scheduler* registos estão ativados. Pode ativar os registos adicionais, como *kube auditoria* e *dimensionamento automático do cluster*. Pode regressar e alterar os registos recolhidos depois de ativar espaços de trabalho do Log Analytics.
 1. Quando estiver pronto, selecione **guardar** para ativar a recolha dos registos selecionados.
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Log Analytics é ativado e gerenciado no portal do Azure. Para ativar a recolha 
 
 O portal de captura de ecrã de exemplo seguinte mostra os *as definições de diagnóstico* janela e, em seguida, a opção para criar uma área de trabalho do Log Analytics:
 
-![Ativar a área de trabalho do Log Analytics para o cluster do Log Analytics do AKS](media/view-master-logs/enable-oms-log-analytics.png)
+![Ativar a área de trabalho do Log Analytics para registos do Azure Monitor de cluster do AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agendar um pod de teste no cluster do AKS
 
@@ -111,11 +111,11 @@ AzureDiagnostics
 
 Os registos específicos para seu pod NGINX são exibidos, conforme mostrado na captura de ecrã de exemplo seguinte:
 
-![Os resultados de pod NGINX de exemplo de consulta do log Analytics](media/view-master-logs/log-analytics-query-results.png)
+![Resultados de consulta do log analytics para pod do NGINX de exemplo](media/view-master-logs/log-analytics-query-results.png)
 
 Para ver registos adicionais, pode atualizar a consulta para o *categoria* nome ao *Gestor de controladores de kube* ou *kube scheduler*, consoante o que registos adicionais Ative. Adicionais *onde* instruções, em seguida, podem ser utilizadas para refinar os eventos que está procurando.
 
-Para obter mais informações sobre como consultar e filtrar os seus dados de registo, consulte [ver ou analisar os dados recolhidos com a pesquisa de registos do Log Analytics][analyze-log-analytics].
+Para obter mais informações sobre como consultar e filtrar os seus dados de registo, consulte [ver ou analisar os dados recolhidos com a pesquisa de registos do log analytics][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Esquema de eventos de registo
 
@@ -127,9 +127,9 @@ Para ajudar a analisar os dados de registo, a tabela seguinte fornece detalhes s
 | *tempo*                   | Timestamp de quando o registo foi carregado |
 | *category*               | Nome do contentor/componente gerar o registo |
 | *operationName*          | Sempre *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
-| *Properties.log*         | Texto completo do registo do componente do |
-| *Properties.stream*      | *stderr* ou *stdout* |
-| *Properties.pod*         | Nome de pod que vieram com o registo |
+| *properties.log*         | Texto completo do registo do componente do |
+| *properties.stream*      | *stderr* ou *stdout* |
+| *properties.pod*         | Nome de pod que vieram com o registo |
 | *properties.containerID* | ID do contentor docker que provenientes deste registo |
 
 ## <a name="next-steps"></a>Passos Seguintes

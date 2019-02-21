@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981762"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447468"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -61,6 +61,8 @@ A tabela seguinte mostra as ofertas não suportadas.
 | **Planos de suporte** | Suporte padrão do Azure Government | MS-AZR-USGOV-0041P |
 | **Planos de suporte** | Suporte direto profissional para o Azure Government | MS-AZR-USGOV-0042P |
 | **Planos de suporte** | Suporte para programadores do Azure Government | MS-AZR-USGOV-0043P |
+
+Para os clientes com as categorias da oferta pay as you go, o MSDN e o Visual Studio, os dados estão disponíveis no Cost Management a partir de 10/02/2018.
 
 Se não vir dados para uma subscrição e pretende determinar se a sua subscrição está sob as ofertas de suporte, pode validar que a sua subscrição é suportada. Para validar que uma subscrição do Azure é suportada, início de sessão para o [portal do Azure](https://portal.azure.com). Em seguida, selecione **todos os serviços** no painel de menu à esquerda. Na lista de serviços, selecione **subscrições**. No menu de lista de subscrição, clique na subscrição que pretende verificar. A sua subscrição é apresentada no separador de descrição geral e pode ver o **oferecem** e **ID da oferta**. A imagem seguinte mostra um exemplo.
 

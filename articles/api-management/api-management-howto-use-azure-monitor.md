@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443122"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454809"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -40,8 +40,8 @@ O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Mon
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
-+ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
++ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
++ Além disso, conclua o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -124,7 +124,7 @@ Para configurar os registos de diagnóstico:
 
     ![registos de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Clique em **Ativar diagnósticos**. Pode arquivar registos de diagnósticos juntamente com as métricas numa conta de armazenamento, transmiti-los em fluxo para um hub do Hub de Eventos ou enviá-los para o Log Analytics. 
+3. Clique em **Ativar diagnósticos**. Pode arquivar registos de diagnósticos juntamente com métricas para uma conta de armazenamento, transmiti-los para um Hub de eventos ou enviá-los para registos do Azure Monitor. 
 
 Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches criados de hora a hora) sobre pedidos à API individuais tendo cada entrada o esquema seguinte:
 
@@ -183,7 +183,7 @@ Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches cr
 | callerIpAddress | cadeia | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
 | correlationId | cadeia | Identificador de pedido http exclusivo atribuído pela Gestão de API |
 | localização | cadeia | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
-| httpStatusCodeCategory | cadeia | Categoria do código de estado da resposta http: bem-sucedida (301 ou menos ou 304 ou 307), não autorizada (401, 403, 429), Errónea (400, entre 500 e 600), Outro |
+| httpStatusCodeCategory | cadeia | Categoria do código de estado de resposta de http: Bem-sucedida (301 ou menos ou 304 ou 307), não autorizado (401, 403, 429), errado (400, entre 500 e 600), outros |
 | resourceId | cadeia | "Id do recurso da Gestão de API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | propriedades | objeto | Propriedades do pedido atual |
 | método | cadeia | Método HTTP do pedido a receber |

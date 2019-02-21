@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66d4dc7e6fc1545e1de1e3b50887585c4156b4c0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1923a34c5c49f16b32ed5b5d0913a65ce0b1ea21
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208792"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453380"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Convergida registo para reposição de palavra-passe self-service e o Azure multi-factor Authentication (pré-visualização pública)
 
@@ -78,7 +78,7 @@ Registos de auditoria para esta nova experiência existem na categoria de métod
 
 **Método MFA de predefinição está definido para chamada telefónica quando um usuário registra um telefone usando a mensagem de texto**
 
-   * Alguns usuários podem observar que o seu método MFA de predefinição está definido como chamada telefónica, depois de registem o número de telefone com a mensagem de texto. Os utilizadores podem resolver este problema ao alterar o método predefinido ao seguir as instruções no artigo [gerir as suas informações de segurança (pré-visualização)](../user-help/security-info-manage-settings.md#change-your-info).
+   * Alguns usuários podem observar que o seu método MFA de predefinição está definido como chamada telefónica, depois de registem o número de telefone com a mensagem de texto. Os utilizadores podem resolver este problema ao alterar o método predefinido ao seguir as instruções nos artigos referenciados por [descrição geral sobre como alterar as suas informações de segurança (pré-visualização)](../user-help/security-info-add-update-methods-overview.md).
 
 **Utilizador não é possível aceder a nova experiência de registo após um administrador desative o seu método padrão**
 

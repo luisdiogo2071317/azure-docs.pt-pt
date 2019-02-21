@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3274d753d33c759efa06b899a5511daf53aa9ec9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338653"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447519"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássica do Azure
 
@@ -30,7 +30,7 @@ Este artigo descreve como adicionar ou alterar as funções de Coadministrador e
 ## <a name="add-a-co-administrator"></a>Adicionar um Coadministrador
 
 > [!TIP]
-> Apenas terá de adicionar um Coadministrador se o utilizador precisar gerir implementações clássicas do Azure. Recomendamos que utilize o RBAC para todos os outros fins.
+> Só tem de adicionar um Coadministrador se o utilizador precisar gerir implementações clássicas do Azure, utilizando [módulo do PowerShell de gestão de serviço de Azure](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). Se o utilizador utiliza apenas o portal do Azure para gerir os recursos clássicos, não terá de adicionar o administrador clássico para o utilizador.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como um administrador de serviços.
 

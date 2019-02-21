@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765795"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457001"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração de datacenter do Azure Stack - identidade
 Pode implementar o Azure Stack com o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Deve fazer a escolha antes de implementar o Azure Stack. Implementação com o AD FS é também referida como implementar o Azure Stack no modo desligado.
@@ -73,7 +73,7 @@ As seguintes informações são necessárias como entradas para os parâmetros d
 
 Para implementações de Active Directory ter vários sites, configure o Site do Active Directory mais próximo à sua implementação do Azure Stack. A configuração evita ter o serviço do Azure Stack Graph resolver consultas com um servidor de Catálogo Global a partir de um site remoto.
 
-Adicionar o Azure Stack [rede VIP pública](azure-stack-network.md#public-vip-network) sub-rede para o Site do AD Azure mais próxima ao Azure Stack. Por exemplo, se o Active Directory tem dois sites de Seattle e Redmond com o Azure Stack, implementado no site de Seattle, seria adicionar a sub-rede da rede VIP público do Azure Stack para o site do Azure AD de Seattle.
+Adicionar o Azure Stack [rede VIP pública](azure-stack-network.md#public-vip-network) sub-rede para o Site do Active Directory mais próxima ao Azure Stack. Por exemplo, se o Active Directory tem dois sites de Seattle e Redmond com o Azure Stack, implementado no site de Seattle, seria adicionar a sub-rede da rede VIP público do Azure Stack para o site do Active Directory de Seattle.
 
 Para obter mais informações sobre locais do Active Directory, consulte [criando a topologia de site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 

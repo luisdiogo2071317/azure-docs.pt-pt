@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: Reconhecer a conversão de voz, C++ (Linux) - serviços de voz'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconhecer voz em C++ no Linux com o SDK de Serviço de Voz
+description: Aprender a reconhecer voz em C++ no Linux com o SDK de voz
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: fbd962d7a19969c88f539b0e21848fb01c6e88e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9e1844320786fe8a2a856b06b3a8093ca49568eb
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874758"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446363"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em C++ no Linux com o SDK de voz
 
@@ -31,7 +31,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Voz dos Serviços Cognitivos é `1.2.0`.
+A versão atual do SDK de Voz dos Serviços Cognitivos é `1.3.0`.
 
 O SDK de Voz para Linux pode ser utilizado para criar aplicações de 64 e 32 bits. As bibliotecas necessárias e os arquivos de cabeçalho podem ser baixados como um ficheiro de destino da https://aka.ms/csspeech/linuxbinary.
 
@@ -41,7 +41,7 @@ Transfira e instale o SDK da seguinte forma:
 
    ```sh
    sudo apt-get update
-   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+   sudo apt-get install build-essential libssl1.0.0 libasound2 wget
    ```
 
 1. Escolha um diretório para o qual os ficheiros do SDK de Voz serão extraídos e defina a variável de ambiente `SPEECHSDK_ROOT` para apontar para esse diretório. Esta variável facilita a referência ao diretório em comandos futuros. Por exemplo, se pretender utilizar o diretório `speechsdk` no diretório-raiz, utilize um comando semelhante ao seguinte:
@@ -91,13 +91,13 @@ Transfira e instale o SDK da seguinte forma:
 * Num sistema **x64** (64 bits), execute o comando seguinte para criar a aplicação.
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libasound.so.2
   ```
 
 * Num sistema **x86** (32 bits), execute o comando seguinte para criar a aplicação.
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libasound.so.2
   ```
 
 ## <a name="run-the-app"></a>Executar a aplicação

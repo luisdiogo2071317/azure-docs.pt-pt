@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 72a5946aa5b27d1c4d4bb2beaebde67d3e7a0f32
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328168"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447366"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Descrição geral das funcionalidades do Azure Backup
 O Azure Backup é o serviço baseado no Azure que pode utilizar para criar cópias de segurança (ou proteger) e restaurar os dados na nuvem Microsoft. O Azure Backup substitui a solução de cópia de segurança no local ou fora das instalações por uma solução baseada na nuvem que é fiável, segura e competitiva em termos de custos. O Azure Backup oferece vários componentes que são transferidos e implementados no computador ou servidor adequado, ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes do Azure Backup (independentemente de estar a proteger dados no local ou na cloud) podem ser utilizados para criar cópias de segurança para um cofre dos Serviços de Recuperação do Azure. Veja a [tabela de componentes do Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais à frente neste artigo) para obter informações sobre os componentes a utilizar para proteger dados, aplicações ou cargas de trabalho específicos.
@@ -33,7 +33,7 @@ As soluções de cópia de segurança tradicionais evoluíram para tratar a nuve
 
 * O armazenamento localmente redundante (LRS) replica os seus dados três vezes (cria três cópias dos dados) numa unidade de escala de armazenamento de um datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
 
-* O armazenamento georredundante (GRS) é a predefinição e a opção de replicação recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). O GRS custa mais do que o LRS, mas o GRS proporciona um nível mais elevado de durabilidade aos seus dados, mesmo se ocorrer uma indisponibilidade regional.
+* O armazenamento georredundante (GRS) é a predefinição e a opção de replicação recomendada. GRS replica os dados para uma região secundária que é [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md) (centenas de quilómetros da localização primária da origem de dados). O GRS custa mais do que o LRS, mas o GRS proporciona um nível mais elevado de durabilidade aos seus dados, mesmo se ocorrer uma indisponibilidade regional.
 
 **Transferência de dados ilimitada** - o Azure Backup não limita a quantidade de dados de entrada ou saída que transfere. O Azure Backup também não cobra por dados que sejam transferidos. No entanto, se utilizar o serviço Importar/Exportar do Azure para importar grandes quantidades de dados, existe um custo associado aos dados de entrada. Para mais informações sobre este custo, veja [Fluxo de trabalho de cópia de segurança offline no Azure Backup](backup-azure-backup-import-export.md). Os dados de saída são os dados transferidos a partir de um cofre dos Serviços de Recuperação durante uma operação de restauro.
 
@@ -44,7 +44,7 @@ As soluções de cópia de segurança tradicionais evoluíram para tratar a nuve
 **Retenção a longo prazo** – Pode utilizar os cofres dos Serviços de Recuperação para a retenção de dados a curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Pode manter os dados num cofre o tempo que pretender. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida. Consulte a secção [Backup and retention (Cópia de segurança e retenção)](backup-introduction-to-azure-backup.md#backup-and-retention) neste artigo para obter uma explicação sobre como este limite pode afetar as suas necessidades de cópia de segurança.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Que componentes do Azure Backup devo utilizar?
-Utilize a seguinte tabela para obter informações sobre o que pode proteger com cada componente do Azure Backup. 
+Utilize a seguinte tabela para obter informações sobre o que pode proteger com cada componente do Azure Backup.
 
 | Componente | Benefícios | Limites | O que está protegido? | Onde estão armazenadas as cópias de segurança? |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Utilize a seguinte tabela para obter informações sobre o que pode proteger com
 | Cópia de segurança da VM do IaaS do Azure |<p>**Sim**</p><p>Parte dos recursos de infraestrutura do Azure</p><p>Especializada para a [cópia de segurança da infraestrutura do Azure como máquinas virtuais do serviço (IaaS)](backup-azure-vms-introduction.md).</p> |<p>**Não**</p> <p>Utilize o System Center DPM para efetuar a cópia de segurança das máquinas virtuais no datacenter.</p> |<p>Cofre dos Serviços de Recuperação</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Podem ser efetuadas cópias de segurança a que aplicações e cargas de trabalho?
-A tabela seguinte fornece uma matriz dos dados e cargas de trabalho que podem ser protegidos com o Azure Backup. A coluna de solução do Azure Backup tem ligações para a documentação de implementação dessa solução. 
+A tabela seguinte fornece uma matriz dos dados e cargas de trabalho que podem ser protegidos com o Azure Backup. A coluna de solução do Azure Backup tem ligações para a documentação de implementação dessa solução.
 
 | Dados ou Carga de Trabalho | Ambiente de origem | Solução do Backup do Azure |
 | --- | --- | --- |
@@ -81,10 +81,10 @@ A tabela seguinte fornece uma matriz dos dados e cargas de trabalho que podem se
 A tabela seguinte mostra os componentes de cópia de segurança do Azure suportados para o Linux.  
 
 **Componente** | **Linux (aprovado pelo Azure)**
---- | --- 
-Agente do Backup do Azure (MARS) | Nenhum (baseado em Windows agente apenas) 
+--- | ---
+Agente do Backup do Azure (MARS) | Nenhum (baseado em Windows agente apenas)
 System Center DPM | Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/><br/> Restauro de VMs de Convidado do Linux do Hyper-V e do VMWare</br></br> Cópia de segurança consistente com ficheiros não está disponível para VMs do Azure
-Servidor do Backup do Azure | Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/><br/> Restaurar a VM de Hyper-V e VMs de convidado de Linux do VMWare</br></br> Cópia de segurança consistente com ficheiros não está disponível para VMs do Azure 
+Servidor do Backup do Azure | Cópia de segurança consistente com ficheiros de VMs de Convidado Linux no Hyper-V e no VMWare<br/><br/> Restaurar a VM de Hyper-V e VMs de convidado de Linux do VMWare</br></br> Cópia de segurança consistente com ficheiros não está disponível para VMs do Azure
 Cópia de segurança da VM do IaaS do Azure | Cópia de segurança consistente com a aplicação a utilizar o [framework do script prévio e o script posterior](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperação ao nível do ficheiro](backup-azure-restore-files-from-vm.md)<br/><br/> [Criar uma VM a partir de um disco restaurado](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Criar uma VM a partir de um ponto de recuperação](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Utilizar o premium storage VMs com o Azure Backup

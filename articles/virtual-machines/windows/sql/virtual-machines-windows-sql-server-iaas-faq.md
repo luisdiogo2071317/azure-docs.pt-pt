@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767344"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456661"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas mais frequentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -88,6 +88,9 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
    Sim. Pode mover facilmente mover entre os dois modelos de licenciamento, se tiver começado originalmente com uma imagem de galeria pay as you go. No entanto, não será capaz de alternar sua licença para PAYG se inicialmente começou com uma imagem BYOL. Para obter mais informações, consulte [como alterar o modelo de licenciamento de uma VM do SQL Server](virtual-machines-windows-sql-ahb.md).
 
+   > [!Note]
+   > Atualmente, esta função só está disponível para clientes de Cloud pública.
+
 1. **Posso utilizar imagens BYOL ou RP de VM do SQL para criar a nova VM do SQL?**
 
    Imagens do Bring-your-own-license (BYOL) apenas estão disponíveis para clientes com contrato EA. Outros clientes que tenham o Software Assurance devem utilizar o fornecedor de recursos de VM do SQL Server para criar uma VM do SQL com [Azure híbrido benefício (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
@@ -142,11 +145,11 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **Como posso atualizar para uma nova versão/edição do SQL Server numa VM do Azure?**
 
-   Atualmente, não existe nenhuma atualização no local para o SQL Server em execução na VM do Azure. Criar uma nova máquina virtual do Azure com a versão/edição pretendida do SQL Server e, em seguida, migre as suas bases de dados para o novo servidor com o padrão [técnicas de migração de dados](virtual-machines-windows-migrate-sql.md).
+   Atualmente, não existe qualquer atualização no local para o SQL Server em execução numa VM do Azure. Criar uma nova máquina virtual do Azure com a versão/edição pretendida do SQL Server e, em seguida, migre as suas bases de dados para o novo servidor com o padrão [técnicas de migração de dados](virtual-machines-windows-migrate-sql.md).
 
 1. **Como são atualizações e service packs aplicadas numa VM do SQL Server?**
 
-   Dão de máquinas virtuais-lhe controlo sobre o computador anfitrião, incluindo quando e como aplicar as atualizações. Para o sistema operativo, pode aplicar manualmente as atualizações do windows, ou pode ativar a um serviço de agendamento denominado [aplicação de patches automatizada](virtual-machines-windows-sql-automated-patching.md). A Aplicação de Patches Automatizada instala todas as atualizações marcadas como importantes, incluindo atualizações do SQL Server nessa categoria. As outras atualizações opcionais do SQL Server têm de ser instaladas manualmente.
+   As máquinas virtuais dão-lhe controlo sobre o computador anfitrião, incluindo o momento e a forma como aplica atualizações. Para o sistema operativo, pode aplicar manualmente as atualizações do windows, ou pode ativar a um serviço de agendamento denominado [aplicação de patches automatizada](virtual-machines-windows-sql-automated-patching.md). A Aplicação de Patches Automatizada instala todas as atualizações marcadas como importantes, incluindo atualizações do SQL Server nessa categoria. As outras atualizações opcionais do SQL Server têm de ser instaladas manualmente.
 
 ## <a name="general"></a>Geral
 

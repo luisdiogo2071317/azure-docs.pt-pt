@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dc6407a222adb06f4139d9973c168911e0faca8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429677"
+ms.locfileid: "56447791"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -215,7 +215,9 @@ A condição for avaliada se um **campo** ou o **valor** acessador atende a cert
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ A condição for avaliada se um **campo** ou o **valor** acessador atende a cert
 Ao utilizar o **, como** e **notLike** condições, que fornece um caráter universal `*` no valor.
 O valor não deve ter mais de um caráter universal `*`.
 
-Ao utilizar o **corresponder** e **notMatch** condições, fornecer `#` de acordo com um dígito, `?` para uma letra, `.` de acordo com todos os caracteres e qualquer outro caractere para corresponder ao esse caractere real. Para obter exemplos, consulte [permitir que vários padrões de nome](../samples/allow-multiple-name-patterns.md).
+Ao utilizar o **corresponder** e **notMatch** condições, fornecer `#` de acordo com um dígito, `?` para uma letra, `.` de acordo com todos os caracteres e qualquer outro caractere para corresponder ao esse caractere real.
+**corresponder** e **notMatch** diferenciam maiúsculas de minúsculas. Alternativas de maiúsculas e minúsculas estão disponíveis no **matchInsensitively** e **notMatchInsensitively**. Para obter exemplos, consulte [permitir que vários padrões de nome](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campos
 

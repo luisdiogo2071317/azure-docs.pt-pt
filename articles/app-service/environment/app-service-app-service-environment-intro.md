@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 205e61634a902ef052f665c65f2b67a66e6fe598
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2bb1a9c3922f435b6be78614aacff6e85bf475ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728232"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454247"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introdução à aplicação v1 do ambiente de serviço
 
 > [!NOTE]
 > Este artigo é sobre o ambiente de serviço de aplicações v1.  Existe uma versão mais recente do ambiente de serviço de aplicação que é mais fácil de usar e é executado numa infraestrutura mais poderosa. Para saber mais sobre o novo início de versão com o [introdução ao ambiente de serviço de aplicações](intro.md).
-> 
 
 ## <a name="overview"></a>Descrição geral
+
 Um ambiente de serviço de aplicações é uma [Premium] [ PremiumTier] da opção do plano de serviço [App Service do Azure](../overview.md) que fornece um ambiente totalmente isolado e dedicado para executar com segurança Aplicações de serviço de aplicações do Azure em grande escala, incluindo aplicações Web, aplicações móveis e API Apps.  
 
 Ambientes de serviço de aplicações são ideais para cargas de trabalho de aplicação requerem:
@@ -46,16 +46,17 @@ Para uma análise detalhada sobre como aumentar horizontalmente a utilizar vári
 
 Para ver como a arquitetura de segurança apresentada no AzureCon Deep Dive foi configurada, consulte o artigo sobre como implementar um [disposto em camadas da arquitetura de segurança](app-service-app-service-environment-layered-security.md) com ambientes de serviço de aplicações.
 
-Aplicações em execução em ambientes de serviço de aplicações podem ter seu acesso protegido por dispositivos a montante, tais como firewalls de aplicações web (WAF).  O artigo sobre [configurar uma WAF para ambientes de serviço de aplicações](app-service-app-service-environment-web-application-firewall.md) aborda este cenário. 
+Aplicações em execução em ambientes de serviço de aplicações podem ter seu acesso protegido por dispositivos a montante, tais como firewalls de aplicações web (WAF).  O artigo sobre [configurar uma WAF para ambientes de serviço de aplicações](app-service-app-service-environment-web-application-firewall.md) aborda este cenário.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="dedicated-compute-resources"></a>Recursos de computação dedicados
+
 Todos os recursos de computação num ambiente de serviço de aplicações são dedicados exclusivamente a uma subscrição individual e um ambiente de serviço de aplicações podem ser configurado com recursos de computação até cinquenta (50) para utilização exclusiva por um único aplicativo.
 
-Um ambiente de serviço de aplicações é composto por um agrupamento de recursos de computação de front-end, bem como os agrupamentos de recursos de computação de trabalho de um a três. 
+Um ambiente de serviço de aplicações é composto por um agrupamento de recursos de computação de front-end, bem como os agrupamentos de recursos de computação de trabalho de um a três.
 
-O conjunto de front-end contém recursos de computação responsáveis pela terminação de SSL como balanceamento de carga bem automático de pedidos de aplicações dentro de um ambiente de serviço de aplicações. 
+O conjunto de front-end contém recursos de computação responsáveis pela terminação de SSL como balanceamento de carga bem automático de pedidos de aplicações dentro de um ambiente de serviço de aplicações.
 
 Cada conjunto de trabalho contém recursos de computação alocados a [planos do serviço de aplicações][AppServicePlan], que por sua vez, contêm uma ou mais aplicações de serviço de aplicações do Azure.  Uma vez que pode haver até três conjuntos de trabalho diferentes num ambiente de serviço de aplicações, tem a flexibilidade para escolher os recursos de computação diferentes para cada conjunto de trabalho.  
 
@@ -66,6 +67,7 @@ Para obter mais detalhes sobre a quantidade de recursos de computação disponí
 Para obter detalhes sobre os tamanhos de recursos de computação disponíveis suportados num ambiente de serviço de aplicações, consulte a [preços do App Service] [ AppServicePricing] página e reveja as opções disponíveis para ambientes de serviço de aplicações no Escalão de preço Premium.
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual
+
 Um ambiente de serviço de aplicações podem ser criado no **ambos** uma rede virtual do Azure Resource Manager, **ou** uma rede virtual do modelo de implementação clássica ([obter mais informações sobre redes virtuais] [MoreInfoOnVirtualNetworks]).  Uma vez que um ambiente de serviço de aplicações existe sempre numa rede virtual e, mais precisamente, numa sub-rede de uma rede virtual, pode aproveitar os recursos de segurança de redes virtuais para controlar as comunicações de rede de entrada e saída.  
 
 Um ambiente de serviço de aplicações pode ser qualquer um com acesso com um endereço IP público ou interno com acesso com apenas um endereço de Balanceador de carga interno do Azure (ILB) de Internet.
@@ -77,6 +79,7 @@ As aplicações também precisam de aceder frequentemente a recursos da empresa,
 Para obter mais detalhes sobre como funcionam os ambientes do serviço de aplicações com redes virtuais e redes no local Consulte os artigos seguintes no [arquitetura de rede][NetworkArchitectureOverview], [controlar de entrada Tráfego][ControllingInboundTraffic], e [em segurança ao ligar ao back-ends][SecurelyConnectingToBackends]. 
 
 ## <a name="getting-started"></a>Introdução
+
 Para começar a utilizar com ambientes de serviço de aplicações, veja [como para criar uma aplicação de ambiente de serviço][HowToCreateAnAppServiceEnvironment]
 
 Para uma descrição geral da arquitetura de rede do ambiente de serviço de aplicações, consulte a [descrição geral da arquitetura de rede] [ NetworkArchitectureOverview] artigo.
@@ -104,5 +107,3 @@ Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações 
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
-
-

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c8abcf484ffe57122fadeeed9f9a94d922b76362
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6a43d96bc59ea348c8bcd456e1e06d70e851d182
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429128"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454470"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Ativar a firewall de aplicações Web com o Azure PowerShell
 
@@ -248,7 +248,7 @@ Update-AzureRmVmss `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Criar uma conta de armazenamento e configurar o diagnóstico
 
-Neste tutorial, o gateway de aplicação utiliza uma conta de armazenamento para armazenar dados para efeitos de deteção e prevenção. Também pode utilizar o Log Analytics ou o Hub de Eventos para registar dados.
+Neste tutorial, o gateway de aplicação utiliza uma conta de armazenamento para armazenar dados para efeitos de deteção e prevenção. Também pode utilizar os registos do Azure Monitor ou o Hub de eventos para gravar dados.
 
 ### <a name="create-the-storage-account"></a>Criar a conta de armazenamento
 

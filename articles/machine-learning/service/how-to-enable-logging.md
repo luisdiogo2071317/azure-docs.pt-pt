@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/11/2019
-ms.openlocfilehash: bff0feab7ce062c9e2515fa038d249838a809591
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/20/2019
+ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101212"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447536"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Ative o registo no serviço Azure Machine Learning
 
@@ -112,7 +112,7 @@ logs = service.get_logs()
 Também pode iniciar personalizado de pilha rastreios do web Service ao ativar o Application Insights, que lhe permite tempos de pedido/resposta do monitor, taxas de falhas e exceções. Chamar o `update()` função num serviço web existente para ativar o Application Insights.
 
 ```python
-service..update(enable_app_insights=True)
+service.update(enable_app_insights=True)
 ```
 
 Consulte a [procedimentos](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) para obter mais informações sobre como trabalhar com o Application Insights no portal do Azure.

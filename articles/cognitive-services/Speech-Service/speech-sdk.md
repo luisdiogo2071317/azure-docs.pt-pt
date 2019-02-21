@@ -1,26 +1,26 @@
 ---
-title: Sobre o SDK - serviços de voz do serviço de voz
+title: Informações sobre o SDK - serviços de voz de voz
 titleSuffix: Azure Cognitive Services
-description: A conversão de voz serviço Software Development Kit (SDK) dá-seus aplicativos nativo acesso para as funções do serviço de voz, tornando mais fácil desenvolver software. Este artigo fornece detalhes adicionais sobre o SDK para Windows, Linux e Android.
+description: A conversão de voz Software Development Kit (SDK) dá-seus aplicativos nativo acesso para as funções do serviço de voz, tornando mais fácil desenvolver software. Este artigo fornece detalhes adicionais sobre o SDK para Windows, Linux e Android.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 5d98ae7fe4062ce88ee2a3df5f9bb4d992d4023c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 5abaf65e292783247597eaa271d8b3f67d20209e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984686"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446686"
 ---
-# <a name="about-the-speech-service-sdk"></a>Sobre o SDK do serviço de voz
+# <a name="about-the-speech-sdk"></a>Informações sobre o SDK de voz
 
-A conversão de voz serviço Software Development Kit (SDK) dá-seus aplicativos nativo acesso para as funções do serviço de voz, tornando mais fácil desenvolver software. Atualmente, o SDK fornece acesso ao **conversão de voz em texto**, **tradução por voz**, e **reconhecimento da intenção**.
+A conversão de voz Software Development Kit (SDK) dá-seus aplicativos nativo acesso para as funções do serviço de voz, tornando mais fácil desenvolver software. Atualmente, o SDK fornece acesso ao **conversão de voz em texto**, **tradução por voz**, e **reconhecimento da intenção**.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -34,27 +34,27 @@ Para Windows, oferecemos suporte os idiomas seguintes:
 
 * C#(UWP e .NET), C++: Pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de voz. O pacote inclui bibliotecas de cliente de 32 bits e 64 bits e bibliotecas de gerenciadas (.NET). O SDK pode ser instalado no Visual Studio com o NuGet. Procure **Microsoft.CognitiveServices.Speech**.
 
-* Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz, que suporta apenas o Windows x64. No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0` como uma dependência.
+* Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz, que suporta apenas o Windows x64. No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:1.3.0` como uma dependência.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> Atualmente, suportamos apenas o Ubuntu 16.04 e 18.04 num PC (x86 ou x64 para desenvolvimento em C++ e x64 para .NET Core e Java).
+> Atualmente, suportamos apenas o Ubuntu 16.04 e 18.04 num PC (x86 ou x64 para desenvolvimento em C++ e x64 para .NET Core, Java e Python).
 
 Certifique-se de que tem o compilador necessário e as bibliotecas instaladas ao executar os seguintes comandos de shell:
 
 ```sh
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
+sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
 * C#: Pode referenciar e usar a versão mais recente do nosso pacote NuGet do SDK de voz. Para referenciar o SDK, adicione a seguinte referência de pacote ao seu projeto:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.2.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.3.0" />
   ```
 
-* Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz. No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0` como uma dependência.
+* Java: Pode referenciar e usar a versão mais recente do nosso pacote Maven do SDK de voz. No projeto Maven, adicione `https://csspeechstorage.blob.core.windows.net/maven/` como um repositório adicional e referência `com.microsoft.cognitiveservices.speech:client-sdk:1.3.0` como uma dependência.
 
 * C++: Transferir o SDK como um [pacote. tar](https://aka.ms/csspeech/linuxbinary) e Descompacte os arquivos num diretório à sua escolha. A tabela seguinte mostra a estrutura da pasta SDK:
 
@@ -70,7 +70,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 ### <a name="android"></a>Android
 
-O SDK de Java para Android é empacotado como uma [AAR (biblioteca do Android)](https://developer.android.com/studio/projects/android-library), que inclui as permissões necessárias de Android e as bibliotecas necessárias. Ele está hospedado num repositório Maven na `https://csspeechstorage.blob.core.windows.net/maven/` como pacote `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0`.
+O SDK de Java para Android é empacotado como uma [AAR (biblioteca do Android)](https://developer.android.com/studio/projects/android-library), que inclui as permissões necessárias de Android e as bibliotecas necessárias. Ele está hospedado num repositório Maven na `https://csspeechstorage.blob.core.windows.net/maven/` como pacote `com.microsoft.cognitiveservices.speech:client-sdk:1.3.0`.
 
 Para consumir o pacote do seu projeto do Android Studio, efetue as seguintes alterações:
 
@@ -83,7 +83,7 @@ Para consumir o pacote do seu projeto do Android Studio, efetue as seguintes alt
 * No ficheiro de gradle de nível de módulo, adicione o seguinte para o `dependencies` secção:
 
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.2.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.3.0'
   ```
 
 O SDK do Java também é parte dos [SDK de dispositivos de voz](speech-devices-sdk.md).

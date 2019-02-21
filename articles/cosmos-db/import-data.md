@@ -4,14 +4,14 @@ description: Saiba como utilizar as ferramentas open source de migração de bas
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 02/19/2019
 ms.author: dech
-ms.openlocfilehash: 82c34f3dcc606ccf7103b557518cd7a54a153183
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 972602bb6c5fc80433c2479516f8d0a5d885e4dd
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034125"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446941"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilize a ferramenta de migração de dados para migrar os dados para o Azure Cosmos DB
 
@@ -58,10 +58,10 @@ Embora a ferramenta de importação inclua uma interface gráfica (dtui.exe), ta
 
 ## <a id="Install"></a>Instalação
 
-O código de origem da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Pode transferir e compilar a solução localmente ou [transferir um binário previamente compilado](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip) e, em seguida, executar:
+O código de origem da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Pode transferir e compilar a solução localmente ou [transferir um binário previamente compilado](https://cosmosdbtools.blob.core.windows.net/datamigrationtool/2019.02.19-1.8.2/dt-1.8.2.zip) e, em seguida, executar:
 
 * **Dtui.exe**: Versão de interface gráfica da ferramenta
-* **DT.exe**: Versão de linha de comando da ferramenta
+* **Dt.exe**: Versão de linha de comando da ferramenta
 
 ## <a name="select-data-source"></a>Selecionar origem de dados
 
@@ -171,7 +171,7 @@ São devolvidos os seguintes resultados (parciais):
 
 Tenha em atenção os aliases como Address.AddressType e Address.Location.StateProvinceName. Ao especificar um separador de aninhamento de “.”, a ferramenta de importação cria os subdocumentos Address e Address.Location durante a importação. Eis um exemplo de um documento resultante do Azure Cosmos DB:
 
-*{"id": "956", "Name": "Mais vendas e serviço", "Address": {"AddressType": "Sede", "Linhamorada1": "75 º 500 O'Connor Street", "Localização": {"Cidade": "Ottawa", "StateProvinceName": "Ontário"}, "Código postal": "K4B 1S2", "CountryRegionName": "Canadá"}}*
+*{ "id": "956", "Name": "Mais vendas e serviço", "Address": {"AddressType": "Sede", "Linhamorada1": "75 º 500 O'Connor Street", "Localização": {"Cidade": "Ottawa", "StateProvinceName": "Ontário"}, "Código postal": "K4B 1S2", "CountryRegionName": "Canadá"}}*
 
 Seguem-se alguns exemplos de linha de comandos para importar do SQL Server:
 
@@ -195,7 +195,7 @@ Semelhante à origem de SQL, a propriedade do separador de aninhamento pode ser 
 
 Tenha em atenção os aliases como DomainInfo.Domain_Name e RedirectInfo.Redirecting. Ao especificar um separador de aninhamento de “.”, a ferramenta de importação irá criar os subdocumentos DomainInfo e RedirectInfo durante a importação. Eis um exemplo de um documento resultante do Azure Cosmos DB:
 
-*{"DomainInfo": {"Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV"}, "Agência Federal": "Conferências administrativa dos Estados Unidos", "RedirectInfo": {"Redirecionar": "0", "Redirect_Destination": ""}, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"}*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Conferências administrativa dos Estados Unidos", "RedirectInfo": {"Redirecionar": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 A ferramenta de importação tenta inferir o tipo de informação do unquoted valores em arquivos CSV (valores entre aspas são tratados sempre como cadeias de caracteres).  Os tipos são identificados pela seguinte ordem: número, data e hora, booleano.  
 
@@ -388,7 +388,7 @@ Além disso, ao importar os tipos de data (por exemplo, do SQL Server ou MongoDB
 
 * Cadeia de caracteres: São mantidas como um valor de cadeia
 * "Epoch": São mantidas como um valor de número de "Epoch"
-* Ambos: Manter a cadeia de caracteres e valores de número de "Epoch". Esta opção cria um subdocument, por exemplo: "date_joined": {"Valor": "2013-10-21T21:17:25.2410000Z", "" Epoch "": 1382390245}
+* Ambos: Manter a cadeia de caracteres e valores de número de "Epoch". Esta opção cria um subdocument, por exemplo: "date_joined": {"Valor": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 O importador em Volume do Azure Cosmos DB inclui as seguintes opções avançadas adicionais:
 
@@ -443,7 +443,7 @@ Estão disponíveis várias opções avançadas durante a importação. Em prime
 
 * Cadeia de caracteres: São mantidas como um valor de cadeia
 * "Epoch": São mantidas como um valor de número de "Epoch"
-* Ambos: Manter a cadeia de caracteres e valores de número de "Epoch". Esta opção cria um subdocument, por exemplo: "date_joined": {"Valor": "2013-10-21T21:17:25.2410000Z", "" Epoch "": 1382390245}
+* Ambos: Manter a cadeia de caracteres e valores de número de "Epoch". Esta opção cria um subdocument, por exemplo: "date_joined": {"Valor": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 O importador de registos sequenciais do Azure Cosmos DB inclui as seguintes opções avançadas adicionais:
 

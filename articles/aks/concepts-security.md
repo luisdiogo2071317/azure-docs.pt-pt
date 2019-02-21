@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818996"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456508"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Este artigo apresenta os conceitos principais que proteger seus aplicativos no A
 - [Segurança de nó](#node-security)
 - [Atualizações de cluster](#cluster-upgrades)
 - [Segurança da rede](#network-security)
-- Segredos do Kubernetes
+- [Segredos do Kubernetes](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Segurança principal
 
@@ -36,9 +36,9 @@ Por predefinição, o servidor de API do Kubernetes utiliza um endereço IP púb
 
 Nós do AKS são máquinas virtuais do Azure, que a gerenciar e manter. Os nós de executam uma distribuição Ubuntu Linux otimizada com o Docker tempo de execução do contentor. Quando um cluster do AKS é criado ou verticalmente, os nós são implementados automaticamente com as mais recentes atualizações de segurança do sistema operacional e as configurações.
 
-A plataforma do Azure aplica automaticamente patches de segurança do sistema operacional para os nós no noites. Se uma atualização de segurança do sistema operacional exige uma reinicialização do host, essa reinicialização não é realizada automaticamente. Pode reiniciar manualmente os nós ou uma abordagem comum é usar [Kured][kured], um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet] [aks-daemonset] e monitoriza cada nó para a presença de um ficheiro que indica que é necessário um reinício. Reinicializações são geridas no cluster com o mesmo [cordão e drenagem processo](#cordon-and-drain) como uma atualização do cluster.
+A plataforma do Azure aplica automaticamente patches de segurança do sistema operacional para os nós no noites. Se uma atualização de segurança do sistema operacional exige uma reinicialização do host, essa reinicialização não é realizada automaticamente. Pode reiniciar manualmente os nós ou uma abordagem comum é usar [Kured][kured], um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet] [ aks-daemonsets] e monitoriza cada nó para a presença de um arquivo que indica que é necessário um reinício. Reinicializações são geridas no cluster com o mesmo [cordão e drenagem processo](#cordon-and-drain) como uma atualização do cluster.
 
-Nós são implementados numa sub-rede de rede virtual privada, com não existem endereços IP públicos atribuídos. Para fins de resolução de problemas e de gestão, o SSH está ativado por predefinição. Este acesso SSH só está disponível com o endereço IP interno. Regras do grupo de segurança de rede do Azure podem ser utilizadas para restringir mais o acesso de intervalo IP para os nós do AKS. A eliminar a regra SSH de grupo de segurança de rede predefinido e desativar o serviço SSH em nós impede a plataforma do Azure de executar tarefas de manutenção.
+Nós são implementados numa sub-rede de rede virtual privada, com não existem endereços IP públicos atribuídos. Para fins de resolução de problemas e de gestão, o SSH está ativado por predefinição. Este acesso SSH só está disponível com o endereço IP interno.
 
 Para fornecer armazenamento, os nós utilizam Managed Disks do Azure. Para a maioria dos tamanhos de nó VM, estes são os discos Premium apoiados por SSDs de alto desempenho. Os dados armazenados em discos geridos são automaticamente encriptados em inatividade na plataforma do Azure. Para melhorar a redundância, estes discos com a segurança também são replicados no Centro de dados do Azure.
 
@@ -46,7 +46,7 @@ Ambientes do Kubernetes no AKS ou noutro local, atualmente não estão totalment
 
 ## <a name="cluster-upgrades"></a>Atualizações de cluster
 
-Para segurança e conformidade ou utilizar as funcionalidades mais recentes, o Azure fornece ferramentas para orquestrar a atualização de um cluster do AKS e componentes. Esta orquestração de atualização inclui os dois os Kubernetes agente e mestras componentes. Pode ver uma lista de versões do Kubernetes disponíveis para o seu cluster do AKS. Para iniciar o processo de atualização, especifique um destas versões disponíveis. O Azure, em seguida, com segurança cordons e drena cada nó do AKS e executa a atualização.
+Para segurança e conformidade ou utilizar as funcionalidades mais recentes, o Azure fornece ferramentas para orquestrar a atualização de um cluster do AKS e componentes. Esta orquestração de atualização inclui os dois os Kubernetes agente e mestras componentes. Pode ver um [lista de versões do Kubernetes disponíveis](supported-kubernetes-versions.md) para o seu cluster do AKS. Para iniciar o processo de atualização, especifique um destas versões disponíveis. O Azure, em seguida, com segurança cordons e drena cada nó do AKS e executa a atualização.
 
 ### <a name="cordon-and-drain"></a>Cordon e drenagem
 
@@ -57,7 +57,7 @@ Durante o processo de atualização, nós do AKS são isolados individualmente d
 - Pods estão programados para executar novamente nos mesmos.
 - O próximo nó do cluster é isolado e drenados usando o mesmo processo até que todos os nós sejam atualizados com êxito.
 
-Para obter mais informações, consulte [cluster de atualização e AKS][aks-upgrade-cluster].
+Para obter mais informações, consulte [atualizar um cluster do AKS][aks-upgrade-cluster].
 
 ## <a name="network-security"></a>Segurança da rede
 

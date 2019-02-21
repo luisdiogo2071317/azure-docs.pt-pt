@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989428"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453125"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Consumir um serviço de Web do Azure Machine Learning Studio a partir do Excel
 
@@ -34,7 +34,7 @@ Depois de ter um serviço da web, clique nas **serviços da WEB** secção à es
 
 1. Sobre o **DASHBOARD** separador para o serviço web é uma linha para o **SOLICITAÇÃO/resposta** serviço. Se este serviço teve uma única saída, deverá ver o **transferir o livro do Excel** ligação nessa linha.
    
-    ![][1]
+    ![](./media/consuming-from-excel/excellink.png)
 2. Clique em **transferir o livro do Excel**.
 
 **Novo serviço Web**
@@ -47,13 +47,13 @@ Depois de ter um serviço da web, clique nas **serviços da WEB** secção à es
 1. Abra o livro.
 2. É apresentado um aviso de segurança; Clique nas **Enable Editing** botão.
    
-    ![][2]
+    ![](./media/consuming-from-excel/enableeditting.png)
 3. É apresentado um aviso de segurança. Clique nas **ativar conteúdo** botão para executar macros na folha de cálculo.
    
-    ![][3]
+    ![](./media/consuming-from-excel/enablecontent.png)
 4. Assim que as macros estejam habilitadas, é gerada uma tabela. Colunas azul são necessários como entrada para o serviço web RRS, ou **parâmetros**. Tenha em atenção a saída do serviço RRS, **valores previstos** em verde. Quando todas as colunas para uma determinada linha estiverem preenchidas, a pasta de trabalho automaticamente chama a API de classificação e exibe os resultados com a pontuação.
    
-    ![][4]
+    ![](./media/consuming-from-excel/sampletable.png)
 5. Para mais de uma linha de pontuação, a segunda linha com dados e os valores previstos de preenchimento são produzidos. Pode até mesmo colar várias linhas ao mesmo tempo.
 
 Pode utilizar qualquer uma das funcionalidades do Excel (gráficos, mapa de energia, formatação condicional, etc.) com os valores previstos para o ajudar a visualizar os dados.    
@@ -66,8 +66,3 @@ As macros trabalhar, a chave de API deve ser parte da folha de cálculo. Isso si
 
 1. Na primeira vez numa linha tem conteúdo em todos os seus **parâmetros**
 2. Sempre que qualquer um da **parâmetros** alterações numa linha que tinha todos seus **parâmetros** introduzido.
-
-[1]: ./media/consuming-from-excel/excellink.png
-[2]: ./media/consuming-from-excel/enableeditting.png
-[3]: ./media/consuming-from-excel/enablecontent.png
-[4]: ./media/consuming-from-excel/sampletable.png

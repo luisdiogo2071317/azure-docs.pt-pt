@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 714a78c436b7071717e2df12c2a65999920f8c63
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192137"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453652"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Adicionar as contas de não-Microsoft
 Adicione as contas de não-Microsoft, como para o Google, Facebook ou GitHub para a aplicação Microsoft Authenticator para verificação de dois fatores. A aplicação Microsoft Authenticator funciona com qualquer aplicação que utiliza a verificação de dois fatores e de qualquer conta que suporte os padrões baseados no tempo palavra-passe Monouso (TOTP).
@@ -28,7 +28,7 @@ Adicione as contas de não-Microsoft, como para o Google, Facebook ou GitHub par
 ## <a name="add-personal-accounts"></a>Adicionar contas pessoais
 Em geral, para todas as suas contas pessoais, faça o seguinte:
 
-1. Inicie sessão na sua conta e, em seguida, ativar a verificação de dois fatores usando o seu dispositivo ou o seu PC em.
+1. Inicie sessão na sua conta e, em seguida, ativar a verificação de dois fatores usando o seu dispositivo ou o seu computador em.
 
 2. Adicione a conta para a aplicação Microsoft Authenticator. Poderá ser-lhe pedido para ler um código QR como parte deste processo.
 
@@ -39,13 +39,13 @@ Adicione a sua conta do Google ao ativar a verificação de dois fatores e, em s
 
 ### <a name="turn-on-two-factor-verification"></a>Ativar a verificação de dois fatores em
 
-1. No seu PC, aceda a https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome, selecione **começar**e, em seguida, verificar a sua identidade.
+1. No seu computador, aceda a https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome, selecione **começar**e, em seguida, verificar a sua identidade.
 
 2. Siga os passos na página para ativar a verificação de dois passos para a sua conta pessoal do Google.
 
 ### <a name="add-your-google-account-to-the-app"></a>Adicionar a sua conta do Google para a aplicação
 
-1. Na página do Google no seu PC, vá para o **configurar alternativa segunda etapa** secção, escolha **configurar** do **aplicação de autenticador** secção.
+1. Na página do Google no seu computador, vá para o **configurar alternativa segunda etapa** secção, escolha **configurar** do **aplicação de autenticador** secção.
 
 2. Sobre o **obter códigos a partir da aplicação de autenticador** página, selecione **Android** ou **iPhone** com base no seu tipo de telefone e, em seguida, selecione **próxima**.
 
@@ -53,7 +53,7 @@ Adicione a sua conta do Google ao ativar a verificação de dois fatores e, em s
 
 3. Abra a aplicação Microsoft Authenticator, selecione **adicionar conta** partir a **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **outra conta (Google, Facebook, etc.)** .
 
-4. Utilizar a câmara do dispositivo para analisar o código QR a partir da **configurar Authenticator** página no seu PC.
+4. Utilizar a câmara do dispositivo para analisar o código QR a partir da **configurar Authenticator** página no seu computador.
 
     >[!Note]
     >Se a câmara não está a funcionar corretamente, pode introduzir o código QR e o URL manualmente.
@@ -62,7 +62,7 @@ Adicione a sua conta do Google ao ativar a verificação de dois fatores e, em s
 
     Para segurança adicional, as alterações de código de verificação a cada 30 segundos a impedir que alguém usando um código várias vezes.
 
-6. Selecione **próxima** no **configurar Authenticator** página no seu PC, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do Google e, em seguida, selecione **verificar**.
+6. Selecione **próxima** no **configurar Authenticator** página no seu computador, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do Google e, em seguida, selecione **verificar**.
 
 7. Sua conta foi validada, e pode selecionar **feito** para fechar a **configurar Authenticator** página.
 
@@ -74,7 +74,7 @@ Adicione a sua conta do Facebook, a ativação da verificação de dois fatores 
 
 ### <a name="turn-on-two-factor-verification"></a>Ativar a verificação de dois fatores em
 
-1. No seu PC, abra o Facebook, selecione o menu pendente no canto superior direito e, em seguida, aceda a **configurações** > **segurança e de início de sessão**.
+1. No seu computador, abra o Facebook, selecione o menu pendente no canto superior direito e, em seguida, aceda a **configurações** > **segurança e de início de sessão**.
 
     O **segurança e de início de sessão** é apresentada a página.
 
@@ -86,13 +86,13 @@ Adicione a sua conta do Facebook, a ativação da verificação de dois fatores 
 
 ### <a name="add-your-facebook-account-to-the-app"></a>Adicionar a sua conta do Facebook para a aplicação
 
-1. Na página do Facebook no seu PC, vá para o **adicionar uma cópia de segurança** secção e, em seguida, escolha **configuração** partir o **aplicação de autenticação** área.
+1. Na página do Facebook no seu computador, vá para o **adicionar uma cópia de segurança** secção e, em seguida, escolha **configuração** partir o **aplicação de autenticação** área.
 
     É-lhe fornecido um código QR que pode usar para associar automaticamente a sua conta com a aplicação Microsoft Authenticator. Não feche esta janela.
 
 2. Abra a aplicação Microsoft Authenticator, selecione **adicionar conta** partir a **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **outra conta (Google, Facebook, etc.)** .
 
-3. Utilizar a câmara do dispositivo para analisar o código QR a partir da **dois avaliar autenticação** página no seu PC.
+3. Utilizar a câmara do dispositivo para analisar o código QR a partir da **dois avaliar autenticação** página no seu computador.
 
     >[!Note]
     >Se a câmara não está a funcionar corretamente, pode introduzir o código QR e o URL manualmente.
@@ -101,7 +101,7 @@ Adicione a sua conta do Facebook, a ativação da verificação de dois fatores 
 
     Para segurança adicional, as alterações de código de verificação a cada 30 segundos a impedir que alguém usando um código várias vezes.
 
-5. Selecione **próxima** sobre o **dois avaliar autenticação** página no seu PC e, em seguida, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do Facebook.
+5. Selecione **próxima** sobre o **dois avaliar autenticação** página no seu computador e, em seguida, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do Facebook.
 
     Sua conta foi validada e agora, pode utilizar a aplicação para verificar a sua conta.
 
@@ -113,7 +113,7 @@ Adicione a sua conta do GitHub, a ativação da verificação de dois fatores e,
 
 ### <a name="turn-on-two-factor-verification"></a>Ativar a verificação de dois fatores em
 
-1. No seu PC, abra o GitHub, selecione a sua imagem no canto superior direito e, em seguida, selecione **definições**.
+1. No seu computador, abra o GitHub, selecione a sua imagem no canto superior direito e, em seguida, selecione **definições**.
 
     O **autenticação de dois fatores** é apresentada a página.
 
@@ -121,7 +121,7 @@ Adicione a sua conta do GitHub, a ativação da verificação de dois fatores e,
 
 ### <a name="add-your-github-account-to-the-app"></a>Adicionar a sua conta do GitHub para a aplicação
 
-1. Sobre o **autenticação de dois fatores** página no seu PC, selecione **configurada por meio de uma aplicação**.
+1. Sobre o **autenticação de dois fatores** página no seu computador, selecione **configurada por meio de uma aplicação**.
 
 2. Salvar os códigos de recuperação, para que pode voltar à sua conta se perder o acesso e, em seguida, selecione **seguinte**. 
 
@@ -137,7 +137,7 @@ Adicione a sua conta do GitHub, a ativação da verificação de dois fatores e,
 
 5. Introduza um **nome da conta** (por exemplo, o GitHub) e escreva o **chave secreta** do passo 4 e, em seguida, selecione **concluir**.
 
-4. Sobre o **autenticação de dois fatores** página no seu PC, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do GitHub e, em seguida, selecione **ativar**.
+4. Sobre o **autenticação de dois fatores** página no seu computador, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta do GitHub e, em seguida, selecione **ativar**.
 
     O **contas** página da aplicação mostra-lhe o nome da conta e um código de verificação de seis dígitos. Para segurança adicional, as alterações de código de verificação a cada 30 segundos a impedir que alguém usando um código várias vezes.
 
@@ -149,7 +149,7 @@ Adicione a sua conta Amazon, a ativação da verificação de dois fatores e, em
 
 ### <a name="turn-on-two-factor-verification"></a>Ativar a verificação de dois fatores em
 
-1. No seu PC, abra o Amazon, selecione o **conta & listas** menu pendente e, em seguida, selecione **Your Account**.
+1. No seu computador, Amazon aberta, selecione o **conta de & listas** menu pendente e, em seguida, selecione **Your Account**.
 
 2. Selecione **início de sessão e de segurança**, inicie sessão na sua conta Amazon e, em seguida, selecione **editar** no **definições de segurança avançadas** área.
 
@@ -163,7 +163,7 @@ Adicione a sua conta Amazon, a ativação da verificação de dois fatores e, em
 
 5. Abra a aplicação Microsoft Authenticator, selecione **adicionar conta** partir a **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **outra conta (Google, Facebook, etc.)** .
 
-6. Utilizar a câmara do dispositivo para analisar o código QR a partir da **escolha como vai receber códigos de** página no seu PC.
+6. Utilizar a câmara do dispositivo para analisar o código QR a partir do **escolha como vai receber códigos** página no seu computador.
 
     >[!Note]
     >Se a câmara não está a funcionar corretamente, pode introduzir o código QR e o URL manualmente.
@@ -172,13 +172,13 @@ Adicione a sua conta Amazon, a ativação da verificação de dois fatores e, em
 
     Para segurança adicional, as alterações de código de verificação a cada 30 segundos a impedir que alguém usando um código várias vezes.
 
-6. Na **escolha como vai receber códigos** página no seu PC, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta Amazon e, em seguida, selecione **verificar o código e continuar**.
+6. Na **escolha como vai receber códigos** página no seu computador, escreva o código de verificação de seis dígitos fornecido na aplicação para a sua conta Amazon e, em seguida, selecione **verificar o código e continuar**.
 
 7. Concluir o processo de inscrição, incluindo a adição de um método de verificação de cópia de segurança, como uma mensagem de texto e, em seguida, selecione **enviar código**.
 
-8. Sobre o **adicionar um método de verificação de cópia de segurança** página no seu PC, escreva o código de verificação de seis dígitos fornecido pelo seu método de verificação de cópia de segurança para a sua conta Amazon e, em seguida, selecione **verificar o código e continuar**.
+8. Sobre o **adicionar um método de verificação de cópia de segurança** página no seu computador, escreva o código de verificação de seis dígitos fornecido pelo seu método de verificação de cópia de segurança para a sua conta Amazon e, em seguida, selecione **verificar o código e continuar**.
 
-9. O Almost página, e decida se pretende tornar seu PC fidedigno do dispositivo e, em seguida, selecione **o tem. Ativar a verificação de dois passos em**.
+9. O Almost página, e decida se pretende que o seu computador um dispositivo fidedigno e, em seguida, selecione **o tem. Ativar a verificação de dois passos em**.
 
     O **definições de segurança avançadas** é apresentada a página, que mostra os detalhes de verificação de dois fatores atualizado.
 

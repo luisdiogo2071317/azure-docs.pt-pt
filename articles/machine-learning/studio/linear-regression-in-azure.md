@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 12c82d440613078e9f0593ddb9fb6c7fe7b8c362
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5db8c4be9317706fcc8a31b916cff72fd13596d6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488361"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453308"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrar analytics a partir do Excel para o Azure Machine Learning Studio
 
@@ -102,11 +102,11 @@ Nossa solução era operacionalizar o nosso modelo de regressão de Machine Lear
 
 O *Dashboard de serviços da Web* secção inclui um livro do Excel que pode ser baixado. A pasta de trabalho vem previamente formatada com as web service API informações de esquema e incorporadas. Quando clica em *transferir o livro do Excel*, abre o livro e pode guardá-lo para o computador local. 
 
-![][1]
+![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 Com o livro aberto, copie os parâmetros predefinidos para a secção de parâmetro azul conforme mostrado abaixo. Assim que os parâmetros forem inseridos, o Excel chama o serviço da web de Machine Learning e as etiquetas com a pontuação previstas serão exibida na secção de valores previstos verde. O livro irá continuar a criar previsões de indisponibilidade para os parâmetros com base no seu modelo preparado para todos os itens de linha introduzidos em parâmetros. Para obter mais informações sobre como utilizar esta funcionalidade, consulte [consumindo um serviço de Web do Azure Machine Learning a partir do Excel](consuming-from-excel.md). 
 
-![][2]
+![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>Otimização e ainda mais experimentações
 Agora que tivéssemos uma linha de base com o nosso modelo do Excel, passamos em frente otimizar o nosso modelo de regressão Linear do Machine Learning. Usamos o módulo [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] para melhorar a nossa seleção de dados iniciais elementos e ele ajudaram-na alcançar uma melhoria de desempenho de 4.6% significa erro absoluto. Para projetos futuros utilizaremos esta funcionalidade que foi possível guardar nos semanas de iterar por meio de atributos de dados para localizar o conjunto certo de recursos para utilizar para a modelação de chegar. 

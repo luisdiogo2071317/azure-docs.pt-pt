@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a62c30235fdd262f0df5937b6a829382d2b45ef
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866292"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448131"
 ---
 # <a name="available-skus-for-hli"></a>SKUs disponíveis para HLI
 
@@ -29,16 +29,16 @@ SAP HANA no serviço do Azure (instâncias grandes) está disponível em várias
 
 | Solução SAP | CPU | Memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- |
-| Otimizado para OLAP: SAP BW, BW/4HANA<br /> ou SAP HANA para carga de trabalho OLAP genérica | SAP HANA no Azure S72<br /> – 2 x Intel® Xeon® processador E7 8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  768 GB |  3 TB | Disponível |
+| Otimizado para OLAP: SAP BW, BW/4HANA<br /> ou SAP HANA para carga de trabalho OLAP genérica | SAP HANA no Azure S72<br /> – 2 x Intel® Xeon® processador E7 8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  768 GB |  3 TB | Não é fornecido já |
 | --- | SAP HANA no Azure S144<br /> – 4 x Intel® Xeon® processador E7 8890 v3<br /> 72 núcleos de CPU e 144 threads de CPU |  1,5 TB |  6 TB | Não é fornecido já |
 | --- | SAP HANA em Azure S192<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 96 núcleos de CPU e de 192 threads de CPU |  2.0 TB DE |  8 TB | Disponível |
 | --- | SAP HANA no Azure S384<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  4.0 TB |  16 TB | Disponível |
-| Otimizado para OLTP: SAP Business Suite<br /> no SAP HANA ou S/4HANA (OLTP),<br /> OLTP genérico | SAP HANA no Azure S72m<br /> – 2 x Intel® Xeon® processador E7 8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  1,5 TB |  6 TB | Disponível |
+| Otimizado para OLTP: SAP Business Suite<br /> no SAP HANA ou S/4HANA (OLTP),<br /> OLTP genérico | SAP HANA no Azure S72m<br /> – 2 x Intel® Xeon® processador E7 8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  1,5 TB |  6 TB | Não é fornecido já |
 |---| SAP HANA no Azure S144m<br /> – 4 x Intel® Xeon® processador E7 8890 v3<br /> 72 núcleos de CPU e 144 threads de CPU |  3.0 TB |  12 TB | Não é fornecido já |
 |---| SAP HANA em Azure S192m<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 96 núcleos de CPU e de 192 threads de CPU  |  4.0 TB |  16 TB | Disponível |
 |---| SAP HANA no Azure S384m<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  6.0 TB |  18 TB | Disponível |
 |---| SAP HANA no Azure S384xm<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  8.0 TB |  22 TB |  Disponível |
-|---| SAP HANA no Azure S576m<br /> – 12 x processadores Intel® Xeon® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12.0 TB |  28 DE TB | Disponível |
+|---| SAP HANA no Azure S576m<br /> – 12 x processadores Intel® Xeon® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12.0 TB |  28 TB | Disponível |
 |---| SAP HANA no Azure S768m<br /> – 16 x processadores Intel® Xeon® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16.0 TB |  36 TB | Disponível |
 |---| SAP HANA no Azure S960m<br /> a 20 x processadores Intel® Xeon® E7 8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20.0 TB |  46 TB | Disponível |
 
@@ -58,7 +58,7 @@ Em muitos casos, estas configurações de servidor específicas do cliente reali
 | SKU do original que pode ser <br /> expandido na memória | CPU | Memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- |
 | S192m podem ser estendidos para | SAP HANA no Azure S192xm<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 96 núcleos de CPU e de 192 threads de CPU |  6.0 TB |  16 TB | Disponível |
-| S384xm podem ser estendidos para | SAP HANA no Azure S384xxm<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  12.0 TB |  28 DE TB | Disponível |
+| S384xm podem ser estendidos para | SAP HANA no Azure S384xxm<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  12.0 TB |  28 TB | Disponível |
 | S576m podem ser estendidos para | SAP HANA no Azure S576xm<br /> – 12 x processadores Intel® Xeon® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  VERSÕES 18.0 TB |  41 TB | Disponível |
 | S768m podem ser estendidos para | SAP HANA no Azure S768xm<br /> – 16 x processadores Intel® Xeon® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  24.0 TB |  56 TB | Disponível |
 
@@ -76,9 +76,9 @@ O hardware base para as ofertas, exceto unidades para projetos de dimensionament
 
 Um carimbo de data / instância grande do HANA completo não está alocada exclusivamente para um único cliente&#39;s de utilização. Esse fato aplica-se para os bastidores de recursos de computação e armazenamento ligados através de um recurso de infraestrutura de rede implementado no Azure, também. Infraestrutura de instância grande do HANA, como o Azure, implementa o outro cliente &quot;inquilinos&quot; que são isolados uns dos outros nos seguintes três níveis:
 
-- **Rede**: isolamento através de redes virtuais dentro do carimbo de data / instância grande do HANA.
-- **Armazenamento**: isolamento através de máquinas de virtuais de armazenamento que tenham volumes de armazenamento atribuídos e isolar os volumes de armazenamento entre inquilinos.
-- **Computação**: dedicado a atribuição das unidades de servidor para um único inquilino. Não muito ou por software de criação de partições de unidades de servidor. Sem partilha de uma única unidade de anfitrião ou servidor entre inquilinos. 
+- **Rede**: Isolamento através de redes virtuais dentro do carimbo de data / instância grande do HANA.
+- **Armazenamento**: Isolamento através de máquinas de virtuais de armazenamento que tenham volumes de armazenamento atribuído e isolar os volumes de armazenamento entre inquilinos.
+- **Computação**: Dedicada atribuição das unidades de servidor para um único inquilino. Não muito ou por software de criação de partições de unidades de servidor. Sem partilha de uma única unidade de anfitrião ou servidor entre inquilinos. 
 
 As implementações de unidades de instância grande do HANA entre diferentes inquilinos não são visíveis para si. Unidades de instância grande do HANA implementadas em diferentes inquilinos não podem comunicar diretamente entre si no nível de carimbo de data / instância grande do HANA. Apenas as unidades de instância grande do HANA dentro de um inquilino podem comunicar entre si no nível de carimbo de data / instância grande do HANA.
 

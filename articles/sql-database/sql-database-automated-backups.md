@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997140"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453584"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -85,6 +85,11 @@ Bases de dados únicos e em pool oferecem a opção de configurar a retenção d
 Como PITR, as cópias de segurança LTR são georredundante e estão protegidas pela [replicação do armazenamento do Azure entre regiões](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
 Para obter mais informações, consulte [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md).
+
+## <a name="storage-costs"></a>Custos de armazenamento
+7 dias de cópias de segurança automatizadas das suas bases de dados são copiados para o armazenamento de blobs Standard RA-GRS por predefinição. O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações copiadas a cada 5 minutos. O tamanho do registo de transação depende da taxa de alteração da base de dados. É dada uma quantidade mínima de armazenamento igual a 100% do tamanho da base de dados sem custos extra. O consumo adicional do armazenamento de cópias de segurança será cobrado em GB/mês.
+
+Para obter mais informações sobre os preços de armazenamento, consulte a [preços](https://azure.microsoft.com/pricing/details/sql-database/single/) página. 
 
 ## <a name="are-backups-encrypted"></a>As cópias de segurança são encriptadas
 

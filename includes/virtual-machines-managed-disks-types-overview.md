@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7f5583bfd6089362aef51285643f5fc920005242
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 8a067474fb172d4ff7a7fdf7eb6d24536bd2d017
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331302"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443332"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Que tipos de disco estão disponíveis no Azure?
 
@@ -21,9 +21,9 @@ Atualmente, o managed disks do Azure oferece quatro tipos de disco, três dos qu
 
 ## <a name="disk-comparison"></a>Comparação de discos
 
-A tabela seguinte fornece uma comparação de ultra discos (pré-visualização), premium solid-state unidades (SSD), standard SSD, e unidades de disco rígido standard (HDD) para discos geridos para ajudar a decidir o que usar.
+A tabela seguinte fornece uma comparação de ultra solid-state unidades (SSD) (pré-visualização), premium SSD, standard SSD e unidades de disco rígido standard (HDD) para discos geridos para o ajudar a decidir o que utilizar.
 
-|   | Discos Ultra (pré-visualização)   | SSD Premium   | SSD Standard   | HDD Standard   |
+|   | SSD Ultra (pré-visualização)   | SSD Premium   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho de e/s intensiva, como SAP HANA, bases de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho pesado de transação.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco usada e desenvolvimento/teste   |Acesso de cópia de segurança, não críticas, pouco frequente   |
@@ -31,19 +31,19 @@ A tabela seguinte fornece uma comparação de ultra discos (pré-visualização)
 |Débito máximo   |2.000 MiB/s (pré-visualização)   |250 (GA) MiB/s, 750 MiB/s (pré-visualização)   |60 MiB/s (GA), 500 MiB/s (pré-visualização)   |60 Mib/s (GA), 500 MiB/s (pré-visualização)   |
 |IOPS Máx.   |160,000 (pré-visualização)   |7500 (GA), 20 000 (pré-visualização)   |500 (GA), 2.000 (pré-visualização)   |500 (GA), 2.000 (pré-visualização)   |
 
-## <a name="ultra-disks-preview"></a>Discos Ultra (pré-visualização)
+## <a name="ultra-ssd-preview"></a>SSD Ultra (pré-visualização)
 
-Discos de ultra do Azure (pré-visualização) fornecem alto débito e armazenamento de disco de baixa latência consistente IOPS elevado para VMs IaaS do Azure. Alguns benefícios adicionais de discos ultra incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com as suas cargas de trabalho, sem a necessidade de reiniciar as máquinas virtuais. Discos Ultra são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bases de dados de escalão superior e cargas de trabalho pesado de transação. Discos Ultra só podem ser utilizados como discos de dados. Recomendamos que utilize premium SSDs como discos de SO.
+SSD ultra do Azure (pré-visualização) fornecer alto débito e armazenamento de disco de baixa latência consistente IOPS elevado para VMs IaaS do Azure. Alguns dos benefícios adicionais de ultra SSD incluem a capacidade de alterar dinamicamente o desempenho do disco, juntamente com as suas cargas de trabalho, sem a necessidade de reiniciar as máquinas virtuais. Ultra SSD são adequados para cargas de trabalho com uso intensivo de dados, como SAP HANA, bases de dados de escalão superior e cargas de trabalho pesado de transação. Ultra SSD só pode ser utilizado como discos de dados. Recomendamos que utilize premium SSDs como discos de SO.
 
 ### <a name="performance"></a>Desempenho
 
-Quando aprovisiona um disco ultra, pode configurar a forma independente a capacidade e o desempenho do disco. Discos Ultra são fornecidos em vários tamanhos fixos, que vão desde GiB 4 até 64 TiB e um modelo de configuração de desempenho flexível que permite que configure independentemente o IOPS e débito de funcionalidade.
+Quando aprovisiona um disco ultra, pode configurar a forma independente a capacidade e o desempenho do disco. Ultra SSD são fornecidos em vários tamanhos fixos, que vão desde GiB 4 até 64 TiB e um modelo de configuração de desempenho flexível que permite que configure independentemente o IOPS e débito de funcionalidade.
 
-Algumas capacidades chave dos discos Ultra são:
+Alguns recursos principais do Ultra SSD são:
 
-- Capacidade do disco: Intervalos de capacidade de ultra discos de 4 GiB até 64 TiB.
-- IOPS de disco: Os discos Ultra suportam os limites de IOPS de 300 IOPS/GiB até um máximo de mil 160 IOPS por disco. Para atingir o IOPS aprovisionado, certifique-se de que o IOPS de disco selecionado são menos do que o IOPS de VM. O IOPS mínimo do disco são 100 IOPS.
-- Débito de disco: Com o ultra discos, o limite de taxa de transferência de um único disco é 256 KiB/s para cada aprovisionado IOPS, até um máximo de 2000 MBps por disco (em que MBps = 10 ^ 6 Bytes por segundo). O débito de disco mínimo é 1 MiB.
+- Capacidade do disco: Ultra intervalos de capacidade SSD de 4 GiB até 64 TiB.
+- IOPS de disco: Ultra SSD suporta limites de IOPS de 300 IOPS/GiB até um máximo de mil 160 IOPS por disco. Para atingir o IOPS aprovisionado, certifique-se de que o IOPS de disco selecionado são menos do que o IOPS de VM. O IOPS mínimo do disco são 100 IOPS.
+- Débito de disco: Com o ultra SSD, o limite de taxa de transferência de um único disco é 256 KiB/s para cada aprovisionado IOPS, até um máximo de 2000 MBps por disco (em que MBps = 10 ^ 6 Bytes por segundo). O débito de disco mínimo é 1 MiB.
 
 ### <a name="disk-size"></a>Tamanho do disco
 
@@ -61,7 +61,7 @@ Algumas capacidades chave dos discos Ultra são:
 
 ### <a name="preview-scope-and-limitations"></a>Âmbito de pré-visualização e limitações
 
-Durante a pré-visualização, ultra discos:
+Durante a pré-visualização, ultra SSD:
 
 - São suportadas na região E.U.A. Leste 2 numa zona de disponibilidade única  
 - Só pode ser utilizado com zonas de disponibilidade (conjuntos de disponibilidade e únicas implementações de VM fora da vontade de zonas não têm a capacidade de anexar um disco de ultra)
@@ -81,7 +81,7 @@ Premium do Azure SSDs fornecer suporte de disco de elevado desempenho e baixa la
 
 Tamanhos marcados com asterisco estão atualmente em pré-visualização.
 
-| Tamanhos SSD Premium  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60*              | P70*              | P80*              |
+| Tamanhos SSD Premium  | P4               | P6               | P10             | P15 | P20              | P30              | P40              | P50              | P60*              | P70*              | P80*              |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Tamanho do disco em GiB           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
 | IOPs por disco       | Até 120 | Até 240              | Até 500              | Até 1,100 | Até 2,300              | Até 5000              | Até 7.500             | Até 7.500              | Até 12.500              | Máximo de 15 000              | Até 20 000              |

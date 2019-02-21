@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0f522897f3d3b3261045f1c14387af53ebf4ad9d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429592"
+ms.locfileid: "56447570"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer cópias de segurança de VMs do Azure num cofre dos serviços de recuperação
 
@@ -108,7 +108,7 @@ Se não tiver um proxy de conta de sistema, configure um da seguinte forma:
 1. Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
 
 2. Execute **PsExec.exe -i -s cmd.exe** para executar a linha de comandos com uma conta do sistema.
-3. Execute o navegador no contexto do sistema. Por exemplo: **ProgramFiles%\Internet Explorer\iexplore.exe** para o Internet Explorer.  
+3. Execute o navegador no contexto do sistema. Por exemplo: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** para o Internet Explorer.  
 4. Defina as definições de proxy.
     - Nas máquinas do Linux:
         - Adicionar esta linha para o **/etc/ambiente** ficheiro:
@@ -117,7 +117,7 @@ Se não tiver um proxy de conta de sistema, configure um da seguinte forma:
             - **HttpProxy.Host=proxy IP address**
             - **HttpProxy.Port=proxy port**
     - Nas máquinas do Windows, nas configurações do navegador, especifica que um proxy a utilizar. Se estiver atualmente a utilizar um proxy numa conta de utilizador, pode utilizar este script para aplicar a definição ao nível da conta de sistema.
-        ```
+        ```powershell
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
@@ -145,7 +145,7 @@ No NSG **NSF bloqueio**, permitir tráfego a partir de qualquer porta no 10.0.0.
 - O seguinte script do PowerShell fornece um exemplo para permitir o tráfego.
 - Em vez de permitir saída para todos os endereços de internet pública, pode especificar um intervalo de endereços IP (-DestinationPortRange), ou usar a marca de serviço storage.region.   
 
-    ```
+    ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
@@ -237,7 +237,7 @@ Detetar VMs na subscrição e configurar a cópia de segurança.
 
 Depois de ativar a cópia de segurança:
 
-- Uma cópia de segurança de cópia de segurança inicial é executada de acordo com sua agenda de cópia de segurança.
+- Uma cópia de segurança inicial é executada de acordo com sua agenda de cópia de segurança.
 - O serviço de cópia de segurança instala a extensão de cópia de segurança, independentemente da VM está em execução.
     - Uma VM em execução fornece a maior possibilidade de obter um ponto de recuperação consistente com aplicações.
     -  No entanto, a VM é uma cópia de segurança, mesmo que ele é desativado e não é possível instalar a extensão. Isso é conhecido como *offline VM*. Neste caso, o ponto de recuperação será *consistente com a falha*.

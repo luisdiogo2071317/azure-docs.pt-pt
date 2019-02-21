@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 02/20/2019
 ms.author: terrylan
-ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112228"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455762"
 ---
 # <a name="azure-network-architecture"></a>Arquitetura de rede do Azure
 A arquitetura de rede do Azure segue uma versão modificada do setor core/distribuição/acesso modelo padrão, com camadas de hardware distintos. As camadas incluem:
@@ -28,7 +28,7 @@ A arquitetura de rede do Azure segue uma versão modificada do setor core/distri
 - Distribuição (roteadores de acesso e a agregação de L2). A camada de distribuição separa o encaminhamento de L3 da mudança de L2.
 - Acesso (comutadores de anfitrião de L2)
 
-A arquitetura de rede tem dois níveis de comutadores de camada 2. Tráfego de agregados de uma camada da outra camada. A segunda camada faz um loop para incorporar a redundância. Isso fornece uma pegada VLAN mais flexível e melhora a porta de dimensionamento. A arquitetura mantém L2 e L3 distintos, que permite a utilização de hardware em cada uma das camadas distintas na rede e minimiza o índice de falhas numa camada afetem a outra camada (s). Permite a utilização de ramais da partilha, por exemplo, a conectividade com a infraestrutura de L3 de recursos.
+A arquitetura de rede tem dois níveis de comutadores de camada 2. Tráfego de agregados de uma camada da outra camada. A segunda camada faz um loop para incorporar a redundância. A arquitetura fornece uma pegada VLAN mais flexível e melhora a porta de dimensionamento. A arquitetura mantém L2 e L3 distintos, que permite a utilização de hardware em cada uma das camadas distintas na rede e minimiza o índice de falhas numa camada afetem a outra camada (s). Permite a utilização de ramais da partilha, por exemplo, a conectividade com a infraestrutura de L3 de recursos.
 
 ## <a name="network-configuration"></a>Configuração da rede
 A arquitetura de rede de um cluster do Azure num centro de dados é composta pelos seguintes dispositivos:
@@ -54,7 +54,7 @@ Os routers de distribuição/acesso L3 (ARs) executam a funcionalidade de roteam
 Estes dispositivos servem como um ponto de agregação para o tráfego de L2. Eles são a camada de distribuição para os recursos de infraestrutura de L2 e podem processar grandes quantidades de tráfego. Uma vez que estes dispositivos agregam tráfego, elas exigem 802.1q funcionalidades e tecnologias de largura de banda alta, como a agregação de porta e 10GE.
 
 ### <a name="l2-host-switches"></a>Comutadores de anfitrião de L2
-Ligar anfitriões diretamente a esses comutadores. Eles podem ser comutadores rack montado ou implementações de chassis. 802.1q padrão permite que a designação de uma VLAN como uma VLAN nativa, tratando essa VLAN como normal (não marcada) delimitação de quadros do Ethernet. Em circunstâncias normais, os quadros na VLAN nativo são transmitidos e recebidos não marcados num 802.1q porta de ramal. Esta funcionalidade foi projetada para migração para o 802.1q e compatibilidade com o não-802.1q dispositivos compatíveis com. Nesta arquitetura, a infraestrutura de rede utiliza a VLAN nativa.
+Ligar anfitriões diretamente a esses comutadores. Eles podem ser montado em Bastidor comutadores ou implementações de chassis. 802.1q padrão permite que a designação de uma VLAN como uma VLAN nativa, tratando essa VLAN como normal (não marcada) delimitação de quadros do Ethernet. Em circunstâncias normais, os quadros na VLAN nativo são transmitidos e recebidos não marcados num 802.1q porta de ramal. Esta funcionalidade foi projetada para migração para o 802.1q e compatibilidade com o não-802.1q dispositivos compatíveis com. Nesta arquitetura, a infraestrutura de rede utiliza a VLAN nativa.
 
 Esta arquitetura Especifica um padrão para a seleção de VLAN nativo. O padrão garante que, sempre que possível, que os dispositivos de AR têm uma VLAN nativa, exclusiva para cada ramal e L2Aggregation para ramais de L2Aggregation da. L2Aggregation para ramais de comutador de L2Host ter uma VLAN nativa não predefinido.
 
@@ -64,7 +64,7 @@ Agregação de ligação permite que várias ligações individuais para ser agr
 Os números especificados para o L2Agg ao comutador L2Host são os números de canal de porta utilizados no lado do L2Agg. Uma vez que o intervalo de números é mais limitado na lateral L2Host, o padrão é utilizar números de 1 e 2 na lateral L2Host. Os quais se referem para o canal de porta vai a "a" e do lado do "b", respectivamente.
 
 ### <a name="vlans"></a>VLANs
-A arquitetura de rede usa VLANs agrupar servidores em conjunto num único domínio de difusão. Números VLAN 802.1q conformidade com padrões, que suporte VLANs numerados 1 – 4094.
+A arquitetura de rede usa VLANs agrupar servidores em conjunto num único domínio de difusão. Números VLAN estão em conformidade com 802.1q padrão, que suporte VLANs numerados 1 – 4094.
 
 ### <a name="customer-vlans"></a>VLANs de cliente
 Tem várias opções de implementação de VLAN pode implementar através do portal do Azure para satisfazer as necessidades de separação e arquitetura da sua solução. Implementar estas soluções através de máquinas virtuais. Para exemplos de arquitetura de referência do cliente, veja [arquiteturas de referência do Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/).
@@ -72,23 +72,15 @@ Tem várias opções de implementação de VLAN pode implementar através do por
 ### <a name="edge-architecture"></a>Arquitetura do Edge
 Os datacenters do Azure foram criados sobre infraestruturas de rede altamente redundantes e bem aprovisionado. Microsoft implementa redes dentro dos datacenters do Azure com "necessidade de mais um" (N + 1) as arquiteturas de redundância ou superior. Ativação pós-falha completa dentro e entre datacenters ajudá-lo a garantir a disponibilidade de rede e o serviço. Externamente, centros de dados são servidos pelo circuitos de rede dedicado, largura de banda alta. Estes circuitos adquiria ligar propriedades com mais de 1.200 fornecedores de serviços de internet globalmente em vários pontos de peering. Esta opção fornece em excesso de 2.000 Gbps da capacidade de borda potenciais através da rede.
 
-Routers de filtragem na camada de acesso e de borda da rede do Azure fornecem bem estabelecida segurança ao nível do pacote. Isto ajuda a impedir que as tentativas não autorizadas para ligar ao Azure. Os routers ajudam a garantir que o conteúdo real dos pacotes contêm dados no formato esperado e estar em conformidade com o esquema de comunicação de cliente/servidor esperado. O Azure implementa uma arquitetura em camadas, que consiste dos seguintes segregação de rede e componentes de controle de acesso:
+A filtragem de roteadores na camada de acesso e de borda da rede do Azure fornece bem estabelecida segurança ao nível do pacote e ajuda a evitar tentativas não autorizadas para ligar ao Azure. Os routers ajudam a garantir que o conteúdo real dos pacotes contêm dados no formato esperado e estar em conformidade com o esquema de comunicação de cliente/servidor esperado. O Azure implementa uma arquitetura em camadas, que consiste dos seguintes segregação de rede e componentes de controle de acesso:
 
 - **Routers de limite.** Estes segregar o ambiente de aplicativos da internet. Routers de periferia foram concebidas para fornecer proteção de spoof anti e limitar o acesso ao utilizar ACLs.
 - **Routers de distribuição (acesso).** Estas permitem que apenas a Microsoft aprovado endereços IP, fornecem o antisspoofing e estabelecer ligações ao utilizar ACLs.
 
-### <a name="a10-ddos-mitigation-architecture"></a>Arquitetura de mitigação de a10 DDOS
-Ataques denial of service continuar a apresentar uma ameaça real à fiabilidade dos serviços online. Como a ataques se tornam mais direcionadas e sofisticadas e como os serviços a Microsoft fornece a se tornarem mais geograficamente dispersas, identificar e minimizar o impacto desses ataques é uma prioridade alta. Os detalhes seguintes explicam como o sistema de mitigação de A10 DDOS é implementado de uma perspectiva de arquitetura de rede.
+### <a name="ddos-mitigation"></a>Mitigação de DDOS
+Ataques denial of service (DDoS) distribuídos continuar a apresentar uma ameaça real à fiabilidade dos serviços online. Como a ataques se tornam mais direcionadas e sofisticadas e como os serviços a Microsoft fornece a se tornarem mais geograficamente dispersas, identificar e minimizar o impacto desses ataques é uma prioridade alta.
 
-O Azure utiliza dispositivos de rede A10 no roteador de datacenter (DCR) que fornece deteção automatizada e atenuação. A solução de A10 utiliza monitorização de rede do Azure para os pacotes de fluxo de exemplo e determinar se existe um ataque. Se for detetado o ataque, limpar dispositivos A10 para mitigar ataques. Em seguida, apenas é limpa o tráfego é permitido para o datacenter do Azure diretamente a partir do DCR. A Microsoft utiliza a solução de A10 para proteger a infraestrutura de rede do Azure.
-
-Proteções de DDoS na solução A10 incluem:
-
-- Proteção de inundar UDP IPv4 e IPv6
-- Proteção de inundar ICMP IPv4 e IPv6
-- Proteção de inundar TCP IPv4 e IPv6
-- Proteção de ataques de TCP SYN para IPv4 e IPv6
-- Ataque de fragmentação
+[Padrão de proteção de DDoS do Azure](../virtual-network/ddos-protection-overview.md) fornece defesa contra ataques DDoS. Consulte [proteção contra DDoS do Azure: Melhores práticas e arquiteturas de referência](azure-ddos-best-practices.md) para saber mais.
 
 > [!NOTE]
 > A Microsoft fornece proteção contra DDoS por predefinição para todos os clientes do Azure.

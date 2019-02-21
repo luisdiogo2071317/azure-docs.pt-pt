@@ -1,28 +1,28 @@
 ---
 title: 'Início rápido: Reconhecer a conversão de voz, o JavaScript (navegador) - serviços de voz'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer voz em JavaScript num browser com o SDK de Serviço de Voz
+description: Aprender a reconhecer a voz em JavaScript num navegador com o SDK de voz
 services: cognitive-services
 author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: d51624e5ae4d0e1052b562cd9142238828614597
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872191"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448046"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK do serviço de voz
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Início rápido: Reconhecer voz em JavaScript num navegador com o SDK de voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, vai aprender a criar um site com o enlace de JavaScript do SDK de Voz dos Serviços Cognitivos para fazer a conversão de voz em texto.
-A aplicação baseia-se o SDK de voz de serviços cognitivos da Microsoft ([Download versão 1.2.0](https://aka.ms/csspeech/jsbrowserpackage)).
+A aplicação baseia-se o SDK de voz de serviços cognitivos da Microsoft ([transfira a versão 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

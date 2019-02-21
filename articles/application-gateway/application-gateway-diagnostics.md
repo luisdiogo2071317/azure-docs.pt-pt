@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231109"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453307"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -90,7 +90,7 @@ O fragmento seguinte mostra um exemplo da resposta:
 
 ## <a name="diagnostic-logging"></a>Registos de diagnóstico
 
-Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de gateways de aplicação. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como [do Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista seguinte:
+Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de gateways de aplicação. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como [registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista seguinte:
 
 * **Registo de atividades**: Pode usar [registos de atividades do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecida como registos operacionais e registos de auditoria) para ver todas as operações que são submetidas para a sua subscrição do Azure e o respetivo estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
 * **Registo de acesso**: Pode utilizar este registo para ver os padrões de acesso de Gateway de aplicação e analisar informações importantes. Isto inclui o chamador IP, URL solicitada, latência de resposta, código de retorno e bytes e reduzir. Um registo de acesso é recolhido de 300 segundos. Este registo contém um registo por instância de Gateway de aplicação. A instância de Gateway de aplicação é identificada pela propriedade instanceId.
@@ -104,7 +104,7 @@ Tem três opções para armazenar os registos:
 
 * **Conta de armazenamento**: Contas de armazenamento são melhor utilizadas para os registos quando os registos são armazenados durante um período mais longo e revisados quando necessário.
 * **Os hubs de eventos**: Os hubs de eventos são uma ótima opção para integrar com outras ferramentas de gestão (SEIM) de informações e eventos da segurança para obter alertas sobre seus recursos.
-* **Log Analytics**: Log Analytics melhor é utilizado para a monitorização em tempo real gerais da sua aplicação ou ao procurar tendências.
+* **Registos de Monitor do Azure**: Registos de Monitor do Azure melhor é utilizada para monitorização em tempo real gerais da sua aplicação ou ao procurar tendências.
 
 ### <a name="enable-logging-through-powershell"></a>Ativar o registo através do PowerShell
 
@@ -162,19 +162,19 @@ Azure gera o registo de atividades, por predefinição. Os registos são mantido
 O registo de acesso é gerado apenas se tiver habilitado em cada instância de Gateway de aplicação, conforme especificado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Cada acesso de Gateway de aplicação é registado no formato JSON, conforme mostrado no exemplo a seguir:
 
 
-|Valor  |Descrição  |
+|Value  |Descrição  |
 |---------|---------|
 |instanceId     | Instância de Gateway de aplicação que serviu o pedido.        |
-|ClientIP     | IP de origem para o pedido.        |
+|clientIP     | IP de origem para o pedido.        |
 |clientPort     | Porta de origem para o pedido.       |
-|HttpMethod     | Método HTTP usado pelo pedido.       |
+|httpMethod     | Método HTTP usado pelo pedido.       |
 |requestUri     | URI do pedido recebido.        |
-|RequestQuery     | **Encaminhado por servidor**: Instância de conjunto de back-end que foi enviada o pedido.</br>**X-AzureApplicationGateway-LOG-ID**: ID de correlação utilizado para o pedido. Ele pode ser usado para resolver problemas de tráfego nos servidores de back-end. </br>**ESTADO DO SERVIDOR**: Código de resposta HTTP que o Gateway de aplicação recebido do back-end.       |
+|RequestQuery     | **Encaminhado por servidor**: Instância de conjunto de back-end que foi enviada o pedido.</br>**X-AzureApplicationGateway-LOG-ID**: ID de correlação utilizado para o pedido. Ele pode ser usado para resolver problemas de tráfego nos servidores de back-end. </br>**SERVER-STATUS**: Código de resposta HTTP que o Gateway de aplicação recebido do back-end.       |
 |UserAgent     | Agente de utilizador do cabeçalho de pedido HTTP.        |
 |httpStatus     | Código de estado HTTP devolvido para o cliente do Gateway de aplicação.       |
 |httpVersion     | Versão HTTP do pedido.        |
-|ReceivedBytes     | Tamanho do pacote recebido, em bytes.        |
-|SentBytes| Tamanho do pacote enviado, em bytes.|
+|receivedBytes     | Tamanho do pacote recebido, em bytes.        |
+|sentBytes| Tamanho do pacote enviado, em bytes.|
 |timeTaken| Período de tempo (em milissegundos) que leva um pedido para serem processados e a sua resposta seja enviado. Isso é calculado como o intervalo de tempo quando o Gateway de aplicação recebe o primeiro byte de um pedido HTTP para o tempo quando a resposta enviar a conclusão da operação. É importante observar que o campo Time-Taken normalmente inclui o tempo que os pacotes de solicitação e resposta são em trânsito através da rede. |
 |sslEnabled| Se a comunicação com os conjuntos de back-end utilizados SSL. Valores válidos são e desativar.|
 ```json
@@ -206,12 +206,12 @@ O registo de acesso é gerado apenas se tiver habilitado em cada instância de G
 O registo de desempenho é gerado apenas se está ativado em cada instância de Gateway de aplicação, conforme especificado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Os dados de registo de desempenho são gerados em intervalos de 1 minuto. Os seguintes dados são registados:
 
 
-|Valor  |Descrição  |
+|Value  |Descrição  |
 |---------|---------|
 |instanceId     |  Instância de Gateway de aplicação para o desempenho de dados está a ser gerados. Para um gateway de aplicação de várias instâncias, existe uma linha por instância.        |
 |healthyHostCount     | Número de anfitriões em bom estado no conjunto de back-end.        |
 |unHealthyHostCount     | Número de anfitriões de mau estado de funcionamento no conjunto de back-end.        |
-|RequestCount     | Número de pedidos servidos.        |
+|requestCount     | Número de pedidos servidos.        |
 |latência | Latência média (em milissegundos) de pedidos da instância para o back-end que serve os pedidos. |
 |failedRequestCount| Número de pedidos falhados.|
 |Taxa de transferência| Débito médio desde o último log, medido em bytes por segundo.|
@@ -243,7 +243,7 @@ O registo de desempenho é gerado apenas se está ativado em cada instância de 
 O log do firewall é gerado apenas se está ativado para cada gateway de aplicação, conforme especificado nos passos anteriores. Este registo também requer que a firewall de aplicações web está configurada num gateway de aplicação. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Os seguintes dados são registados:
 
 
-|Valor  |Descrição  |
+|Value  |Descrição  |
 |---------|---------|
 |instanceId     | Instância de Gateway de aplicação para o qual firewall dados está a ser gerados. Para um gateway de aplicação de várias instâncias, existe uma linha por instância.         |
 |clientIp     |   IP de origem para o pedido.      |
@@ -251,14 +251,14 @@ O log do firewall é gerado apenas se está ativado para cada gateway de aplica�
 |requestUri     | URL do pedido recebido.       |
 |ruleSetType     | Regra de definir o tipo. O valor disponível é OWASP.        |
 |ruleSetVersion     | Regra de definir a versão utilizada. Valores disponíveis são 2.2.9 e 3.0.     |
-|ID de regra     | ID de regra do evento acionadora.        |
+|ruleId     | ID de regra do evento acionadora.        |
 |message     | Obter mensagem amigável para o evento acionadora. São fornecidos mais detalhes na secção de detalhes.        |
 |action     |  Ação executada na solicitação. Valores disponíveis são bloqueado e permitidos.      |
 |site     | Site para o qual o registo foi gerado. Atualmente, apenas Global está listado porque as regras são globais.|
 |detalhes     | Detalhes do evento acionadora.        |
-|details.Message     | Descrição da regra.        |
+|details.message     | Descrição da regra.        |
 |details.data     | Dados específicos encontrados no pedido que correspondem a regra.         |
-|details.File     | Ficheiro de configuração que continha a regra.        |
+|details.file     | Ficheiro de configuração que continha a regra.        |
 |details.line     | Número de linha no ficheiro de configuração que disparou o evento.       |
 
 ```json
@@ -298,7 +298,7 @@ Pode ver e analisar os dados de registo de atividades através de um dos seguint
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Ver e analisar o acesso, desempenho e registos de firewall
 
-Azure [do Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) pode recolher os ficheiros de registo de eventos e contadores de sua conta de armazenamento de Blobs. Inclui visualizações e capacidades de pesquisa poderosas para analisar os seus registos.
+[Registos de Monitor do Azure](../azure-monitor/insights/azure-networking-analytics.md) pode recolher os ficheiros de registo de eventos e contadores de sua conta de armazenamento de Blobs. Inclui visualizações e capacidades de pesquisa poderosas para analisar os seus registos.
 
 Também pode ligar à sua conta de armazenamento e obter as entradas de registo JSON para os registos de acesso e desempenho. Depois de transferir os ficheiros JSON, pode convertê-los em CSV e visualizá-los no Excel, Power BI ou qualquer outra ferramenta de visualização de dados.
 
@@ -374,7 +374,7 @@ Para compreender melhor os webhooks e como pode usá-los com alertas, visite [co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Visualizar o contador e registos de eventos utilizando [do Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+* Visualizar o contador e registos de eventos utilizando [registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualizar o registo de atividades do Azure com o Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) postagem de blog.
 * [Ver e analisar registos de atividades do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) postagem de blog.
 

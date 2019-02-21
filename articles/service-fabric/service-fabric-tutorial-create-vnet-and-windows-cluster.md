@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/14/2019
+ms.date: 02/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 13d741d97e90b4aca40614d09f67538c479f67e3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 590e1e5853ccf4a525477f194c78f1fd8ce679ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312264"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453074"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster do Service Fabric do Windows numa rede virtual do Azure
 
@@ -33,6 +33,7 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar uma VNET no Azure com o PowerShell
 > * Criar um cofre de chaves e carregar um certificado
+> * Configurar a autenticação do Azure Active Directory
 > * Criar um cluster do Service Fabric seguro no Azure PowerShell
 > * Proteger o cluster com um certificado X.509
 > * Ligar ao cluster com o PowerShell
@@ -155,6 +156,116 @@ O ficheiro de parâmetro [azuredeploy.parameters.json][parameters] declara vári
 |certificateUrlValue|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado. </p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o URL do certificado. Por exemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor no cofre de origem. Por exemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
+## <a name="set-up-azure-active-directory-client-authentication"></a>Configurar a autenticação de cliente do Azure Active Directory
+Para clusters do Service Fabric implementados numa rede pública alojada no Azure, a recomendação para autenticação mútua do nó de cliente é:
+* Utilizar o Azure Active Directory para a identidade de cliente
+* Um certificado para encriptação SSL de comunicação http e de identidade do servidor
+
+Configuração do Azure AD para autenticar clientes para um cluster do Service Fabric deve ser feito antes [criar o cluster](#createvaultandcert).  O Azure AD permite às organizações (conhecidas como inquilinos) para gerir o acesso de utilizador para aplicações. 
+
+Um cluster do Service Fabric oferece vários pontos de entrada para sua funcionalidade de gestão, incluindo baseada na web [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) e [Visual Studio](service-fabric-manage-application-in-visual-studio.md). Como resultado, vai criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicação web de um e um aplicativo nativo.  Depois dos aplicativos são criados, atribuir utilizadores para só de leitura e funções de administrador.
+
+> [!NOTE]
+> Tem de concluir os seguintes passos antes de criar o cluster. Porque os scripts esperam que os nomes de cluster e pontos de extremidade, os valores devem ser planeadas e não os valores que já tenha criado.
+
+Neste artigo, partimos do princípio que já criou um inquilino. Se não o tiver, comece por ler [como obter um inquilino do Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md).
+
+Para simplificar algumas das etapas envolvidas na configuração do Azure AD com um cluster do Service Fabric, criamos um conjunto de scripts do Windows PowerShell. [Transferir os scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) para o seu computador.
+
+### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Criar aplicações do Azure AD e atribuir utilizadores a funções
+Criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicação web de um e um aplicativo nativo. Depois de criar os aplicativos para representar o cluster, atribuir os seus utilizadores para o [funções com suporte para o Service Fabric](service-fabric-cluster-security-roles.md): só de leitura e administrador.
+
+Executar `SetupApplications.ps1`e forneça o inquilino, ID, o nome do cluster e o URL de resposta do aplicativo web, como parâmetros.  Também pode especifica nomes de utilizador e palavras-passe para os utilizadores.  Por exemplo:
+
+```PowerShell
+$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
+```
+
+> [!NOTE]
+> Para nuvens nacionais (por exemplo o Azure Government, Azure China, Azure Alemanha), deve também especificar o `-Location` parâmetro.
+
+Pode encontrar suas *TenantId*, ou o ID de diretório, na [portal do Azure](https://portal.azure.com). Selecione **do Azure Active Directory -> propriedades** e copie o o **ID do diretório** valor.
+
+*ClusterName* é utilizado para o prefixo de aplicações do Azure AD que são criadas pelo script. Não é necessário o nome de cluster real de corresponder exatamente. Destina-se apenas a tornar mais fácil mapear os artefactos do Azure AD para o cluster do Service Fabric que está a ser utilizados com.
+
+*WebApplicationReplyUrl* é o ponto final predefinido, que retorna do Azure AD para os seus utilizadores, depois de concluir a iniciar sessão. Defina este ponto final como o ponto de final do Service Fabric Explorer para o seu cluster, o que, por predefinição, é:
+
+https://&lt;cluster_domain&gt;:19080/Explorer
+
+São-lhe pedido para iniciar sessão a uma conta que tenha privilégios administrativos para o inquilino do Azure AD. Depois de iniciar sessão, o script cria o web e aplicativos nativos para representar o cluster do Service Fabric. Se olhar de aplicações do inquilino no [portal do Azure](https://portal.azure.com), deverá ver duas novas entradas:
+
+   * *ClusterName*\_Cluster
+   * *ClusterName*\_Client
+
+O script imprime o JSON necessário para o modelo Azure Resource Manager, quando criar o cluster, pelo que é uma boa idéia mantenha a janela do PowerShell aberta.
+
+```json
+"azureActiveDirectory": {
+  "tenantId":"<guid>",
+  "clusterApplication":"<guid>",
+  "clientApplication":"<guid>"
+},
+```
+
+### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Adicionar configuração do Azure AD para utilizar o Azure AD para acesso de cliente
+Na [azuredeploy. JSON][template], configurar o Azure AD no **Microsoft.ServiceFabric/clusters** secção.  Adicionar parâmetros para o inquilino ID, o ID de aplicação do cluster e o ID de aplicação de cliente.  
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    ...
+
+    "aadTenantId": {
+      "type": "string",
+      "defaultValue": "0e3d2646-78b3-4711-b8be-74a381d9890c"
+    },
+    "aadClusterApplicationId": {
+      "type": "string",
+      "defaultValue": "cb147d34-b0b9-4e77-81d6-420fef0c4180"
+    },
+    "aadClientApplicationId": {
+      "type": "string",
+      "defaultValue": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+    }
+  },
+
+...
+
+{
+  "apiVersion": "2018-02-01",
+  "type": "Microsoft.ServiceFabric/clusters",
+  "name": "[parameters('clusterName')]",
+  ...
+  "properties": {
+    ...
+    "azureActiveDirectory": {
+      "tenantId": "[parameters('aadTenantId')]",
+      "clusterApplication": "[parameters('aadClusterApplicationId')]",
+      "clientApplication": "[parameters('aadClientApplicationId')]"
+    },
+    ...
+  }
+}
+```
+
+Adicione os valores de parâmetros nos [azuredeploy] [ parameters] ficheiro de parâmetros.  Por exemplo:
+
+```json
+"aadTenantId": {
+"value": "0e3d2646-78b3-4711-b8be-74a381d9890c"
+},
+"aadClusterApplicationId": {
+"value": "cb147d34-b0b9-4e77-81d6-420fef0c4180"
+},
+"aadClientApplicationId": {
+"value": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+}
+```
+
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Implementar a rede virtual e o cluster
@@ -240,6 +351,15 @@ Está agora pronto para ligar ao seu cluster seguro.
 
 O módulo **Service Fabric** do PowerShell fornece muitos cmdlets para gerir clusters, aplicações e serviços do Service Fabric.  Utilize o cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para ligar ao cluster seguro. Os detalhes do thumbprint SHA-1 do certificado e ponto final de ligação encontram-se nos resultados do passo anterior.
 
+Se configurar a autenticação de cliente do AAD anteriormente, execute o seguinte: 
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
+        -KeepAliveIntervalInSec 10 `
+        -AzureActiveDirectory `
+        -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
+```
+
+Se não configurar a autenticação de cliente do AAD, execute o seguinte:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -265,6 +385,7 @@ Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Criar uma VNET no Azure com o PowerShell
 > * Criar um cofre de chaves e carregar um certificado
+> * Configurar a autenticação do Azure Active Directory
 > * Criar um cluster do Service Fabric seguro no Azure com o PowerShell
 > * Proteger o cluster com um certificado X.509
 > * Ligar ao cluster com o PowerShell

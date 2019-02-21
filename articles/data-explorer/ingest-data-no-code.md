@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 94ecfda127422e395cf10a4fac1bb07cd0614f5c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 145a56bee857debdbf028834a3ed378efd8671c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416620"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447502"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingestão de dados no Explorador de dados do Azure sem uma linha de código
 
@@ -173,16 +173,7 @@ Uma vez que a estrutura de registos de Atividades não estiver em tabela, precis
 Utilize a seguinte consulta para mapear os dados para a tabela:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[
-{"column":"Timestamp","path":"$.time"},
-{"column":"ResourceId","path":"$.resourceId"},
-{"column":"MetricName","path":"$.metricName"},
-{"column":"Count","path":"$.count"},
-{"column":"Total","path":"$.total"},
-{"column":"Minimum","path":"$.minimum"},
-{"column":"Maximum","path":"$.maximum"},
-{"column":"Average","path":"$.average"},
-{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
 #### <a name="activity-logs-table-mapping"></a>Mapeamento de tabelas de registos de atividade
@@ -190,8 +181,7 @@ Utilize a seguinte consulta para mapear os dados para a tabela:
 Utilize a seguinte consulta para mapear os dados para a tabela:
 
 ```kusto
-.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[
-{"column":"Records","path":"$.records"}]'
+.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 ### <a name="create-update-policy"></a>Criar política de atualização

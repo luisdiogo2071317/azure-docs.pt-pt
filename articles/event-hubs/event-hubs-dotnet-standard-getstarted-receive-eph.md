@@ -15,17 +15,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 18b37fd7c85fced4cc57b57320daf195f6f33e3e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a3c4bc741cef60576bec17cd3257914132b72666
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082386"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452638"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>Começar a receber mensagens com o anfitrião do processador de eventos em .NET Core
 Os Event Hubs são um serviço que processa grandes quantidades de dados de eventos (telemetria) em aplicações e dispositivos ligados. Depois de recolher os dados para os Event Hubs, pode armazená-los utilizando um cluster de armazenamento ou transformá-los utilizando um fornecedor de análise em tempo real. Esta capacidade de processamento e recolha de eventos de grande escala é um componente importante das arquiteturas das aplicações modernas, incluindo a Internet das Coisas (IoT). Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
 
-Este tutorial mostra como escrever uma aplicação de consola do .NET Core que recebe mensagens de um hub de eventos com o [Anfitrião do Processador de Eventos](event-hubs-event-processor-host.md). O [Anfitrião do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica a receção de eventos provenientes dos hubs de eventos ao gerir pontos de verificação persistentes e receções em paralelo desses hubs de eventos. Se utilizar o Anfitrião do Processador de Eventos, pode dividir eventos por múltiplos recetores, mesmo se estiverem alojados em nós diferentes. Este exemplo mostra como utilizar o Anfitrião do Processador de Eventos para um único recetor. O exemplo de [Processamento de eventos aumentados horizontalmente][Processamento de eventos aumentados horizontalmente com os Hubs de Eventos] mostra como utilizar o Anfitrião do Processador de Eventos com múltiplos recetores.
+Este tutorial mostra como escrever uma aplicação de consola do .NET Core que recebe mensagens de um hub de eventos com o [Anfitrião do Processador de Eventos](event-hubs-event-processor-host.md). O [Anfitrião do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica a receção de eventos provenientes dos hubs de eventos ao gerir pontos de verificação persistentes e receções em paralelo desses hubs de eventos. Se utilizar o Anfitrião do Processador de Eventos, pode dividir eventos por múltiplos recetores, mesmo se estiverem alojados em nós diferentes. Este exemplo mostra como utilizar o Anfitrião do Processador de Eventos para um único recetor. O [aumentar horizontalmente o processamento de eventos](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) exemplo mostra como utilizar o anfitrião do processador de eventos com vários recetores.
 
 > [!NOTE]
 > Pode transferir este início rápido como uma amostra a partir do [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), substituir as cadeias de carateres `EventHubConnectionString` e `EventHubName`, `StorageAccountName`, `StorageAccountKey`, e `StorageContainerName` pelos seus valores de hub de eventos e executá-la. Em alternativa, pode seguir os passos neste tutorial para criar a sua própria.
@@ -208,6 +208,7 @@ Parabéns! Recebeu agora mensagens de um hub de eventos com o Anfitrião do Proc
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste início rápido, criou aplicação .NET Core que recebeu mensagens a partir de um hub de eventos. Para saber como enviar eventos para um hub de eventos com o .NET Core, veja [enviar eventos do hub de eventos - .NET Core](event-hubs-dotnet-standard-getstarted-send.md).
+
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

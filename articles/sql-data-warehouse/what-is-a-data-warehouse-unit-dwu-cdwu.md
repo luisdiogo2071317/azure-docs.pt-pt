@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299899"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447825"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades do Data Warehouse (DWUs) e de computação (cDWUs) de unidades do Data Warehouse
 Recomendações sobre como escolher o número ideal de unidades do data warehouse (DWUs, cDWUs) para otimizar o preço e desempenho e como alterar o número de unidades. 
@@ -37,7 +37,9 @@ Aumentar as DWUs:
 - Aumenta o número máximo de consultas em simultâneo e blocos de simultaneidade.
 
 ## <a name="service-level-objective"></a>Objetivo de nível de serviço
-O objetivo de nível de serviço (SLO) é a definição de escalabilidade que determina o nível de desempenho e custo do seu armazém de dados. Os níveis de serviço de geração 2 são medidos em computação unidades do data warehouse (cDWU), por exemplo DW2000c. Níveis de serviço de geração 1 são medidos em DWUs, por exemplo, DW2000. 
+O objetivo de nível de serviço (SLO) é a definição de escalabilidade que determina o nível de desempenho e custo do seu armazém de dados. Os níveis de serviço de geração 2 são medidos em computação unidades do data warehouse (cDWU), por exemplo DW2000c. Níveis de serviço de geração 1 são medidos em DWUs, por exemplo, DW2000.
+  > [!NOTE]
+  > O Azure SQL Data Warehouse Gen2 recentemente adicionado capacidades de dimensionamento adicional para suportar escalões de computação como tão baixo como 100 cDWU. Armazéns de dados existentes no momento Gen1 que requerem escalões de computação de menor agora podem atualizar para ger2 nas regiões que estão atualmente disponíveis sem qualquer custo adicional.  Se a sua região ainda não é suportada, ainda pode atualizar para uma região suportada. Para obter mais informações, consulte [atualizar para ger2](upgrade-to-latest-generation.md).
 
 No T-SQL a definição de SERVICE_OBJECTIVE determina o nível de serviço e o escalão de desempenho para o seu armazém de dados.
 

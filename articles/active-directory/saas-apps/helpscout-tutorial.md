@@ -4,160 +4,161 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f999ff396a5573e6928fd8a25e1bb634f3615c0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 790176d6a9ad54357e90c0f68368038fb786bd0d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179287"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454536"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Active Directory do Azure com ajudar Scout
 
 Neste tutorial, saiba como integrar Scout ajudar com o Azure Active Directory (Azure AD).
-
 Integração do Scout ajudar com o Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso para ajudar a Scout.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para ajudar a Scout (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso para ajudar a Scout.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para ajudar a Scout (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com ajudar Scout, precisa do seguinte:
 
-- Uma subscrição do Azure
-- Um ajuda Scout início de sessão único na subscrição ativado
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Ajuda do Scout logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionar Scout ajudar a partir da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Ajuda do Scout suporta **SP e IDP** iniciada SSO
+* Ajuda do Scout suporta **Just In Time** aprovisionamento de utilizadores
 
 ## <a name="adding-help-scout-from-the-gallery"></a>Adicionar Scout ajudar a partir da Galeria
+
 Para configurar a integração do Scout ajudar com o Azure AD, terá de adicionar Scout ajudar a partir da galeria, à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Scout ajudar a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **ajudar Scout**, selecione **Scout ajudar** no painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Scout de ajuda na lista de resultados](./media/helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
+4. Na caixa de pesquisa, escreva **ajudar Scout**, selecione **Scout ajudar** no painel de resultados, em seguida, clique em **adicionar** botão para adicionar a aplicação.
+
+     ![Scout de ajuda na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com ajudar Scout, com base num utilizador de teste chamado "Eduarda Almeida."
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Scout ajuda a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em ajudar a Scout deve ser estabelecido.
-
-Ajuda do Scout utiliza endereços de e-mail para inícios de sessão, por isso, para estabelecer a relação de ligação, utilize o mesmo **endereço de e-mail** como **nome de utilizador** no Azure AD.
+Nesta secção, configure e teste do Azure AD início de sessão único com ajudar Scout, com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado em ajudar a Scout deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com Scout ajudar, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de ajudar a Scout](#create-a-help-scout-test-user)**  - para ter um equivalente da Eduarda Almeida na ajuda Scout que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Configurar ajudar Scout início de sessão único](#configure-help-scout-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de ajudar a Scout](#create-help-scout-test-user)**  - para ter um equivalente da Eduarda Almeida na ajuda Scout que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar do Azure AD início de sessão único no portal do Azure e configurar o início de sessão único em seu aplicativo de ajudar a Scout.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com Scout ajudar a, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com Scout ajudar a, execute os seguintes passos:
 
-1. No portal do Azure, no **ajudar Scout** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Scout ajudar** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/helpscout-tutorial/tutorial_helpscout_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Na **ajudar o Scout domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Ajudar a Scout domínio e URLs únicas início de sessão em informações](./media/helpscout-tutorial/tutorial_helpscout_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. **Identificador** é o **"(ID de entidade do fornecedor de serviço) do URI de audiência"** do Scout ajudar, começa com `urn:`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    b. **URL de resposta** é o **"Postback URL (URL do serviço de consumidor de asserção)"** do Scout ajudar, começa com `https://` 
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
 
-    > [!NOTE] 
+    ![Ajudar a Scout domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
+
+    a. **Identificador** é o **URI de audiência (ID de entidade do fornecedor de serviço)** do Scout ajudar, começa com `urn:`
+
+    b. **URL de resposta** é o **pós-back URL (URL do serviço de consumidor de asserção)** do Scout ajudar, começa com `https://` 
+
+    > [!NOTE]
     > Os valores estes URLs são para apenas demonstração. Tem de atualizar estes valores a partir do URL de resposta e o identificador real. Obtém estes valores a partir da **Single Sign-On** separador na seção de autenticação, o que é explicada mais tarde no tutorial.
 
-1. Se desejar configurar a aplicação no **SP** modo iniciado, verificação **Mostrar definições de URL avançadas** e executar o passo seguinte:
+5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![Ajudar a Scout domínio e URLs únicas início de sessão em informações](./media/helpscout-tutorial/tutorial_helpscout_url1.png)
+    ![Ajudar a Scout domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL como: `https://secure.helpscout.net/members/login/`
-     
-1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
-    ![O link de download de certificado](./media/helpscout-tutorial/tutorial_helpscout_certificate.png) 
+6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-1. Clique em **guardar** botão.
+    ![O link de download de certificado](common/certificatebase64.png)
 
-    ![Configurar o botão único início de sessão em Guardar](./media/helpscout-tutorial/tutorial_general_400.png)
+7. Sobre o **configurar Scout ajudar** secção, copie os URLs apropriados de acordo com seus requisitos.
 
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-1. Sobre o **ajudar a configuração do Scout** secção, clique em **Scout de ajudar a configurar** para abrir **configurar início de sessão** janela. Cópia a **SAML único início de sessão no URL do serviço** partir a **seção de referência rápida**.
+    a. URL de início de sessão
 
-    ![Configurar o início de sessão único](./media/helpscout-tutorial/config.png) 
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-help-scout-single-sign-on"></a>Configurar ajuda Scout início de sessão único
 
 1. Numa janela do browser web diferente, inicie sessão no site da sua empresa ajudar Scout como administrador.
 
-1. Assim que está conectado na, clique em **"Gerir"** no menu superior e, em seguida, selecione **"Empresa"** no menu pendente.
+2. Clique em **Manage** no menu superior e, em seguida, selecione **empresa** no menu pendente.
 
-    ![Configurar o início de sessão único](./media/helpscout-tutorial/settings1.png) 
- 
-1. Selecione **"Autenticação"** no menu esquerdo. 
+    ![Configurar o início de sessão único](./media/helpscout-tutorial/settings1.png)
 
-    ![Configurar o início de sessão único](./media/helpscout-tutorial/settings2.png) 
+3. Selecione **autenticação** no painel de navegação esquerdo.
 
-1. Isto leva-o para a secção de definições de SAML e execute os seguintes passos:
+    ![Configurar o início de sessão único](./media/helpscout-tutorial/settings2.png)
 
-    ![Configurar o início de sessão único](./media/helpscout-tutorial/settings3.png) 
- 
-    a. Copiar o **pós-back URL (URL do serviço de consumidor de asserção)** valor e cole o valor no **URL de resposta** caixa no portal do Azure, em ajudar a Scout **domínio e URLs** secção.
-    
-    b. Cópia a **URI de audiência (ID de entidade do fornecedor de serviço)** valor e cole o valor no **identificador** caixa no portal do Azure, em ajudar a Scout **domínio e URLs** secção.
+4. Isto leva-o para a secção de definições de SAML e execute os seguintes passos:
 
-1. Botão de alternar **ativar SAML** no e execute os seguintes passos:
+    ![Configurar o início de sessão único](./media/helpscout-tutorial/settings3.png)
 
-    ![Configurar o início de sessão único](./media/helpscout-tutorial/settings4.png) 
- 
-    a. Na **URL de início de sessão único** caixa de texto, cole o valor de **único URL de início de sessão no serviço**, que copiou do portal do Azure.
-    
+    a. Cópia a **pós-back URL (URL do serviço de consumidor de asserção)** valor e cole o valor no **URL de resposta** caixa de texto **configuração básica de SAML** secção no Azure Portal.
+
+    b. Cópia a **URI de audiência (ID de entidade do fornecedor de serviço)** valor e cole o valor no **identificador** caixa de texto **configuração básica de SAML** secção no portal do Azure.
+
+5. Botão de alternar **ativar SAML** no e execute os seguintes passos:
+
+    ![Configurar o início de sessão único](./media/helpscout-tutorial/settings4.png)
+
+    a. Na **URL de início de sessão único** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
+
     b. Clique em **carregar certificado** para carregar o **Certificate(Base64)** transferido a partir do portal do Azure.
 
     c. Introduza a e-mail domínios e.x. - sua organização `contoso.com` no **domínios de E-Mail** caixa de texto. É possível separar vários domínios com uma vírgula. Em qualquer altura um utilizador de Scout ajudar ou administrador que insere esse domínio específico no [Scout ajudam a iniciar sessão na página](https://secure.helpscout.net/members/login/) serão encaminhados para o fornecedor de identidade para autenticar com as respetivas credenciais.
@@ -166,102 +167,71 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     e. Clique em **Guardar**.
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/helpscout-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/helpscout-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/helpscout-tutorial/create_aaduser_03.png)
-
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/helpscout-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="create-a-help-scout-test-user"></a>Criar um utilizador de teste de ajudar a Scout
-
-O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na ajuda Scout. Ajuda do Scout suporta o aprovisionamento de just-in-time, que está por predefinição, ativada.
-
-Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Scout ajudar, uma nova é criada quando tentar acessar ajudar Scout.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para ajudar a Scout.
 
-![Atribuir a função de utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **ajudar Scout**.
 
-**Para atribuir a Eduarda Almeida para ajudar a Scout, execute os seguintes passos:**
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **ajudar Scout**.
 
-    ![Atribuir utilizador][201] 
+    ![A ligação de ajuda Scout na lista de aplicações](common/all-applications.png)
 
-1. Na lista de aplicações, selecione **ajudar Scout**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de ajuda Scout na lista de aplicações](./media/helpscout-tutorial/tutorial_helpscout_app.png)  
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![O painel Adicionar atribuição][203]
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+### <a name="create-help-scout-test-user"></a>Criar utilizador de teste de ajudar a Scout
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
+Nesta secção, um usuário chamado Eduarda Almeida é criado na ajuda Scout. Ajuda do Scout suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Scout ajudar, é criado um novo após a autenticação.
+
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico do Scout ajudar no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação de ajudar a Scout.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico do Scout ajudar no painel de acesso, deve ser automaticamente sessão iniciada do Scout ajuda para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/helpscout-tutorial/tutorial_general_01.png
-[2]: ./media/helpscout-tutorial/tutorial_general_02.png
-[3]: ./media/helpscout-tutorial/tutorial_general_03.png
-[4]: ./media/helpscout-tutorial/tutorial_general_04.png
-
-[100]: ./media/helpscout-tutorial/tutorial_general_100.png
-
-[200]: ./media/helpscout-tutorial/tutorial_general_200.png
-[201]: ./media/helpscout-tutorial/tutorial_general_201.png
-[202]: ./media/helpscout-tutorial/tutorial_general_202.png
-[203]: ./media/helpscout-tutorial/tutorial_general_203.png
-
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

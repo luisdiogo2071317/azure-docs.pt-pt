@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: fd93b84c251a0b2346550c79bcb8796161cb9116
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417876"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445496"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Tarefas
  
@@ -61,6 +61,13 @@ Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberr
 
 Ver [filtragem, ordenação, a paginação de entidades de serviços de multimédia](entities-overview.md).
 
+## <a name="configure-media-reserved-units"></a>Configurar unidades reservadas de multimédia
+
+Para a análise de áudio e tarefas de análise de vídeo que são acionados por serviços de multimédia v3 ou Video Indexer, recomenda-se elevada para aprovisionar a sua conta com 10 S3 unidades reservadas de multimédia (MRUs). Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
+
+Para obter detalhes, consulte [Dimensionar processamento de multimédia com a CLI](media-reserved-units-cli-how-to.md).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Carregar, codificar e transmitir ficheiros vídeo](stream-files-tutorial-with-api.md)
+- [Tutorial: Carregar, codificar e transmitir vídeos com .NET](stream-files-tutorial-with-api.md)
+- [Tutorial: Analisar vídeos com os serviços de multimédia v3 através do .NET](analyze-videos-tutorial-with-api.md)

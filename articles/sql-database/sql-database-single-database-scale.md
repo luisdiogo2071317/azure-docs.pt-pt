@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961351"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454026"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados na base de dados do Azure SQL
 
@@ -42,7 +42,7 @@ Após escolher inicialmente o número de vCores, pode dimensionar uma base de da
 
 Alterar o serviço de camada e/ou tamanho de uma base de dados cria uma réplica da base de dados original com o novo tamanho de computação e, em seguida, troca ligações para a réplica de computação. Não são perdidos dados durante este processo mas durante o breve momento em que trocamos para a réplica, as ligações à base de dados são desativadas, pelo que algumas transações em voo poderão ser revertidas. O período de tempo para o comutador-over varia, mas geralmente é inferior a 30 segundos 99% do tempo. Se houver grandes números de transações em voo nas ligações do momento em que estão desativados, o período de tempo para o comutador-over pode demorar mais.
 
-A duração de todo o processo de aumento vertical depende do tamanho e do escalão de serviço da base de dados antes e após a alteração. Por exemplo, uma base de dados de 250 GB que está a alterar para, a partir ou dentro de uma camada de serviços de fins gerais, deve ser concluído dentro de seis horas. Para uma base de dados do mesmo tamanho que está a alterar os tamanhos de computação dentro da camada de serviço crítico para a empresa, aumentar verticalmente deverá ser concluída no prazo de três horas.
+A duração de todo o processo de aumento vertical depende geralmente ambos os o escalão de serviço e tamanho da base de dados antes e depois da alteração. Por exemplo, qualquer base de dados de tamanho que está a alterar o tamanho de computação dentro da camada de serviços deve ser concluído dentro de alguns minutos para fins gerais por outro lado, a latência para alterar a computação de tamanho no críticas para a empresa camada é, geralmente, 90 minutos ou menos por 100 GB.
 
 > [!TIP]
 > Para monitorizar operações em curso, consulte: [Gerir as operações com a API de REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gerir as operações com a CLI](/cli/azure/sql/db/op), [monitorizar as operações com o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos do PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).

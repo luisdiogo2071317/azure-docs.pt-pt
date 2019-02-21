@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 8c575c6d34543cbd8f692c64b43cf738b4c22617
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415634"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446788"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente
 
@@ -340,7 +340,7 @@ IoT Hub regista este registo quando uma mensagem que contém as propriedades de 
 }
 ```
 
-Aqui, `durationMs` não é calculado como o relógio do IoT Hub pode não estar sincronizado com o relógio do dispositivo e, portanto, um cálculo de duração pode ser enganoso. Recomendamos que escrever lógica usando o os carimbos de data / no `properties` secção para capturar os picos de latência de dispositivo para a cloud.
+Aqui, `durationMs` não é calculado como o relógio do IoT Hub pode não estar sincronizado com o relógio do dispositivo e, portanto, um cálculo de duração pode ser enganoso. Recomendamos que escrever lógica usando os carimbos de data / no `properties` secção para capturar os picos de latência de dispositivo para a cloud.
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|

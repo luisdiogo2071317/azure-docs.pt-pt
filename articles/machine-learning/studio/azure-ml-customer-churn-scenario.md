@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243550"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453992"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
 ## <a name="overview"></a>Descrição geral
-Este artigo apresenta uma implementação de referência de um projeto de análise de alterações a dados de cliente que baseia-se com o Azure Machine Learning. Neste artigo, discutimos a modelos genéricos associados para holística resolver o problema de abandono de clientes industriais. Podemos também medir a precisão de modelos que são criadas com Machine Learning e avaliar as direções para o desenvolvimento ainda mais.  
+Este artigo apresenta uma implementação de referência de um projeto de análise de alterações a dados de cliente que baseia-se com o Azure Machine Learning Studio. Neste artigo, discutimos a modelos genéricos associados para holística resolver o problema de abandono de clientes industriais. Podemos também medir a precisão de modelos que são criadas com Machine Learning e avaliar as direções para o desenvolvimento ainda mais.  
 
 ### <a name="acknowledgements"></a>Confirmações
-Esta experiência foi desenvolvida e testada pela Serge Berger, cientista de dados Principal da Microsoft e Roger Barga, anteriormente, Gestor de produto do Microsoft Azure Machine Learning. A equipe de documentação do Azure gratamente reconhece os seus conhecimentos e obrigado-los para partilhar este white paper.
+Esta experiência foi desenvolvida e testada pela Serge Berger, cientista de dados Principal da Microsoft e Roger Barga, anteriormente conhecido como o gerente de produto do Microsoft Azure Machine Learning Studio. A equipe de documentação do Azure gratamente reconhece os seus conhecimentos e obrigado-los para partilhar este white paper.
 
 > [!NOTE]
 > Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de aprendizagem automática para análise de alterações a dados, consulte: [Modelo de modelo de abandono de varejo](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](http://gallery.azure.ai/)
@@ -54,11 +54,11 @@ Um processo de resolução de problemas comuns para resolver o abandono de clien
 2. Um modelo de intervenção permite que considere a forma como o nível de intervenção pode afetar a probabilidade de fluxo de dados e a quantidade de cliente o valor de tempo de vida (CLV).
 3. Esta análise se presta a uma análise de qualitativo será escalada para uma campanha de marketing proativa que tenha como destino os segmentos de clientes para fornecer a oferta ideal.  
 
-![][1]
+![Diagrama que mostra como modelos de decisão além de tolerância a riscos gera informações acionáveis](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 Essa abordagem para a frente atraente é a melhor forma de tratar alterações a dados, mas ele vem com a complexidade: temos que desenvolver um mvn com vários modelo e as dependências de rastreamento entre os modelos. A interação entre os modelos pode ser encapsulada como mostrado no diagrama seguinte:  
 
-![][2]
+![Diagrama do modelo de interação de alterações](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
 *Figura 4: Unificada mvn com vários modelo*  
 
@@ -71,24 +71,24 @@ Uma adição interessante aqui é a análise de macrodados. Hoje em dia telecomu
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implementando o mvn de modelação no Machine Learning Studio
-Tendo em conta o problema que acabei de descrever, o que é a melhor forma de implementar uma modelagem integrada e a abordagem de classificação? Nesta secção, vamos demonstrar como conseguimos isso com o Azure Machine Learning Studio.  
+Tendo em conta o problema descrito, o que é a melhor forma de implementar uma modelagem integrada e a abordagem de classificação? Nesta secção, vamos demonstrar como conseguimos isso com o Azure Machine Learning Studio.  
 
 A abordagem com vários modelo é essencial ao projetar um mvn global para o volume de alterações. Até mesmo a classificação (preditiva) parte da abordagem deve ser com vários modelo.  
 
 O diagrama seguinte mostra o protótipo que criámos, que utiliza quatro algoritmos de classificação no Machine Learning Studio para prever o volume de alterações. O motivo para usar uma abordagem com vários modelo não é apenas para criar um classificador de ensemble para aumentar a precisão, mas também para proteger contra ajuste excessivo e para melhorar a seleção de funcionalidades prescritivas.  
 
-![][3]
+![Captura de ecrã que mostram uma área de trabalho complexa do Studio com muitos módulos interconectados](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Figura 5: Protótipo de uma abordagem de modelagem de alterações*  
 
 As secções seguintes fornecem mais detalhes sobre o modelo que foi implementados com o Machine Learning Studio de classificação de protótipo.  
 
 ### <a name="data-selection-and-preparation"></a>Seleção de dados e a preparação
-Os dados utilizados para criar os modelos e os clientes de pontuação foi obtido a partir de uma solução de vertical de CRM, com os dados oculto para proteger a privacidade dos clientes. Os dados contêm informações sobre as assinaturas de 8.000 nos EUA e combina três origens: aprovisionamento de dados (metadados de subscrição), dados de atividade (utilização do sistema) e dados de suporte do cliente. Os dados não inclui qualquer negócio relacionados com informações sobre os clientes; Por exemplo, não inclui as pontuações de metadados ou o crédito de fidelização.  
+Os dados utilizados para criar os modelos e os clientes de pontuação foi obtido a partir de uma solução de vertical de CRM, com os dados oculto para proteger a privacidade dos clientes. Os dados contêm informações sobre as assinaturas de 8.000 nos EUA e combina três origens: aprovisionamento de dados (metadados de subscrição), dados de atividade (utilização do sistema) e dados de suporte do cliente. Os dados não inclui quaisquer informações relacionadas com negócios sobre clientes; Por exemplo, não inclui as pontuações de metadados ou o crédito de fidelização.  
 
-Para simplificar, ETL e processos de limpeza de dados estão fora do âmbito porque partimos do princípio de que a preparação de dados já foi feitos noutro local.   
+Para simplificar, ETL e processos de limpeza de dados estão fora do âmbito porque partimos do princípio de que a preparação de dados já foi feitos noutro local.
 
-Seleção de funcionalidades para a Modelagem é baseada em significância preliminar de classificação do conjunto de indicadores, incluídos no processo que utiliza o módulo de floresta aleatório. Para a implementação no Machine Learning Studio, vamos calculada a média, mediana e intervalos para as funcionalidades representativas. Por exemplo, adicionamos agregados para os dados qualitativos, por exemplo, valores mínimos e máximo para a atividade do utilizador.    
+Seleção de funcionalidades para a Modelagem é baseada em significância preliminar de classificação do conjunto de indicadores, incluídos no processo que utiliza o módulo de floresta aleatório. Para a implementação no Machine Learning Studio, vamos calculada a média, mediana e intervalos para as funcionalidades representativas. Por exemplo, adicionamos agregados para os dados qualitativos, por exemplo, valores mínimos e máximo para a atividade do utilizador.
 
 Também capturamos o temporais informações para os mais recentes seis meses. Analisámos dados durante um ano e Estabelecemos que mesmo que haja tendências estatisticamente significativas, o efeito sobre o volume de alterações é muito reduzido depois de seis meses.  
 
@@ -96,11 +96,11 @@ O ponto mais importante é que o processo inteiro, incluindo ETL, seleção de f
 
 Os diagramas seguintes mostram os dados que foi utilizados.  
 
-![][4]
+![Captura de ecrã que mostra um exemplo dos dados utilizados com valores não processados](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
 *Figura 6: Trecho de origem de dados (oculto)*  
 
-![][5]
+![Captura de ecrã que mostra estatísticos recursos extraídos da origem de dados](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *Figura 7: Recursos extraídos da origem de dados*
  
@@ -122,7 +122,7 @@ Usamos os seguintes quatro algoritmos de machine learning para criar o protótip
 
 O diagrama seguinte ilustra uma parte da superfície de design experimentação, que indica a seqüência em que foram criados os modelos:  
 
-![][6]  
+![Captura de ecrã de uma pequena seção da experimentação do studio baseadas em telas](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *Figura 8: A criação de modelos de Machine Learning Studio*  
 
@@ -135,18 +135,18 @@ Podemos também submetido o classificação do conjunto de dados para um modelo 
 Nesta seção, Apresentaremos nossos descobertas sobre a precisão dos modelos, com base no conjunto de dados de classificação.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Precisão e a precisão da classificação
-Em geral, a implementação no Azure Machine Learning está por trás do SAS precisão em cerca de 10 a 15% (área em curva ou AUC).  
+Em geral, a implementação no Azure Machine Learning Studio é por trás do SAS precisão em cerca de 10 a 15% (área em curva ou AUC).  
 
 No entanto, a métrica mais importante no volume de alterações é a taxa de misclassification: ou seja, de churners de principais N como previsto pelo classificador, que eles realmente de fez **não** alterações a dados e ainda recebeu um tratamento especial? O diagrama a seguir compara essa taxa de misclassification para todos os modelos:  
 
-![][7]
+![Área de gráfico de curva comparando o desempenho dos algoritmos de 4](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *Figura 9: Área de protótipo Passau em curva*
 
 ### <a name="using-auc-to-compare-results"></a>Usando AUC para comparar os resultados
 Área na curva (AUC) é uma métrica que representa uma medida global de *separability* entre as distribuições de pontuações para populações positivas e negativas. Ele é semelhante ao gráfico característica de operador de destinatário (ROC) tradicional, mas uma diferença importante é que a métrica AUC não requer que escolha um valor de limiar. Em vez disso, ele resume os resultados ao longo **todos os** opções possíveis. Por outro lado, o gráfico ROC tradicional mostra a taxa de positiva sobre o eixo vertical e a taxa de falsos positivos no eixo horizontal e o limiar de classificação varia.   
 
-AUC é geralmente utilizado como um indicador de que vale a pena para algoritmos diferentes (ou sistemas diferentes) porque permite que os modelos de ser comparadas por meio de seus valores AUC. Essa é uma abordagem popular em setores como meteorology e biosciences. Portanto, AUC representa uma ferramenta popular para avaliar o desempenho do classificador.  
+AUC é utilizado como um indicador de que vale a pena para algoritmos diferentes (ou sistemas diferentes), porque ela permite que os modelos de ser comparadas por meio de seus valores AUC. Essa é uma abordagem popular em setores como meteorology e biosciences. Portanto, AUC representa uma ferramenta popular para avaliar o desempenho do classificador.  
 
 ### <a name="comparing-misclassification-rates"></a>Comparando as taxas de misclassification
 Estamos em comparação com as tarifas de misclassification no conjunto de dados em questão utilizando os dados CRM de aproximadamente 8.000 subscrições.  
@@ -160,14 +160,14 @@ Pelo mesmo token, precisão é mais importante do que a precisão, uma vez que e
 
 O diagrama seguinte da Wikipedia descreve a relação num elemento de gráfico animada, fácil de compreender:  
 
-![][8]
+![Dois destinos. Mostra um destino pressionar marcas livremente agrupadas mas perto o olho-de-bulls marcados como "precisão de baixa: trueness boa, precisão fraco. Outro destino rigidamente agrupados, mas longe de ser o olho-de-bulls marcado como "precisão de baixa: trueness fraco, precisão bom"](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *Figura 10: Variação entre a precisão e a precisão*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultados de precisão e a precisão para o modelo de árvore de decisões elevada
 A tabela a seguir apresenta os resultados brutos de usando o protótipo de Machine Learning para o modelo de árvore de decisões elevada, o que vem a ser mais precisos entre quatro modelos de classificação:  
 
-![][9]
+![O trecho de código de tabela que mostra a precisão, precisão, Recall, pontuação F, AUC, perda de registo médio e perda de registo de treinamento para quatro algoritmos](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *Figura 11: Características do modelo de árvore de decisões elevada*
 
@@ -200,18 +200,18 @@ Esta observação importante é muitas vezes ignorada na empresas, que, geralmen
 
 No entanto, a promessa de análises de autoatendimento com o Machine Learning Studio é que as quatro categorias de informações, classificados pela divisão ou departamento, tornar-se uma fonte valiosa para machine learning sobre alterações a dados.  
 
-Outro recurso interessante do Azure Machine Learning é a capacidade de adicionar um módulo personalizado para o repositório de módulos predefinidos que já estão disponíveis. Esta capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. É um diferenciador importante do Azure Machine Learning no mercado.  
+Outro recurso interessante do Azure Machine Learning Studio é a capacidade de adicionar um módulo personalizado para o repositório de módulos predefinidos que já estão disponíveis. Esta capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. É um diferenciador importante do Azure Machine Learning Studio no mercado.  
 
 Esperamos que continue neste tópico no futuro, principalmente relacionadas com a análise de macrodados.
   
 
 ## <a name="conclusion"></a>Conclusão
-Este documento descreve um método sensato para lidar com o problema comum de abandono de clientes utilizando uma estrutura genérica. É considerada um protótipo para modelos de classificação e a Implementei com o Azure Machine Learning. Por fim, temos avaliado a precisão e o desempenho da solução de protótipo em relação a algoritmos comparáveis no SAS.  
+Este documento descreve um método sensato para lidar com o problema comum de abandono de clientes utilizando uma estrutura genérica. É considerada um protótipo para modelos de classificação e a Implementei com o Azure Machine Learning Studio. Por fim, temos avaliado a precisão e o desempenho da solução de protótipo em relação a algoritmos comparáveis no SAS.  
 
  
 
 ## <a name="references"></a>Referências
-[1] Análise Preditiva: Além do gerenciamento de informações Predições, McKnight Ocidental, Julho/Agosto de 2011, p.18 e 20.  
+[1] análise de preditiva: Além do gerenciamento de informações Predições, McKnight Ocidental, Julho/Agosto de 2011, p.18 e 20.  
 
 [2] artigo da Wikipedia: [Precisão e a precisão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
@@ -223,17 +223,6 @@ Este documento descreve um método sensato para lidar com o problema comum de ab
  
 
 ## <a name="appendix"></a>Anexo
-![][10]
+![Instantâneo de uma apresentação no protótipo de alterações a dados](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *Figura 12: Instantâneo de uma apresentação no protótipo de alterações a dados*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e41a669e3dcd14952077cbd21e7387184546de80
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488450"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454310"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gerir iterações da experimentação no Azure Machine Learning Studio
 Desenvolver um modelo de Análise Preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experimentação, os seus resultados convergem até achar que tem um modelo preparado e eficaz. A chave para este processo está acompanhando as várias interações de suas configurações e parâmetros de experimentação.
@@ -48,7 +48,7 @@ Por exemplo, suponha que crie uma experiência com o [regressão Linear] [ linea
 
 Se clicar **ver histórico de EXECUÇÕES**, verá uma lista de todas essas execuções:
 
-![Exemplo de histórico de execuções][runhistory]
+![Exemplo de histórico de execuções](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
 Clique em qualquer um dessas execuções para ver um instantâneo da experimentação no momento que o executasse. A configuração, os valores de parâmetros, comentários e os resultados são todos preservados para que tenha um registo completo de que a execução da sua experimentação.
 
@@ -73,10 +73,6 @@ Por exemplo, suponha que tem a experimentação mostrado na secção anterior do
 5. Clique em **executar**.
 
 Pode continuar modificar e executar esta versão da sua experimentação, criando um histórico de execuções de novo para registrar seu trabalho.
-
-<!-- Images -->
-[runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg
-
 
 <!-- Module References -->
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

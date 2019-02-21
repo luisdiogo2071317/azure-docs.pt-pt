@@ -1,6 +1,6 @@
 ---
-title: Definir informações de segurança para utilizar o e-mail - Azure Active Directory | Documentos da Microsoft
-description: Configure suas informações de segurança para verificar a sua identidade através do seu trabalho de e-mail profissional ou escolar.
+title: Definir informações de segurança (pré-visualização) para utilizar o seu endereço de e-mail - Azure Active Directory | Documentos da Microsoft
+description: Como configurar as informações de segurança para verificar a sua identidade com o seu endereço de e-mail.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,49 +9,72 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c18124286d78520e8b89a61c5d12760c9ad784c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7c6bf2c8ea6a2526f8548a785706e5ed3a7460ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197220"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455216"
 ---
-# <a name="set-up-security-info-to-use-email-preview"></a>Definir informações de segurança para utilizar o e-mail (pré-visualização)
+# <a name="set-up-security-info-preview-to-use-your-email-address"></a>Definir informações de segurança (pré-visualização) para utilizar o seu endereço de e-mail
+Pode seguir estes passos para adicionar o que método de repor a palavra-passe. Depois de ter configurado isso pela primeira vez, pode retornar para o **informações de segurança** página para adicionar, atualizar ou eliminar as suas informações de segurança.
+
+Depois de configurar o método de repor a sua palavra-passe, tem também de configurar o método de verificação de dois fatores, usando uma [aplicação de autenticador](security-info-setup-auth-app.md), [mensagens de texto](security-info-setup-text-msg.md), ou uma [chamada telefónica](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Configuração de suas informações de segurança requer que inicie sessão na sua conta escolar ou profissional e, em seguida, concluir o processo de registo. Se nunca configurou as informações de segurança, será solicitado a fazê-lo agora.
-
-## <a name="set-up-email"></a>Configurar e-mail
-
-Dependendo das definições da sua organização, poderá ser-lhe pedido para adicionar um endereço de e-mail às suas informações de segurança quando iniciar sessão. Caso contrário, para iniciar a configuração de e-mail das informações de segurança, siga os passos em [gerir as suas informações de segurança](security-info-manage-settings.md).
+## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurar o seu endereço de e-mail da página de informações de segurança
+Dependendo das definições da sua organização, poderá utilizar o seu endereço de e-mail como um dos métodos de informações de segurança.
 
 >[!Note]
->Recomendamos que utilize uma conta de e-mail que não requer a sua palavra-passe de rede para aceder.<br>Se não vir a opção de e-mail, é possível que a sua organização não permite a utilização de uma mensagem de e-mail para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
+>Recomendamos que utilize um endereço de e-mail que não requer a sua palavra-passe de rede para aceder. Se não vir a opção de e-mail, é possível que a sua organização não permite a utilização de uma mensagem de e-mail para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
 
-### <a name="to-use-your-email-address"></a>Para utilizar o seu endereço de e-mail
+### <a name="to-set-up-your-email-address"></a>Para configurar o seu endereço de e-mail
 
-1. Selecione o **E-Mail** opção e, em seguida, escreva o seu endereço de e-mail na caixa. Este endereço de e-mail não pode ser o seu e-mail escolar ou profissional.
+1. Inicie sessão na sua conta escolar ou profissional e, em seguida, aceda ao seu https://myprofile.microsoft.com/ página.
 
-     ![Página de informações de segurança, com a caixa de entrada de correio eletrónico](media/security-info/security-info-keep-secure-setup-email.png)
+    ![Minha página de perfil, que apresenta ligações de informações de segurança realçadas](media/security-info/securityinfo-myprofile.png)
 
-2. Verifique a existência de uma mensagem de e-mail da Microsoft para a sua organização, digite o código de verificação incluído para o **Verifique o seu e-mail** caixa e, em seguida, selecione **feito**.
+2. Selecione **informações de segurança** no painel de navegação esquerdo ou na ligação presente o **informações de segurança** bloquear e, em seguida, selecione **Adicionar método** do **informações de segurança**  página.
 
-     ![Página de informações de segurança, com a caixa de entrada de código de verificação de e-mail](media/security-info/security-info-verify-email.png)
+    ![Página de informações de segurança com a opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod.png)
 
-    >[!Note]
-    >Se não vir uma mensagem de e-mail da Microsoft em nome da sua organização, certifique-se de que escreveu corretamente o seu endereço de e-mail e, em seguida, verifique suas pastas de lixo ou Spam.
+3. Sobre o **adicione um método** página, selecione **E-Mail** na lista pendente e, em seguida, selecione **Add**.
 
-3. Na **manter a sua conta segura** página, selecione **feito**.
+    ![Adicionar a caixa de método, com o e-mail selecionado](media/security-info/securityinfo-myprofile-addemail.png)
 
-    As informações de segurança é atualizada para utilizar o seu endereço de e-mail para verificar a sua identidade quando utilizar a reposição de palavra-passe.
+4. Sobre o **E-Mail** página, escreva o seu endereço de e-mail (por exemplo, alain@gmail.com) e, em seguida, selecione **seguinte**.
 
-## <a name="additional-security-info-options"></a>Opções de informações de segurança adicionais
+    ![Adicione o número de telefone e escolha chamadas telefónicas](media/security-info/securityinfo-myprofile-emailaddress.png)
 
-Tem opções para como os contactos de organização para verificar a sua identidade, com base no que é que está tentando fazer. As opções incluem:
+    >[!Important]
+    >Este endereço de e-mail não pode ser o seu e-mail escolar ou profissional.
+
+5. Escreva o código que enviámos para o seu endereço de e-mail especificado e, em seguida, selecione **seguinte**.
+
+    ![Adicione o número de telefone e escolha as mensagens de texto](media/security-info/securityinfo-myprofile-emailcode.png)
+
+    As informações de segurança é atualizada e pode utilizar o seu endereço de e-mail para verificar a sua identidade quando utilizar a reposição de palavra-passe.
+
+## <a name="delete-your-email-address-from-your-security-info-methods"></a>Eliminar o seu endereço de e-mail de seus métodos de informações de segurança
+Se já não quiser utilizar o seu endereço de e-mail como um método de informações de segurança, pode removê-lo a partir da **informações de segurança** página.
+
+>[!Important]
+>Se eliminar o seu endereço de e-mail por engano, não é possível-lo. Terá que adicionar o método novamente, seguindo os passos a [configurar o seu endereço de e-mail](#set-up-your-email-address-from-the-security-info-page) seção deste artigo.
+
+### <a name="to-delete-your-email-address"></a>Para eliminar o seu endereço de e-mail
+
+1. Sobre o **informações de segurança** página, selecione a **eliminar** ligação junto ao **E-Mail** opção.
+
+    ![Ligação para eliminar o método de telefone de informações de segurança](media/security-info/securityinfo-myprofile-emaildelete.png)
+
+2. Selecione **Sim** na caixa de confirmação para eliminar a **E-Mail** conta. Depois da conta de e-mail é eliminada, este é removido do suas informações de segurança e, este desaparece dos **informações de segurança** página.
+
+## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
+Tem opções adicionais para como os contactos de organização para verificar a sua identidade, com base no que é que está tentando fazer. As opções incluem:
 
 - **Aplicação de autenticador.** Transferir e utilizar uma aplicação de autenticação para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para a reposição de palavra-passe ou a verificação em dois passos. Para obter instruções passo a passo sobre como configurar e utilizar a aplicação Microsoft Authenticator, consulte [definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md).
 
@@ -65,8 +88,6 @@ Tem opções para como os contactos de organização para verificar a sua identi
     >Se algumas dessas opções estão em falta, é mais provável porque a sua organização não permite que esses métodos. Se for este o caso, terá de escolher um método disponível ou contacte o administrador para obter mais ajuda.
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-- Se precisar de atualizar as suas informações de segurança, siga as instruções no [gerir as suas informações de segurança](security-info-manage-settings.md) artigo.
 
 - Repor a palavra-passe, se tiver perdido ou esquecidas, do [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com/) ou siga os passos a [repor a palavra-passe profissional ou escolar](user-help-reset-password.md) artigo.
 

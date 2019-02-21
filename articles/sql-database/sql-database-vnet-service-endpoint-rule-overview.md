@@ -3,7 +3,7 @@ title: VNet pontos finais e regras para únicos e em pool bases de dados SQL do 
 description: Marca uma sub-rede como um ponto de extremidade do serviço de rede Virtual. Em seguida, o ponto de extremidade como uma regra de rede virtual para a ACL de seu banco de dados do SQL do Azure. A base de dados SQL, em seguida, aceita comunicações de todas as máquinas virtuais e outros nós na sub-rede.
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/20/2019
+ms.openlocfilehash: 6ded590ac5a9c30655d8ed19c370ce476d1c9631
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118382"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456287"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utilizar pontos finais de serviço de rede virtual e regras para servidores de base de dados
 

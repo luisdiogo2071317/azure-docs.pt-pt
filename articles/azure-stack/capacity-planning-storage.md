@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176361"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446006"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Planeamento de capacidade de armazenamento de pilha do Azure
 As secções seguintes fornecem Azure Stack capacidade de armazenamento informações de planeamento para auxiliar no planejamento das necessidades de armazenamento as soluções.
@@ -38,7 +38,9 @@ Operadores podem escolher entre um flash todos ou uma configuração de armazena
 
 ![Planeamento de capacidade de armazenamento do Azure](media/azure-stack-capacity-planning/storage.png)
 
-Na configuração de todos os flash, o cache é NVMe com uma opção de SATA SSD ou NVMe para capacidade. Numa configuração híbrida, o cache é uma escolha entre NVMe e SATA SSD enquanto a capacidade é HDD.
+A configuração tudo flash, a configuração pode ser uma configuração de duas camadas ou de camada única.  Se a configuração de camada única, todos os dispositivos de capacidade será do mesmo tipo (por exemplo, NVMe ou SATA SSD ou SAS SSD) e dispositivos de cache não são utilizados. Num todos os de duas camadas configuração flash, a configuração típica é NVMe como os dispositivos de cache e, em seguida, o SATA ou SSDs de SAS que os dispositivos de capacidade.
+
+No híbrida, configuração de duas camadas, o cache é que uma escolha entre NVMe, SATA ou SAS SSD e a capacidade é HDD. 
 
 Segue-se um breve resumo sobre os espaços de armazenamento direto e a configuração de armazenamento do Azure Stack:
 - Um agrupamento de espaços de armazenamento por unidade de escala (todos os dispositivos de armazenamento são configurados dentro de um conjunto único)

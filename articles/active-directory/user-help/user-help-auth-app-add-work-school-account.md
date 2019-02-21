@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775e6968282c94abec64fb410f2cc720ba0913e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168449"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453550"
 ---
 # <a name="add-your-work-or-school-account"></a>Adicionar a sua conta escolar ou profissional
 Se a sua organização utiliza a verificação de dois fatores, pode configurar a sua conta escolar ou profissional para utilizar a aplicação Microsoft Authenticator como um dos métodos de verificação.
@@ -27,7 +27,7 @@ Se a sua organização utiliza a verificação de dois fatores, pode configurar 
 
 ## <a name="add-your-work-or-school-account"></a>Adicionar a sua conta escolar ou profissional
 
-1. No seu PC, vá para o [verificação adicional de segurança](https://aka.ms/mfasetup) página.
+1. No seu computador, vá para o [verificação adicional de segurança](https://aka.ms/mfasetup) página.
 
     >[!Note]
     >Se não vir a **verificação adicional de segurança** página, é possível que o administrador tiver ativado a experiência de informações (pré-visualização) de segurança. Se for esse o caso, deve seguir as instruções a [definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md) secção. Se não for esse o caso, terá de contactar o suporte técnico da sua organização para obter assistência. Para obter mais informações sobre as informações de segurança, consulte [gerir as suas informações de segurança](security-info-manage-settings.md).
@@ -40,7 +40,7 @@ Se a sua organização utiliza a verificação de dois fatores, pode configurar 
 
 3. Abra a aplicação Microsoft Authenticator, selecione **adicionar conta** partir a **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **trabalho conta escolar ou profissional**.
 
-4. Utilizar a câmara do dispositivo para analisar o código QR a partir do **configurar de aplicação móvel** ecrã no seu PC e, em seguida, escolha **feito**.
+4. Utilizar a câmara do dispositivo para analisar o código QR a partir do **configurar de aplicação móvel** ecrã no seu computador e, em seguida, escolha **feito**.
 
     >[!Note]
     >Se a câmara não consegue capturar o código QR, pode adicionar manualmente as informações da sua conta para a aplicação Microsoft Authenticator para verificação de dois fatores. Para obter mais informações e saber como fazê-lo, consulte [adicione manualmente a sua conta](user-help-auth-app-add-account-manual.md).

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: e780a78bb2cc341ef6b2f682cd51fedad3f08494
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310861"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446669"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -39,7 +39,8 @@ Não. Não não possível mover dados de cópia de segurança armazenados num co
 Não. Um cofre dos serviços de recuperação só pode alterar as opções de armazenamento antes de quaisquer cópias de segurança foram armazenadas.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Pode fazer um Item de nível de restaurar (ILR) para cópia de segurança para um cofre dos serviços de recuperação de VMs?
-Não, ILR não é suportada.
+- ILR é suportada para VMs do Azure, cópias de segurança de cópia de segurança de VM do Azure. Para obter mais informações, consulte [artigo](backup-azure-restore-files-from-vm.md)
+- ILR não é suportada para pontos de recuperação online de VMs no local, uma cópia de segurança do Azure backup Server ou o System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
@@ -90,7 +91,6 @@ Sim.
 - Fazer backup de VMs do Azure uma vez por dia.
 
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Que sistemas operativos são suportados para cópia de segurança?
-
 O Azure Backup suporta estes sistemas operativos para criar cópias de segurança de ficheiros e pastas e aplicações protegidas pelo servidor de cópia de segurança do Azure e o DPM.
 
 **OS**| **SKU** |**Detalhes**
@@ -139,7 +139,7 @@ Estado do sistema/BMR |Cada cópia individual da BMR ou estado do sistema da má
 Não existe nenhum limite na quantidade de dados, que pode criar cópias de segurança através de um cofre dos serviços de recuperação.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que é o tamanho dos dados transferido para o Cofre de serviços de recuperação mais pequeno do que os dados selecionados para cópia de segurança?
- Dados de cópia de segurança do agente de cópia de segurança do Azure, o DPM, e o servidor de cópia de segurança do Azure é comprimido e encriptado antes de serem transferidos. Com a compactação e criptografia é aplicada, os dados no cofre são 30-40% mais reduzidos.
+Dados de cópia de segurança do agente de cópia de segurança do Azure, o DPM, e o servidor de cópia de segurança do Azure é comprimido e encriptado antes de serem transferidos. Com a compactação e criptografia é aplicada, os dados no cofre são 30-40% mais reduzidos.
 
 ### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vault"></a>Pode eliminar ficheiros individuais a partir de um ponto de recuperação no Cofre?
 Não, o Azure Backup não suporta a eliminação ou limpar os itens individuais de cópias de segurança armazenadas.

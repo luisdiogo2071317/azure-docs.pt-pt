@@ -1,23 +1,23 @@
 ---
 title: 'Início rápido: Reconhecer a conversão de voz, Objective-C - serviços de voz'
 titleSuffix: Azure Cognitive Services
-description: Saiba como reconhecer voz em Objective-C no iOS com o SDK do Serviço de Voz
+description: Aprender a reconhecer a conversão de voz no Objective-C no iOS com o SDK de voz
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5f6a66b4005a0fa7106830d7e53950a9902cd078
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878107"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447247"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no iOS com o SDK do serviço de voz
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no iOS com o SDK de voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ Antes de começar, eis uma lista de pré-requisitos:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Voz dos Serviços Cognitivos é `1.2.0`.
+A versão atual do SDK de Voz dos Serviços Cognitivos é `1.3.0`.
 
 O SDK de Voz dos Serviços Cognitivos para Mac e iOS é atualmente distribuído como uma Arquitetura Cocoa.
 Pode ser transferido a partir de https://aka.ms/csspeech/iosbinary. Transfira o ficheiro para o diretório raiz.

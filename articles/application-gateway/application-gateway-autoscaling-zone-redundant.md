@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743655"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446516"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)
 
@@ -45,7 +45,7 @@ Durante a pré-visualização, não existe nenhum custo associado. É-lhe cobrad
 |Problema|Detalhes|
 |--|--|
 |Certificado de autenticação|Não suportado.<br>Para obter mais informações, consulte [descrição geral do SSL ponto a ponto com o Gateway de aplicação](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
-|Misturar Standard_v2 e o padrão Gateway de aplicação na mesma sub-rede|Não suportado.<br>Além disso, se o dimensionamento automático está ativado, uma sub-rede pode ter apenas um gateway de aplicação.|
+|Misturar Standard_v2 e o padrão Gateway de aplicação na mesma sub-rede|Não suportado|
 |Definido rota utilizador (UDR) na sub-rede de Gateway de aplicação|Não suportado|
 |NSG para o intervalo de portas de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 à 65534 para Standard SKU.<br>Para obter mais informações, consulte a [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registos de desempenho no diagnóstico do Azure|Não suportado.<br>Métricas do Azure devem ser utilizadas.|

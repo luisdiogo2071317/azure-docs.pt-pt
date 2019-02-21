@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857945"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445122"
 ---
 # <a name="ship-an-application"></a>Enviar uma aplicação
 
@@ -47,19 +47,19 @@ Os ficheiros necessários do SDK de voz podem ser implementados no mesmo diretó
 
 ## <a name="linux"></a>Linux
 
+O SDK de voz suporta, atualmente, o Ubuntu 16.04 e 18.04 distribuições.
 Para uma aplicação nativa, terá de enviar a biblioteca do SDK de voz, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Certificar-se de que seleciona a versão (x86, x64) que corresponde à sua aplicação. Dependendo da versão do Linux, também poderá ter de incluir as seguintes dependências:
 
 * As bibliotecas compartilhadas da biblioteca do GNU C (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
 * A biblioteca OpenSSL (`libssl.so.1.0.0`)
-* A biblioteca de cURL (`libcurl.so.4`)
 * A biblioteca partilhada para aplicativos de ALSA (`libasound.so.2`)
 
-No Ubuntu 16.04 ou 18.04, por exemplo, as bibliotecas de C do GNU devem já ser instaladas por predefinição. Os três últimos podem ser instalados utilizando estes comandos:
+No Ubuntu, as bibliotecas de C do GNU já devem ser instaladas por predefinição. Os três últimos podem ser instalados utilizando estes comandos:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

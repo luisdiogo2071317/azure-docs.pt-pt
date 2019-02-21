@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217191"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453142"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utilizar autenticação do Active Directory do Azure para a autenticação com o SQL
 
@@ -101,16 +101,16 @@ Para criar um utilizador de base de dados contidos na base de dados do Azure SQL
 
 ### <a name="manage-instances"></a>Gerir instâncias
 
-- Os utilizadores e inícios de sessão do AD do Azure são suportados como uma funcionalidade de pré-visualização para [instâncias geridas](sql-database-managed-instance.md).
-- A definição de inícios de sessão do Azure AD mapeados para um grupo do Azure AD como proprietário de base de dados não é suportado no [instâncias geridas](sql-database-managed-instance.md).
+- Principais de servidor do Azure AD (inícios de sessão) e os utilizadores são suportados como uma funcionalidade de pré-visualização para [instâncias geridas](sql-database-managed-instance.md).
+- Definir entidades de segurança de servidor do Azure AD (inícios de sessão) mapeado para um grupo do Azure AD como proprietário de base de dados não é suportado no [instâncias geridas](sql-database-managed-instance.md).
     - Uma extensão, isso é que, quando é adicionado como parte de um grupo a `dbcreator` função de servidor, os utilizadores do grupo esta situação pode ligar à instância gerida e criar novas bases de dados, mas não será possível acessar o banco de dados. Isto acontece porque o novo proprietário de base de dados é SA e não o utilizador do Azure AD. Este problema não se manifestam se o utilizador individual é adicionado ao `dbcreator` função de servidor.
-- Execução de tarefas e gestão de agentes de SQL é suportada para inícios de sessão do Azure AD.
-- Base de dados de cópia de segurança e restaurar as operações podem ser executadas pelo inícios de sessão do Azure AD.
-- Auditoria de todas as declarações relacionadas a inícios de sessão do Azure AD e eventos de autenticação é suportada.
-- Ligação de administrador dedicada para inícios de sessão do Azure AD que são membros da função de servidor sysadmin é suportada.
+- Execução de tarefas e gestão de agentes de SQL é suportada para principais de servidor do Azure AD (inícios de sessão).
+- Base de dados de cópia de segurança e restaurar as operações podem ser executadas por entidades de servidor do Azure AD (inícios de sessão).
+- Auditoria de todas as instruções relacionadas com principais de servidor do Azure AD (inícios de sessão) e eventos de autenticação é suportada.
+- Ligação de administrador dedicada para os principais de servidor do Azure AD (inícios de sessão) que são membros da função de servidor sysadmin é suportada.
     - Compatíveis por meio do utilitário SQLCMD e SQL Server Management Studio.
-- Acionadores de início de sessão são suportados para eventos de início de sessão provenientes de inícios de sessão do Azure AD.
-- Correio de Mediador de serviço e DB pode ser configurados com início de sessão do Azure AD.
+- Acionadores de início de sessão são suportados para eventos de início de sessão provenientes de principais de servidor do Azure AD (inícios de sessão).
+- Correio de Mediador de serviço e DB pode ser configurados com um principal de servidor do Azure AD (início de sessão).
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>A ligar através de identidades do Azure AD
@@ -121,7 +121,7 @@ Autenticação do Azure Active Directory suporta os seguintes métodos de conex�
 - Utilizar um nome principal do Azure AD e uma palavra-passe
 - Utilizar a autenticação de token de aplicação
 
-Os seguintes métodos de autenticação são suportados para inícios de sessão do Azure AD (**pré-visualização pública**):
+Os seguintes métodos de autenticação são suportados para principais de servidor do Azure AD (inícios de sessão) (**pré-visualização pública**):
 
 - Palavra-passe do Azure Active Directory
 - O Azure Active Directory integrado
@@ -133,7 +133,7 @@ Os seguintes métodos de autenticação são suportados para inícios de sessão
 
 - Para melhorar a capacidade de gestão, recomendamos que aprovisiona um dedicada do Azure AD grupo como um administrador.   
 - Apenas um administrador do Azure AD (um utilizador ou grupo) pode ser configurado para um servidor de base de dados do Azure SQL ou o Azure SQL Data Warehouse em qualquer altura.
-  - A adição de inícios de sessão do Azure AD para instâncias geridas (**pré-visualização pública**) permite que a possibilidade de criar vários inícios de sessão do AD do Azure que podem ser adicionados para o `sysadmin` função.
+  - A adição de principais de servidor do Azure AD (inícios de sessão) para instâncias geridas (**pré-visualização pública**) permite que a possibilidade de criar vários Azure principais de servidor de AD (inícios de sessão) que podem ser adicionadas para o `sysadmin` função.
 - Inicialmente, apenas um administrador do Azure AD para o SQL Server pode ligar para o servidor de base de dados do Azure SQL, a instância gerida ou o Azure SQL Data Warehouse através de uma conta do Azure Active Directory. Administrador do Active Directory, pode configurar subsequente do Azure AD os utilizadores de base de dados.   
 - Recomendamos a definição de tempo limite da conexão para 30 segundos.   
 - SQL Server 2016 Management Studio e SQL Server Data Tools para Visual Studio 2015 (versão 14.0.60311.1April 2016 ou posterior) suportam a autenticação do Azure Active Directory. (Autenticação do azure AD é suportada pelos **.NET Framework Data Provider Pro SqlServer**; pelo menos, versão .NET Framework 4.6). Por isso as versões mais recentes destas ferramentas e aplicações de camada de dados (DAC e. BACPAC) pode utilizar a autenticação do Azure AD.   
@@ -147,12 +147,12 @@ Os seguintes métodos de autenticação são suportados para inícios de sessão
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber como criar e preencher do Azure AD e, em seguida, configurar o Azure AD com a base de dados do Azure SQL ou armazém de dados SQL do Azure, veja [configurar e gerir a autenticação do Azure Active Directory com a base de dados SQL, instância gerida ou SQL Data Warehouse ](sql-database-aad-authentication-configure.md).
-- Para obter um tutorial da utilização de inícios de sessão do Azure AD com instâncias geridas, consulte [inícios de sessão do Azure AD com instâncias geridas](sql-database-managed-instance-aad-security-tutorial.md)
+- Para obter um tutorial de como utilizar principais de servidor do Azure AD (inícios de sessão) com instâncias geridas, consulte [principais de servidor (inícios de sessão) do Azure AD com instâncias geridas](sql-database-managed-instance-aad-security-tutorial.md)
 - Para obter uma descrição geral do acesso e controlo na Base de Dados SQL, veja [Acesso e controlo da Base de Dados SQL](sql-database-control-access.md).
 - Para obter uma descrição geral de inícios de sessão, utilizadores e funções de base de dados da Base de Dados SQL, veja [Inícios de sessão, utilizadores e funções de base de dados](sql-database-manage-logins.md).
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](https://msdn.microsoft.com/library/ms189121.aspx).
-- Para a sintaxe sobre a criação de inícios de sessão do Azure AD para instâncias geridas, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Para a sintaxe sobre a criação do Azure AD principais de servidor (inícios de sessão) para instâncias geridas, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Para obter mais informações sobre as regras de firewall na Base de Dados SQL, veja [Regras de firewall da Base de Dados SQL](sql-database-firewall-configure.md).
 
 <!--Image references-->

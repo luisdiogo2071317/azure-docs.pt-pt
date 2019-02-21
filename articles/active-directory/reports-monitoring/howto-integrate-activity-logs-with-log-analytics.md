@@ -1,6 +1,6 @@
 ---
-title: Stream registos do Azure Active Directory para o Log Analytics através do Azure Monitor (pré-visualização) | Documentos da Microsoft
-description: Saiba como integrar registos do Azure Active Directory com o Log Analytics com o Azure Monitor (pré-visualização)
+title: Stream registos do Azure Active Directory para registos do Azure Monitor (pré-visualização) | Documentos da Microsoft
+description: Saiba como integrar registos do Azure Active Directory com os registos do Azure Monitor (pré-visualização)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,30 +17,30 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51db96523a96015822f4507731bad2a398521530
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165846"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456491"
 ---
-# <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Integrar registos do Azure AD com o Log Analytics através do Azure Monitor (pré-visualização)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Integrar registos do Azure AD com os registos do Azure Monitor (pré-visualização)
 
-O log Analytics permite-lhe dados de consulta para encontrar eventos específicos, analisar tendências e efetuar a correlação entre várias origens de dados. Com a integração do Azure AD registos de atividades no Log Analytics, pode agora realizar tarefas como:
+Registos de Monitor do Azure permite-lhe dados de consulta para encontrar eventos específicos, analisar tendências e efetuar a correlação entre várias origens de dados. Com a integração do Azure AD registos de atividades nos registos do Azure Monitor, agora pode realizar tarefas como:
 
  * Compare os seus registos de início de sessão do AD do Azure em relação a registos de segurança publicados pelo centro de segurança do Azure
 
  * Resolver problemas de afunilamentos de desempenho na página de início de sessão da sua aplicação ao correlacionar dados de desempenho de aplicações do Azure Application Insights.  
 
-O vídeo seguinte a partir de uma sessão Ignite demonstra as vantagens da utilização do Log Analytics para registos do Azure AD em cenários de usuário prático.
+O vídeo seguinte a partir de uma sessão Ignite demonstra as vantagens da utilização de registos do Azure Monitor para registos do Azure AD em cenários de usuário prático.
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
-Neste artigo, saiba como integrar registos do Azure Active Directory (Azure AD) com o Log Analytics através do Azure Monitor.
+Neste artigo, saiba como integrar registos do Azure Active Directory (Azure AD) com o Azure Monitor.
 
 ## <a name="supported-reports"></a>Relatórios suportados
 
-Pode encaminhar os registos de atividades de auditoria e registos de atividades de início de sessão para o Log Analytics para análise adicional. 
+Pode encaminhar os registos de atividades de auditoria e registos de atividades de início de sessão para registos do Azure Monitor para análise adicional. 
 
 * **Registos de auditoria**: O [relatório de atividade de registos de auditoria](concept-audit-logs.md) permite-lhe aceder ao histórico de cada tarefa que é executada no seu inquilino.
 * **Registos de início de sessão**: Com o [relatório de atividade de início de sessão](concept-sign-ins.md), pode determinar quem realizou as tarefas que são enviadas nos registos de auditoria.
@@ -58,13 +58,13 @@ Para utilizar esta funcionalidade, precisa de:
 * Um utilizador que seja *administrador global* ou *administrador de segurança* do inquilino do Azure AD.
 * Uma área de trabalho do Log Analytics na sua subscrição do Azure. Saiba como [criar uma área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
+## <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para os registos do Azure Monitor
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 2. Selecione **do Azure Active Directory** > **definições de diagnóstico** -> **Adicionar definição de diagnóstico**. Também pode selecionar **Export Settings** partir do **registos de auditoria** ou **inícios de sessão** página para chegar à página de configuração das definições de diagnóstico.  
     
-3. Na **das definições de diagnóstico** menu, selecione a **enviar para o Log Analytics** caixa de verificação e, em seguida, selecione **configurar**.
+3. Na **das definições de diagnóstico** menu, selecione a **enviar para área de trabalho do Log Analytics** caixa de verificação e, em seguida, selecione **configurar**.
 
 4. Selecione a área de trabalho do Log Analytics que pretende enviar os registos para ou crie uma nova área de trabalho na caixa de diálogo apresentada.  
 
@@ -80,5 +80,5 @@ Para utilizar esta funcionalidade, precisa de:
 
 ## <a name="next-steps"></a>Próximos Passos
 
-* [Analisar Azure registos de atividades do AD no Log Analytics](howto-analyze-activity-logs-log-analytics.md)
-* [Instalar e utilizar as vistas do Log Analytics do Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Azure AD de analisar os registos de atividades com os registos do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
+* [Instalar e utilizar os modos de exibição do log analytics do Azure Active Directory](howto-install-use-log-analytics-views.md)

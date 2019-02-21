@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863572"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447961"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar de voz do Bing para o serviço de voz
 
@@ -65,7 +65,7 @@ Se ou sua organização tiver aplicativos no desenvolvimento ou de produção qu
 
 O serviço de voz [REST APIs](rest-apis.md) são compatíveis com as APIs de voz do Bing. Se estiver a utilizar atualmente as APIs de REST de voz do Bing, precisará apenas alterar o ponto final REST e mudar para uma chave de subscrição do serviço de voz.
 
-Os protocolos de WebSockets do serviço de voz também são compatíveis com os usados por voz do Bing. Recomendamos que, para desenvolvimento de novas, utilize o SDK do serviço de voz em vez de WebSockets. É uma boa idéia para migrar o código existente para o SDK também. No entanto, como com as APIs REST, código existente que utilize a voz do Bing através de WebSockets requer apenas uma alteração no ponto de extremidade e uma chave atualizada.
+Os protocolos de WebSockets do serviço de voz também são compatíveis com os usados por voz do Bing. Recomendamos que, para desenvolvimento de novas, utilize o SDK de voz em vez de WebSockets. É uma boa idéia para migrar o código existente para o SDK também. No entanto, como com as APIs REST, código existente que utilize a voz do Bing através de WebSockets requer apenas uma alteração no ponto de extremidade e uma chave atualizada.
 
 Se estiver a utilizar uma biblioteca de cliente de voz do Bing para uma linguagem de programação específica, migrar para o [SDK de voz](speech-sdk.md) requer alterações ao seu aplicativo, porque a API é diferente. O SDK de voz pode tornar o código mais simples, ao mesmo tempo dando acesso aos novos recursos.
 

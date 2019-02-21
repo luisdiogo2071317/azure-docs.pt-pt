@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754650"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453006"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às necessidades de aplicações no Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,9 @@ Este artigo mostra como ativar e gerir o dimensionamento automático de cluster 
 
 Este artigo requer a execução da versão 2.0.55 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
-Clusters do AKS que suportam o dimensionamento automático do cluster tem de utilizar os conjuntos de dimensionamento de máquinas virtuais e executar a versão do Kubernetes *1.12.4* ou posterior. Este suporte de conjunto de dimensionamento está em pré-visualização. Para optar ativamente por participar no e criar clusters que utilizam conjuntos de dimensionamento, instale o *pré-visualização do aks* extensão da CLI do Azure com o [Adicionar extensão az] [ az-extension-add] de comando, conforme mostrado no exemplo a seguir:
+### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão CLI de pré-visualização do aks
+
+Clusters do AKS que suportam o dimensionamento automático do cluster tem de utilizar os conjuntos de dimensionamento de máquinas virtuais e executar a versão do Kubernetes *1.12.4* ou posterior. Este suporte de conjunto de dimensionamento está em pré-visualização. Para optar ativamente por participar no e criar clusters que utilizam conjuntos de dimensionamento, instale primeiro o *pré-visualização do aks* extensão da CLI do Azure com o [Adicionar extensão az] [ az-extension-add] de comando, conforme mostrado na seguinte exemplo:
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > Ao instalar o *pré-visualização do aks* utiliza a extensão, cada cluster do AKS é criar o modelo de implementação de pré-visualização de conjunto de dimensionamento. Para optar por sair e regulares e criar clusters totalmente suportadas, remover a extensão com `az extension remove --name aks-preview`.
+
+### <a name="register-scale-set-feature-provider"></a>Registar o fornecedor de recursos de conjunto de dimensionamento
+
+Para criar um AKS que utiliza o dimensionamento conjuntos, também tem de ativar um sinalizador de funcionalidade na sua subscrição. Para registar o *VMSSPreview* sinalizador de funcionalidade, utilize o [Registre-se de funcionalidade de az] [ az-feature-register] comando conforme mostrado no exemplo a seguir:
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+Demora alguns minutos para que o estado a mostrar *registado*. Pode verificar o estado de registo com o [lista de funcionalidades de az] [ az-feature-list] comando:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+Quando estiver pronto, atualize o registo do *containerservice* fornecedor de recursos com o [Registre-se fornecedor de az] [ az-provider-register] comando:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>Sobre o dimensionamento automático de cluster
 
@@ -149,6 +171,9 @@ Este artigo mostrou como Dimensionar automaticamente o número de nós do AKS. T
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

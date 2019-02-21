@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746001"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447315"
 ---
 # <a name="assets"></a>Elementos
 
@@ -48,8 +48,7 @@ Um dos fluxos de trabalho comuns dos serviços de multimédia é carregar, codif
 4. Utilize serviços de multimédia v3 APIs para criar uma transformação e uma tarefa para processar o seu elemento "entrado". Para obter mais informações, consulte [transforma e tarefas](transform-concept.md).
 5. Stream o conteúdo do elemento de "saída".
 
-> [!TIP]
-> Para obter um exemplo de .NET completo que mostra como: criar o elemento, obter um URL de SAS gravável para contentor do recurso no armazenamento, carregue o ficheiro para o contentor no armazenamento com o URL de SAS, consulte [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md).
+Para obter um exemplo de .NET completo que mostra como: criar o elemento, obter um URL de SAS gravável para contentor do recurso no armazenamento, carregue o ficheiro para o contentor no armazenamento com o URL de SAS, consulte [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Criar um novo elemento
 

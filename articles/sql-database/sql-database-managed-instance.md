@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/20/2019
+ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964156"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454746"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a SQL Database, avançada de segurança de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -47,7 +47,7 @@ Gerido instância combina os melhores recursos que estão disponíveis no Azure 
 | --- | --- |
 |Sem comprar hardware e gestão <br>Nenhuma sobrecarga de gerenciamento para gerir a infraestrutura subjacente <br>Aprovisionamento rápido e dimensionamento do serviço <br>Atualização de aplicação de patches e versão automatizada <br>Integração com outros serviços de dados de PaaS |tempo de atividade de 99,99% SLA  <br>Incorporado [elevada disponibilidade](sql-database-high-availability.md) <br>Os dados protegidos com [cópias de segurança automatizadas](sql-database-automated-backups.md) <br>Período de retenção de cópia de segurança configuráveis do cliente <br>Iniciado pelo utilizador [cópias de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Ponto de restauro de base de dados de tempo](sql-database-recovery-using-backups.md#point-in-time-restore) capacidade |
 |**Segurança e conformidade** | **Management**|
-|Ambiente isolado ([integração VNet](sql-database-managed-instance-connectivity-architecture.md)único inquilino de serviço, dedicada de computação e armazenamento) <br>[Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), único suporte de início de sessão <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Inícios de sessão do Azure AD</a> (**pré-visualização pública**) <br>Cumpre as normas de conformidade mesmo como base de dados SQL do Azure <br>[Auditoria de SQL](sql-database-managed-instance-auditing.md) <br>[Deteção de ameaças](sql-database-managed-instance-threat-detection.md) |API do Resource Manager do Azure para automatizar o serviço de aprovisionamento e dimensionamento <br>Funcionalidade de portal do Azure para o serviço de aprovisionamento e dimensionamento manual <br>Serviço de migração de dados
+|Ambiente isolado ([integração VNet](sql-database-managed-instance-connectivity-architecture.md)único inquilino de serviço, dedicada de computação e armazenamento) <br>[Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), único suporte de início de sessão <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Principais de servidor do Azure AD (inícios de sessão)</a> (**pré-visualização pública**) <br>Cumpre as normas de conformidade mesmo como base de dados SQL do Azure <br>[Auditoria de SQL](sql-database-managed-instance-auditing.md) <br>[Deteção de ameaças](sql-database-managed-instance-threat-detection.md) |API do Resource Manager do Azure para automatizar o serviço de aprovisionamento e dimensionamento <br>Funcionalidade de portal do Azure para o serviço de aprovisionamento e dimensionamento manual <br>Serviço de migração de dados
 
 Os principais recursos do instâncias geridas são mostrados na tabela a seguir:
 
@@ -150,9 +150,9 @@ Migração de uma base de dados encriptado para uma instância gerida é suporta
 
 ## <a name="azure-active-directory-integration"></a>Integração do Azure Active Directory
 
-A opção de implementação de instância gerida suporta tradicional logons de motor de base de dados do SQL server e inícios de sessão integrados com o Azure Active Directory (AAD). Inícios de sessão do AAD (**pré-visualização pública**) têm a versão de cloud do Azure no local inícios de sessão da base de dados que está a utilizar no seu ambiente no local. Inícios de sessão do AAD permite-lhe especificar os utilizadores e grupos do Azure Active Directory inquilino como verdadeiros no âmbito do instância principais, capaz de realizar qualquer operação de nível de instância, incluindo consultas entre bases de dados dentro da instância gerida do mesmo.
+A opção de implementação de instância gerida suporta tradicional logons de motor de base de dados do SQL server e inícios de sessão integrados com o Azure Active Directory (AAD). Principais de servidor do Azure AD (inícios de sessão) (**pré-visualização pública**) têm a versão de cloud do Azure no local inícios de sessão da base de dados que está a utilizar no seu ambiente no local. Principais de servidor do Azure AD (inícios de sessão) permite-lhe especificar os utilizadores e grupos do Azure Active Directory inquilino como verdadeiros no âmbito do instância principais, capaz de realizar qualquer operação de nível de instância, incluindo consultas entre bases de dados no mesmo instância gerida.
 
-Uma nova sintaxe é introduzida para criar inícios de sessão do AAD (**pré-visualização pública**), **do fornecedor externo**. Para obter mais informações sobre a sintaxe, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>e reveja a [aprovisionar um administrador do Azure Active Directory para a sua instância gerida](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artigo.
+Uma nova sintaxe é introduzida para criar o Azure AD principais de servidor (inícios de sessão) (**pré-visualização pública**), **do fornecedor externo**. Para obter mais informações sobre a sintaxe, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>e reveja a [aprovisionar um administrador do Azure Active Directory para a sua instância gerida](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) artigo.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 

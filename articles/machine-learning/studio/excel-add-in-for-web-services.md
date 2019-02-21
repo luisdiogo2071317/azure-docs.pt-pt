@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 14e631edb21c43ccde04a536760c2793ead40e90
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997085"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454700"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Suplemento do Excel para serviços da web do Azure Machine Learning Studio
 Excel torna mais fácil chamar serviços web diretamente sem a necessidade de escrever qualquer código.
@@ -29,13 +29,13 @@ Excel torna mais fácil chamar serviços web diretamente sem a necessidade de es
 
 2. Escolha o serviço web ao clicar no mesmo-"Titanic Survivor previsão (suplemento do Excel do exemplo) [pontuação]" neste exemplo.
    
-    ![Selecionar serviço Web][01]
+    ![Selecionar serviço Web](./media/excel-add-in-for-web-services/image1.png)
 3. Isto leva-o para o **Predict** secção.  Este livro já contém dados de exemplo, mas para uma pasta de trabalho em branco que pode selecionar uma célula do Excel e clique em **utilizar dados de exemplo**.
 4. Selecione os dados com cabeçalhos e clique no ícone de intervalo de dados de entrada.  Certifique-se de que a caixa "meus dados têm cabeçalhos" está selecionada.
 5. Sob **saída**, introduza o número de célula onde pretende que a saída para ser, por exemplo "H1" aqui.
 6. Clique em **prever**. Se selecionar a caixa de verificação "predict automática" qualquer alteração nas áreas selecionadas (o que o especificado como entrada) irá acionar um pedido e uma atualização das células saída sem a necessidade de pressionar o botão de predict.
    
-    ![Prever a secção][02]
+    ![Prever a secção](./media/excel-add-in-for-web-services/image1.png)
 
 Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [Tutorial 3: Implementar o modelo de risco de crédito](tutorial-part3-credit-risk-deploy.md).
 
@@ -45,10 +45,10 @@ Obtenha a chave de API do web Service. Quando efetuar esta ação depende se pub
 
 1. No Machine Learning Studio, clique nas **serviços da WEB** secção no painel esquerdo e, em seguida, selecione o serviço web.
    
-    ![Selecione de Studio um serviço Web][04]
+    ![Selecione de Studio um serviço Web](./media/excel-add-in-for-web-services/image4.png)
 2. Copie a chave de API para o serviço web.
    
-    ![Chave de API do Studio][05]
+    ![Chave de API do Studio](./media/excel-add-in-for-web-services/image5.png)
 3. Sobre o **DASHBOARD** para o serviço web, clique no **SOLICITAÇÃO/resposta** ligação.
 4. Procure o **Request URI** secção.  Copie e guarde o URL.
 
@@ -70,23 +70,16 @@ Obtenha a chave de API do web Service. Quando efetuar esta ação depende se pub
 3. Procure o **informações básicas do consumo** secção. Copie e guarde o **chave primária** e o **solicitação-resposta** URL.
 4. No Excel, vá para o **serviços Web** secção (se estiver na **Predict** secção, clique na seta voltar para ir para a lista de serviços da web).
    
-    ![Aceda a seleção de serviço da Web][03]
+    ![Aceda a seleção de serviço da Web](./media/excel-add-in-for-web-services/image3.png)
 5. Clique em **Adicionar serviço Web**.
 6. Cole o URL para o Excel rotulado como a caixa de texto do suplemento **URL**.
 7. Cole a chave de API/primária para a caixa de texto rotulada **chave de API**.
 8. Clique em **Adicionar**.
    
-    ![Chave de API e o URL para um serviço Web clássico.][06]
+    ![Chave de API e o URL para um serviço Web clássico.](./media/excel-add-in-for-web-services/image6.png)
 9. Para utilizar o serviço web, siga as instruções anteriores, o "Passo a passo para utilizar um serviço de web existente."
 
 ## <a name="sharing-your-workbook"></a>O livro de partilha
 Se guardar o livro, a chave de API/principal para os serviços da web que adicionou também é guardada. Isso significa que apenas devem partilhar a pasta de trabalho com indivíduos que confia.
 
 Faça as suas questões na secção seguinte comentário ou no nosso [fórum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
-
-[01]: ./media/excel-add-in-for-web-services/image1.png
-[02]: ./media/excel-add-in-for-web-services/image2.png
-[03]: ./media/excel-add-in-for-web-services/image3.png
-[04]: ./media/excel-add-in-for-web-services/image4.png
-[05]: ./media/excel-add-in-for-web-services/image5.png
-[06]: ./media/excel-add-in-for-web-services/image6.png

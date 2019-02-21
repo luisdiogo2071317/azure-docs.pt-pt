@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 9180604b18224adace040c9eee5181b4cd4d8b92
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ce6293e63e672df9683ab607a304f8c7275911c5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339010"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446618"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Resolver problemas de agente do Microsoft Azure Recovery Services (MARS)
 
@@ -59,7 +59,8 @@ Eis como resolver erros que poderá ver durante a configuração, registo, cópi
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Não executam cópias de segurança, de acordo com a agenda
 Se as cópias de segurança agendadas não obter acionadas automaticamente, enquanto as cópias de segurança manuais funcionam sem problemas, tente as seguintes ações:
 
-- Aceda a **painel de controlo** > **ferramentas administrativas** > **Programador de tarefas**. Expanda **Microsoft**e selecione **cópia de segurança Online**. Faça duplo clique em **Microsoft OnlineBackup**e vá para o **Acionadores** separador. Certifique-se de que o estado é definido como **ativado**. Se não estiver, selecione **edite**e selecione o **ativado** caixa de verificação. Sobre o **gerais** separador, aceda a **opções de segurança**. Certifique-se de que a conta de utilizador selecionada para executar a tarefa está **SYSTEM** ou **Grupo Local de administradores** no servidor.
+- Certifique-se a agenda de cópia de segurança do Windows Server não entram em conflito com a agenda de cópia de segurança de ficheiros do Azure e de pastas.
+- Aceda a **painel de controlo** > **ferramentas administrativas** > **Programador de tarefas**. Expanda **Microsoft**e selecione **cópia de segurança Online**. Faça duplo clique em **Microsoft OnlineBackup**e vá para o **Acionadores** separador. Certifique-se de que o estado é definido como **ativado**. Se não estiver, selecione **edite**e selecione o **ativado** caixa de verificação e clique em **OK**. No **gerais** separador, aceda à **opções de segurança** e certifique-se de que a conta de utilizador selecionada para executar a tarefa é um **sistema** ou **Local Grupo de administradores** no servidor.
 
 - Veja se o PowerShell 3.0 ou posterior está instalado no servidor. Para verificar a versão do PowerShell, execute o seguinte comando e certifique-se de que o *principais* número de versão é igual ou superior a 3.
 

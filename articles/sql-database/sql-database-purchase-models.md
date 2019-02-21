@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 80e8f0a627ea33881e21d45c8be0e8d1600e4e48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008434"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456695"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
 
@@ -50,9 +50,11 @@ O custo de computação reflete a capacidade de total de computação é aprovis
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
-Diferentes tipos de armazenamento são cobrados de forma diferente. Para o armazenamento de dados, é-lhe cobrada o com base no tamanho máximo de base de dados ou um conjunto de que selecionar o armazenamento aprovisionado. O custo não altera a menos que reduzir ou aumentar esse máximo. Armazenamento de cópia de segurança está associado a cópias de segurança automáticas da sua instância e podem é alocado dinamicamente. Se aumentar o período de retenção de cópias de segurança, está a aumentar o armazenamento de cópias de segurança que a sua instância consome. O armazenamento de cópias de segurança até 100 por cento do total do armazenamento de servidor aprovisionado não implica custos adicionais. O consumo de armazenamento de cópia de segurança adicional é cobrado em GB por mês. Por exemplo, se tiver um tamanho de armazenamento de base de dados de 100 GBs, obterá 100 GBs de cópia de segurança sem custos adicionais. Mas se a cópia de segurança tiver 110 GBs, pague os 10 GB adicionais.
+Diferentes tipos de armazenamento são cobrados de forma diferente. Para o armazenamento de dados, é-lhe cobrada o com base no tamanho máximo de base de dados ou um conjunto de que selecionar o armazenamento aprovisionado. O custo não altera a menos que reduzir ou aumentar esse máximo. Armazenamento de cópia de segurança está associado a cópias de segurança automáticas da sua instância e podem é alocado dinamicamente. Se aumentar o período de retenção de cópias de segurança, está a aumentar o armazenamento de cópias de segurança que a sua instância consome. 
 
-Armazenamento de cópias de segurança de uma base de dados, é cobrado numa base rateada para o armazenamento que foi alocado para as cópias de segurança da base de dados menos o tamanho da base de dados. Armazenamento de cópias de segurança de um conjunto elástico, é cobrado numa base rateada para o armazenamento que foi alocado para as cópias de segurança da base de dados de todas as bases de dados no agrupamento de menos o tamanho máximo de dados do conjunto elástico. Qualquer aumento no tamanho da base de dados ou conjunto elástico ou aumento de velocidade de transação, necessita de mais armazenamento e, portanto, aumenta a sua fatura de armazenamento de cópia de segurança.  Quando aumenta o tamanho máximo de dados, este é o novo valor é deduzido do tamanho de armazenamento de cópias de segurança faturadas.
+7 dias de cópias de segurança automatizadas das suas bases de dados são copiados para o armazenamento de blobs Standard RA-GRS por predefinição. O armazenamento é utilizado por cópias de segurança completas semanais, cópias de segurança diferenciais diárias e cópias de segurança de registo de transações copiadas a cada 5 minutos. O tamanho do registo de transação depende da taxa de alteração da base de dados. É dada uma quantidade mínima de armazenamento igual a 100% do tamanho da base de dados sem custos extra. O consumo adicional do armazenamento de cópias de segurança será cobrado em GB/mês.
+
+Para obter mais informações sobre os preços de armazenamento, consulte a [preços](https://azure.microsoft.com/pricing/details/sql-database/single/) página. 
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 

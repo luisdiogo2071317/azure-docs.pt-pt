@@ -8,17 +8,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871800"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446839"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-sdk-130-2019-february-release"></a>Voz SDK 1.3.0: Versão de Fevereiro de 2019
+
+**Novos recursos**
+
+* O SDK de voz suporta uma seleção de entrada microfone por meio da classe AudioConfig. Isto permite a transmitir dados áudio para o serviço de voz de um microfone de não-padrão. Para obter mais detalhes, consulte a documentação que descreve [seleção de dispositivo de entrada de áudio](how-to-select-audio-input-devices.md). Isso ainda não está disponível a partir do JavaScript.
+* O SDK de voz suporta agora Unity numa versão beta. Envie comentários através a secção de problema a [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples). Esta versão suporta Unity em Windows x86 e x64 (ambiente de trabalho ou aplicativos da plataforma Universal do Windows) e o Android (ARM32/64, x86). Estão disponíveis mais informações no nosso [início rápido do Unity](quickstart-csharp-unity.md).
+
+**Amostras**
+
+O seguinte conteúdo novo está disponível no nosso [repositório de exemplo](https://aka.ms/csspeech/samples):
+
+* Obter exemplos adicionais para AudioConfig.FromMicrophoneInput.
+* Exemplos adicionais do Python para o reconhecimento da intenção e tradução.
+* Obter exemplos adicionais para o uso do objeto de ligação no iOS.
+* Exemplos de Java adicionais para a tradução com a saída de áudio.
+* Novo exemplo para uso do [API REST do Batch transcrição](batch-transcription.md).
+
+**Melhorias / alterações**
+
+* Python
+  * Verificação de parâmetro melhorada e mensagens de erro no SpeechConfig.
+  * Adicione suporte para o objeto de ligação.
+  * Suporte para Python de 32 bits (x86) no Windows.
+  * O SDK de voz para o Python está fora do beta.
+* iOS
+  * O SDK baseia-se agora contra o 12.1 na versão do SDK do iOS.
+  * O SDK suporta agora o iOS versões 9.2 e posteriores.
+  * Melhorar a documentação de referência e corrigir vários nomes de propriedade.
+* JavaScript
+  * Adicione suporte para o objeto de ligação.
+  * Adicionar ficheiros de definição de tipo para integrados em JavaScript
+  * Suporte inicial e a implementação para sugestões de frase.
+  * Devolver a coleção de propriedades com o JSON do serviço para reconhecimento
+* DLLs de Windows agora contém um recurso de versão.
+
+**Correções de erros**
+
+* Nome de utilizador de proxy vazio e a palavra-passe do proxy não foram processadas corretamente. Com esta versão, se definir o nome de utilizador de proxy e a palavra-passe do proxy como uma cadeia vazia, eles serão não submetidos ao estabelecer ligação com o proxy.
+* SessionId do criado pelo SDK nem sempre foram efetivamente aleatório para alguns idiomas&nbsp;/ ambientes. Adicionada a inicialização de gerador aleatórios para corrigir este problema.
+* Aperfeiçoar o tratamento de token de autorização. Se pretender utilizar um token de autorização, especifique o SpeechConfig e deixe em branco a chave de subscrição. Em seguida, crie o reconhecedor como de costume.
+* Em alguns casos, a ligação de objeto não foi lançado corretamente. Isto foi corrigido.
+* O exemplo de JavaScript foi corrigido para oferecer suporte a saída de áudio para a sintetização de tradução também no Safari.
+
+## <a name="speech-sdk-121"></a>Voz SDK 1.2.1
+
+Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. Foram efetuadas as seguintes correções:
+
+* Disparar o fim do fluxo em turn.end, e não no speech.end.
+* Correção do erro bomba de áudio que fez não agenda junto enviar se a falha no envio atual.
+* Corrija o reconhecimento contínuo com o token de autenticação.
+* Correção de erros para diferente reconhecedor / pontos finais.
+* Melhorias de documentação.
 
 ## <a name="speech-sdk-120-2018-december-release"></a>Voz SDK 1.2.0: Versão de Dezembro de 2018
 

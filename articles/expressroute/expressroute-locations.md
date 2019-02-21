@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 02/20/2019
 ms.author: pareshmu
-ms.openlocfilehash: 913661b1d4360eba90d7e827d08d1b48bc7b4e71
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c80477eee18eda2bb3f6e273fdab760d27531310
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244407"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456440"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -112,14 +112,14 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Suportadas |Suportadas |Cidade do Cabo, Joanesburgo |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportadas |Amesterdão, Atlanta, Chicago, Cidade do Quebeque, Dallas, Denver, Dublin, Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Singapura, Singapura2, Sydney, Toronto, Washington D.C. |
 | **[MTN](http://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Suportadas |Suportado |Londres |
-| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportadas |Dallas, Miami, São Paulo |
+| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportadas |Dallas, Los Angeles, Miami, são Paulo |
 | **[Next Generation Data](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Suportadas |Suportadas |Melbourne, Perth, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Suportado |Suportado |Amesterdão, RAE de Hong Kong, Londres, Los Angeles, Osaka, Singapura, Sydney, Tóquio, Washington D.C. |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Suportadas |Suportadas |Tóquio |
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Suportado |Suportado |Osaka |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Suportado |Suportado |Melbourne, Sydney |
-| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportadas |Amesterdão, Hong Kong, Londres, Paris, São Paulo, Silicon Valley, Singapura, Sydney, Washington D.C. |
+| **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Suportado |Suportadas |Amesterdão, RAE de Hong Kong, Londres, Paris, são Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington D.C. |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Suportadas |Suportadas |Chicago, RAE de Hong Kong, Londres |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Suportadas |Suportado |Seoul |

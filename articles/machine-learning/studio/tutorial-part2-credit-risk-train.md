@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8ffcfc86823d46e65e116eed86ef35fcba2a99bf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008012"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453492"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>Tutorial 2: Utilizar modelos de risco de crédito - Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ Neste tutorial, demorar mais aprofundadamente o processo de desenvolvimento de u
 
 Suponhamos que precisa de prever o risco de crédito de um indivíduo com base nas informações fornecidas sobre uma aplicação de crédito.  
 
-Avaliação de riscos de crédito é um problema complexo, mas este tutorial irá simplificá-lo um pouco. Irá utilizá-lo como um exemplo de como pode criar uma solução de Análise Preditiva com o Microsoft Azure Machine Learning. Irá utilizar o Azure Machine Learning Studio e um serviço web do Machine Learning para esta solução.  
+Avaliação de riscos de crédito é um problema complexo, mas este tutorial irá simplificá-lo um pouco. Irá utilizá-lo como um exemplo de como pode criar uma solução de Análise Preditiva com o Microsoft Azure Machine Learning Studio. Irá utilizar o Azure Machine Learning Studio e um serviço web do Machine Learning para esta solução.  
 
 Neste tutorial de três partes, começar com dados de risco de crédito publicamente disponíveis.  Em seguida, desenvolver e formar um modelo preditivo.  Por fim implementa o modelo como um serviço web.
 
@@ -191,9 +191,9 @@ O [Evaluate Model] [ evaluate-model] módulo gera um par de curvas e métricas q
 Examinando estes valores, pode decidir qual modelo é mais próximo em oferecer-lhe os resultados que procura. Pode voltar atrás e iterar a experiência, alterando os valores de parâmetro nos modelos diferentes. 
 
 A ciência e a arte de interpretar esses resultados e ajuste do desempenho do modelo está fora do âmbito deste tutorial. Para obter ajuda adicional, poderá ler os artigos seguintes:
-- [Como avaliar o desempenho do modelo no Azure Machine Learning](evaluate-model-performance.md)
-- [Escolher parâmetros para otimizar os seus algoritmos no Azure Machine Learning](algorithm-parameters-optimize.md)
-- [Interpretar os resultados de modelo no Azure Machine Learning](interpret-model-results.md)
+- [Como avaliar o desempenho de modelo no Azure Machine Learning Studio](evaluate-model-performance.md)
+- [Escolher parâmetros para otimizar os seus algoritmos no Azure Machine Learning Studio](algorithm-parameters-optimize.md)
+- [Interpretar os resultados de modelo no Azure Machine Learning Studio](interpret-model-results.md)
 
 > [!TIP]
 > Sempre que executar a experimentação, um registo de iteração é mantido no histórico de execuções. Pode ver estes iterações e retornar a qualquer uma delas, ao clicar em **ver histórico de EXECUÇÕES** abaixo da tela. Também pode clicar **executar anteriores** no **propriedades** painel para regressar à iteração imediatamente precedente aquele tiver aberto.

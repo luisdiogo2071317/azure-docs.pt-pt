@@ -5,23 +5,24 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 2/20/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106415"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452887"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
-Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](../platform/alerts-overview.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
 
-Alerta de registo é composta por regras de consulta de log criadas para [do Azure Monitor](../learn/tutorial-viewdata.md) ou [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre a utilização, consulte [criar alertas de registo no Azure](../platform/alerts-log.md)
+Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
+
+Alerta de registo é composta por regras de pesquisa de registos, criadas para [registos do Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Para saber mais sobre a utilização, consulte [criar alertas de registo no Azure](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
-> Dados de registos populares [do Azure Monitor](../learn/tutorial-viewdata.md) também está agora disponível na plataforma de métrica no Azure Monitor. Para a vista de detalhes, [alerta de métrica para os registos](../platform/alerts-metric-logs.md)
+> Dados de registos populares [registos do Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) também está agora disponível na plataforma de métrica no Azure Monitor. Para a vista de detalhes, [alerta de métrica para os registos](../../azure-monitor/platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Log search regra de alerta - definição e tipos
@@ -30,10 +31,11 @@ São criadas regras de pesquisa de registos pelos Alertas do Azure para executar
 
 Regras de pesquisa de registo são definidas pelos seguintes detalhes:
 
-- **Consulta de registo**.  A consulta é executada sempre que a regra de alerta é acionado.  Os registos devolvidos por esta consulta são utilizados para determinar se um alerta é acionado. Consulta do Analytics pode ser para uma área de trabalho do Log Analytics específica ou uma aplicação do Application Insights e até mesmo abranger várias [recursos de várias do Log Analytics e Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) desde que o utilizador tem direitos de acesso para o externo aplicações. Comandos específicos de análise e combinações são incompatíveis com o uso em alertas de registo; Para ver mais detalhes, [consultas de alertas de registo no Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
-
+- **Consulta de registo**.  A consulta é executada sempre que a regra de alerta é acionado.  Os registos devolvidos por esta consulta são utilizados para determinar se um alerta é acionado. Consulta do Analytics pode ser para uma área de trabalho do Log Analytics específica ou uma aplicação do Application Insights e até mesmo abranger várias [vários recursos do Log Analytics e Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) desde que o utilizador tem acesso, bem como consultar direitos a todos recursos. 
     > [!IMPORTANT]
-    > Alerta de registo **isso não é possível** suporta a utilização de [funções](../log-query/functions.md) por motivos de segurança. E o utilizador tem de especificar a consulta do analytics completo e tem acesso total & direitos de execução para poder criar uma regra de alerta de registo com o mesmo.
+    > Alerta de registo **isso não é possível** suporta a utilização de [funções](../log-query/functions.md) por motivos de segurança. Também [entre recursos consulta](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) suporte em alertas de registo para o Application Insights e log de alertas para [configurados utilizando scheduledQueryRules API do Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) apenas.
+
+    Alguns comandos de análise e combinações são incompatíveis com o uso em alertas de registo; Para ver mais detalhes, [consultas de alertas de registo no Azure Monitor](../../azure-monitor/platform/alerts-log-query.md).
 
 - **Período de tempo**.  Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo da hora atual. Período de tempo restringe os dados obtidos para a consulta de registo evitar abusos e evita qualquer comando de tempo (como há) utilizado numa consulta de registo. <br>*Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 é devolvido ao executar a consulta de registo. Agora, se a consulta de registo utiliza o comando como atrás de tempo (7D), a consulta de log deve ser executada apenas para dados entre 12:15 e 1 às 15:15 - como se existem dados para apenas os últimos 60 minutos. E não durante sete dias de dados conforme especificado na consulta de registo.*
 
@@ -41,7 +43,7 @@ Regras de pesquisa de registo são definidas pelos seguintes detalhes:
 
 - **Limiar**.  Os resultados da pesquisa de registos são avaliados para determinar se deve ser criado um alerta.  O limiar é diferente para os diferentes tipos de regras de alerta de pesquisa de registo.
 
-Regras de consulta de registo seja para [do Azure Monitor](../learn/tutorial-viewdata.md) ou [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), podem ter dois tipos. Cada um desses tipos é descrita detalhadamente nas seções a seguir.
+Regras de pesquisa de registo, sê-lo para [registos do Azure Monitor](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), podem ter dois tipos. Cada um desses tipos é descrita detalhadamente nas seções a seguir.
 
 - **[Número de resultados](#number-of-results-alert-rules)**. Único alerta criada quando um número especificado de excedem o número de registos devolvido pela pesquisa de registo.
 - **[Medida da métrica](#metric-measurement-alert-rules)**.  Alerta criado para cada objeto nos resultados da pesquisa de registo com valores que excedam o limiar especificado.
@@ -78,10 +80,10 @@ Em seguida, alerta seria executar a consulta a cada 5 minutos, com 30 minutos de
 
 - **Função de agregação**: Determina o cálculo que é executado e, potencialmente, com um numérico campo a agregar.  Por exemplo, **count ()** devolve o número de registos na consulta, **avg(CounterValue)** devolve a média do campo CounterValue ao longo do intervalo. Função de agregação na consulta tem de ser com o nome/chamado: AggregatedValue e fornecer um valor numérico. 
 
-- **Campo de grupo**: É criado um registo com um valor agregado para cada instância deste campo e pode ser gerado um alerta para cada um.  Por exemplo, se quiser gerar um alerta para cada computador, usaria **por computador**. No caso de existirem vários campos de grupo especificado na consulta de alerta, o utilizador pode especificar que campo a ser utilizado para ordenar resultados utilizando o **agregada no** parâmetro (metricColumn)
+- **Campo de grupo**: É criado um registo com um valor agregado para cada instância deste campo e pode ser gerado um alerta para cada um.  Por exemplo, se quiser gerar um alerta para cada computador, usaria **por computador**. No caso, existem vários campos de grupo especificados na consulta de alerta, o utilizador pode especificar que campo a ser utilizado para ordenar resultados utilizando o **agregada no** parâmetro (metricColumn)
 
     > [!NOTE]
-    > *No agregado* opção (metricColumn) está disponível para alertas de registo de tipo de medida da métrica do Application Insights e o registo de alertas para [configurados utilizando scheduledQueryRules API do Log Analytics](alerts-log-api-switch.md) apenas.
+    > *No agregado* opção (metricColumn) está disponível para alertas de registo de tipo de medida da métrica do Application Insights e o registo de alertas para [configurados utilizando scheduledQueryRules API do Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) apenas.
 
 - **Intervalo**:  Define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se especificou **cinco minutos**, teria de ser criado um registo para cada instância do campo Grupo agregada em intervalos de 5 minutos ao longo do período de tempo especificado para o alerta.
 
@@ -120,7 +122,8 @@ Se o resultado da consulta ser desenhados, ela apareceria como.
 
 ![Resultados da consulta de exemplo](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-Neste exemplo, podemos ver nas caixas de 5 minutos para cada um dos três computadores - utilização do processador médio como calculada para 5 minutos. Limiar de 90, que está a ser infringido, através da srv01 apenas uma vez em 1:25 bin. Em comparação, o srv02 excede o limiar de 90 1: dez anos, 1:15 e 1:25 discretizações; Embora srv03 excede o limiar de 90 em 1:10, 1:15, 1:20 e 1:30. Uma vez que o alerta está configurado para acionador com base no total de falhas são mais do que dois, podemos ver que o srv02 e srv03 apenas cumprem os critérios. Por conseguinte, seriam possível criar alertas separadas para srv02 e srv03, uma vez que eles infringido o limiar de 90% duas vezes em várias caixas de tempo.  Se o *acionar alerta com base em:* parâmetro em vez disso, foram configurados para *violações contínuas* opção, em seguida, poderia ser acionado um alerta **apenas** para srv03, uma vez que ele infringido o limiar para três caixas de tempo consecutivos de 1:10 a 1:20. E **não** para srv02, como ele infringido o limiar de duas caixas de tempo consecutivos de 1:10 a 1:15.
+Neste exemplo, podemos ver nas caixas de 5 minutos para cada um dos três computadores - utilização do processador médio como calculada para 5 minutos. Limiar de 90, que está a ser infringido, através da srv01 apenas uma vez em 1:25 bin. Em comparação, o srv02 excede o limiar de 90 1: dez anos, 1:15 e 1:25 discretizações; Embora srv03 excede o limiar de 90 em 1:10, 1:15, 1:20 e 1:30.
+Uma vez que o alerta está configurado para acionador com base no total de falhas são mais do que dois, podemos ver que o srv02 e srv03 apenas cumprem os critérios. Por conseguinte, seriam possível criar alertas separadas para srv02 e srv03, uma vez que eles infringido o limiar de 90% duas vezes em várias caixas de tempo.  Se o *acionar alerta com base na:* em vez disso, configurado para o parâmetro *violações contínuas* opção, em seguida, poderia ser acionado um alerta **apenas** para srv03, uma vez que ele infringido o limiar para três caixas de tempo consecutivos de 1:10 a 1:20. E **não** para srv02, como ele infringido o limiar de duas caixas de tempo consecutivos de 1:10 a 1:15.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Log search regra de alerta - acionadas e Estado
 
@@ -128,11 +131,11 @@ Regra de alerta de pesquisa de registo funciona na lógica vinculada por utiliza
 
 Agora vamos supor que temos uma regra de alerta de registo denominada *Contoso-alerta de registo*, de acordo com a configuração no [exemplo fornecido para alerta de registo do tipo de número de resultados](#example-of-number-of-records-type-log-alert). 
 - Em 1 05 PM quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo gerou 0 registros; abaixo do limiar e, por conseguinte, não disparando o alerta. 
-- Na próxima iteração às 1: 22:00 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecido 5 registos; a exceder o limiar e disparando o alerta, logo após ao acionar a [grupo de ação](../platform/action-groups.md) associados. 
-- Em 1 às 15:15 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecido 2 registos; a exceder o limiar e disparando o alerta, logo após ao acionar a [grupo de ação](../platform/action-groups.md) associados.
+- Na próxima iteração às 1: 22:00 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecido 5 registos; a exceder o limiar e disparando o alerta, logo após ao acionar a [grupo de ação](../../azure-monitor/platform/action-groups.md) associados. 
+- Em 1 às 15:15 quando o alerta de registo de Contoso foi executada através de alertas do Azure, o resultado da pesquisa de registo fornecido 2 registos; a exceder o limiar e disparando o alerta, logo após ao acionar a [grupo de ação](../../azure-monitor/platform/action-groups.md) associados.
 - Agora na próxima iteração em 1:20 PM quando o alerta de registo de Contoso foi executada pelo alerta do Azure, o resultado de pesquisa de registo fornecida novamente 0 registros; abaixo do limiar e, por conseguinte, não disparando o alerta.
 
-Mas no caso listado acima, em 1 às 15:15 - alertas do Azure não consegue determinar que os problemas subjacentes vistos em 1:10 manter e se houver falhas novo net; como a consulta fornecida pelo utilizador pode ser tendo em conta registos anteriores - podem Certifique-se os alertas do Azure. Por conseguinte, para err no lado de advertência, quando o alerta de registo de Contoso é executado em 1 às 15:15, configurado [grupo de ação](../platform/action-groups.md) é acionado novamente. Agora em 1:20 PM quando não existem registos são vistos: alertas do Azure não podem ser-se de que foi resolvida a causa dos registos; Por conseguinte, o alerta de registo de Contoso será não alterados como resolvido no dashboard de alerta do Azure e/ou notificações enviadas informando a resolução do alerta.
+Mas no caso listado acima, em 1 às 15:15 - alertas do Azure não consegue determinar que os problemas subjacentes vistos em 1:10 manter e se houver falhas novo net; como a consulta fornecida pelo utilizador pode ser tendo em conta registos anteriores - podem Certifique-se os alertas do Azure. Por conseguinte, para err no lado de advertência, quando o alerta de registo de Contoso é executado em 1 às 15:15, configurado [grupo de ação](../../azure-monitor/platform/action-groups.md) é acionado novamente. Agora em 1:20 PM quando não existem registos são vistos: alertas do Azure não podem ser-se de que foi resolvida a causa dos registos; Por conseguinte, o alerta de registo de Contoso será não alterados como resolvido no dashboard de alerta do Azure e/ou notificações enviadas informando a resolução do alerta.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Preços e faturação de alertas de registo
@@ -140,15 +143,22 @@ Mas no caso listado acima, em 1 às 15:15 - alertas do Azure não consegue deter
 Preços aplicáveis para alertas de registo é mencionado no [preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) página. No faturas do Azure, os alertas de registo são representadas como tipo `microsoft.insights/scheduledqueryrules` com:
 
 - Alertas de registo no Application Insights apresentado com o nome exato do alerta, juntamente com o grupo de recursos e as propriedades do alerta
-- Alertas de registos no Log Analytics mostrado com o nome exato do alerta, juntamente com o grupo de recursos e as propriedades do alerta; Quando criados com [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 
-- Alertas no Log Analytics mostrado com o nome do alerta de registo `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` juntamente com o grupo de recursos e as propriedades do alerta, se a criação foi [API do Log Analytics legadas](api-alerts.md) ou na utilização do portal do Azure **sem** voluntariamente a mudar para a nova API
+- Alertas de registos no Log Analytics mostrado com o nome exato do alerta, juntamente com o grupo de recursos e as propriedades do alerta; Quando criados com [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-    > [!NOTE]
-    > Se inválido carateres como `<, >, %, &, \, ?, /` estão presentes, serão substituídas por `_` na fatura. Para eliminar os recursos de scheduleQueryRules criados para uma faturação de regras de alerta usando [API do Log Analytics legadas](api-alerts.md) -o utilizador tem de eliminar a agenda original e, em seguida, utilizar a ação do alerta [API do Log Analytics legadas](api-alerts.md)
+O [API do Log Analytics legadas](../../azure-monitor/platform/api-alerts.md) tem ações de alerta e agendas como parte de pesquisa guardada do Log Analytics e não correta [recursos do Azure](../../azure-resource-manager/resource-group-overview.md). Por conseguinte, para ativar a faturação para esses alertas de registo legado criada para o Log Analytics através do portal do Azure **sem** [mudar para a nova API](../../azure-monitor/platform/alerts-log-api-switch.md) ou via [API do Log Analytics legadas](../../azure-monitor/platform/api-alerts.md) - regras de alerta de pseudo-autenticação ocultos são criadas no `microsoft.insights/scheduledqueryrules` para faturação no Azure. As regras de alerta de pseudo-autenticação ocultos criadas para ser `microsoft.insights/scheduledqueryrules` conforme mostrado como `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` juntamente com o grupo de recursos e as propriedades do alerta.
+
+> [!NOTE]
+> Se inválido carateres como `<, >, %, &, \, ?, /` estão presentes, serão substituídas por `_` na regra de alerta de pseudo-autenticação ocultos dê um nome e, por conseguinte, também no Azure são faturadas.
+
+Para remover os recursos de scheduleQueryRules ocultos criados para uma faturação de regras de alerta usando [API do Log Analytics legadas](api-alerts.md), utilizador pode fazer qualquer um dos seguintes:
+
+- De qualquer utilizador pode [mudar a preferência de API para as regras de alerta na área de trabalho do Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) e sem perda de suas regras de alerta ou a movimentação de monitorização para o Azure Resource Manager em conformidade [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Deste modo, elimina a necessidade de tornar as regras de alerta de pseudo-autenticação ocultada para faturação.
+- Ou se o utilizador não quer alternar a preferência de API, o usuário precisará **eliminar** a agenda original e, em seguida, utilizar a ação do alerta [API do Log Analytics legada](api-alerts.md) ou eliminar no [portal do Azure a regra de alerta de registo original](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [criar nos alertas de registo no Azure](../platform/alerts-log.md).
+
+* Saiba mais sobre [criar nos alertas de registo no Azure](../../azure-monitor/platform/alerts-log.md).
 * Compreender [webhooks em alertas de registo no Azure](alerts-log-webhook.md).
-* Saiba mais sobre [alertas do Azure](../platform/alerts-overview.md).
-* Saiba mais sobre [Application Insights](../app/analytics.md).
-* Saiba mais sobre [consultas de registo do Azure Monitor](../log-query/log-query-overview.md).    
+* Saiba mais sobre [alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
+* Saiba mais sobre [Application Insights](../../azure-monitor/app/analytics.md).
+* Saiba mais sobre [do Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

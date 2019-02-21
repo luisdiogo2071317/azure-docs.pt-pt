@@ -1,45 +1,49 @@
 ---
-title: Transição com assinatura automática para certificados de AC públicas para P2S gateways | Gateway de VPN do Azure | Documentos da Microsoft
+title: Transição para certificados de AC públicas para P2S gateways | Gateway de VPN do Azure | Documentos da Microsoft
 description: Este artigo ajuda-o com êxito a transição para os novos certificados de AC públicos para gateways de P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: e5a75826730219adc643d7c6ca300a38c8640006
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428369"
+ms.locfileid: "56453526"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transição para um certificado de gateway de AC público para P2S
 
 O Gateway de VPN do Azure já não emite certificados autoassinados do nível do Azure com seus gateways para ligações P2S. Certificados emitidos agora são assinados por um certificado de autoridade (autoridade de certificação pública). No entanto, alguns dos gateways mais antigos podem ainda utilizar certificados autoassinados. Estes certificados autoassinados são quase respetivas datas de expiração e devem fazer a transição para certificados de AC públicos.
 
-Os certificados neste contexto são um certificado de nível de Azure adicional. Não são as cadeias de certificados que utiliza ao gerar seus próprios certificados de raiz autoassinados e certificados de cliente para autenticação. Esses certificados não são afetados e irão expirar nas datas gerado-los para fazer isso.
-
 >[!NOTE]
 > Utilizado para autenticação de cliente de P2S os certificados autoassinados não são afetados por esta alteração de certificado de nível do Azure. Pode continuar a emitir e utilizar certificados autoassinados como habitualmente.
 >
+
+Os certificados neste contexto são um certificado de nível de Azure adicional. Não são as cadeias de certificados que utiliza ao gerar seus próprios certificados de raiz autoassinados e certificados de cliente para autenticação. Esses certificados não são afetados e irão expirar nas datas gerado-los para fazer isso.
 
 Anteriormente, um certificado autoassinado para o gateway (emitido em segundo plano pelo Azure) necessário para ser atualizado a cada 18 meses. Ficheiros de configuração de cliente VPN, em seguida, tinham que ser gerado e reimplantada em todos os clientes de P2S. Mover para certificados de AC públicos elimina essa limitação. Além da transição para certificados, esta alteração também fornece aprimoramentos de plataforma, métricas melhor e maior estabilidade.
 
 Apenas os gateways mais antigos são afetados por esta alteração. Se o certificado de gateway tem de ser transferido, receberá comunicação ou alerta no portal do Azure. Pode verificar se o gateway é afetado, utilizando os passos neste artigo.
 
->[!IMPORTANT]
->A transição está agendada para Março 12,2019 começando 18:00 UTC. Pode criar um incidente de suporte, se preferir uma janela de tempo diferentes. Faça e finalizar o pedido com antecedência, pelo menos, 24 horas.  Pode pedir uma das janelas do seguintes:
+> [!IMPORTANT]
+> A transição está agendada para 12 de Março de 2019 começando 18:00 UTC. Pode criar um incidente de suporte, se preferir uma janela de tempo diferentes. Faça e finalizar o pedido com antecedência, pelo menos, 24 horas.  Pode pedir uma das janelas do seguintes:
 >
->* UTC GMT+06:00 em 25 de Fevereiro
->* UTC 18:00 em 25 de Fevereiro
->* UTC 06:00 no 1 Mar
->* UTC 18:00 em 1 de Março
+> * UTC GMT+06:00 em 25 de Fevereiro
+> * UTC 18:00 em 25 de Fevereiro
+> * UTC 06:00 no dia 1 de Março
+> * 18:00 UTC no dia 1 de Março
 >
->**Todos os gateways restantes farão a transição 12 de Março de 2019 começando 18:00 UTC**.
+> **Todos os gateways restantes farão a transição 12 de Março de 2019 começando 18:00 UTC**.
 >
+> O processo de transição do gateway irá demorar até duas horas a concluir. Os clientes receberão um e-mail quando o seu gateway conclui o processo de transição.
+> 
 
 ## <a name="1-verify-your-certificate"></a>1. Verifique se o seu certificado
+
+### <a name="resource-manager"></a>Resource Manager
 
 1. Verifique se são afetados por esta atualização. Transferir a configuração atual do cliente VPN utilizando os passos em [este artigo](point-to-site-vpn-client-configuration-azure-cert.md).
 
@@ -49,6 +53,11 @@ Apenas os gateways mais antigos são afetados por esta alteração. Se o certifi
   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Se *ServerCertRotCn* e *ServerCertIssuerCn* são "DigiCert Global AC de raiz", não são afetadas por esta atualização e não precisa de continuar com os passos neste artigo. No entanto, se eles mostram algo mais, o seu certificado de gateway faz parte da atualização e será transferido.
+
+### <a name="classic"></a>Clássica
+
+1. Num computador cliente, navegue até ao caminho %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. Na pasta do ID de Gateway, pode ver o certificado.
+2. Na guia Geral para o certificado, certifique-se de que a autoridade emissora é "DigiCert Global AC de raiz". Se tiver mais nada que não esta autoridade emissora, o seu certificado de gateway faz parte da atualização e será transferido.
 
 ## <a name="2-check-certificate-transition-schedule"></a>2. Agenda de transição de certificado de verificação
 

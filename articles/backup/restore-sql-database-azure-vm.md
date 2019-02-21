@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 3571eb2471f9b3f06eb509937fd11866b4e0caa8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9b741f8562ae2e81d297357afd3b0e0e3976a248
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430809"
+ms.locfileid: "56445445"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs do Azure 
 
@@ -34,7 +34,7 @@ Este artigo descreve como restaurar bases de dados do SQL Server. Se ainda não 
 Cópia de segurança do Azure, pode restaurar bases de dados do SQL Server em execução em VMs do Azure da seguinte forma:
 
 - Restaure para uma data específica ou a hora (para o segundo), usando backups de log de transação. O Azure Backup determina automaticamente a cópia de segurança completa, diferencial adequada e a cadeia de backups de log, que são necessários para restaurar com base no tempo selecionado.
-- Restaurar um um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico, em vez de uma hora específica.
+- Restaure um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico, em vez de uma hora específica.
 
 
 ### <a name="prerequisites"></a>Pré-requisitos

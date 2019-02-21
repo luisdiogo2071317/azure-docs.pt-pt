@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 8358eceedbb9214e4adb73f055bcf0db7fecec76
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430391"
+ms.locfileid: "56447757"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorizar as suas APIs com a gestão de API do Azure, os Hubs de eventos e Moesif
 O [serviço de gestão de API](api-management-key-concepts.md) oferece muitos recursos para aprimorar o processamento de pedidos HTTP enviados para a API de HTTP. No entanto, a existência das solicitações e respostas é transitória. A solicitação é feita e, flui através do serviço de gestão de API para a API de back-end. A API processa a solicitação e uma resposta flui através de volta para o consumidor de API. O serviço de gestão de API mantém algumas estatísticas importantes sobre as APIs para apresentação no dashboard do portal do Azure, mas muito mais que, os detalhes foram removidos.
@@ -293,7 +293,7 @@ public class MoesifHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-O `MoesifHttpMessageProcessor` tira partido de um [ C# biblioteca de API para Moesif](https://www.moesif.com/docs/api?csharp#events) torna mais fácil para os dados de eventos de push HTTP para o seu serviço. Para enviar dados HTTP para a API de Recoletor Moesif, terá de uma conta e uma ID da aplicação. Get obter um Id de aplicação Moesif através da criação de uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, vá para o _parte superior direita Menu_ -> _programa de configuração de aplicação_.
+O `MoesifHttpMessageProcessor` tira partido de um [ C# biblioteca de API para Moesif](https://www.moesif.com/docs/api?csharp#events) torna mais fácil para os dados de eventos de push HTTP para o seu serviço. Para enviar dados HTTP para a API de Recoletor Moesif, terá de uma conta e uma ID da aplicação. Obter um Id de aplicação Moesif através da criação de uma conta no [site do Moesif](https://www.moesif.com) e, em seguida, vá para o _parte superior direita Menu_ -> _programa de configuração de aplicação_.
 
 ## <a name="complete-sample"></a>Exemplo completo
 O [código-fonte](https://github.com/dgilling/ApimEventProcessor) e testes para o exemplo estão disponíveis no GitHub. É necessário um [serviço de gestão de API](get-started-create-service-instance.md), [um Hub de eventos ligado](api-management-howto-log-event-hubs.md)e um [conta de armazenamento](../storage/common/storage-create-storage-account.md) para executar o exemplo mesmo.   

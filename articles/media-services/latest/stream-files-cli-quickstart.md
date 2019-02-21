@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: ''
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: be1f65b291613997466d9c82782256dc28a5590f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8de004b0ca55cb46336a072dabb682f342c7d8dd
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417402"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446499"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Início rápido: Transmitir ficheiros de vídeo - CLI
 
@@ -43,10 +43,14 @@ A conta de Media Services e todas as contas de armazenamento associado tem de se
 az group create -n amsResourceGroup -l westus2
 ```
 
-### <a name="create-an-azure-storage-account-general-purpose-v2-standard-ragrs"></a>Criar uma conta de armazenamento do azure, para fins gerais v2, RAGRS padrão
+### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do azure
 
+Neste exemplo, vamos criar uma conta de LRS padrão, v2 de fins gerais.
+
+Se quiser experimentar as contas de armazenamento, utilize `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção deve considerar, `--sku Standard_RAGRS`, que fornece replicação geográfica para continuidade do negócio. Para obter mais informações, consulte [contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+ 
 ```azurecli
-az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_RAGRS -l westus2 -g amsResourceGroup
+az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
 ### <a name="create-an-azure-media-service-account"></a>Criar um suporte de dados do azure conta de serviço
@@ -54,6 +58,8 @@ az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_R
 ```azurecli
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
+
+Obter uma resposta semelhante ao seguinte:
 
 ```
 {
@@ -349,7 +355,6 @@ az group delete --name amsResourceGroup
 ## <a name="see-also"></a>Consulte também
 
 Ver [códigos de erro da tarefa](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

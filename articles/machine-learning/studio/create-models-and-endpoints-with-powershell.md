@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244303"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455063"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Utilize o PowerShell para criar modelos de Studio e pontos finais de serviço da web a partir de uma experiência
 
@@ -25,9 +25,9 @@ Por exemplo, imaginemos que é proprietário de uma empresa de franquia de alugu
 
 Pode preparar o seu modelo uma vez usando uma versão unida de todos os conjuntos de dados em todas as localizações. No entanto, cada uma das suas localizações possui um ambiente exclusivo. Portanto, uma abordagem melhor seria de preparar o seu modelo de regressão separadamente com o conjunto de dados para cada localização. Dessa forma, cada modelo preparado poderia levar em conta os tamanhos de armazenamento diferentes, volume, geografia, população, ambiente de tráfego de bicicletas amigável e muito mais.
 
-Isso pode ser a melhor abordagem, mas não quiser criar 1.000 treinamento experimentações no Azure Machine Learning com cada um representando um local exclusivo. Além de ser uma tarefa árdua, também parece ineficiente, pois cada experimentação teria todos os mesmos componentes, exceto para o conjunto de dados de treinamento.
+Isso pode ser a melhor abordagem, mas não quiser criar 1.000 treinamento experimentações no Azure Machine Learning Studio com cada um representando um local exclusivo. Além de ser uma tarefa árdua, também parece ineficiente, pois cada experimentação teria todos os mesmos componentes, exceto para o conjunto de dados de treinamento.
 
-Felizmente, isso pode ser feito utilizando o [reparametrização API do Azure Machine Learning](retrain-models-programmatically.md) e automatizar as tarefas com [PowerShell do Azure Machine Learning](powershell-module.md).
+Felizmente, isso pode ser feito utilizando o [reparametrização API do Azure Machine Learning Studio](retrain-models-programmatically.md) e automatizar as tarefas com [PowerShell do Azure Machine Learning Studio](powershell-module.md).
 
 > [!NOTE]
 > Para tornar o seu exemplo são executadas mais depressa, reduza o número de localizações de 1.000 para 10. Mas os mesmos princípios e procedimentos aplicam-se a 1.000 localizações. No entanto, se quiser dar formação de 1.000 conjuntos de dados poderá querer executar scripts do PowerShell abaixo em paralelo. Como fazer isso está além do escopo deste artigo, mas pode encontrar exemplos do PowerShell multithreading na Internet.  

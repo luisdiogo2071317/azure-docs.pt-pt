@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 65780252fe19ff1af3c37d25c7a65c2071961fb9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 455b0bb0cb6c53200edb7a0f3540006408329321
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994880"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453240"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux
 
 O Azure IoT Edge move o poder da cloud para os seus dispositivos de Internet das Coisas. Neste guia de início rápido, irá aprender a utilizar a interface da cloud para implementar código pré-construído remotamente num dispositivo IoT Edge.
 
@@ -29,7 +29,7 @@ Neste início rápido, vai aprender a:
 
 ![Diagrama - arquitetura de início rápido para o dispositivo e na cloud](./media/quickstart-linux/install-edge-full.png)
 
-Este início rápido transforma o seu computador Linux ou máquina virtual num dispositivo IoT Edge. Em seguida, pode implementar um módulo a partir do portal do Azure no seu dispositivo. O módulo que vai implementar neste início rápido é um sensor simulado que gera dados de temperatura, humidade e pressão. Os outros tutoriais do Azure IoT Edge tiram partido do seu trabalho aqui realizado, ao implementar módulos que analisam os dados simulados de informações empresariais.
+Este início rápido explica como criar uma máquina virtual do Azure que está configurada para ser dispositivo IoT Edge. Em seguida, pode implementar um módulo a partir do portal do Azure no seu dispositivo. O módulo que vai implementar neste início rápido é um sensor simulado que gera dados de temperatura, humidade e pressão. Os outros tutoriais do Azure IoT Edge tiram partido do seu trabalho aqui realizado, ao implementar módulos que analisam os dados simulados de informações empresariais.
 
 Se não tiver uma subscrição ativa do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -62,12 +62,12 @@ Dispositivo IoT Edge
    ```
 
    Pode demorar alguns minutos para criar e iniciar a nova máquina virtual. 
+   
+   Poderá receber um `MarketplacePurchaseEligibilityFailed` erro neste momento. Se isto acontecer, tem de aceitar os termos, acedendo a [do Azure IoT Edge no Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) e clicando em `Get It Now`. Inicie sessão e aceitar os termos antes de tentar novamente o comando.
 
    Quando cria uma nova máquina virtual, anote o **publicIpAddress**, que é fornecido como parte da saída do comando de criar. Utilizará este endereço IP público para ligar à máquina virtual mais tarde no início rápido.
 
-* Se preferir executar o tempo de execução do Azure IoT Edge no sistema local, siga as instruções em [instalar o runtime do Azure IoT Edge no Linux (x64)](how-to-install-iot-edge-linux.md).
-
-* Se gostaria de utilizar um dispositivo de ARM32 com base, como o Raspberry Pi, siga as instruções em [tempo de execução de instalar o Azure IoT Edge no Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+* Se preferir executar o tempo de execução do Azure IoT Edge no seu próprio dispositivo, siga as instruções em [instalar o runtime do Azure IoT Edge no Linux (x64)](how-to-install-iot-edge-linux.md) ou [runtime de instalar o Azure IoT Edge no Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 

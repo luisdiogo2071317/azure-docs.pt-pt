@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994962"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453370"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportar e eliminar dados de utilizador no produto do Azure Machine Learning Studio
 
@@ -70,8 +70,8 @@ Os utilizadores também podem eliminar a sua área de trabalho inteira:
 ![Eliminar uma área de trabalho gratuita no Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>Exportar dados do Studio com o PowerShell
-Utilize o PowerShell para exportar todas as suas informações num formato portáteis de utilizar comandos do Azure Machine Learning Studio. Para obter informações, consulte a [módulo do PowerShell para o Azure Machine Learning](powershell-module.md) artigo.
+Utilize o PowerShell para exportar todas as suas informações num formato portáteis de utilizar comandos do Azure Machine Learning Studio. Para obter informações, consulte a [módulo do PowerShell para o Azure Machine Learning Studio](powershell-module.md) artigo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter documentação que abrangem serviços da web e o plano de compromisso de faturação, consulte [referência da API de REST do Azure Machine Learning](https://docs.microsoft.com/rest/api/machinelearning/). 
+Para obter documentação que abrangem serviços da web e o plano de compromisso de faturação, consulte [referência da API de REST do Azure Machine Learning Studio](https://docs.microsoft.com/rest/api/machinelearning/). 

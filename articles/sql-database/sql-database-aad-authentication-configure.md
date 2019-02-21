@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 02/20/2019
+ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960035"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454842"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerir a autenticação do Azure Active Directory com o SQL
 
@@ -39,7 +39,7 @@ Para obter mais informações, veja [Integrating your on-premises identities wit
 1. Associe a sua subscrição do Azure ao Azure Active Directory, tornando o diretório de um diretório de confiança para a subscrição do Azure que aloja a base de dados. Para obter detalhes, consulte [subscrições do Azure como estão associadas com o Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 2. Utilize o alternador de diretório no portal do Azure para mudar para a subscrição associada a domínio.
 
-   **Informações adicionais:** cada subscrição do Azure tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Esta relação de confiança entre uma subscrição e um diretório é diferente da relação de uma subscrição com todos os outros recursos no Azure (sites, bases de dados, e assim sucessivamente), que são mais como recursos subordinados de uma subscrição. Em caso de expiração de uma subscrição, será interrompido o acesso a esses outros recursos associados à subscrição também. No entanto, o diretório permanece no Azure e pode associar outra subscrição a esse diretório e continuar a gerir os utilizadores do diretório. Para obter mais informações sobre os recursos, consulte [compreender o acesso a recursos no Azure](../active-directory/active-directory-b2b-admin-add-users.md). Para obter mais informações sobre esta fidedigno Consulte de relação [como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+   **Informações adicionais:** Cada subscrição do Azure tem uma relação de confiança com uma instância do Azure AD. Tal significa que confia nesse diretório para autenticar utilizadores, serviços e dispositivos. Várias subscrições podem confiar no mesmo diretório, mas uma subscrição apenas pode confiar num diretório. Esta relação de confiança entre uma subscrição e um diretório é diferente da relação de uma subscrição com todos os outros recursos no Azure (sites, bases de dados, e assim sucessivamente), que são mais como recursos subordinados de uma subscrição. Em caso de expiração de uma subscrição, será interrompido o acesso a esses outros recursos associados à subscrição também. No entanto, o diretório permanece no Azure e pode associar outra subscrição a esse diretório e continuar a gerir os utilizadores do diretório. Para obter mais informações sobre os recursos, consulte [compreender o acesso a recursos no Azure](../active-directory/active-directory-b2b-admin-add-users.md). Para obter mais informações sobre esta fidedigno Consulte de relação [como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Criar um administrador do Azure AD para o servidor SQL do Azure
 
@@ -143,7 +143,7 @@ Sua instância gerida necessita de permissões para ler do Azure AD com êxito a
 
     O processo de alterar o administrador pode demorar vários minutos. Em seguida, o administrador do novo é apresentado na caixa de administração do Active Directory.
 
-Depois de aprovisionar um administrador do Azure AD da sua instância gerida, pode começar a criar inícios de sessão do Azure AD (**pré-visualização pública**) com o <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> sintaxe. Para obter mais informações, consulte [descrição geral de instância geridas](sql-database-managed-instance.md#azure-active-directory-integration).
+Depois de aprovisionar um administrador do Azure AD da sua instância gerida, pode começar a criar o Azure AD principais de servidor (inícios de sessão) (**pré-visualização pública**) com o <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> sintaxe. Para obter mais informações, consulte [descrição geral de instância geridas](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > Para mais tarde remover um administrador, na parte superior da página de administração do Active Directory, selecione **remover administrador**e, em seguida, selecione **guardar**.
@@ -243,7 +243,7 @@ Também pode aprovisionar um administrador do Azure AD ao chamar os seguintes co
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Aprovisiona um administrador do Azure Active Directory para o servidor SQL do Azure ou Azure SQL Data Warehouse. (Tem de ser da subscrição atual.) |
 |[az sql server ad-admin delete](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) |Remove um administrador do Azure Active Directory para o servidor SQL do Azure ou Azure SQL Data Warehouse. |
 |[az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) |Devolve informações sobre um administrador do Azure Active Directory configurado atualmente para o servidor SQL do Azure ou o Azure SQL Data Warehouse. |
-|[atualização de administrador do ad do AZ sql server](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) |Atualiza o administrador do Active Directory para um servidor SQL do Azure ou o Azure SQL Data Warehouse. |
+|[az sql server ad-admin update](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) |Atualiza o administrador do Active Directory para um servidor SQL do Azure ou o Azure SQL Data Warehouse. |
 
 Para obter mais informações sobre os comandos da CLI, veja [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 
@@ -264,7 +264,7 @@ Pode satisfazer estes requisitos por:
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Criar utilizadores de base de dados contidos na base de dados mapeado para identidades do Azure AD
 
 >[!IMPORTANT]
->Inícios de sessão do Azure AD suporta agora a instância gerida (**pré-visualização pública**), que permite-lhe criar inícios de sessão de utilizadores, grupos ou aplicações do Azure AD. Inícios de sessão do AD do Azure fornece a capacidade para autenticar a sua instância gerida, sem a necessidade dos utilizadores de base de dados a ser criado como um utilizador de base de dados contida. Para obter mais informações, consulte [descrição geral de instância geridas](sql-database-managed-instance.md#azure-active-directory-integration). Para a sintaxe sobre a criação de inícios de sessão do Azure AD, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+>Principais de servidor do Azure AD (inícios de sessão) suporta agora a instância gerida (**pré-visualização pública**), que permite-lhe criar inícios de sessão de utilizadores, grupos ou aplicações do Azure AD. Principais de servidor do Azure AD (inícios de sessão) fornece a capacidade para autenticar a sua instância gerida, sem a necessidade dos utilizadores de base de dados a ser criado como um utilizador de base de dados contida. Para obter mais informações, consulte [descrição geral de instância geridas](sql-database-managed-instance.md#azure-active-directory-integration). Para a sintaxe sobre a criação do Azure AD de entidades de segurança do servidor (inícios de sessão), consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 Autenticação do Azure Active Directory requer que os utilizadores da base de dados ser criadas como usuários do banco de dados independente. Um utilizador de base de dados contida, com base numa identidade do Azure AD, é um utilizador de base de dados que não tem um início de sessão na base de dados mestra, e que é mapeado para uma identidade no diretório do Azure AD que estão associado com a base de dados. A identidade do Azure AD pode ser uma conta de utilizador individual ou um grupo. Para obter mais informações sobre os utilizadores de base de dados contida, consulte [tomada de utilizadores de base de dados contidas sua base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
@@ -281,7 +281,7 @@ CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 
 *Azure_AD_principal_name* pode ser o nome do principal de utilizador de um utilizador do Azure AD ou o nome a apresentar para um grupo do Azure AD.
 
-**Exemplos:** para criar uma base de dados contida que representa um Azure AD do utilizador federada ou geridos pelo utilizador de domínio:
+**Exemplos:** Para criar uma base de dados contida o utilizador que representa um Azure AD federados ou geridos de utilizador de domínio:
 
 ```sql
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
@@ -323,14 +323,11 @@ Para confirmar que o administrador do Azure AD está devidamente configurado, li
 Para aprovisionar o utilizador do Azure baseada no AD contidos da base de dados (que não seja o administrador do servidor que é proprietário da base de dados), ligar à base de dados com uma identidade do Azure AD que tenha acesso à base de dados.
 
 > [!IMPORTANT]
-> Suporte para a autenticação do Azure Active Directory está disponível com [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) no Visual Studio 2015. O lançamento de Agosto de 2016 do SSMS também inclui suporte para autenticação do Active Directory Universal, que permite aos administradores exigir autenticação Multifator com uma chamada telefónica, mensagem de texto, smart cards com pin ou notificação de aplicação móvel. Usando a utilizadores e inícios de sessão do Azure AD (**pré-visualização pública**) com o SSDT não é atualmente suportada.
+> Suporte para a autenticação do Azure Active Directory está disponível com [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) no Visual Studio 2015. O lançamento de Agosto de 2016 do SSMS também inclui suporte para autenticação do Active Directory Universal, que permite aos administradores exigir autenticação Multifator com uma chamada telefónica, mensagem de texto, smart cards com pin ou notificação de aplicação móvel.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>Utilizar uma identidade do Azure AD para ligar com o SSMS ou o SSDT
 
 Os procedimentos seguintes mostram como ligar a uma base de dados SQL com uma identidade do Azure AD com o SQL Server Management Studio ou as ferramentas de base de dados do SQL Server.
-
->[!IMPORTANT]
->Usando a utilizadores e inícios de sessão do Azure AD (**pré-visualização pública**) com o SSDT não é atualmente suportada.
 
 ### <a name="active-directory-integrated-authentication"></a>Autenticação integrada do Active Directory
 

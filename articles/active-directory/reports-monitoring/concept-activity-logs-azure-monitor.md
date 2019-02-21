@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a995fd93fa8d538cd1a686ecc12fa69c718758c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313505"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456335"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Registos de atividades do Azure AD no Azure Monitor (pré-visualização)
 
@@ -31,13 +31,13 @@ Agora, pode encaminhar registos de atividades do Azure Active Directory (Azure A
 * Registos de atividades de arquivo do Azure AD para uma conta de armazenamento do Azure, para manter os dados durante muito tempo.
 * Registos de atividades de Stream do Azure AD para um hub de eventos do Azure para análise, com ferramentas populares de informações de segurança e gestão de eventos (SIEM), como Splunk e QRadar.
 * Integrar o Azure AD registos de atividades com suas próprias soluções de registo personalizado por transmissão em fluxo para um hub de eventos.
-* Registos de atividade de envio do Azure AD para o Log Analytics para ativar visualizações ricas, monitorização e alertas sobre os dados ligados.
+* Registos de atividade de envio do Azure AD para os registos do Azure Monitor para ativar visualizações ricas, monitorização e alertas sobre os dados ligados.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>Relatórios suportados
 
-Pode encaminhar o Azure AD de auditoria registos e registos de início de sessão para a sua conta de armazenamento do Azure, hub de eventos, o Log Analytics ou solução personalizada ao utilizar esta funcionalidade. 
+Pode encaminhar o Azure AD de auditoria registos e registos de início de sessão para a sua conta de armazenamento do Azure, hub de eventos, registos do Azure Monitor ou solução personalizada ao utilizar esta funcionalidade. 
 
 * **Registos de auditoria**: O [relatório de atividade de registos de auditoria](concept-audit-logs.md) permite-lhe aceder ao histórico de cada tarefa que é executada no seu inquilino.
 * **Registos de início de sessão**: Com o [relatório de atividade de início de sessão](concept-sign-ins.md), pode determinar quem realizou as tarefas que são enviadas nos registos de auditoria.
@@ -60,7 +60,7 @@ Dependendo do local para onde pretende encaminhar os dados de registo de auditor
 
 * Uma conta de armazenamento do Azure, para a qual tenha permissões *ListKeys*. Recomendamos que utilize uma conta de armazenamento para fins gerais e não uma conta de armazenamento de Blobs. Para obter informações sobre os preços de armazenamento, veja a [Calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Um espaço de nomes dos Hubs de Eventos do Azure, para integrar com soluções de terceiros.
-* Uma área de trabalho do Log Analytics do Azure para enviar registos para o Log Analytics.
+* Uma área de trabalho do Log Analytics do Azure para enviar registos para os registos do Azure Monitor.
 
 ## <a name="cost-considerations"></a>Considerações de custos
 
@@ -94,9 +94,9 @@ A tabela seguinte contém os custos estimados por mês para um hub de eventos b�
 | Auditoria | 1,000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 $ |
 | Inícios de sessão | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
-### <a name="log-analytics-cost-considerations"></a>Considerações de custos do log Analytics
+### <a name="azure-monitor-logs-cost-considerations"></a>Monitor do Azure regista as considerações de custo
 
-Para rever os custos relacionados ao gerenciamento de área de trabalho do Log Analytics, consulte [gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Para rever os custos relacionados com a gerir os registos do Azure Monitor, consulte [gerir os custos ao controlar o volume de dados e a retenção nos registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -177,4 +177,4 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 
 * [Arquivar registos de atividades numa conta de armazenamento](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Encaminhar registos de atividades para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Integrar registos de atividade com o Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
+* [Integrar registos de atividade com o Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

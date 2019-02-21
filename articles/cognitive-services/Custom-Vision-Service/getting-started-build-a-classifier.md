@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cd6f533bcd32a307facc781c3b2207a337fc8a34
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309170"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445462"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como criar um classificador com visão personalizada
 
@@ -23,26 +23,28 @@ Para utilizar o serviço de visão personalizada para classificação de imagens
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Válido [conta Microsoft](https://account.microsoft.com/account) ou uma conta do Azure Active Directory (AAD) ("conta escolar ou profissional").
-
-    > [!IMPORTANT] 
-    > O início de sessão para utilizadores do AAD partir [Clouds nacionais do Microsoft](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) não é atualmente suportada.
+- Uma subscrição do Azure válida. [Criar uma conta](https://azure.microsoft.com/free/) gratuitamente.
 - Um conjunto de imagens com a qual treinar o classificador. Veja abaixo para obter dicas sobre a escolha de imagens.
-- Opcionalmente: Uma subscrição do Azure associada à sua conta Microsoft ou a conta do AAD. Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Sem uma subscrição do Azure, apenas será capaz de criar dois __limitado a versão de avaliação__ projetos.
+
+
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de visão personalizada no Portal do Azure
+Para utilizar o serviço de visão personalizada, terá de criar recursos de formação de visão personalizada e predição no do [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Esta ação irá criar recursos de formação e predição. 
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
-No seu browser, navegue para o [página da web de visão personalizada](https://customvision.ai) e selecione __iniciar sessão__.
+No seu browser, navegue para o [página da web de visão personalizada](https://customvision.ai) e selecione __iniciar sessão__. Inicie sessão com a mesma conta utilizada para iniciar sessão no Portal do Azure.
 
 ![Imagem da página de início de sessão](./media/browser-home.png)
 
-Se tiver uma conta do Azure, será solicitado a criar recursos de treinamento de serviço de visão personalizada e predição no [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) durante a criação do projeto.
 
 1. Para criar seu primeiro projeto, selecione **novo projeto**. O **criar novo projeto** será apresentada a caixa de diálogo.
 
     ![A caixa de diálogo novo projeto tem campos de nome, descrição e domínios.](./media/getting-started-build-a-classifier/new-project.png)
 
-1. Introduza um nome e uma descrição para o projeto. Em seguida, selecione um grupo de recursos. Se a sua conta com sessão iniciada estiver associada uma conta do Azure, a lista pendente do grupo de recursos irá apresentar todos os grupos de recursos do Azure que incluem um recurso de serviço de visão personalizada. Em ambos os casos, pode também selecionar __limitado a versão de avaliação__ esta lista pendente.
+1. Introduza um nome e uma descrição para o projeto. Em seguida, selecione um grupo de recursos. Se a sua conta com sessão iniciada estiver associada uma conta do Azure, a lista pendente do grupo de recursos irá apresentar todos os grupos de recursos do Azure que incluem um recurso de serviço de visão personalizada. 
+
+> [!NOTE]
+> Se nenhum grupo de recursos estiver disponível, confirme que iniciou sessão na [customvision.ai](https://customvision.ai) com a mesma conta que utilizou para iniciar sessão para o [Portal do Azure](https://portal.azure.com/). Além disso, confirme que selecionou o mesmo "diretório" no portal de visão personalizada como o diretório no portal do Azure, onde se encontram os seus recursos de visão personalizada. Em ambos os sites, pode selecionar o seu diretório no menu pendente menu da conta no canto superior direito da tela. 
 
 1. Selecione __classificação__ sob __tipos de projetos__. Em seguida, em __tipos de classificação__, escolha o **Multilabel** ou **várias classes**, dependendo do seu caso de utilização. Classificação multilabel aplica-se um número qualquer de suas marcas para uma imagem (zero ou mais), enquanto a classificação multiclasses ordena imagens em únicas categorias (cada imagem que submeter serão também ser ordenada a marca mais provável). Será capaz de alterar o tipo de classificação mais tarde se desejar.
 

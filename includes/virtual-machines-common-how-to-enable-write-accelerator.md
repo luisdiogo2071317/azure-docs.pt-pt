@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985487"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458394"
 ---
 # <a name="enable-write-accelerator"></a>Ativar o acelerador de escrita
 
@@ -42,17 +42,17 @@ Ao usar o acelerador de escrita para um VHD/disco do Azure, estas restrições a
 
 - O cache de disco Premium deve ser definido como 'None' ou "Só de leitura". Todos os outros modos de colocação em cache não são suportados.
 - Instantâneo não são atualmente suportadas para discos com acelerador de escrita ativado. Durante a cópia de segurança, o serviço Azure Backup exclui automaticamente os discos com acelerador de escrita ativado, ligados à VM.
-- Apenas os tamanhos de e/s menores (< = 32 KiB) estão a tirar o melhor caminho. Na carga de trabalho situações em que está a ficar em massa dados carregados ou em que os buffers de log de transação de diferentes DBMS são preenchidos para um maior grau antes da introdução persistida para o armazenamento, é provável que a e/s escrito para disco não está a demorar o caminho acelerado.
+- Apenas os tamanhos de e/s menores (< = 512 KiB) estão a tirar o melhor caminho. Na carga de trabalho situações em que está a ficar em massa dados carregados ou em que os buffers de log de transação de diferentes DBMS são preenchidos para um maior grau antes da introdução persistida para o armazenamento, é provável que a e/s escrito para disco não está a demorar o caminho acelerado.
 
 Existem limites de VHDs de armazenamento Premium do Azure por VM, que pode ser suportado pelo acelerador de escrita. Os limites atuais são:
 
 | SKU DE VM | Número de discos de acelerador de escrita | Escrever Accelerator disco IOPS por VM |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1000 |
-| M8ms, M8s | 1 | 500 |
+| M128ms, 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M16ms, M16s | 2 | 2500 |
+| M8ms, M8s | 1 | 1250 |
 
 Os limites IOPS são por VM e *não* por disco. Todos os discos de acelerador de escrita partilham o mesmo limite de IOPS por VM.
 

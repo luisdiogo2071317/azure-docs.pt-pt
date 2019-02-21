@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425179"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454264"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall de aplicações Web (WAF)
 
@@ -51,7 +51,7 @@ Seguem-se as principais vantagens proporcionadas pelo Gateway de Aplicação e p
 
 ## <a name="features"></a>Funcionalidades
 
-- Proteção contra injeção de SQL
+- SQL injection protection
 - Cruzar a proteção de criação de scripts do site
 - Comuns Web proteção contra ataques, como injeção de comandos, contrabando, divisão de respostas HTTP de pedidos HTTP e ataques de inclusão de ficheiros remota
 - Proteção contra violações de protocolo HTTP
@@ -78,7 +78,7 @@ O Gateway de Aplicação suporta dois conjuntos de regras: CRS 3.0 e CRS 2.2.9. 
 
 A firewall de aplicação Web está pré-configurada com CRS 3.0, por predefinição, ou pode optar por utilizar a 2.2.9. A CRS 3.0 oferece menos falsos positivos do que a 2.2.9. É disponibilizada a capacidade de [personalizar a regras para se adequarem às suas necessidades](application-gateway-customize-waf-rules-portal.md). Algumas das vulnerabilidades Web comuns contra as quais a firewall de aplicações Web protege incluem:
 
-- Proteção contra injeção de SQL
+- SQL injection protection
 - Cruzar a proteção de criação de scripts do site
 - Comuns Web proteção contra ataques, como injeção de comandos, contrabando, divisão de respostas HTTP de pedidos HTTP e ataques de inclusão de ficheiros remota
 - Proteção contra violações de protocolo HTTP
@@ -133,7 +133,7 @@ A WAF do Gateway de Aplicação pode ser configurada para ser executada nos dois
 
 ### <a name="application-gateway-waf-reports"></a>Monitorização da WAF
 
-É importante monitorizar o estado de funcionamento do gateway de aplicação. A monitorização do estado de funcionamento da sua firewall de aplicações Web e das aplicações que esta protege é proporcionada através do registo e da integração no Azure Monitor, no Centro de Segurança do Azure e no Log Analytics.
+É importante monitorizar o estado de funcionamento do gateway de aplicação. Monitorizar o estado de funcionamento da web firewall de aplicações e os aplicativos que esta protege são proporcionados através do registo e da integração com o Azure Monitor, o Centro de segurança do Azure, e registos do Azure Monitor.
 
 ![diagnósticos](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ O [Centro de Segurança do Azure](../security-center/security-center-intro.md) a
 
 #### <a name="logging"></a>Registo
 
-A WAF do Gateway de Aplicação fornece relatórios detalhados sobre cada ameaça detetada. Os registos estão integrados no Diagnóstico do Azure e os registos e alertas são registados no formato json. Estes registos podem ser integrados no [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
+A WAF do Gateway de Aplicação fornece relatórios detalhados sobre cada ameaça detetada. Os registos estão integrados no Diagnóstico do Azure e os registos e alertas são registados no formato json. Estes registos podem ser integrados no [registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Base de dados SQL do Azure geridos de segurança de instância com inícios de sessão do Azure AD | Documentos da Microsoft
-description: Conheça as técnicas e funcionalidades para proteger uma instância gerida na base de dados do Azure SQL e utilizar inícios de sessão do Azure AD
+title: Segurança de instância, utilização de principais de servidor do Azure AD (inícios de sessão) de gerida de base de dados SQL do Azure | Documentos da Microsoft
+description: Conheça as técnicas e funcionalidades para proteger uma instância gerida na base de dados do Azure SQL e utilizar principais de servidor do Azure AD (inícios de sessão)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,15 +9,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/20/2019
+ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984516"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456933"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>Tutorial: Gerido de segurança de instância na base de dados do SQL Azure com inícios de sessão do Azure AD
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança de instância gerida na base de dados do SQL Azure utilização de principais de servidor do Azure AD (inícios de sessão)
 
 Instância gerida fornece quase todos os recursos de segurança que o mais recente do SQL Server no local tem de motor de base de dados (Enterprise Edition):
 
@@ -29,16 +29,16 @@ Instância gerida fornece quase todos os recursos de segurança que o mais recen
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> - Criar um início de sessão do Azure Active Directory (AD) para uma instância gerida
-> - Conceder permissões para inícios de sessão do Azure AD numa instância gerida
-> - Criar utilizadores do Azure AD a partir de inícios de sessão do Azure AD
+> - Criar um Azure Active Directory (AD) principal do servidor (início de sessão) para uma instância gerida
+> - Conceder permissões aos principais de servidor do Azure AD (inícios de sessão) numa instância gerida
+> - Criar utilizadores do Azure AD a partir do Azure principais de servidor do AD (inícios de sessão)
 > - Atribuir permissões a utilizadores do Azure AD e gerir a segurança da base de dados
 > - Utilize a representação com utilizadores do Azure AD
 > - Utilizar consultas entre bases de dados com utilizadores do Azure AD
 > - Saiba mais sobre as funcionalidades de segurança, como proteção contra ameaças, auditoria, máscara de dados e encriptação
 
 > [!NOTE]
-> Está a inícios de sessão do AD do Azure para instâncias geridas **pré-visualização pública**.
+> Está a principais de servidor do Azure AD (inícios de sessão) para instâncias geridas **pré-visualização pública**.
 
 Para obter mais informações, consulte a [gerida de base de dados do Azure SQL descrição geral da instância](sql-database-managed-instance-index.yml) e [capacidades](sql-database-managed-instance.md) artigos.
 
@@ -61,15 +61,15 @@ Instâncias geridas só podem ser acedidas através de um endereço IP privado. 
 > [!NOTE] 
 > Uma vez que as instâncias geridas só podem ser acessadas dentro da sua VNET [regras de firewall da base de dados SQL](sql-database-firewall-configure.md) não se aplicam. A instância gerida tem seu próprio [firewall interno](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>Criar um início de sessão do Azure AD para uma instância gerida com o SSMS
+## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Criar um Azure AD principal do servidor (início de sessão) para uma instância gerida com o SSMS
 
-O primeiro início de sessão do Azure AD tem de ser criado pela conta do SQL Server standard (não pertencente ao azure AD) é um `sysadmin`. Veja os artigos seguintes para obter exemplos de ligar à sua instância gerida:
+O primeiro principal do servidor do Azure AD (início de sessão) tem de ser criado pela conta do SQL Server standard (não pertencente ao azure AD) é um `sysadmin`. Veja os artigos seguintes para obter exemplos de ligar à sua instância gerida:
 
 - [Quickstart: Configurar a VM do Azure para ligar a uma instância gerida](sql-database-managed-instance-configure-vm.md)
 - [Quickstart: Configurar uma ligação de ponto a site para uma instância gerida do local](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> O administrador do Azure AD utilizado para configurar a instância gerida não pode ser utilizado para criar um início de sessão do Azure AD dentro da instância gerida. Tem de criar o início de sessão do Azure AD primeiro uma conta do SQL Server que está a utilizar um `sysadmin`. Esta é uma limitação temporária que será removida depois de inícios de sessão do AD do Azure tornam-se em GA. Verá o seguinte erro se tentar utilizar uma conta de administrador do Azure AD para criar o início de sessão: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> O administrador do Azure AD utilizado para configurar a instância gerida não pode ser utilizado para criar um Azure AD principal do servidor (início de sessão) dentro da instância gerida. Tem de criar o primeiro Azure principal do servidor AD (início de sessão) a utilizar uma conta do SQL Server que é um `sysadmin`. Esta é uma limitação temporária que será removida depois de principais de servidor do Azure AD (inícios de sessão) tornam-se em GA. Verá o seguinte erro se tentar utilizar uma conta de administrador do Azure AD para criar o início de sessão: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. Inicie sessão na sua instância gerida a utilizar uma conta do SQL Server standard (não pertencente ao azure AD) é uma `sysadmin`, utilizando [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
@@ -109,7 +109,7 @@ Para obter mais informações, consulte [CREATE LOGIN](/sql/t-sql/statements/cre
 
 ## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>A conceder permissões para permitir a criação de inícios de sessão de instância gerida
 
-Para criar outros inícios de sessão do Azure AD, as funções do SQL Server ou permissões devem ser concedidas para a entidade de segurança (SQL ou do Azure AD).
+Para criar outras entidades de segurança de servidor do Azure AD (inícios de sessão), funções do SQL Server ou permissões têm de ser concedidas para a entidade de segurança (SQL ou do Azure AD).
 
 ### <a name="sql-authentication"></a>Autenticação do SQL
 
@@ -117,10 +117,10 @@ Para criar outros inícios de sessão do Azure AD, as funções do SQL Server ou
 
 ### <a name="azure-ad-authentication"></a>Autenticação do Azure AD
 
-- Para permitir que o Azure acabou de criar o início de sessão do AD a capacidade de criar outros inícios de sessão para outros utilizadores do Azure AD, grupos ou aplicações, conceder o início de sessão `sysadmin` ou `securityadmin` função de servidor. 
-- No mínimo, **ALTER ANY LOGIN** têm de ser concedidas permissões para o início de sessão do Azure AD para criar outros inícios de sessão do Azure AD. 
-- Por predefinição, o permissões padrão concedido a recentemente criado inícios de sessão do Azure AD no ramo principal é: **LIGAR SQL** e **ver qualquer base de dados**.
-- O `sysadmin` função de servidor de pode ser concedida para muitos inícios de sessão do Azure AD dentro de uma instância gerida.
+- Para permitir que o Azure AD criado recentemente principal do servidor (início de sessão) a capacidade de criar outros inícios de sessão para outros utilizadores do Azure AD, grupos ou aplicações, conceder o início de sessão `sysadmin` ou `securityadmin` função de servidor. 
+- No mínimo, **ALTER ANY LOGIN** têm de ser concedidas permissões para o principal do servidor do Azure AD (início de sessão) para criar outro do Azure AD principais de servidor (inícios de sessão). 
+- Por predefinição, o permissões padrão concedidas a recentemente criada do Azure AD principais de servidor (inícios de sessão) no ramo principal é: **LIGAR SQL** e **ver qualquer base de dados**.
+- O `sysadmin` função de servidor de pode ser concedida a muitas entidades de servidor de AD do Azure (inícios de sessão) dentro de uma instância gerida.
 
 Para adicionar o início de sessão para o `sysadmin` função de servidor:
 
@@ -128,7 +128,7 @@ Para adicionar o início de sessão para o `sysadmin` função de servidor:
 
 1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
 
-1. Conceder o início de sessão do Azure AD a `sysadmin` função de servidor utilizando a seguinte sintaxe de T-SQL:
+1. Conceder o principal do servidor do Azure AD (início de sessão) a `sysadmin` função de servidor utilizando a seguinte sintaxe de T-SQL:
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
@@ -142,11 +142,11 @@ Para adicionar o início de sessão para o `sysadmin` função de servidor:
     GO
     ```
 
-## <a name="create-additional-azure-ad-logins-using-ssms"></a>Criar adicionais inícios de sessão do Azure AD com o SSMS
+## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Criar Azure AD adicional principais de servidor (inícios de sessão) com o SSMS
 
-Depois do início de sessão do Azure AD foi criado e fornecido com o `sysadmin` privilégios, o início de sessão desse pode criar logons adicionais usando o **do fornecedor externo** cláusula com **CREATE LOGIN**.
+Assim que o principal do servidor do Azure AD (início de sessão) foi criado e fornecido com o `sysadmin` privilégios, o início de sessão desse pode criar logons adicionais usando o **do fornecedor externo** cláusula com **CREATE LOGIN**.
 
-1. Ligue-se para a instância gerida com o início de sessão do AD do Azure, com o SQL Server Management Studio. Introduza o nome de anfitrião da instância gerida. Para a autenticação no SSMS, existem três opções de escolha ao iniciar sessão com uma conta do Azure AD:
+1. Ligue-se para a instância gerida com o servidor do Azure AD principal (início de sessão), com o SQL Server Management Studio. Introduza o nome de anfitrião da instância gerida. Para a autenticação no SSMS, existem três opções de escolha ao iniciar sessão com uma conta do Azure AD:
 
     - Active Directory - Universal com o suporte MFA
     - Active Directory - Palavra-passe
@@ -205,7 +205,7 @@ Depois do início de sessão do Azure AD foi criado e fornecido com o `sysadmin`
 
 1. Como um teste, inicie sessão para a instância gerida com o início de sessão recentemente criado ou grupo. Abra uma nova ligação para a instância gerida e utilizar o novo início de sessão durante a autenticação.
 1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta** para a nova ligação.
-1. Verifique as permissões de servidor recentemente criado para início de sessão do AD do Azure executando o seguinte comando:
+1. Verifique as permissões de servidor recentemente criado para o principal de servidor do Azure AD (início de sessão) executando o seguinte comando:
 
     ```sql
     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
@@ -215,7 +215,7 @@ Depois do início de sessão do Azure AD foi criado e fornecido com o `sysadmin`
 > [!NOTE]
 > Utilizadores de convidado do Azure AD são suportados para inícios de sessão de instância gerida, apenas quando são adicionadas como parte de um grupo do Azure AD. Um utilizador convidado é uma conta que é convidada para o Azure AD, que pertence a instância gerida, do outro Azure AD. Por exemplo, joe@contoso.com (conta do Azure AD) ou steve@outlook.com (MSA conta) podem ser adicionada a um grupo no aadsqlmi Azure AD. Assim que os utilizadores são adicionados a um grupo, um início de sessão pode ser criado a instância gerida **mestre** base de dados para o grupo utilizando o **CREATE LOGIN** sintaxe. Utilizadores convidados que são membros deste grupo podem ligar-se à instância gerida utilizando os inícios de sessão atuais (por exemplo, joe@contoso.com ou steve@outlook.com).
 
-## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Criar um utilizador do Azure AD a partir do início de sessão do Azure AD e conceder permissões
+## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>Criar um utilizador do Azure AD principal do servidor (início de sessão) e conceder permissões
 
 Autorização para bases de dados individuais funciona grande parte da mesma forma o na instância gerida de forma que funciona com o SQL Server no local. Um utilizador pode ser criado a partir de um início de sessão existente na base de dados e ser fornecido com permissões nessa base de dados ou adicionado a uma função de base de dados.
 
@@ -229,7 +229,7 @@ Para obter mais informações sobre a concessão de permissões de base de dados
 
 1. Inicie sessão na sua instância gerida utilizando um `sysadmin` conta ao utilizar o SQL Server Management Studio.
 1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
-1. Na janela da consulta, utilize a seguinte sintaxe para criar um utilizador do Azure AD a partir de um início de sessão do Azure AD:
+1. Na janela da consulta, utilize a seguinte sintaxe para criar um utilizador de um principal de servidor do Azure AD (início de sessão):
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -247,7 +247,7 @@ Para obter mais informações sobre a concessão de permissões de base de dados
     GO
     ```
 
-1. Também é suportada para criar um utilizador do Azure AD a partir de um início de sessão do Azure AD, que é um grupo.
+1. Também é suportada para criar um utilizador de um principal de servidor do Azure AD (início de sessão) que é um grupo.
 
     O exemplo seguinte cria um início de sessão para o grupo do Azure AD _mygroup_ que existe no seu Azure AD.
 
@@ -261,7 +261,7 @@ Para obter mais informações sobre a concessão de permissões de base de dados
     Todos os utilizadores que pertencem à **mygroup** pode aceder a **MyMITestDB** base de dados.
 
     > [!IMPORTANT]
-    > Ao criar um **USUÁRIO** a partir de um início de sessão do Azure AD, especificar o user_name como o mesmo login_name partir **início de sessão**.
+    > Ao criar um **USUÁRIO** a partir de um principal do servidor do Azure AD (início de sessão), especificar o user_name como o mesmo login_name partir **início de sessão**.
 
     Para obter mais informações, consulte [criar utilizador](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -383,7 +383,7 @@ Instância gerida suporta a representação de entidades de segurança do Azure 
 
 ## <a name="using-cross-database-queries-in-managed-instances"></a>Usando consultas entre bases de dados em instâncias geridas
 
-Consultas entre bases de dados são suportadas para contas do Azure AD com inícios de sessão do Azure AD. Para testar uma consulta entre bases de dados com um grupo do Azure AD, é necessário criar outro banco de dados e uma tabela. Pode ignorar a criação de outra base de dados e tabela se ainda existir.
+Consultas entre bases de dados são suportadas para contas do Azure AD com entidades de servidor do Azure AD (inícios de sessão). Para testar uma consulta entre bases de dados com um grupo do Azure AD, é necessário criar outro banco de dados e uma tabela. Pode ignorar a criação de outra base de dados e tabela se ainda existir.
 
 1. Inicie sessão na sua instância gerida utilizando um `sysadmin` conta ao utilizar o SQL Server Management Studio.
 1. Na **Object Explorer**, clique com o botão direito do servidor e escolha **nova consulta**.
@@ -424,15 +424,15 @@ Consultas entre bases de dados são suportadas para contas do Azure AD com iníc
 
     Deverá ver os resultados de tabela a partir **TestTable2**.
 
-## <a name="additional-scenarios-supported-for-azure-ad-logins-public-preview"></a>Cenários adicionais, suportados para inícios de sessão do Azure AD (pré-visualização pública) 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Cenários adicionais, suportados para principais de servidor do Azure AD (inícios de sessão) (pré-visualização pública) 
 
-- Execuções de gerenciamento e a tarefa de agente do SQL são suportadas para inícios de sessão do Azure AD.
-- Base de dados de cópia de segurança e restaurar as operações podem ser executadas pelo inícios de sessão do Azure AD.
-- [Auditoria](sql-database-managed-instance-auditing.md) de todas as declarações relacionadas a inícios de sessão do Azure AD e eventos de autenticação.
-- Dedicado a ligação de administrador para inícios de sessão do Azure AD que são membros do `sysadmin` função de servidor.
-- Inícios de sessão do AD do Azure são suportados com a utilização a [sqlcmd utilitário](/sql/tools/sqlcmd-utility) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ferramenta.
-- Acionadores de início de sessão são suportados para eventos de início de sessão provenientes de inícios de sessão do Azure AD.
-- Correio de Mediador de serviço e DB pode ser configurados com inícios de sessão do Azure AD.
+- Execuções de gerenciamento e a tarefa de agente do SQL são suportadas para principais de servidor do Azure AD (inícios de sessão).
+- Base de dados de cópia de segurança e restaurar as operações podem ser executadas por entidades de servidor do Azure AD (inícios de sessão).
+- [Auditoria](sql-database-managed-instance-auditing.md) de todas as instruções relacionadas com principais de servidor do Azure AD (inícios de sessão) e eventos de autenticação.
+- Dedicado a ligação de administrador para os principais de servidor do Azure AD (inícios de sessão) que são membros do `sysadmin` função de servidor.
+- Principais de servidor do Azure AD (inícios de sessão) são suportadas com a utilização a [sqlcmd utilitário](/sql/tools/sqlcmd-utility) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ferramenta.
+- Acionadores de início de sessão são suportados para eventos de início de sessão provenientes de principais de servidor do Azure AD (inícios de sessão).
+- Correio de Mediador de serviço e DB pode ser configurados com principais de servidor do Azure AD (inícios de sessão).
 
 
 ## <a name="next-steps"></a>Passos Seguintes

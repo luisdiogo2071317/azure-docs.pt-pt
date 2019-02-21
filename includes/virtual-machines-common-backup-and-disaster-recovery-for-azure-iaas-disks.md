@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 59a04ca5a546fff1043e1e157491b218f693d0f0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56334016"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56443395"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Cópia de segurança e recuperação após desastre para discos IaaS do Azure
 
@@ -170,7 +170,7 @@ Se precisar de reparar ou recriar uma VM, pode restaurar a VM a partir de qualqu
 
 Para obter mais informações, consulte as instruções para [utilizar o portal do Azure para restaurar máquinas virtuais](../articles/backup/backup-azure-arm-restore-vms.md). Este documento também explica os passos específicos para restaurar uma cópia de segurança de VMs num Datacenter emparelhado com o seu Cofre de cópia de segurança georredundante se ocorrer um desastre no datacenter principal. Nesse caso, o Azure Backup utiliza o serviço de computação da região secundária para criar a máquina virtual restaurada.
 
-Também pode utilizar o PowerShell para o [restaurar uma VM](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) ou para [criar uma nova VM a partir de restaurar discos](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+Também pode utilizar o PowerShell para o [criar uma nova VM a partir de restaurar discos](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Solução alternativa: Instantâneos consistentes com
 

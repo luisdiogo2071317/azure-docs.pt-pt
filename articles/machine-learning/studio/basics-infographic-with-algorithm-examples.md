@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242905"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453601"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico transferível: Noções básicas com exemplos de algoritmos de aprendizagem automática
 
@@ -33,7 +33,7 @@ Baixe esta descrição geral de fácil de compreender o infográfico de noções
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Mais ajuda com algoritmos para iniciantes e os utilizadores avançados
 
-* Para uma discussão mais profunda sobre os diferentes tipos de algoritmos de machine learning, como são utilizadas e como escolher a ferramenta correta para a sua solução, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md).
+* Para uma discussão mais profunda sobre os diferentes tipos de algoritmos de machine learning, como são utilizadas e como escolher a ferramenta correta para a sua solução, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 * Para obter uma lista por categoria de todos os algoritmos de aprendizagem automática disponíveis no Machine Learning Studio, consulte [inicializar modelo] [ initialize-model] no algoritmo do Machine Learning Studio e, em seguida, ajuda do módulo.
 * Para obter uma lista alfabética completa de algoritmos e módulos no Machine Learning Studio, consulte [lista A-Z dos módulos do Machine Learning Studio] [ a-z-list] no algoritmo de Machine Learning Studio e a ajuda do módulo.
 * Para uma descrição geral da Galeria de IA do Azure e muitos gerado pela Comunidade recursos disponíveis, consulte [partilhar e detetar recursos na Galeria de IA do Azure](gallery-how-to-use-contribute-publish.md).

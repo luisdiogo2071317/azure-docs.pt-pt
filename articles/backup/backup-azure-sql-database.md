@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 0d11f42ab8194b9d451f9d21e88db001e189e974
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429456"
+ms.locfileid: "56446856"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure 
 
@@ -45,7 +45,7 @@ Antes de começar, verifique o seguinte:
 Esta pré-visualização pública tem várias limitações.
 
 - A VM a executar o SQL Server necessita de conectividade de internet para acessar os endereços IP públicos do Azure. 
-- Pode criar cópias de segurança até 2000 bases de dados do SQL Server num cofre. Se tiver mais, crie outro cofre. 
+- Pode criar até 2000 bases de dados do SQL Server num cofre. Se tiver mais, crie outro cofre. 
 - Cópias de segurança de [distribuído grupos de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) totalmente não funcionam.
 - Sempre na ativação pós-falha Cluster instâncias do SQL Server (FCIs) não são suportadas para cópia de segurança.
 - Cópia de segurança do SQL Server deve ser configurada no portal. Atualmente, não é possível configurar a cópia de segurança com o Azure PowerShell, CLI ou as APIs REST.
@@ -58,7 +58,7 @@ Consulte a [secção de FAQ](https://docs.microsoft.com/azure/backup/backup-azur
 
 **Suporte** | **Detalhes**
 --- | ---
-**Implementações suportadas** | São suportadas VMs do SQL Marketplace do Azure e VMs do externas (manuallly do SQL Server instalado).
+**Implementações suportadas** | As VMs do Azure do SQL Marketplace e externas (SQL Server instalado manualmente) são suportadas VMs.
 **Áreas geográficas suportadas** | Sudeste da Austrália (ASE); Sul do Brasil (BRS); Canadá Central (CNC); Leste do Canadá (CE); EUA central (CUS); Ásia Oriental (EA); Leste da Austrália (AE); EUA Leste (EUS); E.U.A. Leste 2 (EUS2); Índia Central (INC); Índia do Sul (INS); Leste do Japão (JPE); Oeste do Japão (JPW); Coreia Central (KRC); Sul da Coreia (KRS); E.U.A. Central do Norte (NCUS); Europa do Norte (m); EUA Centro-Sul (SCUS); Sudeste Asiático (SEA); Sul do Reino Unido (UKS); Oeste do Reino Unido (UKW); EUA Centro-Oeste (WCUS); Europa Ocidental (WE); E.U.A. oeste (WUS); E.U.A. oeste 2 (WUS 2)
 **Sistemas operativos suportados** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux não é atualmente suportado.
 **Versões suportadas do SQL Server** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
@@ -147,8 +147,8 @@ Detete as bases de dados em execução na VM.
     - Cópia de segurança do Azure registar a VM com o Cofre de cópia de segurança da carga de trabalho. Todas as bases de dados na VM registada só podem ser copiadas para este cofre.
     - O Azure Backup instala o **AzureBackupWindowsWorkload** extensão na VM. Nenhum agente está instalado na base de dados SQL.
     - O Azure Backup cria a conta de serviço **NT Service\AzureWLBackupPluginSvc** na VM.
-        - Todas as operações de cópia de segurança e restauro, utilize a conta de serviço.
-        - **NT Service\AzureWLBackupPluginSvc** necessita de permissões de administrador do sistema do SQL. Todas as VMs do SQL Server criado no MArkplace do Azure são fornecidos com o **SqlIaaSExtension** instalado. O **AzureBackupWindowsWorkload** extensão utiliza o **SQLIaaSExtension** para obter automaticamente as permissões necessárias.
+      - Todas as operações de cópia de segurança e restauro, utilize a conta de serviço.
+      - **NT Service\AzureWLBackupPluginSvc** necessita de permissões de administrador do sistema do SQL. Todas as VMs do SQL Server criado no Azure Marketplace são fornecidos com o **SqlIaaSExtension** instalado. O **AzureBackupWindowsWorkload** extensão utiliza o **SQLIaaSExtension** para obter automaticamente as permissões necessárias.
     - Se não criar a VM no marketplace, a VM não tem o **SqlIaaSExtension** instalado, e a operação de deteção falha com a mensagem de erro **UserErrorSQLNoSysAdminMembership**. Siga as instruções no [#fix-sql--permissões sysadmin] para corrigir este problema.
 
         ![Selecione a VM e a base de dados](./media/backup-azure-sql-database/registration-errors.png)
@@ -160,7 +160,7 @@ Detete as bases de dados em execução na VM.
 Para otimizar cargas de cópia de segurança, cópia de segurança do Azure define um número máximo de bases de dados numa tarefa de cópia de segurança como 50.
 
 - Para proteger mais de 50 bases de dados, configure várias cópias de segurança.
-- Alternatily, pode ativar a proteção automática. A proteção automática protege bases de dados existentes de uma vez e protege automaticamente novas bases de dados adicionadas à instância do grupo de disponibilidade.
+- Em alternativa, pode ativar a proteção automática. A proteção automática protege bases de dados existentes de uma vez e protege automaticamente novas bases de dados adicionadas à instância do grupo de disponibilidade.
 
 
 Configure cópia de segurança da seguinte forma:
@@ -278,7 +278,7 @@ Para criar uma política de cópia de segurança:
 
 Ative a proteção automática automaticamente fazer cópias de segurança de bases de dados de contas existentes e bases de dados que são adicionados no futuro para uma instância do SQL Server autónomo ou um SQL Server sempre no grupo de disponibilidade. 
 
-- Quando ativar a proteção automática e selecione uma política, as bases de dados protegido de pexisting irão continuar a utilizar a política anterior.
+- Quando ativar a proteção automática e selecione uma política, as bases de dados protegidos existentes irão continuar a utilizar a política anterior.
 - Não existe nenhum limite no número de bases de dados que pode selecionar para proteção automática de uma só vez.
 
 Ative a proteção automática da seguinte forma:

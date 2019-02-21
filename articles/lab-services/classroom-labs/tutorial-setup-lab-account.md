@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 28710ebfaef4c82212e0208c36f50a96f0dda083
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 764b5ebb73340d377250d39e20b17ed0daf18bbe
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892053"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447689"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configurar uma conta de laboratório com o Azure Lab Services
 No Azure Lab Services, a conta de laboratório serve como a conta central em que são geridos os laboratórios na organização. Na conta de laboratório, conceda permissões para outros utilizadores criarem laboratórios e definir políticas aplicáveis a todos os laboratórios na conta de laboratório. Neste tutorial, aprenda como criar uma conta de laboratório como administrador de laboratório. 
@@ -48,7 +48,8 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta
     2. Selecione a **Subscrição do Azure**, na qual pretende criar a conta de laboratório.
     3. Em **Grupo de recursos**: selecione **Criar novo** e introduza um nome para o grupo de recursos.
     4. Em **Localização**, selecione uma região/localização na qual pretende criar a conta de laboratório. 
-    5. Selecione **Criar**. 
+    5. Para o **criador do laboratório de permitir a escolher a localização de laboratório** campo, especifique se pretende que os criadores de laboratório para poder selecionar uma localização para o laboratório. Por predefinição, a opção está desativada. Quando estiver desativada, os criadores de laboratório não é possível especificar uma localização para o laboratório estiver a criar. Os laboratórios são criados na localização geográfica mais próxima à conta de laboratório. Quando estiver ativada, um criador de laboratório pode selecionar uma localização no momento da criação de um laboratório. 
+    6. Selecione **Criar**. 
 
         ![Janela Criar uma conta de laboratório](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selecione o **ícone de sino** na barra de ferramentas (**notificações**), confirme que a implementação foi concluída com êxito e, em seguida, selecione **Ir para recurso**. 

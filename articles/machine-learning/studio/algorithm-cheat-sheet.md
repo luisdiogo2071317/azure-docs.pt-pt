@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884006"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453941"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning cábula do algoritmo para o Azure Machine Learning Studio
 
-O **a folha de referência do Azure Machine Learning algoritmo** ajuda a escolher o algoritmo certo para um modelo de Análise Preditiva.
+O **do Azure Machine Learning Studio Trapacear algoritmos** ajuda a escolher o algoritmo certo para um modelo de Análise Preditiva.
 
 [O Azure Machine Learning Studio](https://studio.azureml.net/) tem uma ampla biblioteca de algoritmos dos ***regressão***, ***classificação***, ***clustering***, e  ***Deteção de anomalias*** famílias. Cada uma foi concebido para resolver outro tipo de problema do machine learning.
 
@@ -27,14 +27,12 @@ O **a folha de referência do Azure Machine Learning algoritmo** ajuda a escolhe
 
 **Baixe a folha de referência rápida aqui: [Machine Learning Algorithm Cheat Sheet (11 x 17 pol.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![Máquina de referência rápida para algoritmos de aprendizagem: Saiba como escolher um algoritmo de Machine Learning.][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![Máquina de referência rápida para algoritmos de aprendizagem: Saiba como escolher um algoritmo de Machine Learning.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 Transferir e imprimir o Machine Learning Studio Trapacear algoritmos no tamanho de tabloide à mão e obtenha ajuda para escolher um algoritmo.
 
 > [!NOTE]
-> Para obter ajuda nesta referência rápida para escolher o algoritmo certo, além de uma discussão mais detalhada sobre os diferentes tipos de algoritmos de machine learning e como são utilizadas, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md).
+> Para obter ajuda nesta referência rápida para escolher o algoritmo certo, além de uma discussão mais detalhada sobre os diferentes tipos de algoritmos de machine learning e como são utilizadas, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notas e de definições terminológicas para o algoritmo de Machine Learning Studio referência rápida
 
@@ -44,7 +42,7 @@ Transferir e imprimir o Machine Learning Studio Trapacear algoritmos no tamanho 
 
 * Existem três categorias principais do machine learning: **aprendizagem supervisionada**, **learning não supervisionado**, e **aprendizagem por reforço**.
 
-  * Na **aprendizagem supervisionada**, cada ponto de dados é o nome ou associado a uma categoria ou o valor de interesse.  Um exemplo de uma etiqueta categórico é atribuir uma imagem como um "gato" ou "cachorro".  Um exemplo de uma etiqueta de valor é o preço de venda associado a um carros usados. O objetivo de aprendizagem supervisionado é estudar muitos exemplos etiquetados como essas e, em seguida, para poder fazer previsões sobre os pontos de dados futuros. Por exemplo, identificar novas fotos com o animal correto ou o atribuir os preços de venda precisos para outros carros usados. Este é um tipo de úteis e popular do machine learning. Todos os módulos no Azure Machine Learning são supervisionados, exceto para os algoritmos de aprendizagem [Clustering de K-Means][k-means-clustering].
+  * Na **aprendizagem supervisionada**, cada ponto de dados é o nome ou associado a uma categoria ou o valor de interesse.  Um exemplo de uma etiqueta categórico é atribuir uma imagem como um "gato" ou "cachorro".  Um exemplo de uma etiqueta de valor é o preço de venda associado a um carros usados. O objetivo de aprendizagem supervisionado é estudar muitos exemplos etiquetados como essas e, em seguida, para poder fazer previsões sobre os pontos de dados futuros. Por exemplo, identificar novas fotos com o animal correto ou o atribuir os preços de venda precisos para outros carros usados. Este é um tipo de úteis e popular do machine learning. Todos os módulos no Azure Machine Learning Studio são supervisionados, exceto para os algoritmos de aprendizagem [Clustering de K-Means][k-means-clustering].
 
   * Na **learning não supervisionado**, pontos de dados têm sem etiquetas associadas a eles. Em vez disso, o objetivo de um algoritmo de aprendizado não supervisionado é para organizar os dados de alguma forma ou para descrever a sua estrutura. Isso pode significar agrupando-lo em clusters, como faz de K-means ou de diferentes formas de ver dados complexos para que seja apresentado mais simples de localizar.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: c50c1a111f037b74176b5ca2cf8af518b2d3ffa0
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429388"
+ms.locfileid: "56447219"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alertas de registo no Azure Monitor
 [Regras com base em registos do Azure Monitor de alerta](alerts-unified-log.md) executar em intervalos regulares, por isso, deve garantir que são escritos para minimizar a sobrecarga e a latência. Este artigo fornece recomendações sobre como escrever consultas eficientes para os alertas de registo e um processo para a conversão de consultas existentes. 
@@ -31,16 +31,11 @@ Consultas que começam com `search` ou `union` permitem pesquisar em várias col
 
 ```Kusto
 search "Memory"
-
 search * | where == "Memory"
-
 search ObjectName: "Memory"
-
 search ObjectName == "Memory"
-
 union * | where ObjectName == "Memory"
 ```
- 
 
 Embora `search` e `union` são úteis durante a exploração de dados, pesquisar termos em relação ao modelo de dados inteiro, eles são menos eficientes do que utilizar uma tabela, uma vez que eles devem analisar em várias tabelas. Uma vez que as consultas nas regras de alerta são executadas em intervalos regulares, isso pode resultar numa sobrecarga excessiva adicionando latência para o alerta. Devido a essa sobrecarga, as consultas para regras de alerta de registo no Azure sempre devem começar com uma tabela para definir um âmbito claro, o que melhora o desempenho da consulta e a relevância dos resultados.
 

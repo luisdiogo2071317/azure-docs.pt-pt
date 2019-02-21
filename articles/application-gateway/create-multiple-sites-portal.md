@@ -1,25 +1,22 @@
 ---
-title: Criar um gateway de aplicação que aloja vários sites - portal do Azure | Documentos da Microsoft
+title: Criar um gateway de aplicação que aloja vários sites - portal do Azure
 description: Saiba como criar um gateway de aplicação que aloja vários sites no portal do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993318"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454326"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Criar e configurar um gateway de aplicação para alojar vários web sites com o portal do Azure
 
-Pode utilizar o portal do Azure para [configurar o alojamento de vários web sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste tutorial, vai definir os conjuntos de endereços de back-end utilizando as máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos de *www.contoso.com* e *www.fabrikam.com*.
+Pode utilizar o portal do Azure para [configurar o alojamento de vários web sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste artigo, vai definir os conjuntos de endereços de back-end utilizando as máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este artigo pressupõe que tiver vários domínios e utiliza os exemplos de *www.contoso.com* e *www.fabrikam.com*.
 
 Neste artigo, vai aprender a:
 
@@ -35,7 +32,7 @@ Neste artigo, vai aprender a:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
@@ -141,6 +138,8 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 3. Clique em **OK**.
 4. Criar um segundo ouvinte usando o nome da *fabrikamListener* e utilizar o seu nome de domínio de segundo. Neste exemplo, *www.fabrikam.com* é utilizado.
 
+![Serviços de escuta MULT-sites](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>Criar regras de encaminhamento
 
 As regras são processadas pela ordem em que são apresentadas, e o tráfego é direcionado com a primeira regra que corresponder, independentemente da especificidade. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
@@ -180,12 +179,4 @@ Depois de criar o gateway de aplicação com o respetivo endereço IP público, 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu como:
-
-> [!div class="checklist"]
-> * Criar um gateway de aplicação
-> * Crie máquinas virtuais para servidores de back-end
-> * Criar conjuntos de back-end com os servidores de back-end
-> * Criar serviços de escuta de back-end
-> * Criar regras de encaminhamento
-> * Criar um registo CNAME no seu domínio
+[Configurar o serviço de aplicações com o Gateway de aplicação](create-web-app.md)
