@@ -37,7 +37,7 @@ Suporte de idiomas é inicialmente lançado em pré-visualização, graduando pa
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Dinamarquês      | `da`          | ✔ \*     | ✔           |             |     |
 | Neerlandês       | `nl`          | ✔ \*     | ✔          |             |     |
-| Português     | `en`          | ✔        | ✔           |  ✔ \*   |      |
+| InglêS     | `en`          | ✔        | ✔           |  ✔ \*   |      |
 | Finlandês     | `fi`          | ✔ \*     | ✔           |             |     |
 | Francês      | `fr`          | ✔        | ✔           |             |     |
 | Alemão      | `de`          | ✔ \*     | ✔           |            |     |
